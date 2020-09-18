@@ -1,6 +1,4 @@
 import {Url} from "../../components/config/Url";
-import {GET} from "../../components/config/Requsest";
-
 export const USER_EXIST = "USER_EXIST";
 
 export function UserExist  () {
@@ -13,4 +11,3 @@ export function UserExist  () {
         })
     }
 }
-

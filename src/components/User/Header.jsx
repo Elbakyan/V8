@@ -1,8 +1,7 @@
 import React from 'react';
 import {Link, Route} from "react-router-dom";
 import './User.scss'
-import DefaultBtn from "../buttons/DefaultBtn";
-import User from "./User";
+
 
 
 
