@@ -5,6 +5,8 @@ import Home from "./components/Home/Home";
 import User from "./components/User/User";
 import {connect} from "react-redux";
 import {UserExist} from "./redux/user/action";
+import Score from "./components/Score/Score";
+
 
 
 class App extends React.Component{
@@ -32,9 +34,9 @@ class App extends React.Component{
                   <Route  path='/user'>
                       <User/>
                   </Route>
-                  {/*<Route  path='/score'>*/}
-                  {/*    /!*<Score/>*!/*/}
-                  {/*</Route>*/}
+                  <Route  path='/score'>
+                      <Score/>
+                  </Route>
 
               </Switch>
 
