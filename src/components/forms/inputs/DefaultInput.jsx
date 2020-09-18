@@ -11,16 +11,19 @@ class DefaultInput extends Component {
                 onInput={this.props.onInput}
                 placeholder={this.props.placeholder}
                 className={this.props.className}
+                name={this.props.name}
+                value={this.props.value}
                 style={{
                     transition: '.3s',
                     width:this.props.width,
                     height:this.props.height,
                     backgroundColor: this.props.background,
-                    padding: this.props.paddingY + ' ' + this.props.paddingX,
+                    padding: this.props.padding,
+                    margin: this.props.margin,
                     borderRadius: this.props.borderRadius,
                     border:  this.props.border
                 }}
-                type={this.props.types}
+
             />
         )
     }

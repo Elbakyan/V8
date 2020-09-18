@@ -19,10 +19,10 @@ class Header extends React.Component{
                     <div className="header__log">
                         <img src="http://elbakyan.am/Server/img/logo_1.svg" alt=""/>
                     </div>
-                    <div className="header__links">
+                    <div className="header__links ">
                         <nav className="header_links-nav">
-                            <ul className="header__links-ul row">
-                                <li className="header__links-li">
+                            <ul className="header__links-ul row align-center">
+                                <li className="header__links-li row align-center">
                                     <Link to='/user'>
                                         <DefaultBtn
                                             name="Մուտք որպեզ Հաճախորդ"
@@ -32,7 +32,7 @@ class Header extends React.Component{
                                         />
                                     </Link>
                                 </li>
-                                <li className="header__links-li">
+                                <li className="header__links-li row align-center">
                                     <Link to="/score"><DefaultBtn
                                         name="Մուտք որպեզ Գործնկեր"
                                         color='#fff'
