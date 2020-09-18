@@ -3,6 +3,7 @@ import Header from './Header'
 import {Link} from "react-router-dom";
 import './Home.scss'
 import DefaultBtn from "../buttons/DefaultBtn";
+import Footer from "../Footer/Footer";
 
 
 
@@ -13,6 +14,7 @@ class Home extends React.Component{
             <div className="Home">
                 <Header/>
                 <DefaultBtn name='btn' color='#c5c5c5' dark={50}/>
+                <Footer />
             </div>
         );
     }
