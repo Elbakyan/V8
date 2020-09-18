@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import TestReducer from './reducers/testReducer'
+import UserExistReducer  from './user/reducer'
 
 export default combineReducers({
-    test: TestReducer
+    user: UserExistReducer
 })
