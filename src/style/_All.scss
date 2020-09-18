@@ -1,4 +1,4 @@
-
+@import "var";
 .container{
   width: 80%;
   height: 100%;
@@ -7,7 +7,7 @@
 .row{
   display: flex;
 }
-.column{
+.col{
   display: flex;
   flex-direction: column;
 }
@@ -26,6 +26,17 @@
 .justify-around{
   justify-content:space-around;
 }
+<<<<<<< HEAD
+=======
+input{
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none
+}
+input:focus{
+  border: 1px solid  $main-color;
+}
+>>>>>>> 99f80b3eeccf7dd56123c7783902f74537b54482
 
 .align-start{
   align-items: flex-start;
