@@ -3,11 +3,21 @@ import React from 'react';
 import {Redirect, Route} from "react-router-dom";
 import Login from "./Login";
 import Account from "./Account";
+import {connect} from "react-redux";
+import Loading from "../Loading";
+import {UserExist} from "../../redux/user/action";
 
 
-let status = false
 class User extends React.Component{
+    constructor(props) {
+        super(props);
+    }
+    componentDidMount() {
+
+
+    }
     render() {
+
         return (
             <div className="User">
                 <Route exact path='/user/login'>
@@ -17,11 +27,13 @@ class User extends React.Component{
                     <Account/>
                 </Route>
                 {
-                    status? <Redirect to='/user/login' /> : <Redirect to='/user/account' />
+                   this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to='/user/account' /> : <Redirect to='/user/login' />
                 }
             </div>
         );
     }
 }
 
-export default User;
+const MapStateToProps = state => state.user;
+const MainUser = connect(MapStateToProps)(User)
+export default MainUser;

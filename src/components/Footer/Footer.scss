@@ -1,0 +1,49 @@
+@import "../../style/All.scss";
+@import "../../style/var.scss";
+
+footer{
+  height: 150px;
+  background: $main-color;
+
+  .footer_container{
+    display: flex;
+    align-items: center;
+    //justify-content: space-between;
+    >nav{
+      color: white;
+      width: 20%;
+
+      //text-align: left;
+      >h4{
+        font-size: 16px;
+        margin-bottom: 10px;
+      }//>h4
+      >ul{
+        display: flex;
+        >li:nth-child(1){
+          width: 10%;
+        }//li:nth-child(1)
+
+        >li:nth-child(2){
+          width: 80%;
+        }//li:nth-child(2)
+
+        >li{
+          display: flex;
+          font-size: 12px;
+          align-items: center;
+          padding: 2px 5px;
+
+          &:hover{
+            color: rgb(126, 126, 126);
+          }//&:hover
+
+        }//>li
+
+      }//>ul
+
+    }//>nav
+
+  }//.footer_container
+
+}//footer
