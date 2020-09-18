@@ -4,7 +4,6 @@ import {Router, Route, Switch,} from "react-router";
 import Home from "./components/Home/Home";
 import User from "./components/User/User";
 import {connect} from "react-redux";
-import {UserExist} from "./redux/user/action";
 
 class App extends React.Component{
     constructor(props) {
@@ -14,13 +13,10 @@ class App extends React.Component{
         }
     }
 
-    componentDidMount() {
-        this.props.dispatch(UserExist())
-
-    }
 
     render() {
-        console.log(this.props)
+
+
       return (
           <div className="App">
               <Switch>
