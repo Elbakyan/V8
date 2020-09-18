@@ -24,7 +24,6 @@ class Loading extends React.Component{
                 {/*<ReactLoading type='spinningBubbles'  color='#0e7996' height={50} width={50} />*/}
                 {/*<ReactLoading type='spokes'  color='#0e7996' height={50} width={50} />*/}
                     <HashLoader
-
                         size={100}
                         color={"#c5c5c5"}
                         loading={this.state.loading}

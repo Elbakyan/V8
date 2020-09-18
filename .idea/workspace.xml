@@ -23,12 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ac577c0-cff8-4b70-b86e-7acd1ef37fb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Content/Content.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Content/Content.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/action.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Content/Content.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/Content.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Content/Content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/Content.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Loading.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loading.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/testReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/testReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +90,7 @@
       <workItem from="1600351900973" duration="4340000" />
       <workItem from="1600372726807" duration="3681000" />
       <workItem from="1600411185952" duration="389000" />
-      <workItem from="1600412171931" duration="5523000" />
+      <workItem from="1600412171931" duration="9748000" />
     </task>
     <servers />
   </component>

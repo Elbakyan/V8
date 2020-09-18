@@ -4,6 +4,7 @@ import {Router, Route, Switch,} from "react-router";
 import Home from "./components/Home/Home";
 import User from "./components/User/User";
 import {connect} from "react-redux";
+import {ext} from "./redux/action";
 
 class App extends React.Component{
     constructor(props) {
@@ -13,8 +14,12 @@ class App extends React.Component{
         }
     }
 
+    componentDidMount() {
+        this.props.dispatch(ext())
+    }
 
     render() {
+
         let a = '1'
       console.log(this.props)
       return (
