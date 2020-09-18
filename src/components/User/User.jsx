@@ -15,10 +15,10 @@ class User extends React.Component{
     componentDidMount() {
 
         this.props.dispatch(UserExist())
-        console.log(this.props)
+
     }
     render() {
-
+        console.log(this.props)
         return (
             <div className="User">
                 <Route exact path='/user/login'>

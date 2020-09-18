@@ -7,10 +7,23 @@
   img{
     max-width: 100%;
   }
+  .block1,.block2,.block3,.block4{
+
+
+    height: 400px;
+    >div{
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .block1{
     display: flex;
+
     >div:nth-child(1){
       width: 60%;
+      background-image: url("https://www.mercedes-benz.ru/passengercars/mercedes-benz-cars/models/c-class/saloon-w205/explore/highlights/_jcr_content/contentgallerycontainer/par/contentgallery_6cb4/par/contentgallerytile_8/image.MQ6.8.20200213101808.jpeg");
     }
     >div:nth-child(2){
       width: 40%;
@@ -40,17 +53,8 @@
 
   .block4{
     display: flex;
-    >div:nth-child(1){
-      width: 25%;
-    }
-    >div:nth-child(2){
-      width: 25%;
-    }
-    >div:nth-child(3){
-      width: 25%;
-    }
-    >div:nth-child(4){
-      width: 25%;
+    >div{
+      width: 50%;
     }
   }//.block4
 

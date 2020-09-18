@@ -24,6 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3ac577c0-cff8-4b70-b86e-7acd1ef37fb5" name="Default Changelist" comment="">
 <<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/src/redux/action.js" afterDir="false" />
+=======
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/buttons/Button.css" beforeDir="false" />
@@ -33,11 +36,17 @@
 =======
       <change afterPath="$PROJECT_DIR$/src/components/Content/Content.jsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/Content/Content.scss" afterDir="false" />
+>>>>>>> dd28090d4f2940afd98a785d596131531f7e1810
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Content/Content.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/Content.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Content/Content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/Content.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Loading.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loading.jsx" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/testReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/testReducer.js" afterDir="false" />
+=======
 >>>>>>> ac06fb6b0c065bc6c74e30f8d7890a87c6193542
+>>>>>>> dd28090d4f2940afd98a785d596131531f7e1810
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,8 +111,12 @@
       <workItem from="1600412176141" duration="4259000" />
 =======
       <workItem from="1600411185952" duration="389000" />
+<<<<<<< HEAD
+      <workItem from="1600412171931" duration="9748000" />
+=======
       <workItem from="1600412171931" duration="5523000" />
 >>>>>>> ac06fb6b0c065bc6c74e30f8d7890a87c6193542
+>>>>>>> dd28090d4f2940afd98a785d596131531f7e1810
     </task>
     <servers />
   </component>
