@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ac577c0-cff8-4b70-b86e-7acd1ef37fb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/v8-app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/buttons/Button.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/buttons/Button.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/buttons/Button.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/buttons/DefaultBtn.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style/_All.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/_var.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/_var.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/Button.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/Button.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/Button.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/buttons/DefaultBtn.jsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +30,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../button-darken-lighten" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -79,7 +67,8 @@
       <workItem from="1600349800789" duration="1949000" />
       <workItem from="1600351900973" duration="4340000" />
       <workItem from="1600372726807" duration="3681000" />
-      <workItem from="1600411185952" duration="389000" />
+      <workItem from="1600411185952" duration="973000" />
+      <workItem from="1600412176141" duration="4259000" />
     </task>
     <servers />
   </component>
@@ -95,26 +84,26 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="636" y="189" width="485" height="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1600346911372" />
-    <state x="323" y="142" width="424" height="479" key="FileChooserDialogImpl" timestamp="1600373257201">
+    <state x="323" y="142" width="424" height="479" key="FileChooserDialogImpl" timestamp="1600412155345">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="323" y="142" width="424" height="479" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1600373257201" />
-    <state width="813" height="355" key="GridCell.Tab.0.bottom" timestamp="1600411373703">
+    <state x="323" y="142" width="424" height="479" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1600412155345" />
+    <state width="813" height="355" key="GridCell.Tab.0.bottom" timestamp="1600416967596">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="813" height="355" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1600411373703" />
-    <state width="813" height="355" key="GridCell.Tab.0.center" timestamp="1600411373701">
+    <state width="813" height="355" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1600416967596" />
+    <state width="813" height="355" key="GridCell.Tab.0.center" timestamp="1600416967595">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="813" height="355" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1600411373701" />
-    <state width="813" height="355" key="GridCell.Tab.0.left" timestamp="1600411373700">
+    <state width="813" height="355" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1600416967595" />
+    <state width="813" height="355" key="GridCell.Tab.0.left" timestamp="1600416967594">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="813" height="355" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1600411373700" />
-    <state width="813" height="355" key="GridCell.Tab.0.right" timestamp="1600411373701">
+    <state width="813" height="355" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1600416967594" />
+    <state width="813" height="355" key="GridCell.Tab.0.right" timestamp="1600416967596">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="813" height="355" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1600411373701" />
+    <state width="813" height="355" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1600416967596" />
     <state x="345" y="179" key="run.anything.popup" timestamp="1600354966046">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
