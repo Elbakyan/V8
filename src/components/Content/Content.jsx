@@ -15,7 +15,7 @@ const auto = [
 ]
 const st = [
     {
-        backgroundImage:'url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/p90385570-highres-the-new-bmw-communic-1583423938.jpg")'
+        backgroundImage:'url("https://bmwband.ru/uploads/M5/E60/BMW-M5-E60.jpg")'
     },
     {
         backgroundImage:'url("https://turbologo.ru/blog/wp-content/uploads/2019/12/Mercedes-Benz-logo-cover.jpg")'
@@ -30,7 +30,7 @@ const st = [
         backgroundImage:'url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3o_B7jV-oLzpha_iTKU-6TYguEFe_O7kKTQ&usqp=CAU")'
     },
     {
-        backgroundImage:'url("https://www.ixbt.com/img/n1/news/2020/0/2/mb-vision-avtr-268_large.jpg")'
+        backgroundImage:'url("https://s0.rbk.ru/v6_top_pics/media/img/4/37/755990497054374.jpg")'
     },
     {
         backgroundImage:'url("https://s0.rbk.ru/v6_top_pics/media/img/9/68/755868697946689.jpg")'
