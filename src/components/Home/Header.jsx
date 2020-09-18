@@ -20,10 +20,10 @@ class Header extends React.Component{
                         <nav className="header_links-nav">
                             <ul className="header__links-ul">
                                 <li className="header__links-li">
-                                    <Link to='/user'>User</Link>
+                                    <Link to='/user'>Մուտք</Link>
                                 </li>
                                 <li className="header__links-li">
-                                    <Link to="/score">score</Link>
+                                    <Link to="/score">Դառնալ Գործընկեր</Link>
                                 </li>
 
                             </ul>
