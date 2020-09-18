@@ -1,6 +1,5 @@
 @import "var";
 .container{
-
   width: 80%;
   height: 100%;
   margin: 0 auto;
@@ -27,7 +26,21 @@
 .justify-around{
   justify-content:space-around;
 }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+input{
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none
+}
+input:focus{
+  border: 1px solid  $main-color;
+}
+>>>>>>> 99f80b3eeccf7dd56123c7783902f74537b54482
+>>>>>>> d67b80b8a82772fc688d5da74521aeeff1e77163
 
 .align-start{
   align-items: flex-start;
