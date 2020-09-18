@@ -5,6 +5,7 @@ const initialState = {
 }
 
 export default function UserExistReducer(state = initialState,action){
+    console.log(action)
     switch (action.types) {
         case USER_EXIST: return {state: action.payload}
 

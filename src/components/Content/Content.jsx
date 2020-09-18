@@ -21,16 +21,16 @@ const st = [
         backgroundImage:'url("https://turbologo.ru/blog/wp-content/uploads/2019/12/Mercedes-Benz-logo-cover.jpg")'
     },
     {
-        backgroundImage:'url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTk74yRfKee2ky70VHzQDmdcHeWG8bxCugp5w&usqp=CAU")'
+        backgroundImage:'url("https://logos-download.com/wp-content/uploads/2016/02/audi-logo-wallpaper-1920x1080.jpg")'
     },
     {
-        backgroundImage:'url("https://i.pinimg.com/736x/e6/2d/94/e62d94a95417df5b9168f8eeb0c44ece.jpg")'
+        backgroundImage:'url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYT1uu0l948p0cXCy-A9Xl9VgEshL1Bz9S-g&usqp=CAU")'
     },
     {
         backgroundImage:'url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3o_B7jV-oLzpha_iTKU-6TYguEFe_O7kKTQ&usqp=CAU")'
     },
     {
-        backgroundImage:'url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-sGSrXkcqELXed86aXjdIE31R47BjCccBqw&usqp=CAU")'
+        backgroundImage:'url("https://www.ixbt.com/img/n1/news/2020/0/2/mb-vision-avtr-268_large.jpg")'
     },
     {
         backgroundImage:'url("https://s0.rbk.ru/v6_top_pics/media/img/9/68/755868697946689.jpg")'

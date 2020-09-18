@@ -1,3 +1,5 @@
+import {USER_EXIST} from "./user/action";
+
 export const USER = 'USER'
 
 export const ext = () => {
@@ -7,3 +9,7 @@ export const ext = () => {
     }
 }
 
+export const   UserExist = ()  => {
+    return {type: USER_EXIST,payload: true}
+
+}

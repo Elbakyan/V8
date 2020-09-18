@@ -10,7 +10,3 @@ export const USER_EXIST = "USER_EXIST";
 //         },2000)
 //     }
 // }
-export const   UserExist = ()  => {
-    return {type: USER_EXIST,payload: true}
-
-}
