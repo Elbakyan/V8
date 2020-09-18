@@ -1,0 +1,10 @@
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=Button.css.map */

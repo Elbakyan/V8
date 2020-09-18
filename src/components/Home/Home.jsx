@@ -2,6 +2,9 @@ import React from 'react';
 import Header from './Header'
 import {Link} from "react-router-dom";
 import './Home.scss'
+import DefaultBtn from "../buttons/DefaultBtn";
+
+
 
 
 class Home extends React.Component{
@@ -9,7 +12,7 @@ class Home extends React.Component{
         return (
             <div className="Home">
                 <Header/>
-                Home
+                <DefaultBtn name='btn' color='#c5c5c5' dark={50}/>
             </div>
         );
     }
