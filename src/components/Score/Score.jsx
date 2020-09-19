@@ -1,9 +1,12 @@
 import React,{Component} from 'react';
 import {connect} from "react-redux";
 import {Redirect, Route} from "react-router-dom";
-import Login from "./Login";
-import Account from "../User/Account";
+import Login from "./Authentication/Login";
+import Account from "./Account";
 import Loading from "../Loading";
+import Signin from "./Authentication/Signin";
+import './Score.scss'
+
 
 class Score extends Component {
     constructor(props) {
@@ -12,14 +15,13 @@ class Score extends Component {
     render() {
         return(
             <div>
-                {/*<h1>sdsd</h1>*/}
                 <div className="User">
                     <Route exact path='/score/login'>
                         <Login/>
                         {/*<h1>sdsadas</h1>*/}
                     </Route>
-                    <Route exact path='/score/account'>
-                        <Account/>
+                    <Route exact path='/score/sign-in'>
+                        <Signin/>
                     </Route>
                     {
                         this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to='/score/account' /> : <Redirect to='/score/login' />

@@ -27,6 +27,12 @@
 .justify-around{
   justify-content:space-around;
 }
+.wrap{
+  flex-wrap: wrap;
+}
+.overflow-y-auto{
+  overflow-y: auto;
+}
 
 input{
   padding: 5px 15px;
@@ -36,8 +42,6 @@ input{
 input:focus{
   border: 1px solid  $main-color;
 }
-
-
 
 
 .align-start{

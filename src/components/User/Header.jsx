@@ -48,7 +48,8 @@ class Header extends React.Component{
                         <DefaultBtn
                             className="header__btn-logout"
                             name="Ելք"
-                            padding='10px 20px'
+                            padding='7px 20px'
+                            fofontSize='14px'
                         />
                     </div>
                 </div>

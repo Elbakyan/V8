@@ -15,7 +15,7 @@ class User extends React.Component{
     }
     componentDidMount() {
 
-        this.props.dispatch(UserExist())
+        // this.props.dispatch(UserExist())
 
     }
     render() {
