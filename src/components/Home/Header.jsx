@@ -38,7 +38,6 @@ class Header extends React.Component{
                                         color='#fff'
                                         background='#007A61'
                                         light={50}
-
                                      />
                                     </Link>
                                 </li>
