@@ -1,13 +1,16 @@
 import {Url} from "../../components/config/Url";
+import {GET} from "../../components/config/Requsest";
 export const USER_EXIST = "USER_EXIST";
 
 export function UserExist  () {
     return async (dispach) => {
-    const response = await  fetch(Url.existUser);
-    const data = await response.json();
+    GET(Url.existUser).then(res => {
         dispach({
             type: USER_EXIST,
-            payload: data
+            payload: res
         })
+    })
+
+
     }
 }

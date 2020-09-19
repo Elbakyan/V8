@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from "./Header";
-import Footer from "../Footer/Footer";
-import DefaultInput from "../forms/inputs/DefaultInput";
-import DefaultBtn from "../forms/buttons/DefaultBtn";
+import Footer from "../../Footer/Footer";
+import DefaultInput from "../../forms/inputs/DefaultInput";
+import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {Link} from "react-router-dom";
-import DefaultSelect from "../forms/select/DefaultSelect";
+import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
-import {GetCity} from "../../redux/location/action";
+import {GetCity} from "../../../redux/location/action";
 
 class Signin extends React.Component{
     constructor(props) {
@@ -99,7 +99,7 @@ class Signin extends React.Component{
                             />
                         </form>
                         <div className="Signin__links row align-start">
-                            <Link to='/user/login'>Մուտք</Link>
+                            <Link className='link' to='/user/login'>Մուտք</Link>
                         </div>
                     </div>
                 </div>

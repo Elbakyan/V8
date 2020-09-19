@@ -10,17 +10,23 @@ class DefaultBtn extends Component {
         return (
             <button
                 onMouseEnter={(e) => {
-                   e.target.style.backgroundColor = `${LightenDarkenColor(this.props.background, -this.props.dark || this.props.light ||  -30)}`
+                    if (this.props.background != undefined){
+                        e.target.style.backgroundColor = `${LightenDarkenColor(this.props.background, -this.props.dark || this.props.light ||  -30)}`
+                    }
+
                 }}
                 onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = `${this.props.background}`
+                    if (this.props.background != undefined){
+                        e.target.style.backgroundColor = `${this.props.background}`
+                    }
+
                 }}
                 className={this.props.className}
                 type={this.props.types}
                 style={{
                     backgroundColor: this.props.background,
-                    color: this.props.color,
-                    padding: this.props.paddingY + ' ' + this.props.paddingX,
+                    color:'' || this.props.color,
+                    padding: this.props.padding,
                     borderRadius: this.props.borderRadius,
                     fontSize: this.props.fontSize,
                     fontFamily: this.props.fontFamily

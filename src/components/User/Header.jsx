@@ -1,30 +1,63 @@
 import React from 'react';
 import {Link, Route} from "react-router-dom";
 import './User.scss'
+import DefaultBtn from "../forms/buttons/DefaultBtn";
+import {connect} from "react-redux";
+import {GetMark} from "../../redux/auto/action";
 
 
 
 
 
 class Header extends React.Component{
+    constructor(props) {
+        super(props);
 
-
+    }
 
     render() {
 
         return (
             <header>
-                <div className="container ">
+                <div className="container row justify-between align-center">
                     <div className="header__logo">
-                        <Link to="/">
+                        <Link to="/user/account">
                             <img src="http://elbakyan.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>
-
+                    <nav className="header__navigation">
+                        <ul>
+                            <li className='header__navigation-li'>
+                                <Link to='/user/account/spare-parts' className='header__link'>
+                                    Պահեստամասեր
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/acauservice'>
+                                    Ծառայություներ
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/acauservice'>
+                                    Հայտարարություններ
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div className="header__logout">
+                        <DefaultBtn
+                            className="header__btn-logout"
+                            name="Ելք"
+                            padding='10px 20px'
+                        />
+                    </div>
                 </div>
             </header>
         );
     }
 }
 
-export default Header;
+const MapStateToProps = state => state;
+const MainHeader = connect(MapStateToProps)(Header)
+
+export default MainHeader;

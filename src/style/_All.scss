@@ -61,7 +61,7 @@ input:focus{
 }
 select{
 
-  background-color: $wheit;
+  background-color: $white;
   cursor: pointer;
   transition: .3s;
   border: none;
@@ -73,7 +73,7 @@ select{
     box-shadow: 0px 0px 2px;
   }
 }
-a{
+.link{
   color: lighten($main-color,30);
   font-size: 16px;
   padding: 5px 15px;

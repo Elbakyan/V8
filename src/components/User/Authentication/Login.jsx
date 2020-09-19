@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from "./Header";
-import Footer from "../Footer/Footer";
-import DefaultInput from "../forms/inputs/DefaultInput";
-import DefaultBtn from "../forms/buttons/DefaultBtn";
+import Footer from "../../Footer/Footer";
+import DefaultInput from "../../forms/inputs/DefaultInput";
+import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {Link} from "react-router-dom";
-import DefaultSelect from "../forms/select/DefaultSelect";
+import DefaultSelect from "../../forms/select/DefaultSelect";
 
 class Login extends React.Component{
     render() {
@@ -40,7 +40,7 @@ class Login extends React.Component{
                             />
                         </form>
                         <div className="Login__links row align-start">
-                            <Link to='/user/sign-in'>Գրանցվել</Link>
+                            <Link className='link' to='/user/sign-in'>Գրանցվել</Link>
                         </div>
                     </div>
                 </div>

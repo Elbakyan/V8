@@ -29,8 +29,6 @@ header{
   height: 60px;
   position: relative;
 
-
-
   .header__logo{
     height: 100%;
     display: flex;
@@ -39,4 +37,37 @@ header{
       width: 60px;
     }
   }
+
+  .header__navigation{
+    >ul{
+      display: flex;
+      li{
+        margin: 0px 10px;
+        background-color: darken($color-btn, 80);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .3s;
+        &:hover{
+          background: lighten($color-btn, 10);
+
+        }
+
+        a{
+          display: flex;
+          padding: 10px 15px;
+          color: $white;
+
+        }
+      }
+    }
+  }
+  .header__btn-logout{
+    background-color: darken($color-btn, 80);
+    color: $white;
+    transition: .3s;
+    &:hover{
+      background: lighten($color-btn, 10);
+    }
+  }
+
 }
