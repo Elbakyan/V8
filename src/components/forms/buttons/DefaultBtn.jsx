@@ -15,6 +15,8 @@ class DefaultBtn extends Component {
                 onMouseLeave={(e) => {
                     e.target.style.backgroundColor = `${this.props.background}`
                 }}
+                className={this.props.className}
+                type={this.props.types}
                 style={{
                     backgroundColor: this.props.background,
                     color: this.props.color,
@@ -23,7 +25,7 @@ class DefaultBtn extends Component {
                     fontSize: this.props.fontSize,
                     fontFamily: this.props.fontFamily
                 }}
-                type={this.props.types}
+
             >{this.props.name}</button>
         )
     }

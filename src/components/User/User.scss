@@ -1,6 +1,6 @@
 @import "../../style/All.scss";
 @import "../../style/var.scss";
-.Login{
+.Login,.Signin{
   width: 100%;
   height: calc(100vh - 210px);
 
@@ -9,6 +9,18 @@
     height: 80%;
     box-shadow: 0px 0px 3px;
     border-radius: 5px;
+
+    form{
+      width: 80%;
+      height: 80%;
+
+    }
+  }
+  &__links{
+    width: 80%;
+  }
+  &__btn{
+    margin-top: 10px;
   }
 }
 header{
@@ -19,11 +31,13 @@ header{
 
 
 
-  .header__log{
 
+  .header__logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
     img{
       width: 60px;
-
     }
   }
 }

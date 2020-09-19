@@ -9,6 +9,7 @@ import Score from "./components/Score/Score";
 
 
 
+
 class App extends React.Component{
     constructor(props) {
         super(props);
@@ -24,7 +25,7 @@ class App extends React.Component{
 
 
     render() {
-        console.log(this.props)
+
       return (
           <div className="App">
               <Switch>

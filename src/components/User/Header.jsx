@@ -14,8 +14,8 @@ class Header extends React.Component{
 
         return (
             <header>
-                <div className="container row align-center justify-between">
-                    <div className="header__log">
+                <div className="container ">
+                    <div className="header__logo">
                         <Link to="/">
                             <img src="http://elbakyan.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
