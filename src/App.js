@@ -10,6 +10,7 @@ import {GetSicle} from "./redux/location/action";
 import {GetMark} from "./redux/auto/action";
 
 import Score from "./components/Score/Score";
+import SpaerParts from "./components/spare/SpareParts";
 
 
 
@@ -39,8 +40,11 @@ class App extends React.Component{
                   <Route  path='/user'>
                       <User/>
                   </Route>
-                  <Route  path='/score'>
+                  <Route path='/score'>
                       <Score/>
+                  </Route>
+                  <Route exact path='/spare-parts'>
+                      <SpaerParts/>
                   </Route>
 
               </Switch>

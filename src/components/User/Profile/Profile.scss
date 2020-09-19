@@ -1,0 +1,73 @@
+@import "src/style/var";
+
+.Profile{
+  width: 100%;
+  min-height: calc(100vh - 210px);
+  position: relative;
+
+  &__information{
+    padding: 20px 0;
+    width: 100%;
+
+    .persional__data{
+      width: 20%;
+      border: 1px solid red;
+
+      .img{
+        width: 100%;
+        border-bottom: 2px solid $main-color;
+
+        >img{
+          width: 80%;
+        }
+      }
+      .fullname{
+        margin: 10px 0;
+        width: 60%;
+      }
+      .phone{
+        width: 100%;
+      }
+    }
+  }
+  &__nav{
+    > ul {
+      display: flex;
+      flex-direction: column;
+
+      li{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 30px;
+        transition: .3s;
+
+
+        .icon{
+          font-size: 16px;
+          color: $main-color;
+          padding: 0px 10px;
+        }
+        a{
+          width: 100%;
+          color:  $main-color;
+          padding-right: 15px;
+        }
+        &:hover{
+          background-color: $main-color;
+          color: $white;
+        }
+        &:hover a{
+          color: $white;
+        }
+        &:hover .icon{
+          color: $white;
+        }
+
+      }
+
+    }
+  }
+
+
+}

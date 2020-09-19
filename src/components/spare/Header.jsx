@@ -1,9 +1,7 @@
 import React from 'react';
 import {Link, Route} from "react-router-dom";
-import './User.scss'
-import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
-import {GetMark} from "../../redux/auto/action";
+
 
 
 
@@ -21,11 +19,11 @@ class Header extends React.Component{
             <header>
                 <div className="container row justify-between align-center">
                     <div className="header__logo">
-                        <Link to="/user/account">
+                        <Link to="/">
                             <img src="http://elbakyan.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>
-                    <nav className="header__navigation">
+                    <nav className="header__navigation " style={{width:'80%'}}>
                         <ul>
                             <li className='header__navigation-li'>
                                 <Link to='/spare-parts' className='header__link'>
@@ -44,14 +42,6 @@ class Header extends React.Component{
                             </li>
                         </ul>
                     </nav>
-                    <div className="header__logout">
-                        <DefaultBtn
-                            className="header__btn-logout"
-                            name="Ելք"
-                            padding='7px 20px'
-                            fofontSize='14px'
-                        />
-                    </div>
                 </div>
             </header>
         );

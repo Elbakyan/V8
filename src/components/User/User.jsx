@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import Loading from "../Loading";
 import {UserExist} from "../../redux/user/action";
 import Signin from "./Authentication/Signin";
+import SpaerParts from "../spare/SpareParts";
 
 
 class User extends React.Component{
