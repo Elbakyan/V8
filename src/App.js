@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import User from "./components/User/User";
 import {connect} from "react-redux";
 import {UserExist} from "./redux/user/action";
+import {GetSicle} from "./redux/location/action";
 
 
 class App extends React.Component{
@@ -17,12 +18,12 @@ class App extends React.Component{
 
     componentDidMount() {
         this.props.dispatch(UserExist())
+        this.props.dispatch(GetSicle())
     }
 
 
 
     render() {
-        console.log(this.props)
       return (
           <div className="App">
               <Switch>

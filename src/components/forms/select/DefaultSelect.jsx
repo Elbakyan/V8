@@ -15,7 +15,7 @@ class DefaultSelect extends Component {
             >
                 {
                     this.props.data.map((res,id )=> {
-                        return <option kay={id} value={res.name}>{res.name}</option>
+                        return <option kay={res.id} value={res.name}>{res.name}</option>
                     })
                 }
             </select>

@@ -5,9 +5,27 @@ import DefaultInput from "../forms/inputs/DefaultInput";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {Link} from "react-router-dom";
 import DefaultSelect from "../forms/select/DefaultSelect";
+import {connect} from "react-redux";
+import {GetCity} from "../../redux/location/action";
 
 class Signin extends React.Component{
+    constructor(props) {
+        super(props);
+
+    }
+
+
+    componentDidMount() {
+
+        this.props.dispatch(GetCity(1))
+    }
+
+    GetCity(e) {
+        this.props.dispatch(GetCity(e.target.selectedIndex + 1))
+    }
     render() {
+
+        console.log(this.props)
         return (
             <div className="Signin">
                 <Header/>
@@ -62,12 +80,13 @@ class Signin extends React.Component{
                             </div>
                             <div className='row justify-between' style={{width: '100%'}}>
                                 <DefaultSelect
-                                    data={[{name:"Noro"},{name:"Noro"},{name:"Noro"}]}
+                                    onChange={this.GetCity.bind(this)}
+                                    data={this.props.sircle}
                                     width= '48%'
 
                                 />
                                 <DefaultSelect
-                                    data={[{name:"Noro"},{name:"Noro"},{name:"Noro"}]}
+                                    data={this.props.city}
                                     width= '48%'
                                 />
                             </div>
@@ -89,5 +108,6 @@ class Signin extends React.Component{
         );
     }
 }
-
-export  default Signin;
+const MapStateToProps = state => state.location;
+const MainSignin = connect(MapStateToProps)(Signin)
+export  default MainSignin;

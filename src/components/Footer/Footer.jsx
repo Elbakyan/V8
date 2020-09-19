@@ -35,14 +35,14 @@ export default function (){
                     <nav className="Footer_nav">
 
                             <h4>Հասցե</h4>
-                            {
-                                info.map(({icon,name},i)=>(
-                                    <ul>
-                                        <li>{icon}</li>
-                                        <li>{name}</li>
-                                    </ul>
-                                ))
-                            }
+                               {
+                                   info.map(({icon,name},i)=>(
+                                       <ul key={i}>
+                                           <li>{icon}</li>
+                                           <li>{name}</li>
+                                       </ul>
+                                   ))
+                               }
 
                     </nav>
             </div>

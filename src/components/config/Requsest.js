@@ -4,6 +4,7 @@ export async function GET(url) {
     const  response = fetch(url);
 
     const json = (await response).json();
+    return json;
 }
 export async function POST(url,data) {
     const  response = fetch(url,{
