@@ -9,8 +9,11 @@ import {UserExist} from "./redux/user/action";
 import {GetSicle} from "./redux/location/action";
 import {GetMark} from "./redux/auto/action";
 
+
 import Score from "./components/Score/Score";
 import SpaerParts from "./components/spare/SpareParts";
+
+
 
 
 
@@ -23,7 +26,7 @@ class App extends React.Component{
     }
 
     componentDidMount() {
-        this.props.dispatch(UserExist())
+        // this.props.dispatch(UserExist())
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
     }
@@ -31,9 +34,11 @@ class App extends React.Component{
 
 
     render() {
+
       return (
           <div className="App">
               <Switch>
+
                   <Route exact path='/'>
                       <Home/>
                   </Route>

@@ -1,6 +1,6 @@
 import {USER_EXIST} from "./action";
 const initialState = {
-    status: undefined
+    status: false
 }
 
 export default function UserExistReducer(state = initialState,action){
