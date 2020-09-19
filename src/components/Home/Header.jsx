@@ -8,9 +8,6 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 
 
 class Header extends React.Component{
-
-
-
     render() {
 
         return (

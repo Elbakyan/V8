@@ -5,14 +5,14 @@ import Home from "./components/Home/Home";
 import User from "./components/User/User";
 import {connect} from "react-redux";
 import {UserExist} from "./redux/user/action";
-<<<<<<< HEAD
+
 import {GetSicle} from "./redux/location/action";
 import {GetMark} from "./redux/auto/action";
-=======
+
 import Score from "./components/Score/Score";
 
 
->>>>>>> 98e2c9383541582dae872216c989f0e75e68924f
+
 
 
 class App extends React.Component{
@@ -32,10 +32,7 @@ class App extends React.Component{
 
 
     render() {
-<<<<<<< HEAD
-=======
 
->>>>>>> 98e2c9383541582dae872216c989f0e75e68924f
       return (
           <div className="App">
               <Switch>
