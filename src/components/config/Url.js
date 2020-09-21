@@ -12,5 +12,6 @@ export const Url = {
     DeleteUserAuto: 'https://brutal.am/Server/DeleteUserAuto',
     UserUpdate: 'https://brutal.am/Server/UbdateUserData',
     service: 'https://brutal.am/Server/services',
-    getscore: 'https://brutal.am/Server/GetScoreAccount'
+    getscore: 'https://brutal.am/Server/GetScoreAccount',
+    addscore: 'https://brutal.am/Server/AddScoreAccount'
 }
