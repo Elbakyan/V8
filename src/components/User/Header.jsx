@@ -4,6 +4,7 @@ import './User.scss'
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import {GetMark} from "../../redux/auto/action";
+import {Url} from "../config/Url";
 
 
 
@@ -22,7 +23,7 @@ class Header extends React.Component{
                 <div className="container row justify-between align-center">
                     <div className="header__logo">
                         <Link to="/user/account">
-                            <img src="http://elbakyan.am/Server/img/logo_1.svg" alt=""/>
+                            <img src="https://elbakyan.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>
                     <nav className="header__navigation">
@@ -45,12 +46,14 @@ class Header extends React.Component{
                         </ul>
                     </nav>
                     <div className="header__logout">
-                        <DefaultBtn
-                            className="header__btn-logout"
-                            name="Ելք"
-                            padding='7px 20px'
-                            fofontSize='14px'
-                        />
+                        <a href={Url.logout}>
+                            <DefaultBtn
+                                className="header__btn-logout"
+                                name="Ելք"
+                                padding='7px 20px'
+                                fofontSize='14px'
+                            />
+                        </a>
                     </div>
                 </div>
             </header>

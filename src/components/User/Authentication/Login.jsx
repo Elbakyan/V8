@@ -5,15 +5,26 @@ import DefaultInput from "../../forms/inputs/DefaultInput";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {Link} from "react-router-dom";
 import DefaultSelect from "../../forms/select/DefaultSelect";
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
 
 class Login extends React.Component{
+
+    Login(e){
+
+        let data = new FormData(e.target)
+
+        POST(Url.login,data).then(res => {
+            console.log(res)
+        })
+    }
     render() {
         return (
             <div className="Login">
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Login__content col align-center justify-center">
-                        <form className="col align-center justify-center">
+                        <form className="col align-center justify-center" action={Url.login} method="POST">
                             <DefaultInput
                                 type="tel"
                                 placeholder='Հեռախոսահամար․․․'

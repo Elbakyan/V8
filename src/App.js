@@ -12,6 +12,9 @@ import {GetMark} from "./redux/auto/action";
 
 import Score from "./components/Score/Score";
 import SpaerParts from "./components/spare/SpareParts";
+import Account from "./components/User/Account";
+import Loading from "./components/Loading";
+import {Redirect} from "react-router-dom";
 
 
 
@@ -26,7 +29,7 @@ class App extends React.Component{
     }
 
     componentDidMount() {
-        // this.props.dispatch(UserExist())
+        this.props.dispatch(UserExist())
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
     }
@@ -51,7 +54,6 @@ class App extends React.Component{
                   <Route exact path='/spare-parts'>
                       <SpaerParts/>
                   </Route>
-
               </Switch>
 
           </div>

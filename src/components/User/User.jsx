@@ -14,11 +14,6 @@ class User extends React.Component{
     constructor(props) {
         super(props);
     }
-    componentDidMount() {
-
-        // this.props.dispatch(UserExist())
-
-    }
     render() {
         console.log(this.props)
         return (
@@ -34,7 +29,7 @@ class User extends React.Component{
                     <Account/>
                 </Route>
                 {
-                   this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to='/user/account' /> : <Redirect to='/user/login' />
+                   this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/user/login' />
                 }
             </div>
         );

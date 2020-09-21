@@ -7,6 +7,8 @@ import {Link} from "react-router-dom";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
 
 class Signin extends React.Component{
     constructor(props) {
@@ -23,6 +25,13 @@ class Signin extends React.Component{
     GetCity(e) {
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
     }
+    Signin(e){
+        e.preventDefault();
+        let data = new FormData(e.target)
+        POST(Url.login,data).then(res => {
+            console.log(res)
+        })
+    }
     render() {
 
         console.log(this.props)
@@ -31,7 +40,7 @@ class Signin extends React.Component{
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Signin__content col align-center justify-center">
-                        <form className="col align-center justify-center">
+                        <form className="col align-center justify-center" onSubmit={this.Signin}>
                             <div className="row justify-between">
                                 <DefaultInput
                                     type="text"
@@ -91,6 +100,7 @@ class Signin extends React.Component{
                                 />
                             </div>
                             <DefaultBtn
+                                type='submit'
                                 name='Գրանցվել'
                                 background='#143645'
                                 color='#ffffff'
