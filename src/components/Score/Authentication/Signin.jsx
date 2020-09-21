@@ -18,7 +18,7 @@ class Signin extends Component{
                     type:"text",
                     placeholder:'Հեռախոսահամար․․․',
                     name:'mail',
-                    width:'48%'
+                    width:'100%'
                 }
             ]
         }
@@ -102,28 +102,31 @@ class Signin extends Component{
                                 {
                                     this.state.obj.map(({type,placeholder,name,width},i)=>(
                                         i == 0 ?
-                                            <DefaultInput
-                                                type={type}
-                                                placeholder={placeholder}
-                                                name={name}
-                                                width="100%"
-                                            />:
-                                            <DefaultInput
-                                                type={type}
-                                                placeholder={placeholder}
-                                                name={name}
-                                                width={width}
-                                            />
+                                            <div className="phone-block1">
+                                                <DefaultInput
+                                                    type={type}
+                                                    placeholder={placeholder}
+                                                    name={name}
+                                                    width="100%"
+                                                />
+                                                <span className="add_phone_plus" onClick={this.add}><a href="#">+</a></span>
+                                            </div>
+                                          :
+                                            <div className="phone-block2">
+                                                <DefaultInput
+                                                    type={type}
+                                                    placeholder={placeholder}
+                                                    name={name}
+                                                    width={width}
+                                                />
+                                                <span onClick={this.clear} className="add_phone_minus"><a href="#">-</a></span>
+                                            </div>
+
                                     ))
                                 }
 
-
-
                             </div>
-                            {
-                                this.state.obj.length > 1 ?<span onClick={this.clear}><a href="#">Հեռացնել</a> </span>:''
-                            }
-                            <span onClick={this.add}><a href="#">Ավելացնել հեղախոսահամար</a> </span>
+
 
                             <div className="row justify-between">
                                 <DefaultInput
@@ -161,6 +164,15 @@ class Signin extends Component{
                                 width='100%'
 
                             />
+                            <DefaultInput
+                                className="file_input"
+                                type="file"
+                                placeholder='Լուսանկար․․․'
+                                name='image'
+                                width='100%'
+
+                            />
+                            <label for="file" >choose a file</label>
                             <DefaultBtn
                                 name='Գրանցվել'
                                 background='#143645'
@@ -168,6 +180,7 @@ class Signin extends Component{
                                 light={30}
                                 className='Signin__btn'
                             />
+
                         </form>
                         <div className="Signin__links row align-start">
                             <Link className='link' to='/score/login'>Մուտք</Link>

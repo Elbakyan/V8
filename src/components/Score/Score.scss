@@ -1,6 +1,35 @@
 @import "../../style/All.scss";
 @import "../../style/var.scss";
 
+
+[type="file"] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+
+  + label {
+    // File upload button styles
+  }
+
+  &:focus + label,
+  + label:hover {
+    // File upload hover state button styles
+  }
+
+  &:focus + label {
+    // File upload focus state button styles
+  }
+}
+
+.file_input{
+  border: 1px solid $main-color;
+  background: white;
+}
 .Signin-score {
   width: 100%;
   height: calc(100vh - 60px);
@@ -13,12 +42,40 @@
 
     .phone-block{
       width: 100%;
-      height: 200px;
+      //height: 200px;
+
+      .phone-block1{
+        position: relative;
+        width: 100%;
+        height: 44px;
+        .add_phone_plus{
+          position: absolute;
+          right: 3%;
+          top: 34%;
+          >a{
+            font-size: 20px;
+          }
+        }
+      }
+
+      .phone-block2{
+        position: relative;
+        width: 48%;
+        height: 44px;
+        .add_phone_minus{
+          >a{
+            font-size: 20px;
+          }
+          position: absolute;
+          right: 5%;
+          top: 28%;
+        }
+      }
+
     }
     form{
-      width: 80%;
+      width: 90%;
       height: 80%;
-
     }
   }
 }
