@@ -18,7 +18,7 @@ class Signin extends Component{
                     type:"text",
                     placeholder:'Հեռախոսահամար․․․',
                     name:'mail',
-                    width:'100%'
+                    width:'48%'
                 }
             ]
         }
@@ -26,19 +26,29 @@ class Signin extends Component{
 
     add = () =>{
         let x = this.state.obj;
-        x.push(this.state.obj[0])
-        this.setState({
-            // quantity:++this.state.quantity
-            obj:x
-        })
+
+        if(this.state.quantity < 3){
+
+            x.push(this.state.obj[0])
+            this.setState({
+                // quantity:++this.state.quantity
+                obj:x,
+                quantity:++this.state.quantity
+            })
+        }
+
     }
     clear = () =>{
         let x = this.state.obj;
-        x.pop()
-        this.setState({
-            // quantity:++this.state.quantity
-            obj:x
-        })
+
+        if(this.state.quantity){
+            x.pop()
+            this.setState({
+                // quantity:++this.state.quantity
+                obj:x,
+                quantity:--this.state.quantity
+            })
+        }
     }
     componentDidMount() {
 
@@ -52,7 +62,7 @@ class Signin extends Component{
 
         console.log(this.props)
         return (
-            <div className="Signin">
+            <div className="Signin-score">
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Signin-score__score-content score col align-center justify-center">
@@ -88,24 +98,32 @@ class Signin extends Component{
                                 width='100%'
 
                             />
-                            <div className="phone-block col wrap overflow-y-auto">
+                            <div className="phone-block row wrap justify-between">
                                 {
-                                    this.state.obj.map(({type,placeholder,name,width})=>(
-                                        <DefaultInput
-                                            type={type}
-                                            placeholder={placeholder}
-                                            name={name}
-                                            width={width}
-                                        />
+                                    this.state.obj.map(({type,placeholder,name,width},i)=>(
+                                        i == 0 ?
+                                            <DefaultInput
+                                                type={type}
+                                                placeholder={placeholder}
+                                                name={name}
+                                                width="100%"
+                                            />:
+                                            <DefaultInput
+                                                type={type}
+                                                placeholder={placeholder}
+                                                name={name}
+                                                width={width}
+                                            />
                                     ))
                                 }
-                                {
-                                    this.state.obj.length > 1 ?<span onClick={this.clear}>clear</span>:''
-                                }
-                                <span onClick={this.add}>add</span>
+
 
 
                             </div>
+                            {
+                                this.state.obj.length > 1 ?<span onClick={this.clear}><a href="#">Հեռացնել</a> </span>:''
+                            }
+                            <span onClick={this.add}><a href="#">Ավելացնել հեղախոսահամար</a> </span>
 
                             <div className="row justify-between">
                                 <DefaultInput
