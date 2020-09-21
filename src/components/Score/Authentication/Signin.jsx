@@ -7,6 +7,8 @@ import {Link} from "react-router-dom";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
+import {TEST_POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
 
 class Signin extends Component{
     constructor(props) {
@@ -58,6 +60,14 @@ class Signin extends Component{
     GetCity(e) {
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
     }
+    addScore(e){
+        e.preventDefault();
+        let data = new FormData(e.target);
+
+        TEST_POST(Url.addscore,data).then(res => {
+            console.log(res)
+        })
+    }
     render() {
 
         console.log(this.props)
@@ -66,7 +76,7 @@ class Signin extends Component{
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Signin-score__score-content score col align-center justify-center">
-                        <form className="col align-center justify-center">
+                        <form className="col align-center justify-center" onSubmit={this.addScore}>
                             <div className="row justify-between">
                                 <DefaultInput
                                     type="text"
@@ -87,14 +97,14 @@ class Signin extends Component{
                             <DefaultInput
                                 type="text"
                                 placeholder='Ընկերության Անվանումը․․․'
-                                name='surname'
+                                name='score_name'
                                 width='100%'
 
                             />
                             <DefaultInput
-                                type="text"
+                                type="email"
                                 placeholder='E-mail․․․'
-                                name='mail'
+                                name='email'
                                 width='100%'
 
                             />
@@ -106,7 +116,7 @@ class Signin extends Component{
                                                 <DefaultInput
                                                     type={type}
                                                     placeholder={placeholder}
-                                                    name={name}
+                                                    name='phone[]'
                                                     width="100%"
                                                 />
                                                 <span className="add_phone_plus" onClick={this.add}><a href="#">+</a></span>
@@ -116,7 +126,7 @@ class Signin extends Component{
                                                 <DefaultInput
                                                     type={type}
                                                     placeholder={placeholder}
-                                                    name={name}
+                                                    name='phone[]'
                                                     width={width}
                                                 />
                                                 <span onClick={this.clear} className="add_phone_minus"><a href="#">-</a></span>
@@ -150,30 +160,36 @@ class Signin extends Component{
                                     onChange={this.GetCity.bind(this)}
                                     data={this.props.sircle}
                                     width= '48%'
+                                    name='sircle'
 
                                 />
                                 <DefaultSelect
                                     data={this.props.city}
                                     width= '48%'
+                                    name='city'
                                 />
                             </div>
                             <DefaultInput
                                 type="text"
                                 placeholder='Հասցե․․․'
-                                name='surname'
+                                name='adress'
                                 width='100%'
 
-                            />
-                            <DefaultInput
-                                className="file_input"
-                                type="file"
-                                placeholder='Լուսանկար․․․'
-                                name='image'
-                                width='100%'
 
                             />
-                            <label for="file" >choose a file</label>
+
+                            <label className='file row align-center'>Ներբեռնել լուսանկար․․․
+                                <DefaultInput
+                                    className="file_input"
+                                    type="file"
+                                    placeholder='Լուսանկար․․․'
+                                    name='image'
+                                    width='100%'
+
+                                />
+                            </label>
                             <DefaultBtn
+                                type='submit'
                                 name='Գրանցվել'
                                 background='#143645'
                                 color='#ffffff'
