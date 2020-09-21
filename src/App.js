@@ -37,7 +37,6 @@ class App extends React.Component{
 
 
     render() {
-
       return (
           <div className="App">
               <Switch>
@@ -55,7 +54,7 @@ class App extends React.Component{
                       <SpaerParts/>
                   </Route>
               </Switch>
-
+              {this.props.user.status  == undefined? <Loading/> : this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
           </div>
       );
   }

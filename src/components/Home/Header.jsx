@@ -15,7 +15,7 @@ class Header extends React.Component{
             <header>
                 <div className="container row align-center justify-between">
                     <div className="header__log">
-                        <img src="https://elbakyan.am/Server/img/logo_1.svg" alt=""/>
+                        <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
                     </div>
                     <div className="header__links ">
                         <nav className="header_links-nav">

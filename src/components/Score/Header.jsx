@@ -21,7 +21,7 @@ class Header extends React.Component{
                 <div className="container row justify-between align-center">
                     <div className="header__logo">
                         <Link to="/user/account">
-                            <img src="https://elbakyan.am/Server/img/logo_1.svg" alt=""/>
+                            <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>
                     <nav className="header__navigation">

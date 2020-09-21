@@ -11,7 +11,7 @@ class Header extends React.Component{
                 <div className="container ">
                     <div className="header__logo">
                         <Link to="/">
-                            <img src="http://elbakyan.am/Server/img/logo_1.svg" alt=""/>
+                            <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>
 

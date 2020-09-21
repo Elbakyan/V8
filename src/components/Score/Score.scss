@@ -30,10 +30,7 @@
 
 }
 
-.file_input{
-  border: 1px solid $main-color;
-  background: white;
-}
+
 .Signin-score {
   width: 100%;
   height: calc(100vh - 60px);
@@ -74,11 +71,6 @@
           top: 28%;
         }
       }
-
-    }
-    form{
-      width: 90%;
-      height: 80%;
     }
   }
 }
