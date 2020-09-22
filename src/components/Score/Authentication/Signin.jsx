@@ -17,7 +17,7 @@ class Signin extends Component{
             quantity:1,
             obj:[
                 {
-                    type:"text",
+                    type:"tel",
                     placeholder:'Հեռախոսահամար․․․',
                     name:'mail',
                     width:'100%'
@@ -110,26 +110,24 @@ class Signin extends Component{
                                 {
                                     this.state.obj.map(({type,placeholder,name,width},i)=>(
                                         i == 0 ?
-<<<<<<< HEAD
-                                            <div className="phone-block1" key={i}>
-=======
-                                            <div key={i}key={i} className="phone-block1">
->>>>>>> 295c55b19c6720f7388449fa9577929c91795203
-                                                <DefaultInput
-                                                    type={type}
-                                                    placeholder={placeholder}
-                                                    name='phone[]'
-                                                    width="100%"
-                                                />
-                                                <span className="add_phone_plus" onClick={this.add}><a href="#">+</a></span>
-                                            </div>
-                                          :
-                                            <div key={i} className="phone-block2">
-                                                <DefaultInput
-                                                    type={type}
-                                                    placeholder={placeholder}
-                                                    name='phone[]'
-                                                    width={width}
+                                                <div  key={i} className="phone-block1">
+
+                                                    <DefaultInput
+                                                        type={type}
+                                                        placeholder={placeholder}
+                                                        name='phone[]'
+                                                        width="100%"
+                                                    />
+                                                    <span className="add_phone_plus" onClick={this.add}><a
+                                                        href="#">+</a></span>
+                                                </div>
+                                                :
+                                                <div key={i} className="phone-block2">
+                                                    <DefaultInput
+                                                        type={type}
+                                                        placeholder={placeholder}
+                                                        name='phone[]'
+                                                        width={width}
                                                 />
                                                 <span onClick={this.clear} className="add_phone_minus"><a href="#">-</a></span>
                                             </div>
@@ -180,11 +178,11 @@ class Signin extends Component{
 
                             />
 
-                            <label className='file row align-center'>Ներբեռնել լուսանկար․․․
+                            <label className='file row align-center'>
+                                <span className='file__name'>Ներբեռնել լուսանկար․․․</span>
                                 <DefaultInput
                                     onChange={(e) => {
-
-                                        e.target.parentElement.textContent = e.target.value;
+                                        document.querySelector('.file__name').textContent = e.target.value;
                                     }}
                                     className="file_input"
                                     type="file"
