@@ -112,7 +112,7 @@ class Signin extends Component{
                                 {
                                     this.state.obj.map(({type,placeholder,name,width},i)=>(
                                         i == 0 ?
-                                            <div key={i}key={i} className="phone-block1">
+                                            <div key={i} className="phone-block1">
                                                 <DefaultInput
                                                     type={type}
                                                     placeholder={placeholder}
