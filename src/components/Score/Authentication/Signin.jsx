@@ -110,7 +110,11 @@ class Signin extends Component{
                                 {
                                     this.state.obj.map(({type,placeholder,name,width},i)=>(
                                         i == 0 ?
+<<<<<<< HEAD
                                             <div className="phone-block1" key={i}>
+=======
+                                            <div key={i}key={i} className="phone-block1">
+>>>>>>> 295c55b19c6720f7388449fa9577929c91795203
                                                 <DefaultInput
                                                     type={type}
                                                     placeholder={placeholder}
@@ -120,7 +124,7 @@ class Signin extends Component{
                                                 <span className="add_phone_plus" onClick={this.add}><a href="#">+</a></span>
                                             </div>
                                           :
-                                            <div className="phone-block2">
+                                            <div key={i} className="phone-block2">
                                                 <DefaultInput
                                                     type={type}
                                                     placeholder={placeholder}
