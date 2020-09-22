@@ -17,7 +17,7 @@ class Signin extends Component{
             quantity:1,
             obj:[
                 {
-                    type:"text",
+                    type:"tel",
                     placeholder:'Հեռախոսահամար․․․',
                     name:'mail',
                     width:'100%'
@@ -69,14 +69,12 @@ class Signin extends Component{
         })
     }
     render() {
-
-        console.log(this.props)
         return (
             <div className="Signin-score">
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Signin-score__score-content score col align-center justify-center">
-                        <form className="col align-center justify-center" onSubmit={this.addScore}>
+                        <form className="col align-center justify-center" onSubmit={this.addScore} encType='multipart/form-data'>
                             <div className="row justify-between">
                                 <DefaultInput
                                     type="text"
@@ -119,9 +117,10 @@ class Signin extends Component{
                                                     name='phone[]'
                                                     width="100%"
                                                 />
-                                                <span className="add_phone_plus" onClick={this.add}><a href="#">+</a></span>
+                                                <span className="add_phone_plus" onClick={this.add}><a
+                                                    href="#">+</a></span>
                                             </div>
-                                          :
+                                            :
                                             <div key={i} className="phone-block2">
                                                 <DefaultInput
                                                     type={type}
@@ -178,8 +177,12 @@ class Signin extends Component{
 
                             />
 
-                            <label className='file row align-center'>Ներբեռնել լուսանկար․․․
+                            <label className='file row align-center'>
+                                <span className='file__name'>Ներբեռնել լուսանկար․․․</span>
                                 <DefaultInput
+                                    onChange={(e) => {
+                                        document.querySelector('.file__name').textContent = e.target.value;
+                                    }}
                                     className="file_input"
                                     type="file"
                                     placeholder='Լուսանկար․․․'

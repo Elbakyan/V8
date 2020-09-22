@@ -8,7 +8,6 @@ export const GET_MODEL = 'GET_MODEL';
 export function GetMark(){
     return (dispach) => {
         GET(Url.auto).then(res => {
-            console.log(res)
             dispach({
                 type: GET_MARK,
                 payload: res
