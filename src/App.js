@@ -5,11 +5,8 @@ import Home from "./components/Home/Home";
 import User from "./components/User/User";
 import {connect} from "react-redux";
 import {UserExist} from "./redux/user/action";
-
 import {GetSicle} from "./redux/location/action";
 import {GetMark} from "./redux/auto/action";
-
-
 import Score from "./components/Score/Score";
 import SpaerParts from "./components/spare/SpareParts";
 import Account from "./components/User/Account";
@@ -39,6 +36,7 @@ class App extends React.Component{
     render() {
       return (
           <div className="App">
+
               <Switch>
 
                   <Route exact path='/'>

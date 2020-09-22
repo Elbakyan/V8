@@ -69,14 +69,12 @@ class Signin extends Component{
         })
     }
     render() {
-
-        console.log(this.props)
         return (
             <div className="Signin-score">
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Signin-score__score-content score col align-center justify-center">
-                        <form className="col align-center justify-center" onSubmit={this.addScore}>
+                        <form className="col align-center justify-center" onSubmit={this.addScore} encType='multipart/form-data'>
                             <div className="row justify-between">
                                 <DefaultInput
                                     type="text"
@@ -112,7 +110,7 @@ class Signin extends Component{
                                 {
                                     this.state.obj.map(({type,placeholder,name,width},i)=>(
                                         i == 0 ?
-                                            <div className="phone-block1">
+                                            <div className="phone-block1" key={i}>
                                                 <DefaultInput
                                                     type={type}
                                                     placeholder={placeholder}
@@ -180,6 +178,10 @@ class Signin extends Component{
 
                             <label className='file row align-center'>Ներբեռնել լուսանկար․․․
                                 <DefaultInput
+                                    onChange={(e) => {
+
+                                        e.target.parentElement.textContent = e.target.value;
+                                    }}
                                     className="file_input"
                                     type="file"
                                     placeholder='Լուսանկար․․․'

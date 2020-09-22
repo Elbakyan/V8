@@ -15,7 +15,8 @@ class DefaultSelect extends Component {
             >
                 {
                     this.props.data.map((res,id )=> {
-                        return <option kay={res.id} value={res.name}>{res.name}</option>
+
+                        return <option kay={id + Math.random() * 1000} value={res.name}>{res.name}</option>
                     })
                 }
             </select>

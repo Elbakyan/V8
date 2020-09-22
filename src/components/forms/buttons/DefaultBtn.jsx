@@ -5,6 +5,7 @@ import {LightenDarkenColor} from "lighten-darken-color";
 class DefaultBtn extends Component {
     constructor(props) {
         super(props);
+
     }
     render() {
         return (
