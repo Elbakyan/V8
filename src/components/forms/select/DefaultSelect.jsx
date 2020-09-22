@@ -6,6 +6,7 @@ class DefaultSelect extends Component {
     render() {
         return (
             <select
+
                 name={this.props.name}
                 onChange={this.props.onChange}
                 style={{
@@ -14,8 +15,8 @@ class DefaultSelect extends Component {
                 }}
             >
                 {
-                    this.props.data.map((res,id )=> {
-                        return <option kay={res.id} value={res.name}>{res.name}</option>
+                    this.props.data.map((res,i )=> {
+                        return <option key={res.id} value={res.name}>{res.name}</option>
                     })
                 }
             </select>
