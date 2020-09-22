@@ -75,7 +75,7 @@ class Signin extends Component{
                 <div className="container row align-center justify-center">
                     <div className="Signin-score__score-content score col align-center justify-center">
                         <form className="col align-center justify-center" onSubmit={this.addScore} encType='multipart/form-data'>
-                            <div className="row justify-between">
+                            <div className="div row justify-between">
                                 <DefaultInput
                                     type="text"
                                     placeholder='Անուն․․․'
@@ -137,7 +137,7 @@ class Signin extends Component{
                             </div>
 
 
-                            <div className="row justify-between">
+                            <div className="div row justify-between">
                                 <DefaultInput
                                     type="password"
                                     placeholder='Գաղտնաբառ․․․'
