@@ -16,6 +16,34 @@ export function GetMark(){
 
     }
 }
+
+// export function GetModel(){
+//     return (dispach) => {
+//         GET(Url.auto).then(res => {
+//             dispach({
+//                 type: GET_MARK,
+//                 payload: res
+//             })
+//         })
+//
+//     }
+// }
+
+export function GetModel(e = 1) {
+    return async (dispach) => {
+
+        let data = new FormData();
+        data.append('id', (e==1)? 1 : e.target.selectedIndex+1);
+
+        POST(Url.model, data).then(data=> {
+            dispach({
+                type: GET_MODEL,
+                payload: data
+            })
+        })
+
+    }
+}
 // export  function GetModel(id){
 //     let data = new  FormData();
 //

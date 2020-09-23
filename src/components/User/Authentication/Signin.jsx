@@ -114,6 +114,22 @@ class Signin extends React.Component{
 
                                 />
                             </label>
+<<<<<<< HEAD
+                            <div className="Signin__links row align-end justify-between">
+                                <Link className='link' to='/user/login'>Մուտք</Link>
+
+                                <DefaultBtn
+                                    type='submit'
+                                    name='Գրանցվել'
+                                    background='#143645'
+                                    color='#ffffff'
+                                    light={30}
+                                    className='Signin__btn'
+                                />
+                            </div>
+                        </form>
+
+=======
                         <div className="Signin__links row align-end justify-between">
                             <Link className='link' to='/user/login'>Մուտք</Link>
 
@@ -128,6 +144,7 @@ class Signin extends React.Component{
                             </div>
                         </form>
 
+>>>>>>> fbea8a74f658d567abf2a46e3eb3a687659ef11b
                     </div>
                 </div>
                 <Footer/>
@@ -135,6 +152,7 @@ class Signin extends React.Component{
         );
     }
 }
+
 const MapStateToProps = state => state.location;
 const MainSignin = connect(MapStateToProps)(Signin)
 export  default MainSignin;

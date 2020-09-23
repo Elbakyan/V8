@@ -19,10 +19,12 @@ class Score extends Component {
                 <div className="User">
                     <Route exact path='/score/login'>
                         <Login/>
-                        {/*<h1>sdsadas</h1>*/}
                     </Route>
                     <Route exact path='/score/sign-in'>
                         <Signin/>
+                    </Route>
+                    <Route exact path='/score/account'>
+                        <Account/>
                     </Route>
                     {
                         this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to='/score/account' /> : <Redirect to='/score/login' />
