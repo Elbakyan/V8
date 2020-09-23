@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
-import {POST} from "../../config/Requsest";
+import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 
 class Signin extends React.Component{
@@ -28,7 +28,7 @@ class Signin extends React.Component{
     Signin(e){
         e.preventDefault();
         let data = new FormData(e.target)
-        POST(Url.login,data).then(res => {
+       POST(Url.registration,data).then(res => {
             console.log(res)
         })
     }
@@ -40,7 +40,7 @@ class Signin extends React.Component{
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Signin__content col align-center justify-center">
-                        <form className="col align-center justify-center" onSubmit={this.Signin}>
+                        <form className="col align-center justify-center" onSubmit={this.Signin.bind(this)}>
                             <div className="row justify-between">
                                 <DefaultInput
                                     type="text"
@@ -60,7 +60,7 @@ class Signin extends React.Component{
                             <DefaultInput
                                 type="text"
                                 placeholder='E-mail․․․'
-                                name='mail'
+                                name='email'
                                 width='100%'
 
                             />
@@ -92,11 +92,12 @@ class Signin extends React.Component{
                                     onChange={this.GetCity.bind(this)}
                                     data={this.props.sircle}
                                     width= '48%'
-
+                                    name='sircle'
                                 />
                                 <DefaultSelect
                                     data={this.props.city}
                                     width= '48%'
+                                    name={'city'}
                                 />
                             </div>
                             <label className='file row align-center'>

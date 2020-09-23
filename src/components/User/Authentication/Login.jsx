@@ -44,18 +44,19 @@ class Login extends React.Component{
                                 margin= '5px 0'
                             />
 
+                            <div className="Login__links row align-end justify-between">
+                                <Link className='link' to='/user/sign-in'>Գրանցվել</Link>
+                                <DefaultBtn
+                                    name='Մուտք'
+                                    type='submit'
+                                    background='#143645'
+                                    color='#ffffff'
+                                    light={30}
+                                    className='Login__btn'
+                                />
+                            </div>
                         </form>
-                        <div className="Login__links row align-end justify-between">
-                            <Link className='link' to='/user/sign-in'>Գրանցվել</Link>
-                            <DefaultBtn
-                                name='Մուտք'
-                                type='submit'
-                                background='#143645'
-                                color='#ffffff'
-                                light={30}
-                                className='Login__btn'
-                            />
-                        </div>
+
                     </div>
                 </div>
                 <Footer/>
