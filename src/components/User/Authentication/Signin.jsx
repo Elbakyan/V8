@@ -108,9 +108,11 @@ class Signin extends React.Component{
                                 className='Signin__btn'
                             />
                         </form>
+
                         <div className="Signin__links row align-start">
                             <Link className='link' to='/user/login'>Մուտք</Link>
                         </div>
+
                     </div>
                 </div>
                 <Footer/>

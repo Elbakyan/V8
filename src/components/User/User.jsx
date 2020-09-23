@@ -15,6 +15,7 @@ class User extends React.Component{
         super(props);
     }
     render() {
+        console.log( window.location.pathname  )
         console.log(this.props)
         return (
             <div className="User">

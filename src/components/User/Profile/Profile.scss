@@ -9,28 +9,10 @@
     padding: 20px 0;
     width: 100%;
 
-    .persional__data{
-      width: 20%;
-      border: 1px solid red;
 
-      .img{
-        width: 100%;
-        border-bottom: 2px solid $main-color;
-
-        >img{
-          width: 80%;
-        }
-      }
-      .fullname{
-        margin: 10px 0;
-        width: 60%;
-      }
-      .phone{
-        width: 100%;
-      }
-    }
   }
   &__nav{
+    width: 20%;
     > ul {
       display: flex;
       flex-direction: column;
@@ -69,5 +51,89 @@
     }
   }
 
+  &__content{
+    width:70% ;
+
+    .persional__data{
+      width: 100%;
+      //border: 1px solid red;
+
+      .persional__header{
+        width: 30%;
+        height: 30%;
+        background: white;
+        //border: 1px solid $main-color;
+        box-shadow: 0 0 5px $main-color;
+        border-radius: 3px;
+        .img{
+          width: 80%;
+          border: 1px ;
+          border-radius: 5%;
+          overflow: hidden;
+
+          >img{
+            max-width: 100%;
+          }
+        }
+        .fullname{
+          font-size: 24px;
+          color: $main-color;
+          display: flex;
+          justify-content: space-around;
+          margin: 10px 0;
+          width: 80%;
+        }
+      }
+
+      .persional__body{
+        width: 60%;
+        background: white;
+        box-shadow: 0 0 5px $main-color;
+        border-radius: 3px;
+        color: $main-color;
+        >nav{
+          width: 70%;
+          li{
+            //border: 1px solid red;
+            display: flex;
+            //justify-content: space-between;
+            >div:nth-child(1){
+              width: 15%;
+            }
+            >div:nth-child(2){
+              width: 80%;
+            }
+
+            width: 65%;
+            margin: 10px 0;
+            font-size: 18px;
+            >span{
+              margin-left: 10px;
+            }
+          }
+        }
+
+
+        .persional__setings{
+          margin: 20px 0;
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          padding-right: 50px;
+        }
+      }
+
+      .phone{
+        width: 100%;
+      }
+    }
+
+
+  }
+.profile__setings{
+  .profile__setings_back{
+    font-size: 24px;
+  }
+}
 
 }

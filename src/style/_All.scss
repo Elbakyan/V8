@@ -23,9 +23,13 @@
 }
 .justify-between{
   justify-content:space-between;
+
 }
 .justify-around{
   justify-content:space-around;
+}
+.align-items{
+  align-items: center;
 }
 .wrap{
   flex-wrap: wrap;

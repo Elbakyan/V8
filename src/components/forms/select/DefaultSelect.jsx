@@ -8,7 +8,6 @@ class DefaultSelect extends Component {
     render() {
         return (
             <select
-
                 name={this.props.name}
                 onChange={this.props.onChange}
                 style={{

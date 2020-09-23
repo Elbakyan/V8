@@ -5,6 +5,8 @@ import {Link, Route} from "react-router-dom";
 import PersionalData from "./PersionalData";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {fas, faHome, faEnvelope,faCar} from "@fortawesome/free-solid-svg-icons";
+import ProfilSetings from "./ProfilSetings";
+import UserCars from "../UserCars/UserCars";
 
 
 class Profile extends React.Component{
@@ -18,7 +20,7 @@ class Profile extends React.Component{
         return (
             <section className="Profile col">
                 <div className="container">
-                            <div className="Profile__information row">
+                            <div className="Profile__information row justify-between">
                                 <nav className='Profile__nav'>
                                     <ul >
                                         <li>
@@ -37,15 +39,24 @@ class Profile extends React.Component{
                                             <div className="icon">
                                                 <FontAwesomeIcon icon={faCar}/>
                                             </div>
-                                            <Link to='/user/account/persional'>Իմ Մեքենաները</Link>
+                                            <Link to='/user/account/cars'>Իմ Մեքենաները</Link>
                                         </li>
 
                                     </ul>
                                 </nav>
-                                <Route path='/user/account/persional'>
-                                    <PersionalData/>
 
-                                </Route>
+                                <div className="Profile__content">
+                                    <Route path='/user/account/persional'>
+                                        <PersionalData/>
+                                    </Route>
+                                    <Route path='/user/account/setings'>
+                                        <ProfilSetings />
+                                    </Route>
+                                    <Route path='/user/account/cars'>
+                                        <UserCars />
+                                    </Route>
+                                </div>
+
                             </div>
                 </div>
 

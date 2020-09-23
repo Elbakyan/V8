@@ -12,6 +12,7 @@ class DefaultInput extends Component {
                 placeholder={this.props.placeholder}
                 className={this.props.className}
                 name={this.props.name}
+                defaultValue={this.props.defaultValue}
                 value={this.props.value}
                 type={this.props.type}
                 key={this.props.key}

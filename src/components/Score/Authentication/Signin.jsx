@@ -81,7 +81,6 @@ class Signin extends Component{
                                     placeholder='Անուն․․․'
                                     name='name'
                                     width='48%'
-
                                 />
                                 <DefaultInput
                                     type="text"
