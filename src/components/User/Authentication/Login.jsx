@@ -19,7 +19,9 @@ class Login extends React.Component{
         })
     }
     render() {
+
         return (
+
             <div className="Login">
                 <Header/>
                 <div className="container row align-center justify-center">
@@ -41,6 +43,10 @@ class Login extends React.Component{
                                 padding='10px 20px'
                                 margin= '5px 0'
                             />
+
+                        </form>
+                        <div className="Login__links row align-end justify-between">
+                            <Link className='link' to='/user/sign-in'>Գրանցվել</Link>
                             <DefaultBtn
                                 name='Մուտք'
                                 type='submit'
@@ -49,9 +55,6 @@ class Login extends React.Component{
                                 light={30}
                                 className='Login__btn'
                             />
-                        </form>
-                        <div className="Login__links row align-start">
-                            <Link className='link' to='/user/sign-in'>Գրանցվել</Link>
                         </div>
                     </div>
                 </div>

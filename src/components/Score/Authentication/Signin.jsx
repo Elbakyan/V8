@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component, createRef} from 'react';
 import Header from "./Header";
 import Footer from "../../Footer/Footer";
 import DefaultInput from "../../forms/inputs/DefaultInput";
@@ -7,12 +7,14 @@ import {Link} from "react-router-dom";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
-import {TEST_POST} from "../../config/Requsest";
+import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
+
 
 class Signin extends Component{
     constructor(props) {
         super(props);
+        this.message  = createRef()
         this.state = {
             quantity:1,
             obj:[
@@ -22,8 +24,13 @@ class Signin extends Component{
                     name:'mail',
                     width:'100%'
                 }
-            ]
+            ],
+            message: '',
+            status: false,
+            scoreCreated: false
+
         }
+
     }
 
     add = () =>{
@@ -50,6 +57,7 @@ class Signin extends Component{
                 obj:x,
                 quantity:--this.state.quantity
             })
+
         }
     }
     componentDidMount() {
@@ -63,18 +71,27 @@ class Signin extends Component{
     addScore(e){
         e.preventDefault();
         let data = new FormData(e.target);
+        console.log(data)
+        POST(Url.addscore,data).then(res => {
+            this.setState({
+                message: res.message,
+                status: res.status
+            })
+            setTimeout(() => {
+                window.location.href = '/score/login'
+            },1000)
 
-        TEST_POST(Url.addscore,data).then(res => {
-            console.log(res)
         })
     }
     render() {
+        console.log(this.state.data)
         return (
             <div className="Signin-score">
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Signin-score__score-content score col align-center justify-center">
-                        <form className="col align-center justify-center" onSubmit={this.addScore} encType='multipart/form-data'>
+                        <form className="col align-center justify-center" onSubmit={this.addScore.bind(this)} encType='multipart/form-data'>
+                            <div className="message row align-center" style={this.state.status? {color: 'green'} : {color: 'red'}}>{this.state.message}</div>
                             <div className="div row justify-between">
                                 <DefaultInput
                                     type="text"
@@ -172,8 +189,6 @@ class Signin extends Component{
                                 placeholder='Հասցե․․․'
                                 name='adress'
                                 width='100%'
-
-
                             />
 
                             <label className='file row align-center'>
@@ -190,19 +205,26 @@ class Signin extends Component{
 
                                 />
                             </label>
-                            <DefaultBtn
-                                type='submit'
-                                name='Գրանցվել'
-                                background='#143645'
-                                color='#ffffff'
-                                light={30}
-                                className='Signin__btn'
+                            <DefaultInput
+                                type="url"
+                                placeholder='https://v8.am'
+                                name='url'
+                                width='100%'
                             />
 
+                            <div className="Signin__links row align-end justify-between">
+                                <Link className='link' to='/score/login'>Մուտք</Link>
+                                <DefaultBtn
+                                    type='submit'
+                                    name='Գրանցվել'
+                                    background='#143645'
+                                    color='#ffffff'
+                                    light={30}
+                                    className='Signin__btn'
+                                />
+                            </div>
                         </form>
-                        <div className="Signin__links row align-start">
-                            <Link className='link' to='/score/login'>Մուտք</Link>
-                        </div>
+
                     </div>
                 </div>
                 <Footer/>

@@ -75,9 +75,23 @@
   }
 
   form{
+
     width: 90%;
+
     .div{
       width: 100%;
     }
+    .message{
+      width: 100%;
+      padding: 10px 20px;
+   }
   }
+}
+.Signin__links,Login__links{
+  width: 90%;
+
+}
+.Login__content{
+  height: 200px;
+  padding-bottom: 20px;
 }

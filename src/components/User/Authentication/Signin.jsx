@@ -99,6 +99,10 @@ class Signin extends React.Component{
                                     width= '48%'
                                 />
                             </div>
+
+                        </form>
+                        <div className="Signin__links row align-end justify-between">
+                            <Link className='link' to='/user/login'>Մուտք</Link>
                             <DefaultBtn
                                 type='submit'
                                 name='Գրանցվել'
@@ -107,10 +111,13 @@ class Signin extends React.Component{
                                 light={30}
                                 className='Signin__btn'
                             />
+<<<<<<< HEAD
                         </form>
 
                         <div className="Signin__links row align-start">
                             <Link className='link' to='/user/login'>Մուտք</Link>
+=======
+>>>>>>> a760562140364b2a6275befa43d433738149a01c
                         </div>
 
                     </div>

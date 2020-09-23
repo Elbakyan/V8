@@ -13,6 +13,7 @@ class Score extends Component {
         super(props);
     }
     render() {
+
         return(
             <div>
                 <div className="User">
