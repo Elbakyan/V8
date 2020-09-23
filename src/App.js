@@ -29,11 +29,13 @@ class App extends React.Component{
         this.props.dispatch(UserExist())
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
+
     }
 
 
 
     render() {
+
       return (
           <div className="App">
 

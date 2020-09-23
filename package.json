@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "light-dark-button": "^1.0.0",
     "react": "^16.13.1",
+    "react-confirm-alert": "^2.6.2",
     "react-dom": "^16.13.1",
     "react-loading": "^2.0.3",
     "react-redux": "^7.2.1",
@@ -44,7 +45,11 @@
     ]
   },
   "devDependencies": {
+    "css-loader": "^4.3.0",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1",
     "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.2"
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1"
   }
 }

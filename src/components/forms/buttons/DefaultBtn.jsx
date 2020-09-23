@@ -23,7 +23,7 @@ class DefaultBtn extends Component {
 
                 }}
                 className={this.props.className}
-                type={this.props.types}
+                type={this.props.type}
                 style={{
                     backgroundColor: this.props.background,
                     color:'' || this.props.color,
