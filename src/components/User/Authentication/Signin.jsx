@@ -99,26 +99,33 @@ class Signin extends React.Component{
                                     width= '48%'
                                 />
                             </div>
+                            <label className='file row align-center'>
+                                <span className='file__name'>Ներբեռնել լուսանկար․․․</span>
+                                <DefaultInput
+                                    onChange={(e) => {
+                                        document.querySelector('.file__name').textContent = e.target.value;
+                                    }}
+                                    className="file_input"
+                                    type="file"
+                                    placeholder='Լուսանկար․․․'
+                                    name='image'
+                                    width='100%'
 
-                        </form>
+                                />
+                            </label>
                         <div className="Signin__links row align-end justify-between">
                             <Link className='link' to='/user/login'>Մուտք</Link>
-                            <DefaultBtn
-                                type='submit'
-                                name='Գրանցվել'
-                                background='#143645'
-                                color='#ffffff'
-                                light={30}
-                                className='Signin__btn'
-                            />
-<<<<<<< HEAD
-                        </form>
 
-                        <div className="Signin__links row align-start">
-                            <Link className='link' to='/user/login'>Մուտք</Link>
-=======
->>>>>>> a760562140364b2a6275befa43d433738149a01c
-                        </div>
+                                <DefaultBtn
+                                    type='submit'
+                                    name='Գրանցվել'
+                                    background='#143645'
+                                    color='#ffffff'
+                                    light={30}
+                                    className='Signin__btn'
+                                />
+                            </div>
+                        </form>
 
                     </div>
                 </div>
