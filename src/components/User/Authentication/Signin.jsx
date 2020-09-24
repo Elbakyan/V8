@@ -14,6 +14,7 @@ class Signin extends React.Component{
     constructor(props) {
         super(props);
 
+
     }
 
 
@@ -24,17 +25,25 @@ class Signin extends React.Component{
 
     GetCity(e) {
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
+
+    }
+    GetImg(e){
+        document.querySelector('.file__name').textContent = e.target.value;
+        this.setState({
+            img: [...this.state.img,e.target.files]
+        })
+
     }
     Signin(e){
         e.preventDefault();
         let data = new FormData(e.target)
+
        POST(Url.registration,data).then(res => {
             console.log(res)
         })
     }
     render() {
 
-        console.log(this.props)
         return (
             <div className="Signin">
                 <Header/>
@@ -103,17 +112,15 @@ class Signin extends React.Component{
                             <label className='file row align-center'>
                                 <span className='file__name'>Ներբեռնել լուսանկար․․․</span>
                                 <DefaultInput
-                                    onChange={(e) => {
-                                        document.querySelector('.file__name').textContent = e.target.value;
-                                    }}
+                                    onChange={this.GetImg.bind(this)}
                                     className="file_input"
                                     type="file"
                                     placeholder='Լուսանկար․․․'
-                                    name='image'
                                     width='100%'
 
                                 />
                             </label>
+
                             <div className="Signin__links row align-end justify-between">
                                 <Link className='link' to='/user/login'>Մուտք</Link>
 

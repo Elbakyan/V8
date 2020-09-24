@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import './Profile.scss'
-import {Link, Route} from "react-router-dom";
+import {Link, Route, Switch} from "react-router-dom";
 import PersionalData from "./PersionalData";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {fas, faHome, faEnvelope,faCar} from "@fortawesome/free-solid-svg-icons";
@@ -46,15 +46,14 @@ class Profile extends React.Component{
                                 </nav>
 
                                 <div className="Profile__content">
-                                    <Route path='/user/account/persional'>
-                                        <PersionalData/>
-                                    </Route>
-                                    <Route path='/user/account/setings'>
-                                        <ProfilSetings />
-                                    </Route>
-                                    <Route path='/user/account/cars'>
-                                        <UserCars />
-                                    </Route>
+                                    <Switch>
+                                        <Route path='/user/account/persional'>
+                                            <PersionalData/>
+                                        </Route>
+                                        <Route path='/user/account/cars'>
+                                            <UserCars />
+                                        </Route>
+                                    </Switch>
                                 </div>
 
                             </div>

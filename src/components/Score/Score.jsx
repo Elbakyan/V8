@@ -23,7 +23,7 @@ class Score extends Component {
                     <Route exact path='/score/sign-in'>
                         <Signin/>
                     </Route>
-                    <Route exact path='/score/account'>
+                    <Route path='/score/account'>
                         <Account/>
                     </Route>
                     {

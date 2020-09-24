@@ -57,7 +57,7 @@ class App extends React.Component{
                       <SpaerParts/>
                   </Route>
               </Switch>
-              {this.props.user.status  == undefined? <Loading/> : this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
+              {/*{this.props.user.status  == undefined? <Loading/> : this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}*/}
               {this.props.score.status  == undefined? <Loading/> : this.props.score.status? <Redirect to='/score/account'/> : <Redirect to='/'/>}
           </div>
       );

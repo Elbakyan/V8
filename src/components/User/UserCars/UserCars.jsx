@@ -2,28 +2,40 @@ import React, {Component} from "react";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../../redux/auto/action";
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
 
 
 class UserCars extends Component {
     constructor(props) {
         super(props);
+        this.state ={
+            img: []
+        }
     }
     componentDidMount() {
         this.props.dispatch(GetModel())
     }
 
+    AddAuto(e) {
+        e.preventDefault();
+        let data = new FormData(e.target)
+
+        this.state.img.map(file => {
+            data.append('image[]', file[0])
+        })
+        POST(Url.registration,data).then(res => {
+            console.log(res)
+        })
+    }
 
     render() {
-        console.log(this.props)
         const {user,location,auto,dispatch} = this.props;
-        console.log('user',user)
-        console.log('location',location)
-        console.log('auto',auto)
         return (
             <div className="Profile__cars">
                 <div className="">
                     <h1>Մուտքագրեք ձեր մեքենայի տվյալները</h1>
-                        <form>
+                        <form encType='multipart/form-data' onSubmit={this.AddAuto}>
                             <DefaultSelect
                                 onChange={(e)=>{
                                     dispatch(GetModel(e))
@@ -79,3 +91,11 @@ class UserCars extends Component {
 const MapStateToProps = state => state;
 const MainUserCars = connect(MapStateToProps)(UserCars)
 export  default MainUserCars;
+// <div className="img__name">
+//     {this.state.img.map(file => {
+//         return <span style={{margin:'0px 5px'}}>
+//                                     {file[0].name}
+//                                     </span>
+//     })}
+//
+// </div>
