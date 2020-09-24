@@ -2,9 +2,16 @@ import React, {Component} from "react";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../../redux/auto/action";
+
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
+
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import CarsForm from "./CarsForm";
+
 import  './UserCars.scss';
+
+
 
 const  initialAuto = [
     {
@@ -28,50 +35,21 @@ const  initialAuto = [
 class UserCars extends Component {
     constructor(props) {
         super(props);
+        this.state ={
+            img: []
+        }
     }
     componentDidMount() {
         this.props.dispatch(GetModel())
     }
 
 
+
     render() {
-        const {user,location,auto,dispatch} = this.props;
+
         return (
             <div className="Profile__cars">
-                {
-                    initialAuto.map(({
-                                         id,
-                                         model,
-                                         mark,
-                                         image,
-                                         engine,
-                                         category,
-                                         type,
-                                         color,
-                                         year,
-                                         vin,
-                                         royle,
-                                         fuel,
-                                         number,
-                                         traction
-                                     })=>(
-                        <div key={id} className='Profile__cars-list'>
-                            <div className="left_block">
-                                <div className="car_image">
-                                    <img src={image} alt="car_image"/>
-                                </div>
 
-                                <div className="car_name">
-                                    <h2>{mark}</h2>
-                                </div>
-                            </div>
-
-                            <div className="right_block">
-
-                            </div>
-                        </div>
-                    ))
-                }
             </div>
         )
     }

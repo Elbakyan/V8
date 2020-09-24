@@ -37,7 +37,7 @@ class AutoList extends Component {
 
 
 
-                {initialAuto.length ? <Redirect to='/user/account/cars'/> :<Redirect to='/user/account/cars/add-auto'/>}
+                {/*{initialAuto.length ? <Redirect to='/user/account/cars'/> :<Redirect to='/user/account/cars/add-auto'/>}*/}
                 {/*/!*{initialAuto.map(()=>())}*!/*/}
 
                 <Link to='/user/account/cars/add-auto'>
@@ -46,13 +46,13 @@ class AutoList extends Component {
 
 
 
-                {/*<Route path='/score/account/cars'>*/}
-                {/*<UserCars />*/}
-                {/*</Route>*/}
+                <Route path='/score/account/cars'>
+                <UserCars />
+                </Route>
                 <Route path='/user/account/cars/add-auto'>
                     <CarsForm/>
                 </Route>
-                {initialAuto.length ?  <UserCars />:''}
+                {/*{initialAuto.length ?  <UserCars />:''}*/}
 
             </div>
         )

@@ -16,9 +16,12 @@ class PersionalData extends React.Component {
 
         return (
             <div className="persional__data row justify-between">
-                <div className="persional__header col justify-center align-items">
-                    <div className="img row justify-center">
-                        <img src="https://elbakyan.am/Server/img/user/avatar/-1600089865.png" alt=""/>
+                <div className="persional__header col justify-center align-items" style={{
+                    width:'220px',
+                    height: '220px'
+                }}>
+                    <div className="img row justify-center" style={{padding: '20px 0'}}>
+                        <img src="https://elbakyan.am/Server/img/logo_1.svg	" alt=""/>
                     </div>
                     <div className="fullname row justify-center">
                         <span>Name</span>
@@ -30,6 +33,33 @@ class PersionalData extends React.Component {
 
                     <nav>
                         <ul>
+                            <li>
+                                <div className="icon">
+                                    <FontAwesomeIcon icon={faMobileAlt}/>
+                                </div>
+                                <div>
+                                    <span>V8</span>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div className="icon">
+                                    <FontAwesomeIcon icon={faMobileAlt}/>
+                                </div>
+                                <div>
+                                    <span>+37494419699</span>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div className="icon">
+                                    <FontAwesomeIcon icon={faMobileAlt}/>
+                                </div>
+                                <div>
+                                    <span>+37494419699</span>
+                                </div>
+
+                            </li>
                             <li>
                                 <div className="icon">
                                     <FontAwesomeIcon icon={faMobileAlt}/>
@@ -71,9 +101,9 @@ class PersionalData extends React.Component {
                         </ul>
                     </nav>
                     <div className="persional__setings">
-                        <Link to='/user/account/setings'>Կարգավորումներ</Link>
+                        <Link to='/score/account/setings'>Կարգավորումներ</Link>
                     </div>
-                    <Route path='/user/account/setings'>
+                    <Route path='/score/account/setings'>
                         <ProfilSetings />
                     </Route>
                 </div>
@@ -84,7 +114,7 @@ class PersionalData extends React.Component {
     }
 }
 
-const MapStateToProps = state => state;
+const MapStateToProps = state => state.score;
 const MainPersionalData = connect(MapStateToProps)(PersionalData)
 
 export default MainPersionalData;

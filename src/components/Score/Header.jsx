@@ -27,7 +27,7 @@ class Header extends React.Component{
                     <nav className="header__navigation">
                         <ul>
                             <li className='header__navigation-li'>
-                                <Link to='/user/account/spare-parts' className='header__link'>
+                                <Link to='/score/account/spare-parts' className='header__link'>
                                     Պահեստամասեր
                                 </Link>
                             </li>
