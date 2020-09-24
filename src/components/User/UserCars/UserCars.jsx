@@ -2,9 +2,19 @@ import React, {Component} from "react";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../../redux/auto/action";
+<<<<<<< HEAD
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
+=======
+import DefaultInput from "../../forms/inputs/DefaultInput";
+import CarsForm from "./CarsForm";
+>>>>>>> 8918b1aae4f2abd4a2a95acab22145ff55167ea6
 
+const  initialAuto = [
+    {
+        model:''
+    }
+]
 
 class UserCars extends Component {
     constructor(props) {
@@ -31,6 +41,7 @@ class UserCars extends Component {
 
     render() {
         const {user,location,auto,dispatch} = this.props;
+<<<<<<< HEAD
         return (
             <div className="Profile__cars">
                 <div className="">
@@ -66,23 +77,17 @@ class UserCars extends Component {
                                 data={auto.color}
                                 width= '25%'
                             />
+=======
+        console.log('user',user)
+        console.log('location',location)
+        console.log('auto',auto)
 
-                            <select
-                                name="engine"
-                                // onChange={this.props.onChange}
-                                style={{
-                                    backgroundColor: this.props.background,
-                                    width:"12%"
-                                }}
-                            >
-                                {
-                                    auto.engine.map((res, i) => {
-                                        return <option key={i} value={res}>{res}</option>
-                                    })
-                                }
-                            </select>
-                        </form>
-                </div>
+        return (
+            <div className="Profile__cars">
+                {initialAuto.length ? <CarsForm/> :''}
+                {/*{initialAuto.map(()=>())}*/}
+>>>>>>> 8918b1aae4f2abd4a2a95acab22145ff55167ea6
+
             </div>
         )
     }
