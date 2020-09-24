@@ -3,8 +3,12 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../../redux/auto/action";
 import DefaultInput from "../../forms/inputs/DefaultInput";
+<<<<<<< HEAD
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
+=======
+import {Link} from "react-router-dom";
+>>>>>>> 911bfeeadbb0e896012829d5fd320325ab490159
 
 
 class CarsForm extends Component {
@@ -39,6 +43,9 @@ class CarsForm extends Component {
         return (
 
                 <div className="cars_forma">
+                    <Link to='/user/account/cars/'>
+                        home
+                    </Link>
                     <h1>Մուտքագրեք ձեր մեքենայի տվյալները</h1>
                     <form encType='multipart/form-data' onSubmit={this.AddAuto}>
                         <DefaultSelect

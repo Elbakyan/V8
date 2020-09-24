@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {fas, faHome, faEnvelope,faCar} from "@fortawesome/free-solid-svg-icons";
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
+import AutoList from "../UserCars/AutoList";
 
 
 class Profile extends React.Component{
@@ -46,6 +47,17 @@ class Profile extends React.Component{
                                 </nav>
 
                                 <div className="Profile__content">
+
+                                    <Route path='/user/account/persional'>
+                                        <PersionalData/>
+                                    </Route>
+                                    <Route path='/user/account/setings'>
+                                        <ProfilSetings />
+                                    </Route>
+                                    <Route path='/user/account/cars'>
+                                        <AutoList />
+                                    </Route>
+
                                     <Switch>
                                         <Route path='/user/account/persional'>
                                             <PersionalData/>
@@ -54,6 +66,7 @@ class Profile extends React.Component{
                                             <UserCars />
                                         </Route>
                                     </Switch>
+
                                 </div>
 
                             </div>

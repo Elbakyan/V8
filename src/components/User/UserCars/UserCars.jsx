@@ -5,12 +5,35 @@ import {GetModel} from "../../../redux/auto/action";
 
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
+<<<<<<< HEAD
+import DefaultInput from "../../forms/inputs/DefaultInput";
+import CarsForm from "./CarsForm";
+=======
+
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import CarsForm from "./CarsForm";
 
+import  './UserCars.scss';
+
+
+>>>>>>> 911bfeeadbb0e896012829d5fd320325ab490159
+
 const  initialAuto = [
     {
-        model:''
+        id:1,
+        model:'BMW',
+        mark:'BMW M5',
+        image:'https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/30yearsm5/bmw-m5-30jahre-sp-xxl.jpg',
+        engine:'5',
+        category:'ԹԵԹԵՎ ՄԱՐԴԱՏԱՐ',
+        bodyType:'ՈՒՆԻՎԵՐՍԱԼ',
+        color:'Արծաթափայլ',
+        year:2015,
+        vin:'V25-4402158',
+        royle:'ձախ',
+        fuel:'Բենզին',
+        numbers:'77 TT 777'
+
     }
 ]
 
@@ -25,19 +48,10 @@ class UserCars extends Component {
         this.props.dispatch(GetModel())
     }
 
-    AddAuto(e) {
-        e.preventDefault();
-        let data = new FormData(e.target)
 
-        this.state.img.map(file => {
-            data.append('image[]', file[0])
-        })
-        POST(Url.registration,data).then(res => {
-            console.log(res)
-        })
-    }
 
     render() {
+<<<<<<< HEAD
         const {user,location,auto,dispatch} = this.props;
         return (
             <div className="Profile__cars">
@@ -76,6 +90,12 @@ class UserCars extends Component {
                             />
                         </form>
                 </div>
+=======
+
+        return (
+            <div className="Profile__cars">
+
+>>>>>>> 911bfeeadbb0e896012829d5fd320325ab490159
             </div>
 
         )
@@ -86,6 +106,7 @@ class UserCars extends Component {
 const MapStateToProps = state => state;
 const MainUserCars = connect(MapStateToProps)(UserCars)
 export  default MainUserCars;
+<<<<<<< HEAD
 
 
 // <div className="img__name">
@@ -96,3 +117,5 @@ export  default MainUserCars;
 //     })}
 //
 // </div>
+=======
+>>>>>>> 911bfeeadbb0e896012829d5fd320325ab490159
