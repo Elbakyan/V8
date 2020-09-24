@@ -1,6 +1,6 @@
 import {SCORE_EXIST} from "./action";
 const initialState = {
-    status: true
+    status: false
 }
 
 export default function ScoreExistReducer(state = initialState,action){
