@@ -86,6 +86,20 @@ class ProfilSetings extends Component {
                                 width= '48%'
                             />
                         </div>
+                        <label className='file row align-center' style={{width:'48%'}}>
+                            <span className='file__name'>Ներբեռնել լուսանկար․․․</span>
+                            <DefaultInput
+                                onChange={(e) => {
+                                    document.querySelector('.file__name').textContent = e.target.value;
+                                }}
+                                className="file_input"
+                                type="file"
+                                placeholder='Լուսանկար․․․'
+                                name='image'
+                                width='100%'
+
+                            />
+                        </label>
                         <DefaultBtn
                             type='submit'
                             name='Հաստատել'

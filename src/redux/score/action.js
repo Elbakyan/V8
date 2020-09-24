@@ -10,7 +10,5 @@ export function ScoreExist  () {
                 payload: res
             })
         })
-
-
     }
 }

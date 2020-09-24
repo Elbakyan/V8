@@ -27,7 +27,7 @@ class Score extends Component {
                         <Account/>
                     </Route>
                     {
-                        this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to='/score/account' /> : <Redirect to='/score/login' />
+                        this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/score/login' />
                     }
                 </div>
             </div>
@@ -35,6 +35,6 @@ class Score extends Component {
     }
 }
 
-const MapStateToProps = state => state.user;
+const MapStateToProps = state => state.score;
 const MainScore = connect(MapStateToProps)(Score);
 export default MainScore;
