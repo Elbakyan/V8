@@ -75,19 +75,20 @@ const initalState = {
     ],
     engine:(() => {
         let temp = [];
-        let year = new Date().getFullYear();
+        // let year = new Date().getFullYear();
         for (let i = 0; i < 7; i++){
-            if(i> 0 ){
+            if(i > 0 ){
                 temp.push(i + '.0')
-                temp.push(i + '.0 T')
             }
             for (let j = 1; j < 10; j++){
-                temp.push(i + '.' + j)
-                temp.push(i + '.' + j + ' T')
+                if(i == 0 && j >= 8){
+                    temp.push(i + '.' + j)
+                }else if(i > 0){
+                    temp.push(i + '.' + j)
+                }
             }
         }
         temp.push("7.0")
-        temp.push("7.0 T")
         return temp;
     })(),
 }
