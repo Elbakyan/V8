@@ -28,13 +28,8 @@ class App extends React.Component{
 
     componentDidMount() {
 
-<<<<<<< HEAD
         this.props.dispatch(UserExist())
-        this.props.dispatch(ScoreExist())
-=======
-        // this.props.dispatch(UserExist())
         // this.props.dispatch(ScoreExist())
->>>>>>> 911bfeeadbb0e896012829d5fd320325ab490159
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
 

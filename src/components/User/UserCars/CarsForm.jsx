@@ -3,12 +3,10 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../../redux/auto/action";
 import DefaultInput from "../../forms/inputs/DefaultInput";
-<<<<<<< HEAD
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
-=======
 import {Link} from "react-router-dom";
->>>>>>> 911bfeeadbb0e896012829d5fd320325ab490159
+import DefaultBtn from "../../forms/buttons/DefaultBtn";
 
 
 class CarsForm extends Component {
@@ -104,6 +102,10 @@ class CarsForm extends Component {
                                 })
                             }
                         </select>
+                        <DefaultBtn
+                            name='Avelacnel'
+
+                        />
                     </form>
                 </div>
 
