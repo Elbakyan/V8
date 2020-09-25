@@ -103,9 +103,11 @@ export const category = [
     }
 ]
 
-export const bod = [
+export const transmission = [
     {
         id:1,
-        name:'ԹԵԹԵՎ ՄԱՐԴԱՏԱՐ'
+        name:'Ավտոմատ'
     }
 ]
+
+// export  const

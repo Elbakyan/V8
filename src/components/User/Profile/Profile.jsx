@@ -4,10 +4,10 @@ import './Profile.scss'
 import {Link, Route, Switch} from "react-router-dom";
 import PersionalData from "./PersionalData";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {fas, faHome, faEnvelope,faCar} from "@fortawesome/free-solid-svg-icons";
+import {fas, faHome, faEnvelope,faCar,faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
-import AutoList from "../UserCars/AutoList";
+import CarsForm from "../UserCars/CarsForm";
 
 
 class Profile extends React.Component{
@@ -42,29 +42,41 @@ class Profile extends React.Component{
                                             </div>
                                             <Link to='/user/account/cars'>Իմ Մեքենաները</Link>
                                         </li>
+                                        <li>
+                                            <div className="icon">
+                                                <FontAwesomeIcon icon={faPlusCircle}/>
+                                            </div>
+                                            <Link to='/user/account/cars/add'>
+                                                Ավելացնել
+                                            </Link>
+                                        </li>
+
 
                                     </ul>
                                 </nav>
 
                                 <div className="Profile__content">
 
-                                    <Route path='/user/account/persional'>
-                                        <PersionalData/>
-                                    </Route>
-                                    <Route path='/user/account/setings'>
-                                        <ProfilSetings />
-                                    </Route>
-                                    <Route path='/user/account/cars'>
-                                        <AutoList />
-                                    </Route>
+
 
                                     <Switch>
                                         <Route path='/user/account/persional'>
                                             <PersionalData/>
                                         </Route>
+                                        <Route path='/user/account/persional'>
+                                            <PersionalData/>
+                                        </Route>
+                                        <Route path='/user/account/setings'>
+                                            <ProfilSetings />
+                                        </Route>
+                                        <Route path='/user/account/cars/add'>
+                                            <CarsForm/>
+                                        </Route>
                                         <Route path='/user/account/cars'>
                                             <UserCars />
                                         </Route>
+
+
                                     </Switch>
 
                                 </div>
