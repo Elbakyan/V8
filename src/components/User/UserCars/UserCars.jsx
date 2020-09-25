@@ -9,7 +9,7 @@ class UserCars extends Component{
     render() {
         return(
             <div>
-                sss
+
             </div>
         )
     }

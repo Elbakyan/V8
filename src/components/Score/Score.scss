@@ -2,35 +2,6 @@
 @import "../../style/var.scss";
 
 
-.file{
-  width: 100%;
-  background-color: $white;
-  margin: 5px 0;
-  padding: 10px;
-  cursor: pointer;
-  position: relative;
-  color: darken($white, 50);
-  &:after{
-    content: '';
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-image: url(https://brutal.am/Server/img/icon/upload.svg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
-    right: 0;
-
-  }
-  input[type="file"] {
-    display: none;
-
-  }
-
-}
-
-
 .Signin-score {
   width: 100%;
   height: calc(100vh - 60px);

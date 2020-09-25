@@ -17,7 +17,6 @@ class Profile extends React.Component{
     }
 
     render() {
-
         return (
             <section className="Profile col">
                 <div className="container">
@@ -56,9 +55,6 @@ class Profile extends React.Component{
                                 </nav>
 
                                 <div className="Profile__content">
-
-
-
                                     <Switch>
                                         <Route path='/user/account/persional'>
                                             <PersionalData/>
@@ -78,9 +74,7 @@ class Profile extends React.Component{
 
 
                                     </Switch>
-
                                 </div>
-
                             </div>
                 </div>
 

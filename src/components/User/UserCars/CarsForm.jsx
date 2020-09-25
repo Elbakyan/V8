@@ -1,116 +1,197 @@
 import React, {Component} from "react";
+import './UserCars.scss'
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../../redux/auto/action";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
-import {Link} from "react-router-dom";
+import ReactAudioPlayer from 'react-audio-player';
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
+
 
 
 class CarsForm extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            img: []
+            img: [],
+            audio: false
         }
     }
     componentDidMount() {
         this.props.dispatch(GetModel())
     }
 
+    GetImg(e){
+        document.querySelector('.file__name').textContent = e.target.value;
+        this.setState({
+            img: [...this.state.img,e.target.files]
+        })
+
+    }
+    startAudio = () => {
+        this.setState({
+            audio: false
+        })
+    }
     AddAuto(e) {
         e.preventDefault();
         let data = new FormData(e.target)
+        this.setState({
+            audio: true
+        })
+        setTimeout(this.startAudio,3700)
 
         this.state.img.map(file => {
             data.append('image[]', file[0])
         })
+        console.log(Array.from(data))
         POST(Url.registration,data).then(res => {
             console.log(res)
         })
     }
 
     render() {
-        console.log(this.props)
-        const {user,location,auto,dispatch} = this.props;
-        console.log('user',user)
-        console.log('location',location)
-        console.log('auto',auto)
+
         return (
 
                 <div className="cars_forma">
-                    <Link to='/user/account/cars/'>
-                        home
-                    </Link>
+                    {
+                        this.state.audio ?
+                            <ReactAudioPlayer
+                            src="https://brutal.am/Server/audio/v8.mp3"
+                            autoPlay />  : ''
+                    }
                     <h1>Մուտքագրեք ձեր մեքենայի տվյալները</h1>
-                    <form encType='multipart/form-data' onSubmit={this.AddAuto}>
-                        <DefaultSelect
-                            onChange={(e)=>{
-                                dispatch(GetModel(e))
-                            }}
-                            data={auto.mark}
-                            width= '20%'
-                        />
-                        <DefaultSelect
-                            data={auto.model}
-                            width= '20%'
-                        />
-                        <select
-                            name="year"
-                            // onChange={this.props.onChange}
-                            style={{
-                                backgroundColor: this.props.background,
-                                width:"12%"
-                            }}
-                        >
-                            {
-                                auto.year.map((res, i) => {
-                                    return <option key={i} value={res}>{res}</option>
-                                })
-                            }
-                        </select>
-                        <label>
-                            Turbo
-                            <DefaultInput
-                                type="checkbox"
-                                placeholder='Անուն․․․'
-                                name='name'
-                                width='2%'
+                    <form id='add__auto' encType='multipart/form-data' onSubmit={this.AddAuto.bind(this)}>
+                        <div className='items'>
+                            <span>*</span>
+                            <select name="mark" >
+                                <option value="">Mercedes</option>
+                            </select>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">Mercedes E-350</option>
+                            </select>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <label>
+                                <DefaultInput
+                                    type='text'
+                                    placeholder='VIN'
+                                />
+                            </label>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">2020</option>
+                            </select>
+                        </div>
 
-                            />
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">3.5</option>
+
+                            </select>
+                        </div>
+                        <div className="items">
+                            <label>
+                                <input type="text" placeholder='Ձիաուժ'/>
+                            </label>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">Left</option>
+                            </select>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">Spitak</option>
+                            </select>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">Benzin</option>
+                            </select>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">Avtomat</option>
+                            </select>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">Sedan</option>
+                            </select>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">Mardatar</option>
+                            </select>
+                        </div>
+                        <div className="items">
+                            <span>*</span>
+                            <select name="" id="">
+                                <option value="">4x4</option>
+                            </select>
+                        </div>
+
+                        <div className="items">
+                            <label className='auto__number'>
+                                <DefaultInput
+                                    type='text'
+                                    placeholder='XX YY XXX'
+                                    onInput={(e) =>{
+                                        switch (e.target.value.length){
+                                            case 2:
+                                                e.target.value += ' '
+                                            case 6:
+                                                e.target.value += ' '
+                                        }
+                                    }}
+                                />
+                            </label>
+                        </div>
+                        <div className="items">
+                            <label className='file row align-center'>
+                                <span className='file__name'>Ներբեռնել...</span>
+                                <DefaultInput
+                                    type='file'
+                                    onChange={this.GetImg.bind(this)}
+                                />
+                            </label>
+                            <div className="img_name" style={this.state.img.length> 0 ?{  display:'flex' }:{display:'none'}}>
+                                {
+                                    this.state.img.map(img =>{
+                                        return (
+                                            <span>{img[0].name}</span>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+
+                        <label className="btn">
+                            <div className="items ">
+                                <DefaultBtn
+                                    type='submit'
+                                />
+                            </div>
                         </label>
-
-
-                        <DefaultSelect
-                            data={auto.color}
-                            width= '25%'
-                        />
-
-                        <select
-                            name="engine"
-                            // onChange={this.props.onChange}
-                            style={{
-                                backgroundColor: this.props.background,
-                                width:"12%"
-                            }}
-                        >
-                            {
-                                auto.engine.map((res, i) => {
-                                    return <option key={i} value={res}>{res}</option>
-                                })
-                            }
-                        </select>
-                        <DefaultBtn
-                            type='submit'
-                            name='Avelacnel'
-                            background="#143645"
-                            color='#ffffff'
-                            light={30}
-
-                        />
                     </form>
+
                 </div>
 
         )

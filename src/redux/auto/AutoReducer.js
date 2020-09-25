@@ -1,5 +1,5 @@
 import {GET_MODEL, GET_MARK} from "./action";
-import {body, color} from "./color";
+import {body, color} from "./Values";
 
 const initalState = {
     mark: [],
