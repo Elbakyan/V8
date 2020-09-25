@@ -103,7 +103,11 @@ class CarsForm extends Component {
                             }
                         </select>
                         <DefaultBtn
+                            type='submit'
                             name='Avelacnel'
+                            background="#143645"
+                            color='#ffffff'
+                            light={30}
 
                         />
                     </form>
