@@ -1,0 +1,38 @@
+@import "../../../style/All.scss";
+@import "../../../style/var.scss";
+
+.slider_auto{
+  width: 100%;
+  display: flex;
+
+  .slider_img_header{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+  }
+
+  .slider_img_body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    background: $main-color;
+    >div{
+      width:100%;
+      height:30%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+    }
+    >div:active{
+      cursor: grabbing;
+    }
+    >div:hover{
+      border: 5px solid ;
+    }
+  }
+}

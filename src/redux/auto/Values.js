@@ -67,3 +67,49 @@ export const body = [
         name:'Ունիվերսալ'
     }
 ]
+
+
+export const transmision = [
+    {
+        id:1,
+        name:'4 Քարշակ'
+    }
+]
+
+export const royle = [
+    {
+        id:1,
+        name:'ձախ'
+    }
+]
+
+export const fuel = [
+    {
+        id:1,
+        name:'բենզին'
+    }
+]
+
+export const type = [
+    {
+        id:1,
+        name:'Սեդան'
+    }
+]
+
+export const category = [
+    {
+        id:1,
+        name:'ԹԵԹԵՎ ՄԱՐԴԱՏԱՐ'
+    }
+]
+
+export const transmission = [
+    {
+        id:1,
+        name:'Ավտոմատ'
+    }
+]
+
+// export  const
+

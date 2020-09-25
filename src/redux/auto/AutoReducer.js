@@ -1,5 +1,7 @@
 import {GET_MODEL, GET_MARK} from "./action";
-import {body, color} from "./Values";
+
+import {body, category, color, royle, transmission} from "./Values";
+
 
 const initalState = {
     mark: [],
@@ -7,16 +9,19 @@ const initalState = {
     year:(()=>{
         let temp = [];
         let year = new Date().getFullYear();
-        for (let i = year; i >= 1915; i--){
+        for (let i = year; i >= 1975; i--){
             temp.push(i);
         }
         return temp;
     })(),
     color:color,
     body:body,
+    royle:royle,
+    category:category,
+    transmission:transmission,
+
     engine:(() => {
         let temp = [];
-        // let year = new Date().getFullYear();
         for (let i = 0; i < 7; i++){
             if(i > 0 ){
                 temp.push(i + '.0')
