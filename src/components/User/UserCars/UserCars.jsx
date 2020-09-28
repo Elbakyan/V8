@@ -4,6 +4,8 @@ import CarsForm from "./CarsForm";
 import './UserCars.scss'
 import {royle} from "../../../redux/auto/Values";
 import SliderAuto from "./SliderAuto";
+import engine from './icon/car-engine.svg'
+import DefaultBtn from "../../forms/buttons/DefaultBtn";
 const usAuto = [
     {
         id:1,
@@ -12,19 +14,19 @@ const usAuto = [
         model:'BMW M5',
         royle:'Ձախ',
         transmission_box:'Ավտոմատ',
-        color:'Կարմիր',
+        color:'-',
         year:'2015',
         fuel:'Բենզին',
         transmission: '',
         engine: '5,0',
-        number:'77VS777',
+        number:'77 VS 777',
         vin:'740-VH4477',
         img:[
             'https://ag-spots-2015.o.auroraobjects.eu/2015/02/14/other/2880-1800-crop-bmw-m5-f10-30-jahre-edition-c160914022015234303_1.jpg',
             'https://bmw.vin.ua/files/images/units/covers/big/news-1005181.jpg',
-            'https://www.bmw.ru/content/dam/bmw/marketRU/bmw_ru/images/Res_the-new-bmw-m5-compe890_3.jpg',
+            'https://www.ludoviccareme.com/files/image_211_image_fr.jpg',
             'https://usetrans.com/wp-content/uploads/2018/05/BMW-M5-Competition-2018-2019-7-min.jpg',
-            'https://autoru-mag.s3.yandex.net/2020/05/28/233ec49f42aa4fc6a23cea3228e5b5ff.jpg'
+            'https://i.pinimg.com/originals/d5/90/1b/d5901b60b9fd42ec907d79d473ea5bd0.jpg'
         ],
         type:'Սեդան',
         category:'Թեթև մարդատար',
@@ -48,11 +50,15 @@ const usAuto = [
         fuel:'Բենզին',
         transmission: '',
         engine: '5,0',
-        number:'77VS777',
+        number:'77 VS 777',
         vin:'740-VH4477',
         img:[
             'https://ag-spots-2015.o.auroraobjects.eu/2015/02/14/other/2880-1800-crop-bmw-m5-f10-30-jahre-edition-c160914022015234303_1.jpg',
-            'https://ag-spots-2015.o.auroraobjects.eu/2015/02/14/other/2880-1800-crop-bmw-m5-f10-30-jahre-edition-c160914022015234303_1.jpg',
+            'https://bmw.vin.ua/files/images/units/covers/big/news-1005181.jpg',
+            'https://www.bmw.ru/content/dam/bmw/marketRU/bmw_ru/images/Res_the-new-bmw-m5-compe890_3.jpg',
+            'https://usetrans.com/wp-content/uploads/2018/05/BMW-M5-Competition-2018-2019-7-min.jpg',
+            'https://usetrans.com/wp-content/uploads/2018/05/BMW-M5-Competition-2018-2019-7-min.jpg',
+            'https://usetrans.com/wp-content/uploads/2018/05/BMW-M5-Competition-2018-2019-7-min.jpg',
             'https://ag-spots-2015.o.auroraobjects.eu/2015/02/14/other/2880-1800-crop-bmw-m5-f10-30-jahre-edition-c160914022015234303_1.jpg',
         ],
         type:'Սեդան',
@@ -77,7 +83,7 @@ const usAuto = [
         fuel:'Բենզին',
         transmission: '',
         engine: '5,0',
-        number:'77VS777',
+        number:'77 VS 777',
         vin:'740-VH4477',
         img:[
             'https://ag-spots-2015.o.auroraobjects.eu/2015/02/14/other/2880-1800-crop-bmw-m5-f10-30-jahre-edition-c160914022015234303_1.jpg',
@@ -131,86 +137,71 @@ class UserCars extends Component{
                                             <div className="car_slider">
                                                 <SliderAuto autoImage={img}/>
                                             </div>
-
                                         </div>
 
                                         <div className='block-right'>
                                             <div className="car_info">
-                                                <nav>
-                                                    <ul>
-                                                        <li>
-                                                            <span>Շարժիչը</span>
-                                                            <span ></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>Ձիաուժը</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>Տարեթիվ</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>Գույն</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>Փոխանցման տուփը</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>Ղեկը</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>Նույնացման համար (VIN)</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>Վառելիքը</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>Թափքի տեսակը</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>ՏՄ Տեսակը</span>
-                                                        </li>
-                                                    </ul>
+                                                <table className="auto_parapters">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Շարժիչը</td>
+                                                            <td>{engine}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ձիաուժը</td>
+                                                            <td>{power}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Տարեթիվ</td>
+                                                            <td>{year}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Գույն</td>
+                                                            <td>{color}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Փոխանցման տուփը</td>
+                                                            <td>{transmission_box}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ղեկը</td>
+                                                            <td>{royle}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Նույնացման համար (VIN)</td>
+                                                            <td>{vin}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Վառելիքը</td>
+                                                            <td>{fuel}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Թափքի տեսակը</td>
+                                                            <td>{type}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ՏՄ Տեսակը</td>
+                                                            <td>{category}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
 
-                                                    <ul>
-                                                        <li>
-                                                            <span>{engine}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>{power}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>{year}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>{color}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>{transmission_box}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>{royle}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>{vin}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>{fuel}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>{type}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>{category}</span>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
-
-                                                {/*<div className="car__number">*/}
-                                                {/*    <h1>*/}
-                                                {/*        <span>{number[0]}{number[1]}</span>*/}
-                                                {/*    </h1>*/}
-                                                {/*</div>*/}
+                                                <div className="sell_cars">
+                                                    <div className="number_cars">
+                                                        <span>{number}</span>
+                                                    </div>
+                                                    <DefaultBtn
+                                                        name='Վաճառել'
+                                                        type='submit'
+                                                        background='#143645'
+                                                        color='#ffffff'
+                                                        light={30}
+                                                        className='Login__btn'
+                                                    />
+                                                </div>
                                             </div>
+
+
                                         </div>
 
                                     </div>

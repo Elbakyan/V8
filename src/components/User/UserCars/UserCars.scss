@@ -30,7 +30,7 @@
       }
       .car_slider{
         width: 80%;
-        padding:0 20px 20px 20px;
+        //padding:0 20px 20px 20px;
         //height: 90%;
       }
 
@@ -45,23 +45,37 @@
       justify-content: center;
       //border: 1px solid red;
       .car_info{
-        >nav{
-          display: flex;
-          width: 100%;
-          justify-content: space-around;
-          ul{
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .auto_parapters{
+          margin: 20px 0;
+          width: 80%;
+          >tbody{
+            width: 50%;
+            >tr{
+              margin-bottom: 12px;
+              >td{
+                font-size: 18px;
+                border-bottom: 1px solid #ececec;
+              }
+            }
           }
-          ul:nth-child(1){
-            font-size: 18px;
-            font-weight: bold;
-          }
-          ul:nth-child(2){
-            font-size: 18px;
-          }
-
         }
+        .sell_cars{
+          margin: 20px 0;
+          width: 80%;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+
       }
+
+
+
+
     }
 
 

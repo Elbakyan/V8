@@ -19,6 +19,7 @@ class CarsForm extends Component {
             audio: false
         }
     }
+
     componentDidMount() {
         this.props.dispatch(GetModel())
     }
@@ -35,6 +36,7 @@ class CarsForm extends Component {
             audio: false
         })
     }
+
     AddAuto(e) {
         e.preventDefault();
         let data = new FormData(e.target)
