@@ -25,7 +25,7 @@ class CarsForm extends Component {
     }
 
     GetImg(e){
-        document.querySelector('.file__name').textContent = e.target.value;
+        // document.querySelector('.file__name').textContent = e.target.value;
         this.setState({
             img: [...this.state.img,e.target.files]
         })
@@ -43,7 +43,7 @@ class CarsForm extends Component {
         this.setState({
             audio: true
         })
-        setTimeout(this.startAudio,3700)
+        setTimeout(this.startAudio,2000)
 
         this.state.img.map(file => {
             data.append('image[]', file[0])
@@ -55,7 +55,7 @@ class CarsForm extends Component {
     }
 
     render() {
-
+        console.log(this.props.auto)
         return (
 
                 <div className="cars_forma">
@@ -69,13 +69,14 @@ class CarsForm extends Component {
                     <form id='add__auto' encType='multipart/form-data' onSubmit={this.AddAuto.bind(this)}>
                         <div className='items'>
                             <span>*</span>
-                            <select name="mark" >
-                                <option value="">Mercedes</option>
-                            </select>
+                            <DefaultSelect
+                                name='mark'
+                                data={this.props.auto.mark}
+                            />
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
+                            <select name="model">
                                 <option value="">Mercedes E-350</option>
                             </select>
                         </div>
@@ -84,76 +85,101 @@ class CarsForm extends Component {
                             <label>
                                 <DefaultInput
                                     type='text'
+                                    name='vin'
                                     placeholder='VIN'
                                 />
                             </label>
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
-                                <option value="">2020</option>
+                            <select name="year">
+                                {
+                                    this.props.auto.year.map((val,id) => {
+                                        return (
+                                            <option value={val} key={id}>{val}</option>
+                                        )
+                                    })
+                                }
                             </select>
                         </div>
 
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
-                                <option value="">3.5</option>
+                            <select name="engine">
 
+                                {
+                                   this.props.auto.engine.map((val,id) => {
+                                       return (
+                                           <option value={val} key={id}>{val}</option>
+                                       )
+                                   })
+                                }
                             </select>
                         </div>
                         <div className="items">
                             <label>
-                                <input type="text" placeholder='Ձիաուժ'/>
+                                <input
+                                    type="text"
+                                    name='power'
+                                    placeholder='Ձիաուժ'
+                                />
                             </label>
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
-                                <option value="">Left</option>
-                            </select>
+                            <DefaultSelect
+                                name='royle'
+                                data={this.props.auto.royle}
+                            />
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
-                                <option value="">Spitak</option>
-                            </select>
+                            <DefaultSelect
+                                name='color'
+                                data={this.props.auto.color}
+                            />
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
-                                <option value="">Benzin</option>
-                            </select>
+                            <DefaultSelect
+                                name='fuel'
+                                data={this.props.auto.fuel}
+                            />
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
-                                <option value="">Avtomat</option>
-                            </select>
+                            <DefaultSelect
+                                name='transmission'
+                                data={this.props.auto.transmission}
+                            />
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
-                                <option value="">Sedan</option>
-                            </select>
+                            <DefaultSelect
+                                name='type'
+                                data={this.props.auto.type}
+                            />
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
-                                <option value="">Mardatar</option>
-                            </select>
+                            <DefaultSelect
+                                name='category'
+                                data={this.props.auto.category}
+                            />
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="" id="">
-                                <option value="">4x4</option>
-                            </select>
+                            <DefaultSelect
+                                name='traction'
+                                data={this.props.auto.traction}
+                            />
                         </div>
 
                         <div className="items">
                             <label className='auto__number'>
                                 <DefaultInput
                                     type='text'
+                                    name='number'
                                     placeholder='XX YY XXX'
                                     onInput={(e) =>{
                                         switch (e.target.value.length){
@@ -203,12 +229,3 @@ class CarsForm extends Component {
 const MapStateToProps = state => state;
 const MainCarsForm = connect(MapStateToProps)(CarsForm)
 export  default MainCarsForm;
-
-// <div className="img__name">
-//     {this.state.img.map(file => {
-//         return <span style={{margin:'0px 5px'}}>
-//                                     {file[0].name}
-//                                     </span>
-//     })}
-//
-// </div>

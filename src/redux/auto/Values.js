@@ -1,3 +1,14 @@
+export const royle = [
+    {
+        id:1,
+        name:'ձախ'
+    },
+    {
+        id:2,
+        name:'Աջ'
+    }
+];
+
 export  const color = [
     {
         id:1,
@@ -59,57 +70,131 @@ export  const color = [
         name:'Վարդագույն',
         color:'#FF0080'
     }
-]
-
-export const body = [
-    {
-        id:1,
-        name:'Ունիվերսալ'
-    }
-]
-
-
-export const transmision = [
-    {
-        id:1,
-        name:'4 Քարշակ'
-    }
-]
-
-export const royle = [
-    {
-        id:1,
-        name:'ձախ'
-    }
-]
+];
 
 export const fuel = [
     {
         id:1,
-        name:'բենզին'
+        name:'Բենզին'
+    },
+    {
+        id:2,
+        name:'Բենզին/Բնական գազ'
+    },
+    {
+        id:4,
+        name:'Բենզին/Հեղուկ գազ'
+    },
+    {
+        id:3,
+        name:'Դիզել'
+    },
+    {
+        id:5,
+        name:'Հիբրիդ'
+    },
+    {
+        id:6,
+        name:'Էլեկտրական'
     }
-]
+];
 
 export const type = [
     {
         id:1,
         name:'Սեդան'
-    }
-]
+    },
+    {
+        id:2,
+        name:'Ամենագնաց'
+    },
+    {
+        id:3,
+        name:'Կուպե'
+    },
+    {
+        id:4,
+        name:'Հետչբեկ'
+    },
+    {
+        id:5,
+        name:'ՈՒնիվերսալ'
+    },
+    {
+        id:6,
+        name:'Կաբրիոլետ'
+    },
+    {
+        id:7,
+        name:'Պիկապ'
+    },
+];
 
 export const category = [
     {
         id:1,
         name:'ԹԵԹԵՎ ՄԱՐԴԱՏԱՐ'
     }
-]
+];
 
 export const transmission = [
     {
         id:1,
+        name:'Մեխանիկական'
+    },
+    {
+        id:1,
         name:'Ավտոմատ'
+    },
+    {
+        id:1,
+        name:'Տիպտոնիկ'
     }
+];
+
+export const year = (()=>{
+    let temp = [];
+    let year = new Date().getFullYear();
+    for (let i = year; i >= 1975; i--){
+        temp.push(i);
+    }
+    return temp;
+})();
+
+export const engine = (() => {
+    let temp = [];
+    for (let i = 0; i < 7; i++){
+        if(i > 0 ){
+            temp.push(i + '.0')
+        }
+        for (let j = 1; j < 10; j++){
+            if(i == 0 && j >= 8){
+                temp.push(i + '.' + j)
+            }else if(i > 0){
+                temp.push(i + '.' + j)
+            }
+        }
+    }
+    temp.push("7.0")
+    return temp;
+})();
+
+export const  traction =[
+    {
+        id: 1,
+        name: 'Արջևի քարշակ'
+    },
+    {
+        id: 2,
+        name: 'Հետևի քարշակ'
+    },
+    {
+        id: 3,
+        name: 'Լիաքաշակ'
+    },
+
 ]
+
 
 // export  const
 

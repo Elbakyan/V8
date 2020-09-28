@@ -150,7 +150,8 @@
         }
       }
       .img_name{
-        width: 250px;
+        min-width: 250px;
+        max-width: 300px;
         position: absolute;
         display: none;
         flex-wrap: wrap;
@@ -179,11 +180,11 @@
       }
     }
     .btn{
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 150px;
+      margin: 0 auto;
       perspective: 500px;
+      border-radius: 50%;
+
 
       > .items{
         width: 150px;
@@ -192,7 +193,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 50%;
+
         transform-style: preserve-3d;
 
 
