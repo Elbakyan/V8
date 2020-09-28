@@ -38,7 +38,7 @@ class App extends React.Component{
 
 
     render() {
-
+        console.log(this.props)
       return (
           <div className="App">
 
@@ -56,9 +56,10 @@ class App extends React.Component{
                   <Route exact path='/spare-parts'>
                       <SpaerParts/>
                   </Route>
+                  {this.props.user.status  == undefined? <Loading/> : this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
+                  {this.props.score.status  == undefined? <Loading/> : this.props.score.status? <Redirect to='/score/account'/> : <Redirect to='/'/>}
               </Switch>
-              {this.props.user.status  == undefined? <Loading/> : this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
-              {/*{this.props.score.status  == undefined? <Loading/> : this.props.score.status? <Redirect to='/score/account'/> : <Redirect to='/'/>}*/}
+
           </div>
       );
   }

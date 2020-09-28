@@ -4,7 +4,7 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../../redux/auto/action";
 import DefaultInput from "../../forms/inputs/DefaultInput";
-import {POST} from "../../config/Requsest";
+import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import ReactAudioPlayer from 'react-audio-player';
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
@@ -44,20 +44,17 @@ class CarsForm extends Component {
             audio: true
         })
         setTimeout(this.startAudio,2000)
-
         this.state.img.map(file => {
             data.append('image[]', file[0])
         })
-        console.log(Array.from(data))
-        POST(Url.registration,data).then(res => {
+        TEST_POST(Url.addauto,data).then(res => {
             console.log(res)
         })
+        console.log(Array.from(data))
     }
 
     render() {
-        console.log(this.props.auto)
         return (
-
                 <div className="cars_forma">
                     {
                         this.state.audio ?
