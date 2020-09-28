@@ -54,6 +54,8 @@ class CarsForm extends Component {
     }
 
     render() {
+        console.log(this.props)
+        const {dispatch} = this.props
         return (
                 <div className="cars_forma">
                     {
@@ -67,15 +69,19 @@ class CarsForm extends Component {
                         <div className='items'>
                             <span>*</span>
                             <DefaultSelect
+                                onChange={(e)=>{
+                                   dispatch(GetModel(e))
+                                }}
                                 name='mark'
                                 data={this.props.auto.mark}
                             />
                         </div>
                         <div className="items">
                             <span>*</span>
-                            <select name="model">
-                                <option value="">Mercedes E-350</option>
-                            </select>
+                            <DefaultSelect
+                                name='model'
+                                data={this.props.auto.model}
+                            />
                         </div>
                         <div className="items">
                             <span>*</span>
