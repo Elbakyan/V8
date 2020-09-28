@@ -1,9 +1,12 @@
 @import "var";
 
 .container{
-  width: 80%;
+ width: 98%;
   height: 100%;
   margin: 0 auto;
+  @media(min-width:1200px){
+    width: 1140px;
+  }
 }
 .row{
   display: flex;

@@ -6,6 +6,7 @@ import {royle} from "../../../redux/auto/Values";
 import SliderAuto from "./SliderAuto";
 import engine from './icon/car-engine.svg'
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
+import DefaultInput from "../../forms/inputs/DefaultInput";
 const usAuto = [
     {
         id:1,
@@ -201,6 +202,41 @@ class UserCars extends Component{
                                                         light={30}
                                                         className='Login__btn'
                                                     />
+                                                </div>
+                                                <div className='sell_user_car'>
+                                                    <form id="sellCar">
+                                                        <div className="left_block">
+                                                            <DefaultInput
+                                                                type='number'
+                                                                name='Վազքը'
+                                                                placeholder='mileage'
+                                                            />
+                                                            <DefaultInput
+                                                                type='number'
+                                                                name='Արժեքը'
+                                                                placeholder='price'
+                                                            />
+                                                            <label>
+                                                                Մակսազերծված է
+                                                                <DefaultInput
+                                                                    type='radio'
+                                                                    name='description'
+                                                                    placeholder='Նկարագրություն'
+                                                                    value="Մակսազերծված է"
+                                                                />
+                                                            </label>
+                                                        </div>
+                                                       <div className="right_block">
+                                                           <textarea className="description_text"
+                                                                     rows="4"
+                                                                     cols="50"
+                                                                     name="description"
+                                                                     form="sellCar"
+                                                           />
+                                                       </div>
+
+
+                                                    </form>
                                                 </div>
                                             </div>
 
