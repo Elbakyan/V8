@@ -10,14 +10,6 @@ import {Url} from "../../config/Url";
 
 class Login extends React.Component{
 
-    Login(e){
-
-        let data = new FormData(e.target)
-
-        POST(Url.login,data).then(res => {
-            console.log(res)
-        })
-    }
     render() {
 
         return (
