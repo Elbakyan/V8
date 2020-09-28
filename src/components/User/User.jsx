@@ -8,13 +8,21 @@ import Loading from "../Loading";
 import {UserExist} from "../../redux/user/action";
 import Signin from "./Authentication/Signin";
 import SpaerParts from "../spare/SpareParts";
+import {GetAuto} from "../../redux/auto/action";
 
 
 class User extends React.Component{
     constructor(props) {
         super(props);
+
     }
+
+
     render() {
+        if (this.props.id){
+            this.props.dispatch(GetAuto(this.props.id))
+        }
+        console.log(this.props)
         return (
             <div className="User">
 
@@ -28,11 +36,11 @@ class User extends React.Component{
                    <Route path='/user/account'>
                        <Account/>
                    </Route>
-                   {
-                       this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/user/login' />
-                   }
-               </Switch>
 
+               </Switch>
+                {
+                    this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/user/login' />
+                }
             </div>
         );
     }

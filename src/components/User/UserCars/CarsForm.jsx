@@ -213,6 +213,11 @@ class CarsForm extends Component {
                                 }
                             </div>
                         </div>
+                        <DefaultInput
+                            type='hidden'
+                            name='id'
+                            value={this.props.user.id}
+                        />
 
                         <label className="btn">
                             <div className="items ">
