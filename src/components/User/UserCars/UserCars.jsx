@@ -19,7 +19,7 @@ const usAuto = [
         fuel:'Բենզին',
         transmission: '',
         engine: '5,0',
-        number:'77 VS 777',
+        number:'99 VA 969',
         vin:'740-VH4477',
         img:[
             'https://ag-spots-2015.o.auroraobjects.eu/2015/02/14/other/2880-1800-crop-bmw-m5-f10-30-jahre-edition-c160914022015234303_1.jpg',
@@ -50,7 +50,7 @@ const usAuto = [
         fuel:'Բենզին',
         transmission: '',
         engine: '5,0',
-        number:'77 VS 777',
+        number:'XX YY XXX',
         vin:'740-VH4477',
         img:[
             'https://ag-spots-2015.o.auroraobjects.eu/2015/02/14/other/2880-1800-crop-bmw-m5-f10-30-jahre-edition-c160914022015234303_1.jpg',
@@ -118,7 +118,6 @@ class UserCars extends Component{
                                     color,
                                     year,
                                     fuel,
-                                    transmission,
                                     engine,
                                     number,
                                     vin,
@@ -166,6 +165,10 @@ class UserCars extends Component{
                                                         <tr>
                                                             <td>Ղեկը</td>
                                                             <td>{royle}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Քարշակը</td>
+                                                            <td>{traction}</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Նույնացման համար (VIN)</td>
