@@ -17,18 +17,6 @@ export function GetMark(){
     }
 }
 
-// export function GetModel(){
-//     return (dispach) => {
-//         GET(Url.auto).then(res => {
-//             dispach({
-//                 type: GET_MARK,
-//                 payload: res
-//             })
-//         })
-//
-//     }
-// }
-
 export function GetModel(e = 1) {
     return async (dispach) => {
 
@@ -44,17 +32,3 @@ export function GetModel(e = 1) {
 
     }
 }
-// export  function GetModel(id){
-//     let data = new  FormData();
-//
-//     data.append('id' , id)
-//     return (dispach) => {
-//         POST(Url.city,data).then(res => {
-//             dispach({
-//                 type: GET_MODEL,
-//                 payload: res
-//             })
-//         })
-//
-//     }
-// }
