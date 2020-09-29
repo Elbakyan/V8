@@ -128,6 +128,10 @@ export const type = [
         id:7,
         name:'Պիկապ'
     },
+    {
+        id:7,
+        name:'Լիմոզին'
+    },
 ];
 
 export const category = [

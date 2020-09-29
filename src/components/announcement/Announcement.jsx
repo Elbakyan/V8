@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './Announcement.scss';
-import Header from "../Home/Header";
+import Header1 from "../Home/Header";
+import Header2 from "../User/Header";
 import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDollarSign} from '@fortawesome/free-solid-svg-icons'
@@ -9,18 +10,21 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../redux/auto/action";
-import {Link} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
+import Result from "./Result";
+import Auto from "./Auto";
 
 class Announcement extends Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         console.log(this.props)
         return (
             <section className="Announcement">
-                <Header/>
+                {
+                    this.props.user.status? <Header2/>:<Header1/>
+                }
                 <div className="content">
                     <div className="container row justify-between">
                         <form className="Announcement__search">
@@ -28,17 +32,17 @@ class Announcement extends Component {
                                 <label >
                                     <DefaultSelect
                                         onChange={(e)=>{
-                                            this.props.dispatch(GetModel(e))
+                                            this.props.auto.dispatch(GetModel(e))
                                         }}
                                         name='mark'
-                                        data={this.props.mark}
+                                        data={this.props.auto.mark}
                                     />
                                 </label>
                                 <label >
                                     <DefaultSelect
 
                                         name='model'
-                                        data={this.props.model}
+                                        data={this.props.auto.model}
                                     />
                                 </label>
                             </div>
@@ -46,7 +50,7 @@ class Announcement extends Component {
                                 <label >
                                     <select name="year">
                                         {
-                                            this.props.year.map((val,id) => {
+                                            this.props.auto.year.map((val,id) => {
                                                 return (
                                                     <option value={val} key={id}>{val}</option>
                                                 )
@@ -58,7 +62,7 @@ class Announcement extends Component {
                                     <DefaultSelect
 
                                         name='royle'
-                                        data={this.props.royle}
+                                        data={this.props.auto.royle}
                                     />
                                 </label>
                             </div>
@@ -96,7 +100,7 @@ class Announcement extends Component {
                                     <DefaultSelect
 
                                         name='royle'
-                                        data={this.props.traction}
+                                        data={this.props.auto.traction}
                                     />
                                 </label>
                             </div>
@@ -104,33 +108,15 @@ class Announcement extends Component {
                                 <label >
                                     <DefaultSelect
                                         name='transmission'
-                                        data={this.props.transmission}
+                                        data={this.props.auto.transmission}
                                     />
                                 </label>
                                 <label >
                                     <DefaultSelect
                                         name='fuel'
-                                        data={this.props.fuel}
+                                        data={this.props.auto.fuel}
                                     />
                                 </label>
-                            </div>
-                            <div>
-                                <label>
-                                    <DefaultInput
-                                        type='number'
-                                        name='mark'
-                                        placeholder='Վազք․․․'
-                                    />
-                                </label>
-                                +-/
-                                <label>
-                                    <DefaultInput
-                                        type='number'
-                                        name='mark'
-                                        placeholder='Վազք․․․'
-                                    />
-                                </label>
-
                             </div>
                             <div className="btn">
                                 <DefaultBtn
@@ -142,11 +128,12 @@ class Announcement extends Component {
                             </div>
 
                         </form>
-                        <div className="result">
-                            <div className="result_auto">
-                                <Link to=''>Audi A5 2020</Link>
-                            </div>
-                        </div>
+                        <Route exact path='/announcement'>
+                            <Result/>
+                        </Route>
+                        <Route exact path='/announcement/1'>
+                            <Auto/>
+                        </Route>
                     </div>
                 </div>
                 <Footer/>
@@ -154,6 +141,6 @@ class Announcement extends Component {
         )
     }
 }
-const MapStateToProps = state => state.auto;
+const MapStateToProps = state => state;
 const MainAnnouncement = connect(MapStateToProps)(Announcement)
 export default MainAnnouncement;
