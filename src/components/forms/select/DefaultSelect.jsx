@@ -13,7 +13,8 @@ class DefaultSelect extends Component {
 
                 style={{
                     backgroundColor: this.props.background,
-                    width: this.props.width
+                    width: this.props.width,
+                    height:this.props.height
                 }}
                 defaultValue='yyyy'
             >

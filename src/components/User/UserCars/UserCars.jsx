@@ -208,6 +208,7 @@ class UserCars extends Component {
                                             <DefaultBtn
                                                 onClick={this.openSell}
                                                 name='Վաճառել'
+                                                width="200px"
                                                 className={'sell_user_car' + id}
                                                 type='submit'
                                                 background='#143645'
@@ -218,27 +219,67 @@ class UserCars extends Component {
                                         <div className={'sell_user_car sell_user_car' + id + ' sell_user_car_open'}>
                                             <form id="sellCar">
                                                 <div className="left_block">
-                                                    <DefaultInput
-                                                        type='number'
-                                                        name='mileage'
-                                                        placeholder='Վազքը'
-                                                    />
+                                                    <div className="left_block_inp">
+                                                        <div className="left_block_inp_measurements">
+                                                            <DefaultInput
+                                                                width="55%"
+                                                                height='50px'
+                                                                type='number'
+                                                                name='mileage'
+                                                                placeholder='Վազքը'
+                                                            />
 
-                                                    <DefaultInput
-                                                        type='number'
-                                                        name='price'
-                                                        placeholder='Արժեքը'
-                                                    />
+                                                            <DefaultSelect
+                                                                width="35%"
+                                                                height='50px'
+                                                                name='measurements'
+                                                                data={[
+                                                                    {
+                                                                        name:'Kilometer'
+                                                                    },
+                                                                    {
+                                                                        name:'Miles'
+                                                                    }
+                                                                ]}
+                                                            />
+                                                        </div>
 
-
-                                                    <label>
-                                                        Մակսազերծված է
                                                         <DefaultInput
-                                                            type='checkbox'
-                                                            name='description'
-                                                            value="Մակսազերծված է"
+                                                            type='number'
+                                                            name='price'
+                                                            placeholder='Արժեքը'
+                                                            width="40%"
+                                                            height='50px'
                                                         />
-                                                    </label>
+                                                    </div>
+
+
+                                                    <div className="left_block_check">
+                                                        <label>
+                                                            Մակսազերծված է
+                                                            <DefaultInput
+                                                                type='checkbox'
+                                                                name='description'
+                                                                value="Մակսազերծված է"
+                                                            />
+                                                        </label>
+                                                        <label>
+                                                            Մաս մաս վճարում
+                                                            <DefaultInput
+                                                                type='checkbox'
+                                                                name='description'
+                                                                value="Մակսազերծված է"
+                                                            />
+                                                        </label>
+                                                        <label>
+                                                            Դիլեր
+                                                            <DefaultInput
+                                                                type='checkbox'
+                                                                name='description'
+                                                                value="Մակսազերծված է"
+                                                            />
+                                                        </label>
+                                                    </div>
                                                 </div>
                                                 <div className="right_block">
                                                            <textarea className="description_text"
@@ -251,6 +292,7 @@ class UserCars extends Component {
                                                 </div>
 
                                                 <DefaultBtn
+                                                    width="100%"
                                                     name='Առաջ'
                                                     type='submit'
                                                     background='#143645'
