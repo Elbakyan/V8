@@ -111,6 +111,12 @@ class UserCars extends Component {
 
     openSell = (e) => {
         console.log(e.target.className)
+        if(e.target.innerHTML === 'Վաճառել'){
+            e.target.innerHTML = "Հրաժարվել վաճառքից"
+        }else {
+            e.target.innerHTML = "Վաճառել"
+        }
+        console.log(e.target.innerHTML)
         const block = document.querySelectorAll('.' + e.target.className)
         console.log(block)
         block[1].classList.toggle('sell_user_car_open')
