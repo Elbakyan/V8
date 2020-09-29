@@ -39,7 +39,7 @@ class Header extends React.Component{
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/acauservice'>
+                                <Link to='/announcement'>
                                     Հայտարարություններ
                                 </Link>
                             </li>

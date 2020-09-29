@@ -1,0 +1,54 @@
+@import "src/style/var";
+.Announcement{
+  width: 100%;
+  .content{
+    width: 100%;
+    height: calc(100vh - 210px);
+    padding-top: 20px;
+
+
+  }
+  &__search{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    >div{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      color: red;
+      label{
+        width: 48%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        select,input{
+          width: 100%;
+        }
+        .icon{
+          position: absolute;
+          right: 5px;
+          color: lighten($main-color, 50);
+        }
+      }
+    }
+    .btn{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button{
+        width: 150px;
+      }
+    }
+  }
+  .result{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

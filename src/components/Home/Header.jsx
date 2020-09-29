@@ -15,11 +15,33 @@ class Header extends React.Component{
             <header>
                 <div className="container row align-center justify-between">
                     <div className="header__log">
-                        <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
+                        <Link to='/'>
+                            <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
+                        </Link>
                     </div>
+                    <nav className="header__navigation ">
+                        <ul className="header__links-ul row align-center">
+                                <li className='header__navigation-li'>
+                                    <Link to='/spare-parts' className='header__link'>
+                                        Պահեստամասեր
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/acauservice'>
+                                        Ծառայություներ
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/announcement'>
+                                        Հայտարարություններ
+                                    </Link>
+                                </li>
+                        </ul>
+                    </nav>
                     <div className="header__links ">
                         <nav className="header_links-nav">
                             <ul className="header__links-ul row align-center">
+
                                 <li className="header__links-li row align-center">
                                     <Link to={this.props.user.status? '/user/account': '/user'}>
                                         <DefaultBtn
@@ -39,7 +61,6 @@ class Header extends React.Component{
                                      />
                                     </Link>
                                 </li>
-
                             </ul>
                         </nav>
                     </div>

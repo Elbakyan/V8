@@ -12,9 +12,42 @@ header{
 
   .header__log{
 
-    > img{
+     img{
       width: 60px;
 
+    }
+  }
+  .header__navigation{
+
+    >ul{
+      display: flex;
+      li{
+        margin: 0px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .3s;
+        position: relative;
+
+        a{
+          font-size: 14px;
+          color: $white;
+        }
+        &:after{
+          content: '';
+          display: block;
+          width: 105%;
+          height: 2px;
+          position: absolute;
+          bottom: -5px;
+          background-color: $white;
+          transform-origin: left;
+          transform: scaleX(0);
+          transition: .3s;
+        }
+        &:hover:after{
+          transform: scaleX(1);
+        }
+      }
     }
   }
 }
