@@ -56,8 +56,6 @@
             width: 50%;
             >tr{
               margin-bottom: 12px;
-
-
               >td{
                 &:first-child{
                   font-weight: bold;
@@ -104,14 +102,44 @@
             }
           }
         }
-
+        .sell_user_car_open{
+          display: none;
+        }
         .sell_user_car{
+          width: 90%;
+
+          //background: #e1e1e1;
+
           >form{
             display: flex;
             flex-direction: column;
-            >input{
-              box-shadow: 0 0 10px $main-color;
-              color: red;
+            padding: 20px;
+            margin: 20px;
+            >.left_block{
+              display: flex;
+              >label{
+                color: #949494;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+            input,textarea{
+              background: #e1e1e1;
+              margin: 5px;
+              border-radius: 5px;
+              border: none;
+
+            }
+            textarea{
+              text-align: start;
+              padding: 10px;
+              &::placeholder{
+                //color: deeppink;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+              }
             }
             .description_text{
               resize: none;
@@ -121,19 +149,9 @@
                 top: 0;
               }
             }
-            >div{
-              display: flex;
-              border: 1px solid red;
-            }
 
-            >label{
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              >input{
-                margin-left: 5px;
-              }
-            }
+
+
           }
 
         }
