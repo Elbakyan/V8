@@ -22,6 +22,8 @@ class DefaultBtn extends Component {
                     }
 
                 }}
+                onClick={this.props.onClick}
+                id={this.props.id}
                 className={this.props.className}
                 type={this.props.type}
                 style={{

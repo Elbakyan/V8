@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+ import React, {Component} from "react";
 import {Link, Route} from "react-router-dom";
 import CarsForm from "./CarsForm";
 import './UserCars.scss'
@@ -105,6 +105,12 @@ class UserCars extends Component{
     constructor(props) {
         super(props);
     }
+    openSell = (e) =>{
+        console.log(e.target.className)
+        const block = document.querySelectorAll('.'+e.target.className)
+        console.log(block)
+        block[1].classList.toggle('sell_user_car_open')
+    }
     render() {
         return(
             <div>
@@ -195,33 +201,33 @@ class UserCars extends Component{
                                                         <span>{number}</span>
                                                     </div>
                                                     <DefaultBtn
+                                                        onClick = {this.openSell}
                                                         name='Վաճառել'
+                                                        className={'sell_user_car' + id}
                                                         type='submit'
                                                         background='#143645'
                                                         color='#ffffff'
                                                         light={30}
-                                                        className='Login__btn'
                                                     />
                                                 </div>
-                                                <div className='sell_user_car'>
+                                                <div className={'sell_user_car sell_user_car' + id + ' sell_user_car_open'}>
                                                     <form id="sellCar">
                                                         <div className="left_block">
                                                             <DefaultInput
                                                                 type='number'
-                                                                name='Վազքը'
-                                                                placeholder='mileage'
+                                                                name='mileage'
+                                                                placeholder='Վազքը'
                                                             />
                                                             <DefaultInput
                                                                 type='number'
-                                                                name='Արժեքը'
-                                                                placeholder='price'
+                                                                name='price'
+                                                                placeholder='Արժեքը'
                                                             />
                                                             <label>
                                                                 Մակսազերծված է
                                                                 <DefaultInput
-                                                                    type='radio'
+                                                                    type='checkbox'
                                                                     name='description'
-                                                                    placeholder='Նկարագրություն'
                                                                     value="Մակսազերծված է"
                                                                 />
                                                             </label>
@@ -235,7 +241,13 @@ class UserCars extends Component{
                                                            />
                                                        </div>
 
-
+                                                        <DefaultBtn
+                                                            name='Առաջ'
+                                                            type='submit'
+                                                            background='#143645'
+                                                            color='#ffffff'
+                                                            light={30}
+                                                        />
                                                     </form>
                                                 </div>
                                             </div>
