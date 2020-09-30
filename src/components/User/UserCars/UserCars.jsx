@@ -133,7 +133,6 @@ class UserCars extends Component {
     }
 
     render() {
-        console.log(this.props.auto)
         return (
             <div>
                 <div className="User__cars">
@@ -280,6 +279,11 @@ class UserCars extends Component {
                                                                 value="1"
                                                             />
                                                         </label>
+                                                        <DefaultInput
+                                                            type='hidden'
+                                                            name='phone'
+                                                            value={this.props.user.data.phone}
+                                                        />
                                                         <label>
                                                             Մաս մաս վճարում
                                                             <DefaultInput
@@ -337,6 +341,8 @@ class UserCars extends Component {
 }
 
 
-const MapStateToProps = state => state.auto;
+
+const MapStateToProps = state => state;
 const MainUserCars = connect(MapStateToProps)(UserCars)
 export  default MainUserCars;
+

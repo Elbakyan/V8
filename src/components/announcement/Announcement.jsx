@@ -32,7 +32,7 @@ class Announcement extends Component {
                                 <label >
                                     <DefaultSelect
                                         onChange={(e)=>{
-                                            this.props.auto.dispatch(GetModel(e))
+                                            this.props.dispatch(GetModel(e))
                                         }}
                                         name='mark'
                                         data={this.props.auto.mark}

@@ -32,7 +32,6 @@ class App extends React.Component{
         this.props.dispatch(ScoreExist())
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
-        this.props.dispatch(GetModel())
 
     }
     render() {
