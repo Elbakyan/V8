@@ -302,6 +302,7 @@ class UserCars extends Component {
                                                         </label>
                                                     </div>
                                                 </div>
+
                                                 <div className="right_block">
                                                            <textarea className="description_text"
                                                                      rows="4"

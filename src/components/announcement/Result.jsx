@@ -23,6 +23,7 @@ const data = {
         engine: '5,0',
         number: '99 VA 969',
         vin: '740-VH4477',
+        phone:'37494009935',
         img: [
             'https://ag-spots-2015.o.auroraobjects.eu/2015/02/14/other/2880-1800-crop-bmw-m5-f10-30-jahre-edition-c160914022015234303_1.jpg',
             'https://bmw.vin.ua/files/images/units/covers/big/news-1005181.jpg',
