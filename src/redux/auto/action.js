@@ -6,6 +6,7 @@ export const GET_MODEL = 'GET_MODEL';
 export const GET_AUTO = 'GET_AUTO';
 
 
+
 export function GetMark(){
     return (dispach) => {
         GET(Url.auto).then(res => {

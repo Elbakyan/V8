@@ -15,9 +15,7 @@ const initalState = {
     type: type,
     category:category,
     traction: traction,
-    auto: []
-
-
+    auto: [],
 }
 
 

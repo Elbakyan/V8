@@ -18,6 +18,7 @@ import Announcement from "./components/announcement/Announcement";
 
 
 
+
 class App extends React.Component{
     constructor(props) {
         super(props);
@@ -33,8 +34,10 @@ class App extends React.Component{
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
 
+
     }
     render() {
+
       return (
           <div className="App">
               <Switch>

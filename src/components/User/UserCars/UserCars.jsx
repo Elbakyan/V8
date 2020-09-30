@@ -282,7 +282,7 @@ class UserCars extends Component {
                                                         <DefaultInput
                                                             type='hidden'
                                                             name='phone'
-                                                            value={this.props.user.data.phone}
+                                                            // value={this.props.user.data.phone}
                                                         />
                                                         <label>
                                                             Մաս մաս վճարում

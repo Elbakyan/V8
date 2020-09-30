@@ -13,13 +13,49 @@ import {GetModel} from "../../redux/auto/action";
 import {Link, Route} from "react-router-dom";
 import Result from "./Result";
 import Auto from "./Auto";
+import {GetSell} from "../../redux/sellauto/action";
 
 class Announcement extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            pag: 30
+        }
+    }
+    componentDidMount() {
+        this.props.dispatch(GetSell(1))
+    }
+
+    Count = () =>{
+        let arr = [];
+        if(this.props.sell.count != undefined){
+            if (this.props.sell.count % 15 == 0){
+                for (let i = 1; i <= (this.props.sell.count / 15); i++){
+
+                    arr.push(i)
+                }
+            }else{
+                for (let i = 1; i <= ((this.props.sell.count / 15) + 1); i++){
+                    arr.push(i)
+                }
+
+            }
+
+        }
+        return arr
+    }
+    GetLimitAuto = (e) =>  {
+        this.props.dispatch(GetSell(e.target.id))
+        let links = document.querySelectorAll('.pagination_link');
+
+        links.forEach(link => {
+            link.classList.remove('active');
+        })
+
+        e.target.classList.add('active');
     }
     render() {
-        console.log(this.props)
+
         return (
             <section className="Announcement">
                 {
@@ -128,8 +164,28 @@ class Announcement extends Component {
                             </div>
 
                         </form>
+
                         <Route exact path='/announcement'>
-                            <Result/>
+                            <div className='auto_content'>
+                                <div className='pagination'>
+                                    <ul className='pagination'>
+                                        {
+                                            this.Count().map((btn,i) => {
+
+                                                return (
+
+                                                    <li >
+                                                        <a className='pagination_link' href='#' id={i == 0? 1:i * 15} onClick={this.GetLimitAuto}>
+                                                            {i + 1}
+                                                        </a>
+                                                    </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                                <Result/>
+                            </div>
                         </Route>
                         <Route exact path='/announcement/1'>
                             <Auto/>

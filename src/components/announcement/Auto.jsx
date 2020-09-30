@@ -16,7 +16,7 @@ class Auto extends Component {
     }
 
     render() {
-        console.log(this.props)
+
         const {
             id,
             ser_id,

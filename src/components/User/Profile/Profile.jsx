@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from "react-redux";
 import './Profile.scss'
-import {Link, Route, Switch} from "react-router-dom";
+import {Link, Redirect, Route, Switch} from "react-router-dom";
 import PersionalData from "./PersionalData";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {fas, faHome, faEnvelope,faCar,faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
 import CarsForm from "../UserCars/CarsForm";
+import Loading from "../../Loading";
 
 
 class Profile extends React.Component{
@@ -71,8 +72,6 @@ class Profile extends React.Component{
                                         <Route path='/user/account/cars'>
                                             <UserCars />
                                         </Route>
-
-
                                     </Switch>
                                 </div>
                             </div>
