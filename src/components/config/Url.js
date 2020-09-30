@@ -9,6 +9,7 @@ export const Url = {
     model: 'https://brutal.am/Server/auto/model',
     addauto: 'https://brutal.am/Server/AddUserAuto',
     getUserAuto: 'https://brutal.am/Server/GetUserAuto',
+    sell: 'https://brutal.am/Server/sell',
     DeleteUserAuto: 'https://brutal.am/Server/DeleteUserAuto',
     UserUpdate: 'https://brutal.am/Server/UbdateUserData',
     addscore: 'https://brutal.am/Server/AddScoreAccount',

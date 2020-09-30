@@ -1,5 +1,9 @@
 export const royle = [
     {
+        id:0,
+        name:'Ղեկ․․․'
+    },
+    {
         id:1,
         name:'ձախ'
     },
@@ -10,6 +14,11 @@ export const royle = [
 ];
 
 export  const color = [
+    {
+        id:0,
+        name:'Գույն․․․',
+        color:'#000000'
+    },
     {
         id:1,
         name:'Կարմիր',
@@ -69,10 +78,20 @@ export  const color = [
         id:11,
         name:'Վարդագույն',
         color:'#FF0080'
+    },
+    {
+        id:12,
+        name:'Այլ',
+        color:'#FF0080'
     }
+
 ];
 
 export const fuel = [
+    {
+        id:0,
+        name:'Վառելիք․․․'
+    },
     {
         id:1,
         name:'Բենզին'
@@ -100,6 +119,10 @@ export const fuel = [
 ];
 
 export const type = [
+    {
+        id:0,
+        name:'Թափք․․․'
+    },
     {
         id:1,
         name:'Սեդան'
@@ -136,12 +159,32 @@ export const type = [
 
 export const category = [
     {
+        id:0,
+        name:'ՏՄ Տեսակ․․․'
+    },
+    {
         id:1,
         name:'ԹԵԹԵՎ ՄԱՐԴԱՏԱՐ'
+    },
+    {
+        id:2,
+        name:'ԲԵՌՆԱՏԱՐ'
+    },
+    {
+        id:3,
+        name:'ԱՎՏՈԲՈՒՍ'
+    },
+    {
+        id:4,
+        name:'ՄԻԿՐՈԱՎՏՈԲՈՒՍ'
     }
 ];
 
 export const transmission = [
+    {
+        id:1,
+        name:'Փոխանցման տուփ․․․'
+    },
     {
         id:1,
         name:'Մեխանիկական'
@@ -152,21 +195,22 @@ export const transmission = [
     },
     {
         id:1,
-        name:'Տիպտոնիկ'
+        name:'Տիպտրոնիկ'
     }
 ];
 
 export const year = (()=>{
-    let temp = [];
+    let temp = ["Տարեթիվ․․․"];
     let year = new Date().getFullYear();
     for (let i = year; i >= 1975; i--){
+
         temp.push(i);
     }
     return temp;
 })();
 
 export const engine = (() => {
-    let temp = [];
+    let temp = ["Շարժիչ․․․"];
     for (let i = 0; i < 7; i++){
         if(i > 0 ){
             temp.push(i + '.0')
@@ -184,6 +228,10 @@ export const engine = (() => {
 })();
 
 export const  traction =[
+    {
+        id: 0,
+        name: 'Քարշակ'
+    },
     {
         id: 1,
         name: 'Արջևի քարշակ'

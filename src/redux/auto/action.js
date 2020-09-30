@@ -9,6 +9,10 @@ export const GET_AUTO = 'GET_AUTO';
 export function GetMark(){
     return (dispach) => {
         GET(Url.auto).then(res => {
+            res.unshift({
+                id:"0",
+                name: 'Մակնիշ․․․'
+            })
             dispach({
                 type: GET_MARK,
                 payload: res
@@ -22,9 +26,10 @@ export function GetModel(e = 1) {
     return async (dispach) => {
 
         let data = new FormData();
-        data.append('id', (e==1)? 1 : e.target.selectedIndex+1);
+        data.append('id', e.target.selectedIndex);
 
         POST(Url.model, data).then(data=> {
+
             dispach({
                 type: GET_MODEL,
                 payload: data
