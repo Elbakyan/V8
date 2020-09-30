@@ -9,6 +9,7 @@ import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import {GetModel} from "../../../redux/auto/action";
 import DefaultSelect from "../../forms/select/DefaultSelect";
+import {connect} from "react-redux";
 
 const usAuto = [
     {
@@ -123,6 +124,7 @@ class UserCars extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <div className="User__cars">
@@ -269,6 +271,11 @@ class UserCars extends Component {
                                                                 value="Մակսազերծված է"
                                                             />
                                                         </label>
+                                                        <DefaultInput
+                                                            type='hidden'
+                                                            name='phone'
+                                                            // value={this.props.user.data.phone}
+                                                        />
                                                         <label>
                                                             Մաս մաս վճարում
                                                             <DefaultInput
@@ -321,4 +328,6 @@ class UserCars extends Component {
     }
 }
 
-export default UserCars;
+const MapStateToProps = state => state;
+const MainUserCars = connect(MapStateToProps)(UserCars)
+export  default MainUserCars;
