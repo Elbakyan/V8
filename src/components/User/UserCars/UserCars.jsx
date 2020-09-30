@@ -9,6 +9,9 @@ import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import {GetModel} from "../../../redux/auto/action";
 import DefaultSelect from "../../forms/select/DefaultSelect";
+import {TEST_POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
+import {connect} from "react-redux";
 
 const usAuto = [
     {
@@ -121,8 +124,16 @@ class UserCars extends Component {
         console.log(block)
         block[1].classList.toggle('sell_user_car_open')
     }
+    SellAuto(e){
+        e.preventDefault();
+        let data = new FormData(e.target);
+        TEST_POST(Url.sell,data).then(res => {
+            console.log(res)
+        })
+    }
 
     render() {
+        console.log(this.props.auto)
         return (
             <div>
                 <div className="User__cars">
@@ -223,7 +234,7 @@ class UserCars extends Component {
                                             />
                                         </div>
                                         <div className={'sell_user_car sell_user_car' + id + ' sell_user_car_open'}>
-                                            <form id="sellCar">
+                                            <form id="sellCar" onSubmit={this.SellAuto}>
                                                 <div className="left_block">
                                                     <div className="left_block_inp">
                                                         <div className="left_block_inp_measurements">
@@ -265,24 +276,24 @@ class UserCars extends Component {
                                                             Մակսազերծված է
                                                             <DefaultInput
                                                                 type='checkbox'
-                                                                name='description'
-                                                                value="Մակսազերծված է"
+                                                                name='сustoms_cleared'
+                                                                value="1"
                                                             />
                                                         </label>
                                                         <label>
                                                             Մաս մաս վճարում
                                                             <DefaultInput
                                                                 type='checkbox'
-                                                                name='description'
-                                                                value="Մակսազերծված է"
+                                                                name='later'
+                                                                value="1"
                                                             />
                                                         </label>
                                                         <label>
                                                             Դիլեր
                                                             <DefaultInput
                                                                 type='checkbox'
-                                                                name='description'
-                                                                value="Մակսազերծված է"
+                                                                name='dealer'
+                                                                value="1"
                                                             />
                                                         </label>
                                                     </div>
@@ -291,12 +302,16 @@ class UserCars extends Component {
                                                            <textarea className="description_text"
                                                                      rows="4"
                                                                      cols="50"
-                                                                     name="description"
-                                                                     form="sellCar"
+                                                                     name="desc"
+
                                                                      placeholder="Նկարագրություն..."
                                                            />
                                                 </div>
-
+                                                <DefaultInput
+                                                    type='hidden'
+                                                    name='id'
+                                                    value={this.props.auto.id}
+                                                />
                                                 <DefaultBtn
                                                     width="100%"
                                                     name='Առաջ'
@@ -321,4 +336,7 @@ class UserCars extends Component {
     }
 }
 
-export default UserCars;
+
+const MapStateToProps = state => state.auto;
+const MainUserCars = connect(MapStateToProps)(UserCars)
+export  default MainUserCars;

@@ -9,7 +9,6 @@ import {GetSicle} from "./redux/location/action";
 import {GetMark, GetModel} from "./redux/auto/action";
 import Score from "./components/Score/Score";
 import SpaerParts from "./components/spare/SpareParts";
-
 import Loading from "./components/Loading";
 import {Redirect} from "react-router-dom";
 import {ScoreExist} from "./redux/score/action";
