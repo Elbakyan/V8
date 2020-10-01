@@ -4,7 +4,7 @@ import {GET_SELL} from "./action";
 
 const initalState = {
 
-    auto: []
+    data: []
 }
 
 

@@ -49,11 +49,13 @@ class Result extends Component {
     }
 
     render() {
+
         return (
                         <div className="result">
 
                             {
-                                this.props.sell.auto.map(auto => {
+                                this.props.sell.data.map(auto => {
+                                    let img = JSON.parse(auto.img);
                                     return(
                                         <div className="result_auto">
                                             <Link to='/announcement/1'>
@@ -61,7 +63,7 @@ class Result extends Component {
                                                     <h2 className="price">{auto.model} </h2>
                                                     <h2 className="price">{auto.price} <FontAwesomeIcon icon={faDollarSign} /></h2>
                                                 </div>
-                                                <div className="img" style={{backgroundImage: `url(${auto.img})`}}></div>
+                                                <div className="img" style={{backgroundImage: `url(${img[0]})`}}></div>
                                             </Link>
                                         </div>
                                     )

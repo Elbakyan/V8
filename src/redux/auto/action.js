@@ -30,7 +30,10 @@ export function GetModel(e = 1) {
         data.append('id', e.target.selectedIndex);
 
         POST(Url.model, data).then(data=> {
-
+            data.unshift({
+                id:"0",
+                name: 'Մոդել․․․'
+            })
             dispach({
                 type: GET_MODEL,
                 payload: data

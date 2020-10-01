@@ -19,7 +19,7 @@ class Announcement extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pag: 30
+            id: 1
         }
     }
     componentDidMount() {
@@ -45,7 +45,11 @@ class Announcement extends Component {
         return arr
     }
     GetLimitAuto = (e) =>  {
-        this.props.dispatch(GetSell(e.target.id))
+        e.preventDefault();
+        this.setState({
+            id: e.target.id
+        })
+        this.props.dispatch(GetSell(this.state.id))
         let links = document.querySelectorAll('.pagination_link');
 
         links.forEach(link => {
@@ -53,6 +57,10 @@ class Announcement extends Component {
         })
 
         e.target.classList.add('active');
+    }
+    Search = (e) => {
+        e.preventDefault();
+        this.props.dispatch(GetSell(this.state.id,e.target))
     }
     render() {
 
@@ -63,7 +71,7 @@ class Announcement extends Component {
                 }
                 <div className="content">
                     <div className="container row justify-between">
-                        <form className="Announcement__search">
+                        <form className="Announcement__search" onSubmit={this.Search}>
                             <div>
                                 <label >
                                     <DefaultSelect
@@ -135,7 +143,7 @@ class Announcement extends Component {
                                 <label >
                                     <DefaultSelect
 
-                                        name='royle'
+                                        name='traction'
                                         data={this.props.auto.traction}
                                     />
                                 </label>
