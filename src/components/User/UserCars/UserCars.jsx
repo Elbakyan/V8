@@ -12,7 +12,7 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {connect} from "react-redux";
-
+const status = 0
 const usAuto = [
     {
         id: 1,
@@ -222,16 +222,29 @@ class UserCars extends Component {
                                             <div className="number_cars">
                                                 <span>{number}</span>
                                             </div>
-                                            <DefaultBtn
-                                                onClick={this.openSell}
-                                                name='Վաճառել'
-                                                width="200px"
-                                                className={'sell_user_car' + id}
-                                                type='submit'
-                                                background='#143645'
-                                                color='#ffffff'
-                                                light={30}
-                                            />
+                                            {
+                                                !status?
+                                                <DefaultBtn
+                                                    onClick={this.openSell}
+                                                    name='Վաճառել'
+                                                    width="200px"
+                                                    className={'sell_user_car' + id}
+                                                    type='submit'
+                                                    background='#143645'
+                                                    color='#ffffff'
+                                                    light={30}
+                                                />:
+                                                    <DefaultBtn
+                                                        name='Հրաժարվել Վաճառքից'
+                                                        width="200px"
+                                                        type='submit'
+                                                        background='#143645'
+                                                        color='#ffffff'
+                                                        light={30}
+                                                    />
+
+                                            }
+
                                         </div>
                                         <div className={'sell_user_car sell_user_car' + id + ' sell_user_car_open'}>
                                             <form id="sellCar" onSubmit={this.SellAuto}>
