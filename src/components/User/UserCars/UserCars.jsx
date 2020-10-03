@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import {Link, Route} from "react-router-dom";
 import CarsForm from "./CarsForm";
 import './UserCars.scss'
@@ -111,6 +113,12 @@ class UserCars extends Component {
     constructor(props) {
         super(props);
     }
+    closeSell = (e)=>{
+        const modal = document.querySelectorAll('.delet_car')
+        modal.forEach((el,i)=>{
+                el.style.display = 'none'
+        })
+    }
 
     openSell = (e) => {
 
@@ -122,6 +130,15 @@ class UserCars extends Component {
 
         const block = document.querySelectorAll('.' + e.target.className)
         block[1].classList.toggle('sell_user_car_open')
+    }
+    clear = (e)=>{
+        console.log(e.target.dataset)
+        const modal = document.querySelectorAll('.delet_car')
+        modal.forEach((el,i)=>{
+            if(e.target.dataset.num == el.dataset.num){
+                el.style.display = 'flex'
+            }
+        })
     }
     SellAuto(e){
         e.preventDefault();
@@ -138,7 +155,7 @@ class UserCars extends Component {
                 <div className="User__cars">
                     {
 
-                        this.props.auto.auto.map(({
+                        usAuto.map(({
                                         id,
                                         user_id,
                                         mark,
@@ -161,9 +178,43 @@ class UserCars extends Component {
                                 <div className='block-left'>
                                     <div className="car_name">
                                         <span>{model}</span>
+                                        <span>
+                                            <FontAwesomeIcon data-num={id} icon={faTrashAlt} />
+                                            <span data-num={id} onClick={this.clear}></span>
+                                        </span>
+                                    </div>
+                                    <div className="delet_car disp block" data-num={id}>
+                                        <div>
+                                            <div>
+                                                <h1>Հեռացնել մեքենան՞</h1>
+                                            </div>
+                                            <div>
+                                                <DefaultBtn
+                                                    name='Այո'
+                                                    width="100%"
+                                                    className={'sell_user_car' + id}
+                                                    type='submit'
+                                                    background='#143645'
+                                                    color='#ffffff'
+                                                    light={30}
+                                                />
+                                                <DefaultBtn
+                                                    onClick={this.closeSell}
+                                                    name='Ոչ'
+                                                    width="100%"
+                                                    className={'sell_user_car' + id}
+                                                    type='submit'
+                                                    background='#143645'
+                                                    color='#ffffff'
+                                                    light={30}
+                                                />
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div className="car_slider">
-                                        <SliderAuto autoImage={JSON.parse(img)}/>
+                                        {/*<SliderAuto autoImage={JSON.parse(img)}/>*/}
+                                        <SliderAuto autoImage={img}/>
                                     </div>
                                 </div>
 
@@ -322,7 +373,6 @@ class UserCars extends Component {
                                                                      rows="4"
                                                                      cols="50"
                                                                      name="desc"
-
                                                                      placeholder="Նկարագրություն..."
                                                            />
                                                 </div>
@@ -342,8 +392,6 @@ class UserCars extends Component {
                                             </form>
                                         </div>
                                     </div>
-
-
                                 </div>
 
                             </div>

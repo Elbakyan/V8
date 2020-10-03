@@ -22,7 +22,7 @@ class User extends React.Component{
         if (this.props.id){
             this.props.dispatch(GetAuto(this.props.id))
         }
-
+        console.log(this.props.status)
         return (
             <div className="User">
 
