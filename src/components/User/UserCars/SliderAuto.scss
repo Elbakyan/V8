@@ -12,7 +12,7 @@
     display: flex;
     color: white;
     align-items: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     >div{
@@ -23,6 +23,7 @@
       >span{
         font-size: 36px;
         cursor: pointer;
+        background-color: #b9c1df;
         &:active{
           cursor: grabbing;
         }

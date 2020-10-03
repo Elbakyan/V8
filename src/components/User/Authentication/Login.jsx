@@ -18,6 +18,14 @@ class Login extends React.Component{
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Login__content col align-center justify-center">
+                        <p className='message' style={this.props.status ?
+                        {
+                            margin: '5px 0px',
+                            color: '#ff0000'
+                        }:{
+                            margin: '5px 0px',
+                            color: '#565656'
+                        }}>{this.props.message}</p>
                         <form className="col align-center justify-center" action={Url.login} method="POST">
                             <DefaultInput
                                 type="tel"

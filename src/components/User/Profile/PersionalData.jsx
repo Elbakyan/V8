@@ -13,70 +13,79 @@ class PersionalData extends React.Component {
     }
 
     render() {
+        console.log(this.props.user.data)
 
+    let data = this.props.user.data;
         return (
-            <div className="persional__data row justify-between">
-                <div className="persional__header col justify-center align-items">
-                    <div className="img row justify-center">
-                        <img src="https://elbakyan.am/Server/img/user/avatar/-1600089865.png" alt=""/>
-                    </div>
-                    <div className="fullname row justify-center">
-                        <span>Name</span>
-                        <span>Nameyan</span>
-                    </div>
-                </div>
+            <div className="persional__data">
 
-                <div className="persional__body col justify-center align-center">
+                {
+                    data == undefined ? '' : (
+                        <div>
+                            <div className="persional__header col justify-center align-items">
+                                <div className="img row justify-center">
+                                    <img src="https://elbakyan.am/Server/img/user/avatar/-1600089865.png" alt=""/>
+                                </div>
+                                <div className="fullname row justify-center">
+                                    <span>{data.name}</span>
+                                    <span>{data.surname}</span>
+                                </div>
+                            </div>
 
-                    <nav>
-                        <ul>
-                            <li>
-                                <div className="icon">
-                                    <FontAwesomeIcon icon={faMobileAlt}/>
-                                </div>
-                                <div>
-                                    <span>+37494419699</span>
-                                </div>
+                            <div className="persional__body col justify-center align-center">
 
-                            </li>
+                                <nav>
+                                    <ul>
+                                        <li>
+                                            <div className="icon">
+                                                <FontAwesomeIcon icon={faMobileAlt}/>
+                                            </div>
+                                            <div>
+                                                <span>{data.phone}</span>
+                                            </div>
 
-                            <li>
-                                <div className="icon">
-                                    <FontAwesomeIcon icon={faEnvelope}/>
-                                </div>
-                                <div>
-                                    <span>koxlikyan1995@gmail.com</span>
-                                </div>
+                                        </li>
 
-                            </li>
+                                        <li>
+                                            <div className="icon">
+                                                <FontAwesomeIcon icon={faEnvelope}/>
+                                            </div>
+                                            <div>
+                                                <span>{data.email}</span>
+                                            </div>
 
-                            <li>
-                                <div className="icon">
-                                    <FontAwesomeIcon icon={faMapMarkedAlt}/>
-                                </div>
-                                <div>
-                                    <span>Tavush</span>
-                                </div>
-                            </li>
+                                        </li>
 
-                            <li>
-                                <div className="icon">
-                                    <FontAwesomeIcon icon={faMapMarkerAlt}/>
-                                </div>
-                                <div>
-                                    <span>Dilijan</span>
-                                </div>
+                                        <li>
+                                            <div className="icon">
+                                                <FontAwesomeIcon icon={faMapMarkedAlt}/>
+                                            </div>
+                                            <div>
+                                                <span>{data.sircle}</span>
+                                            </div>
+                                        </li>
 
-                            </li>
-                        </ul>
-                    </nav>
-                    <div className="persional__setings">
-                        <Link to='/user/account/setings'>Կարգավորումներ</Link>
-                    </div>
-                    <Route path='/user/account/setings'>
-                        <ProfilSetings />
-                    </Route>
-                </div>
+                                        <li>
+                                            <div className="icon">
+                                                <FontAwesomeIcon icon={faMapMarkerAlt}/>
+                                            </div>
+                                            <div>
+                                                <span>{data.city}</span>
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div className="persional__setings">
+                                    <Link to='/user/account/setings'>Կարգավորումներ</Link>
+                                </div>
+                                <Route path='/user/account/setings'>
+                                    <ProfilSetings />
+                                </Route>
+                            </div>
+                        </div>
+                    )
+                }
 
 
             </div>

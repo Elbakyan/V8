@@ -1,10 +1,13 @@
-import {GET_SELL} from "./action";
+import {GET_SELL, GET_SELL_BY_ID} from "./action";
 
 
 
 const initalState = {
 
-    data: []
+    data: {
+        data: []
+    },
+    OneAuto:[]
 }
 
 
@@ -12,7 +15,9 @@ const initalState = {
 export default function sellReducer(state = initalState, action){
     switch (action.type){
         case GET_SELL:
-            return action.payload
+            return {...state, data: action.payload}
+        case GET_SELL_BY_ID:
+            return {...state, OneAuto: action.payload}
     }
     return state;
 

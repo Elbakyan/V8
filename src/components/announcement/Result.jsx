@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDollarSign} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faDollarSign} from '@fortawesome/free-solid-svg-icons'
 import DefaultInput from "../forms/inputs/DefaultInput";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
@@ -8,74 +8,49 @@ import {connect} from "react-redux";
 import {GetModel} from "../../redux/auto/action";
 import {Link} from "react-router-dom";
 import Auto from "./Auto";
-
-const data = {
-        id: 1,
-        user_id: 11,
-        mark: 'BMW',
-        model: 'BMW M5',
-        royle: 'Ձախ',
-        transmission_box: 'Ավտոմատ',
-        color: '-',
-        year: '2015',
-        fuel: 'Բենզին',
-        transmission: '',
-        engine: '5,0',
-        number: '99 VA 969',
-        vin: '740-VH4477',
-        phone:'37494009935',
-        img: [
-            'https://ag-spots-2015.o.auroraobjects.eu/2015/02/14/other/2880-1800-crop-bmw-m5-f10-30-jahre-edition-c160914022015234303_1.jpg',
-            'https://bmw.vin.ua/files/images/units/covers/big/news-1005181.jpg',
-            'https://www.ludoviccareme.com/files/image_211_image_fr.jpg',
-            'https://usetrans.com/wp-content/uploads/2018/05/BMW-M5-Competition-2018-2019-7-min.jpg',
-            'https://i.pinimg.com/originals/d5/90/1b/d5901b60b9fd42ec907d79d473ea5bd0.jpg'
-        ],
-        type: 'Սեդան',
-        category: 'Թեթև մարդատար',
-        traction: '4 քարծշակ',
-        power: '401',
-        price: '500',
-        mesuruments:'kilometr',
-        mileage: '120000',
-        desc: 'BMW M5 — доработанная подразделением BMW Motorsport версия автомобиля BMW пятой серии. Первое поколение было представлено в 1986 году. Последующие поколения M5 сменялись совместно с каждым поколением автомобилей пятой серии, включающей E34, E39, E60/61, F10',
-        state: '',
-        data: ''
-    }
+import {GET, POST} from "../config/Requsest";
+import {Url} from "../config/Url";
+import {GetSellByID} from "../../redux/sellauto/action";
 
 class Result extends Component {
     constructor(props) {
         super(props);
     }
 
+    GetAuto = (e) => {
+        let data = new FormData();
+        data.append('id', e.target.dataset.id);
+        this.props.dispatch(GetSellByID(data))
+    }
+
     render() {
-
         return (
-                        <div className="result">
+            <div className="result">
 
-                            {
-                                this.props.sell.data.map(auto => {
-                                    let img = JSON.parse(auto.img);
-                                    return(
-                                        <div className="result_auto">
-                                            <Link to='/announcement/1'>
-                                                <div>
-                                                    <h2 className="price">{auto.model} </h2>
-                                                    <h2 className="price">{auto.price} <FontAwesomeIcon icon={faDollarSign} /></h2>
-                                                </div>
-                                                <div className="img" style={{backgroundImage: `url(${img[0]})`}}></div>
-                                            </Link>
-                                        </div>
-                                    )
-                                })
-                            }
+                {
+                    this.props.sell.data.data.map(auto => {
+                        let img = JSON.parse(auto.img);
+                        return (
+                            <div className="result_auto">
+                                <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
+                                    <div data-id={auto.id}>
+                                        <h2 className="price" data-id={auto.id}>{auto.model} </h2>
+                                        <h2 className="price" data-id={auto.id}>{auto.price} <FontAwesomeIcon
+                                            icon={faDollarSign}/></h2>
+                                    </div>
+                                    <div data-id={auto.id} className="img"
+                                         style={{backgroundImage: `url(${img[0]})`}}></div>
+                                </Link>
+                            </div>
+                        )
+                    })
+                }
 
-
-                        <Auto data={data}/>
-                        </div>
+            </div>
         )
     }
 }
+
 const MapStateToProps = state => state;
 const MainResult = connect(MapStateToProps)(Result)
 export default MainResult;

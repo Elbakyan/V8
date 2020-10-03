@@ -16,7 +16,9 @@ class CarsForm extends Component {
         super(props);
         this.state ={
             img: [],
-            audio: false
+            audio: false,
+            message: 'Մուտքագրեք ձեր մեքենայի տվյալները',
+            status: true
         }
     }
 
@@ -47,14 +49,22 @@ class CarsForm extends Component {
         this.state.img.map(file => {
             data.append('image[]', file[0])
         })
-        TEST_POST(Url.addauto,data).then(res => {
-            console.log(res)
+        POST(Url.addauto,data).then(res => {
+            this.setState({
+                status: res.status
+            })
+            if (res.status){
+                window.location.href = '/user/account/cars'
+            }else{
+                this.setState({
+                    message: res.message
+                })
+            }
         })
-        console.log(Array.from(data))
     }
 
     render() {
-        console.log(this.props)
+
         const {dispatch} = this.props
         return (
                 <div className="cars_forma">
@@ -64,7 +74,7 @@ class CarsForm extends Component {
                             src="https://brutal.am/Server/audio/v8.mp3"
                             autoPlay />  : ''
                     }
-                    <h1>Մուտքագրեք ձեր մեքենայի տվյալները</h1>
+                    <h1 style={this.state.status ? {color: 'green'} : {color: 'red'}}>{this.state.message}</h1>
                     <form id='add__auto' encType='multipart/form-data' onSubmit={this.AddAuto.bind(this)}>
                         <div className='items'>
                             <span>*</span>

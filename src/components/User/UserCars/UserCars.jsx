@@ -9,7 +9,7 @@ import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import {GetModel} from "../../../redux/auto/action";
 import DefaultSelect from "../../forms/select/DefaultSelect";
-import {TEST_POST} from "../../config/Requsest";
+import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {connect} from "react-redux";
 
@@ -113,36 +113,37 @@ class UserCars extends Component {
     }
 
     openSell = (e) => {
-        console.log(e.target.className)
+
         if(e.target.innerHTML === 'Վաճառել'){
             e.target.innerHTML = "Հրաժարվել վաճառքից"
         }else {
             e.target.innerHTML = "Վաճառել"
         }
-        console.log(e.target.innerHTML)
+
         const block = document.querySelectorAll('.' + e.target.className)
-        console.log(block)
         block[1].classList.toggle('sell_user_car_open')
     }
     SellAuto(e){
         e.preventDefault();
         let data = new FormData(e.target);
-        TEST_POST(Url.sell,data).then(res => {
+        POST(Url.sell,data).then(res => {
             console.log(res)
         })
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <div className="User__cars">
                     {
-                        usAuto.map(({
+
+                        this.props.auto.auto.map(({
                                         id,
                                         user_id,
                                         mark,
                                         model,
-                                        transmission_box,
+                                        transmission,
                                         color,
                                         year,
                                         fuel,
@@ -162,7 +163,7 @@ class UserCars extends Component {
                                         <span>{model}</span>
                                     </div>
                                     <div className="car_slider">
-                                        <SliderAuto autoImage={img}/>
+                                        <SliderAuto autoImage={JSON.parse(img)}/>
                                     </div>
                                 </div>
 
@@ -188,7 +189,7 @@ class UserCars extends Component {
                                             </tr>
                                             <tr>
                                                 <td>Փոխանցման տուփը</td>
-                                                <td>{transmission_box}</td>
+                                                <td>{transmission}</td>
                                             </tr>
                                             <tr>
                                                 <td>Ղեկը</td>
@@ -282,7 +283,7 @@ class UserCars extends Component {
                                                         <DefaultInput
                                                             type='hidden'
                                                             name='phone'
-                                                            // value={this.props.user.data.phone}
+                                                            value={this.props.user.data != undefined ?this.props.user.data.phone: ''}
                                                         />
                                                         <label>
                                                             Մաս մաս վճարում
@@ -315,7 +316,7 @@ class UserCars extends Component {
                                                 <DefaultInput
                                                     type='hidden'
                                                     name='id'
-                                                    value={this.props.auto.id}
+                                                    value={id}
                                                 />
                                                 <DefaultBtn
                                                     width="100%"

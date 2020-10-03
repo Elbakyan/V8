@@ -54,7 +54,7 @@ class App extends React.Component{
                   <Route exact path='/spare-parts'>
                       <SpaerParts/>
                   </Route>
-                  <Route exact path='/announcement'>
+                  <Route path='/announcement'>
                       <Announcement/>
                   </Route>
                   {this.props.user.status  == undefined? <Loading/> : this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}

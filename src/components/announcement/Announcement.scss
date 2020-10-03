@@ -21,7 +21,7 @@
       justify-content: space-between;
       align-items: center;
       font-size: 18px;
-      color: red;
+
       label{
         width: 48%;
         position: relative;
@@ -61,18 +61,28 @@
     justify-content: space-between;
     flex-wrap: wrap;
     overflow-y: auto;
-    padding: 10px 10px 50px 0px;
+    padding: 10px 10px 50px 10px;
     position: relative;
+
     .result_auto{
       display: flex;
       flex-direction: column;
       width: 30%;
+      height: 200px;
+      box-shadow: 0px 0px 3px ;
+      border-radius: 5px;
+      padding: 10px 5px 0px 5px;
+      margin: 10px 0;
+      transition: .3s;
+      &:hover {
+        box-shadow: 0px 0px 15px;
+        transform: scale(1.05);
 
-      padding: 20px 0;
+      }
 
       .img{
         width: 100%;
-        height: 200px;
+        height: 150px;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -95,100 +105,102 @@
 
 
 .Auto{
-  width: 100%;
-  //position: absolute;
-
-  background: white;
-  //left: 0;
+  width: 70%;
+  overflow-y: auto;
+  padding-bottom: 50px;
+  //background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .car_name{
-    font-weight: bold;
-    font-size: 24px;
-    width: 95%;
-    padding: 20px 0;
+
+
+  >div{
+    width: 100%;
+    margin: 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    >span{
-      color: $main-color;
-      &:first-child{
-        font-size: 35px;
-      }
-    }
-    >.phone_car_owner{
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .car_name{
+      font-weight: bold;
+      font-size: 24px;
+      width: 95%;
+      padding: 20px 20px;
       display: flex;
       justify-content: space-between;
-      width: auto;
-      padding: 20px;
-      width: 32%;
-      border-radius: 5px;
-      background: $main-color;
-      color: white;
-      //height: ;
-    }
-  }
-  >.block{
-    display: flex;
-    padding-bottom: 40px;
-    .block-left{
-      width: 80%;
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      //justify-content: center;
-      //border: 1px solid red;
+      >span{
+        color: $main-color;
+        &:first-child{
+          font-size: 35px;
+        }
+      }
+      >.phone_car_owner{
+        display: flex;
+        justify-content: space-between;
+        width: auto;
+        padding: 20px;
+        width: 32%;
+        border-radius: 5px;
+        background: $main-color;
+        color: white;
+        //height: ;
+      }
+    }
+    >.block{
+      display: flex;
+      padding-bottom: 40px;
+      .block-left{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //justify-content: center;
+        //border: 1px solid red;
 
 
-      .car_slider{
-        width: 90%;
-        //padding:0 20px 20px 20px;
-        //height: 90%;
+        .car_slider{
+          width: 90%;
+          //padding:0 20px 20px 20px;
+          //height: 90%;
+        }
+
+
       }
 
-
-    }
-
-    .block-right {
-      width: 65%;
-      display: flex;
-      flex-direction: column;
-      //align-items: center;
-      justify-content: center;
-      //border: 1px solid red;
-      .car_info {
-        margin: 0;
+      .block-right {
+        width: 65%;
         display: flex;
-        >table{
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        .car_info {
           margin: 0;
-          width: 90%;
-          tbody {
-            tr {
-              //margin-bottom: 12px;
-              td {
-                &:first-child {
-                  font-weight: bold;
+          display: flex;
+          >table{
+            margin: 0;
+            width: 90%;
+            tbody {
+              tr {
+                //margin-bottom: 12px;
+                td {
+                  &:first-child {
+                    font-weight: bold;
+                    font-size: 12px;
+                  }
                   font-size: 12px;
+                  border-bottom: 1px solid #ececec;
                 }
-                font-size: 12px;
-                border-bottom: 1px solid #ececec;
               }
             }
           }
+
         }
 
       }
-      .description_text{
-        width: 100%;
-        font-size: 14px;
-        padding:20px 0;
-        p{
-          width: 100%;
-        }
-      }
     }
   }
+
 
 }
 

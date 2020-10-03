@@ -10,7 +10,7 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../redux/auto/action";
-import {Link, Route} from "react-router-dom";
+import {Link, Redirect, Route} from "react-router-dom";
 import Result from "./Result";
 import Auto from "./Auto";
 import {GetSell} from "../../redux/sellauto/action";
@@ -23,6 +23,7 @@ class Announcement extends Component {
         }
     }
     componentDidMount() {
+
         this.props.dispatch(GetSell(1))
     }
 
@@ -59,11 +60,11 @@ class Announcement extends Component {
         e.target.classList.add('active');
     }
     Search = (e) => {
+        this.props.sell.OneAuto = [];
         e.preventDefault();
         this.props.dispatch(GetSell(this.state.id,e.target))
     }
     render() {
-
         return (
             <section className="Announcement">
                 {
@@ -76,6 +77,7 @@ class Announcement extends Component {
                                 <label >
                                     <DefaultSelect
                                         onChange={(e)=>{
+                                            this.props.sell.OneAuto = [];
                                             this.props.dispatch(GetModel(e))
                                         }}
                                         name='mark'
@@ -192,12 +194,17 @@ class Announcement extends Component {
                                         }
                                     </ul>
                                 </div>
-                                <Result/>
+                                    <Result/>
                             </div>
                         </Route>
-                        <Route exact path='/announcement/1'>
-                            <Auto/>
-                        </Route>
+                        {
+                            this.props.sell.OneAuto == ''  ? <Redirect to='/announcement' />  :
+                                <Route exact path={window.location.pathname}>
+                                    <Auto/>
+                                </Route>
+                        }
+
+
                     </div>
                 </div>
                 <Footer/>

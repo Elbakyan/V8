@@ -22,7 +22,7 @@ class Header extends React.Component{
             <header>
                 <div className="container row justify-between align-center">
                     <div className="header__logo">
-                        <Link to="/user/account">
+                        <Link to="/user/account" onClick={() => window.location.href = '/user/account'}>
                             <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>

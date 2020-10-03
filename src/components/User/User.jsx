@@ -22,13 +22,13 @@ class User extends React.Component{
         if (this.props.id){
             this.props.dispatch(GetAuto(this.props.id))
         }
-        console.log(this.props)
+
         return (
             <div className="User">
 
                <Switch>
                    <Route exact path='/user/login'>
-                       <Login/>
+                       <Login status={this.props.status} message={this.props.message}/>
                    </Route>
                    <Route exact path='/user/sign-in'>
                        <Signin/>
