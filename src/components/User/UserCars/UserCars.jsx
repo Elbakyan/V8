@@ -213,6 +213,7 @@ class UserCars extends Component {
                                         <div>
                                             <div>
                                                 <h1>Հեռացնել մեքենան՞</h1>
+
                                             </div>
                                             <div>
                                                 <DefaultBtn
