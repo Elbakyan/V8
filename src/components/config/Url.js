@@ -10,6 +10,7 @@ export const Url = {
     addauto: 'https://brutal.am/Server/AddUserAuto',
     getUserAuto: 'https://brutal.am/Server/GetUserAuto',
     sell: 'https://brutal.am/Server/sell',
+    refuse: 'https://brutal.am/Server/RefuseSell',
     getsell: 'https://brutal.am/Server/GetSell',
     getsellautobyid: 'https://brutal.am/Server/get_sell__auto_by_id',
     DeleteUserAuto: 'https://brutal.am/Server/DeleteUserAuto',

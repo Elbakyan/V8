@@ -7,7 +7,7 @@ export function UserExist  () {
     GET(Url.existUser).then(res => {
         dispach({
             type: USER_EXIST,
-            payload:{status:true}
+            payload: res
         })
     })
 

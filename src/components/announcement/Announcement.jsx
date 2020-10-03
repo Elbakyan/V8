@@ -65,6 +65,7 @@ class Announcement extends Component {
         this.props.dispatch(GetSell(this.state.id,e.target))
     }
     render() {
+
         return (
             <section className="Announcement">
                 {
