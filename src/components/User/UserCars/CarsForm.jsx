@@ -50,11 +50,14 @@ class CarsForm extends Component {
             data.append('image[]', file[0])
         })
         POST(Url.addauto,data).then(res => {
+            console.log(res)
             this.setState({
                 status: res.status
             })
             if (res.status){
-                window.location.href = '/user/account/cars'
+               setTimeout(() => {
+                   window.location.href = '/user/account/cars'
+               },2000)
             }else{
                 this.setState({
                     message: res.message

@@ -110,6 +110,9 @@ const usAuto = [
 class UserCars extends Component {
     constructor(props) {
         super(props);
+        this.state ={
+            message: ''
+        }
     }
 
     openSell = (e) => {
@@ -123,16 +126,34 @@ class UserCars extends Component {
         const block = document.querySelectorAll('.' + e.target.className)
         block[1].classList.toggle('sell_user_car_open')
     }
-    SellAuto(e){
+    SellAuto = (e) =>{
         e.preventDefault();
         let data = new FormData(e.target);
         POST(Url.sell,data).then(res => {
-            console.log(res)
+            if (res.status) {
+                window.location.href = '/user/account/cars';
+
+            }else{
+                this.setState({
+                    message: res.message
+                })
+            }
+
+        })
+    }
+    RefuseSell = (e) => {
+        let data = new FormData();
+        data.append('id', e.target.id)
+        POST(Url.refuse,data).then(res => {
+            if (res) {
+                window.location.href = '/user/account/cars';
+            }
+
         })
     }
 
     render() {
-        console.log(this.props)
+        console.log(this.props.auto)
         return (
             <div>
                 <div className="User__cars">
@@ -155,7 +176,9 @@ class UserCars extends Component {
                                         type,
                                         category,
                                         traction,
-                                        royle
+                                        royle,
+                                        state
+
                                     }) => (
                             <div key={id} className='car col'>
                                 <div className='block-left'>
@@ -223,7 +246,7 @@ class UserCars extends Component {
                                                 <span>{number}</span>
                                             </div>
                                             {
-                                                !status?
+                                                state == 0?
                                                 <DefaultBtn
                                                     onClick={this.openSell}
                                                     name='Վաճառել'
@@ -241,12 +264,15 @@ class UserCars extends Component {
                                                         background='#143645'
                                                         color='#ffffff'
                                                         light={30}
+                                                        id={id}
+                                                        onClick={this.RefuseSell}
                                                     />
 
                                             }
 
                                         </div>
                                         <div className={'sell_user_car sell_user_car' + id + ' sell_user_car_open'}>
+                                            <p style={{color: 'red'}}>{this.state.message}</p>
                                             <form id="sellCar" onSubmit={this.SellAuto}>
                                                 <div className="left_block">
                                                     <div className="left_block_inp">
