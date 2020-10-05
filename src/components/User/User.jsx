@@ -14,15 +14,15 @@ import {GetAuto} from "../../redux/auto/action";
 class User extends React.Component{
     constructor(props) {
         super(props);
-
+        this.state = {
+            id: this.props.id
+        }
     }
-
-
     render() {
         if (this.props.id){
             this.props.dispatch(GetAuto(this.props.id))
+
         }
-        console.log(this.props.status)
         return (
             <div className="User">
 

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt} from '@fortawesome/free-solid-svg-icons'
-import {Link, Route} from "react-router-dom";
+import {Link, Redirect, Route} from "react-router-dom";
 import CarsForm from "./CarsForm";
 import './UserCars.scss'
 import {royle} from "../../../redux/auto/Values";
@@ -114,7 +114,8 @@ class UserCars extends Component {
         super(props);
         this.state ={
             message: '',
-            delStatus: null
+            Redirect: false,
+            RedirectSell: false
 
         }
     }
@@ -134,6 +135,7 @@ class UserCars extends Component {
         }
 
         const block = document.querySelectorAll('.' + e.target.className)
+        console.log(block[1])
         block[1].classList.toggle('sell_user_car_open')
 
     }
@@ -153,10 +155,9 @@ class UserCars extends Component {
         let data = new FormData(e.target);
         POST(Url.sell,data).then(res => {
             if (res.status) {
-                // window.location.href = '/user/account/cars';
-
-                console.log(res);
-
+                this.setState({
+                    RedirectSell: true
+                })
             }else{
                 this.setState({
                     message: res.message
@@ -171,7 +172,9 @@ class UserCars extends Component {
         data.append('id', e.target.id)
         POST(Url.refuse,data).then(res => {
             if (res) {
-                window.location.href = '/user/account/cars';
+                this.setState({
+                    Redirect: true
+                })
             }
 
         })
@@ -189,13 +192,16 @@ class UserCars extends Component {
                 modal.forEach((el,i)=>{
                     el.style.display = 'none'
                 })
-                window.location.href = '/user/account/cars'
+               window.location.href = '/user/account/cars'
             }
         })
     }
     render() {
+
         return (
             <div>
+                {this.state.Redirect ? <Redirect to='/user/account/cars' /> : ''}
+                {this.state.RedirectSell ? <Redirect to='/announcement' /> : ''}
                 <div className="User__cars">
                     {
 
@@ -233,6 +239,7 @@ class UserCars extends Component {
                                         <div>
                                             <div>
                                                 <h1>Հեռացնել մեքենան՞</h1>
+
                                             </div>
                                             <div>
                                                 <DefaultBtn
@@ -260,6 +267,7 @@ class UserCars extends Component {
                                     </div>
                                     <div className="car_slider">
                                         <SliderAuto autoImage={JSON.parse(img)}/>
+                                        {/*<SliderAuto autoImage={img}/>*/}
                                     </div>
                                 </div>
 
@@ -345,7 +353,7 @@ class UserCars extends Component {
 
                                         </div>
                                         <div className={'sell_user_car sell_user_car' + id + ' sell_user_car_open'}>
-                                            <p style={{color: 'red'}}>{this.state.message}</p>
+                                            {/*<p style={{color: 'red'}}>{this.state.message}</p>*/}
                                             <form id="sellCar" onSubmit={this.SellAuto}>
                                                 <div className="left_block">
                                                     <div className="left_block_inp">

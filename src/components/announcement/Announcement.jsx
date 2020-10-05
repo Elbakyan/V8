@@ -213,6 +213,9 @@ class Announcement extends Component {
         )
     }
 }
+
+class AnnouncementImpl extends Announcement {
+}
 const MapStateToProps = state => state;
 const MainAnnouncement = connect(MapStateToProps)(Announcement)
 export default MainAnnouncement;
