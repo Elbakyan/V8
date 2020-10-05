@@ -132,6 +132,7 @@ class UserCars extends Component {
         }
 
         const block = document.querySelectorAll('.' + e.target.className)
+        console.log(block[1])
         block[1].classList.toggle('sell_user_car_open')
     }
 
@@ -173,13 +174,14 @@ class UserCars extends Component {
     }
 
     render() {
-        console.log(this.props.auto)
+        // console.log(this.props.auto)
+        console.log(this.props.auto.auto.data)
         return (
             <div>
                 <div className="User__cars">
                     {
 
-                        usAuto.map(({
+                        this.props.auto.auto.data.map(({
                                         id,
                                         user_id,
                                         mark,
@@ -219,7 +221,6 @@ class UserCars extends Component {
                                                 <DefaultBtn
                                                     name='Այո'
                                                     width="100%"
-                                                    className={'sell_user_car' + id}
                                                     type='submit'
                                                     background='#143645'
                                                     color='#ffffff'
@@ -229,7 +230,6 @@ class UserCars extends Component {
                                                     onClick={this.closeSell}
                                                     name='Ոչ'
                                                     width="100%"
-                                                    className={'sell_user_car' + id}
                                                     type='submit'
                                                     background='#143645'
                                                     color='#ffffff'
@@ -240,8 +240,8 @@ class UserCars extends Component {
 
                                     </div>
                                     <div className="car_slider">
-                                        {/*<SliderAuto autoImage={JSON.parse(img)}/>*/}
-                                        <SliderAuto autoImage={img}/>
+                                        <SliderAuto autoImage={JSON.parse(img)}/>
+                                        {/*<SliderAuto autoImage={img}/>*/}
                                     </div>
                                 </div>
 
@@ -327,7 +327,7 @@ class UserCars extends Component {
 
                                         </div>
                                         <div className={'sell_user_car sell_user_car' + id + ' sell_user_car_open'}>
-                                            <p style={{color: 'red'}}>{this.state.message}</p>
+                                            {/*<p style={{color: 'red'}}>{this.state.message}</p>*/}
                                             <form id="sellCar" onSubmit={this.SellAuto}>
                                                 <div className="left_block">
                                                     <div className="left_block_inp">
