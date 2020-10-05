@@ -25,10 +25,9 @@ export function GetMark(){
 
 export function GetModel(e = 1) {
     return async (dispach) => {
-
+        let id = e.target == undefined ? e :e.target.selectedIndex;
         let data = new FormData()
-        data.append('id', e.target.selectedIndex);
-
+        data.append('id',  id);
         POST(Url.model, data).then(data=> {
             data.unshift({
                 id:"0",
