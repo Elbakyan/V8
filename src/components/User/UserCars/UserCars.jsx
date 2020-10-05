@@ -113,7 +113,9 @@ class UserCars extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            message: ''
+            message: '',
+            delStatus: null
+
         }
     }
     closeSell = (e)=>{
@@ -133,10 +135,10 @@ class UserCars extends Component {
 
         const block = document.querySelectorAll('.' + e.target.className)
         block[1].classList.toggle('sell_user_car_open')
+
     }
 
     clear = (e)=>{
-        console.log(e.target.dataset)
         const modal = document.querySelectorAll('.delet_car')
         modal.forEach((el,i)=>{
             if(e.target.dataset.num == el.dataset.num){
@@ -151,7 +153,9 @@ class UserCars extends Component {
         let data = new FormData(e.target);
         POST(Url.sell,data).then(res => {
             if (res.status) {
-                window.location.href = '/user/account/cars';
+                // window.location.href = '/user/account/cars';
+
+                console.log(res);
 
             }else{
                 this.setState({
@@ -162,6 +166,7 @@ class UserCars extends Component {
         })
     }
     RefuseSell = (e) => {
+
         let data = new FormData();
         data.append('id', e.target.id)
         POST(Url.refuse,data).then(res => {
@@ -172,14 +177,29 @@ class UserCars extends Component {
         })
     }
 
+    Delite = (e) => {
+
+        let data = new FormData();
+        data.append('id', e.target.dataset.id)
+
+        POST(Url.DeleteUserAuto,data).then(res => {
+            console.log(res)
+            if (res.status){
+                const modal = document.querySelectorAll('.delet_car')
+                modal.forEach((el,i)=>{
+                    el.style.display = 'none'
+                })
+                window.location.href = '/user/account/cars'
+            }
+        })
+    }
     render() {
-        console.log(this.props.auto)
         return (
             <div>
                 <div className="User__cars">
                     {
 
-                        usAuto.map(({
+                        this.props.auto.auto.data.map(({
                                         id,
                                         user_id,
                                         mark,
@@ -218,17 +238,17 @@ class UserCars extends Component {
                                                 <DefaultBtn
                                                     name='Այո'
                                                     width="100%"
-                                                    className={'sell_user_car' + id}
                                                     type='submit'
                                                     background='#143645'
                                                     color='#ffffff'
                                                     light={30}
+                                                    dataId={id}
+                                                    onClick={this.Delite}
                                                 />
                                                 <DefaultBtn
                                                     onClick={this.closeSell}
                                                     name='Ոչ'
                                                     width="100%"
-                                                    className={'sell_user_car' + id}
                                                     type='submit'
                                                     background='#143645'
                                                     color='#ffffff'
@@ -239,8 +259,7 @@ class UserCars extends Component {
 
                                     </div>
                                     <div className="car_slider">
-                                        {/*<SliderAuto autoImage={JSON.parse(img)}/>*/}
-                                        <SliderAuto autoImage={img}/>
+                                        <SliderAuto autoImage={JSON.parse(img)}/>
                                     </div>
                                 </div>
 
