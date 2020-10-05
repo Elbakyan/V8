@@ -41,7 +41,6 @@ class App extends React.Component{
       return (
           <div className="App">
               <Switch>
-
                   <Route exact path='/'>
                       <Home/>
                   </Route>

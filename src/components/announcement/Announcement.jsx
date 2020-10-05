@@ -23,7 +23,6 @@ class Announcement extends Component {
         }
     }
     componentDidMount() {
-
         this.props.dispatch(GetSell(1))
     }
 
