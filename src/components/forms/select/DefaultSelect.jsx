@@ -20,7 +20,7 @@ class DefaultSelect extends Component {
             >
                 {
                     this.props.data.map((res, i) => {
-                        return <option key={res.id} value={res.name}>{res.name}</option>
+                        return <option key={i} value={res.name}>{res.name}</option>
                     })
                 }
             </select>
