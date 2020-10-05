@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faMobileAlt} from '@fortawesome/free-solid-svg-icons'
+import {faCheckCircle, faDollarSign, faMobileAlt, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import DefaultInput from "../forms/inputs/DefaultInput";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
@@ -25,7 +25,10 @@ class Auto extends Component {
             console.log(img)
         }
         let auto = this.props.sell.OneAuto;
+        console.log('auto',auto)
+        console.log(auto.later == true)
         return (
+
             <div className="Auto">
                 <div>
                     <div className="car_name">
@@ -38,14 +41,33 @@ class Auto extends Component {
                                 {
                                     img == undefined ? '' : <SliderAuto autoImage={img}/>
                                 }
-
                             </div>
                         </div>
 
                         <div className='block-right'>
+
+
                             <div className="car_info">
+
                                 <table className="auto_parapters">
                                     <tbody>
+                                    <tr>
+                                        <td style={{color:'red'}}>
+                                            {
+                                                auto.dealer == 1?<h1>Դիլեր</h1>:<h1>Անհատ</h1>
+                                            }
+                                        </td>
+
+                                    </tr>
+                                    <tr style={{color:'green'}}>
+                                        <td>Արժեք</td>
+
+                                        {
+                                            <td >
+                                                {auto.price} <span style={{fontSize:'10px'}}><FontAwesomeIcon icon={faDollarSign}/></span>
+                                            </td>
+                                        }
+                                    </tr>
                                     <tr>
                                         <td>Շարժիչը</td>
                                         <td>{auto.engine}</td>
@@ -94,6 +116,19 @@ class Auto extends Component {
                                         <td>Վազք</td>
                                         <td>{auto.mileage} {auto.mesuruments}</td>
                                     </tr>
+                                    <tr>
+                                        <td>Մաս մաս վճարում</td>
+                                        {
+                                            auto.later == 1?<td><FontAwesomeIcon icon={faCheckCircle}/></td>:<td><FontAwesomeIcon icon={faTimesCircle}/></td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <td>Մակսազերծված</td>
+                                        {
+                                            auto.сustoms_cleared?<td><FontAwesomeIcon icon={faCheckCircle}/></td>:<td><FontAwesomeIcon icon={faTimesCircle}/></td>
+                                        }
+                                    </tr>
+
                                     </tbody>
                                 </table>
                             </div>

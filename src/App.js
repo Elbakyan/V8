@@ -39,35 +39,29 @@ class App extends React.Component {
     render() {
 
 
-        return (
-
-            <div className="App">
-
-                <Switch>
-
-                    <Route exact path='/'>
-                        <Home/>
-                    </Route>
-                    <Route path='/user'>
-                        <User/>
-                    </Route>
-                    <Route path='/score'>
-                        <Score/>
-                    </Route>
-                    <Route exact path='/spare-parts'>
-                        <SpaerParts/>
-                    </Route>
-                    <Route path='/announcement'>
-                        <Announcement/>
-                    </Route>
-                    {this.props.user.status == undefined ? <Loading/> : this.props.user.status ?
-                        <Redirect to='/user/account'/> : <Redirect to='/'/>}
-                    {this.props.score.status == undefined ? <Loading/> : this.props.score.status ?
-                        <Redirect to='/score/account'/> : <Redirect to='/'/>}
-                </Switch>
-
-            </div>
-        );
+      return (
+          <div className="App">
+              <Switch>
+                  <Route exact path='/'>
+                      <Home/>
+                  </Route>
+                  <Route  path='/user'>
+                      <User/>
+                  </Route>
+                  <Route path='/score'>
+                      <Score/>
+                  </Route>
+                  <Route exact path='/spare-parts'>
+                      <SpaerParts/>
+                  </Route>
+                  <Route path='/announcement'>
+                      <Announcement/>
+                  </Route>
+                  {this.props.user.status  == undefined? <Loading/> : this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
+                  {this.props.score.status  == undefined? <Loading/> : this.props.score.status? <Redirect to='/score/account'/> : <Redirect to='/'/>}
+              </Switch>
+          </div>
+      )
     }
 }
 
