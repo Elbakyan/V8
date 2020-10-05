@@ -125,7 +125,7 @@ class Auto extends Component {
                                     <tr>
                                         <td>Մակսազերծված</td>
                                         {
-                                            auto.сustoms_cleared?<td><FontAwesomeIcon icon={faCheckCircle}/></td>:<td><FontAwesomeIcon icon={faTimesCircle}/></td>
+                                            auto.сustoms_cleared == 1?<td><FontAwesomeIcon icon={faCheckCircle}/></td>:<td><FontAwesomeIcon icon={faTimesCircle}/></td>
                                         }
                                     </tr>
 

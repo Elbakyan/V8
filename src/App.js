@@ -21,8 +21,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            path: '/',
-            id: undefined
+            path: '/'
 
         }
     }
@@ -37,8 +36,6 @@ class App extends React.Component {
 
     }
     render() {
-
-
       return (
           <div className="App">
               <Switch>

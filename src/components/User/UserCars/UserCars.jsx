@@ -172,9 +172,7 @@ class UserCars extends Component {
         data.append('id', e.target.id)
         POST(Url.refuse,data).then(res => {
             if (res) {
-                this.setState({
-                    Redirect: true
-                })
+                window.location.href = '/user/account/cars'
             }
 
         })
@@ -200,7 +198,7 @@ class UserCars extends Component {
 
         return (
             <div>
-                {this.state.Redirect ? <Redirect to='/user/account/cars' /> : ''}
+                {/*{this.state.Redirect ? <Redirect to='/user/account/cars' /> : ''}*/}
                 {this.state.RedirectSell ? <Redirect to='/announcement' /> : ''}
                 <div className="User__cars">
                     {
