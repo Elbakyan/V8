@@ -70,7 +70,9 @@ class Profile extends React.Component{
                                             <CarsForm/>
                                         </Route>
                                         <Route path='/user/account/cars'>
-                                            <UserCars />
+                                            {
+                                                this.props.auto.auto.status ? <UserCars/> :this.props.auto.auto.message
+                                            }
                                         </Route>
                                     </Switch>
                                 </div>

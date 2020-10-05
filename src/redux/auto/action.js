@@ -26,7 +26,7 @@ export function GetMark(){
 export function GetModel(e = 1) {
     return async (dispach) => {
 
-        let data = new FormData();
+        let data = new FormData()
         data.append('id', e.target.selectedIndex);
 
         POST(Url.model, data).then(data=> {

@@ -6,24 +6,24 @@ import User from "./components/User/User";
 import {connect} from "react-redux";
 import {UserExist} from "./redux/user/action";
 import {GetSicle} from "./redux/location/action";
-import {GetMark, GetModel} from "./redux/auto/action";
+import {GetAuto, GetMark, GetModel} from "./redux/auto/action";
 import Score from "./components/Score/Score";
 import SpaerParts from "./components/spare/SpareParts";
 import Loading from "./components/Loading";
 import {Redirect} from "react-router-dom";
 import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
+import Modal from "./components/Modal/Modal";
+import DefaultModal from "./components/Modal/Modal";
 
 
-
-
-
-
-class App extends React.Component{
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            path : '/'
+            path: '/',
+            id: undefined
+
         }
     }
 
@@ -37,6 +37,7 @@ class App extends React.Component{
 
     }
     render() {
+
 
       return (
           <div className="App">
@@ -59,11 +60,11 @@ class App extends React.Component{
                   {this.props.user.status  == undefined? <Loading/> : this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
                   {this.props.score.status  == undefined? <Loading/> : this.props.score.status? <Redirect to='/score/account'/> : <Redirect to='/'/>}
               </Switch>
-
           </div>
-      );
-  }
+      )
+    }
 }
+
 const MapStateToProps = state => state;
 const MainApp = connect(MapStateToProps)(App)
 export default MainApp;

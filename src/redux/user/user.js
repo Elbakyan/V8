@@ -1,5 +1,5 @@
 export const user = {
-    id:2,
+    id:1,
     status:true,
     data:{
         city: "Շենգավիթ",

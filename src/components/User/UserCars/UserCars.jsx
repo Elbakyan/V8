@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt} from '@fortawesome/free-solid-svg-icons'
-import {Link, Route} from "react-router-dom";
+import {Link, Redirect, Route} from "react-router-dom";
 import CarsForm from "./CarsForm";
 import './UserCars.scss'
 import {royle} from "../../../redux/auto/Values";
@@ -113,7 +113,10 @@ class UserCars extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            message: ''
+            message: '',
+            Redirect: false,
+            RedirectSell: false
+
         }
     }
     closeSell = (e)=>{
@@ -134,10 +137,10 @@ class UserCars extends Component {
         const block = document.querySelectorAll('.' + e.target.className)
         console.log(block[1])
         block[1].classList.toggle('sell_user_car_open')
+
     }
 
     clear = (e)=>{
-        console.log(e.target.dataset)
         const modal = document.querySelectorAll('.delet_car')
         modal.forEach((el,i)=>{
             if(e.target.dataset.num == el.dataset.num){
@@ -152,8 +155,9 @@ class UserCars extends Component {
         let data = new FormData(e.target);
         POST(Url.sell,data).then(res => {
             if (res.status) {
-                window.location.href = '/user/account/cars';
-
+                this.setState({
+                    RedirectSell: true
+                })
             }else{
                 this.setState({
                     message: res.message
@@ -163,21 +167,41 @@ class UserCars extends Component {
         })
     }
     RefuseSell = (e) => {
+
         let data = new FormData();
         data.append('id', e.target.id)
         POST(Url.refuse,data).then(res => {
             if (res) {
-                window.location.href = '/user/account/cars';
+                this.setState({
+                    Redirect: true
+                })
             }
 
         })
     }
 
+    Delite = (e) => {
+
+        let data = new FormData();
+        data.append('id', e.target.dataset.id)
+
+        POST(Url.DeleteUserAuto,data).then(res => {
+            console.log(res)
+            if (res.status){
+                const modal = document.querySelectorAll('.delet_car')
+                modal.forEach((el,i)=>{
+                    el.style.display = 'none'
+                })
+               window.location.href = '/user/account/cars'
+            }
+        })
+    }
     render() {
-        // console.log(this.props.auto)
-        console.log(this.props.auto.auto.data)
+
         return (
             <div>
+                {this.state.Redirect ? <Redirect to='/user/account/cars' /> : ''}
+                {this.state.RedirectSell ? <Redirect to='/announcement' /> : ''}
                 <div className="User__cars">
                     {
 
@@ -225,6 +249,8 @@ class UserCars extends Component {
                                                     background='#143645'
                                                     color='#ffffff'
                                                     light={30}
+                                                    dataId={id}
+                                                    onClick={this.Delite}
                                                 />
                                                 <DefaultBtn
                                                     onClick={this.closeSell}

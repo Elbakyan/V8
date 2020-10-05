@@ -64,7 +64,7 @@ class Announcement extends Component {
         this.props.dispatch(GetSell(this.state.id,e.target))
     }
     render() {
-
+        console.log(this.props.sell.data.data)
         return (
             <section className="Announcement">
                 {
@@ -211,6 +211,9 @@ class Announcement extends Component {
             </section>
         )
     }
+}
+
+class AnnouncementImpl extends Announcement {
 }
 const MapStateToProps = state => state;
 const MainAnnouncement = connect(MapStateToProps)(Announcement)
