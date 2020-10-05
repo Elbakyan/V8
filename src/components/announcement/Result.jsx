@@ -28,10 +28,10 @@ class Result extends Component {
             <div className="result">
 
                 {
-                    this.props.sell.data.data.map(auto => {
+                    this.props.sell.data.data.map((auto,i) => {
                         let img = JSON.parse(auto.img);
                         return (
-                            <div className="result_auto">
+                            <div className="result_auto" key={i}>
                                 <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
                                     <div data-id={auto.id}>
                                         <h2 className="price" data-id={auto.id}>{auto.model} </h2>
