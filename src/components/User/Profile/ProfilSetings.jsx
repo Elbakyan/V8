@@ -38,7 +38,7 @@ class ProfilSetings extends Component {
         })
     }
     render() {
-        console.log(this.state)
+
         return (
             <div className="profile__setings">
 
@@ -49,7 +49,10 @@ class ProfilSetings extends Component {
 
                             <div>
                                 <div className="profile__setings_back">
-                                    <Link to='/user/account/persional'><FontAwesomeIcon icon={faArrowCircleLeft}/></Link>
+                                    <Link to='/user/account/persional' onClick={(e) => {
+
+                                        window.history.back()
+                                    }}><FontAwesomeIcon icon={faArrowCircleLeft}/></Link>
                                 </div>
 
                                 <div className="profile__setings_form" >

@@ -25,19 +25,12 @@ class Profile extends React.Component{
     }
 
     render() {
-        console.log(window.location.pathname)
         return (
             <section className="Profile col">
                 <div className="container">
                             <div className="Profile__information row justify-between">
                                 <nav className='Profile__nav'>
                                     <ul >
-                                        <li>
-                                            <div className="icon">
-                                                <FontAwesomeIcon icon={faHome}/>
-                                            </div>
-                                            <Link to='/user/account/persional'>Իմ էջը</Link>
-                                        </li>
                                         <li>
                                             <div className="icon">
                                                 <FontAwesomeIcon icon={faEnvelope}/>
