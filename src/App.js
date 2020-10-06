@@ -13,16 +13,13 @@ import Loading from "./components/Loading";
 import {Redirect} from "react-router-dom";
 import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
-import Modal from "./components/Modal/Modal";
-import DefaultModal from "./components/Modal/Modal";
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            path: '/',
-            id: undefined
+            path: '/'
 
         }
     }
@@ -37,8 +34,6 @@ class App extends React.Component {
 
     }
     render() {
-
-
       return (
           <div className="App">
               <Switch>

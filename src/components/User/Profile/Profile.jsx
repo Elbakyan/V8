@@ -65,12 +65,6 @@ class Profile extends React.Component{
 
                                 <div className="Profile__content">
                                     <Switch>
-                                        <Route path='/user/account/persional'>
-                                            <PersionalData/>
-                                        </Route>
-                                        <Route path='/user/account/persional'>
-                                            <PersionalData/>
-                                        </Route>
                                         <Route path='/user/account/setings'>
                                             <ProfilSetings />
                                         </Route>

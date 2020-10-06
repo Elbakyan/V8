@@ -8,6 +8,7 @@ import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import ReactAudioPlayer from 'react-audio-player';
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
+import {Redirect} from "react-router";
 
 
 
@@ -18,7 +19,8 @@ class CarsForm extends Component {
             img: [],
             audio: false,
             message: 'Մուտքագրեք ձեր մեքենայի տվյալները',
-            status: true
+            status: true,
+            isAdd: false
         }
     }
 
@@ -56,7 +58,9 @@ class CarsForm extends Component {
             })
             if (res.status){
                setTimeout(() => {
-                   window.location.href = '/user/account/cars'
+                   this.setState({
+                       isAdd: true
+                   })
                },2000)
             }else{
                 this.setState({
@@ -77,6 +81,7 @@ class CarsForm extends Component {
                             src="https://brutal.am/Server/audio/v8.mp3"
                             autoPlay />  : ''
                     }
+                    {this.state.isAdd ? <Redirect to='/user/account/cars' /> : ''}
                     <h1 style={this.state.status ? {color: 'green'} : {color: 'red'}}>{this.state.message}</h1>
                     <form id='add__auto' encType='multipart/form-data' onSubmit={this.AddAuto.bind(this)}>
                         <div className='items'>

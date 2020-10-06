@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
-import {POST, TEST_POST} from "../../config/Requsest";
+import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 
 

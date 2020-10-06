@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 // import './Profile.scss'
 import {Link, Route} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import {
     fas,
     faHome,
@@ -12,6 +13,7 @@ import {
     faMobileAlt,
     faCog
 } from "@fortawesome/free-solid-svg-icons";
+
 import ProfilSetings from "./ProfilSetings";
 
 class PersionalData extends React.Component {
@@ -21,7 +23,6 @@ class PersionalData extends React.Component {
     }
 
     render() {
-        console.log(this.props.user.data)
 
     let data = this.props.user.data;
         return (
