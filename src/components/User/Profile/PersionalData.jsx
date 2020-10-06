@@ -32,7 +32,7 @@ class PersionalData extends React.Component {
                     data == undefined ? '' : (
                         <div>
                             <div className="persional__header">
-                                <div className="img" style={{backgroundImage:`url(https://thumbor.forbes.com/thumbor/768x0/https://cf-images.us-east-1.prod.boltdns.net/v1/static/2097119709001/1700480e-ecf6-446b-8801-7cb34051cf9a/1cbf5f18-dffd-4548-b862-e751e095e735/490x318/match/image.jpg)`}}>
+                                <div className="img" style={{backgroundImage:`url(${data.img})`}}>
                                 </div>
                                 <div className="fullname">
                                     <span>{data.name}</span>

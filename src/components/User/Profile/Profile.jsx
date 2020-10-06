@@ -25,7 +25,7 @@ class Profile extends React.Component{
     }
 
     render() {
-        console.log(window.location.pathname)
+        console.log(this.state.link)
         return (
             <section className="Profile col">
                 <div className="container">
@@ -58,8 +58,6 @@ class Profile extends React.Component{
                                                 Ավելացնել
                                             </Link>
                                         </li>
-
-
                                     </ul>
                                 </nav>
 
