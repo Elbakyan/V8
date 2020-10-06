@@ -4,8 +4,8 @@ import {Route} from "react-router";
 import SpaerParts from '../spare/SpareParts'
 import Footer from "../Footer/Footer";
 import Profile from "./Profile/Profile";
-class Account extends React.Component{
 
+class Account extends React.Component{
     render() {
         return (
             <div className="Account">

@@ -1,9 +1,17 @@
 import React from 'react';
 import {connect} from "react-redux";
-import './Profile.scss'
+// import './Profile.scss'
 import {Link, Route} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {fas, faHome, faEnvelope, faMapMarkedAlt,faMapMarkerAlt,faMobileAlt} from "@fortawesome/free-solid-svg-icons";
+import {
+    fas,
+    faHome,
+    faEnvelope,
+    faMapMarkedAlt,
+    faMapMarkerAlt,
+    faMobileAlt,
+    faCog
+} from "@fortawesome/free-solid-svg-icons";
 import ProfilSetings from "./ProfilSetings";
 
 class PersionalData extends React.Component {
@@ -22,14 +30,20 @@ class PersionalData extends React.Component {
                 {
                     data == undefined ? '' : (
                         <div>
-                            <div className="persional__header col justify-center align-items">
-                                <div className="img row justify-center">
-                                    <img src="https://elbakyan.am/Server/img/user/avatar/-1600089865.png" alt=""/>
+                            <div className="persional__header">
+                                <div className="img" style={{backgroundImage:`url(https://thumbor.forbes.com/thumbor/768x0/https://cf-images.us-east-1.prod.boltdns.net/v1/static/2097119709001/1700480e-ecf6-446b-8801-7cb34051cf9a/1cbf5f18-dffd-4548-b862-e751e095e735/490x318/match/image.jpg)`}}>
                                 </div>
-                                <div className="fullname row justify-center">
+                                <div className="fullname">
                                     <span>{data.name}</span>
                                     <span>{data.surname}</span>
                                 </div>
+                                <div className="persional__setings">
+                                    <Link to='/user/account/setings'><FontAwesomeIcon icon={faCog}/></Link>
+                                </div>
+
+                                {/*{*/}
+                                {/*    this.props*/}
+                                {/*}*/}
                             </div>
 
                             <div className="persional__body col justify-center align-center">
@@ -58,30 +72,16 @@ class PersionalData extends React.Component {
 
                                         <li>
                                             <div className="icon">
-                                                <FontAwesomeIcon icon={faMapMarkedAlt}/>
-                                            </div>
-                                            <div>
-                                                <span>{data.sircle}</span>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <div className="icon">
                                                 <FontAwesomeIcon icon={faMapMarkerAlt}/>
                                             </div>
                                             <div>
-                                                <span>{data.city}</span>
+                                                <span>{data.sircle} {data.city}</span>
                                             </div>
-
                                         </li>
                                     </ul>
                                 </nav>
-                                <div className="persional__setings">
-                                    <Link to='/user/account/setings'>Կարգավորումներ</Link>
-                                </div>
-                                <Route path='/user/account/setings'>
-                                    <ProfilSetings />
-                                </Route>
+
+
                             </div>
                         </div>
                     )

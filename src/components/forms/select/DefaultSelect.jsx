@@ -10,7 +10,6 @@ class DefaultSelect extends Component {
             <select
                 name={this.props.name}
                 onChange={this.props.onChange}
-
                 style={{
                     backgroundColor: this.props.background,
                     width: this.props.width,

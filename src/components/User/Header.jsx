@@ -1,8 +1,11 @@
 import React from 'react';
 import {Link, Route} from "react-router-dom";
 import './User.scss'
+
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
+import PersonalData from  './Profile/PersionalData'
+import './Profile/Profile.scss'
 import {GetMark} from "../../redux/auto/action";
 import {Url} from "../config/Url";
 
@@ -45,6 +48,11 @@ class Header extends React.Component{
                             </li>
                         </ul>
                     </nav>
+                    {/* eslint-disable-next-line react/jsx-no-undef */}
+                    <div className="user_info">
+                        <PersonalData />
+                    </div>
+
                     <div className="header__logout">
                         <a href={Url.logout}>
                             <DefaultBtn

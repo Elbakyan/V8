@@ -26,10 +26,6 @@ class ProfilSetings extends Component {
     render() {
         return (
             <div className="profile__setings">
-                <div className="profile__setings_back">
-                    <Link to='/user/account/persional'><FontAwesomeIcon icon={faArrowCircleLeft}/></Link>
-                </div>
-
                 <div className="profile__setings_form" >
                     <form className="col align-center justify-center">
                         <DefaultInput

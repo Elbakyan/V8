@@ -8,16 +8,24 @@ import {fas, faHome, faEnvelope,faCar,faPlusCircle} from "@fortawesome/free-soli
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
 import CarsForm from "../UserCars/CarsForm";
-import Loading from "../../Loading";
+
 
 
 class Profile extends React.Component{
     constructor(props) {
         super(props);
-
+        this.state = {
+            link:''
+        }
+    }
+    componentDidMount() {
+        this.setState({
+            link:window.location.pathname
+        })
     }
 
     render() {
+        console.log(window.location.pathname)
         return (
             <section className="Profile col">
                 <div className="container">
@@ -73,6 +81,9 @@ class Profile extends React.Component{
                                             {
                                                 this.props.auto.auto.status ? <UserCars/> :this.props.auto.auto.message
                                             }
+                                        </Route>
+                                        <Route path='/user/account/setings'>
+                                            <ProfilSetings />
                                         </Route>
                                     </Switch>
                                 </div>
