@@ -28,3 +28,25 @@ body{
   background-color: $white;
   z-index: 5;
 }
+
+.burger{
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: $white;
+  right: 10px;
+  top: 15px;
+  cursor: pointer;
+  display: none;
+  z-index: 21;
+  @media (max-width: 768px) {
+    &{
+      display: flex;
+
+    }
+  }
+}

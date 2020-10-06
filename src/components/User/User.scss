@@ -42,16 +42,39 @@ header{
   .header__navigation{
     >ul{
       display: flex;
+      @media (max-width: 768px) {
+        &{
+          flex-direction: column;
+          position: fixed;
+          top: 0;
+          right: -100%;
+          z-index: 20;
+          background: $main-color;
+          height: 100vh;
+          padding: 20px;
+          transition: right .5s;
+
+        }
+
+      }
       li{
         margin: 0px 10px;
         border-radius: 5px;
         cursor: pointer;
         transition: .3s;
         position: relative;
+        @media (max-width: 768px) {
+          &{
+            padding: 20px 0px;
+
+          }
+
+        }
 
         a{
           font-size: 14px;
           color: $white;
+
         }
         &:after{
           content: '';
@@ -75,6 +98,17 @@ header{
     background-color: lighten($color-btn, 10);
     color: $white;
     transition: .3s;
+    z-index: 20;
+    @media (max-width: 768px) {
+      &{
+        position: fixed;
+        right: -100%;
+        bottom: 120px;
+
+
+      }
+
+    }
     &:hover{
       background: lighten($color-btn, 20);
     }
@@ -97,6 +131,12 @@ header{
   width: 200px;
   height: 60px;
   color: $white;
+  @media (max-width: 768px){
+    &{
+
+    }
+  }
+
   .persional__data{
     width:250px;
     height: 60px;
