@@ -19,7 +19,6 @@ class User extends React.Component{
         }
     }
     render() {
-        console.log(this.props.id)
         if (this.props.id){
             this.props.dispatch(GetAuto(this.props.id))
 

@@ -14,7 +14,7 @@ export const Url = {
     getsell: 'https://brutal.am/Server/GetSell',
     getsellautobyid: 'https://brutal.am/Server/get_sell__auto_by_id',
     DeleteUserAuto: 'https://brutal.am/Server/DeleteUserAuto',
-    UserUpdate: 'https://brutal.am/Server/UbdateUserData',
+    UserUpdate: 'https://brutal.am/Server/ubdate_user_data',
     addscore: 'https://brutal.am/Server/AddScoreAccount',
     loginscore: 'https://brutal.am/Server/score-log',
     existScore: 'https://brutal.am/Server/score-exist'
