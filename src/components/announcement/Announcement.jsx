@@ -62,9 +62,12 @@ class Announcement extends Component {
         this.props.sell.OneAuto = [];
         e.preventDefault();
         this.props.dispatch(GetSell(this.state.id,e.target))
+        console.log(this.props.sell.data.data)
     }
     render() {
-        console.log(this.props.sell.data.data)
+
+
+
         return (
             <section className="Announcement">
                 {
@@ -164,6 +167,15 @@ class Announcement extends Component {
                                     />
                                 </label>
                             </div>
+                            <div >
+                                <label style={{width: '100%'}}>
+                                    <DefaultSelect
+
+                                        name='sort'
+                                        data={this.props.auto.sort}
+                                    />
+                                </label>
+                            </div>
                             <div className="btn">
                                 <DefaultBtn
                                     type='submit'
@@ -172,6 +184,7 @@ class Announcement extends Component {
 
                                 />
                             </div>
+
 
                         </form>
 

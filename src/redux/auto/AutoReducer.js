@@ -1,6 +1,6 @@
 import {GET_MODEL, GET_MARK, GET_AUTO} from "./action";
 
-import {category, color, engine, fuel, royle, traction, transmission, type, year} from "./Values";
+import {category, color, engine, fuel, royle, sort, traction, transmission, type, year} from "./Values";
 
 
 const initalState = {
@@ -16,6 +16,7 @@ const initalState = {
     category:category,
     traction: traction,
     auto: {data:[]},
+    sort: sort
 }
 
 

@@ -245,6 +245,26 @@ export const  traction =[
         name: 'Լիաքաշակ'
     },
 
+];
+export const  sort =[
+    {
+        id: 0,
+        name: 'Թարմերը․․․'
+    },
+    {
+        id: 1,
+        name: 'Էժաները․․․'
+    },
+    {
+        id: 1,
+        name: 'Թանկերը․․․'
+    },
+    {
+        id: 2,
+        name: 'Շատ դիտվածները․․․'
+    },
+
+
 ]
 
 

@@ -4,10 +4,11 @@ import './Profile.scss'
 import {Link, Redirect, Route, Switch} from "react-router-dom";
 import PersionalData from "./PersionalData";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {fas, faHome, faEnvelope,faCar,faPlusCircle} from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faEnvelope,faCar,faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
 import CarsForm from "../UserCars/CarsForm";
+import Favorite from "../favorite/Favorite";
 
 
 
@@ -46,6 +47,12 @@ class Profile extends React.Component{
                                         </li>
                                         <li>
                                             <div className="icon">
+                                                <FontAwesomeIcon icon={faHeart}/>
+                                            </div>
+                                            <Link to='/user/account/favorite'>Նախնտրելի</Link>
+                                        </li>
+                                        <li>
+                                            <div className="icon">
                                                 <FontAwesomeIcon icon={faPlusCircle}/>
                                             </div>
                                             <Link to='/user/account/cars/add'>
@@ -70,6 +77,9 @@ class Profile extends React.Component{
                                         </Route>
                                         <Route path='/user/account/setings'>
                                             <ProfilSetings />
+                                        </Route>
+                                        <Route path='/user/account/favorite'>
+                                            <Favorite />
                                         </Route>
                                     </Switch>
                                 </div>
