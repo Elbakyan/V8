@@ -4,7 +4,7 @@ import './Profile.scss'
 import {Link, Redirect, Route, Switch} from "react-router-dom";
 import PersionalData from "./PersionalData";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {fas, faHome, faEnvelope,faCar,faPlusCircle} from "@fortawesome/free-solid-svg-icons";
+import {fas, faHome, faEnvelope, faCar, faPlusCircle, faBars} from "@fortawesome/free-solid-svg-icons";
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
 import CarsForm from "../UserCars/CarsForm";
@@ -31,6 +31,9 @@ class Profile extends React.Component{
                 <div className="container">
                             <div className="Profile__information row justify-between">
                                 <nav className='Profile__nav'>
+                                    <div className="burger" onClick={this.ShowCloseMenue}>
+                                        <FontAwesomeIcon icon={faBars} />
+                                    </div>
                                     <ul >
                                         <li>
                                             <div className="icon">

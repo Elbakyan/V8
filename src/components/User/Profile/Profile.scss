@@ -14,9 +14,13 @@
   }
   &__nav{
     width: 22%;
+    //position: relative;
+    @media (max-width: 768px){
+    }
     > ul {
       display: flex;
       flex-direction: column;
+
 
       li{
         width: 100%;
@@ -54,7 +58,11 @@
 
   &__content{
     width:70% ;
-
+    //@media (max-width: 768px){
+    //  &{
+    //    width:90% ;
+    //  }
+    //}
     .persional__data{
       width:250px;
       height: 60px;
@@ -88,7 +96,6 @@
           }
         }
         .fullname{
-
           font-size: 24px;
           color: $main-color;
           display: flex;
@@ -120,7 +127,6 @@
             >div:nth-child(2){
               width: 80%;
             }
-
             width: 90%;
             margin: 10px 0;
             font-size: 18px;
