@@ -9,7 +9,8 @@ import { faHeart, faEnvelope, faCar, faPlusCircle, faBars} from "@fortawesome/fr
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
 import CarsForm from "../UserCars/CarsForm";
-import Favorite from "../favorite/Favorite";
+import Favorite from "../../announcement/Favorite";
+
 
 
 

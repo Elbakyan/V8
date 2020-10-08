@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 // import {faDollarSign} from '@fortawesome/free-solid-svg-icons'
 // import DefaultInput from "../forms/inputs/DefaultInput";
 // import DefaultBtn from "../forms/buttons/DefaultBtn";

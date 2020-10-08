@@ -15,6 +15,10 @@ import Result from "./Result";
 import Auto from "./Auto";
 import {GetSell} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
+import Favorite from "./Favorite";
+// import Favorite from "../User/favorite/Favorite";
+
+
 
 
 class Announcement extends Component {
@@ -210,7 +214,8 @@ class Announcement extends Component {
                                         }
                                     </ul>
                                 </div>
-                                <Result/>
+                                {/*<Result/>*/}
+                                <Favorite />
                             </div>
                         </Route>
                         {
