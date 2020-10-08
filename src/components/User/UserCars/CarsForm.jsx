@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import './UserCars.scss'
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
-import {GetModel} from "../../../redux/auto/action";
+import {GetAuto, GetModel} from "../../../redux/auto/action";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
@@ -57,6 +57,7 @@ class CarsForm extends Component {
                 status: res.status
             })
             if (res.status){
+                this.props.dispatch(GetAuto(this.props.user.id))
                setTimeout(() => {
                    this.setState({
                        isAdd: true

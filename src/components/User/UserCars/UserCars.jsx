@@ -9,7 +9,7 @@ import SliderAuto from "./SliderAuto";
 import engine from './icon/car-engine.svg'
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import DefaultInput from "../../forms/inputs/DefaultInput";
-import {GetModel} from "../../../redux/auto/action";
+import {GetAuto, GetModel} from "../../../redux/auto/action";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
@@ -172,7 +172,7 @@ class UserCars extends Component {
         data.append('id', e.target.id)
         POST(Url.refuse,data).then(res => {
             if (res) {
-                window.location.href = '/user/account/cars'
+                this.props.dispatch(GetAuto(this.props.user.id))
             }
 
         })
@@ -190,7 +190,8 @@ class UserCars extends Component {
                 modal.forEach((el,i)=>{
                     el.style.display = 'none'
                 })
-               window.location.href = '/user/account/cars'
+                    this.props.dispatch(GetAuto(this.props.user.id))
+
             }
         })
     }
