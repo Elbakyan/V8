@@ -8,25 +8,39 @@ import {connect} from "react-redux";
 import {GetModel} from "../../redux/auto/action";
 import {Link} from "react-router-dom";
 import Auto from "./Auto";
-import {GET, POST} from "../config/Requsest";
+import {GET, POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import {GetSellByID} from "../../redux/sellauto/action";
 import SellCar from "./SellCar";
-import {GetFavorite} from "../../redux/favorite/action";
+
 
 class Result extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            favorite: ''
+        }
 
     }
+    componentDidMount() {
+        let data = new FormData()
+        data.append('id', this.props.user.status.id)
+        POST(Url.getFavorite,data).then(res =>{
+            this.setState({
+                favorite: res
+            })
+        })
+    }
+
     GetAuto = (e) => {
         let data = new FormData();
         data.append('id', e.target.dataset.id);
+
         this.props.dispatch(GetSellByID(data))
     }
 
     render() {
-        // console.log(this.props.favorite)
+
         return (
             <div className="result">
                 {/*<SellCar />*/}
@@ -38,7 +52,7 @@ class Result extends Component {
                         return (
                             <div className="result_auto" key={i}>
                                 <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
-                                    <SellCar auto={auto} />
+                                    <SellCar Auto={auto} favorite={this.state.favorite} />
                                 </Link>
 
                             </div>

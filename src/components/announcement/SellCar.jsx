@@ -6,9 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SellCar.scss'
 import {faHeart as reg} from "@fortawesome/free-regular-svg-icons/faHeart";
 import {faHeart as sol} from "@fortawesome/free-solid-svg-icons/faHeart";
-import {GET} from "../config/Requsest";
+import {GET, POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
-import {GET_FAVORITE} from "../../redux/favorite/action";
+import {GET_FAVORITE, GetFavorite} from "../../redux/favorite/action";
+import {connect} from "react-redux";
 
 const img = [
     'https://www.dw.com/image/19571759_303.jpg',
@@ -41,21 +42,23 @@ class SellCar extends  Component {
 
     }
 
+
     render() {
-        let img = JSON.parse(this.props.auto.img);
+        console.log(this.props)
+        let img = JSON.parse(this.props.Auto.img);
         let navWidth = (100 / img.length) + '%' ;
         return (
-            <div className="getSellCar" data-id={this.props.auto.id}>
-                <div className="getSellCar_header" data-id={this.props.auto.id}>
-                    <span className="favorite_block" data-id={this.props.auto.id}>
+            <div className="getSellCar" data-id={this.props.Auto.id}>
+                <div className="getSellCar_header" data-id={this.props.Auto.id}>
+                    <span className="favorite_block" data-id={this.props.Auto.id}>
                         <FontAwesomeIcon icon={reg} />
                         <FontAwesomeIcon icon={sol} />
                     </span>
-                    <div className="getSellCar_header_image" data-id={this.props.auto.id} style={{backgroundImage:`url(${img[this.state.index]})`}}>
+                    <div className="getSellCar_header_image" data-id={this.props.Auto.id} style={{backgroundImage:`url(${img[this.state.index]})`}}>
 
                     </div>
 
-                    <div className="getSellCar_header_check" data-id={this.props.auto.id}>
+                    <div className="getSellCar_header_check" data-id={this.props.Auto.id}>
                         {
                             img.map((e,i)=>(
                                 img.length > 1?
@@ -66,26 +69,26 @@ class SellCar extends  Component {
                                     onMouseOver={this.show}
                                     data-src={i}
                                     style={{width:navWidth}}
-                                    data-id={this.props.auto.id}
+                                    data-id={this.props.Auto.id}
                                 >
-                                    <span data-id={this.props.auto.id} className='getSellCar_block'></span>
+                                    <span data-id={this.props.Auto.id} className='getSellCar_block'></span>
                                 </div>:''
                             ))
                         }
                     </div>
                 </div>
 
-                <div className="getSellCar_body" data-id={this.props.auto.id}>
-                    <div className='getSellCar_body_block1' data-id={this.props.auto.id}>
-                        <span data-id={this.props.auto.id}>{this.props.auto.model}</span>
+                <div className="getSellCar_body" data-id={this.props.Auto.id}>
+                    <div className='getSellCar_body_block1' data-id={this.props.Auto.id}>
+                        <span data-id={this.props.Auto.id}>{this.props.Auto.model}</span>
                     </div>
-                    <div className='getSellCar_body_block2' data-id={this.props.auto.id}>
-                        <span data-id={this.props.auto.id}>{this.props.auto.color}</span>
-                        <span data-id={this.props.auto.id}>{this.props.auto.year}</span>
+                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>
+                        <span data-id={this.props.Auto.id}>{this.props.Auto.color}</span>
+                        <span data-id={this.props.Auto.id}>{this.props.Auto.year}</span>
                     </div>
-                    <div className='getSellCar_body_block2' data-id={this.props.auto.id}>
-                        <span data-id={this.props.auto.id}>{this.props.auto.city}</span>
-                        <span data-id={this.props.auto.id}>{this.props.auto.sircle}</span>
+                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>
+                        <span data-id={this.props.Auto.id}>{this.props.Auto.city}</span>
+                        <span data-id={this.props.Auto.id}>{this.props.Auto.sircle}</span>
                     </div>
                 </div>
             </div>
@@ -93,4 +96,7 @@ class SellCar extends  Component {
     }
 }
 
-export  default SellCar
+
+// const MapStateToProps = state => state;
+// const MainSellCar = connect(MapStateToProps)(SellCar)
+export default SellCar;

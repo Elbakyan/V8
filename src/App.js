@@ -13,7 +13,7 @@ import Loading from "./components/Loading";
 import {Redirect} from "react-router-dom";
 import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
-import {GetFavorite} from "./redux/favorite/action";
+
 
 
 class App extends React.Component {
