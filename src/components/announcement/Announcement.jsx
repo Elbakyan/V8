@@ -70,6 +70,7 @@ class Announcement extends Component {
         this.props.dispatch(GetSell(this.state.id,e.target))
     }
     render() {
+
         return (
             <section className="Announcement">
                 {
@@ -209,12 +210,13 @@ class Announcement extends Component {
                                         }
                                     </ul>
                                 </div>
-                                    <Result/>
+                                <Result/>
                             </div>
                         </Route>
                         {
+
                             this.props.sell.OneAuto == ''  ? <Redirect to='/announcement' />  :
-                                <Route exact path={window.location.pathname}>
+                                <Route exact path={'/announcement/' + this.props.sell.OneAuto.id}>
                                     <Auto/>
                                 </Route>
                         }
