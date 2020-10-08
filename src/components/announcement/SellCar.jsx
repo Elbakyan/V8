@@ -102,7 +102,7 @@ class SellCar extends  Component {
                         <span data-id={this.props.auto.id}>{this.props.auto.color}</span>
                         <span data-id={this.props.auto.id}>{this.props.auto.year}</span>
                     </div>
-                    <div className='getSellCar_body_block2' data-id={this.props.auto.id}>
+                    <div className='getSellCar_body_block3' data-id={this.props.auto.id}>
                         <span data-id={this.props.auto.id}>{this.props.auto.city}</span>
                         <span data-id={this.props.auto.id}>{this.props.auto.sircle}</span>
                     </div>
