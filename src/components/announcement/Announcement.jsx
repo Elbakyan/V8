@@ -14,6 +14,7 @@ import {Link, Redirect, Route} from "react-router-dom";
 import Result from "./Result";
 import Auto from "./Auto";
 import {GetSell} from "../../redux/sellauto/action";
+import {GetFavorite} from "../../redux/favorite/action";
 
 class Announcement extends Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class Announcement extends Component {
     }
     componentDidMount() {
         this.props.dispatch(GetSell(1))
+        this.props.dispatch(GetFavorite(this.props.user.id))
     }
 
     Count = () =>{
@@ -64,7 +66,9 @@ class Announcement extends Component {
         this.props.dispatch(GetSell(this.state.id,e.target))
     }
     render() {
-        console.log(this.props.sell.data.data)
+
+
+
         return (
             <section className="Announcement">
                 {
@@ -164,6 +168,15 @@ class Announcement extends Component {
                                     />
                                 </label>
                             </div>
+                            <div >
+                                <label style={{width: '100%'}}>
+                                    <DefaultSelect
+
+                                        name='sort'
+                                        data={this.props.auto.sort}
+                                    />
+                                </label>
+                            </div>
                             <div className="btn">
                                 <DefaultBtn
                                     type='submit'
@@ -172,6 +185,7 @@ class Announcement extends Component {
 
                                 />
                             </div>
+
 
                         </form>
 

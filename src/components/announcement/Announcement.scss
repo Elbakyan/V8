@@ -107,7 +107,6 @@
   width: 70%;
   overflow-y: auto;
   padding-bottom: 50px;
-  //background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,43 +122,38 @@
     .car_name{
       font-weight: bold;
       font-size: 24px;
-      width: 95%;
-      padding: 20px 20px;
+      width: 30%;
+      height: 100%;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
+      flex-direction: column;
       >span{
+
         color: $main-color;
         &:first-child{
           font-size: 35px;
+
         }
       }
       >.phone_car_owner{
         display: flex;
         justify-content: space-between;
-        width: auto;
-        //padding: 20px;
-        width: 25%;
         border-radius: 5px;
-        //background: $main-color;
-        //color: white;
-        //height: ;
       }
     }
     >.block{
       display: flex;
       padding-bottom: 40px;
+      flex-direction: column;
       .block-left{
-        width: 80%;
+        width: 100%;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        //justify-content: center;
-        //border: 1px solid red;
 
 
         .car_slider{
-          width: 90%;
+          width: 100%;
           //padding:0 20px 20px 20px;
           //height: 90%;
         }
@@ -168,11 +162,12 @@
       }
 
       .block-right {
-        width: 65%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
         .car_info {
           margin: 0;
           display: flex;

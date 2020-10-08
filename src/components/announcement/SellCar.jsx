@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SellCar.scss'
 import {faHeart as reg} from "@fortawesome/free-regular-svg-icons/faHeart";
 import {faHeart as sol} from "@fortawesome/free-solid-svg-icons/faHeart";
+import {GET} from "../config/Requsest";
+import {Url} from "../config/Url";
+import {GET_FAVORITE} from "../../redux/favorite/action";
 
 const img = [
     'https://www.dw.com/image/19571759_303.jpg',
@@ -18,28 +21,7 @@ class SellCar extends  Component {
     constructor(props) {
         super(props);
         this.state = {
-            showImg:[
-                'https://www.dw.com/image/19571759_303.jpg',
-                'https://cdn.motor1.com/images/mgl/7J3z7/s3/novo-bmw-serie-5-2021-vazamentos.jpg',
-                'https://cdn.iz.ru/sites/default/files/news-2020-03/11-bmw-i4-concept-2020-stationary-front.jpg',
-                'https://www.dw.com/image/19571759_303.jpg',
-                'https://cdn.motor1.com/images/mgl/7J3z7/s3/novo-bmw-serie-5-2021-vazamentos.jpg',
-                'https://cdn.iz.ru/sites/default/files/news-2020-03/11-bmw-i4-concept-2020-stationary-front.jpg',
-                'https://www.dw.com/image/19571759_303.jpg',
-                'https://cdn.motor1.com/images/mgl/7J3z7/s3/novo-bmw-serie-5-2021-vazamentos.jpg',
-                'https://cdn.iz.ru/sites/default/files/news-2020-03/11-bmw-i4-concept-2020-stationary-front.jpg',
-                'https://www.dw.com/image/19571759_303.jpg',
-                'https://cdn.motor1.com/images/mgl/7J3z7/s3/novo-bmw-serie-5-2021-vazamentos.jpg',
-                'https://cdn.iz.ru/sites/default/files/news-2020-03/11-bmw-i4-concept-2020-stationary-front.jpg',
-                'https://www.dw.com/image/19571759_303.jpg',
-                'https://cdn.motor1.com/images/mgl/7J3z7/s3/novo-bmw-serie-5-2021-vazamentos.jpg',
-                'https://cdn.iz.ru/sites/default/files/news-2020-03/11-bmw-i4-concept-2020-stationary-front.jpg',
-                'https://www.dw.com/image/19571759_303.jpg',
-                'https://cdn.motor1.com/images/mgl/7J3z7/s3/novo-bmw-serie-5-2021-vazamentos.jpg',
-                'https://cdn.iz.ru/sites/default/files/news-2020-03/11-bmw-i4-concept-2020-stationary-front.jpg',
-                'https://img.championat.com/s/735x490/news/big/m/k/bmw-m3-gtr-iz-need-for-speed_1586771935252102084.jpg'
-            ],
-            index:0
+            index:0,
 
         }
     }
@@ -54,15 +36,14 @@ class SellCar extends  Component {
             index:e.target.dataset.src
         })
         let span = document.querySelector('.'+e.target.className + '>span')
-        console.log( e.target.childNodes)
         e.target.childNodes[0].style.background = 'blue'
 
 
     }
+
     render() {
         let img = JSON.parse(this.props.auto.img);
         let navWidth = (100 / img.length) + '%' ;
-        console.log(navWidth)
         return (
             <div className="getSellCar" data-id={this.props.auto.id}>
                 <div className="getSellCar_header" data-id={this.props.auto.id}>
