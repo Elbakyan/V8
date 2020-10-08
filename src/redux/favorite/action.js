@@ -1,8 +1,8 @@
 import {POST, TEST_POST} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 
-export const GET_FAVORITE = 'GET_MARK';
-export const ADD_FAVORITE = 'GET_MODEL';
+export const GET_FAVORITE = 'GET_FAVORITE';
+export const ADD_FAVORITE = 'ADD_FAVORITE';
 
 
 
