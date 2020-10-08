@@ -23,8 +23,15 @@ class SellCar extends  Component {
         super(props);
         this.state = {
             index:0,
+            isFav: false
 
         }
+
+
+    }
+    componentDidMount() {
+        console.log()
+
     }
 
     out = (e)=>{
@@ -44,18 +51,13 @@ class SellCar extends  Component {
 
 
     render() {
-        console.log(this.props)
         let img = JSON.parse(this.props.Auto.img);
         let navWidth = (100 / img.length) + '%' ;
         return (
             <div className="getSellCar" data-id={this.props.Auto.id}>
                 <div className="getSellCar_header" data-id={this.props.Auto.id}>
-                    <span className="favorite_block" data-id={this.props.Auto.id}>
-                        <FontAwesomeIcon icon={reg} />
-                        <FontAwesomeIcon icon={sol} />
-                    </span>
-                    <div className="getSellCar_header_image" data-id={this.props.Auto.id} style={{backgroundImage:`url(${img[this.state.index]})`}}>
 
+                    <div className="getSellCar_header_image" data-id={this.props.Auto.id} style={{backgroundImage:`url(${img[this.state.index]})`}}>
                     </div>
 
                     <div className="getSellCar_header_check" data-id={this.props.Auto.id}>
@@ -97,6 +99,6 @@ class SellCar extends  Component {
 }
 
 
-// const MapStateToProps = state => state;
-// const MainSellCar = connect(MapStateToProps)(SellCar)
-export default SellCar;
+const MapStateToProps = state => state;
+const MainSellCar = connect(MapStateToProps)(SellCar)
+export default MainSellCar;

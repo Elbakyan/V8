@@ -14,6 +14,7 @@ import {Link, Redirect, Route} from "react-router-dom";
 import Result from "./Result";
 import Auto from "./Auto";
 import {GetSell} from "../../redux/sellauto/action";
+import {GetFavorite} from "../../redux/favorite/action";
 
 
 class Announcement extends Component {
@@ -22,6 +23,12 @@ class Announcement extends Component {
         this.state = {
             id: 1
         }
+    }
+
+    componentDidMount() {
+        console.log(this.props)
+        this.props.dispatch(GetSell(1))
+        this.props.dispatch(GetFavorite(this.props.user.id))
     }
 
 
@@ -63,9 +70,6 @@ class Announcement extends Component {
         this.props.dispatch(GetSell(this.state.id,e.target))
     }
     render() {
-
-
-
         return (
             <section className="Announcement">
                 {
@@ -222,9 +226,6 @@ class Announcement extends Component {
             </section>
         )
     }
-}
-
-class AnnouncementImpl extends Announcement {
 }
 const MapStateToProps = state => state;
 const MainAnnouncement = connect(MapStateToProps)(Announcement)

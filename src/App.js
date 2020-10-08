@@ -25,13 +25,16 @@ class App extends React.Component {
         }
     }
 
+
     componentDidMount() {
+        console.log(this.props)
         this.props.dispatch(UserExist())
         this.props.dispatch(ScoreExist())
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
 
     }
+
     render() {
       return (
           <div className="App">
