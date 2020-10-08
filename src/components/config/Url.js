@@ -17,5 +17,7 @@ export const Url = {
     UserUpdate: 'https://brutal.am/Server/ubdate_user_data',
     addscore: 'https://brutal.am/Server/AddScoreAccount',
     loginscore: 'https://brutal.am/Server/score-log',
-    existScore: 'https://brutal.am/Server/score-exist'
+    existScore: 'https://brutal.am/Server/score-exist',
+    getFavorite: 'https://brutal.am/Server/favorite-get',
+    addFavorite: 'https://brutal.am/Server/favorite-add',
 }

@@ -123,7 +123,21 @@ class CarsForm extends Component {
                                 }
                             </select>
                         </div>
-
+                        <DefaultInput
+                            type='hidden'
+                            name='phone'
+                            value={this.props.user.data != undefined ?this.props.user.data.phone: ''}
+                        />
+                        <DefaultInput
+                            type='hidden'
+                            name='sircle'
+                            value={this.props.user.data != undefined ?this.props.user.data.sircle: ''}
+                        />
+                        <DefaultInput
+                            type='hidden'
+                            name='city'
+                            value={this.props.user.data != undefined ?this.props.user.data.city: ''}
+                        />
                         <div className="items">
                             <span>*</span>
                             <select name="engine">

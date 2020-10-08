@@ -14,6 +14,7 @@ import {Link, Redirect, Route} from "react-router-dom";
 import Result from "./Result";
 import Auto from "./Auto";
 import {GetSell} from "../../redux/sellauto/action";
+import {GetFavorite} from "../../redux/favorite/action";
 
 class Announcement extends Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class Announcement extends Component {
     }
     componentDidMount() {
         this.props.dispatch(GetSell(1))
+        this.props.dispatch(GetFavorite(this.props.user.id))
     }
 
     Count = () =>{
@@ -62,7 +64,6 @@ class Announcement extends Component {
         this.props.sell.OneAuto = [];
         e.preventDefault();
         this.props.dispatch(GetSell(this.state.id,e.target))
-        console.log(this.props.sell.data.data)
     }
     render() {
 

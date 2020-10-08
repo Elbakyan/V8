@@ -13,6 +13,7 @@ import Loading from "./components/Loading";
 import {Redirect} from "react-router-dom";
 import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
+import {GetFavorite} from "./redux/favorite/action";
 
 
 class App extends React.Component {
@@ -25,16 +26,13 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-
         this.props.dispatch(UserExist())
         this.props.dispatch(ScoreExist())
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
 
-
     }
     render() {
-        console.log(this.props)
       return (
           <div className="App">
               <Switch>
