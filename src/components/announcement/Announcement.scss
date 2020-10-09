@@ -99,7 +99,6 @@
         color: $main-color;
         &:first-child{
           font-size: 35px;
-
         }
       }
       >.phone_car_owner{
@@ -149,6 +148,9 @@
             width: 80%;
             tbody {
               tr {
+                &:first-child{
+                  border-bottom: 1px solid red;
+                }
                 //margin-bottom: 12px;
                 td {
                   &:first-child {
