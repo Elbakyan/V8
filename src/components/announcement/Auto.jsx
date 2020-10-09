@@ -68,6 +68,10 @@ class Auto extends Component {
                                         }
                                     </tr>
                                     <tr>
+                                        <td>Հեռախոսահամար</td>
+                                        <td>{auto.phone}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Շարժիչը</td>
                                         <td>{auto.engine}</td>
                                     </tr>

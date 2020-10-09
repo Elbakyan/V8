@@ -27,7 +27,6 @@
       margin: 10px 0;
       transition: .3s;
       position: relative;
-
       .favorite_block{
         width: 20px;
         height: 20px;
@@ -35,7 +34,7 @@
         right: 10px;
         position: absolute;
         font-size: 20px;
-        color: #0ac3a0;
+        color:#f91340c2;
         cursor: pointer;
         z-index: 1000;
         >span{
@@ -54,7 +53,6 @@
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-
       }
       >div{
         display: flex;
@@ -62,7 +60,6 @@
         margin-bottom: 10px;
         >h2{
           font-size: 18px;
-          //color: $main-color;
         }
       }
     }
