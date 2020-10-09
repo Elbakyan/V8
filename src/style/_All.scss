@@ -41,14 +41,7 @@
   overflow-y: auto;
 }
 
-input{
-  padding: 5px 15px;
-  border-radius: 5px;
-  border: none
-}
-input:focus{
-  border: 1px solid  $main-color;
-}
+
 
 
 .align-start{
@@ -64,15 +57,17 @@ input:focus{
   align-items: baseline;
 }
 input{
-  border: 1px solid transparent;
+  border: none;
   padding: 10px 15px;
   border-radius: 5px;
   margin: 5px 0;
+
+
+}
+input:focus{
+  box-shadow: inset 0px 0px 10px 3px #00000080;
 }
 
-input:focus{
-  border: 1px solid  $main-color;
-}
 select{
 
   background-color: $white;
@@ -84,7 +79,7 @@ select{
   margin: 5px 0;
 
   &:hover{
-    box-shadow: 0px 0px 2px;
+    box-shadow: inset 0px 0px 10px 3px #00000080;
   }
 }
 .link{

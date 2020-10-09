@@ -187,7 +187,7 @@ class Announcement extends Component {
                                 <DefaultBtn
                                     type='submit'
                                     name='Որոնել'
-                                    background='#32d815'
+                                    background='#5b716d'
 
                                 />
                             </div>
@@ -214,8 +214,7 @@ class Announcement extends Component {
                                         }
                                     </ul>
                                 </div>
-                                {/*<Result/>*/}
-                                <Favorite />
+                                <Result/>
                             </div>
                         </Route>
                         {

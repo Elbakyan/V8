@@ -9,6 +9,7 @@ import {Url} from "../../config/Url";
 import ReactAudioPlayer from 'react-audio-player';
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {Redirect} from "react-router";
+import Loading from "../../Loading";
 
 
 
@@ -20,7 +21,8 @@ class CarsForm extends Component {
             audio: false,
             message: 'Մուտքագրեք ձեր մեքենայի տվյալները',
             status: true,
-            isAdd: false
+            isAdd: false,
+            loading: false
         }
     }
 
@@ -54,7 +56,8 @@ class CarsForm extends Component {
         POST(Url.addauto,data).then(res => {
             console.log(res)
             this.setState({
-                status: res.status
+                status: res.status,
+                loading: res.status
             })
             if (res.status){
                 this.props.dispatch(GetAuto(this.props.user.id))
@@ -76,6 +79,7 @@ class CarsForm extends Component {
         const {dispatch} = this.props
         return (
                 <div className="cars_forma">
+
                     {
                         this.state.audio ?
                             <ReactAudioPlayer
@@ -253,6 +257,11 @@ class CarsForm extends Component {
                         />
 
                         <label className="btn">
+                            <div className="add_loading">
+                                {
+                                    this.state.loading? <Loading type='spinningBubbles' color='#c5c5c5'/>: ''
+                                }
+                            </div>
                             <div className="items ">
                                 <DefaultBtn
                                     type='submit'
