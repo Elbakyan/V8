@@ -214,8 +214,8 @@ class Announcement extends Component {
                                         }
                                     </ul>
                                 </div>
-                                {/*<Result/>*/}
-                                <Favorite />
+                                <Result/>
+                                {/*<Favorite />*/}
                             </div>
                         </Route>
                         {

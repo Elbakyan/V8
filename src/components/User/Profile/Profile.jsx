@@ -9,9 +9,11 @@ import { faHeart, faEnvelope, faCar, faPlusCircle, faBars} from "@fortawesome/fr
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
 import CarsForm from "../UserCars/CarsForm";
+
+import '../../announcement/Announcement.scss'
+import '../../announcement/SellCar.scss'
+import GeFavorite from "../favorite/GeFavorite";
 import Favorite from "../../announcement/Favorite";
-
-
 
 
 class Profile extends React.Component{
@@ -84,7 +86,10 @@ class Profile extends React.Component{
                                             <ProfilSetings />
                                         </Route>
                                         <Route path='/user/account/favorite'>
-                                            <Favorite />
+                                            {/*<div className="">*/}
+                                            {/*    <Favorite />*/}
+                                            {/*</div>*/}
+                                            <GeFavorite />
                                         </Route>
                                     </Switch>
                                 </div>
