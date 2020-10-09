@@ -257,11 +257,12 @@ class CarsForm extends Component {
                         />
 
                         <label className="btn">
-                            <div className="add_loading">
+                            {/*<div className="add_loading"> <Loading type='spinningBubbles' color='#4fffa0' size={150}/> </div>*/}
+
                                 {
-                                    this.state.loading? <Loading type='spinningBubbles' color='#c5c5c5'/>: ''
+                                    this.state.loading?<div className="add_loading"> <Loading type='spinningBubbles' color='#4fffa0' size={150}/> </div>: ''
                                 }
-                            </div>
+
                             <div className="items ">
                                 <DefaultBtn
                                     type='submit'

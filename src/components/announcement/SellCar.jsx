@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {faCoffee, faMapMarkerAlt, faMobileAlt, faEnvelopeOpenText, faHeart} from '@fortawesome/free-solid-svg-icons'
-// import {faCoffee, faMapMarkerAlt, faMobileAlt, faEnvelopeOpenText, faHeart} from '@fortawesome/free-regular-svg-icons'
+// import {faCoffee, faDollarSign, faMobileAlt, faEnvelopeOpenText, faHeart} from '@fortawesome/free-solid-svg-icons'
+// import {faCoffee, faDollarSign@fortawesome/free-light-svg-icons', faMobileAlt, faEnvelopeOpenText, faHeart} from '
 
 import './SellCar.scss'
 import {faHeart as reg} from "@fortawesome/free-regular-svg-icons/faHeart";
@@ -10,6 +10,7 @@ import {GET, POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import {GET_FAVORITE, GetFavorite} from "../../redux/favorite/action";
 import {connect} from "react-redux";
+import {faDollarSign, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 
 const img = [
     'https://www.dw.com/image/19571759_303.jpg',
@@ -85,7 +86,7 @@ class SellCar extends  Component {
                         <span data-id={this.props.Auto.id}>{this.props.Auto.model}</span>
                     </div>
                     <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>
-                        <span data-id={this.props.Auto.id}>{this.props.Auto.color}</span>
+                        <span data-id={this.props.Auto.id}>{this.props.Auto.price}<FontAwesomeIcon icon={faDollarSign} /></span>
                         <span data-id={this.props.Auto.id}>{this.props.Auto.year}</span>
                     </div>
                     <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>

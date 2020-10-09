@@ -3,7 +3,7 @@ import {Url} from "../../components/config/Url";
 export const GET_SELL = 'GET_SELL';
 export const GET_SELL_BY_ID = 'GET_SELL_BY_ID';
 
-export function GetSell(limit,data = null) {
+export function GetSell(limit = 1,data = null) {
     return async (dispach) => {
         let body;
         data != null ? body = new FormData(data) :body = new FormData()

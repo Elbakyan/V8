@@ -9,23 +9,18 @@ class Loading extends React.Component{
 
     }
     render() {
-        switch (this.props.type){
-            case this.props.type != undefined:
-                return (
-                    <div className="Loading">
-                        <ReactLoading type={this.props.type} size={100} color={this.props.color}/>
-                    </div>
-                );
-                break
-            default:
-                return (
-                    <div className="Loading">
-                        <HashLoader size={100} color={"#c5c5c5"} />
-                    </div>
-                );
-                break
-
-
+        if (this.props.type !== undefined){
+            return (
+                <div className="Loading">
+                    <ReactLoading type={this.props.type} width={this.props.size} height={this.props.size} color={this.props.color}/>
+                </div>
+            );
+        }else{
+            return (
+                <div className="Loading">
+                    <HashLoader size={100} color={"#c5c5c5"} />
+                </div>
+            );
         }
     }
 }

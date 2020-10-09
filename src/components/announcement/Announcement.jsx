@@ -15,7 +15,8 @@ import Result from "./Result";
 import Auto from "./Auto";
 import {GetSell} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
-import Favorite from "./Favorite";
+import Pagination from "react-js-pagination";
+
 // import Favorite from "../User/favorite/Favorite";
 
 
@@ -25,12 +26,13 @@ class Announcement extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: 1
+            id: 1,
+            activePage: 15
         }
     }
 
     componentDidMount() {
-        console.log(this.props)
+
         this.props.dispatch(GetSell(1))
         this.props.dispatch(GetFavorite(this.props.user.id))
     }
@@ -38,14 +40,14 @@ class Announcement extends Component {
 
     Count = () =>{
         let arr = [];
-        if(this.props.sell.count != undefined){
-            if (this.props.sell.count % 15 == 0){
-                for (let i = 1; i <= (this.props.sell.count / 15); i++){
+        if(this.props.sell.data.count != undefined){
+            if (this.props.sell.data.count % 15 == 0){
+                for (let i = 1; i <= (this.props.sell.data.count / 15); i++){
 
                     arr.push(i)
                 }
             }else{
-                for (let i = 1; i <= ((this.props.sell.count / 15) + 1); i++){
+                for (let i = 1; i <= ((this.props.sell.data.count / 15) + 1); i++){
                     arr.push(i)
                 }
 
@@ -54,33 +56,29 @@ class Announcement extends Component {
         }
         return arr
     }
-    GetLimitAuto = (e) =>  {
-        e.preventDefault();
-        this.setState({
-            id: e.target.id
-        })
-        this.props.dispatch(GetSell(this.state.id))
-        let links = document.querySelectorAll('.pagination_link');
-
-        links.forEach(link => {
-            link.classList.remove('active');
-        })
-
-        e.target.classList.add('active');
-    }
     Search = (e) => {
         this.props.sell.OneAuto = [];
         e.preventDefault();
         this.props.dispatch(GetSell(this.state.id,e.target))
     }
-    render() {
+    handlePageChange(pageNumber) {
+        this.setState({activePage: pageNumber});
+        pageNumber == 1 ?pageNumber = pageNumber: pageNumber = (pageNumber - 1) * 15;
+        console.log(this.props.sell.data);
+        this.props.dispatch(GetSell(pageNumber))
 
+    }
+    render() {
+        console.log()
         return (
             <section className="Announcement">
                 {
                     this.props.user.status? <Header2/>:<Header1/>
                 }
                 <div className="content">
+                    <div>
+
+                    </div>
                     <div className="container row justify-between">
                         <form className="Announcement__search" onSubmit={this.Search}>
                             <div>
@@ -197,24 +195,15 @@ class Announcement extends Component {
 
                         <Route exact path='/announcement'>
                             <div className='auto_content'>
-                                <div className='pagination'>
-                                    <ul className='pagination'>
-                                        {
-                                            this.Count().map((btn,i) => {
-
-                                                return (
-
-                                                    <li >
-                                                        <a className='pagination_link' href='#' id={i == 0? 1:i * 15} onClick={this.GetLimitAuto}>
-                                                            {i + 1}
-                                                        </a>
-                                                    </li>
-                                                )
-                                            })
-                                        }
-                                    </ul>
-                                </div>
+                                <Pagination
+                                    activePage={this.state.activePage}
+                                    itemsCountPerPage={15}
+                                    totalItemsCount={this.props.sell.data.count}
+                                    pageRangeDisplayed={5}
+                                    onChange={this.handlePageChange.bind(this)}
+                                />
                                 <Result/>
+                                {/*<Favorite />*/}
                             </div>
                         </Route>
                         {
