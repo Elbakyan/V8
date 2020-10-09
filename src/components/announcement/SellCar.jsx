@@ -87,12 +87,15 @@ class SellCar extends  Component {
                         <span data-id={this.props.Auto.id}>{this.props.Auto.model}</span>
                     </div>
                     <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>
-                        <span data-id={this.props.Auto.id}>{this.props.Auto.price}<FontAwesomeIcon icon={faDollarSign} /></span>
+                        <span data-id={this.props.Auto.id}>{this.props.Auto.price} <FontAwesomeIcon icon={faDollarSign} /></span>
                         <span data-id={this.props.Auto.id}>{this.props.Auto.year}</span>
                     </div>
                     <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>
                         <span data-id={this.props.Auto.id}>{this.props.Auto.city}</span>
                         <span data-id={this.props.Auto.id}>{this.props.Auto.sircle}</span>
+                    </div>
+                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>
+                        <span data-id={this.props.Auto.id}>{this.props.Auto.data.split(' ')[0]}</span>
                     </div>
                 </div>
             </div>
