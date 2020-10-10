@@ -1,18 +1,10 @@
 import React, {Component} from "react";
-// import './Announcement.scss';
 import Pagination from "react-js-pagination";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDollarSign} from '@fortawesome/free-solid-svg-icons'
 import {connect} from "react-redux";
-import {Link, Redirect, Route} from "react-router-dom";
 import {GetFavorite} from "../../../redux/favorite/action";
 import {GetSell} from "../../../redux/sellauto/action";
 import Favorite from "../../announcement/Favorite";
 import './GeFavorite.scss'
-// import Favorite from "../User/favorite/Favorite";
-
-
-
 
 class GeFavorite extends Component {
     constructor(props) {
@@ -36,11 +28,7 @@ class GeFavorite extends Component {
 
     }
 
-
-
-
     render() {
-
         return (
             <div className='auto_content'>
                 <Pagination

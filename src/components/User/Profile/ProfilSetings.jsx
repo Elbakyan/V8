@@ -36,13 +36,11 @@ class ProfilSetings extends Component {
         POST(Url.UserUpdate,data).then(res => {
             console.log(res)
         })
+
     }
     render() {
-
         return (
             <div className="profile__setings">
-
-
                 {
                     this.props.user.data == undefined ? '' :
                         (
