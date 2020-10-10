@@ -8,7 +8,7 @@ export function UserExist  () {
     GET(Url.existUser).then(res => {
         dispach({
             type: USER_EXIST,
-            payload: res
+            payload: user
         })
     })
 

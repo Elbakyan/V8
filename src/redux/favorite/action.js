@@ -5,9 +5,6 @@ export const GET_FAVORITE = 'GET_FAVORITE';
 export const ADD_FAVORITE = 'ADD_FAVORITE';
 
 
-
-
-
 export function GetFavorite(id){
     let data = new FormData();
     data.append('id', id)
