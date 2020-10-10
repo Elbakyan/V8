@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "../../Footer/Footer";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
@@ -15,7 +15,10 @@ class Signin extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            img: ''
+            img: '',
+            status: undefined,
+            message: '',
+            redirect: false
         }
 
 
@@ -36,18 +39,33 @@ class Signin extends React.Component{
         let data = new FormData(e.target)
 
        POST(Url.registration,data).then(res => {
-            console.log(res)
+            this.setState({
+                status: res.status,
+                message:res.message
+            })
+           setTimeout(() => {
+               this.setState({
+                   redirect: res.status
+               })
+           },1000)
 
         })
     }
     render() {
-
+        console.log(this.state)
         return (
             <div className="Signin">
+                {
+                    this.state.redirect ? <Redirect to='/user/login'/> : ''
+                }
 
                 <Header/>
                 <div className="Signin__alert">
-                    <Alert severity="error">This is an error alert — check it out!</Alert>
+                    {
+                        this.state.status == undefined? '' :
+                        this.state.status ? <Alert severity="success">{this.state.message}</Alert> :
+                            <Alert severity="error">{this.state.message}</Alert>
+                    }
                 </div>
                 <div className="container row align-center justify-center">
 
