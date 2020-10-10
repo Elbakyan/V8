@@ -38,6 +38,7 @@ class User extends React.Component{
                    </Route>
                    {this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/user/login' />}
                </Switch>
+
                 {this.props.status == undefined?<div className="main__load"> <Loading /> </div>:''}
             </div>
         );

@@ -9,12 +9,13 @@ import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
+import Alert from '@material-ui/lab/Alert';
 
 class Signin extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            img: []
+            img: ''
         }
 
 
@@ -30,28 +31,28 @@ class Signin extends React.Component{
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
 
     }
-    GetImg(e){
-        document.querySelector('.file__name').textContent = e.target.value;
-        this.setState({
-            img: [...this.state.img,e.target.files]
-        })
-
-    }
-    Signin(e){
+    Signin = (e) =>{
         e.preventDefault();
         let data = new FormData(e.target)
 
        POST(Url.registration,data).then(res => {
             console.log(res)
+
         })
     }
     render() {
 
         return (
             <div className="Signin">
+
                 <Header/>
+                <div className="Signin__alert">
+                    <Alert severity="error">This is an error alert — check it out!</Alert>
+                </div>
                 <div className="container row align-center justify-center">
+
                     <div className="Signin__content col align-center justify-center">
+
                         <form className="col align-center justify-center" onSubmit={this.Signin.bind(this)}>
                             <div className="row justify-between">
                                 <DefaultInput
@@ -113,13 +114,18 @@ class Signin extends React.Component{
                                 />
                             </div>
                             <label className='file row align-center'>
-                                <span className='file__name'>Ներբեռնել լուսանկար․․․</span>
+                                <span className='file__name'>{this.state.img == ""?'Ներբեռնել լուսանկար․․․':this.state.img}</span>
                                 <DefaultInput
-                                    onChange={this.GetImg.bind(this)}
+                                    onChange={(e) => {
+                                        this.setState({
+                                            img: e.target.value
+                                        })
+                                    }}
                                     className="file_input"
                                     type="file"
                                     placeholder='Լուսանկար․․․'
                                     width='100%'
+                                    name='image'
 
                                 />
                             </label>
