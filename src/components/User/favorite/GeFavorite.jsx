@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 // import './Announcement.scss';
-
+import Pagination from "react-js-pagination";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDollarSign} from '@fortawesome/free-solid-svg-icons'
 import {connect} from "react-redux";
@@ -18,7 +18,8 @@ class GeFavorite extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: 1
+            id: 1,
+            activePage: 15
         }
     }
 
@@ -27,46 +28,28 @@ class GeFavorite extends Component {
         this.props.dispatch(GetSell(1))
         this.props.dispatch(GetFavorite(this.props.user.id))
     }
+    handlePageChange(pageNumber) {
+        this.setState({activePage: pageNumber});
+        pageNumber == 1 ?pageNumber = pageNumber: pageNumber = (pageNumber - 1) * 15;
+        this.props.dispatch(GetSell(pageNumber))
+        console.log(pageNumber)
 
-
-    Count = () =>{
-        let arr = [];
-        if(this.props.sell.count != undefined){
-            if (this.props.sell.count % 15 == 0){
-                for (let i = 1; i <= (this.props.sell.count / 15); i++){
-                    arr.push(i)
-                }
-            }else{
-                for (let i = 1; i <= ((this.props.sell.count / 15) + 1); i++){
-                    arr.push(i)
-                }
-
-            }
-
-        }
-        return arr
     }
+
+
 
 
     render() {
 
         return (
             <div className='auto_content'>
-                <div className='pagination'>
-                    <ul className='pagination'>
-                        {
-                            this.Count().map((btn,i) => {
-                                return (
-                                    <li >
-                                        <a className='pagination_link' href='#' id={i == 0? 1:i * 15} onClick={this.GetLimitAuto}>
-                                            {i + 1}
-                                        </a>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
+                <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={15}
+                    totalItemsCount={this.props.favorite.length}
+                    pageRangeDisplayed={5}
+                    onChange={this.handlePageChange.bind(this)}
+                />
                 <Favorite />
             </div>
         )

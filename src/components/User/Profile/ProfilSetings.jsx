@@ -81,7 +81,7 @@ class ProfilSetings extends Component {
                                             defaultValue={this.props.user.data.email}
                                             type="text"
                                             placeholder='E-mail․․․'
-                                            name='mail'
+                                            name='email'
                                             width='48%'
 
                                         />
