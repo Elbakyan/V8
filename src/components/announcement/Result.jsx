@@ -70,7 +70,6 @@ class Result extends Component {
                                     <span data-id={auto.id} >
                                         {
                                             res?<FontAwesomeIcon icon={sol} />:<FontAwesomeIcon icon={reg} />
-
                                         }
                                     </span>
                                 </span>
