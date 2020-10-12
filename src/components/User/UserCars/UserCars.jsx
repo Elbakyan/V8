@@ -5,7 +5,7 @@ import {Link, Redirect, Route} from "react-router-dom";
 import CarsForm from "./CarsForm";
 import './UserCars.scss'
 import {royle} from "../../../redux/auto/Values";
-import SliderAuto from "./SliderAuto";
+import SliderAuto from "./SliderAuto/SliderAuto";
 import engine from './icon/car-engine.svg'
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import DefaultInput from "../../forms/inputs/DefaultInput";

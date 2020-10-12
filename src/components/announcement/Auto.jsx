@@ -1,14 +1,14 @@
 import React, {Component} from "react";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCheckCircle, faDollarSign, faMobileAlt, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+import {faCheckCircle, faDollarSign, faCaretSquareDown, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import DefaultInput from "../forms/inputs/DefaultInput";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../redux/auto/action";
 import {Link} from "react-router-dom";
-import SliderAuto from "../User/UserCars/SliderAuto";
+import SliderAuto from "../User/UserCars/SliderAuto/SliderAuto";
 import {GET} from "../config/Requsest";
 import {Url} from "../config/Url";
 
@@ -70,6 +70,11 @@ class Auto extends Component {
                                     <tr>
                                         <td>Հեռախոսահամար</td>
                                         <td>{auto.phone}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <FontAwesomeIcon icon={faCaretSquareDown}/>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Շարժիչը</td>

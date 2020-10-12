@@ -1,20 +1,24 @@
-@import "../../../style/All.scss";
-@import "../../../style/var.scss";
+@import "../../../../style/All";
+@import "../../../../style/var";
 
 .slider_auto{
   width: 100%;
   display: flex;
   flex-direction: column;
+  //box-shadow: 0px 0px 4px silver;
+  box-shadow: -1px -1px 6px #c8bebe, 1px 1px 6px #8a8282;
+  border-radius: 5px;
   .slider_img_header{
     width: 100%;
     height: 300px;
     display: flex;
+    position: relative;
     color: white;
     align-items: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    box-shadow: 0px 0px 4px silver;
+
     padding: 5px;
     //margin: 5px;
     >div{
@@ -26,6 +30,10 @@
         font-size: 36px;
         color: #1c8080;
         cursor: pointer;
+        &:last-child{
+          color:$main-color ;
+          font-size: 35px;
+        }
         //background-color: #b9c1df;
         &:active{
           cursor: grabbing;
@@ -40,19 +48,18 @@
     display: flex;
     //flex-direction: column;
     justify-content: center;
-    box-shadow: 0px 0px 4px $main-color;
+    //box-shadow: 0px 0px 4px $main-color;
     width: 100%;
-    height: 120px;
-    background: $main-color;
+    height: 80px;
+    //background: $main-color;
     >div:last-child{
       border-right: none;
     }
     >div{
       width:50%;
-
       background-size: contain;
+      box-shadow: 0px 0px 4px silver;
       border-top: 1px solid white;
-      border-left: 1px solid white;
       background-repeat: no-repeat;
       background-position: center;
       cursor: pointer;
@@ -78,4 +85,20 @@
 
 
   }
+}
+.modal_zoom_auto_on{
+  color:$main-color ;
+  font-size: 35px;
+  position: absolute;
+  bottom:  5px;
+  right: 25px;
+}
+.modal_zoom_auto{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: black;
+  z-index: 15;
 }
