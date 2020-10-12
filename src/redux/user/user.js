@@ -1,6 +1,6 @@
     export const user ={
-        id:1,
-        status:true,
+        id:25,
+        status:undefined,
         data:{
             city: "Շենգավիթ",
             email: "vbagratunyan@gmail.ru",

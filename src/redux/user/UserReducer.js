@@ -2,8 +2,8 @@ import {USER_EXIST} from "./action";
 import {user} from "./user";
 
 const initialState = {
-    id:1,
-    status:true,
+    id:25,
+    status:undefined,
     data:{
         city: "Շենգավիթ",
         email: "vbagratunyan@gmail.ru",

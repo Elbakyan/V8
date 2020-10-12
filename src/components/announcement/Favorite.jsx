@@ -40,9 +40,6 @@ class Favorite extends Component {
         let data = new FormData();
         data.append('id', this.props.user.id);
         data.append('auto_id', autoId);
-        // POST(Url.addFavorite,data).then(res => {
-        //     console.log(res)
-        // })
         this.props.dispatch(AddFavorite(data))
 
     }

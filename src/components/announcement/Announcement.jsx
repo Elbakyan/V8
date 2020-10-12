@@ -68,7 +68,6 @@ class Announcement extends Component {
 
     }
     render() {
-        console.log()
         return (
             <section className="Announcement">
                 {
@@ -197,7 +196,7 @@ class Announcement extends Component {
                                 <Pagination
                                     activePage={this.state.activePage}
                                     itemsCountPerPage={15}
-                                    totalItemsCount={this.props.sell.data.count}
+                                    totalItemsCount={this.props.sell.data.count || 1}
                                     pageRangeDisplayed={5}
                                     onChange={this.handlePageChange.bind(this)}
                                 />
