@@ -11,9 +11,11 @@ import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import Alert from "@material-ui/lab/Alert";
+
 import {UserExist} from "../../../redux/user/action";
 import MyAlert from "../../Alert";
 import Art from "../../Alert";
+
 
 
 class ProfilSetings extends Component {
@@ -21,8 +23,11 @@ class ProfilSetings extends Component {
         super(props);
         this.state = {
             imgName: '',
-            status: undefined,
-            message: ''
+            status:undefined,
+            messahe:'',
+            modifideData:undefined,
+            uploadeImg:undefined,
+            modifidePassword:undefined
         }
     }
 
@@ -35,7 +40,8 @@ class ProfilSetings extends Component {
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
 
     }
-    UbdateData = (e) => {
+
+    UbdateData = (e)=> {
         e.preventDefault();
         let data = new FormData(e.target)
         let btn = e.target.querySelector('.Signin__btn')
@@ -66,12 +72,26 @@ class ProfilSetings extends Component {
             }
             this.props.dispatch(UserExist());
             Art.open()
+            console.log(res)
+            this.setState({
+                modifideData:res.message.modifideData || undefined,
+                uploadeImg:res.message.uploadeImg || undefined,
+                modifidePassword:res.message.uploadeImg || undefined
+            })
         })
+
 
     }
     render() {
         return (
             <div className="profile__setings">
+                <div className="Signin__alert">
+                    {
+                        this.state.status == undefined? '' :
+                            this.state.status ? <Alert severity="success">{this.state.message}</Alert> :
+                                <Alert severity="error">{this.state.message}</Alert>
+                    }
+                </div>
                 {
                     this.props.user.data == undefined ? '' :
                         (
