@@ -26,12 +26,7 @@
     margin-top: 10px;
   }
 }
-.Signin__alert{
-  width: 35%;
-  margin: 0 auto;
 
-
-}
 header{
   background-color: $main-color;
   width: 100%;
@@ -164,6 +159,7 @@ header{
   width: 200px;
   height: 60px;
   color: $white;
+  z-index: 1001;
   @media (max-width: 768px){
     &{
 

@@ -1,7 +1,6 @@
 @import "src/style/var";
 
 .Profile{
-
   width: 100%;
   min-height: calc(100vh - 210px);
   position: relative;
@@ -56,105 +55,8 @@
     }
   }
 
-  &__content{
-    width:70% ;
-    //@media (max-width: 768px){
-    //  &{
-    //    width:90% ;
-    //  }
-    //}
-    .persional__data{
-      width:250px;
-      height: 60px;
-      overflow: hidden;
-
-      &:hover{
-        transition: 0.7s;
-        height: 200px;
-      }
-      //border: 1px solid red;
-      > div{
-        //width: 100%;
-
-      }
-      .persional__header{
-        display: flex;
-        align-items: center;
-
-        .img{
-          width: 60px;
-          height: 60px;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          border: 1px ;
-          border-radius: 80px;
-          >img{
-            max-width: 100%;
-          }
-        }
-        .fullname{
-          font-size: 24px;
-          color: $main-color;
-          display: flex;
-          justify-content: space-around;
-          margin: 10px 0;
-          width: 80%;
-          >span {
-            margin: 0px 5px;
-          }
-
-        }
-      }
-
-      .persional__body{
-
-        //width: 60%;
-        background: white;
-        //border-radius: 3px;
-        color: $main-color;
-        >nav{
-          width: 90%;
-          li{
-            //border: 1px solid red;
-            display: flex;
-            //justify-content: space-between;
-            >div:nth-child(1){
-              width:15%;
-            }
-            >div:nth-child(2){
-              width: 80%;
-            }
-            width: 90%;
-            margin: 10px 0;
-            font-size: 18px;
-            >span{
-              margin-left: 10px;
-            }
-          }
-        }
-
-
-        .persional__setings{
-          margin: 20px 0;
-          width: 100%;
-          display: flex;
-          justify-content: flex-end;
-          padding-right: 50px;
-        }
-      }
-
-      .phone{
-        width: 100%;
-      }
-    }
-
-
+  &__content {
+    width: 70%;
   }
-.profile__setings{
-  .profile__setings_back{
-    font-size: 24px;
-  }
-}
 
 }

@@ -10,13 +10,19 @@ import {GetCity} from "../../../redux/location/action";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
+import Alert from "@material-ui/lab/Alert";
+import {UserExist} from "../../../redux/user/action";
+import MyAlert from "../../Alert";
+import Art from "../../Alert";
 
 
 class ProfilSetings extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            imgName: ''
+            imgName: '',
+            status: undefined,
+            message: ''
         }
     }
 
@@ -29,12 +35,37 @@ class ProfilSetings extends Component {
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
 
     }
-    UbdateData(e) {
+    UbdateData = (e) => {
         e.preventDefault();
         let data = new FormData(e.target)
+        let btn = e.target.querySelector('.Signin__btn')
 
         POST(Url.UserUpdate,data).then(res => {
-            console.log(res)
+            if (res.status){
+                if (res.message.modifideData){
+                    this.setState({
+                        status: res.status,
+                        message: 'Ձեր տվյալները փոփոխված են․․․'
+                    })
+                }
+                btn.setAttribute('disabled','disabled')
+                setTimeout(() => {
+                    window.history.back()
+                    btn.removeAttribute('disabled')
+                },2000)
+            }else{
+                this.setState({
+                    status: res.status,
+                    message: res.message
+                })
+                btn.setAttribute('disabled','disabled')
+                setTimeout(() => {
+                    window.history.back()
+                    btn.removeAttribute('disabled')
+                },2000)
+            }
+            this.props.dispatch(UserExist());
+            Art.open()
         })
 
     }
@@ -54,6 +85,15 @@ class ProfilSetings extends Component {
                                 </div>
 
                                 <div className="profile__setings_form" >
+                                    {
+                                        this.state.status == undefined ? '' :
+                                        this.state.status ? <Art type={'success'}
+                                                 width={50}
+                                                 content={this.state.message} />
+                                                 : <Art type={'error'}
+                                                        width={50}
+                                                        content={this.state.message} />
+                                    }
                                     <form className="col align-center justify-center" onSubmit={this.UbdateData} encType='multipart/form-data'>
                                         <DefaultInput
                                             defaultValue={this.props.user.data.name}

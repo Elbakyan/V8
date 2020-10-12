@@ -59,13 +59,6 @@ class Signin extends React.Component{
                 }
 
                 <Header/>
-                <div className="Signin__alert">
-                    {
-                        this.state.status == undefined? '' :
-                        this.state.status ? <Alert severity="success">{this.state.message}</Alert> :
-                            <Alert severity="error">{this.state.message}</Alert>
-                    }
-                </div>
                 <div className="container row align-center justify-center">
 
                     <div className="Signin__content col align-center justify-center">
