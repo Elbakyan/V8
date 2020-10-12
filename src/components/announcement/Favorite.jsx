@@ -40,9 +40,6 @@ class Favorite extends Component {
         let data = new FormData();
         data.append('id', this.props.user.id);
         data.append('auto_id', autoId);
-        // POST(Url.addFavorite,data).then(res => {
-        //     console.log(res)
-        // })
         this.props.dispatch(AddFavorite(data))
 
     }
@@ -50,8 +47,6 @@ class Favorite extends Component {
         console.log('ssss')
         return (
             <div className="result">
-                {/*<SellCar />*/}
-                {/*<SellCar />*/}
                 {
                     this.props.sell.data.data.map((auto,i) => {
 

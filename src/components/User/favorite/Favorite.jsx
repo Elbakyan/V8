@@ -1,12 +1,15 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {GetSellByID} from "../../redux/sellauto/action";
-import SellCar from "./SellCar";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHeart as sol} from "@fortawesome/free-solid-svg-icons/faHeart";
 import {faHeart as reg} from "@fortawesome/free-regular-svg-icons/faHeart";
-import {AddFavorite, GetFavorite} from "../../redux/favorite/action";
+import {AddFavorite, GetUserFavorite} from "../../../redux/favorite/action";
+import SellCar from "../../announcement/SellCar";
+import {GetSellByID} from "../../../redux/sellauto/action";
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
+
 
 
 class Favorite extends Component {
@@ -17,8 +20,9 @@ class Favorite extends Component {
         }
 
     }
-
-
+    componentDidMount() {
+        this.props.dispatch(GetUserFavorite())
+    }
     GetAuto = (e) => {
         let data = new FormData();
         data.append('id', e.target.dataset.id);
@@ -29,47 +33,29 @@ class Favorite extends Component {
         let data = new FormData();
         data.append('id', this.props.user.id);
         data.append('auto_id', autoId);
-        // POST(Url.addFavorite,data).then(res => {
-        //     console.log(res)
-        // })
         this.props.dispatch(AddFavorite(data))
+        this.props.dispatch(GetUserFavorite())
+        console.log(this.props.favorite)
 
     }
     render() {
-        console.log('ssss')
         return (
             <div className="result">
-                {/*<SellCar />*/}
-                {/*<SellCar />*/}
                 {
-                    this.props.sell.data.data.map((auto,i) => {
-
-                        let res = false;
-                        this.props.favorite.map((e)=> {
-                            if (e == auto.id){
-                                res = true
-                            }
-                        })
-
-
-                        let img = JSON.parse(auto.img);
-                        if(res){
+                    this.props.favorite.userFavorite.map((auto,i) => {
+                        console.log(auto)
                             return (
                                 <div className="result_auto" key={i}>
                                 <span className="favorite_block" data-id={auto.id}  onClick={this.Favorite}>
                                     <span data-id={auto.id} >
-                                        {
-                                            res?<FontAwesomeIcon icon={sol} />:<FontAwesomeIcon icon={reg} />
-                                        }
+                                        <FontAwesomeIcon icon={sol} />
                                     </span>
                                 </span>
                                     <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
-                                        <SellCar Auto={auto} favorite={this.props.favorite} res={res}  />
+                                        <SellCar Auto={auto} />
                                     </Link>
-
                                 </div>
                             )
-                        }
 
                     })
                 }

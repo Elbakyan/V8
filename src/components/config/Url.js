@@ -20,4 +20,5 @@ export const Url = {
     existScore: 'https://brutal.am/Server/score-exist',
     getFavorite: 'https://brutal.am/Server/favorite-get',
     addFavorite: 'https://brutal.am/Server/favorite-add',
+    sendFavorite: 'https://brutal.am/Server/favorite-send',
 }
