@@ -50,8 +50,6 @@ class Favorite extends Component {
         console.log('ssss')
         return (
             <div className="result">
-                {/*<SellCar />*/}
-                {/*<SellCar />*/}
                 {
                     this.props.sell.data.data.map((auto,i) => {
 
