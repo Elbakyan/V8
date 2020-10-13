@@ -15,6 +15,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  z-index: 1002;
 
   .slider_img_header{
     width: 100%;
@@ -23,6 +24,7 @@
     display: flex;
     color: white;
     align-items: center;
+    margin-bottom: 15px;
     background-size:contain ;
     background-repeat: no-repeat;
     background-position: center;
