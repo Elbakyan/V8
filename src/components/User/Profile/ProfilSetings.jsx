@@ -10,10 +10,7 @@ import {GetCity} from "../../../redux/location/action";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
-import Alert from "@material-ui/lab/Alert";
-
 import {UserExist} from "../../../redux/user/action";
-import MyAlert from "../../Alert";
 import Art from "../../Alert";
 
 
@@ -58,7 +55,7 @@ class ProfilSetings extends Component {
                 setTimeout(() => {
                     window.history.back()
                     btn.removeAttribute('disabled')
-                },2000)
+                },3000)
             }else{
                 this.setState({
                     status: res.status,
@@ -68,7 +65,7 @@ class ProfilSetings extends Component {
                 setTimeout(() => {
                     window.history.back()
                     btn.removeAttribute('disabled')
-                },2000)
+                },3000)
             }
             this.props.dispatch(UserExist());
             Art.open()
@@ -87,9 +84,14 @@ class ProfilSetings extends Component {
             <div className="profile__setings">
                 <div className="Signin__alert">
                     {
-                        this.state.status == undefined? '' :
-                            this.state.status ? <Alert severity="success">{this.state.message}</Alert> :
-                                <Alert severity="error">{this.state.message}</Alert>
+                        this.state.status == undefined ? '' :
+                            this.state.status ?
+                                <Art type={'success'}
+                                     width={50}
+                                     content={this.state.message} />
+                                : <Art type={'error'}
+                                       width={50}
+                                       content={this.state.message} />
                     }
                 </div>
                 {
@@ -105,15 +107,7 @@ class ProfilSetings extends Component {
                                 </div>
 
                                 <div className="profile__setings_form" >
-                                    {
-                                        this.state.status == undefined ? '' :
-                                        this.state.status ? <Art type={'success'}
-                                                 width={50}
-                                                 content={this.state.message} />
-                                                 : <Art type={'error'}
-                                                        width={50}
-                                                        content={this.state.message} />
-                                    }
+
                                     <form className="col align-center justify-center" onSubmit={this.UbdateData} encType='multipart/form-data'>
                                         <DefaultInput
                                             defaultValue={this.props.user.data.name}

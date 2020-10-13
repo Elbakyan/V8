@@ -14,6 +14,7 @@ import '../../announcement/Announcement.scss'
 import '../../announcement/SellCar.scss'
 import GeFavorite from "../favorite/GeFavorite";
 import Favorite from "../../announcement/Favorite";
+import Message from "../../message/Message";
 
 
 class Profile extends React.Component{
@@ -44,7 +45,7 @@ class Profile extends React.Component{
                                             <div className="icon">
                                                 <FontAwesomeIcon icon={faEnvelope}/>
                                             </div>
-                                            <Link to='/user/account/persional'>Հաղոևդագրություններ</Link>
+                                            <Link to='/user/account/persional'>Հաղորդագրություններ</Link>
                                         </li>
                                         <li>
                                             <div className="icon">
@@ -90,6 +91,9 @@ class Profile extends React.Component{
                                             {/*    <Favorite />*/}
                                             {/*</div>*/}
                                             <GeFavorite />
+                                        </Route>
+                                        <Route path='/user/account/persional'>
+                                            <Message/>
                                         </Route>
                                     </Switch>
                                 </div>
