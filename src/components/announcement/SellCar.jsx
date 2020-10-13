@@ -30,10 +30,6 @@ class SellCar extends  Component {
 
 
     }
-    componentDidMount() {
-        console.log()
-
-    }
 
     out = (e)=>{
         let span = document.querySelector('.'+e.target.className + '>span')

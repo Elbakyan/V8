@@ -32,6 +32,12 @@ class App extends React.Component {
         this.props.dispatch(ScoreExist())
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
+        function replacer(match, p1, p2, p3, offset, string) {
+            // p1 - не цифры, p2 - цифры, p3 - не буквы и не цифры
+            return [p1, p2, p3].join(' - ');
+        }
+        var newString = '37494419699'.replace(/([^\d]{1,3})(\d*)([^\w]*)/, replacer);
+        console.log(newString)
 
     }
 
