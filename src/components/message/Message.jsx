@@ -7,9 +7,13 @@ class Message extends Component {
 
     }
     render() {
-        return(
-            <div>message</div>
-        )
+        console.log(this.props.message)
+       return(
+        <div>
+
+        </div>
+       )
+
     }
 }
 

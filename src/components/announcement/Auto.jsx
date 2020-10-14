@@ -146,7 +146,11 @@ class Auto extends Component {
                             </div>
                         </div>
                     </div>
-
+                    <div className="message__button">
+                        <Link to=''>
+                            Գրել․․․
+                        </Link>
+                    </div>
                 </div>
 
             </div>

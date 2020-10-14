@@ -11,6 +11,7 @@ import {Url} from "../config/Url";
 import {GET_FAVORITE, GetFavorite} from "../../redux/favorite/action";
 import {connect} from "react-redux";
 import {faDollarSign, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
+import {Link} from "react-router-dom";
 
 const img = [
     'https://www.dw.com/image/19571759_303.jpg',
@@ -93,6 +94,7 @@ class SellCar extends  Component {
                         <span data-id={this.props.Auto.id}>{this.props.Auto.data.split(' ')[0]}</span>
                     </div>
                 </div>
+
             </div>
         )
     }

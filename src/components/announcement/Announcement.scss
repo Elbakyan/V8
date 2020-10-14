@@ -214,3 +214,43 @@
     }
   }
 }
+.message__button{
+  display: flex;
+  width: 90%;
+  justify-content: flex-end;
+  >a{
+    padding: 10px 20px;
+    background: $color-1;
+    color: $white;
+    position: relative;
+    overflow: hidden;
+    &::before{
+      content: '';
+      display: block;
+      width: 150%;
+      height: 150%;
+      position: absolute;
+      background: darken($color-1, 10);
+      left: -52px;
+      top: 10px;
+      transform: rotate(22deg) translateY(100%);
+      transition: .5s;
+    }
+    &::after{
+      content: 'Գրել․․․';
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    &:hover:before{
+      transform: rotate(22deg) translateY(0%);
+    }
+  }
+}
