@@ -13,15 +13,15 @@ export default function (){
         },
         {
             icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:'(374)-41-888844'
+            name:'(374)-41-88-88-44'
         },
         {
             icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:'(374)-41-888844'
+            name:'(374)-41-88-88-44'
         },
         {
             icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:'(374)-93-888044'
+            name:'(374)-93-88-80-44'
         },
         {
             icon:<FontAwesomeIcon icon={faEnvelopeOpenText} />,
