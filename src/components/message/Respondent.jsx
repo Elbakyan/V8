@@ -13,14 +13,15 @@ class Respondent extends Component {
 
     render() {
         return (
-            <div className="respondent_user">
-                <div className="respondent_user_image" style={{backgroundImage:`url(${data.img})`}}>
+            <div className="respondent_user" >
+                <div className="click" onClick={this.props.onClick} id={this.props.id}></div>
+                <div className="respondent_user_image" style={{backgroundImage:`url(${this.props.data.img})`}}>
 
                 </div>
                 <div className="respondent_user_name">
                     <div>
-                        <span>{data.name}</span>
-                        <span>{data.surname}</span>
+                        <span>{this.props.data.name}</span>
+                        <span>{this.props.data.surname}</span>
                     </div>
                     <div>
                         <span>time</span>

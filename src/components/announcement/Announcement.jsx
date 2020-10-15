@@ -33,7 +33,7 @@ class Announcement extends Component {
 
     componentDidMount() {
         this.props.dispatch(GetSell(1))
-        this.props.dispatch(GetFavorite(this.props.user.id))
+        this.props.dispatch(GetFavorite())
     }
 
 

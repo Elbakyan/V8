@@ -6,11 +6,10 @@ export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const GET_USER_FAVORITE = 'GET_USER_FAVORITE';
 
 
-export function GetFavorite(id){
-    let data = new FormData();
-    data.append('id', id)
+export function GetFavorite(){
     return (dispach) => {
-        POST(Url.getFavorite,data).then(res => {
+        GET(Url.getFavorite).then(res => {
+            console.log(res)
             dispach({
                 type: GET_FAVORITE,
                 payload: res

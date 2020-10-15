@@ -23,4 +23,5 @@ export const Url = {
     sendFavorite: 'https://brutal.am/Server/favorite-send',
     getMessage: 'https://brutal.am/Server/message-get',
     sendMessage: 'https://brutal.am/Server/message-send',
+    dialog: 'https://brutal.am/Server/dialog',
 }

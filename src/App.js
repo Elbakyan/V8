@@ -13,7 +13,8 @@ import {Redirect} from "react-router-dom";
 import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
-import { SendMessage} from "./redux/message/action";
+import {GetMessage, SendMessage} from "./redux/message/action";
+
 
 
 
@@ -34,39 +35,31 @@ class App extends React.Component {
         this.props.dispatch(ScoreExist())
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
-        // this.props.dispatch(GetMessage())
+        this.props.dispatch(GetMessage())
         // this.Getmessage()
     }
-    Message = (e) => {
-        e.preventDefault();
-        let data = new FormData(e.target);
-        this.props.dispatch(SendMessage(data))
-    }
 
-    // Getmessage  = (bool) =>{
-    //     let time = 1
-    //         const interval = setInterval(() => {
-    //
-    //             this.props.dispatch(GetMessage())
-    //             if (time >= 8){
-    //                 clearInterval(interval)
-    //                 this.Getmessage()
-    //             }
-    //             time++;
-    //         },time * 5000)
-    //
-    // }
+
+    Getmessage  = (bool) =>{
+        let data = new FormData();
+        data.append('id', this.props.user.id)
+        let time = 1
+            const interval = setInterval(() => {
+
+                this.props.dispatch(GetMessage())
+                if (time >= 8){
+                    clearInterval(interval)
+                    this.Getmessage()
+                }
+                time++;
+            },time * 5000)
+
+    }
 
     render() {
 
       return (
           <div className="App">
-              <form onSubmit={this.Message}>
-                  <textarea name="message"cols="30" rows="5"></textarea>
-                  <input type="hidden" name='send_id' value='25'/>
-                  <input type="hidden" name='get_id' value='28'/>
-                  <input type="submit" value='send'/>
-              </form>
               <Switch>
                   <Route exact path='/'>
                       <Home/>

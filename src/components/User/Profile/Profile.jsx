@@ -92,7 +92,7 @@ class Profile extends React.Component{
                                             {/*</div>*/}
                                             <GeFavorite />
                                         </Route>
-                                        <Route path='/user/account/persional'>
+                                        <Route  path='/user/account/persional'>
                                             <Message/>
                                         </Route>
                                     </Switch>
