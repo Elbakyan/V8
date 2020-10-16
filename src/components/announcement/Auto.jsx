@@ -171,9 +171,13 @@ class Auto extends Component {
                         </div>
                     </div>
                     <div className="message__button">
-                        <Link to='/user/account/persional/' onClick={this.SendMessage} id={auto.user_id}>
-                            Գրել․․․
-                        </Link>
+                        {
+                            this.props.user.id != auto.user_id?
+                                <Link to='/user/account/persional/' onClick={this.SendMessage} id={auto.user_id}>
+                                    Գրել․․․
+                                </Link>:''
+                        }
+
                     </div>
                 </div>
 

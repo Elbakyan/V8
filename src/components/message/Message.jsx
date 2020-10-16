@@ -17,7 +17,6 @@ class Message extends Component {
             dialog: '',
             redirect:false,
             RedirectLink: ''
-
         }
 
     }
@@ -61,15 +60,21 @@ class Message extends Component {
                 <div className="respondent">
                     {
                         this.props.message.user.map((data,i) => {
+                         let active = this.props.message.message[i].dialog_id == window.location.pathname.split('/').pop()
 
                             return (
 
-                                    <Respondent id={'/user/account/persional/'+this.props.message.message[i].dialog_id} data={data} onClick={this.Message} status={this.props.message.message[i].status}/>
+                                    <Respondent
+                                        id={'/user/account/persional/'+this.props.message.message[i].dialog_id}
+                                        active={active}
+                                        data={data}
+                                        onClick={this.Message}
+                                        status={this.props.message.message[i].status}/>
+
+
                             )
                         })
                     }
-
-
                 </div>
 
                 <div className="message">
@@ -77,7 +82,7 @@ class Message extends Component {
                         this.props.message.message.map((data,i) => {
                             console.log()
                             return (
-                                <Switch>
+                                <Switch key={i}>
                                     <Route exact path={'/user/account/persional/'+this.props.message.message[i].dialog_id}>
                                         <GetMessageClass one_message={data.message}/>
                                     </Route>

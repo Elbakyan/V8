@@ -14,7 +14,7 @@ class Respondent extends Component {
     render() {
 
         return (
-            <div className="respondent_user">
+            <div className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}>
                 <div className="click" onClick={this.props.onClick} id={this.props.id} data-id={this.props.data.id}></div>
                 <div className="respondent_user_image" style={{backgroundImage:`url(${this.props.data.img})`}}>
 
