@@ -2,7 +2,7 @@ import React, {Component} from "react";
 // import Button from "light-dark-button/src";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
-import {SendMessage, GetMessage, GetId} from "../../redux/message/action";
+import {SendMessage, GetMessage, GetId, GetStatus} from "../../redux/message/action";
 import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 const user_id = 2
@@ -58,7 +58,7 @@ class GetMessageClass extends Component{
         this.scrole()
         this.props.dispatch(GetMessage())
         POST(Url.messageId,data).then(res => {
-
+            this.props.dispatch(GetStatus(res))
             if (res.id != res.send_id){
                 this.props.dispatch(GetId(res.send_id))
             }

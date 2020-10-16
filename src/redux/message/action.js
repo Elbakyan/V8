@@ -45,9 +45,12 @@ export function GetId(id) {
 }
 
 export function GetStatus(data) {
+    let statusData = new FormData()
+    statusData.append('send', data.send_id)
+    statusData.append('get', data.get_id)
 
     return (dispach) => {
-        POST(Url.sendMessage,data).then(res => {
+        POST(Url.messageStatus,statusData).then(res => {
             console.log(res)
             dispach({
                 type: GET_STATUS,

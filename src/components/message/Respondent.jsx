@@ -12,6 +12,7 @@ class Respondent extends Component {
     }
 
     render() {
+
         return (
             <div className="respondent_user">
                 <div className="click" onClick={this.props.onClick} id={this.props.id} data-id={this.props.data.id}></div>
@@ -25,7 +26,7 @@ class Respondent extends Component {
                     </div>
                     <div>
                         <span>time</span>
-                        <span>5</span>
+                        <span>{this.props.status}</span>
                     </div>
                 </div>
             </div>

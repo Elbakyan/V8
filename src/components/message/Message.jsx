@@ -48,7 +48,6 @@ class Message extends Component {
                 redirect: false
             })
         },1000)
-        console.log(e.target.dataset.id)
         this.props.dispatch(GetId(e.target.dataset.id))
     }
 
@@ -62,9 +61,10 @@ class Message extends Component {
                 <div className="respondent">
                     {
                         this.props.message.user.map((data,i) => {
+
                             return (
 
-                                    <Respondent id={'/user/account/persional/'+this.props.message.message[i].dialog_id} data={data} onClick={this.Message}/>
+                                    <Respondent id={'/user/account/persional/'+this.props.message.message[i].dialog_id} data={data} onClick={this.Message} status={this.props.message.message[i].status}/>
                             )
                         })
                     }
@@ -75,6 +75,7 @@ class Message extends Component {
                 <div className="message">
                     {
                         this.props.message.message.map((data,i) => {
+                            console.log()
                             return (
                                 <Switch>
                                     <Route exact path={'/user/account/persional/'+this.props.message.message[i].dialog_id}>

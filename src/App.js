@@ -56,10 +56,10 @@ class App extends React.Component {
                 }
                 time++;
             },time * 5000)
+
     }
 
     render() {
-
       return (
           <div className="App">
               <Switch>
