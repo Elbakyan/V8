@@ -44,7 +44,6 @@ class Favorite extends Component {
 
     }
     render() {
-        console.log('ssss')
         return (
             <div className="result">
                 {

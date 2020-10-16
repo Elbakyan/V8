@@ -27,6 +27,7 @@ class DefaultBtn extends Component {
                 data-id={this.props.dataId}
                 className={this.props.className}
                 type={this.props.type}
+                disabled={this.props.disabled}
                 style={{
                     backgroundColor: this.props.background,
                     color:'' || this.props.color,
