@@ -7,6 +7,7 @@
   height: 90vh;
   display: flex;
   justify-content: space-between;
+  word-break: break-all;
 
   .respondent{
     width: 32%;
@@ -47,6 +48,7 @@
         width: 100%;
         height: 100%;
         cursor: pointer;
+
         top: 0;
         left: 0;
       }
@@ -115,6 +117,7 @@
     height: 100%;
     background: #c5c5c5;
 
+
     .getMessage{
       width: 100%;
       height: 100%;
@@ -141,31 +144,53 @@
           width: 100%;
           display: flex;
           height: auto;
-          margin: 10px 0;
-          padding: 10px 10px;
-          >div{
 
-            width: 45%;
-            text-align: start;
+          padding: 0px 10px;
+
+
+          >div{
+            max-width: 90%;
             height: auto;
-            display: flex;
-            justify-content: center;
-            padding: 10px 10px;
-            border-radius: 5px;
+            padding: 10px;
+            border-radius: 15px;
+
           }
         }
         .block_message_user1{
           justify-content: flex-start;
+          &:nth-child(even) > div{
+            border-radius: 0px 15px 15px 15px;
+          }
+          & > div {
+            margin: 5px 0px;
+          }
+          &:nth-child(odd) > div{
+            border-radius: 15px 15px 15px 0px;
+          }
+
           >div{
-            background: #2b365f;
-            color: white;
+            background: #a3a3a3;
+
+
+
           }
           //background: #1c8080;
         }
         .block_message_user2{
           justify-content: flex-end;
+          & > div {
+            margin: 5px 0px;
+          }
+          &:nth-child(even) > div{
+
+            border-radius: 15px 0px 15px 15px;
+          }
+          &:nth-child(odd) > div{
+            border-radius: 15px 15px 0px 15px;
+          }
           >div{
-            background: #a3a3a3;
+            background: lighten($main-color, 20);
+            color: white;
           }
           //background: #1c8080;
         }

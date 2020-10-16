@@ -7,7 +7,7 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../redux/auto/action";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import SliderAuto from "../User/UserCars/SliderAuto/SliderAuto";
 import {GET} from "../config/Requsest";
 import {Url} from "../config/Url";
@@ -18,6 +18,9 @@ import {GetId, GetMessage, SendMessage} from "../../redux/message/action";
 class Auto extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            link: ''
+        }
     }
     SendMessage = (e) => {
         e.preventDefault()
@@ -27,21 +30,30 @@ class Auto extends Component {
         data.append('message', '')
         this.props.dispatch(GetId(e.target.id))
         this.props.dispatch(SendMessage(data))
+
+        this.props.message.message.map(mes => {
+            if (mes.get_id == e.target.id || mes.send_id == e.target.id){
+                this.setState({
+                    link: mes.dialog_id
+                })
+            }
+        })
+
     }
 
     render() {
-        console.log(this.props.message)
         let img;
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)
 
         }
         let auto = this.props.sell.OneAuto;
-        console.log('auto',auto)
-        console.log(auto.later == true)
         return (
 
             <div className="Auto">
+                {
+                    this.state.link? <Redirect to={'/user/account/persional/'+this.state.link}/>: ''
+                }
                 <div>
                     <div className="block">
                         <div className='block-left'>
@@ -159,7 +171,7 @@ class Auto extends Component {
                         </div>
                     </div>
                     <div className="message__button">
-                        <Link to='' onClick={this.SendMessage} id={auto.user_id}>
+                        <Link to='/user/account/persional/' onClick={this.SendMessage} id={auto.user_id}>
                             Գրել․․․
                         </Link>
                     </div>

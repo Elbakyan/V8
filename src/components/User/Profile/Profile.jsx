@@ -15,6 +15,7 @@ import '../../announcement/SellCar.scss'
 import GeFavorite from "../favorite/GeFavorite";
 import Favorite from "../../announcement/Favorite";
 import Message from "../../message/Message";
+import {GetMessage} from "../../../redux/message/action";
 
 
 class Profile extends React.Component{
@@ -28,6 +29,7 @@ class Profile extends React.Component{
         this.setState({
             link:window.location.pathname
         })
+        this.props.dispatch(GetMessage())
     }
 
     render() {

@@ -13,7 +13,8 @@ import {Redirect} from "react-router-dom";
 import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
-import {GetMessage, SendMessage} from "./redux/message/action";
+import {GetMessage} from "./redux/message/action";
+
 
 
 
@@ -36,7 +37,9 @@ class App extends React.Component {
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
         this.props.dispatch(GetMessage())
-        // this.Getmessage()
+        this.Getmessage()
+
+
     }
 
 
@@ -53,7 +56,6 @@ class App extends React.Component {
                 }
                 time++;
             },time * 5000)
-
     }
 
     render() {

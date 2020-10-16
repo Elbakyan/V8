@@ -4,6 +4,7 @@ import {Url} from "../../components/config/Url";
 export const GET_MESSAGE = 'GET_MESSAGE';
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const GET_ID = 'GET_ID';
+export const GET_STATUS = 'GET_STATUS';
 
 export function SendMessage(data) {
 
@@ -39,6 +40,21 @@ export function GetId(id) {
                 payload: id
 
             })
+
+    }
+}
+
+export function GetStatus(data) {
+
+    return (dispach) => {
+        POST(Url.sendMessage,data).then(res => {
+            console.log(res)
+            dispach({
+                type: GET_STATUS,
+                payload: res
+
+            })
+        })
 
     }
 }

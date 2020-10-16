@@ -9,6 +9,7 @@ import {UserExist} from "../../redux/user/action";
 import Signin from "./Authentication/Signin";
 import SpaerParts from "../spare/SpareParts";
 import {GetAuto} from "../../redux/auto/action";
+import {GetMessage} from "../../redux/message/action";
 
 
 class User extends React.Component{
@@ -18,6 +19,10 @@ class User extends React.Component{
             id: this.props.id
         }
     }
+    componentDidMount() {
+        this.props.dispatch(GetMessage())
+    }
+
     render() {
         if (this.props.id){
             this.props.dispatch(GetAuto(this.props.id))

@@ -10,6 +10,7 @@ import {GetMark} from "../../redux/auto/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {Url} from "../config/Url";
+import {GetMessage} from "../../redux/message/action";
 
 
 
@@ -22,6 +23,10 @@ class Header extends React.Component{
             close: true
         }
     }
+    componentDidMount() {
+        this.props.dispatch(GetMessage())
+    }
+
     ShowCloseMenue = (e) => {
         if (this.state.close){
             this.setState({
