@@ -159,9 +159,18 @@ class Auto extends Component {
                         </div>
                     </div>
                     <div className="message__button">
-                        <Link to={'/user/account/persional/'} onClick={this.SendMessage} id={auto.user_id}>
-                            Գրել․․․
-                        </Link >
+                        <form>
+                            <DefaultInput
+                                type='text'
+                                name='message'
+                                placeholder='message...'
+                            />
+                            <input type="hidden" name='get_id' value={auto.user_id}/>
+                            <DefaultBtn
+                                type='submit'
+                                name='Գրել․․․'
+                            />
+                        </form>
                     </div>
                 </div>
 
