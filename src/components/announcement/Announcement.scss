@@ -213,15 +213,31 @@
   }
 }
 .message__button{
-  display: flex;
-  width: 90%;
-  justify-content: flex-end;
-  >a{
-    padding: 10px 20px;
+  width: 100%;
+  height: 100px;
+  position: relative;
+  //margin: 10px;
+ > form{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 80%;
+   height: 100%;
+   margin: 0 auto;
+   >textarea{
+     resize: none;
+     width: 80%;
+     height: 100%;
+   }
+  }
+  button{
     background: $color-1;
     color: $white;
     position: relative;
     overflow: hidden;
+    padding: 12px 24px;
+    border-radius: 0;
+
     &::before{
       content: '';
       display: block;

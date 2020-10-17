@@ -4,13 +4,13 @@ import {Url} from "../../components/config/Url";
 export const GET_MESSAGE = 'GET_MESSAGE';
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const GET_ID = 'GET_ID';
+export const GET_DIALOG_ID = 'GET_DIALOG_ID';
 export const GET_STATUS = 'GET_STATUS';
 
 export function SendMessage(data) {
 
     return (dispach) => {
         POST(Url.sendMessage,data).then(res => {
-            console.log(res)
             dispach({
                 type: SEND_MESSAGE,
                 payload: res
@@ -43,6 +43,16 @@ export function GetId(id) {
 
     }
 }
+export function GetDialogId(id) {
+    return (dispach) => {
+        dispach({
+            type: GET_DIALOG_ID,
+            payload: id
+
+        })
+
+    }
+}
 
 export function GetStatus(data) {
     let statusData = new FormData()
@@ -51,7 +61,6 @@ export function GetStatus(data) {
 
     return (dispach) => {
         POST(Url.messageStatus,statusData).then(res => {
-            console.log(res)
             dispach({
                 type: GET_STATUS,
                 payload: res

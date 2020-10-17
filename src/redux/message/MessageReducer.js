@@ -1,8 +1,9 @@
-import {GET_ID, GET_MESSAGE, GET_STATUS, SEND_MESSAGE} from "./action";
+import {GET_DIALOG_ID, GET_ID, GET_MESSAGE, GET_STATUS, SEND_MESSAGE} from "./action";
 const initialState = {
     user: [],
     message: [],
     id: '',
+    dialog: '',
     status: []
 }
 
@@ -14,6 +15,8 @@ function MessageReducer(state = initialState , action) {
             return {...state, message: action.payload.message,user:action.payload.user}
         case GET_ID:
             return {...state, id: action.payload}
+        case GET_DIALOG_ID:
+            return {...state, dialog: action.payload}
         case GET_STATUS:
             return {...state, status: action.payload}
         default:

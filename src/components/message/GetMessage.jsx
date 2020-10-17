@@ -5,49 +5,7 @@ import {connect} from "react-redux";
 import {SendMessage, GetMessage, GetId, GetStatus} from "../../redux/message/action";
 import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
-const user_id = 2
-const message = [
-    {
-        id:2,
-        message:'barevsdsdsdsad asdsadsa dasdsad asdasdwdsdas sdsaew asdawds dasdw asdasd wasdasdwd asdwd asdw adasw assd'
-    },
-    {
-        id:25,
-        message:'sdsd sl,ksd'
-    },
-    {
-        id:2,
-        message:'barev'
-    },
-    {
-        id:25,
-        message:'sdsd sl,ksd'
-    },
-    {
-        id:2,
-        message:'barevsdsdsdsad asdsadsa dasdsad asdasdwdsdas sdsaew asdawds dasdw asdasd wasdasdwd asdwd asdw adasw assd'
-    },
-    {
-        id:25,
-        message:'sdsd sl,ksd'
-    },
-    {
-        id:2,
-        message:'barevsdsdsdsad asdsadsa dasdsad asdasdwdsdas sdsaew asdawds dasdw asdasd wasdasdwd asdwd asdw adasw assd'
-    },
-    {
-        id:25,
-        message:'sdsd sl,ksd'
-    },
-    {
-        id:2,
-        message:'barevsdsdsdsad asdsadsa dasdsad asdasdwdsdas sdsaew asdawds dasdw asdasd wasdasdwd asdwd asdw adasw assd'
-    },
-    {
-        id:25,
-        message:'sdsd sl,ksd'
-    },
-]
+
 class GetMessageClass extends Component{
     constructor(props) {
         super(props);

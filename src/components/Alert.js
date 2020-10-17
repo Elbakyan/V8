@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Alert from '@material-ui/lab/Alert';
-
+import './Alert.scss'
 
  class Art extends Component {
      constructor(props) {
@@ -8,19 +8,19 @@ import Alert from '@material-ui/lab/Alert';
      }
 
 
-    static open = () => {
-        let alert = document.querySelector('.alert');
-            alert.style.top = '50px'
-            alert.style.display = 'block'
-           setTimeout(() => {
-               alert.style.top = '-100px'
-               setTimeout(() => {
-                   alert.style.display = 'none'
-               },1000)
-
-           },2000)
-
-    }
+    // static open = () => {
+    //     let alert = document.querySelector('.alert');
+    //         // alert.style.top = '50px'
+    //         alert.style.display = 'block'
+    //        setTimeout(() => {
+    //            // alert.style.top = '-100px'
+    //            setTimeout(() => {
+    //                alert.style.display = 'none'
+    //            },1000)
+    //
+    //        },2000)
+    //
+    // }
 
     render(){
 

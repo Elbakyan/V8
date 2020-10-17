@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCheckCircle, faDollarSign, faCaretSquareDown, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import DefaultInput from "../forms/inputs/DefaultInput";
@@ -11,7 +10,9 @@ import {Link, Redirect} from "react-router-dom";
 import SliderAuto from "../User/UserCars/SliderAuto/SliderAuto";
 import {GET} from "../config/Requsest";
 import {Url} from "../config/Url";
-import {GetId, GetMessage, SendMessage} from "../../redux/message/action";
+import {GetDialogId, GetId, GetMessage, SendMessage} from "../../redux/message/action";
+import Alert from "@material-ui/lab/Alert";
+import Art from "../Alert";
 
 
 
@@ -19,44 +20,42 @@ class Auto extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            link: ''
+            message:false
         }
     }
+    componentDidMount() {
+    }
+
     SendMessage = (e) => {
         e.preventDefault()
-        let data = new FormData();
-        data.append('send_id', this.props.user.id)
-        data.append('get_id', e.target.id)
-        data.append('message', '')
-        this.props.dispatch(GetId(e.target.id))
+        let data = new FormData(e.target);
         this.props.dispatch(SendMessage(data))
-
-        this.props.message.message.map(mes => {
-            if (mes.get_id == e.target.id || mes.send_id == e.target.id){
-                this.setState({
-                    link: mes.dialog_id
-                })
-            }
+        this.textareaRef.value = '';
+        this.setState({
+            message:true
         })
-
-
-
+        setTimeout(()=>{
+            this.setState({
+                message:false
+            })
+        },1500)
     }
 
     render() {
+
         let img;
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)
 
         }
         let auto = this.props.sell.OneAuto;
+
         return (
 
             <div className="Auto">
-                {
-                    this.state.link? <Redirect to={'/user/account/persional/'+this.state.link}/>: ''
-                }
                 <div>
+
+
                     <div className="block">
                         <div className='block-left'>
                             <div className="car_name">
@@ -174,12 +173,19 @@ class Auto extends Component {
                     </div>
                     <div className="message__button">
                         {
-                            this.props.user.id != auto.user_id?
-                                <Link to='/user/account/persional/' onClick={this.SendMessage} id={auto.user_id}>
-                                    Գրել․․․
-                                </Link>:''
+                            // this.state.message?<Alert>hax</Alert>:''
+                            this.state.message?<Art width={50} content="Հաղորդագրությունը ուղարկված է"/>:''
                         }
+                        <form onSubmit={this.SendMessage}>
+                            <textarea name="message" ref={el => this.textareaRef = el}>
 
+                            </textarea>
+                            <input type="hidden" name='get_id' value={auto.user_id}/>
+                            <DefaultBtn
+                                type='submit'
+                                name='Գրել․․․'
+                            />
+                        </form>
                     </div>
                 </div>
 
