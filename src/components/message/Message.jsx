@@ -25,7 +25,6 @@ class Message extends Component {
         this.props.dispatch(GetMessage())
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
-
         POST(Url.messageId,data).then(res => {
             if (res.id != res.send_id){
                 this.props.dispatch(GetId(res.send_id))
@@ -69,9 +68,8 @@ class Message extends Component {
                                         active={active}
                                         data={data}
                                         onClick={this.Message}
-                                        status={this.props.message.message[i].status}/>
-
-
+                                        status={this.props.message.message[i].status}
+                                    />
                             )
                         })
                     }
