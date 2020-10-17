@@ -55,7 +55,6 @@ class GetMessageClass extends Component{
     componentDidMount() {
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
-        this.scrole()
         this.props.dispatch(GetMessage())
         POST(Url.messageId,data).then(res => {
             this.props.dispatch(GetStatus(res))
@@ -65,14 +64,11 @@ class GetMessageClass extends Component{
             if (res.id != res.get_id){
                 this.props.dispatch(GetId(res.get_id))
             }
+            this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
         })
-
+        this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
     }
 
-    scrole = ()=>{
-        let messageScroll = document.querySelector('.getMessage_users')
-        messageScroll.scrollTop = messageScroll.scrollHeight;
-    }
     Message = (e) => {
         e.preventDefault();
         let data = new FormData(e.target);
@@ -80,11 +76,10 @@ class GetMessageClass extends Component{
         if (this.textareaRef.value.trim().length > 0){
             this.props.dispatch(SendMessage(data))
         }
-
         this.props.dispatch(GetMessage())
-        this.scrole()
-
         this.textareaRef.value = '';
+        this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
+
     }
     onEnterPress = (e) => {
         if(e.keyCode == 13 && e.shiftKey == false) {
@@ -94,23 +89,24 @@ class GetMessageClass extends Component{
                 this.props.dispatch(SendMessage(data))
             }
             this.props.dispatch(GetMessage())
-            this.scrole()
             this.textareaRef.value = ''
         }
+            this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
     }
 
     render() {
+
         return (
             <div className="getMessage">
-                <div className="getMessage_users">
+                <div className="getMessage_users" ref={el => this.scrollRef = el}>
                     {
                         this.props.one_message.map((elem,i)=>{
 
                             return(
-                                <div key={i} className={elem[0].id == this.props.user.id?'block_message block_message_user2':'block_message block_message_user1'}>
+                                <div key={i} className={elem[0].id == this.props.user.id?'block_message block_message_user2':'block_message block_message_user1'} >
                                     {
                                         elem[0].message == ""? '':
-                                            <div >
+                                            <div>
                                                 <span>{elem[0].message}</span>
                                             </div>
                                     }

@@ -21,10 +21,12 @@ import {GetMessage} from "./redux/message/action";
 
 
 class App extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            path: '/'
+            path: '/',
+            incriment: 0
 
         }
     }
@@ -37,26 +39,26 @@ class App extends React.Component {
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
         this.props.dispatch(GetMessage())
-        this.Getmessage()
-
+        this.GetMes()
 
     }
 
-
-    Getmessage  = (bool) =>{
-        let data = new FormData();
-        data.append('id', this.props.user.id)
-        let time = 1
-            const interval = setInterval(() => {
-
-                this.props.dispatch(GetMessage())
-                if (time >= 8){
-                    clearInterval(interval)
-                    this.Getmessage()
-                }
-                time++;
-            },time * 5000)
-
+    GetMes = () => {
+       const Timer = () => {
+            if (this.state.incriment < 10){
+                this.setState({
+                    incriment: ++this.state.incriment
+                })
+            }else{
+                clearTimeout(Timer)
+                this.setState({
+                    incriment: 0
+                })
+            }
+           this.props.dispatch(GetMessage())
+           setTimeout(Timer,1000)
+        }
+        setTimeout(Timer,4)
     }
 
     render() {
