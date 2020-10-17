@@ -18,6 +18,7 @@ import {faHeart as reg} from "@fortawesome/free-regular-svg-icons/faHeart";
 import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import {AddFavorite, GetFavorite} from "../../redux/favorite/action";
+import {GetDialogId, GetId, GetMessage} from "../../redux/message/action";
 
 
 class Result extends Component {
@@ -29,11 +30,13 @@ class Result extends Component {
 
     }
 
-
     GetAuto = (e) => {
         let data = new FormData();
         data.append('id', e.target.dataset.id);
         this.props.dispatch(GetSellByID(data))
+        this.props.dispatch(GetId(e.target.dataset.user))
+
+
     }
     Favorite = (e) =>{
         let autoId = e.target.parentElement.parentElement.dataset.id;
@@ -58,7 +61,6 @@ class Result extends Component {
                                 res = true
                             }
                         })
-
 
                         let img = JSON.parse(auto.img);
                         return (

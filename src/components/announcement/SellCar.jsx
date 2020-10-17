@@ -12,6 +12,7 @@ import {GET_FAVORITE, GetFavorite} from "../../redux/favorite/action";
 import {connect} from "react-redux";
 import {faDollarSign, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
+import {GetMessage} from "../../redux/message/action";
 
 const img = [
     'https://www.dw.com/image/19571759_303.jpg',
@@ -31,6 +32,7 @@ class SellCar extends  Component {
 
 
     }
+
 
     out = (e)=>{
         let span = document.querySelector('.'+e.target.className + '>span')
@@ -52,13 +54,13 @@ class SellCar extends  Component {
         let img = JSON.parse(this.props.Auto.img);
         let navWidth = (100 / img.length) + '%' ;
         return (
-            <div className="getSellCar" data-id={this.props.Auto.id}>
-                <div className="getSellCar_header" data-id={this.props.Auto.id}>
+            <div className="getSellCar" data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
+                <div className="getSellCar_header" data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
 
-                    <div className="getSellCar_header_image" data-id={this.props.Auto.id} style={{backgroundImage:`url(${img[this.state.index]})`}}>
+                    <div className="getSellCar_header_image" data-id={this.props.Auto.id} data-user={this.props.Auto.user_id} style={{backgroundImage:`url(${img[this.state.index]})`}}>
                     </div>
 
-                    <div className="getSellCar_header_check" data-id={this.props.Auto.id}>
+                    <div className="getSellCar_header_check" data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
                         {
                             img.map((e,i)=>(
                                 img.length > 1?
@@ -78,7 +80,7 @@ class SellCar extends  Component {
                     </div>
                 </div>
 
-                <div className="getSellCar_body" data-id={this.props.Auto.id}>
+                <div className="getSellCar_body" data-id={this.props.Auto.id} >
                     <div className='getSellCar_body_block1' data-id={this.props.Auto.id}>
                         <span data-id={this.props.Auto.id}>{this.props.Auto.model}</span>
                     </div>

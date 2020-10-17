@@ -11,49 +11,37 @@ import {Link, Redirect} from "react-router-dom";
 import SliderAuto from "../User/UserCars/SliderAuto/SliderAuto";
 import {GET} from "../config/Requsest";
 import {Url} from "../config/Url";
-import {GetId, GetMessage, SendMessage} from "../../redux/message/action";
+import {GetDialogId, GetId, GetMessage, SendMessage} from "../../redux/message/action";
 
 
 
 class Auto extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            link: ''
-        }
     }
+    componentDidMount() {
+    }
+
     SendMessage = (e) => {
-        e.preventDefault()
         let data = new FormData();
         data.append('send_id', this.props.user.id)
         data.append('get_id', e.target.id)
         data.append('message', '')
-        this.props.dispatch(GetId(e.target.id))
         this.props.dispatch(SendMessage(data))
-
-        this.props.message.message.map(mes => {
-            if (mes.get_id == e.target.id || mes.send_id == e.target.id){
-                this.setState({
-                    link: mes.dialog_id
-                })
-            }
-        })
-
     }
 
     render() {
+
         let img;
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)
 
         }
         let auto = this.props.sell.OneAuto;
+
         return (
 
             <div className="Auto">
-                {
-                    this.state.link? <Redirect to={'/user/account/persional/'+this.state.link}/>: ''
-                }
                 <div>
                     <div className="block">
                         <div className='block-left'>
@@ -171,13 +159,9 @@ class Auto extends Component {
                         </div>
                     </div>
                     <div className="message__button">
-                        {
-                            this.props.user.id != auto.user_id?
-                                <Link to='/user/account/persional/' onClick={this.SendMessage} id={auto.user_id}>
-                                    Գրել․․․
-                                </Link>:''
-                        }
-
+                        <Link to={'/user/account/persional/'} onClick={this.SendMessage} id={auto.user_id}>
+                            Գրել․․․
+                        </Link >
                     </div>
                 </div>
 
