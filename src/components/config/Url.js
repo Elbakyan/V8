@@ -26,4 +26,5 @@ export const Url = {
     dialog: 'https://brutal.am/Server/dialog',
     messageId: 'https://brutal.am/Server/message-id',
     messageStatus: 'https://brutal.am/Server/message-status',
+    deliteMessage: 'https://brutal.am/Server/message_delite-',
 }
