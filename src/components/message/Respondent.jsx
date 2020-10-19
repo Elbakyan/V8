@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee,faMapMarkerAlt,faMobileAlt ,faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons'
 import {faTrashAlt} from "@fortawesome/free-solid-svg-icons/faTrashAlt";
+import {POST, TEST_POST} from "../config/Requsest";
+import {Url} from "../config/Url";
+import {color} from "../../redux/auto/Values";
 const data = {
     name:'Vazgen',
     surname:'Bagratunyan',
@@ -13,7 +16,13 @@ class Respondent extends Component {
         super(props);
     }
 
-    clear = ()=>{
+    clear = (e)=>{
+       let data = new FormData();
+       data.append('send_id',this.props.userId);
+       data.append('get_id',e.target.dataset.id);
+        POST(Url.deliteMessage,data).then(res => {
+            console.log(res)
+        })
 
     }
 
@@ -39,8 +48,9 @@ class Respondent extends Component {
 
                     </div>
                 </div>
-                <div className="respondent_user_clear">
-                    <span onClick={this.clear}><FontAwesomeIcon icon={faTrashAlt} /></span>
+                <div className="respondent_user_clear" onClick={this.clear} data-id={this.props.data.id}>
+                    <div className="click"></div>
+                    <span ><FontAwesomeIcon icon={faTrashAlt} /></span>
                 </div>
             </div>
         )

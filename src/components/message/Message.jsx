@@ -62,6 +62,7 @@ class Message extends Component {
                                         onClick={this.Message}
                                         status={this.props.message.message[i].status}
                                         time={this.props.message.message[i].time}
+                                        userId={this.props.user.id}
                                     />
                             )
                         })

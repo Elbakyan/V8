@@ -125,14 +125,27 @@
         padding: 0 15px;
         color:white;
         position: relative;
+
+        &::before{
+          content: '';
+          display: block;
+          width: 15px;
+          height: 20px;
+          position: absolute;
+          z-index: 15;
+          cursor: pointer;
+        }
+
+
         >span{
           z-index: 5;
           position: absolute;
           z-index: 2;
           cursor: pointer;
-          &:hover{
-            color: #ef0a0a;
-          }
+
+        }
+        &:hover > span{
+          color: #ef0a0a;
         }
       }
     }
@@ -187,6 +200,45 @@
             flex-direction: column;
             position: relative;
             cursor: pointer;
+
+
+          }
+        }
+        .block_message_user1{
+          justify-content: flex-start;
+          &:nth-child(even) > div{
+            border-radius: 0px 15px 15px 15px;
+          }
+          & > div {
+            margin: 5px 0px;
+            background: #a3a3a3;
+            &:hover > span:nth-child(1){
+              opacity: 1;
+            }
+
+            >span{
+
+              &:nth-child(1){
+                font-size: 12px;
+                position: absolute;
+                right: -125px;
+                padding: 5px;
+                background: #a3a3a3;
+                border-radius: 5px;
+                opacity: 0;
+                transition: 1s;
+              }
+
+            }
+          }
+          &:nth-child(odd) > div{
+            border-radius: 15px 15px 15px 0px;
+          }
+        }
+        .block_message_user2{
+          justify-content: flex-end;
+          & > div {
+            margin: 5px 0px;
             &:hover > span:nth-child(1){
               opacity: 1;
             }
@@ -206,33 +258,6 @@
               }
 
             }
-
-          }
-        }
-        .block_message_user1{
-          justify-content: flex-start;
-          &:nth-child(even) > div{
-            border-radius: 0px 15px 15px 15px;
-          }
-          & > div {
-            margin: 5px 0px;
-          }
-          &:nth-child(odd) > div{
-            border-radius: 15px 15px 15px 0px;
-          }
-
-          >div{
-            background: #a3a3a3;
-
-
-
-          }
-          //background: #1c8080;
-        }
-        .block_message_user2{
-          justify-content: flex-end;
-          & > div {
-            margin: 5px 0px;
           }
           &:nth-child(even) > div{
 
