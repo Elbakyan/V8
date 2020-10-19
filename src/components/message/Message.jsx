@@ -42,6 +42,7 @@ class Message extends Component {
 
 
     render() {
+        // console.log(.)
         return(
             <div className="message_users">
                 {
@@ -53,7 +54,7 @@ class Message extends Component {
                          let active = this.props.message.message[i].dialog_id == window.location.pathname.split('/').pop()
 
                             return (
-
+                                this.props.message.message[i].delete =
                                     <Respondent
                                         key={i}
                                         id={'/user/account/persional/'+this.props.message.message[i].dialog_id}
