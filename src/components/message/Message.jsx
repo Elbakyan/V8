@@ -42,7 +42,8 @@ class Message extends Component {
 
 
     render() {
-        // console.log(.)
+        // console.log( this.props.message.message)
+        // console.log(this.props.user.id == undefined)
         return(
             <div className="message_users">
                 {
@@ -52,20 +53,23 @@ class Message extends Component {
                     {
                         this.props.message.user.map((data,i) => {
                          let active = this.props.message.message[i].dialog_id == window.location.pathname.split('/').pop()
+                            // if(this.props.message.message && this.props.user.id ){
+                            console.log(typeof this.props.message.message[i].delite[0])
+                                return (
+                                    this.props.message.message[i].delite[0] == this.props.user.id ?'':
+                                        <Respondent
+                                            key={i}
+                                            id={'/user/account/persional/'+this.props.message.message[i].dialog_id}
+                                            active={active}
+                                            data={data}
+                                            onClick={this.Message}
+                                            status={this.props.message.message[i].status}
+                                            time={this.props.message.message[i].time}
+                                            userId={this.props.user.id}
+                                        />
+                                )
+                            // }
 
-                            return (
-                                this.props.message.message[i].delete =
-                                    <Respondent
-                                        key={i}
-                                        id={'/user/account/persional/'+this.props.message.message[i].dialog_id}
-                                        active={active}
-                                        data={data}
-                                        onClick={this.Message}
-                                        status={this.props.message.message[i].status}
-                                        time={this.props.message.message[i].time}
-                                        userId={this.props.user.id}
-                                    />
-                            )
                         })
                     }
                 </div>
@@ -75,6 +79,7 @@ class Message extends Component {
                         this.props.message.message.map((data,i) => {
 
                             return (
+                                data.delite[0] == this.props.user.id ?'':
                                 <Switch key={i}>
                                     <Route exact path={'/user/account/persional/'+this.props.message.message[i].dialog_id}>
                                         <GetMessageClass one_message={data.message} />
