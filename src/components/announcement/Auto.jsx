@@ -29,6 +29,7 @@ class Auto extends Component {
     SendMessage = (e) => {
         e.preventDefault()
         let data = new FormData(e.target);
+        console.log(Array.from(data))
         this.props.dispatch(SendMessage(data))
         this.textareaRef.value = '';
         this.setState({

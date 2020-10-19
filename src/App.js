@@ -39,11 +39,13 @@ class App extends React.Component {
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
         this.props.dispatch(GetMessage())
-        // this.GetMes()
+        this.GetMes()
 
     }
 
     GetMes = () => {
+        let getMessage_users = document.querySelector('.getMessage_users');
+
        const Timer = () => {
             if (this.state.incriment < 10){
                 this.setState({

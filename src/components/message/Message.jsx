@@ -42,7 +42,6 @@ class Message extends Component {
 
 
     render() {
-        console.log(this.props.message)
         return(
             <div className="message_users">
                 {
@@ -51,6 +50,7 @@ class Message extends Component {
                 <div className="respondent">
                     {
                         this.props.message.user.map((data,i) => {
+
                          let active = this.props.message.message[i].dialog_id == window.location.pathname.split('/').pop()
 
                             return (
