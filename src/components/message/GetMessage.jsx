@@ -9,11 +9,19 @@ import {Url} from "../config/Url";
 class GetMessageClass extends Component{
     constructor(props) {
         super(props);
+        this.state = {
+            ticking:false,
+            position:0,
+            count:this.props.one_message.length - 1
+        }
     }
     componentDidMount() {
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
         this.props.dispatch(GetMessage())
+        this.setState({
+            count:this.props.one_message.length - 1
+        })
         POST(Url.messageId,data).then(res => {
             this.props.dispatch(GetStatus(res))
             if (res.id != res.send_id){
@@ -22,9 +30,9 @@ class GetMessageClass extends Component{
             if (res.id != res.get_id){
                 this.props.dispatch(GetId(res.get_id))
             }
-            this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
         })
         this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
+
     }
 
     Message = (e) => {
@@ -36,7 +44,8 @@ class GetMessageClass extends Component{
         }
         this.props.dispatch(GetMessage())
         this.textareaRef.value = '';
-        this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
+
+        this.scroll()
 
     }
     onEnterPress = (e) => {
@@ -48,15 +57,30 @@ class GetMessageClass extends Component{
             }
             this.props.dispatch(GetMessage())
             this.textareaRef.value = ''
+            this.scroll()
         }
-            this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
+
+
+    }
+
+    scroll = (e)=>{
+        let scrol = setInterval(()=>{
+            // let block = document.querySelector('.getMessage_users')
+            if(this.props.one_message.length != this.state.count){
+                this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
+                this.setState({
+                    count:this.props.one_message.length
+                })
+            }else{
+                clearInterval(scrol)
+            }
+        },500)
     }
 
     render() {
-
         return (
             <div className="getMessage">
-                <div className="getMessage_users" ref={el => this.scrollRef = el}>
+                <div className="getMessage_users" ref={el => this.scrollRef = el} >
                     {
                         this.props.one_message.map((elem,i)=>{
 

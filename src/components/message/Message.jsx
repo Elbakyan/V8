@@ -56,6 +56,7 @@ class Message extends Component {
                             return (
 
                                     <Respondent
+                                        key={i}
                                         id={'/user/account/persional/'+this.props.message.message[i].dialog_id}
                                         active={active}
                                         data={data}
