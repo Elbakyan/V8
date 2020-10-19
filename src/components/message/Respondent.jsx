@@ -31,8 +31,12 @@ class Respondent extends Component {
                         <span>{this.props.data.surname}</span>
                     </div>
                     <div>
-                        <span>{this.props.time.split(' ')[1]}</span>
-                        <span>{this.props.status}</span>
+                        <span>{this.props.time.split(' ')[1].slice(0,5)}</span>
+                        {
+                            +this.props.status?
+                                <span>{this.props.status}</span>:''
+                        }
+
                     </div>
                 </div>
                 <div className="respondent_user_clear">
