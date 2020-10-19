@@ -1,5 +1,7 @@
 import React, {Component} from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee,faMapMarkerAlt,faMobileAlt ,faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons'
+import {faTrashAlt} from "@fortawesome/free-solid-svg-icons/faTrashAlt";
 const data = {
     name:'Vazgen',
     surname:'Bagratunyan',
@@ -9,6 +11,10 @@ const data = {
 class Respondent extends Component {
     constructor(props) {
         super(props);
+    }
+
+    clear = ()=>{
+
     }
 
     render() {
@@ -28,6 +34,9 @@ class Respondent extends Component {
                         <span>time</span>
                         <span>{this.props.status}</span>
                     </div>
+                </div>
+                <div className="respondent_user_clear">
+                    <span onClick={this.clear}><FontAwesomeIcon icon={faTrashAlt} /></span>
                 </div>
             </div>
         )
