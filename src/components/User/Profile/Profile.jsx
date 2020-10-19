@@ -33,6 +33,13 @@ class Profile extends React.Component{
     }
 
     render() {
+        let status = 0;
+        this.props.message.message.map((data,i) => {
+            if (+this.props.user.id != +data['send_id']){
+                status += +data.status;
+            }
+
+        })
 
         return (
             <section className="Profile col">
@@ -45,7 +52,7 @@ class Profile extends React.Component{
                                     <ul >
                                         <li>
                                             <div className="icon">
-                                                <FontAwesomeIcon icon={faEnvelope}/>
+                                                <FontAwesomeIcon icon={faEnvelope} color={status? 'red':''}/>
                                             </div>
                                             <Link to='/user/account/persional'>Հաղորդագրություններ</Link>
                                         </li>

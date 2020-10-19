@@ -89,6 +89,7 @@ class GetMessageClass extends Component{
                                     {
                                         elem[0].message == ""? '':
                                             <div>
+                                                <span>{elem[0].time}</span>
                                                 <span>{elem[0].message}</span>
                                             </div>
                                     }

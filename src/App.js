@@ -44,6 +44,10 @@ class App extends React.Component {
     }
 
     GetMes = () => {
+       let getMessage_users = document.querySelector('.getMessage_users');
+       if (getMessage_users != null){
+           getMessage_users.scrollTop = 100000000000000;
+       }
        const Timer = () => {
             if (this.state.incriment < 10){
                 this.setState({

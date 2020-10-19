@@ -42,7 +42,6 @@ class Message extends Component {
 
 
     render() {
-        console.log(this.props.message)
         return(
             <div className="message_users">
                 {
@@ -62,6 +61,7 @@ class Message extends Component {
                                         data={data}
                                         onClick={this.Message}
                                         status={this.props.message.message[i].status}
+                                        time={this.props.message.message[i].time}
                                     />
                             )
                         })
@@ -75,7 +75,7 @@ class Message extends Component {
                             return (
                                 <Switch key={i}>
                                     <Route exact path={'/user/account/persional/'+this.props.message.message[i].dialog_id}>
-                                        <GetMessageClass one_message={data.message}/>
+                                        <GetMessageClass one_message={data.message} />
                                     </Route>
                                 </Switch>
                             )

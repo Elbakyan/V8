@@ -175,10 +175,34 @@
 
 
           >div{
-            max-width: 90%;
+            max-width: 80%;
             height: auto;
             padding: 10px;
             border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            cursor: pointer;
+            &:hover > span:nth-child(1){
+              opacity: 1;
+            }
+
+            >span{
+
+              &:nth-child(1){
+                font-size: 12px;
+                position: absolute;
+                left: -125px;
+                color: $white;
+                padding: 5px;
+                background: lighten($main-color, 20);
+                border-radius: 5px;
+                opacity: 0;
+                transition: 1s;
+              }
+
+            }
 
           }
         }
