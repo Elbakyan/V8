@@ -9,9 +9,6 @@ class Account extends React.Component{
     render() {
         return (
             <div className="Account">
-                {
-                    !this.props.status? <Redirect to={'/user/login'} /> : ''
-                }
                 <Header/>
                 <Profile/>
                 <Footer/>

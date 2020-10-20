@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, Route} from "react-router-dom";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
+import {Url} from "../config/Url";
 // import './User.scss'
 
 
@@ -13,6 +14,7 @@ class Header extends React.Component{
         super(props);
 
     }
+    
 
     render() {
 
@@ -44,12 +46,14 @@ class Header extends React.Component{
                         </ul>
                     </nav>
                     <div className="header__logout">
-                        <DefaultBtn
-                            className="header__btn-logout"
-                            name="Ելք"
-                            padding='7px 20px'
-                            fofontSize='14px'
-                        />
+                        <a href={Url.logoutscore}>
+                            <DefaultBtn
+                                className="header__btn-logout"
+                                name="Ելք"
+                                padding='7px 20px'
+                                fofontSize='14px'
+                            />
+                        </a>
                     </div>
                 </div>
             </header>
