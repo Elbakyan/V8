@@ -68,6 +68,7 @@ class Signin extends Component{
     GetCity(e) {
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
     }
+
     addScore(e){
         e.preventDefault();
         let data = new FormData(e.target);
