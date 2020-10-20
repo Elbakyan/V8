@@ -96,9 +96,6 @@ class Profile extends React.Component{
                                             <ProfilSetings />
                                         </Route>
                                         <Route path='/user/account/favorite'>
-                                            {/*<div className="">*/}
-                                            {/*    <Favorite />*/}
-                                            {/*</div>*/}
                                             <GeFavorite />
                                         </Route>
                                         <Route  path='/user/account/persional'>

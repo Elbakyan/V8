@@ -85,7 +85,6 @@ class App extends React.Component {
                   <Route path='/announcement'>
                       <Announcement/>
                   </Route>
-
               </Switch>
               {this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
               {this.props.score.status? <Redirect to='/score/account'/> : <Redirect to='/'/>}
