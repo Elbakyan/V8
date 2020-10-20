@@ -27,7 +27,6 @@ class Respondent extends Component {
     }
 
     render() {
-
         return (
             <div className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}>
                 <div className="click" onClick={this.props.onClick} id={this.props.id} data-id={this.props.data.id}></div>
@@ -42,7 +41,7 @@ class Respondent extends Component {
                     <div>
                         <span>{this.props.time.split(' ')[1].slice(0,5)}</span>
                         {
-                            +this.props.status?
+                            +this.props.status && this.props.send != this.props.userId?
                                 <span>{this.props.status}</span>:''
                         }
 

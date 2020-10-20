@@ -60,12 +60,13 @@ class App extends React.Component {
                 })
             }
            this.props.dispatch(GetMessage())
-           setTimeout(Timer,1000)
+           setTimeout(Timer,5000)
         }
         setTimeout(Timer,4)
     }
 
     render() {
+        console.log(this.props)
       return (
           <div className="App">
               <Switch>

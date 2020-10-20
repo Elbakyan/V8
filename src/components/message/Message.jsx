@@ -66,6 +66,7 @@ class Message extends Component {
                                             status={this.props.message.message[i].status}
                                             time={this.props.message.message[i].time}
                                             userId={this.props.user.id}
+                                            send={this.props.message.message[i].send_id}
                                         />
                                 )
                             // }

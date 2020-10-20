@@ -53,7 +53,7 @@ class Header extends React.Component{
                                     </Link>
                                 </li>
                                 <li className="header__links-li row align-center">
-                                    <Link to="/score"><DefaultBtn
+                                    <Link to={this.props.score.status? '/score/account': '/score'}><DefaultBtn
                                         name="Մուտք որպեզ Գործնկեր"
                                         color='#fff'
                                         background='#007A61'

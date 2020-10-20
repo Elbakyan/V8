@@ -20,7 +20,7 @@ class Header extends React.Component{
             <header>
                 <div className="container row justify-between align-center">
                     <div className="header__logo">
-                        <Link to="/user/account">
+                        <Link to="/score/account">
                             <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>
@@ -37,7 +37,7 @@ class Header extends React.Component{
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/acauservice'>
+                                <Link to='/announcement'>
                                     Հայտարարություններ
                                 </Link>
                             </li>

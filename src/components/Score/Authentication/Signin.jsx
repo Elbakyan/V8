@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
-import {POST} from "../../config/Requsest";
+import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 
 
@@ -69,17 +69,18 @@ class Signin extends Component{
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
     }
 
+
     addScore(e){
+
         e.preventDefault();
         let data = new FormData(e.target);
-        console.log(data)
         POST(Url.addscore,data).then(res => {
             this.setState({
                 message: res.message,
                 status: res.status
             })
             setTimeout(() => {
-                window.location.href = '/score/login'
+                // window.location.href = '/score/login'
             },1000)
 
         })
@@ -91,7 +92,7 @@ class Signin extends Component{
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Signin-score__score-content score col align-center justify-center">
-                        <form className="col align-center justify-center" onSubmit={this.addScore.bind(this)} encType='multipart/form-data'>
+                        <form className="col align-center justify-center" onSubmit={this.addScore} encType='multipart/form-data'>
                             <div className="message row align-center" style={this.state.status? {color: 'green'} : {color: 'red'}}>{this.state.message}</div>
                             <div className="div row justify-between">
                                 <DefaultInput
