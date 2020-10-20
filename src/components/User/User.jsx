@@ -39,7 +39,7 @@ class User extends React.Component{
                        <Signin/>
                    </Route>
                    <Route path='/user/account'>
-                       <Account/>
+                       <Account status={this.props.status}/>
                    </Route>
                    {this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/user/login' />}
                </Switch>
