@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
+import {Redirect} from "react-router";
 
 class Login extends React.Component{
 
@@ -15,6 +16,9 @@ class Login extends React.Component{
         return (
 
             <div className="Login">
+                {
+                    this.props.status? <Redirect to={'/user/account'} /> : <Redirect to={'/user/login'} />
+                }
                 <Header/>
                 <div className="container row align-center justify-center">
                     <div className="Login__content col align-center justify-center">
