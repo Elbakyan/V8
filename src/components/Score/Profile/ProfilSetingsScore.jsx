@@ -30,7 +30,6 @@ class ProfilSetingsScore extends Component {
 
     componentDidMount() {
         this.props.dispatch(GetCity(1))
-
     }
 
     GetCity(e) {
@@ -95,7 +94,7 @@ class ProfilSetingsScore extends Component {
                     }
                 </div>
                 {
-                    this.props.user.data == undefined ? '' :
+                    this.props.score.data == undefined ? '' :
                         (
 
                             <div>
@@ -109,27 +108,27 @@ class ProfilSetingsScore extends Component {
 
                                     <form className="col align-center justify-center" onSubmit={this.UbdateData} encType='multipart/form-data'>
                                         <DefaultInput
-                                            defaultValue={this.props.user.data.name}
+                                            defaultValue={this.props.score.data.name}
                                             placeholder='Անուն․․․'
                                             name='name'
                                             width='48%'
                                         />
                                         <DefaultInput
-                                            defaultValue={this.props.user.data.surname}
+                                            defaultValue={this.props.score.data.surname}
                                             type="text"
                                             placeholder='Ազգանուն․․․'
                                             name='surname'
                                             width='48%'
                                         />
                                         <DefaultInput
-                                            defaultValue={this.props.user.data.phone}
+                                            defaultValue={this.props.score.data.phone}
                                             type="tel"
                                             placeholder='Հեռախոսահամար․․․'
                                             name='phone'
                                             width='48%'
                                         />
                                         <DefaultInput
-                                            defaultValue={this.props.user.data.email}
+                                            defaultValue={this.props.score.data.email}
                                             type="text"
                                             placeholder='E-mail․․․'
                                             name='email'
@@ -168,10 +167,9 @@ class ProfilSetingsScore extends Component {
                                                 placeholder='Լուսանկար․․․'
                                                 name='image'
                                                 width='100%'
-
                                             />
                                         </label>
-                                        <DefaultInput type='hidden' name='id' value={this.props.user.id}/>
+                                        <DefaultInput type='hidden' name='id' value={this.props.score.id}/>
                                         <DefaultBtn
                                             type='submit'
                                             name='Հաստատել'
@@ -180,7 +178,6 @@ class ProfilSetingsScore extends Component {
                                             light={30}
                                             className='Signin__btn'
                                         />
-
                                     </form>
                                 </div>
                             </div>

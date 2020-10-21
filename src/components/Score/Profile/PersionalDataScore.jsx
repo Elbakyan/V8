@@ -4,15 +4,11 @@ import './Profile.scss'
 import {Link, Route} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
-    fas,
-    faHome,
     faEnvelope,
-    faMapMarkedAlt,
-    faMapMarkerAlt,
     faMobileAlt,
     faCog
 } from "@fortawesome/free-solid-svg-icons";
-import ProfilSetings from "./ProfilSetingsScore";
+
 
 class PersionalDataScore extends React.Component {
     constructor(props) {

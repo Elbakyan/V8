@@ -15,7 +15,6 @@ import ScoreList from "../ScoreList/ScoreList";
 class Profile extends React.Component{
     constructor(props) {
         super(props);
-
     }
 
     render() {
@@ -59,7 +58,6 @@ class Profile extends React.Component{
                                 <Route exact path='/score/account'>
                                     <ScoreList />
                                 </Route>
-
                                 <Route exact path='/score/account/setings'>
                                     <ProfilSetingsScore />
                                 </Route>

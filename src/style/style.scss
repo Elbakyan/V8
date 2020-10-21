@@ -22,15 +22,12 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
 
 .burger{
   width: 30px;
   height: 30px;
   position: absolute;
-  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 25px;
@@ -43,7 +40,6 @@ body{
   @media (max-width: 768px) {
     &{
       display: flex;
-
     }
   }
 }
@@ -64,4 +60,11 @@ body{
   position: fixed;
   top: 50px;
   z-index: 1500;
+  animation-name: example;
+  animation-duration: 0.5s;
+}
+
+@keyframes example {
+  from {top:0;opacity: 0}
+  to {top:50px;opacity: 1}
 }
