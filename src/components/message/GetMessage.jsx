@@ -105,6 +105,7 @@ class GetMessageClass extends Component{
                         <input type="hidden" name='send_id' value={this.props.user.id || ''}/>
                         <input type="hidden" name='get_id' value={this.props.message.id || ''}/>
                         <div className="message_send_button">
+
                             <DefaultBtn
                                 type='submit'
                                 name='Ուղարկել'
