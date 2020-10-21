@@ -1,0 +1,45 @@
+@import "./src/style/var";
+.ScoreList{
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .score__list-links{
+    width: 100%;
+    height: 10%;
+    border-bottom: 1px solid $main-color;
+    >ul{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      align-items: center;
+
+      li {
+        border: 1px solid $main-color;
+        transform: skew(-20deg);
+        margin: 0px 3px;
+        cursor: pointer;
+        color: $main-color;
+        transition: .3s;
+        &:hover{
+          background: $main-color;
+          color: $white;
+        }
+        div{
+          padding: 5px 10px;
+          transform: skew(20deg);
+        }
+      }
+    }
+  }
+  .add_score_list{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background: #1c8080;
+    transform-origin: right;
+    transition: .3s linear;
+  }
+}

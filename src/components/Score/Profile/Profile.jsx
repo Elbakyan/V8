@@ -4,10 +4,9 @@ import './Profile.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCar, faEnvelope, faHome,faCarBattery,faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
 import {Link, Route, Switch} from "react-router-dom";
-import PersionalData from "./PersionalDataScore";
-import ProfilSetings from "./ProfilSetingsScore";
 import PersionalDataScore from "./PersionalDataScore";
 import ProfilSetingsScore from "./ProfilSetingsScore";
+import ScoreList from "../ScoreList/ScoreList";
 
 
 
@@ -32,7 +31,7 @@ class Profile extends React.Component{
                                     <div className="icon">
                                         <FontAwesomeIcon icon={faHome}/>
                                     </div>
-                                    <Link to='/score/account/persional'>Իմ էջը</Link>
+                                    <Link to='/score/account'>Իմ էջը</Link>
                                 </li>
                                 <li>
                                     <div className="icon">
@@ -57,13 +56,18 @@ class Profile extends React.Component{
 
                         <div className="Profile__content">
                             <Switch>
-                                <Route path='/score/account/persional'>
-                                    <PersionalDataScore/>
+                                <Route exact path='/score/account'>
+                                    <ScoreList />
                                 </Route>
+
                                 <Route exact path='/score/account/setings'>
                                     <ProfilSetingsScore />
                                 </Route>
+                                <Route exact path='/score/account/persional'>
+                                    <PersionalDataScore/>
+                                </Route>
                             </Switch>
+
                         </div>
                     </div>
                 </div>
