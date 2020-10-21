@@ -47,7 +47,6 @@ class Auto extends Component {
         let img;
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)
-
         }
         let auto = this.props.sell.OneAuto;
 
@@ -55,8 +54,6 @@ class Auto extends Component {
 
             <div className="Auto">
                 <div>
-
-
                     <div className="block">
                         <div className='block-left'>
                             <div className="car_name">
