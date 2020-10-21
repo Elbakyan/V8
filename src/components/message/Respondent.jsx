@@ -5,6 +5,7 @@ import {faTrashAlt} from "@fortawesome/free-solid-svg-icons/faTrashAlt";
 import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import {color} from "../../redux/auto/Values";
+import {GetMessage} from "../../redux/message/action";
 const data = {
     name:'Vazgen',
     surname:'Bagratunyan',

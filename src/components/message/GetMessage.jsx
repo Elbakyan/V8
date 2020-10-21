@@ -78,6 +78,10 @@ class GetMessageClass extends Component{
     }
 
     render() {
+        let meso = document.querySelectorAll('.meso')
+        meso.forEach(elem => {
+            elem.innerHTML = elem.innerText
+        })
         return (
             <div className="getMessage">
                 <div className="getMessage_users" ref={el => this.scrollRef = el} >
@@ -90,7 +94,7 @@ class GetMessageClass extends Component{
                                         elem[0].message == ""? '':
                                             <div>
                                                 <span>{elem[0].time}</span>
-                                                <span>{elem[0].message}</span>
+                                                <span className='meso'>{elem[0].message}</span>
                                             </div>
                                     }
 
@@ -99,9 +103,12 @@ class GetMessageClass extends Component{
                         })
                     }
                 </div>
+                <div className="smaylik">
+
+                </div>
                 <div className="send_message">
                     <form onSubmit={this.Message} ref={el => this.formRef = el}>
-                        <textarea className="message_text" name="message" onKeyDown={this.onEnterPress} onSubmit={this.Message} ref={el => this.textareaRef = el}></textarea>
+                        <textarea className="message_text" name="message" ref={el => this.textareaRef = el}></textarea>
                         <input type="hidden" name='send_id' value={this.props.user.id || ''}/>
                         <input type="hidden" name='get_id' value={this.props.message.id || ''}/>
                         <div className="message_send_button">

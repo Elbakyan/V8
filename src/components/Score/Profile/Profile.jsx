@@ -59,10 +59,10 @@ class Profile extends React.Component{
                                 <Route path='/score/account/persional'>
                                     <PersionalDataScore/>
                                 </Route>
-                                <Route path='/score/account/setings'>
+                                <Route exact path='/score/account/setings'>
                                     <ProfilSetings />
                                 </Route>
-                                <Route path='/score/account/setings'>
+                                <Route exact path='/score/account/setings'>
                                     <ProfilSetings />
                                 </Route>
                             </Switch>

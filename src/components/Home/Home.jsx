@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header'
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import './Home.scss'
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import Footer from "../Footer/Footer";
@@ -10,6 +10,8 @@ class Home extends React.Component{
     render() {
         return (
             <div className="Home">
+                {this.props.userStatus? <Redirect to='/user/account'/> : <Redirect to='/'/>}
+                {this.props.scoreStatus? <Redirect to={'/score/account'}/> : <Redirect to='/'/>}
                 <Header/>
                 <Content />
                 <Footer />

@@ -41,6 +41,20 @@ class Auto extends Component {
             })
         },1500)
     }
+    onEnterPress = (e) => {
+        if(e.keyCode == 13 && e.shiftKey == false) {
+            e.preventDefault();
+            let data = new FormData(this.formRef);
+            if (this.textareaRef.value.trim().length > 0){
+                this.props.dispatch(SendMessage(data))
+            }
+            this.props.dispatch(GetMessage())
+            this.textareaRef.value = ''
+            this.scroll()
+        }
+
+
+    }
 
     render() {
         console.log(this.props.message)
@@ -174,12 +188,11 @@ class Auto extends Component {
                             // this.state.message?<Alert>hax</Alert>:''
                             this.state.message?<Art width={50} content="Հաղորդագրությունը ուղարկված է"/>:''
                         }
+
                         {
                             this.props.user.id == auto.user_id || this.props.user.id == undefined?'':
-                            <form onSubmit={this.SendMessage}>
-                            <textarea name="message" ref={el => this.textareaRef = el}>
-
-                            </textarea>
+                           <form onSubmit={this.SendMessage}>
+                               <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
                                 <input type="hidden" name='get_id' value={auto.user_id}/>
                                 <DefaultBtn
                                     type='submit'

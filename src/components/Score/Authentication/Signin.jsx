@@ -74,7 +74,7 @@ class Signin extends Component{
 
         e.preventDefault();
         let data = new FormData(e.target);
-        TEST_POST(Url.addscore,data).then(res => {
+        POST(Url.addscore,data).then(res => {
             console.log(res)
             // this.setState({
             //     message: res.message,
