@@ -5,8 +5,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCar, faEnvelope, faHome,faCarBattery,faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
 import {Link, Route, Switch} from "react-router-dom";
 import PersionalData from "./PersionalDataScore";
-import ProfilSetings from "./ProfilSetings";
+import ProfilSetings from "./ProfilSetingsScore";
 import PersionalDataScore from "./PersionalDataScore";
+import ProfilSetingsScore from "./ProfilSetingsScore";
 
 
 
@@ -60,10 +61,7 @@ class Profile extends React.Component{
                                     <PersionalDataScore/>
                                 </Route>
                                 <Route exact path='/score/account/setings'>
-                                    <ProfilSetings />
-                                </Route>
-                                <Route exact path='/score/account/setings'>
-                                    <ProfilSetings />
+                                    <ProfilSetingsScore />
                                 </Route>
                             </Switch>
                         </div>

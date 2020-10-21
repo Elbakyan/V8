@@ -12,7 +12,7 @@ import {
     faMobileAlt,
     faCog
 } from "@fortawesome/free-solid-svg-icons";
-import ProfilSetings from "./ProfilSetings";
+import ProfilSetings from "./ProfilSetingsScore";
 
 class PersionalDataScore extends React.Component {
     constructor(props) {
