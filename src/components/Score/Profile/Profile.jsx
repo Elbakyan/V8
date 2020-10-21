@@ -4,10 +4,9 @@ import './Profile.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCar, faEnvelope, faHome,faCarBattery,faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
 import {Link, Route, Switch} from "react-router-dom";
-import ProfilSetings from "./ProfilSetings";
-import ScoreList from "../ScoreList/ScoreList";
-
 import PersionalDataScore from "./PersionalDataScore";
+import ProfilSetingsScore from "./ProfilSetingsScore";
+import ScoreList from "../ScoreList/ScoreList";
 
 
 
@@ -16,7 +15,6 @@ import PersionalDataScore from "./PersionalDataScore";
 class Profile extends React.Component{
     constructor(props) {
         super(props);
-
     }
 
     render() {
@@ -60,11 +58,11 @@ class Profile extends React.Component{
                                 <Route exact path='/score/account'>
                                     <ScoreList />
                                 </Route>
+                                <Route exact path='/score/account/setings'>
+                                    <ProfilSetingsScore />
+                                </Route>
                                 <Route exact path='/score/account/persional'>
                                     <PersionalDataScore/>
-                                </Route>
-                                <Route exact path='/score/account/setings'>
-                                    <ProfilSetings />
                                 </Route>
                             </Switch>
 
