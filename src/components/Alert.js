@@ -8,19 +8,19 @@ import './Alert.scss'
      }
 
 
-    // static open = () => {
-    //     let alert = document.querySelector('.alert');
-    //         // alert.style.top = '50px'
-    //         alert.style.display = 'block'
-    //        setTimeout(() => {
-    //            // alert.style.top = '-100px'
-    //            setTimeout(() => {
-    //                alert.style.display = 'none'
-    //            },1000)
-    //
-    //        },2000)
-    //
-    // }
+    static open = () => {
+        let alert = document.querySelector('.alert');
+            // alert.style.top = '50px'
+            alert.style.display = 'block'
+           setTimeout(() => {
+               // alert.style.top = '-100px'
+               setTimeout(() => {
+                   alert.style.display = 'none'
+               },1000)
+
+           },2000)
+
+    }
 
     render(){
 

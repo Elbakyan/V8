@@ -97,7 +97,6 @@ class ProfilSetings extends Component {
                                 placeholder='Լուսանկար․․․'
                                 name='image'
                                 width='100%'
-
                             />
                         </label>
                         <DefaultBtn

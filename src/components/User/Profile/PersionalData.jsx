@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {connect} from "react-redux";
 // import './Profile.scss'
@@ -57,7 +58,6 @@ class PersionalData extends React.Component {
                                             <div>
                                                 <span>{data.phone}</span>
                                             </div>
-
                                         </li>
 
                                         <li>
@@ -67,7 +67,6 @@ class PersionalData extends React.Component {
                                             <div>
                                                 <span>{data.email}</span>
                                             </div>
-
                                         </li>
 
                                         <li>

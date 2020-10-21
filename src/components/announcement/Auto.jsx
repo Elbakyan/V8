@@ -57,7 +57,7 @@ class Auto extends Component {
     }
 
     render() {
-
+        console.log(this.props.message)
         let img;
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)
@@ -191,16 +191,19 @@ class Auto extends Component {
                             // this.state.message?<Alert>hax</Alert>:''
                             this.state.message?<Art width={50} content="Հաղորդագրությունը ուղարկված է"/>:''
                         }
-                        <form onSubmit={this.SendMessage}>
-                            <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}>
 
-                            </textarea>
-                            <input type="hidden" name='get_id' value={auto.user_id}/>
-                            <DefaultBtn
-                                type='submit'
-                                name='Գրել․․․'
-                            />
-                        </form>
+                        {
+                            this.props.user.id == auto.user_id || this.props.user.id == undefined?'':
+                           <form onSubmit={this.SendMessage}>
+                               <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
+                                <input type="hidden" name='get_id' value={auto.user_id}/>
+                                <DefaultBtn
+                                    type='submit'
+                                    name='Գրել․․․'
+                                />
+                            </form>
+                        }
+
                     </div>
                 </div>
 

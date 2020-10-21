@@ -86,9 +86,6 @@ class App extends React.Component {
                   <Route path='/announcement'>
                       <Announcement/>
                   </Route>
-                  {this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
-                  {this.props.score.status? <Redirect to={'/score/account'}/> : <Redirect to='/'/>}
-
               </Switch>
 
               {this.props.user.status  == undefined? <div className="main__load"> <Loading /> </div>:''}

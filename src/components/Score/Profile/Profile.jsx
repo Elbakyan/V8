@@ -50,7 +50,6 @@ class Profile extends React.Component{
                                     </div>
                                     <Link to='/score/account/cars'>Ծառայություներ</Link>
                                 </li>
-
                             </ul>
                         </nav>
 
@@ -59,10 +58,10 @@ class Profile extends React.Component{
                                 <Route path='/score/account/persional'>
                                     <PersionalData/>
                                 </Route>
-                                <Route path='/score/account/setings'>
+                                <Route exact path='/score/account/setings'>
                                     <ProfilSetings />
                                 </Route>
-                                <Route path='/score/account/setings'>
+                                <Route exact path='/score/account/setings'>
                                     <ProfilSetings />
                                 </Route>
                             </Switch>

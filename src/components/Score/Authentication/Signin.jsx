@@ -68,14 +68,18 @@ class Signin extends Component{
     GetCity(e) {
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
     }
-    addScore = (e) =>{
+
+
+    addScore(e){
+
         e.preventDefault();
         let data = new FormData(e.target);
         POST(Url.addscore,data).then(res => {
-            this.setState({
-                message: res.message,
-                status: res.status
-            })
+            console.log(res)
+            // this.setState({
+            //     message: res.message,
+            //     status: res.status
+            // })
             setTimeout(() => {
                 // window.location.href = '/score/login'
             },1000)
@@ -107,13 +111,7 @@ class Signin extends Component{
                                 />
                             </div>
 
-                            <DefaultInput
-                                type="text"
-                                placeholder='Ընկերության Անվանումը․․․'
-                                name='score_name'
-                                width='100%'
 
-                            />
                             <DefaultInput
                                 type="email"
                                 placeholder='E-mail․․․'
@@ -121,36 +119,15 @@ class Signin extends Component{
                                 width='100%'
 
                             />
-                            <div className="phone-block row wrap justify-between">
-                                {
-                                    this.state.obj.map(({type,placeholder,name,width},i)=>(
-                                        i == 0 ?
-                                            <div key={i} className="phone-block1">
-                                                <DefaultInput
-                                                    type={type}
-                                                    placeholder={placeholder}
-                                                    name='phone[]'
-                                                    width="100%"
-                                                />
-                                                <span className="add_phone_plus" onClick={this.add}><a
-                                                    href="#">+</a></span>
-                                            </div>
-                                            :
-                                            <div key={i} className="phone-block2">
-                                                <DefaultInput
-                                                    type={type}
-                                                    placeholder={placeholder}
-                                                    name='phone[]'
-                                                    width={width}
-                                                />
-                                                <span onClick={this.clear} className="add_phone_minus"><a href="#">-</a></span>
-                                            </div>
 
-                                    ))
-                                }
 
-                            </div>
 
+                            <DefaultInput
+                                type='tel'
+                                placeholder="Հեռախոսահամար"
+                                name='phone'
+                                width="100%"
+                            />
 
                             <div className="div row justify-between">
                                 <DefaultInput
@@ -169,26 +146,7 @@ class Signin extends Component{
                                 />
                             </div>
 
-                            <div className='row justify-between' style={{width: '100%'}}>
-                                <DefaultSelect
-                                    onChange={this.GetCity.bind(this)}
-                                    data={this.props.sircle}
-                                    width= '48%'
-                                    name='sircle'
 
-                                />
-                                <DefaultSelect
-                                    data={this.props.city}
-                                    width= '48%'
-                                    name='city'
-                                />
-                            </div>
-                            <DefaultInput
-                                type="text"
-                                placeholder='Հասցե․․․'
-                                name='adress'
-                                width='100%'
-                            />
 
                             <label className='file row align-center'>
                                 <span className='file__name'>Ներբեռնել լուսանկար․․․</span>
@@ -204,12 +162,7 @@ class Signin extends Component{
 
                                 />
                             </label>
-                            <DefaultInput
-                                type="url"
-                                placeholder='https://v8.am'
-                                name='url'
-                                width='100%'
-                            />
+
 
                             <div className="Signin__links row align-end justify-between">
                                 <Link className='link' to='/score/login'>Մուտք</Link>
