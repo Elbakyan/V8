@@ -36,7 +36,7 @@ class Profile extends React.Component{
                                     <div className="icon">
                                         <FontAwesomeIcon icon={faEnvelope}/>
                                     </div>
-                                    <Link to='/score/account/persional'>Հաղոևդագրություններ</Link>
+                                    <Link to='/score/account/persional'>Հաղորդագրություններ</Link>
                                 </li>
                                 <li>
                                     <div className="icon">

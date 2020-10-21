@@ -60,18 +60,19 @@ class App extends React.Component {
                 })
             }
            this.props.dispatch(GetMessage())
-           setTimeout(Timer,5000)
+           setTimeout(Timer,1500)
         }
         setTimeout(Timer,4)
     }
 
     render() {
-        console.log(this.props)
+
       return (
           <div className="App">
+
               <Switch>
                   <Route exact path='/'>
-                      <Home/>
+                      <Home userStatus={this.props.user.status} scoreStatus={this.props.score.status}/>
                   </Route>
                   <Route  path='/user'>
                       <User/>
@@ -85,10 +86,11 @@ class App extends React.Component {
                   <Route path='/announcement'>
                       <Announcement/>
                   </Route>
+                  {this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
+                  {this.props.score.status? <Redirect to={'/score/account'}/> : <Redirect to='/'/>}
 
               </Switch>
-              {this.props.user.status? <Redirect to='/user/account'/> : <Redirect to='/'/>}
-              {this.props.score.status? <Redirect to='/score/account'/> : <Redirect to='/'/>}
+
               {this.props.user.status  == undefined? <div className="main__load"> <Loading /> </div>:''}
               {this.props.score.status  == undefined? <div className="main__load"> <Loading /> </div> : ''}
 

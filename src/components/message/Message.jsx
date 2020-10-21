@@ -54,7 +54,6 @@ class Message extends Component {
                         this.props.message.user.map((data,i) => {
                          let active = this.props.message.message[i].dialog_id == window.location.pathname.split('/').pop()
                             // if(this.props.message.message && this.props.user.id ){
-                            console.log(typeof this.props.message.message[i].delite[0])
                                 return (
                                     this.props.message.message[i].delite[0] == this.props.user.id ?'':
                                         <Respondent
