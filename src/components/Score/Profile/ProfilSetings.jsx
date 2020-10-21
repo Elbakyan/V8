@@ -106,8 +106,7 @@ class ProfilSetings extends Component {
                             color='#ffffff'
                             light={30}
                             className='Signin__btn'
-                        />
-
+                        />0
                     </form>
                 </div>
             </div>

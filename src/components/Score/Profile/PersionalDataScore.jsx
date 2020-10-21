@@ -1,10 +1,8 @@
-
 import React from 'react';
 import {connect} from "react-redux";
-// import './Profile.scss'
+import './Profile.scss'
 import {Link, Route} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
 import {
     fas,
     faHome,
@@ -14,18 +12,17 @@ import {
     faMobileAlt,
     faCog
 } from "@fortawesome/free-solid-svg-icons";
-
 import ProfilSetings from "./ProfilSetings";
 
-class PersionalData extends React.Component {
+class PersionalDataScore extends React.Component {
     constructor(props) {
         super(props);
 
     }
 
     render() {
-    let data = this.props.user.data;
-        // console.log(data);
+        console.log(this.props)
+        let data = this.props.score.data
         return (
             <div className="persional__data">
 
@@ -40,12 +37,8 @@ class PersionalData extends React.Component {
                                     <span>{data.surname}</span>
                                 </div>
                                 <div className="persional__setings">
-                                    <Link to='/user/account/setings'><FontAwesomeIcon icon={faCog}/></Link>
+                                    <Link to='/score/account/setings'><FontAwesomeIcon icon={faCog}/></Link>
                                 </div>
-
-                                {/*{*/}
-                                {/*    this.props*/}
-                                {/*}*/}
                             </div>
 
                             <div className="persional__body col justify-center align-center">
@@ -69,19 +62,8 @@ class PersionalData extends React.Component {
                                                 <span>{data.email}</span>
                                             </div>
                                         </li>
-
-                                        <li>
-                                            <div className="icon">
-                                                <FontAwesomeIcon icon={faMapMarkerAlt}/>
-                                            </div>
-                                            <div>
-                                                <span>{data.sircle} {data.city}</span>
-                                            </div>
-                                        </li>
                                     </ul>
                                 </nav>
-
-
                             </div>
                         </div>
                     )
@@ -94,6 +76,6 @@ class PersionalData extends React.Component {
 }
 
 const MapStateToProps = state => state;
-const MainPersionalData = connect(MapStateToProps)(PersionalData)
+const MainPersionalDataScore = connect(MapStateToProps)(PersionalDataScore)
 
-export default MainPersionalData;
+export default MainPersionalDataScore;

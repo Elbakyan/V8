@@ -3,6 +3,7 @@ import {Link, Route} from "react-router-dom";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import {Url} from "../config/Url";
+import PersonalDataScore from  './Profile/PersionalDataScore'
 // import './User.scss'
 
 
@@ -45,6 +46,9 @@ class Header extends React.Component{
                             </li>
                         </ul>
                     </nav>
+                    <div className="score_info">
+                        <PersonalDataScore />
+                    </div>
                     <div className="header__logout">
                         <a href={Url.logoutscore}>
                             <DefaultBtn
