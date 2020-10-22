@@ -16,6 +16,7 @@ class DefaultInput extends Component {
                 value={this.props.value}
                 type={this.props.type}
                 key={this.props.key}
+                required={this.props.required}
                 style={{
                     transition: '.3s',
                     width:this.props.width,

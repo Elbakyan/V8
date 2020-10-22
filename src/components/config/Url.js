@@ -16,6 +16,7 @@ export const Url = {
     DeleteUserAuto: 'https://brutal.am/Server/DeleteUserAuto',
     UserUpdate: 'https://brutal.am/Server/ubdate_user_data',
     addscore: 'https://brutal.am/Server/AddScoreAccount',
+    addscorelist: 'https://brutal.am/Server/add-score-list',
     loginscore: 'https://brutal.am/Server/score-log',
     logoutscore: 'https://brutal.am/Server/score_l',
     existScore: 'https://brutal.am/Server/score-exist',
@@ -28,4 +29,5 @@ export const Url = {
     messageId: 'https://brutal.am/Server/message-id',
     messageStatus: 'https://brutal.am/Server/message-status',
     deliteMessage: 'https://brutal.am/Server/message_delite-',
+    tmpimg: 'https://brutal.am/Server/tmp-img',
 }

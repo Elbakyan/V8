@@ -7,6 +7,10 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {GetCity} from "../../../redux/location/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus,faMinus } from '@fortawesome/free-solid-svg-icons'
+import {POST, TEST_POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
+import {TmpImg,ClearImg} from "../../../redux/tmp/action";
+import Loading from "../../Loading";
 
 
 class ScoreList extends React.Component{
@@ -15,7 +19,10 @@ class ScoreList extends React.Component{
         this.state = {
             showForm:false,
             phone2: false,
-            phone3: false
+            phone3: false,
+            img: [],
+            showTmpImg: false
+
         }
     }
     ShowAddScoreForm = (e) => {
@@ -45,8 +52,34 @@ class ScoreList extends React.Component{
             })
         }
     }
+    GetImg = (e) => {
+        let data = new FormData()
+        let tmpImg = this.state.img;
+        Object.values(e.target.files).map(img => {
+            data.append('img[]',img)
+            tmpImg.push(img)
+        })
+        this.setState({
+            img: tmpImg,
+            showTmpImg: true
+        })
+        this.props.dispatch(TmpImg(data))
+    }
+    AddScoreList = (e) => {
+        e.preventDefault();
+        let data = new FormData(e.target)
+        this.setState({
+            showTmpImg: false
+        })
+        this.state.img.map(img => {
+            data.append('img[]',img)
+        })
+        POST(Url.addscorelist,data).then(res => {
+            console.log(res)
+        })
+        this.props.dispatch(ClearImg())
+    }
     render() {
-        console.log(this.props)
         return (
             <div className="ScoreList">
                <div className="score__list-links">
@@ -60,25 +93,28 @@ class ScoreList extends React.Component{
 
                </div>
                 <div className='add_score_list'>
-                    <form  style={this.state.showForm?{transform:'scaleY(1)'}:{transform:'scaleY(0)'}} encType='multipart/form-data'>
+                    <form onSubmit={this.AddScoreList} style={this.state.showForm?{transform:'scaleY(1)'}:{transform:'scaleY(0)'}} encType='multipart/form-data'>
                         <div>
                             <DefaultInput
                                 type='text'
                                 name='scor_name'
                                 placeholder='Խանութի անունը․․․'
+                                required
                             />
 
                             <DefaultInput
                                 type='email'
                                 name='email'
                                 placeholder='E-mail․․․'
+                                required
                             />
-                            <DefaultSelect name='sircle' data={this.props.location.sircle} onChange={this.GetCity}/>
-                            <DefaultSelect name='sircle' data={this.props.location.city}/>
+                            <DefaultSelect required name='sircle' data={this.props.location.sircle} onChange={this.GetCity}/>
+                            <DefaultSelect required name='city' data={this.props.location.city}/>
                             <DefaultInput
                                 type='text'
-                                name='adress'
+                                name='addres'
                                 placeholder='Խանութի Հասցեն․․․'
+                                required
                             />
                             <div className="phone phone1">
                                 <span className='plus__phone'
@@ -89,6 +125,7 @@ class ScoreList extends React.Component{
                                     type='number'
                                     name='phone[]'
                                     placeholder='հեռախոսահամար․․․'
+                                    required
                                 />
                             </div>
                             <div className="phone phone2" style={this.state.phone2?{display: 'flex'}: {display:'none'}}>
@@ -122,16 +159,33 @@ class ScoreList extends React.Component{
                                 name='i_url'
                                 placeholder='https://instagrem.com'
                             />
+                            <DefaultInput
+                                type='url'
+                                name='y_url'
+                                placeholder='https://youtube.com'
+                            />
                             <label className='file'>
                                 <span>Ներբեռնել․․․</span>
                                 <input
                                     type='file'
-                                    name='img'
                                     multiple
+                                    onChange={this.GetImg}
                                 />
                             </label>
-
+                            {
+                                this.state.showTmpImg?
+                                    <div className='tmp__img' >
+                                        {
+                                            !this.props.tmp.tmpImg.status?<div className="add_loading"> <Loading type='spokes' color='#4fffa0' size={100}/> </div>:
+                                                this.props.tmp.tmpImg.data.map(img => {
+                                                    return <img key={img.url} src={img.url}/>
+                                                })
+                                        }
+                                    </div>
+                                :''
+                            }
                         </div>
+
                             <div className="btn">
                                 <DefaultBtn
                                     type='submit'
@@ -145,6 +199,7 @@ class ScoreList extends React.Component{
                             </div>
                     </form>
                 </div>
+
             </div>
 
         );

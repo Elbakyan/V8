@@ -15,6 +15,7 @@ class DefaultSelect extends Component {
                     width: this.props.width,
                     height:this.props.height
                 }}
+                required={this.props.required}
                 defaultValue='yyyy'
             >
                 {
