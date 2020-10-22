@@ -23,7 +23,7 @@ class PersionalDataScore extends React.Component {
             <div className="persional__data">
 
                 {
-                    data == undefined ? '' : (
+                    data === undefined ? '' : (
                         <div>
                             <div className="persional__header">
                                 <div className="img" style={{backgroundImage:`url(${data.img})`}}>

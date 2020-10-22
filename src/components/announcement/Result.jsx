@@ -1,22 +1,11 @@
 import React, {Component} from "react";
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-// import {faDollarSign} from '@fortawesome/free-solid-svg-icons'
-// import DefaultInput from "../forms/inputs/DefaultInput";
-// import DefaultBtn from "../forms/buttons/DefaultBtn";
-// import DefaultSelect from "../forms/select/DefaultSelect";
 import {connect} from "react-redux";
-// import {GetModel} from "../../redux/auto/action";
 import {Link} from "react-router-dom";
-// import Auto from "./Auto";
-// import {GET, POST, TEST_POST} from "../config/Requsest";
-// import {Url} from "../config/Url";
 import {GetSellByID} from "../../redux/sellauto/action";
 import SellCar from "./SellCar";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHeart as sol} from "@fortawesome/free-solid-svg-icons/faHeart";
 import {faHeart as reg} from "@fortawesome/free-regular-svg-icons/faHeart";
-import {POST} from "../config/Requsest";
-import {Url} from "../config/Url";
 import {AddFavorite, GetFavorite} from "../../redux/favorite/action";
 import {GetDialogId, GetId, GetMessage} from "../../redux/message/action";
 

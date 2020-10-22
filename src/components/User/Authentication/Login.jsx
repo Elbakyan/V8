@@ -4,8 +4,6 @@ import Footer from "../../Footer/Footer";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {Link} from "react-router-dom";
-import DefaultSelect from "../../forms/select/DefaultSelect";
-import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {Redirect} from "react-router";
 

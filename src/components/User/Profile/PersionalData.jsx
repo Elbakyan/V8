@@ -1,21 +1,17 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-// import './Profile.scss'
 import {Link, Route} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import {
-    fas,
-    faHome,
     faEnvelope,
-    faMapMarkedAlt,
     faMapMarkerAlt,
     faMobileAlt,
     faCog
 } from "@fortawesome/free-solid-svg-icons";
 
-import ProfilSetings from "./ProfilSetings";
+
 
 class PersionalData extends React.Component {
     constructor(props) {
@@ -30,7 +26,7 @@ class PersionalData extends React.Component {
             <div className="persional__data">
 
                 {
-                    data == undefined ? '' : (
+                    data === undefined ? '' : (
                         <div>
                             <div className="persional__header">
                                 <div className="img" style={{backgroundImage:`url(${data.img})`}}>

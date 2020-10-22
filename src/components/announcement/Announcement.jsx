@@ -11,14 +11,14 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../redux/auto/action";
-import {Link, Redirect, Route} from "react-router-dom";
+import { Redirect, Route} from "react-router-dom";
 import Result from "./Result";
 import Auto from "./Auto";
 import {GetSell} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
 import Pagination from "react-js-pagination";
 
-// import Favorite from "../User/favorite/Favorite";
+
 
 
 
@@ -40,8 +40,8 @@ class Announcement extends Component {
 
     Count = () =>{
         let arr = [];
-        if(this.props.sell.data.count != undefined){
-            if (this.props.sell.data.count % 15 == 0){
+        if(this.props.sell.data.count !== undefined){
+            if (this.props.sell.data.count % 15 === 0){
                 for (let i = 1; i <= (this.props.sell.data.count / 15); i++){
 
                     arr.push(i)
@@ -63,7 +63,7 @@ class Announcement extends Component {
     }
     handlePageChange(pageNumber) {
         this.setState({activePage: pageNumber});
-        pageNumber == 1 ?pageNumber = pageNumber: pageNumber = (pageNumber - 1) * 15;
+        pageNumber === 1 ?pageNumber = pageNumber: pageNumber = (pageNumber - 1) * 15;
         console.log(this.props.sell.data);
         this.props.dispatch(GetSell(pageNumber))
 
@@ -210,7 +210,7 @@ class Announcement extends Component {
                         </Route>
                         {
 
-                            this.props.sell.OneAuto == ''  ? <Redirect to='/announcement' />  :
+                            this.props.sell.OneAuto === ''  ? <Redirect to='/announcement' />  :
                                 <Route exact path={'/announcement/' + this.props.sell.OneAuto.id}>
                                     <Auto/>
                                 </Route>

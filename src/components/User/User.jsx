@@ -1,13 +1,10 @@
 import React from 'react';
-
 import {Redirect, Route, Switch} from "react-router-dom";
 import Login from "./Authentication/Login";
 import Account from "./Account";
 import {connect} from "react-redux";
 import Loading from "../Loading";
-import {UserExist} from "../../redux/user/action";
 import Signin from "./Authentication/Signin";
-import SpaerParts from "../spare/SpareParts";
 import {GetAuto} from "../../redux/auto/action";
 import {GetMessage} from "../../redux/message/action";
 
@@ -44,7 +41,7 @@ class User extends React.Component{
                    {this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/user/login' />}
                </Switch>
 
-                {this.props.status == undefined?<div className="main__load"> <Loading /> </div>:''}
+                {this.props.status === undefined?<div className="main__load"> <Loading /> </div>:''}
             </div>
         );
     }

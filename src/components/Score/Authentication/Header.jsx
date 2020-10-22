@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, Route} from "react-router-dom";
-// import '../User.scss'
+
 
 class Header extends React.Component{
 

@@ -4,13 +4,8 @@ import { faCoffee,faMapMarkerAlt,faMobileAlt ,faEnvelopeOpenText} from '@fortawe
 import {faTrashAlt} from "@fortawesome/free-solid-svg-icons/faTrashAlt";
 import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
-import {color} from "../../redux/auto/Values";
-import {GetMessage} from "../../redux/message/action";
-const data = {
-    name:'Vazgen',
-    surname:'Bagratunyan',
-    img:'https://bain.design/wp-content/uploads/2013/03/People-Avatar-Set-Rectangular-13.jpg'
-}
+
+
 
 class Respondent extends Component {
     constructor(props) {

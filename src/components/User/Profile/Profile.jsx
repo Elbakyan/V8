@@ -2,18 +2,14 @@ import React from 'react';
 import {connect} from "react-redux";
 import './Profile.scss'
 import {Link, Redirect, Route, Switch} from "react-router-dom";
-import PersionalData from "./PersionalData";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faHeart, faEnvelope, faCar, faPlusCircle, faBars} from "@fortawesome/free-solid-svg-icons";
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
 import CarsForm from "../UserCars/CarsForm";
-
 import '../../announcement/Announcement.scss'
 import '../../announcement/SellCar.scss'
 import GeFavorite from "../favorite/GeFavorite";
-import Favorite from "../../announcement/Favorite";
 import Message from "../../message/Message";
 import {GetMessage} from "../../../redux/message/action";
 
@@ -35,7 +31,7 @@ class Profile extends React.Component{
     render() {
         let status = 0;
         this.props.message.message.map((data,i) => {
-            if (+this.props.user.id != +data['send_id']){
+            if (+this.props.user.id !== +data['send_id']){
                 status += +data.status;
             }
 

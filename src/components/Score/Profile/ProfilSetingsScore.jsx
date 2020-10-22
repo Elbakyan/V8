@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowCircleLeft} from "@fortawesome/free-solid-svg-icons";
-import DefaultSelect from "../../forms/select/DefaultSelect";
 import {GetCity} from "../../../redux/location/action";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {POST} from "../../config/Requsest";
@@ -83,7 +82,7 @@ class ProfilSetingsScore extends Component {
             <div className="profile__setings">
                 <div className="Signin__alert">
                     {
-                        this.state.status == undefined ? '' :
+                        this.state.status === undefined ? '' :
                             this.state.status ?
                                 <Art type={'success'}
                                      width={50}
@@ -94,7 +93,7 @@ class ProfilSetingsScore extends Component {
                     }
                 </div>
                 {
-                    this.props.score.data == undefined ? '' :
+                    this.props.score.data === undefined ? '' :
                         (
 
                             <div>
@@ -155,7 +154,7 @@ class ProfilSetingsScore extends Component {
                                         />
 
                                         <label className='file row align-center' style={{width: '48%'}}>
-                                            <span className='file__name'>{this.state.imgName == ''? 'Ներբեռնել լուսանկար․․․': this.state.imgName}</span>
+                                            <span className='file__name'>{this.state.imgName === ''? 'Ներբեռնել լուսանկար․․․': this.state.imgName}</span>
                                             <DefaultInput
                                                 onChange={(e) => {
                                                     this.setState({

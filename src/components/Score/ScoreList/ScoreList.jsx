@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import  './ScoreList.scss'
-import {formatMs} from "@material-ui/core";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import DefaultSelect from "../../forms/select/DefaultSelect";

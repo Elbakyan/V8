@@ -25,7 +25,7 @@ export function GetMark(){
 
 export function GetModel(e = 1) {
     return async (dispach) => {
-        let id = e.target == undefined ? e :e.target.selectedIndex;
+        let id = e.target === undefined ? e :e.target.selectedIndex;
         let data = new FormData()
         data.append('id',  id);
         POST(Url.model, data).then(data=> {
@@ -38,7 +38,6 @@ export function GetModel(e = 1) {
                 payload: data
             })
         })
-
     }
 }
 export function GetAuto(id) {

@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowCircleLeft} from "@fortawesome/free-solid-svg-icons";
-import DefaultSelect from "../../forms/select/DefaultSelect";
 import {GetCity} from "../../../redux/location/action";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {POST} from "../../config/Requsest";
@@ -84,7 +83,7 @@ class ProfilSetings extends Component {
             <div className="profile__setings">
                 <div className="Signin__alert">
                     {
-                        this.state.status == undefined ? '' :
+                        this.state.status === undefined ? '' :
                             this.state.status ?
                                 <Art type={'success'}
                                      width={50}
@@ -95,7 +94,7 @@ class ProfilSetings extends Component {
                     }
                 </div>
                 {
-                    this.props.user.data == undefined ? '' :
+                    this.props.user.data === undefined ? '' :
                         (
 
                             <div>
@@ -156,7 +155,7 @@ class ProfilSetings extends Component {
                                         />
 
                                         <label className='file row align-center' style={{width: '48%'}}>
-                                            <span className='file__name'>{this.state.imgName == ''? 'Ներբեռնել լուսանկար․․․': this.state.imgName}</span>
+                                            <span className='file__name'>{this.state.imgName === ''? 'Ներբեռնել լուսանկար․․․': this.state.imgName}</span>
                                             <DefaultInput
                                                 onChange={(e) => {
                                                     this.setState({
@@ -168,7 +167,6 @@ class ProfilSetings extends Component {
                                                 placeholder='Լուսանկար․․․'
                                                 name='image'
                                                 width='100%'
-
                                             />
                                         </label>
                                         <DefaultInput type='hidden' name='id' value={this.props.user.id}/>
@@ -180,7 +178,6 @@ class ProfilSetings extends Component {
                                             light={30}
                                             className='Signin__btn'
                                         />
-
                                     </form>
                                 </div>
                             </div>

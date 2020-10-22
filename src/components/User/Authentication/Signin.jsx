@@ -9,7 +9,6 @@ import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
-import Alert from '@material-ui/lab/Alert';
 
 class Signin extends React.Component{
     constructor(props) {
@@ -124,7 +123,7 @@ class Signin extends React.Component{
                                 />
                             </div>
                             <label className='file row align-center'>
-                                <span className='file__name'>{this.state.img == ""?'Ներբեռնել լուսանկար․․․':this.state.img}</span>
+                                <span className='file__name'>{this.state.img === ""?'Ներբեռնել լուսանկար․․․':this.state.img}</span>
                                 <DefaultInput
                                     onChange={(e) => {
                                         this.setState({

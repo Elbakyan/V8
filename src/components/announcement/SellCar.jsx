@@ -1,25 +1,12 @@
 import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {faCoffee, faDollarSign, faMobileAlt, faEnvelopeOpenText, faHeart} from '@fortawesome/free-solid-svg-icons'
-// import {faCoffee, faDollarSign@fortawesome/free-light-svg-icons', faMobileAlt, faEnvelopeOpenText, faHeart} from '
 
 import './SellCar.scss'
-import {faHeart as reg} from "@fortawesome/free-regular-svg-icons/faHeart";
-import {faHeart as sol} from "@fortawesome/free-solid-svg-icons/faHeart";
-import {GET, POST, TEST_POST} from "../config/Requsest";
-import {Url} from "../config/Url";
-import {GET_FAVORITE, GetFavorite} from "../../redux/favorite/action";
 import {connect} from "react-redux";
 import {faDollarSign, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
-import {Link} from "react-router-dom";
-import {GetMessage} from "../../redux/message/action";
 
-const img = [
-    'https://www.dw.com/image/19571759_303.jpg',
-    'https://cdn.motor1.com/images/mgl/7J3z7/s3/novo-bmw-serie-5-2021-vazamentos.jpg',
-    'https://cdn.iz.ru/sites/default/files/news-2020-03/11-bmw-i4-concept-2020-stationary-front.jpg',
-    'https://img.championat.com/s/735x490/news/big/m/k/bmw-m3-gtr-iz-need-for-speed_1586771935252102084.jpg'
-]
+
+
 
 class SellCar extends  Component {
     constructor(props) {

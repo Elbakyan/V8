@@ -1,17 +1,10 @@
 import React, {Component} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCheckCircle, faDollarSign, faCaretSquareDown, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
-import DefaultInput from "../forms/inputs/DefaultInput";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
-import DefaultSelect from "../forms/select/DefaultSelect";
 import {connect} from "react-redux";
-import {GetModel} from "../../redux/auto/action";
-import {Link, Redirect} from "react-router-dom";
 import SliderAuto from "../User/UserCars/SliderAuto/SliderAuto";
-import {GET} from "../config/Requsest";
-import {Url} from "../config/Url";
 import {GetDialogId, GetId, GetMessage, SendMessage} from "../../redux/message/action";
-import Alert from "@material-ui/lab/Alert";
 import Art from "../Alert";
 
 

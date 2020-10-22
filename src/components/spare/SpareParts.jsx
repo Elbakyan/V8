@@ -8,10 +8,7 @@ import Header from "./Header";
 
 
 class SpaerParts extends React.Component{
-    constructor(props) {
-        super(props);
 
-    }
     render() {
 
         return (

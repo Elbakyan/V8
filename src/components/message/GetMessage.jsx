@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-// import Button from "light-dark-button/src";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import {SendMessage, GetMessage, GetId, GetStatus} from "../../redux/message/action";

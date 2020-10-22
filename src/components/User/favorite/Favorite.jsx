@@ -3,12 +3,10 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHeart as sol} from "@fortawesome/free-solid-svg-icons/faHeart";
-import {faHeart as reg} from "@fortawesome/free-regular-svg-icons/faHeart";
 import {AddFavorite, GetUserFavorite} from "../../../redux/favorite/action";
 import SellCar from "../../announcement/SellCar";
 import {GetSellByID} from "../../../redux/sellauto/action";
-import {POST} from "../../config/Requsest";
-import {Url} from "../../config/Url";
+
 
 
 

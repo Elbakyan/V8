@@ -1,8 +1,5 @@
 import React, {Component} from "react";
-import Pagination from "react-js-pagination";
 import {connect} from "react-redux";
-import {GetFavorite} from "../../../redux/favorite/action";
-import {GetSell} from "../../../redux/sellauto/action";
 import './GeFavorite.scss'
 import Favorite from "./Favorite";
 

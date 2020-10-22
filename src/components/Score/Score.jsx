@@ -9,9 +9,7 @@ import './Score.scss'
 
 
 class Score extends Component {
-    constructor(props) {
-        super(props);
-    }
+
     render() {
 
         return(
@@ -27,7 +25,7 @@ class Score extends Component {
                         <Account/>
                     </Route>
                     {
-                        this.props.status == undefined?<Loading/> : this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/score/login' />
+                        this.props.status === undefined?<Loading/> : this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/score/login' />
                     }
                 </div>
             </div>

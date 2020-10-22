@@ -7,6 +7,7 @@ import {Link, Route, Switch} from "react-router-dom";
 import PersionalDataScore from "./PersionalDataScore";
 import ProfilSetingsScore from "./ProfilSetingsScore";
 import ScoreList from "../ScoreList/ScoreList";
+import ScorePage from "../ScorePage/ScorePage";
 
 
 
@@ -56,7 +57,8 @@ class Profile extends React.Component{
                         <div className="Profile__content">
                             <Switch>
                                 <Route exact path='/score/account'>
-                                    <ScoreList />
+                                    {/*<ScoreList />*/}
+                                    <ScorePage />
                                 </Route>
                                 <Route exact path='/score/account/setings'>
                                     <ProfilSetingsScore />

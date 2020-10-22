@@ -5,8 +5,7 @@ import Respondent from "./Respondent";
 import GetMessageClass from "./GetMessage";
 import {Link, Redirect, Route, Switch} from "react-router-dom";
 import {GetDialogId, GetId, GetMessage} from "../../redux/message/action";
-import {POST, TEST_POST} from "../config/Requsest";
-import {Url} from "../config/Url";
+
 
 
 class Message extends Component {

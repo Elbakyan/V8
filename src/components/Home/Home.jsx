@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header'
 import {Link, Redirect} from "react-router-dom";
 import './Home.scss'
-import DefaultBtn from "../forms/buttons/DefaultBtn";
 import Footer from "../Footer/Footer";
 import Content from "../Content/Content";
 

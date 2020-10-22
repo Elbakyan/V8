@@ -1,12 +1,9 @@
 import React from 'react';
 import {Link, Route} from "react-router-dom";
 import './User.scss'
-
-import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import PersonalData from  './Profile/PersionalData'
 import './Profile/Profile.scss'
-import {GetMark} from "../../redux/auto/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {Url} from "../config/Url";
