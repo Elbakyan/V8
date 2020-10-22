@@ -18,8 +18,6 @@ class Profile extends React.Component{
     }
 
     render() {
-        console.log(window.location.pathname)
-
         return (
             <section className="Profile col">
                 <div className="container">

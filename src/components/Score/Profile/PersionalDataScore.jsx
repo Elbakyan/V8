@@ -17,7 +17,7 @@ class PersionalDataScore extends React.Component {
     }
 
     render() {
-        console.log(this.props)
+
         let data = this.props.score.data
         return (
             <div className="persional__data">
