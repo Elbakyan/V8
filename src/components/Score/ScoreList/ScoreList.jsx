@@ -206,7 +206,6 @@ class ScoreList extends React.Component{
                                     color='#ffffff'
                                     width='50%'
                                     light={30}
-
                                 />
                             </div>
                     </form>

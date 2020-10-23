@@ -134,7 +134,11 @@ class ScorePage extends Component {
 
                 <div className="score_page_img-map">
                     <div className="score_page_slider">
-                        <SliderAuto autoImage={data.img}/>
+                        {
+                            data.img?
+                            <SliderAuto autoImage={data.img}/>:''
+                        }
+
                     </div>
                 </div>
             </div>
