@@ -31,7 +31,6 @@ let data = {
     instagram:'https://www.instagram.com/',
     youtube:'https://www.youtube.com/',
     img:[
-        'https://lh3.googleusercontent.com/proxy/vNLUf9xWfAMBLWjj1HqWecfnJ4QqwEAIaW_pV8Fac8PPKqLeuqPxHZzV14w5jcyu92-XaQ1ljNBlHnTDx2tFXxwqIWhwG9Q3k6J4GKQXJKSWolY3ZmCpHDLCZWX4GEdSY150SUMV8RrsYT2jfiU',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYi7lRMz8JpCvSqfXjmFNSjWqqpQ823UHzBw&usqp=CAU',
         'https://www.free4euroalternatives.org/wp-content/uploads/2018/07/auto-shops-5.jpg',
         'https://www.impacttalks.org/wp-content/uploads/2019/02/Auto-Garage-Safety-How-to-Prevent-Property-Damage-Personal-Injury-818x490.jpg'
@@ -39,7 +38,9 @@ let data = {
 }
 
 class ScorePage extends Component {
+
     render() {
+        let data = this.props.data;
         return(
             <div className="score_page">
                 <div className="score_page_info">

@@ -12,6 +12,7 @@ import {Url} from "../../config/Url";
 import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";
 import ScorePage from "../ScorePage/ScorePage";
+import {Link, Route} from "react-router-dom";
 
 
 class ScoreList extends React.Component{
@@ -93,10 +94,13 @@ class ScoreList extends React.Component{
             <div className="ScoreList">
                 <div className="score__list-links">
                    <ul>
-                       <li onClick={this.ShowAddScoreForm}><div>+</div></li>
-                       <li><div>elbakyan1</div></li>
-                       <li><div>elbakyan2</div></li>
-                       <li><div>elbakyan3</div></li>
+                       <li onClick={this.ShowAddScoreForm}><div className='show__form'>+</div></li>
+                       {
+                           this.props.score.scoreList.map(list =>{
+
+                               return (<li><div><Link to={'/score/account/'+list.id}>{list.name}</Link></div></li>)
+                           })
+                       }
 
                    </ul>
                </div>
@@ -207,7 +211,12 @@ class ScoreList extends React.Component{
                             </div>
                     </form>
                 </div>
-                <ScorePage />
+                {
+                    this.props.score.scoreList.map(list =>{
+                        return (<Route path={'/score/account/' + list.id}><ScorePage data={list}/></Route>)
+                    })
+                }
+
             </div>
 
         );

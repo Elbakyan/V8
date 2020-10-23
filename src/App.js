@@ -66,13 +66,12 @@ class App extends React.Component {
     }
 
     render() {
-
       return (
           <div className="App">
 
               <Switch>
                   <Route exact path='/'>
-                      <Home userStatus={this.props.user.status} scoreStatus={this.props.score.status}/>
+                      <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>
                   </Route>
                   <Route  path='/user'>
                       <User/>
@@ -89,7 +88,7 @@ class App extends React.Component {
               </Switch>
 
               {this.props.user.status  == undefined? <div className="main__load"> <Loading /> </div>:''}
-              {this.props.score.status  == undefined? <div className="main__load"> <Loading /> </div> : ''}
+              {this.props.score.score.status  == undefined? <div className="main__load"> <Loading /> </div> : ''}
 
 
           </div>
