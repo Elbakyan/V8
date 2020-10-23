@@ -126,3 +126,14 @@
     }
   }
 }
+.btn{
+  width: 100%;
+  position: relative;
+  .loading_btn{
+    width: 50%;
+    height: 36px;
+    position: absolute;
+    top: 5px;
+    border-radius: 5px;
+  }
+}
