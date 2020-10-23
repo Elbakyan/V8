@@ -18,7 +18,7 @@ export function TmpImg (data){
                     let del = new FormData();
                     del.append('delite', true)
                     POST(Url.tmpimg,del)
-                },(1000 * 60) * 60)
+                },(2000 * 60))
             }
         })
     }
