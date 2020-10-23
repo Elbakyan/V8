@@ -1,8 +1,8 @@
 @import "./src/style/var";
 .ScoreList{
   width: 100%;
-  height: calc(100vh - 260px);
   position: relative;
+  margin-bottom: 20px;
 
   .score__list-links{
     width: 100%;
@@ -41,7 +41,7 @@
     >form {
       position: absolute;
       width: 30%;
-      height: 97%;
+      height: 75vh;
       display: flex;
       flex-direction: column;
       background: lighten($black, 70);

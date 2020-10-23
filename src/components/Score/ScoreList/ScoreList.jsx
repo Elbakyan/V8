@@ -11,6 +11,7 @@ import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";
+import ScorePage from "../ScorePage/ScorePage";
 
 
 class ScoreList extends React.Component{
@@ -25,6 +26,10 @@ class ScoreList extends React.Component{
 
         }
     }
+    componentDidMount() {
+        this.props.dispatch(GetCity(1))
+    }
+
     ShowAddScoreForm = (e) => {
         if (this.state.showForm){
             this.setState({
@@ -68,21 +73,25 @@ class ScoreList extends React.Component{
     AddScoreList = (e) => {
         e.preventDefault();
         let data = new FormData(e.target)
-        this.setState({
-            showTmpImg: false
-        })
+
         this.state.img.map(img => {
             data.append('img[]',img)
         })
         POST(Url.addscorelist,data).then(res => {
             console.log(res)
+           if (res.status) {
+               this.setState({
+                   showTmpImg: false
+               })
+               this.props.dispatch(ClearImg())
+           }
         })
-        this.props.dispatch(ClearImg())
+
     }
     render() {
         return (
             <div className="ScoreList">
-               <div className="score__list-links">
+                <div className="score__list-links">
                    <ul>
                        <li onClick={this.ShowAddScoreForm}><div>+</div></li>
                        <li><div>elbakyan1</div></li>
@@ -90,7 +99,6 @@ class ScoreList extends React.Component{
                        <li><div>elbakyan3</div></li>
 
                    </ul>
-
                </div>
                 <div className='add_score_list'>
                     <form onSubmit={this.AddScoreList} style={this.state.showForm?{transform:'scaleY(1)'}:{transform:'scaleY(0)'}} encType='multipart/form-data'>
@@ -176,7 +184,7 @@ class ScoreList extends React.Component{
                                 this.state.showTmpImg?
                                     <div className='tmp__img' >
                                         {
-                                            !this.props.tmp.tmpImg.status?<div className="add_loading"> <Loading type='spokes' color='#4fffa0' size={100}/> </div>:
+                                            !this.props.tmp.tmpImg.status?<div className="add_loading"> <Loading type='bars' color='#143645' size={50}/> </div>:
                                                 this.props.tmp.tmpImg.data.map(img => {
                                                     return <img key={img.url} src={img.url}/>
                                                 })
@@ -199,7 +207,7 @@ class ScoreList extends React.Component{
                             </div>
                     </form>
                 </div>
-
+                <ScorePage />
             </div>
 
         );
