@@ -21,14 +21,20 @@
         transform: skew(-20deg);
         margin: 0px 3px;
         cursor: pointer;
-        color: $main-color;
+
         transition: .3s;
+        a,.show__form{
+          display: flex;
+          color: $main-color;
+          padding: 5px 10px;
+        }
         &:hover{
           background: $main-color;
+        }
+        &:hover  a{
           color: $white;
         }
         div{
-          padding: 5px 10px;
           transform: skew(20deg);
         }
       }

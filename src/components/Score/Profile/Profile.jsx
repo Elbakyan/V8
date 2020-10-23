@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import './Profile.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCar, faEnvelope, faHome,faCarBattery,faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
-import {Link, Route, Switch} from "react-router-dom";
+import {Link, Redirect, Route, Switch} from "react-router-dom";
 import PersionalDataScore from "./PersionalDataScore";
 import ProfilSetingsScore from "./ProfilSetingsScore";
 import ScoreList from "../ScoreList/ScoreList";
@@ -19,8 +19,17 @@ class Profile extends React.Component{
     }
 
     render() {
+        let pathId = '';
+        if (this.props.score.scoreList != false){
+             pathId = this.props.score.scoreList[0].id;
+
+        }
+
         return (
             <section className="Profile col">
+                {
+                    window.location.pathname == '/score/account' || '/score/account/' ? <Redirect to={'/score/account/' +pathId}/>: ''
+                }
                 <div className="container">
                     <div className="Profile__information row justify-between">
                         <nav className='Profile__nav'>
@@ -29,7 +38,7 @@ class Profile extends React.Component{
                                     <div className="icon">
                                         <FontAwesomeIcon icon={faHome}/>
                                     </div>
-                                    <Link to='/score/account'>Իմ էջը</Link>
+                                    <Link to={'/score/account'}>Իմ էջը</Link>
                                 </li>
                                 <li>
                                     <div className="icon">
@@ -54,7 +63,7 @@ class Profile extends React.Component{
 
                         <div className="Profile__content">
                             <Switch>
-                                <Route exact path='/score/account'>
+                                <Route path={'/score/account/'}>
                                     <ScoreList />
                                 </Route>
                                 <Route exact path='/score/account/setings'>
