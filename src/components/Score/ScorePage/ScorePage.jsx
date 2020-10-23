@@ -13,6 +13,7 @@ import {
 import {color} from "../../../redux/auto/Values";
 import SliderAuto from "../../User/UserCars/SliderAuto/SliderAuto";
 import {Link} from "react-router-dom";
+import {Map, YMaps} from "react-yandex-maps";
 
 let data = {
     name:'AutoDoc',
@@ -113,8 +114,8 @@ class ScorePage extends Component {
                                     </li>:''
                                 }
                                 {
-                                    data.instagram?<li>
-                                        <a className="youtube" href={data.instagram}>
+                                    data.youtube?<li>
+                                        <a className="youtube" href={data.youtube}>
                                             <FontAwesomeIcon icon={faYoutubeSquare} />
                                         </a>
                                     </li>:''
@@ -133,9 +134,6 @@ class ScorePage extends Component {
                 </div>
 
                 <div className="score_page_img-map">
-                    <div className="score_page_map">
-
-                    </div>
                     <div className="score_page_slider">
                         <SliderAuto autoImage={data.img}/>
                     </div>

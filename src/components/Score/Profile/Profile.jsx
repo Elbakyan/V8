@@ -55,7 +55,7 @@ class Profile extends React.Component{
                         <div className="Profile__content">
                             <Switch>
                                 <Route exact path='/score/account'>
-                                    {/*<ScoreList />*/}
+                                    <ScoreList />
                                     <ScorePage />
                                 </Route>
                                 <Route exact path='/score/account/setings'>
