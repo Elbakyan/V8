@@ -5,15 +5,13 @@ import {faFacebookSquare, faInstagram, faYoutubeSquare} from "@fortawesome/free-
 import {
     faCog,
     faExternalLinkAlt,
-    faLink,
     faMapMarkerAlt,
     faPhoneSquareAlt,
     faShareAltSquare
 } from "@fortawesome/free-solid-svg-icons";
-import {color} from "../../../redux/auto/Values";
 import SliderAuto from "../../User/UserCars/SliderAuto/SliderAuto";
 import {Link} from "react-router-dom";
-import {Map, YMaps} from "react-yandex-maps";
+
 
 let data = {
     name:'AutoDoc',
@@ -136,7 +134,11 @@ class ScorePage extends Component {
 
                 <div className="score_page_img-map">
                     <div className="score_page_slider">
-                        <SliderAuto autoImage={data.img}/>
+                        {
+                            data.img?
+                            <SliderAuto autoImage={data.img}/>:''
+                        }
+
                     </div>
                 </div>
             </div>

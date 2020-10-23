@@ -3,13 +3,16 @@
   width: 100%;
   display: flex;
   margin-top: 20px;
+  box-shadow: 0 0 0 1px silver;
+  padding: 10px 15px;
   .score_page_info{
     width: 40%;
-    padding: 0 10px;
+
     >nav{
       >ul{
         padding-top: 10px;
-        border-bottom: 1px solid white;
+        //border-bottom: 1px solid white;
+
         >ul{
           padding-left: 12px;
           font-size:1.1em;
