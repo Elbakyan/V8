@@ -4,7 +4,8 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import {Url} from "../config/Url";
 import PersonalDataScore from  './Profile/PersionalDataScore'
-// import './User.scss'
+import Menu from "../Menu/Menu";
+
 
 
 
@@ -15,7 +16,6 @@ class Header extends React.Component{
         super(props);
 
     }
-    
 
     render() {
 
@@ -60,6 +60,8 @@ class Header extends React.Component{
                         </a>
                     </div>
                 </div>
+                {/*component*/}
+
             </header>
         );
     }
