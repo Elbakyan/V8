@@ -23,13 +23,17 @@ class ScoreList extends React.Component{
             phone2: false,
             phone3: false,
             img: [],
-            showTmpImg: false
+            showTmpImg: false,
+            loading: false
 
         }
     }
     componentDidMount() {
         this.props.dispatch(GetCity(1))
+
+
     }
+
 
     ShowAddScoreForm = (e) => {
         if (this.state.showForm){
@@ -78,13 +82,22 @@ class ScoreList extends React.Component{
         this.state.img.map(img => {
             data.append('img[]',img)
         })
+        this.setState({
+            loading:undefined
+        })
         POST(Url.addscorelist,data).then(res => {
             console.log(res)
            if (res.status) {
                this.setState({
-                   showTmpImg: false
+                   showForm:false,
+                   showTmpImg: false,
+                   loading:res.status
                })
                this.props.dispatch(ClearImg())
+           }else {
+               this.setState({
+                   loading:res.status
+               })
            }
         })
 
@@ -98,7 +111,7 @@ class ScoreList extends React.Component{
                        {
                            this.props.score.scoreList.map(list =>{
 
-                               return (<li><div><Link to={'/score/account/'+list.id}>{list.name}</Link></div></li>)
+                               return (<li ><div><Link to={'/score/account/list/'+list.id} >{list.name}</Link></div></li>)
                            })
                        }
 
@@ -199,6 +212,9 @@ class ScoreList extends React.Component{
                         </div>
 
                             <div className="btn">
+                                {
+                                    this.state.loading != undefined? '': <div className="loading_btn"> <Loading type='spin' color='#1c8080' size={40}/> </div>
+                                }
                                 <DefaultBtn
                                     type='submit'
                                     name='add'
@@ -212,7 +228,7 @@ class ScoreList extends React.Component{
                 </div>
                 {
                     this.props.score.scoreList.map(list =>{
-                        return (<Route path={'/score/account/' + list.id}><ScorePage data={list}/></Route>)
+                        return (<Route exact path={'/score/account/list/' + list.id}><ScorePage data={list}/></Route>)
                     })
                 }
 

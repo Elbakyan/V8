@@ -10,6 +10,7 @@ import './Alert.scss'
 
     static open = () => {
         let alert = document.querySelector('.alert');
+        console.log(alert)
             // alert.style.top = '50px'
             alert.style.display = 'block'
            setTimeout(() => {

@@ -21,6 +21,7 @@ export const Url = {
     loginscore: 'https://brutal.am/Server/score-log',
     logoutscore: 'https://brutal.am/Server/score_l',
     existScore: 'https://brutal.am/Server/score-exist',
+    scoreSetings: 'https://brutal.am/Server/score-setings',
     getFavorite: 'https://brutal.am/Server/favorite-get',
     addFavorite: 'https://brutal.am/Server/favorite-add',
     sendFavorite: 'https://brutal.am/Server/favorite-send',

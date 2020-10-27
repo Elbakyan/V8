@@ -18,7 +18,7 @@ class Loading extends React.Component{
         }else{
             return (
                 <div className="Loading">
-                    <HashLoader size={100} color={"#c5c5c5"} />
+                    <HashLoader size={100} color={"#ffffff"} />
                 </div>
             );
         }

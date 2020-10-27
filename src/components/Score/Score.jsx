@@ -10,11 +10,10 @@ import {GetScoreList} from "../../redux/score/action";
 
 
 class Score extends Component {
-    componentDidMount() {
-        this.props.dispatch(GetScoreList())
-    }
+
 
     render() {
+
         return(
             <div>
                 <div className="User">

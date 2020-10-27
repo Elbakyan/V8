@@ -3,7 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCheckCircle, faDollarSign, faCaretSquareDown, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
-import SliderAuto from "../User/UserCars/SliderAuto/SliderAuto";
+import SliderAuto from "../SliderAuto/SliderAuto";
 import {GetDialogId, GetId, GetMessage, SendMessage} from "../../redux/message/action";
 import Art from "../Alert";
 
