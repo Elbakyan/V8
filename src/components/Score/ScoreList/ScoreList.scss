@@ -3,11 +3,13 @@
   width: 100%;
   position: relative;
   margin-bottom: 20px;
+  padding: 0px 15px;
 
   .score__list-links{
     width: 100%;
     height: 10%;
     border-bottom: 1px solid $main-color;
+    padding: 0px 5px;
     >ul{
       width: 100%;
       height: 100%;
@@ -21,12 +23,16 @@
         transform: skew(-20deg);
         margin: 0px 3px;
         cursor: pointer;
+        position: relative;
 
         transition: .3s;
         a,.show__form{
           display: flex;
           color: $main-color;
           padding: 5px 10px;
+        }
+        .show__form:hover{
+          color: $white;
         }
         &:hover{
           background: $main-color;
@@ -55,6 +61,7 @@
       transition: .3s linear;
       padding-bottom: 20px;
       overflow-y: scroll;
+      z-index: 5;
       &::-webkit-scrollbar {
         width: 2px;
       }

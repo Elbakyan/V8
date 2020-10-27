@@ -3,6 +3,10 @@ import React, {Component} from 'react';
 class DefaultSelect extends Component {
     constructor(props) {
         super(props);
+        this.state ={
+            optId: '',
+            selectValue:''
+        }
     }
 
     render() {
@@ -16,11 +20,14 @@ class DefaultSelect extends Component {
                     height:this.props.height
                 }}
                 required={this.props.required}
-                defaultValue='yyyy'
+                defaultValue={this.props.defaultValue}
             >
                 {
                     this.props.data.map((res, i) => {
-                        return <option key={i} value={res.name}>{res.name}</option>
+
+                        if (res.name ==this.props.selected)this.state.optId = res.id
+
+                        return <option selected={res.name == this.props.selected? 'selected' : ''} key={i} value={res.name}>{res.name}</option>
                     })
                 }
             </select>
