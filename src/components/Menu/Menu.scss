@@ -28,12 +28,15 @@
       .auto_parts,{
         position: relative;
         .auto_parts_block,{
-          width: 700px;
+          width: 800px;
           display: flex;
-          border-radius: 5px;
           animation-name: auto_parts_block;
           animation-duration: 2s;
           overflow: hidden;
+          position: absolute;
+          z-index: 5;
+          background: #fff8f8;
+          top: 27px;
           @keyframes auto_parts_block {
             0%{
               opacity: 0;
@@ -42,18 +45,19 @@
             }
             50%{
               opacity: 1;
-              width: 700px;
+              width: 800px;
               height: 276px;
             }
             70%{
               opacity: 1;
-              width: 700px;
+              width: 800px;
             }
           }
           .parts,.cars,.truck,.service{
             color: #101423;
             font-size: 12px;
             height: 250px;
+            width: 250px;
             >li{
               color: black;
               border: none;
@@ -88,10 +92,7 @@
               height: 250px;
             }
           }
-          position: absolute;
-          z-index: 5;
-          background: #fff8f8;
-          top: 30px;
+
         }
       }
       .service_on{
