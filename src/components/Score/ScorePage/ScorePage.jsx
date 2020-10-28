@@ -11,8 +11,6 @@ import {
     faPencilAlt, faAngleDoubleRight, faMailBulk, faEnvelopeSquare, faLink,
 } from "@fortawesome/free-solid-svg-icons";
 import SliderAuto from "../../SliderAuto/SliderAuto";
-import {Link} from "react-router-dom";
-import DefaultInput from "../../forms/inputs/DefaultInput";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
@@ -21,12 +19,16 @@ import {GetScoreList} from "../../../redux/score/action";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {GetCity} from "../../../redux/location/action";
 import Loading from "../../Loading";
+import ScoreAddImg from "./AddImg";
+
 
 
 class ScorePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
+            img: [],
             NameForm: false,
             LocationForm: false,
             PhoneForm: false,
@@ -38,6 +40,7 @@ class ScorePage extends Component {
             SircleValue: '',
             CityValue: '',
             loading: false,
+            loadingSlider: false
         }
         this.NameRef = React.createRef()
         this.SircleRef = React.createRef()
@@ -91,15 +94,56 @@ class ScorePage extends Component {
         })
     }
     UbdateImg = (e) => {
+        this.setState({
+            loadingSlider: true
+        })
         let data = new FormData();
         data.append('id', this.props.data.id)
         data.append('img_url', e.target.dataset.url)
-        data.append('img', e.target.dataset.img)
-        POST(Url.scoreSetings, data).then(res => {
-            if (res){
-                this.props.dispatch(GetScoreList())
-            }
+        data.append('img', this.props.data.img)
+        if (e.target.dataset.url != undefined || e.target.dataset.img != undefined){
+            POST(Url.scoreSetings, data).then(res => {
+                if (res){
+                    this.props.dispatch(GetScoreList())
+                    this.setState({
+                        loadingSlider: false
+                    })
+                }
+            })
+        }else {
+            this.setState({
+                loadingSlider: false
+            })
+        }
+        console.log(e.target)
+
+    }
+    AddSliderImg = (e) => {
+        this.setState({loadingSlider: true})
+        let data = new FormData()
+        let tmpImg = this.state.img;
+
+        Object.values(e.target.files).map(img => {
+            data.append('file[]', img);
+            tmpImg.push(img);
         })
+        data.append('id', this.props.data.id);
+
+        this.setState({
+            img: tmpImg,
+        })
+        if ((this.props.data.img.length + Array.from(data).length) <= 11) {
+            POST(Url.scoreSetings, data).then(res => {
+                if (res) {
+                    this.props.dispatch(GetScoreList())
+                    this.setState({loadingSlider: false})
+                }
+            })
+        } else {
+            alert('Chi kareli' + (this.props.data.img.length + Array.from(data).length) + 'nkar gcel')
+            this.setState({loadingSlider: false})
+        }
+
     }
 
     render() {
@@ -430,7 +474,12 @@ class ScorePage extends Component {
                 </div>
 
                 <div className="slider__container">
-                   <SliderAuto autoImage={data.img} edit={true} onClick={this.UbdateImg} id={data.id}/>
+                    {
+                        data.img != false?
+                            <SliderAuto autoImage={data.img} edit={true} onClick={this.UbdateImg} id={data.id} loading={this.state.loadingSlider} AddImg={this.AddSliderImg}/>:
+                            <ScoreAddImg autoImage={data.img} id={data.id} onChange={this.AddSliderImg} loading={this.state.loadingSlider}/>
+                    }
+
                 </div>
             </div>
         )

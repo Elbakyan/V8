@@ -13,7 +13,6 @@ import {GetScoreList} from "../../../redux/score/action";
 
 
 
-
 class Profile extends React.Component{
     constructor(props) {
         super(props);
@@ -22,6 +21,7 @@ class Profile extends React.Component{
         this.props.dispatch(GetScoreList())
     }
     render() {
+
         let pathId = '';
         if (this.props.score.scoreList != false){
              pathId = this.props.score.scoreList[0].id;
@@ -30,9 +30,9 @@ class Profile extends React.Component{
 
         return (
             <section className="Profile col">
-                {
-                    window.location.pathname == '/score/account' || '/score/account/' ? <Redirect to={'/score/account/list/' +pathId}/>: ''
-                }
+                {/*{*/}
+                {/*    window.location.pathname == '/score/account' || '/score/account/' ? <Redirect to={'/score/account/list/' +pathId}/>: ''*/}
+                {/*}*/}
                 <div className="container">
                     <div className="Profile__information row justify-between">
                         <nav className='Profile__nav'>
@@ -76,18 +76,27 @@ class Profile extends React.Component{
                                     <ProfilSetingsScore />
                                 </Route>
                                 <Route exact path='/score/account/message'>
-                                   Message
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus deleniti
-                                        dignissimos, dolore dolorem dolorum esse itaque laborum laudantium magni maxime
-                                        molestiae, molestias necessitatibus porro quis recusandae repellendus saepe sed
-                                        soluta?</div>
-                                    <div>Ab architecto consequatur consequuntur dolorem error eum harum illo, in ipsum
-                                        molestias neque non odit possimus provident quae quas quibusdam quo quos
-                                        reiciendis repellat rerum sed tenetur ut vitae voluptas?
+                                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam
+                                        consectetur consequuntur dolores dolorum esse eveniet expedita facere ipsum
+                                        minima modi, molestiae placeat quasi soluta voluptates. Beatae eligendi fuga
+                                        ipsa?
                                     </div>
-                                    <div>Distinctio ducimus eaque earum eius est eum explicabo hic id impedit inventore
-                                        ipsam magni maxime necessitatibus nihil obcaecati perferendis perspiciatis qui,
-                                        quidem reiciendis rem repellat, rerum, saepe similique sunt ullam.
+                                    <div>Accusantium aliquid dicta dolore enim exercitationem, expedita facere
+                                        laudantium minus nemo placeat possimus repellat suscipit. Aliquid beatae dicta
+                                        doloremque dolorum ea enim exercitationem ipsum molestiae, numquam omnis quae
+                                        vitae voluptatem?
+                                    </div>
+                                    <div>Consequatur cumque eius esse est eum, fuga ipsa labore, laboriosam quisquam quo
+                                        repudiandae temporibus, voluptate voluptates? Earum harum inventore ipsa, iste,
+                                        laborum minima molestiae placeat quia quidem quod, totam veniam!
+                                    </div>
+                                    <div>Asperiores corporis delectus minima minus quod quos tempore vitae! Accusantium
+                                        aliquam, aperiam culpa cumque deserunt dolores doloribus eveniet in incidunt
+                                        iusto laudantium magni necessitatibus, odit officia optio quas quasi quo?
+                                    </div>
+                                    <div>Aliquam delectus doloremque dolorum ducimus enim facilis fugiat fugit, impedit
+                                        incidunt ipsam iste itaque minima nihil nisi odio optio perspiciatis quam quod
+                                        quos ratione sequi, sunt totam, veniam vero voluptates!
                                     </div>
                                 </Route>
 

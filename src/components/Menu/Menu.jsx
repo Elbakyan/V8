@@ -10,7 +10,6 @@ class Menu extends Component {
             this.autoParts.style.display = 'none';
             this.autoService.style.display = 'none';
         // }
-        console.log(e.target.dataset.close)
     }
     open = e => {
         if (e.target.dataset.counter != undefined) {
@@ -36,8 +35,6 @@ class Menu extends Component {
     }
 
     render() {
-        console.log(Object.values(carsTop))
-
         return (
             <div className="header_menu">
                 <div className="container row justify-between align-center">

@@ -78,10 +78,13 @@
           z-index: 1;
         }
         >span{
+          font-size: 22px;
           color: red;
           position: absolute;
-          right: -5px;
-          top: 15px;
+          right: -10px;
+          top: 5px;
+          padding: 0px 5px;
+
         }
       }
       &:hover{
@@ -164,4 +167,39 @@
   >input{
     display: none;
   }
+}
+.loading_slider,.loading_slider-img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 150;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: lighten($black, 70);
+  //color: #00ff3f;
+
+
+}
+.loading_slider-img{
+  background: none;
+}
+.edit_icon{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: .3s;
+  color: lighten($black, 30);
+  opacity: 0;
+  &:hover{
+    color: lighten($black, 20);
+
+  }
+
+}
+.slider_auto:hover .edit_icon{
+  opacity: 1;
 }

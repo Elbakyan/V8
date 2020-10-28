@@ -25,9 +25,10 @@ class DefaultSelect extends Component {
                 {
                     this.props.data.map((res, i) => {
 
-                        if (res.name ==this.props.selected)this.state.optId = res.id
+                        if (res.name == this.props.selected)this.state.optId = res.id;
+                        let selected = (res.name == this.props.selected)? ' selected' : '';
 
-                        return <option selected={res.name == this.props.selected? 'selected' : ''} key={i} value={res.name}>{res.name}</option>
+                        return <option  key={i} value={res.name} selected={selected}>{res.name}</option>
                     })
                 }
             </select>
