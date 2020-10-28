@@ -70,7 +70,6 @@ class SliderAuto extends Component {
 
     render() {
         return (
-
             <Fragment>
                 {
                     this.props.loading ?
