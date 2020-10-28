@@ -4,10 +4,7 @@ import ReactLoading from "react-loading";
 import {HashLoader} from "react-spinners";
 
 class Loading extends React.Component{
-    constructor(props) {
-        super(props);
 
-    }
     render() {
         if (this.props.type !== undefined){
             return (

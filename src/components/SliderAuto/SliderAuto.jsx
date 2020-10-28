@@ -20,6 +20,11 @@ class SliderAuto extends Component {
         }
         this.ImgRef = React.createRef();
     }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(prevProps.autoImage)
+        prevState.showImg = prevProps.autoImage
+    }
+
     componentDidMount() {
         this.props.dispatch(GetScoreList())
         this.setState({

@@ -66,6 +66,7 @@ class App extends React.Component {
     }
 
     render() {
+        // console.log(this.props.score.score.status)
       return (
           <div className="App">
 
@@ -87,8 +88,8 @@ class App extends React.Component {
                   </Route>
               </Switch>
 
-              {this.props.user.status  == undefined? <div className="main__load"> <Loading /> </div>:''}
-              {this.props.score.score.status  == undefined? <div className="main__load"> <Loading /> </div> : ''}
+              {this.props.user.status  === undefined? <div className="main__load"> <Loading /> </div>:''}
+              {this.props.score.score.status  === undefined? <div className="main__load">  <Loading type="spinningBubbles" size={500} color="#101423"/><Loading /> </div> : ''}
 
 
           </div>

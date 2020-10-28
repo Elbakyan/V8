@@ -13,8 +13,6 @@ class Menu extends Component {
         console.log(e.target.dataset.close)
     }
     open = e => {
-
-
         if (e.target.dataset.counter != undefined) {
             this.autoParts.style.display = 'none';
             this.autoService.style.display = 'none';
@@ -22,7 +20,7 @@ class Menu extends Component {
                 case '1' : this.autoParts.style.display = 'block';
                 break;
                 case '2' : this.autoService.style.display = 'block';
-                break
+                break;
             }
             // console.log(menu.style.display)
             // menu.style.display = 'none'
@@ -91,13 +89,9 @@ class Menu extends Component {
                             </li>
                             <li className="auto_service" data-counter={2} onClick={this.open}>
                                 Ծառայություններ
-
-
-
                                 <div className="service_on open" style={{display:'none'}} ref={el => this.autoService = el}>
+                                    <span className="close_auto_service" onClick={this.outMenu}><FontAwesomeIcon icon={faBackspace} /></span>
                                     <ul className="service">
-
-                                        <span className="close_auto_service" ><FontAwesomeIcon icon={faBackspace} /></span>
                                         {
                                             service.map(({name},i)=>(
                                                 <li key={i}>
