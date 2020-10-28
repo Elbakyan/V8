@@ -111,7 +111,7 @@ class ScoreList extends React.Component{
                        {
                            this.props.score.scoreList.map(list =>{
 
-                               return (<li ><div><Link to={'/score/account/list/'+list.id} >{list.name}</Link></div></li>)
+                               return (<li key={list.id}><div><Link to={'/score/account/list/'+list.id} >{list.name}</Link></div></li>)
                            })
                        }
 
@@ -228,7 +228,7 @@ class ScoreList extends React.Component{
                 </div>
                 {
                     this.props.score.scoreList.map(list =>{
-                        return (<Route exact path={'/score/account/list/' + list.id}><ScorePage data={list}/></Route>)
+                        return (<Route key={list.id} exact path={'/score/account/list/' + list.id}><ScorePage data={list}/></Route>)
                     })
                 }
 
