@@ -13,24 +13,33 @@ class Menu extends Component {
     }
     open = e => {
         if (e.target.dataset.counter != undefined) {
-            this.autoParts.style.display = 'none';
-            this.autoService.style.display = 'none';
-            switch (e.target.dataset.counter){
-                case '1' : this.autoParts.style.display = 'block';
-                break;
-                case '2' : this.autoService.style.display = 'block';
-                break;
-            }
-            // console.log(menu.style.display)
-            // menu.style.display = 'none'
-            // if(menu.style.display === 'block'){
-            //     menu.style.display = 'none'
-            //     console.log('treeeee')
-            // }
-            // if(menu.style.display === 'none'){
-            //     menu.style.display = 'block'
-            // }
 
+
+            if(e.target.dataset.counter === '1'){
+                this.autoService.style.display = 'none';
+                if(this.autoParts.style.display === 'none' ){
+                    this.autoParts.style.display = 'block';
+                }else{
+                    this.autoParts.style.display = 'none';
+                }
+            }
+
+            if(e.target.dataset.counter === '2'){
+                this.autoParts.style.display = 'none';
+                console.log(this.autoService.style.display)
+                if(this.autoService.style.display === 'none' ){
+                    this.autoService.style.display = 'block';
+                }else{
+                    this.autoService.style.display = 'none';
+                }
+            }
+
+            // switch (e.target.dataset.counter){
+            //     case '1' : this.autoParts.style.display = 'block';
+            //     break;
+            //     case '2' : this.autoService.style.display = 'block';
+            //     break;
+            // }
         }
     }
 
@@ -44,8 +53,6 @@ class Menu extends Component {
                                 Ավտոմասեր
                                 <div className='parts_on open' data-counter={1} style={{display:'none'}} ref={el => this.autoParts = el}>
                                 <ul className="auto_parts_block openX flex" data-close={1}>
-                                    <span className="close_auto_parts" onClick={this.outMenu}><FontAwesomeIcon icon={faBackspace} /></span>
-
                                     <li>
                                         <ul className="parts">
                                             {
@@ -87,7 +94,6 @@ class Menu extends Component {
                             <li className="auto_service" data-counter={2} onClick={this.open}>
                                 Ծառայություններ
                                 <div className="service_on open" style={{display:'none'}} ref={el => this.autoService = el}>
-                                    <span className="close_auto_service" onClick={this.outMenu}><FontAwesomeIcon icon={faBackspace} /></span>
                                     <ul className="service">
                                         {
                                             service.map(({name},i)=>(
