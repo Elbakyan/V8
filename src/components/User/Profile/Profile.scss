@@ -28,25 +28,27 @@
         width: 100%;
         display: flex;
         align-items: center;
-        height: 30px;
+        height: 35px;
         transition: .3s;
 
 
         .icon{
           font-size: 16px;
+          height: auto;
           color: $main-color;
-          padding: 0px 10px;
+          padding: 0 10px;
+          display: flex;
+          align-items: center;
         }
         a{
-          width: 100%;
+          //width: 100%;
           color:  $main-color;
           padding-right: 15px;
+          display: flex;
+          box-sizing: border-box;
           @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-            display: none;
-            &:hover{
-              display: block;
-              position: absolute;
-            }
+            width: 30px;
+            overflow: hidden;
           }
         }
         &:hover{

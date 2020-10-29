@@ -47,29 +47,38 @@ class Profile extends React.Component{
                                     </div>
                                     <ul >
                                         <li>
-                                            <div className="icon">
-                                                <FontAwesomeIcon icon={faEnvelope} color={status? 'red':''}/>
-                                            </div>
-                                            <Link to='/user/account/persional'>Հաղորդագրություններ</Link>
+                                            <Link to='/user/account/persional'>
+                                                <div className="icon">
+                                                    <FontAwesomeIcon icon={faEnvelope} color={status? 'red':''}/>
+                                                </div>
+                                                <span>Հաղորդագրություններ</span>
+
+                                            </Link>
                                         </li>
                                         <li>
-                                            <div className="icon">
-                                                <FontAwesomeIcon icon={faCar}/>
-                                            </div>
-                                            <Link to='/user/account/cars'>Իմ Մեքենաները</Link>
+                                            <Link to='/user/account/cars'>
+                                                <div className="icon">
+                                                    <FontAwesomeIcon icon={faCar}/>
+                                                </div>
+                                                <span>Իմ Մեքենաները</span>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <div className="icon">
-                                                <FontAwesomeIcon icon={faHeart}/>
-                                            </div>
-                                            <Link to='/user/account/favorite'>Նախնտրելի</Link>
+                                            <Link to='/user/account/favorite'>
+                                                <div className="icon">
+                                                    <FontAwesomeIcon icon={faHeart}/>
+                                                </div>
+                                                <span>Նախնտրելի</span>
+
+                                            </Link>
                                         </li>
                                         <li>
-                                            <div className="icon">
-                                                <FontAwesomeIcon icon={faPlusCircle}/>
-                                            </div>
                                             <Link to='/user/account/cars/add'>
-                                                Ավելացնել
+                                                <div className="icon">
+                                                    <FontAwesomeIcon icon={faPlusCircle}/>
+                                                </div>
+                                                <span>Ավելացնել</span>
+
                                             </Link>
                                         </li>
                                     </ul>
