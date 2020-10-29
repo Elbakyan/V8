@@ -9,6 +9,9 @@
   justify-content: space-between;
   padding: 20px;
   border: 1px solid $main-color;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+    padding: 10px;
+  }
   .slider_img_header{
     width: 100%;
     height: 300px;
@@ -51,6 +54,9 @@
     justify-content: center;
     width: 100%;
     height: 80px;
+    @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+      height:40px;
+    }
     >div:last-child{
       border-right: none;
     }
@@ -64,6 +70,9 @@
       cursor: pointer;
       transition: .3s;
       position: relative;
+      @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+        max-width: 15%;
+      }
       .edit{
         position: relative;
         &::before{
