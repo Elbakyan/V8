@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import {SendMessage, GetMessage, GetId, GetStatus} from "../../redux/message/action";
 import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEnvelopeSquare} from "@fortawesome/free-solid-svg-icons";
 
 class GetMessageClass extends Component{
     constructor(props) {

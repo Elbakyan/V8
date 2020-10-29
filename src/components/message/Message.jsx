@@ -40,7 +40,18 @@ class Message extends Component {
         },1000)
         this.props.dispatch(GetId(e.target.dataset.id))
     }
+    openRespondent = ()=>{
+        let block = document.querySelector('.respondent_user')
+        let respondent = document.querySelector('.respondent')
 
+        if(block.style.display === 'none'){
+            block.style.display = 'flex'
+            respondent.style.width = "88%"
+        }else{
+            block.style.display = 'none'
+            respondent.style.width = "0%"
+        }
+    }
 
     render() {
         // console.log( this.props.message.message)
@@ -51,9 +62,6 @@ class Message extends Component {
                     this.state.redirect?<Redirect to={this.state.link?this.state.link:'/user/account/persional/'+this.props.message.message[0].dialog_id} />:''
                 }
                 <div className="respondent">
-                    <span className="open_respondent">
-                        <FontAwesomeIcon icon={faEnvelopeSquare} />
-                    </span>
                     {
                         this.props.message.user.map((data,i) => {
                          let active = this.props.message.message[i].dialog_id == window.location.pathname.split('/').pop()
@@ -79,6 +87,9 @@ class Message extends Component {
                 </div>
 
                 <div className="message">
+                     <span className="open_respondent" onClick={this.openRespondent}>
+                        <FontAwesomeIcon icon={faEnvelopeSquare} />
+                     </span>
                     {
                         this.props.message.message.map((data,i) => {
 

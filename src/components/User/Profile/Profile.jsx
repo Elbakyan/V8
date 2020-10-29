@@ -42,9 +42,6 @@ class Profile extends React.Component{
                 <div className="container">
                             <div className="Profile__information row justify-between">
                                 <nav className='Profile__nav'>
-                                    <div className="burger" onClick={this.ShowCloseMenue}>
-                                        <FontAwesomeIcon icon={faBars} />
-                                    </div>
                                     <ul >
                                         <li>
                                             <Link to='/user/account/persional'>
