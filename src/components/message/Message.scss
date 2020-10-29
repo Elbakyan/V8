@@ -10,7 +10,7 @@
   word-break: break-all;
 
   .respondent{
-    width: 32%;
+    width: 40%;
     height: 100%;
     background: #c5c5c5;
     display: flex;
@@ -18,6 +18,15 @@
     align-items: center;
     overflow: auto;
     box-shadow: 0px 0px 0px 1px #acabab;
+    position: relative;
+    @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+      width: 10%;
+    }
+    .open_respondent{
+      position: absolute;
+      left: 9px;
+      top: 15px;
+    }
     &::-webkit-scrollbar {
       width: 2px;
     }
@@ -44,6 +53,9 @@
       margin: 10px 0;
       border-radius: 5px;
       position: relative;
+      @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+        display: none;
+      }
       &:first-child{
         margin-top: 5px;
       }
@@ -157,7 +169,12 @@
     height: 100%;
     background: #c5c5c5;
     box-shadow: 0px 0px 0px 1px #acabab;
-
+    @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+      width: 100%;
+      button{
+        display: none;
+      }
+    }
 
     .getMessage{
       width: 100%;
@@ -291,6 +308,9 @@
             border-radius: 5px;
             width: 90%;
             height:70%;
+            @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+              height: 100%;
+            }
           }
           .message_send_button{
             margin-top: 5px;

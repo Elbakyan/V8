@@ -5,6 +5,8 @@ import Respondent from "./Respondent";
 import GetMessageClass from "./GetMessage";
 import {Link, Redirect, Route, Switch} from "react-router-dom";
 import {GetDialogId, GetId, GetMessage} from "../../redux/message/action";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faEnvelopeSquare, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -49,6 +51,9 @@ class Message extends Component {
                     this.state.redirect?<Redirect to={this.state.link?this.state.link:'/user/account/persional/'+this.props.message.message[0].dialog_id} />:''
                 }
                 <div className="respondent">
+                    <span className="open_respondent">
+                        <FontAwesomeIcon icon={faEnvelopeSquare} />
+                    </span>
                     {
                         this.props.message.user.map((data,i) => {
                          let active = this.props.message.message[i].dialog_id == window.location.pathname.split('/').pop()
