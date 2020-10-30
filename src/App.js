@@ -14,6 +14,7 @@ import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
 import {GetMessage} from "./redux/message/action";
+import {POST, TEST_POST} from "./components/config/Requsest";
 
 
 
@@ -39,7 +40,7 @@ class App extends React.Component {
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
         this.props.dispatch(GetMessage())
-        // this.GetMes()
+
 
     }
 
