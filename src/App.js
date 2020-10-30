@@ -14,11 +14,8 @@ import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
 import {GetMessage} from "./redux/message/action";
-
-
-
-
-
+import {GET, POST} from "./components/config/Requsest";
+import Api from './components/config/Api'
 
 class App extends React.Component {
 
@@ -29,6 +26,7 @@ class App extends React.Component {
             incriment: 0
 
         }
+        this.VinRef = React.createRef()
     }
 
 
@@ -40,6 +38,8 @@ class App extends React.Component {
         this.props.dispatch(GetMark())
         this.props.dispatch(GetMessage())
         // this.GetMes()
+
+
 
     }
 
@@ -64,12 +64,26 @@ class App extends React.Component {
         }
         setTimeout(Timer,4)
     }
+    Api = (e) => {
+        e.preventDefault()
+        const par = {
+            id: this.VinRef.current.value,
+            // code: this.VinRef.current.value
+        }
+        Api.get('article',par).then(res => {
+            console.log(res)
+        })
 
+    }
     render() {
         // console.log(this.props.score.score.status)
       return (
           <div className="App">
+              <form onSubmit={this.Api}>
+                  <input type="text" name='vin' ref={this.VinRef}/>
 
+                  <button type='submit'>send</button>
+              </form>
               <Switch>
                   <Route exact path='/'>
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>
