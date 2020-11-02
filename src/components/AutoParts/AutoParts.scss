@@ -126,21 +126,20 @@
             background-color: #2727ab;
             outline: 1px solid silver;
           }
+          .store_name{
+            select{
+              border: none;
+              border-radius: 0;
+              margin: 0;
+              background: none;
+              &:hover{
+               border: 0;
+              }
+            }
+          }
           >ul{
             display: flex;
-            &:hover{
-              background: #0e6a99;
-              color: white;
-              transition: 0.5s;
-            }
             &:nth-child(odd){
-
-              &:hover{
-                background: #0e6a99;
-                color: white;
-                transition: 0.5s;
-
-              }
               background: #ececec;
             }
             .buttons{
@@ -148,10 +147,12 @@
               justify-content: space-around;
               span{
                 padding: 1px;
+
               }
             }
             li{
-              padding: 5px;
+              //padding: 5px;
+              //height: 50px;
               border-bottom: 1px solid white;
               font-size: 0.8em;
               display: flex;
