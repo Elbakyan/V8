@@ -7,6 +7,7 @@ import Loading from "../Loading";
 import Signin from "./Authentication/Signin";
 import './Score.scss'
 import {GetScoreList} from "../../redux/score/action";
+import Result from "../Search/Result";
 
 
 class Score extends Component {
@@ -26,6 +27,7 @@ class Score extends Component {
                     <Route path='/score/account'>
                         <Account/>
                     </Route>
+
                     {
                         this.props.score.status === undefined?<Loading/> : this.props.score.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/score/login' />
                     }

@@ -14,8 +14,9 @@ import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
 import {GetMessage} from "./redux/message/action";
-import Api from "./components/config/Api";
-
+import {GET, POST} from "./components/config/Requsest";
+import Api from './components/config/Api'
+import Result from "./components/Search/Result";
 
 class App extends React.Component {
 
@@ -68,22 +69,27 @@ class App extends React.Component {
         e.preventDefault()
         const par = {
             id: this.VinRef.current.value,
-            // code: this.VinRef.current.value
+            code: this.VinRef.current.value,
+            searchNumber: this.VinRef.current.value,
         }
-        Api.get('article',par).then(res => {
-            console.log(res)
+        Api.get('num',par).then(res => {
+
+            res.data.map(data => {
+                console.log(data)
+                Api.get('article',{id: data.ID}).then(res => {
+                    console.log(res)
+
+                })
+            })
+
         })
+
 
     }
     render() {
         // console.log(this.props.score.score.status)
       return (
           <div className="App">
-              <form onSubmit={this.Api}>
-                  <input type="text" name='vin' ref={this.VinRef}/>
-
-                  <button type='submit'>send</button>
-              </form>
               <Switch>
                   <Route exact path='/'>
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>
@@ -99,6 +105,9 @@ class App extends React.Component {
                   </Route>
                   <Route path='/announcement'>
                       <Announcement/>
+                  </Route>
+                  <Route path='/search/result'>
+                      <Result/>
                   </Route>
               </Switch>
 
