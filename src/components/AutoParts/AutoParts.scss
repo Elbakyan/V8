@@ -1,0 +1,160 @@
+.Auto_parts{
+
+  .parts_form{
+
+
+    .get_parts_category{
+      .add_auto_parts{
+        background: silver;
+        padding: 20px;
+        button{
+          margin: 5px 0;
+        }
+        .score_list{
+          padding: 10px 0;
+          margin-bottom: 5px;
+          label{
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 5px;
+            background: #7c7c7c;
+            color: white;
+          }
+          input{
+            &:focus{
+              box-shadow: none;
+            }
+          }
+        }
+        .score_parts_form{
+          >input{
+            margin-right: 15px ;
+            border: 1px solid black;
+          }
+        }
+
+        .score_parts_view{
+          padding: 10px 0;
+          margin: 5px 0;
+          .parts_image{
+            width: 32%;
+          }
+          label{
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            margin:15px 10px 5px 0;
+            background: #7c7c7c;
+            color: white;
+          }
+          input{
+            &:focus{
+              box-shadow: none;
+            }
+          }
+        }
+      }
+
+
+      .pars_image_open{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+        background: black;
+        >div{
+          width: 100%;
+          height: 100%;
+          background: red;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          span{
+            position: absolute;
+            color: white;
+            font-size: 64px;
+            right: 20px;
+            top: 20px;
+          }
+        }
+
+
+      }
+      .get_list_auto_parts{
+        margin-top:15px ;
+        width: 100%;
+
+        background: silver;
+        .list_header{
+          width: 100%;
+
+          >ul{
+            display: flex;
+            background: #5e859d;
+            color: white;
+            li{
+              padding: 5px;
+              //border: 1px solid black;
+              font-size: 0.7em;
+              box-shadow: 0 0 2px white;
+              text-align: center;
+            }
+
+          }
+
+        }
+        .list_body{
+          width: 100%;
+          height: 500px;
+          overflow: auto;
+          &::-webkit-scrollbar {
+            width: 2px;
+          }
+
+          &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #2727ab;
+            outline: 1px solid silver;
+          }
+          >ul{
+            display: flex;
+            &:hover{
+              background: #0e6a99;
+              color: white;
+              transition: 0.5s;
+            }
+            &:nth-child(odd){
+              &:hover{
+                background: #0e6a99;
+                color: white;
+                transition: 0.5s;
+              }
+              background: #ececec;
+            }
+            .buttons{
+              display: flex;
+              justify-content: space-around;
+              span{
+                padding: 1px;
+              }
+            }
+            li{
+              padding: 5px;
+              border-bottom: 1px solid white;
+              font-size: 0.8em;
+
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

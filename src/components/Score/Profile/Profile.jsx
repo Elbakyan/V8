@@ -9,6 +9,7 @@ import ProfilSetingsScore from "./ProfilSetingsScore";
 import ScoreList from "../ScoreList/ScoreList";
 import ScorePage from "../ScorePage/ScorePage";
 import {GetScoreList} from "../../../redux/score/action";
+import AutoParts from "../../AutoParts/AutoParts";
 
 
 
@@ -69,11 +70,11 @@ class Profile extends React.Component{
                                 <Route path='/score/account/list'>
                                     <ScoreList />
                                 </Route>
-                                <Route exact path={'/score/account/' + pathId}>
-                                    <ScoreList />
-                                </Route>
-                                <Route exact path='/score/account/setings'>
-                                    <ProfilSetingsScore />
+                                {/*<Route exact path={'/score/account/' + pathId}>*/}
+                                {/*    <ScoreList />*/}
+                                {/*</Route>*/}
+                                <Route exact path='/score/account/cars'>
+                                    <AutoParts />
                                 </Route>
                                 <Route exact path='/score/account/message'>
                                     <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam

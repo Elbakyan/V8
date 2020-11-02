@@ -12,6 +12,7 @@ class DefaultSelect extends Component {
     render() {
         return (
             <select
+                ref={this.props.ref}
                 name={this.props.name}
                 onChange={this.props.onChange}
                 style={{
@@ -28,7 +29,7 @@ class DefaultSelect extends Component {
                         if (res.name == this.props.selected)this.state.optId = res.id;
                         let selected = (res.name == this.props.selected)? ' selected' : '';
 
-                        return <option  key={i} value={res.name} selected={selected}>{res.name}</option>
+                        return <option  key={i} data-count={i} value={res.name} selected={selected}>{res.name}</option>
                     })
                 }
             </select>
