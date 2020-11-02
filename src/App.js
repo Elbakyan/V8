@@ -38,7 +38,7 @@ class App extends React.Component {
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
         this.props.dispatch(GetMessage())
-        // this.GetMes()
+
 
 
 
