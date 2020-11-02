@@ -1,11 +1,14 @@
-import {GET_SCORE_LIST, SCORE_EXIST} from "./action";
+import {GET_PRODUCT, GET_SCORE_LIST, SCORE_EXIST} from "./action";
 const initialState = {
 
     score:{
         status: undefined,
         data: []
     },
-    scoreList: []
+    scoreList: [],
+    product: {
+        data: []
+    }
 }
 
 export default function ScoreExistReducer(state = initialState,action){
@@ -15,6 +18,8 @@ export default function ScoreExistReducer(state = initialState,action){
             return {...state, score: action.payload}
         case GET_SCORE_LIST:
             return {...state, scoreList: action.payload}
+        case GET_PRODUCT:
+            return {...state, product: action.payload}
         default:
             return state;
     }
