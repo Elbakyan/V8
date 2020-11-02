@@ -42,6 +42,8 @@ class FormAutoParts extends Component {
     }
     search = e => {
         let b = document.querySelector('.search > input')
+        let el = document.getElementById(b.value);
+        el.scrollIntoView();
         this.setState({
             search: b.value
         })
@@ -251,13 +253,13 @@ class FormAutoParts extends Component {
                                 <button type='submit'>Հաստատել․</button>
                             </form>
                         {
-                            this.props.score.product.data.map(el => {
-
+                            this.props.score.product.data.map((el,i) => {
                                 return (
                                     <ul
+                                        id={el.code}
                                         data-code={el}
                                         style={{
-                                            background: el.code == this.state.search ? 'green' : ''
+                                            background: el.code == this.state.search ? '#00800063' : ''
                                         }}
                                     >
                                         <li style={{width: '15%'}} className='store_name'>

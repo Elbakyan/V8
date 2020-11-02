@@ -98,7 +98,6 @@ class GetMessageClass extends Component{
                                                 <span className='meso'>{elem[0].message}</span>
                                             </div>
                                     }
-
                                 </div>
                             )
                         })
