@@ -19,7 +19,12 @@ class FormAutoParts extends Component {
             scoreId: 0,
             search: '',
             loading: false,
-            message: ""
+            message: "",
+            edit:false,
+            id: '',
+            price: '',
+            count: '',
+            top: 0
         }
     }
 
@@ -84,6 +89,29 @@ class FormAutoParts extends Component {
             }
         })
 
+    }
+    UpdateProductData = (e) => {
+        e.preventDefault();
+        let data = new FormData(e.target)
+        POST(Url.setingsproduct,data).then(res => {
+            if (res.status){
+                this.setState({
+                    edit: false
+                })
+                this.props.dispatch(GetProduct())
+            }
+        })
+    }
+    DeliteProduct = (e) => {
+        e.preventDefault();
+        let data = new FormData()
+        data.append('id', e.target.dataset.id);
+        data.append('delite', true);
+        POST(Url.setingsproduct,data).then(res => {
+            if (res.status){
+                this.props.dispatch(GetProduct())
+            }
+        })
     }
 
     render() {
@@ -215,9 +243,16 @@ class FormAutoParts extends Component {
                         {/*<button onClick={this.search}>search</button>*/}
                     </div>
                     <div className="list_body">
+
+                            <form className="edit" style={this.state.edit?{transform:'scaleX(1)', top: this.state.top +'px'}:{transform:'scaleX(0)'}} onSubmit={this.UpdateProductData}>
+                                <input type="number"  name='price' defaultValue={this.state.price}/>
+                                <input type="number"  name='count' defaultValue={this.state.count}/>
+                                <input type="hidden" value={this.state.id} name='id'/>
+                                <button type='submit'>Հաստատել․</button>
+                            </form>
                         {
                             this.props.score.product.data.map(el => {
-                                console.log(el)
+
                                 return (
                                     <ul
                                         data-code={el}
@@ -245,13 +280,24 @@ class FormAutoParts extends Component {
                                         <li style={{width: '12%'}}>{el.img?<img src={el.img} alt=""/>:''}</li>
                                         <li style={{width: '10%'}}>{el.new == 1?'Նոր': 'Օգտ.'}</li>
                                         <li className='buttons' style={{width: '10%'}}>
-                                            <span>
+                                            <span  data-id={el.id} data-price={el.price} data-count={el.count}
+                                                onClick={(e) => {
+
+                                                this.setState({
+                                                    edit: true,
+                                                    id: e.target.dataset.id,
+                                                    price: e.target.dataset.price,
+                                                    count: e.target.dataset.count,
+                                                    top:e.pageY - (window.scrollY + 25)
+                                                })
+                                            }}>
                                                 <FontAwesomeIcon icon={faPen}/>
                                             </span>
-                                                        <span>
+                                            <span onClick={this.DeliteProduct} data-id={el.id}>
                                                 <FontAwesomeIcon icon={faTrashAlt}/>
                                             </span>
                                         </li>
+
                                     </ul>
 
                                 )

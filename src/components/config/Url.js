@@ -19,6 +19,7 @@ export const Url = {
     addscorelist: 'https://brutal.am/Server/add-score-list',
     addproduct: 'https://brutal.am/Server/add-product',
     getproduct: 'https://brutal.am/Server/get-product',
+    setingsproduct: 'https://brutal.am/Server/setings-product',
     getscorelist: 'https://brutal.am/Server/get-score-list',
     loginscore: 'https://brutal.am/Server/score-log',
     logoutscore: 'https://brutal.am/Server/score_l',
