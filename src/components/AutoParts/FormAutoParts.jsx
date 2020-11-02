@@ -242,7 +242,7 @@ class FormAutoParts extends Component {
                                         <li style={{width: '12%'}}>{el.price + ' Դր․'}</li>
                                         <li style={{width: '12%'}}>{el.count + ' հ.'}</li>
                                         <li style={{width: '12%'}}>{el.data.split(' ')[0]}</li>
-                                        <li style={{width: '12%'}}><img src={el.img} alt=""/></li>
+                                        <li style={{width: '12%'}}>{el.img?<img src={el.img} alt=""/>:''}</li>
                                         <li style={{width: '10%'}}>{el.new == 1?'Նոր': 'Օգտ.'}</li>
                                         <li className='buttons' style={{width: '10%'}}>
                                             <span>
