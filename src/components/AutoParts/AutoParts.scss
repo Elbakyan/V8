@@ -134,10 +134,12 @@
               transition: 0.5s;
             }
             &:nth-child(odd){
+
               &:hover{
                 background: #0e6a99;
                 color: white;
                 transition: 0.5s;
+
               }
               background: #ececec;
             }
@@ -155,7 +157,8 @@
               display: flex;
               align-items: center;
               justify-content: center;
-              border-right: 1px solid silver;
+              border-right: 1px solid #0e6a99;
+              margin: 2px 0;
               > img {
                 width: 30px;
                 height: 30px;
@@ -166,5 +169,30 @@
         }
       }
     }
+  }
+}
+.add__product-btn{
+  width: auto;
+  height: 50px;
+  display: flex;
+  position: relative;
+  .loading_btn{
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    padding: 6px 55px;
+
+  }
+}
+.message{
+  color: red;
+  font-style: italic;
+  &::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: red;
+    margin-top: 2px;
   }
 }

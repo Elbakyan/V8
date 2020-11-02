@@ -9,6 +9,7 @@ import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import Api from "../config/Api";
 import {GetProduct} from "../../redux/score/action";
+import Loading from "../Loading";
 
 
 class FormAutoParts extends Component {
@@ -16,7 +17,9 @@ class FormAutoParts extends Component {
         super(props);
         this.state = {
             scoreId: 0,
-            search: ''
+            search: '',
+            loading: false,
+            message: ""
         }
     }
 
@@ -49,6 +52,9 @@ class FormAutoParts extends Component {
             }
         })
         Api.get("num", {searchNumber: code}).then(res => {
+            this.setState({
+                loading: true
+            })
             let name = '';
 
             if (res.data) {
@@ -59,7 +65,21 @@ class FormAutoParts extends Component {
             if (res.result) {
                 data.append('name', name)
                 POST(Url.addproduct, data).then(res => {
-                    console.log(res)
+                    if (res){
+                        this.setState({
+                            loading: false
+                        })
+                        if (res.status){
+                            this.setState({
+                                message: ""
+                            })
+                            this.props.dispatch(GetProduct())
+                        }else{
+                            this.setState({
+                                message: res.message
+                            })
+                        }
+                    }
                 })
             }
         })
@@ -71,6 +91,7 @@ class FormAutoParts extends Component {
         return (
             <Fragment>
                 <div className="add_auto_parts">
+                    {this.state.message?<p className="message">{this.state.message}</p>:''}
                     <form encType='multipart/form-data' onSubmit={this.AddProduct}>
                         <div className="score_list">
                             {
@@ -121,9 +142,9 @@ class FormAutoParts extends Component {
                             <label>
                                 Նոր
                                 <DefaultInput
-                                    type='checkbox'
-                                    value="1"
-                                    name="new"
+                                    type='radio'
+                                    value="new"
+                                    name="state"
                                     width="5%"
                                     checked
                                 />
@@ -132,9 +153,9 @@ class FormAutoParts extends Component {
                             <label>
                                 Օգտագործված
                                 <DefaultInput
-                                    type='checkbox'
-                                    value="1"
-                                    name='old'
+                                    type='radio'
+                                    value="old"
+                                    name='state'
                                     width="5%"
                                 />
                             </label>
@@ -151,14 +172,18 @@ class FormAutoParts extends Component {
                                 </label>
                             </div>
                         </div>
-
-                        <DefaultBtn
-                            type="submit"
-                            name='Առաջ'
-                            color="#fff"
-                            width='15%'
-                            background="rgb(74 141 210)"
-                        />
+                        <div className="add__product-btn">
+                            {
+                                this.state.loading ? <div className="loading_btn"> <Loading type='spin' color='#ff0000' size={30}/> </div>: ''
+                            }
+                            <DefaultBtn
+                                type="submit"
+                                name='Առաջ'
+                                color="#fff"
+                                width='15%'
+                                background="rgb(74 141 210)"
+                            />
+                        </div>
                     </form>
                 </div>
 
@@ -207,7 +232,7 @@ class FormAutoParts extends Component {
                                         <li style={{width: '12%'}}>{el.count + ' հ.'}</li>
                                         <li style={{width: '12%'}}>{el.data.split(' ')[0]}</li>
                                         <li style={{width: '12%'}}><img src={el.img} alt=""/></li>
-                                        <li style={{width: '10%'}}>Նոր</li>
+                                        <li style={{width: '10%'}}>{el.new == 1?'Նոր': 'Օգտ.'}</li>
                                         <li className='buttons' style={{width: '10%'}}>
                                             <span>
                                                 <FontAwesomeIcon icon={faPen}/>
