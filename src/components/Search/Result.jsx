@@ -8,6 +8,8 @@ import Footer from "../Footer/Footer";
 import {connect} from "react-redux";
 import {SearchResult, SearchResultAnal, SearchResultAnalCount, SearchResultAuto} from "../../redux/search/action";
 import {Redirect, Route} from "react-router";
+import DetaleLists from "./DetaeLists";
+import ScoreList from "./ScoreList";
 
 class Result extends Component {
     constructor(props) {
@@ -35,6 +37,7 @@ class Result extends Component {
         setTimeout(() => {
             this.setState({
                 redirect: false
+
             })
         },2000)
     }
@@ -81,7 +84,12 @@ class Result extends Component {
                             }
                             </tbody>
                         </table>
+
                     </div>
+                    <div className="container">
+                        <ScoreList />
+                    </div>
+
                 </Route>
                 {
 
@@ -89,7 +97,7 @@ class Result extends Component {
                     this.props.anal != false ||
                     this.props.auto != false  ?
                     <Route exact path={'/search/result/' + this.state.id}>
-                        helloWorld
+                        <DetaleLists />
                     </Route> : ''
                 }
 

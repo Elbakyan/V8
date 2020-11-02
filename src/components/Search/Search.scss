@@ -74,3 +74,133 @@
     }
   }
 }
+.score_list{
+  width: 100%;
+  //padding: 20px;
+  margin: 10px 0;
+}
+
+.table_style_header{
+  ul{
+    display: flex;
+    background: #274498;
+    li{
+      width: 50%;
+      padding: 5px 20px;
+      border: 1px solid white;
+      //border: 1px solid red;
+      text-align: center;
+      font-size: 0.9em;
+    }
+  }
+}
+.table_style_body{
+  height: auto;
+  overflow: auto;
+  max-height: 400px;
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #2727ab;
+    outline: 1px solid silver;
+  }
+  ul{
+    display: flex;
+    //border: 1px solid red;
+    //background: #fce8e8;
+    &:nth-child(odd){
+      background: #c3c1c1;
+    }
+    li{
+      width: 50%;
+      padding: 5px 10px;
+      font-size: 0.9em;
+    }
+  }
+}
+.detale_list{
+  display: flex;
+
+  @media (max-width: 1024px) {
+    &{
+      flex-direction: column;
+      transition: 1s;
+    }
+  }
+  padding: 20px 0;
+  .articul_list{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    @media (max-width: 1024px) {
+      &{
+        width: 100%;
+        padding: 5px 0;
+      }
+    }
+    &__header{
+      ul{
+        li{
+          width: 50%;
+        }
+      }
+    }
+    &__body{
+      ul{
+        li{
+          width: 50%;
+        }
+      }
+    }
+  }
+
+
+  .articul_list_image{
+    width: 50%;
+    //border: 1px solid red;
+    @media (max-width: 1024px) {
+      &{
+        width: 100%;
+        padding: 5px 0;
+      }
+    }
+  }
+}
+.detale_list_analog{
+  display: flex;
+  padding: 20px 0;
+  @media (max-width: 1024px) {
+    &{
+      flex-direction: column;
+    }
+  }
+  .articul_list_analog{
+    width: 50%;
+    padding: 0 5px;
+    //margin: 0 5px 0 0;
+    @media (max-width: 1024px) {
+      &{
+        width: 100%;
+        padding: 5px 0;
+      }
+    }
+  }
+
+  .articul_list_auto{
+    width: 50%;
+    //margin: 0 0 0 5px;
+    padding: 0 5px;
+    @media (max-width: 1024px) {
+      &{
+        width: 100%;
+        padding: 5px 0;
+      }
+    }
+  }
+}

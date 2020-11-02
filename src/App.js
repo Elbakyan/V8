@@ -17,6 +17,7 @@ import {GetMessage} from "./redux/message/action";
 import {GET, POST} from "./components/config/Requsest";
 import Api from './components/config/Api'
 import Result from "./components/Search/Result";
+import DetaleLists from "./components/Search/DetaeLists";
 
 class App extends React.Component {
 
