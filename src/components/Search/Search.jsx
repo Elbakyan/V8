@@ -23,7 +23,9 @@ class Search extends Component {
             searchNumber: this.SearchRef.current.value,
         }
         Api.get("num",par).then( res => {
+
             if (res.data) {
+
                 this.props.dispatch(SearchResult(res.data))
             }
             this.setState({
@@ -38,6 +40,7 @@ class Search extends Component {
         Api.get("carvin",par).then( res => {
 
         })
+
     }
     render(){
         return (

@@ -101,7 +101,10 @@
               //border: 1px solid black;
               font-size: 0.7em;
               box-shadow: 0 0 2px white;
-              text-align: center;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
             }
 
           }
@@ -149,7 +152,14 @@
               padding: 5px;
               border-bottom: 1px solid white;
               font-size: 0.8em;
-
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-right: 1px solid silver;
+              > img {
+                width: 30px;
+                height: 30px;
+              }
             }
           }
 
