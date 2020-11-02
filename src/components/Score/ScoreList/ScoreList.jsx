@@ -7,7 +7,7 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {GetCity} from "../../../redux/location/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus,faMinus } from '@fortawesome/free-solid-svg-icons'
-import {POST, TEST_POST} from "../../config/Requsest";
+import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";

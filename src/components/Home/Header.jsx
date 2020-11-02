@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import './Home.scss'
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
+import Search from "../Search/Search";
 
 
 
@@ -18,25 +19,26 @@ class Header extends React.Component{
                             <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>
-                    <nav className="header__navigation ">
-                        <ul className="header__links-ul row align-center">
-                                <li className='header__navigation-li'>
-                                    <Link to='/spare-parts' className='header__link'>
-                                        Պահեստամասեր
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/acauservice'>
-                                        Ծառայություներ
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/announcement'>
-                                        Հայտարարություններ
-                                    </Link>
-                                </li>
-                        </ul>
-                    </nav>
+                    {/*<nav className="header__navigation ">*/}
+                    {/*    <ul className="header__links-ul row align-center">*/}
+                    {/*            <li className='header__navigation-li'>*/}
+                    {/*                <Link to='/spare-parts' className='header__link'>*/}
+                    {/*                    Պահեստամասեր*/}
+                    {/*                </Link>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/acauservice'>*/}
+                    {/*                    Ծառայություներ*/}
+                    {/*                </Link>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/announcement'>*/}
+                    {/*                    Հայտարարություններ*/}
+                    {/*                </Link>*/}
+                    {/*            </li>*/}
+                    {/*    </ul>*/}
+                    {/*</nav>*/}
+                    <Search />
                     <div className="header__links ">
                         <nav className="header_links-nav">
                             <ul className="header__links-ul row align-center">

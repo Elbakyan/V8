@@ -15,6 +15,8 @@ const apiurl = {
                 return get(url + 'sessionOpen&login=infov8.am&password=elbakyan2020it&keySoftware=cross');
             case 'article':
                 return get(url + 'getArticle&idSession=' + this.idSession + '&ID=' + par.id);
+            case 'articlecar':
+                return get(url + 'getArticlesCar&idSession=' + this.idSession + '&ID=' + par.id);
             case 'attrib':
                 return get(url + 'getArticleAttributes&idSession=' + this.idSession + '&ID=' + par.id);
             case 'image':
@@ -22,13 +24,12 @@ const apiurl = {
             case 'analCount':
                 return get(url + 'getArticlesAnalog&idSession=' + this.idSession + '&ID=' + par.id + '&count=1');
             case 'anal':
-                return get(url + 'getArticlesAnalog&idSession=' + this.idSession + '&ID=' + par.id +
-                    '&limit=' + par.limit + '&offset=' + par.limit * (par.list - 1) + '&order=ManufacturerDescription,SearchCode');
+                return get(url + 'getArticlesAnalog&idSession=' + this.idSession + '&ID=' + par.id + '&order=ManufacturerDescription,SearchCode');
             case 'autoCount':
                 return get(url + 'getCarsArticle&idSession=' + this.idSession + '&ArticleID=' + par.id + '&count=1');
             case 'auto':
-                return get(url + 'getCarsArticle&idSession=' + this.idSession + '&ArticleID=' + par.id +
-                    '&limit=' + par.limit + '&offset=' + par.limit * (par.list - 1));
+                return get(url + 'getCarsArticle&idSession=' + this.idSession + '&ArticleID=' + par.id);
+                // +'&limit=' + par.limit + '&offset=' + par.limit * (par.list - 1)
             case 'tree':
                 return get(url + 'getTree&idSession=' + this.idSession + '&order=Level, treetype, ParentID' +
                     (par.carid !== 0 ? '&CarID=' + par.carid : ''));

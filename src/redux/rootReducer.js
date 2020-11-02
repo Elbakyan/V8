@@ -7,6 +7,7 @@ import SellReducer from "./sellauto/SellReducer";
 import FavoriteReducer from "./favorite/FavoriteReducer";
 import MessageReducer from "./message/MessageReducer";
 import tmpReducer from "./tmp/tmpReducer";
+import SearchReducer from "./search/SearchReducer";
 export default combineReducers({
     user: UserExistReducer,
     location: locationReducer,
@@ -15,5 +16,6 @@ export default combineReducers({
     sell: SellReducer,
     favorite: FavoriteReducer,
     message: MessageReducer,
-    tmp: tmpReducer
+    tmp: tmpReducer,
+    search: SearchReducer
 })
