@@ -64,6 +64,8 @@ const apiurl = {
                     '&vin=' + par.code + '&type=2');
             case 'close':
                 return get(url + 'sessionClose&idSession=' + this.idSession);
+            case 'search':
+                return get(url + 'getArticlesSearchCode&idSession=' + this.idSession);
             default:
                 return null;
         }

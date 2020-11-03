@@ -42,7 +42,7 @@ class Profile extends React.Component{
                                     <div className="icon">
                                         <FontAwesomeIcon icon={faHome}/>
                                     </div>
-                                    <Link to={'/score/account/list'}>Իմ էջը</Link>
+                                    <Link to={'/score/account'}>Իմ էջը</Link>
                                 </li>
                                 <li>
                                     <div className="icon">
@@ -67,9 +67,9 @@ class Profile extends React.Component{
 
                         <div className="Profile__content">
                             <Switch>
-                                <Route path='/score/account/list'>
-                                    <ScoreList />
-                                </Route>
+                                {/*<Route path='/score/account/list'>*/}
+                                {/*    <ScoreList />*/}
+                                {/*</Route>*/}
                                 {/*<Route exact path={'/score/account/' + pathId}>*/}
                                 {/*    <ScoreList />*/}
                                 {/*</Route>*/}
@@ -100,9 +100,8 @@ class Profile extends React.Component{
                                         quos ratione sequi, sunt totam, veniam vero voluptates!
                                     </div>
                                 </Route>
-
+                                <ScoreList />
                             </Switch>
-
                         </div>
                     </div>
                 </div>

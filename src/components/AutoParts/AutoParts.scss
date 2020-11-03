@@ -64,11 +64,12 @@
         display: none;
         top: 0;
         left: 0;
+        z-index: 5;
         background: black;
         >div{
           width: 100%;
           height: 100%;
-          background: red;
+          //background: red;
           position: relative;
           display: flex;
           justify-content: center;
@@ -141,9 +142,16 @@
           >ul{
             display: flex;
             transition: .3s;
-
+            option{
+              background: #00000090;
+            }
             &:hover{
               background: #00000090;
+              color: white;
+              select{
+                color: white;
+              }
+
             }
             &:nth-child(odd){
               background: #ececec;

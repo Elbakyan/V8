@@ -19,6 +19,8 @@ class Result extends Component {
             redirect: false,
         }
     }
+
+
     SearchAll = (e) => {
         e.preventDefault();
         Api.get("analCount",{id: e.target.dataset.id}).then( res => {
@@ -28,8 +30,11 @@ class Result extends Component {
             this.props.dispatch(SearchResultAnal(res.data))
         })
         Api.get("auto",{id: e.target.dataset.id}).then( res => {
+            console.log(res)
             this.props.dispatch(SearchResultAuto(res.data))
+            // console.log(res)
         })
+
         this.setState({
             id : e.target.dataset.id,
             redirect: true

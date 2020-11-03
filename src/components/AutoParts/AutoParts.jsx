@@ -29,7 +29,6 @@ class AutoParts extends Component{
                             data={maser}
                             width= '20%'
                             name='category'
-                            ref={this.refSelect}
                         />
                     </div>
                     <div className="get_parts_category">
@@ -37,7 +36,7 @@ class AutoParts extends Component{
                             this.state.category === '0' ?<FormAutoParts />:''
                         }
                         {
-                            this.state.category === '1' ?<Message />:''
+                            this.state.category === '1' ?<h1>jjj</h1>:''
                         }
                         {
                             this.state.category === '2' ?<h1>bbb</h1>:''
