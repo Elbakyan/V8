@@ -1,12 +1,67 @@
 import React, {Component} from "react";
 import SliderAuto from "../SliderAuto/SliderAuto";
+import {connect} from "react-redux";
+import Api from "../config/Api";
+import {
+    SearchResultAnal,
+    SearchResultAnalCount,
+    SearchResultAuto, SearchResultImg,
+    SearchResultProduct
+} from "../../redux/search/action";
 let data = [
     'http://web.nirax.ru/cross/image/55/00215160503.jpg',
     'http://web.nirax.ru/cross/image/29/00215160603.jpg',
     'http://web.nirax.ru/cross/image/29/00215160703.jpg'
 ]
 class DetaleLists extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            analCount: 0,
+            anal: [],
+            auto: [],
+            product: '',
+            img: []
+        }
+    }
+
+    componentDidMount() {
+        let id = window.location.pathname.split('/')[window.location.pathname.split('/').length -1];
+        Api.get("analCount",{id: id}).then( res => {
+            this.setState({
+                analCount: res.count
+            })
+        })
+        Api.get("anal",{id: id}).then( res => {
+            this.setState({
+                anal: res.data
+            })
+        })
+        Api.get("auto",{id: id}).then( res => {
+            this.setState({
+                auto: res.data
+            })
+        })
+        Api.get("article",{id: id}).then( res => {
+
+            this.setState({
+                product: res
+            })
+        })
+        Api.get("image",{id: id}).then( res => {
+            res.data.map(img => {
+                this.state.img.push(img.FileImage)
+            })
+
+        })
+
+
+    }
+
     render() {
+
+        let article = this.state.product;
+
         return(
             <div className="container">
                 <div className='detale_list'>
@@ -19,27 +74,48 @@ class DetaleLists extends Component{
                         </div>
                         <div className='articul_list__body table_style_body'>
                             <ul>
-                                <li>Свойство</li>
-                                <li>Значение</li>
+                                <li>Артикул</li>
+                                <li>{article?article.DataSupplierArticleNumber:''}</li>
                             </ul>
                             <ul>
-                                <li>Свойство</li>
-                                <li>Значение</li>
+                                <li>Производитель</li>
+                                <li>{article?article.ManufacturerDescription:''}</li>
                             </ul>
                             <ul>
-                                <li>Свойство</li>
-                                <li>Значение</li>
+                                <li>Наименование</li>
+                                <li>{article?article.ProductDescription:''}</li>
+                            </ul>
+                            <ul>
+                                <li>Код</li>
+                                <li>{article?article.ID:''}</li>
+                            </ul>
+                            <ul>
+                                <li>Вид продукции</li>
+                                <li>{article?article.ProductNormalizedDescription:''}</li>
+                            </ul>
+                            <ul>
+                                <li>Место установки</li>
+                                <li>{article?article.AssemblyGroupDescription:''}</li>
+                            </ul>
+                            <ul>
+                                <li>Назначение</li>
+                                <li>{article?article.UsageDescription:''}</li>
                             </ul>
                         </div>
                     </nav>
                     <div className='articul_list_image'>
-                        <SliderAuto autoImage={data}/>
+                        {
+                            this.state.img != false?<SliderAuto autoImage={this.state.img}/>:''
+                        }
                     </div>
                 </div>
-
+                <div className="analog__count">
+                    <p>{'Аналоги ('+this.state.analCount +')'}</p>
+                </div>
                 <div className="detale_list_analog">
 
                     <nav className='articul_list_analog'>
+
                         <div className='articul_list_analog__header table_style_header'>
                             <ul>
                                 <li>Производитель</li>
@@ -49,24 +125,20 @@ class DetaleLists extends Component{
                             </ul>
                         </div>
                         <div className='articul_list_analog__body table_style_body'>
-                            <ul>
-                                <li>Производитель</li>
-                                <li>Артикул</li>
-                                <li>Наименование</li>
-                                <li>Фото</li>
-                            </ul>
-                            <ul>
-                                <li>Производитель</li>
-                                <li>Артикул</li>
-                                <li>Наименование</li>
-                                <li>Фото</li>
-                            </ul>
-                            <ul>
-                                <li>Производитель</li>
-                                <li>Артикул</li>
-                                <li>Наименование</li>
-                                <li>Фото</li>
-                            </ul>
+                            {
+                                this.state.anal?
+                                    this.state.anal.map(anal => {
+                                        return (
+                                            <ul>
+                                                <li>{anal.ManufacturerDescription}</li>
+                                                <li>{anal.DataSupplierArticleNumber}</li>
+                                                <li>{anal.ProductDescription}</li>
+                                                <li><img src={anal.FileIconFull} alt=""/></li>
+                                            </ul>
+                                        )
+                                    }): ''
+                            }
+
                         </div>
                     </nav>
 
@@ -80,24 +152,24 @@ class DetaleLists extends Component{
                             </ul>
                         </div>
                         <div className='articul_list_auto__body table_style_body'>
-                            <ul>
-                                <li>Производитель</li>
-                                <li>Артикул</li>
-                                <li>Наименование</li>
-                                <li>Фото</li>
-                            </ul>
-                            <ul>
-                                <li>Производитель</li>
-                                <li>Артикул</li>
-                                <li>Наименование</li>
-                                <li>Фото</li>
-                            </ul>
-                            <ul>
-                                <li>Производитель</li>
-                                <li>Артикул</li>
-                                <li>Наименование</li>
-                                <li>Фото</li>
-                            </ul>
+                            {
+                                this.state.auto?
+                                    this.state.auto.map(auto => {
+                                        let fromYear = auto.ConstructionIntervalFrom.split('').slice(0,4).join('');
+                                        let fromMonth = auto.ConstructionIntervalFrom.split('').slice(4, 6).join('');
+                                        let toYear = auto.ConstructionIntervalTo.split('').slice(0,4).join('');
+                                        let toMonth = auto.ConstructionIntervalTo.split('').slice(4, 6).join('');
+
+                                        return(
+                                            <ul>
+                                                <li>{auto.FullDescription}</li>
+                                                <li>{auto.ConstructionIntervalTo != 0? fromYear + '-' + fromMonth + ' ' + toYear + '-' + toMonth: fromYear + '-' + fromMonth}</li>
+                                                <li>{auto.Ccm}</li>
+                                                <li>{auto.KvBody}</li>
+                                            </ul>
+                                        )
+                                    }):''
+                            }
                         </div>
                     </nav>
                 </div>
@@ -106,4 +178,7 @@ class DetaleLists extends Component{
         )
     }
 }
-export default DetaleLists
+
+const MapStateToProps = state => state;
+const MainDetaleLists = connect(MapStateToProps)(DetaleLists);
+export default MainDetaleLists;

@@ -8,6 +8,10 @@ export const GET_CITY = 'GET_CITY';
 export function GetSicle(){
     return (dispach) => {
         GET(Url.location).then(res => {
+            res.unshift({
+                id: 0,
+                name: 'Տարածաշրջան'
+            })
             dispach({
                 type: GET_SIRCLE,
                 payload: res

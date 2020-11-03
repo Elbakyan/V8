@@ -15,13 +15,17 @@ const apiurl = {
             case 'demo':
                 return get(url + 'sessionOpen&login=infov8.am&password=elbakyan2020it&keySoftware=cross');
             case 'article':
-                return get(url + 'getArticle&idSession=' + this.idSession + '&ID=' + par.id);
+                return get(url + 'getArticle&idSession=' + this.idSession  + '&ID=' + par.id);
+            case 'code':
+                return get(url + 'getArticle&idSession=' + this.idSession  + '&ID=' + par.id);
             case 'articlecar':
                 return get(url + 'getArticlesCar&idSession=' + this.idSession + '&ID=' + par.id);
             case 'attrib':
                 return get(url + 'getArticleAttributes&idSession=' + this.idSession + '&ID=' + par.id);
             case 'image':
                 return get(url + 'getArticleImages&idSession=' + this.idSession + '&ID=' + par.id);
+            case 'product':
+                return get(url + 'getProduct&idSession=' + this.idSession + '&ID=' + par.id);
             case 'analCount':
                 return get(url + 'getArticlesAnalog&idSession=' + this.idSession + '&ID=' + par.id + '&count=1');
             case 'anal':

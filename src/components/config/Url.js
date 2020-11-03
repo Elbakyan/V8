@@ -35,4 +35,5 @@ export const Url = {
     messageStatus: 'https://brutal.am/Server/message-status',
     deliteMessage: 'https://brutal.am/Server/message_delite-',
     tmpimg: 'https://brutal.am/Server/tmp-img',
+    searchscore: 'https://brutal.am/Server/isset_detal'
 }

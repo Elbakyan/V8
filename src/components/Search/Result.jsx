@@ -6,17 +6,23 @@ import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import Header from "../Score/Header";
 import Footer from "../Footer/Footer";
 import {connect} from "react-redux";
-import {SearchResult, SearchResultAnal, SearchResultAnalCount, SearchResultAuto} from "../../redux/search/action";
+import {
+    SearchResult,
+    SearchResultAnal,
+    SearchResultAnalCount,
+    SearchResultAuto,
+    SearchResultImg, SearchResultProduct
+} from "../../redux/search/action";
 import {Redirect, Route} from "react-router";
 import DetaleLists from "./DetaeLists";
 import ScoreList from "./ScoreList";
+import {Link} from "react-router-dom";
 
 class Result extends Component {
     constructor(props) {
         super(props);
         this.state = {
             id: '',
-            redirect: false,
         }
     }
     SearchAll = (e) => {
@@ -30,25 +36,25 @@ class Result extends Component {
         Api.get("auto",{id: e.target.dataset.id}).then( res => {
             this.props.dispatch(SearchResultAuto(res.data))
         })
+        Api.get("image",{id: e.target.dataset.id}).then( res => {
+            this.props.dispatch(SearchResultImg(res.data))
+        })
+        Api.get("article",{id: e.target.dataset.id}).then( res => {
+            this.props.dispatch(SearchResultProduct(res.data))
+        })
         this.setState({
             id : e.target.dataset.id,
-            redirect: true
         })
-        setTimeout(() => {
-            this.setState({
-                redirect: false
 
-            })
-        },2000)
     }
     render(){
-
+        // console.log(this.props)
         return (
             <Fragment>
-                {
-                    this.state.redirect ? <Redirect to={'/search/result/' + this.state.id} /> : ''
-                }
                 <Header />
+                <Route path={'/search/result/' + window.location.pathname.split('/')[window.location.pathname.split('/').length -1]}>
+                    <DetaleLists />
+                </Route>
                 <Route exact path='/search/result/'>
                     <div className='Result'>
                         <table className='result_code'>
@@ -70,14 +76,14 @@ class Result extends Component {
                                 this.props.result?
                                     this.props.result.map((res, i) => {
                                         return (
-                                            <tr data-id={res.ID} key={i} onClick={this.SearchAll}>
-                                                <td data-id={res.ID}>{res.ManufacturerDescription}</td>
-                                                <td data-id={res.ID}><a data-id={res.ID} href="">{res.DataSupplierArticleNumber}</a></td>
-                                                <td data-id={res.ID}>{res.ProductDescription}</td>
-                                                <td data-id={res.ID}><img data-id={res.ID} src={res.FileIconFull} alt="" className='image'/></td>
-                                                <td data-id={res.ID}>{res.Description}</td>
-                                                <td data-id={res.ID}>{res.AssemblyGroupDescription}</td>
-                                                <td data-id={res.ID}>{res.UsageDescription}</td>
+                                            <tr data-id={res.ID} data-article={res.DataSupplierArticleNumber} key={i} onClick={this.SearchAll}>
+                                                <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}>{res.ManufacturerDescription}</td>
+                                                <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}><Link to={'/search/result/' + res.ID} href="">{res.DataSupplierArticleNumber}</Link></td>
+                                                <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}>{res.ProductDescription}</td>
+                                                <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}><img data-id={res.ID} src={res.FileIconFull} alt="" className='image'/></td>
+                                                <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}>{res.Description}</td>
+                                                <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}>{res.AssemblyGroupDescription}</td>
+                                                <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}>{res.UsageDescription}</td>
                                             </tr>
                                         )
                                     }) : ''
