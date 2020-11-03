@@ -40,9 +40,6 @@ class App extends React.Component {
         this.props.dispatch(GetMark())
         this.props.dispatch(GetMessage())
 
-
-
-
     }
 
     GetMes = () => {

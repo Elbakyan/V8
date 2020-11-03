@@ -25,6 +25,8 @@ class Result extends Component {
             id: '',
         }
     }
+
+
     SearchAll = (e) => {
         e.preventDefault();
         Api.get("analCount",{id: e.target.dataset.id}).then( res => {
@@ -34,7 +36,9 @@ class Result extends Component {
             this.props.dispatch(SearchResultAnal(res.data))
         })
         Api.get("auto",{id: e.target.dataset.id}).then( res => {
+            console.log(res)
             this.props.dispatch(SearchResultAuto(res.data))
+            // console.log(res)
         })
         Api.get("image",{id: e.target.dataset.id}).then( res => {
             this.props.dispatch(SearchResultImg(res.data))
@@ -42,6 +46,7 @@ class Result extends Component {
         Api.get("article",{id: e.target.dataset.id}).then( res => {
             this.props.dispatch(SearchResultProduct(res.data))
         })
+
         this.setState({
             id : e.target.dataset.id,
         })
