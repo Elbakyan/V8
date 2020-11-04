@@ -5,6 +5,7 @@ export const SEARCH_RESULT_ANAL = 'SEARCH_RESULT_ANAL';
 export const SEARCH_RESULT_AUTO = 'SEARCH_RESULT_AUTO';
 export const SEARCH_RESULT_IMG = 'SEARCH_RESULT_IMG';
 export const SEARCH_RESULT_PRODUCT = 'SEARCH_RESULT_PRODUCT';
+export const SEARCH_SCORE_LISTS = 'SEARCH_SCORE_LISTS';
 
 export function SearchResult(data){
     return (dispach) => {
@@ -50,6 +51,14 @@ export function SearchResultProduct(data){
     return (dispach) => {
         dispach({
             type: SEARCH_RESULT_PRODUCT,
+            payload: data
+        })
+    }
+}
+export function SearchScoreLists(data){
+    return (dispach) => {
+        dispach({
+            type: SEARCH_SCORE_LISTS,
             payload: data
         })
     }
