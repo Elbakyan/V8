@@ -10,6 +10,8 @@ import {Url} from "../config/Url";
 import Api from "../config/Api";
 import {GetProduct} from "../../redux/score/action";
 import Loading from "../Loading";
+                                            import DefaultSelect from "../forms/select/DefaultSelect";
+                                            import {maser} from "../Menu/autoObj";
 
 
 class FormAutoParts extends Component {
@@ -25,12 +27,16 @@ class FormAutoParts extends Component {
             price: '',
             count: '',
             top: 0,
-            zoomImg:''
+            zoomImg:'',
+            SelectStore:''
         }
     }
 
     componentDidMount() {
         this.props.dispatch(GetProduct())
+        this.setState({
+            SelectStore:this.props.score.scoreList
+        })
     }
 
     closeImage = e => {
@@ -129,6 +135,12 @@ class FormAutoParts extends Component {
             if (res.status){
                 this.props.dispatch(GetProduct())
             }
+        })
+    }
+    getSelectStore = (e) => {
+        // console.log(e.target.value)
+        this.setState({
+            SelectStore:e.target.value
         })
     }
 
@@ -242,6 +254,28 @@ class FormAutoParts extends Component {
                         />
                     </div>
                 </div>
+                {/*<DefaultSelect*/}
+                {/*    // onChange={this.getCategory}*/}
+                {/*    data={maser}*/}
+                {/*    width= '20%'*/}
+                {/*    name='stores'*/}
+                {/*/>*/}
+                <div className="select_store">
+                    <p>Ընտրել խանութը</p>
+                    <select
+                        ref={el=>this.getStore=el}
+                        onChange={this.getSelectStore}
+                    >
+                        <option value="0"></option>
+                        {
+                            this.props.score.scoreList.map(el =>(
+                                <option value={el.name}>
+                                    {el.name}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </div>
 
                 <div className="get_list_auto_parts">
                     <div className='list_header'>
@@ -257,6 +291,7 @@ class FormAutoParts extends Component {
                             <li style={{width: '10%'}}>Կարգավորում</li>
                         </ul>
                         <div className='search'>
+                            <p>Գտնել դետալը ըստ համարի</p>
                             <input type="text" onChange={this.search}/>
                         </div>
                     </div>
@@ -273,61 +308,57 @@ class FormAutoParts extends Component {
                         }
 
 
-                            <form className="edit" style={this.state.edit?{transform:'scaleX(1)', top: this.state.top +'px'}:{transform:'scaleX(0)'}} onSubmit={this.UpdateProductData}>
-                                <input type="number"  name='price' value={this.state.price}/>
-                                <input type="number"  name='count' value={this.state.count}/>
-                                <input type="hidden" value={this.state.id} name='id'/>
-                                <button type='submit'>Հաստատել․</button>
-                            </form>
-
                         {
                             this.props.score.product.data?this.props.score.product.data.map((el,i) => {
                                 console.log(el)
-                                return (
-                                    <ul
-                                        key={i}
-                                        id={el.code}
-                                        data-code={el}
-                                        style={{
-                                            background: el.code == this.state.search ? 'rgba(0,128,0,0.39)' : ''
-                                        }}
-                                    >
-                                        <li style={{width: '15%'}} className='store_name'>
-                                            {el.store_name}
-                                        </li>
-                                        <li style={{width: '15%'}}>{el.code}</li>
-                                        <li style={{width: '15%'}}>{el.name}</li>
-                                        <li style={{width: '12%'}}>{el.price + ' Դր․'}</li>
-                                        <li style={{width: '12%'}}>{el.count + ' հ.'}</li>
-                                        <li style={{width: '12%'}}>{el.data.split(' ')[0]}</li>
-                                        <li style={{width: '12%'}}
-                                            onClick={this.openImage}
-                                            data-img={el.img?el.img:''}
+                                if(el.store_name === this.state.SelectStore){
+                                    return (
+                                        <ul
+                                            key={i}
+                                            id={el.code}
+                                            data-code={el}
+                                            style={{
+                                                background: el.code == this.state.search ? 'rgba(0,128,0,0.39)' : ''
+                                            }}
                                         >
-                                            {el.img?<img data-img={el.img?el.img:''} src={el.img} alt=""/>:''}
-                                        </li>
-                                        <li style={{width: '10%'}}>{el.new == 1?'Նոր': 'Օգտ.'}</li>
-                                        <li className='buttons' style={{width: '10%'}}>
+                                            <li style={{width: '15%'}} className='store_name'>
+                                                {el.store_name}
+                                            </li>
+                                            <li style={{width: '15%'}}>{el.code}</li>
+                                            <li style={{width: '15%'}}>{el.name}</li>
+                                            <li style={{width: '12%'}}>{el.price + ' Դր․'}</li>
+                                            <li style={{width: '12%'}}>{el.count + ' հ.'}</li>
+                                            <li style={{width: '12%'}}>{el.data.split(' ')[0]}</li>
+                                            <li style={{width: '12%'}}
+                                                onClick={this.openImage}
+                                                data-img={el.img?el.img:''}
+                                            >
+                                                {el.img?<img data-img={el.img?el.img:''} src={el.img} alt=""/>:''}
+                                            </li>
+                                            <li style={{width: '10%'}}>{el.new == 1?'Նոր': 'Օգտ.'}</li>
+                                            <li className='buttons' style={{width: '10%'}}>
                                             <span  data-id={el.id} data-price={el.price} data-count={el.count}
-                                                onClick={(e) => {
-                                                this.setState({
-                                                    edit: true,
-                                                    id: e.target.dataset.id,
-                                                    price: e.target.dataset.price,
-                                                    count: e.target.dataset.count,
-                                                    top:e.pageY - (window.scrollY + 25)
-                                                })
-                                            }}>
+                                                   onClick={(e) => {
+                                                       this.setState({
+                                                           edit: true,
+                                                           id: e.target.dataset.id,
+                                                           price: e.target.dataset.price,
+                                                           count: e.target.dataset.count,
+                                                           top:e.pageY - (window.scrollY + 25)
+                                                       })
+                                                   }}>
                                                 <FontAwesomeIcon icon={faPen}/>
                                             </span>
-                                            <span onClick={this.DeliteProduct} data-id={el.id}>
+                                                <span onClick={this.DeliteProduct} data-id={el.id}>
                                                 <FontAwesomeIcon icon={faTrashAlt}/>
                                             </span>
-                                        </li>
-                        
-                                    </ul>
-                        
-                                )
+                                            </li>
+
+                                        </ul>
+
+                                    )
+                                }
+
                             }):''
                         
                         

@@ -56,7 +56,16 @@
         }
       }
 
-
+      .select_store{
+        width: 100%;
+        //border: 1px solid red;
+        margin: 15px 0;
+        background: silver;
+        padding: 20px;
+        select{
+          width: 20%;
+        }
+      }
       .pars_image_open{
         width: 100%;
         height: 100%;
