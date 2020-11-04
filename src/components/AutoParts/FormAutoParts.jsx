@@ -85,7 +85,9 @@ class FormAutoParts extends Component {
             if (res.result) {
                 data.append('name', name)
                 POST(Url.addproduct, data).then(res => {
+                    console.log(res)
                     if (res){
+                        console.log(res)
                         this.setState({
                             loading: false
                         })
@@ -123,6 +125,7 @@ class FormAutoParts extends Component {
         data.append('id', e.target.dataset.id);
         data.append('delite', true);
         POST(Url.setingsproduct,data).then(res => {
+            console.log(res)
             if (res.status){
                 this.props.dispatch(GetProduct())
             }
@@ -143,11 +146,12 @@ class FormAutoParts extends Component {
                                         {el.name}
                                         <DefaultInput
                                             type='checkbox'
-                                            value={el.id + '/' + el.name}
+                                            value={el.name}
                                             name='score[]'
                                             width="5%"
                                             checked
                                         />
+                                        <input type="hidden" name='store_id[]' value={el.id}/>
                                     </label>
                                 ))
                             }
@@ -267,6 +271,7 @@ class FormAutoParts extends Component {
                             </form>
                         {
                             this.props.score.product.data?this.props.score.product.data.map((el,i) => {
+                                console.log(el)
                                 return (
                                     <ul
                                         key={i}
@@ -277,16 +282,7 @@ class FormAutoParts extends Component {
                                         }}
                                     >
                                         <li style={{width: '15%'}} className='store_name'>
-                                            <select style={{boxShadow: '0px 0px 0px'}}>
-                                                {
-                                                    el.store_name.map((elem,i)=>(
-                                                        <option key={i}>{elem}</option>
-                                                    ))
-                                                }
-                                            </select>
-
-
-
+                                            {el.store_name}
                                         </li>
                                         <li style={{width: '15%'}}>{el.code}</li>
                                         <li style={{width: '15%'}}>{el.name}</li>
@@ -303,7 +299,7 @@ class FormAutoParts extends Component {
                                         <li className='buttons' style={{width: '10%'}}>
                                             <span  data-id={el.id} data-price={el.price} data-count={el.count}
                                                 onClick={(e) => {
-
+                        
                                                 this.setState({
                                                     edit: true,
                                                     id: e.target.dataset.id,
@@ -318,13 +314,13 @@ class FormAutoParts extends Component {
                                                 <FontAwesomeIcon icon={faTrashAlt}/>
                                             </span>
                                         </li>
-
+                        
                                     </ul>
-
+                        
                                 )
                             }):''
-
-
+                        
+                        
                         }
                     </div>
                 </div>

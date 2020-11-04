@@ -23,7 +23,6 @@ class SliderAuto extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(prevProps.autoImage)
         prevState.showImg = prevProps.autoImage
     }
 

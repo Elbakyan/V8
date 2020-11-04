@@ -1,10 +1,18 @@
-import {SEARCH_RESULT, SEARCH_RESULT_ANAL, SEARCH_RESULT_ANAL_COUNT, SEARCH_RESULT_AUTO} from "./action";
+import {
+    SEARCH_RESULT,
+    SEARCH_RESULT_ANAL,
+    SEARCH_RESULT_ANAL_COUNT,
+    SEARCH_RESULT_AUTO,
+    SEARCH_RESULT_IMG, SEARCH_RESULT_PRODUCT
+} from "./action";
 
 const initialState = {
     result: [],
     analCount: 0,
     anal: [],
-    auto: []
+    auto: [],
+    img: [],
+    product: []
 }
 export default function searchReducer(state = initialState, action){
     switch (action.type){
@@ -16,6 +24,10 @@ export default function searchReducer(state = initialState, action){
             return {...state, anal: action.payload}
         case SEARCH_RESULT_AUTO:
             return {...state, auto: action.payload}
+        case SEARCH_RESULT_IMG:
+            return {...state, img: action.payload}
+        case SEARCH_RESULT_PRODUCT:
+            return {...state, product: action.payload}
 
     }
     return state;

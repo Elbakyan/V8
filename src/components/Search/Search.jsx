@@ -6,6 +6,9 @@ import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
 import {SearchResult} from "../../redux/search/action";
 import {Redirect} from "react-router";
+import DefaultSelect from "../forms/select/DefaultSelect";
+import {POST, TEST_POST} from "../config/Requsest";
+import {Url} from "../config/Url";
 
 class Search extends Component {
     constructor(props) {
@@ -15,15 +18,19 @@ class Search extends Component {
             redirect : false,
         }
     }
+    componentDidMount() {
+
+    }
+
     Search = (e) => {
         e.preventDefault()
+        let data = new FormData(e.target)
         const par = {
             id: this.SearchRef.current.value,
             code: this.SearchRef.current.value,
             searchNumber: this.SearchRef.current.value,
         }
         Api.get("num",par).then( res => {
-
             if (res.data) {
 
                 this.props.dispatch(SearchResult(res.data))
@@ -37,29 +44,38 @@ class Search extends Component {
                 })
             },2000)
         })
-        Api.get("carvin",par).then( res => {
+        POST(Url.searchscore,data).then(res => {
 
+            console.log(res)
         })
 
     }
+
     render(){
+
         return (
             <div className='Search'>
                 {
                     this.state.redirect ? <Redirect to='/search/result' /> : ''
                 }
                 <form onSubmit={this.Search}>
-                    <input type="text" placeholder='Գրեք VIN կոդը կամ Պահեստամասի Համարը...' ref={this.SearchRef}/>
+                    <input type="text" placeholder='Գրեք VIN կոդը կամ Պահեստամասի Համարը...' ref={this.SearchRef} name='code'/>
                     <label>
                         <FontAwesomeIcon icon={faSearch} />
                         <input type="submit"/>
                     </label>
+                    <DefaultSelect data={this.props.location.sircle} name='sircle'/>
                 </form>
             </div>
         );
     }
 }
 
-const MapStateToProps = state => state.search;
+const MapStateToProps = state => {
+        return {
+            search: state.search,
+            location: state.location
+        }
+};
 const MainSearch = connect(MapStateToProps)(Search);
 export default MainSearch;
