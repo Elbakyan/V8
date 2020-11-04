@@ -109,13 +109,13 @@ class DetaleLists extends Component{
                         }
                     </div>
                 </div>
-                <div className="analog__count">
-                    <p>{'Аналоги ('+this.state.analCount +')'}</p>
-                </div>
+
                 <div className="detale_list_analog">
 
                     <nav className='articul_list_analog'>
-
+                        <div className="analog__count">
+                            <p>{'Аналоги ('+this.state.analCount +')'}</p>
+                        </div>
                         <div className='articul_list_analog__header table_style_header'>
                             <ul>
                                 <li>Производитель</li>
@@ -143,6 +143,7 @@ class DetaleLists extends Component{
                     </nav>
 
                     <nav className='articul_list_auto'>
+                        <div className="auto__title"><p>Используется в автомобилях ({this.state.auto.length})</p></div>
                         <div className='articul_list_auto__header table_style_header'>
                             <ul>
                                 <li>Модель, комплектация</li>
@@ -151,6 +152,7 @@ class DetaleLists extends Component{
                                 <li>Вид сборки</li>
                             </ul>
                         </div>
+
                         <div className='articul_list_auto__body table_style_body'>
                             {
                                 this.state.auto?

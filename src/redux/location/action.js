@@ -23,7 +23,7 @@ export function GetSicle(){
 export  function GetCity(id){
     let data = new  FormData();
 
-    data.append('id' , id)
+    data.append('id' , id-1)
     return (dispach) => {
        POST(Url.city,data).then(res => {
             dispach({

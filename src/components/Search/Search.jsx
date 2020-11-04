@@ -4,7 +4,7 @@ import Api from "../config/Api";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
-import {SearchResult} from "../../redux/search/action";
+import {SearchResult, SearchScoreLists} from "../../redux/search/action";
 import {Redirect} from "react-router";
 import DefaultSelect from "../forms/select/DefaultSelect";
 import {POST, TEST_POST} from "../config/Requsest";
@@ -16,6 +16,8 @@ class Search extends Component {
         this.SearchRef = React.createRef()
         this.state = {
             redirect : false,
+            detal: [],
+            store: []
         }
     }
     componentDidMount() {
@@ -44,10 +46,11 @@ class Search extends Component {
                 })
             },2000)
         })
-        // POST(Url.searchscore,data).then(res => {
-        //
-        //     console.log(res)
-        // })
+        POST(Url.searchscore,data).then(res => {
+            if (res.status){
+                this.props.dispatch(SearchScoreLists(res))
+            }
+        })
 
     }
 

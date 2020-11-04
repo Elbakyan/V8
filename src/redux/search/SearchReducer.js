@@ -3,7 +3,7 @@ import {
     SEARCH_RESULT_ANAL,
     SEARCH_RESULT_ANAL_COUNT,
     SEARCH_RESULT_AUTO,
-    SEARCH_RESULT_IMG, SEARCH_RESULT_PRODUCT
+    SEARCH_RESULT_IMG, SEARCH_RESULT_PRODUCT, SEARCH_SCORE_LISTS
 } from "./action";
 
 const initialState = {
@@ -12,7 +12,12 @@ const initialState = {
     anal: [],
     auto: [],
     img: [],
-    product: []
+    product: [],
+    scoreList: {
+        status: false,
+        detal: [],
+        store:[]
+    }
 }
 export default function searchReducer(state = initialState, action){
     switch (action.type){
@@ -28,6 +33,8 @@ export default function searchReducer(state = initialState, action){
             return {...state, img: action.payload}
         case SEARCH_RESULT_PRODUCT:
             return {...state, product: action.payload}
+        case SEARCH_SCORE_LISTS:
+            return {...state, scoreList: action.payload}
 
     }
     return state;
