@@ -26,6 +26,7 @@ class Score extends Component {
                     </Route>
                     <Route path='/score/account'>
                         <Account/>
+
                     </Route>
 
                     {
