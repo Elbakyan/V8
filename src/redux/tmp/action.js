@@ -1,4 +1,4 @@
-import {POST, TEST_POST} from "../../components/config/Requsest";
+import {POST} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 
 export const TMP_IMG = 'TMP_IMG';

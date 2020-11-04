@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 import {SearchResult, SearchScoreLists} from "../../redux/search/action";
 import {Redirect} from "react-router";
 import DefaultSelect from "../forms/select/DefaultSelect";
-import {POST, TEST_POST} from "../config/Requsest";
+import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 
 class Search extends Component {

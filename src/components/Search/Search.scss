@@ -150,6 +150,8 @@
 }
 .detale_list{
   display: flex;
+  justify-content: space-between;
+  height: 340px;
 
   @media (max-width: 1024px) {
     &{
@@ -162,24 +164,35 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    height: 100%;
+    box-shadow: 0px 0px 5px;
+
     @media (max-width: 1024px) {
       &{
         width: 100%;
-        padding: 5px 0;
+        padding: 10px 0;
       }
     }
     &__header{
       ul{
+        padding: 5px 0;
+        padding: 5px 2.5px;
         li{
           width: 50%;
+          color: #ffffff;
+          margin: 0px 5px;
+          font-weight: bold;
 
         }
       }
     }
     &__body{
       ul{
+        padding: 2.5px;
         li{
           width: 50%;
+          margin: 0px 5px;
+          border:1px solid black;
 
         }
       }
@@ -188,8 +201,9 @@
 
 
   .articul_list_image{
-    width: 50%;
+    width: 49%;
     height: 300px;
+    box-shadow: 0px 0px 3px;
     //border: 1px solid red;
     @media (max-width: 1024px) {
       &{
@@ -202,6 +216,8 @@
 .detale_list_analog{
   display: flex;
   padding: 20px 0;
+  box-shadow: 0px 0px 5px;
+  margin-bottom: 20px;
   @media (max-width: 1024px) {
     &{
       flex-direction: column;
@@ -228,6 +244,29 @@
         width: 100%;
         padding: 5px 0;
       }
+    }
+  }
+}
+.title{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  > p:nth-child(1){
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  > p:nth-child(2){
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #5b5b5b;
+    >span{
+      font-size: 18px;
+      color: #2b2b2b;
+
     }
   }
 }

@@ -1,4 +1,4 @@
-import {GET, POST, TEST_POST} from "../../components/config/Requsest";
+import {POST} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 export const GET_SELL = 'GET_SELL';
 export const GET_SELL_BY_ID = 'GET_SELL_BY_ID';

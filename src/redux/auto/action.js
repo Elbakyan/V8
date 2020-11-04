@@ -1,4 +1,4 @@
-import {GET, POST, TEST_POST} from "../../components/config/Requsest";
+import {GET, POST} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 
 export const GET_MARK = 'GET_MARK';

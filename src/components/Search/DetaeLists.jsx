@@ -64,7 +64,12 @@ class DetaleLists extends Component{
 
         return(
             <div className="container">
+                <div className="title">
+                    <p>АВТОЗАПЧАСТИ</p>
+                    <p>Карточка детали: <span>{article?article.DataSupplierArticleNumber:''}</span> {article?article.ProductDescription:''}е</p>
+                </div>
                 <div className='detale_list'>
+
                     <nav className='articul_list'>
                         <div className='articul_list__header table_style_header'>
                             <ul>
@@ -129,7 +134,7 @@ class DetaleLists extends Component{
                                 this.state.anal?
                                     this.state.anal.map(anal => {
                                         return (
-                                            <ul>
+                                            <ul key={anal.ID}>
                                                 <li>{anal.ManufacturerDescription}</li>
                                                 <li>{anal.DataSupplierArticleNumber}</li>
                                                 <li>{anal.ProductDescription}</li>
@@ -156,14 +161,14 @@ class DetaleLists extends Component{
                         <div className='articul_list_auto__body table_style_body'>
                             {
                                 this.state.auto?
-                                    this.state.auto.map(auto => {
+                                    this.state.auto.map((auto,i) => {
                                         let fromYear = auto.ConstructionIntervalFrom.split('').slice(0,4).join('');
                                         let fromMonth = auto.ConstructionIntervalFrom.split('').slice(4, 6).join('');
                                         let toYear = auto.ConstructionIntervalTo.split('').slice(0,4).join('');
                                         let toMonth = auto.ConstructionIntervalTo.split('').slice(4, 6).join('');
 
                                         return(
-                                            <ul>
+                                            <ul key={i}>
                                                 <li>{auto.FullDescription}</li>
                                                 <li>{auto.ConstructionIntervalTo != 0? fromYear + '-' + fromMonth + ' ' + toYear + '-' + toMonth: fromYear + '-' + fromMonth}</li>
                                                 <li>{auto.Ccm}</li>

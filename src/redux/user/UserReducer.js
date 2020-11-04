@@ -1,5 +1,4 @@
 import {USER_EXIST} from "./action";
-import {user} from "./user";
 
 const initialState = {
     // id:25,

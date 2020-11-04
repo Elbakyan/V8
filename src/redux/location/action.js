@@ -26,6 +26,10 @@ export  function GetCity(id){
     data.append('id' , id-1)
     return (dispach) => {
        POST(Url.city,data).then(res => {
+           res.unshift({
+               id: 0,
+               name: 'Քաղաք'
+           })
             dispach({
                 type: GET_CITY,
                 payload: res
