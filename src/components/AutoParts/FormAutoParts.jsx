@@ -79,7 +79,7 @@ class FormAutoParts extends Component {
 
             if (res.data) {
                 res.data.forEach(res => {
-                    name = res.NormalizedDescription;
+                    name = res.ProductDescription;
                 })
             }
             if (res.result) {
@@ -113,7 +113,7 @@ class FormAutoParts extends Component {
         POST(Url.setingsproduct,data).then(res => {
             if (res.status){
                 this.setState({
-                    edit: false
+                    edit: false,
                 })
                 this.props.dispatch(GetProduct())
             }
@@ -262,6 +262,16 @@ class FormAutoParts extends Component {
                     </div>
 
                     <div className="list_body">
+                        {
+                            this.state.edit?
+                                <form className="edit" style={{top: this.state.top + 'px'}} onSubmit={this.UpdateProductData}>
+                                    <input type="number"  name='price' defaultValue={this.state.price}/>
+                                    <input type="number"  name='count' defaultValue={this.state.count}/>
+                                    <input type="hidden" value={this.state.id} name='id'/>
+                                    <button type='submit'>Հաստատել․</button>
+                                </form>: ''
+                        }
+
 
                             <form className="edit" style={this.state.edit?{transform:'scaleX(1)', top: this.state.top +'px'}:{transform:'scaleX(0)'}} onSubmit={this.UpdateProductData}>
                                 <input type="number"  name='price' value={this.state.price}/>
@@ -269,6 +279,7 @@ class FormAutoParts extends Component {
                                 <input type="hidden" value={this.state.id} name='id'/>
                                 <button type='submit'>Հաստատել․</button>
                             </form>
+
                         {
                             this.props.score.product.data?this.props.score.product.data.map((el,i) => {
                                 console.log(el)
@@ -299,7 +310,6 @@ class FormAutoParts extends Component {
                                         <li className='buttons' style={{width: '10%'}}>
                                             <span  data-id={el.id} data-price={el.price} data-count={el.count}
                                                 onClick={(e) => {
-                        
                                                 this.setState({
                                                     edit: true,
                                                     id: e.target.dataset.id,

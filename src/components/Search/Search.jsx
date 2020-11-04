@@ -44,10 +44,10 @@ class Search extends Component {
                 })
             },2000)
         })
-        POST(Url.searchscore,data).then(res => {
-
-            console.log(res)
-        })
+        // POST(Url.searchscore,data).then(res => {
+        //
+        //     console.log(res)
+        // })
 
     }
 
