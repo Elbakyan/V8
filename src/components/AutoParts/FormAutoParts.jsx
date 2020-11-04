@@ -79,7 +79,7 @@ class FormAutoParts extends Component {
 
             if (res.data) {
                 res.data.forEach(res => {
-                    name = res.NormalizedDescription;
+                    name = res.ProductDescription;
                 })
             }
             if (res.result) {
