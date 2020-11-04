@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from "react";
+                                            import React, {Component, Fragment} from "react";
 import DefaultInput from "../forms/inputs/DefaultInput";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
@@ -264,8 +264,8 @@ class FormAutoParts extends Component {
                     <div className="list_body">
 
                             <form className="edit" style={this.state.edit?{transform:'scaleX(1)', top: this.state.top +'px'}:{transform:'scaleX(0)'}} onSubmit={this.UpdateProductData}>
-                                <input type="number"  name='price' defaultValue={this.state.price}/>
-                                <input type="number"  name='count' defaultValue={this.state.count}/>
+                                <input type="number"  name='price' value={this.state.price}/>
+                                <input type="number"  name='count' value={this.state.count}/>
                                 <input type="hidden" value={this.state.id} name='id'/>
                                 <button type='submit'>Հաստատել․</button>
                             </form>
