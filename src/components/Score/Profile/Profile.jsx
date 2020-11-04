@@ -39,28 +39,36 @@ class Profile extends React.Component{
                         <nav className='Profile__nav'>
                             <ul >
                                 <li>
-                                    <div className="icon">
-                                        <FontAwesomeIcon icon={faHome}/>
-                                    </div>
-                                    <Link to={'/score/account'}>Իմ էջը</Link>
+                                    <Link to={'/score/account'}>
+                                        <div className="icon">
+                                            <FontAwesomeIcon icon={faHome}/>
+                                        </div>
+                                        Իմ էջը
+                                    </Link>
                                 </li>
                                 <li>
-                                    <div className="icon">
-                                        <FontAwesomeIcon icon={faEnvelope}/>
-                                    </div>
-                                    <Link to='/score/account/message'>Հաղորդագրություններ</Link>
+                                    <Link to='/score/account/message'>
+                                        <div className="icon">
+                                            <FontAwesomeIcon icon={faEnvelope}/>
+                                        </div>
+                                        Հաղորդագրություններ
+                                    </Link>
                                 </li>
                                 <li>
-                                    <div className="icon">
-                                        <FontAwesomeIcon icon={faCarBattery}/>
-                                    </div>
-                                    <Link to='/score/account/cars'>Պահեստամասեր</Link>
+                                    <Link to='/score/account/cars'>
+                                        <div className="icon">
+                                            <FontAwesomeIcon icon={faCarBattery}/>
+                                        </div>
+                                        Պահեստամասեր
+                                    </Link>
                                 </li>
                                 <li>
-                                    <div className="icon">
-                                        <FontAwesomeIcon icon={faQuestionCircle}/>
-                                    </div>
-                                    <Link to='/score/account/cars'>Ծառայություներ</Link>
+                                    <Link to='/score/account/cars'>
+                                        <div className="icon">
+                                            <FontAwesomeIcon icon={faQuestionCircle}/>
+                                        </div>
+                                        Ծառայություներ
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
