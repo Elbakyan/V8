@@ -17,6 +17,7 @@ import {Redirect, Route} from "react-router";
 import DetaleLists from "./DetaeLists";
 import ScoreList from "./ScoreList";
 import {Link} from "react-router-dom";
+import StoreInfo from "../StoreInfo/StoreInfo";
 
 class Result extends Component {
     constructor(props) {

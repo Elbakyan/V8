@@ -1,0 +1,96 @@
+@import "../../style/All";
+@import "../../style/var";
+
+.store{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  //border: 1px solid red;
+  padding: 20px 0;
+  &__name{
+    width: 100%;
+    font-size: 100px;
+    font-weight: bold;
+    padding: 20px 0;
+    border-bottom: 3px solid #b7b3b3;;
+    margin-bottom: 5px;
+    color: #4e4d4d;
+
+    //height: 50%;
+  }
+  &__info{
+    width: 50%;
+    //height: 50%;
+    //background: red;
+  }
+  &__getInfo{
+    display: flex;
+    flex-direction: column;
+    ul{
+      display: flex;
+      border-bottom: 1px solid silver;
+      //border: 1px solid #ff0000;
+      li{
+        padding: 10px;
+        //border: 1px solid red;
+
+        &:nth-child(1){
+          width: 40px;
+          height: 40px;
+          background: black;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-bottom: 1px solid white;
+        }
+      }
+    }
+    >.store_phone{
+      display: flex;
+
+      >ul{
+        display: flex;
+        flex-direction: column;
+        border: none;
+        li{
+          width: auto;
+          height: auto;
+          background: none;
+          color: black;
+          border: none;
+        }
+      }
+    }
+    >.store_message{
+      width: 100%;
+      //background: red;
+      height: 100px;
+      li{
+        width: 100%;
+        padding: 12px;
+      }
+      textarea{
+        resize: none;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__slider{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    //padding-top: 15%;
+    //align-items: center;
+    //background: red;
+    .slider_auto{
+      width: 90%;
+      height: 100%;
+      border: none;
+    }
+  }
+
+}
