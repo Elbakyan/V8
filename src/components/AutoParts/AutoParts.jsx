@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import DefaultSelect from "../forms/select/DefaultSelect";
 import {maser} from "../Menu/autoObj";
-import FormAutoParts from "./FormAutoParts";
+import FormAutoParts from "./FormAutoParts/FormAutoParts";
 import './AutoParts.scss'
 import Message from "../message/Message";
 
