@@ -1,9 +1,17 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {Link, Route} from "react-router-dom";
+import {GetStoreID} from "../../redux/search/action";
 
 class ScoreList extends Component{
+    constructor(props) {
+        super(props);
+        this.state ={
+            id: ''
+        }
+    }
     render() {
-        console.log(this.props.scoreList)
+        console.log(this.props.scoreList.store)
         return(
             <div className="score_list">
 
@@ -22,41 +30,50 @@ class ScoreList extends Component{
                             {
                                 this.props.scoreList.store != false? this.props.scoreList.detal.map((detal,i) => {
                                     let store = this.props.scoreList.store[i];
-                                    return (
-                                        <ul>
-                                            <li>{detal.code}</li>
-                                            <li>{detal.name}</li>
-                                            <li>{detal.price + 'Դր․'}</li>
-                                            <li >{store.name}</li>
-                                            <li>
-                                                {
-                                                    store.phone.map(p => {
-                                                        if (p){
-                                                            let tmp = p.split('');
-                                                            let [p1,p2,p3,p4] = [
-                                                                tmp.splice(0,3).join(''),
-                                                                tmp.splice(0,2).join(''),
-                                                                tmp.splice(0,3).join(''),
-                                                                tmp.splice(0,3).join('')
-                                                            ];
+                                    if (store != undefined){
+                                        return (
+                                            <ul>
+                                                <li>{detal.code}</li>
+                                                <li>{detal.name}</li>
+                                                <li>{detal.price + 'Դր․'}</li>
+                                                <li ><Link to={'/search/result/store/' + store.id}
+                                                           onClick={() => {
+                                                               this.setState({
+                                                                   id: store.id
+                                                               })
+                                                               this.props.dispatch(GetStoreID(store.id))
+                                                           }}
+                                                >{store.name}</Link></li>
+                                                <li>
+                                                    {
+                                                        store.phone.map(p => {
+                                                            if (p){
+                                                                let tmp = p.split('');
+                                                                let [p1,p2,p3,p4] = [
+                                                                    tmp.splice(0,3).join(''),
+                                                                    tmp.splice(0,2).join(''),
+                                                                    tmp.splice(0,3).join(''),
+                                                                    tmp.splice(0,3).join('')
+                                                                ];
 
-                                                            let phone = '(+' + p1 + ') ' + p2 + '-' + p3 + '-' + p4;
-                                                           return  <p>{phone}</p>
-                                                        }else {
-                                                            return ''
-                                                        }
+                                                                let phone = '(+' + p1 + ') ' + p2 + '-' + p3 + '-' + p4;
+                                                                return  <p>{phone}</p>
+                                                            }else {
+                                                                return ''
+                                                            }
 
 
-                                                    })
-                                                }
-                                            </li>
-                                            <li >{store.sircle}</li>
-                                        </ul>
-                                    )
+                                                        })
+                                                    }
+                                                </li>
+                                                <li >{store.sircle}</li>
+                                            </ul>
+                                        )
+                                    }
+
                                 }): ''
 
                             }
-
                         </div>
                     </nav>
 

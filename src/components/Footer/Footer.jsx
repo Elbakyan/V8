@@ -16,7 +16,7 @@ export default function (){
         },
         {
             icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:'(374)-41-88-88-44'
+            name:'(374)-43-88-88-44'
         },
         {
             icon:<FontAwesomeIcon icon={faMobileAlt} />,

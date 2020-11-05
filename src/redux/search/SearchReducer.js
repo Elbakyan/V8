@@ -1,4 +1,5 @@
 import {
+    GET_ID,
     SEARCH_RESULT,
     SEARCH_RESULT_ANAL,
     SEARCH_RESULT_ANAL_COUNT,
@@ -17,7 +18,8 @@ const initialState = {
         status: false,
         detal: [],
         store:[]
-    }
+    },
+    id:''
 }
 export default function searchReducer(state = initialState, action){
     switch (action.type){
@@ -35,6 +37,8 @@ export default function searchReducer(state = initialState, action){
             return {...state, product: action.payload}
         case SEARCH_SCORE_LISTS:
             return {...state, scoreList: action.payload}
+        case GET_ID:
+            return {...state, id: action.payload}
 
     }
     return state;

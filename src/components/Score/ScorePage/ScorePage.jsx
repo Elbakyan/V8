@@ -73,10 +73,8 @@ class ScorePage extends Component {
         data.append('facebook', this.FacebookRef.current.value)
         data.append('instagram', this.InstagramRef.current.value)
         data.append('youtube', this.YoutubeRef.current.value)
-        console.log(Array.from(data))
 
         POST(Url.scoreSetings, data).then(res => {
-            console.log(res)
             if (res) {
                 this.setState({loading: false})
             }
@@ -103,6 +101,7 @@ class ScorePage extends Component {
         data.append('img', this.props.data.img)
         if (e.target.dataset.url != undefined || e.target.dataset.img != undefined){
             POST(Url.scoreSetings, data).then(res => {
+
                 if (res){
                     this.props.dispatch(GetScoreList())
                     this.setState({
@@ -115,7 +114,6 @@ class ScorePage extends Component {
                 loadingSlider: false
             })
         }
-        console.log(e.target)
 
     }
     AddSliderImg = (e) => {

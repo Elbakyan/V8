@@ -6,6 +6,7 @@ export const SEARCH_RESULT_AUTO = 'SEARCH_RESULT_AUTO';
 export const SEARCH_RESULT_IMG = 'SEARCH_RESULT_IMG';
 export const SEARCH_RESULT_PRODUCT = 'SEARCH_RESULT_PRODUCT';
 export const SEARCH_SCORE_LISTS = 'SEARCH_SCORE_LISTS';
+export const GET_ID = 'GET_ID';
 
 export function SearchResult(data){
     return (dispach) => {
@@ -64,5 +65,12 @@ export function SearchScoreLists(data){
     }
 }
 
-
+export function GetStoreID(data){
+    return (dispach) => {
+        dispach({
+            type: GET_ID,
+            payload: data
+        })
+    }
+}
 

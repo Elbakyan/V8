@@ -18,6 +18,7 @@ import {GET, POST} from "./components/config/Requsest";
 import Api from './components/config/Api'
 import Result from "./components/Search/Result";
 import DetaleLists from "./components/Search/DetaeLists";
+import {Url} from "./components/config/Url";
 
 class App extends React.Component {
 
@@ -70,22 +71,8 @@ class App extends React.Component {
             code: this.VinRef.current.value,
             searchNumber: this.VinRef.current.value,
         }
-        Api.get('num',par).then(res => {
-
-            res.data.map(data => {
-                console.log(data)
-                Api.get('article',{id: data.ID}).then(res => {
-                    console.log(res)
-
-                })
-            })
-
-        })
-
-
     }
     render() {
-        // console.log(this.props.score.score.status)
       return (
           <div className="App">
               <Switch>

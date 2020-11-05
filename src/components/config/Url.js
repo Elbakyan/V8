@@ -21,6 +21,7 @@ export const Url = {
     getproduct: 'https://brutal.am/Server/get-product',
     setingsproduct: 'https://brutal.am/Server/setings-product',
     getscorelist: 'https://brutal.am/Server/get-score-list',
+    getstoreforcustomer: 'https://brutal.am/Server/customer-detals',
     loginscore: 'https://brutal.am/Server/score-log',
     logoutscore: 'https://brutal.am/Server/score_l',
     existScore: 'https://brutal.am/Server/score-exist',

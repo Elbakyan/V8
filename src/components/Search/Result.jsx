@@ -37,7 +37,6 @@ class Result extends Component {
             this.props.dispatch(SearchResultAnal(res.data))
         })
         Api.get("auto",{id: e.target.dataset.id}).then( res => {
-            console.log(res)
             this.props.dispatch(SearchResultAuto(res.data))
             // console.log(res)
         })
@@ -54,11 +53,10 @@ class Result extends Component {
 
     }
     render(){
-        // console.log(this.props)
         return (
             <Fragment>
                 <Header />
-                <Route path={'/search/result/' + window.location.pathname.split('/')[window.location.pathname.split('/').length -1]}>
+                <Route exact path={'/search/result/detal/' + window.location.pathname.split('/')[window.location.pathname.split('/').length -1]}>
                     <DetaleLists />
                 </Route>
                 <Route exact path='/search/result/'>
@@ -84,7 +82,7 @@ class Result extends Component {
                                         return (
                                             <tr data-id={res.ID} data-article={res.DataSupplierArticleNumber} key={i} onClick={this.SearchAll}>
                                                 <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}>{res.ManufacturerDescription}</td>
-                                                <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}><Link to={'/search/result/' + res.ID} href="">{res.DataSupplierArticleNumber}</Link></td>
+                                                <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}><Link to={'/search/result/detal/' + res.ID} data-id={res.ID}>{res.DataSupplierArticleNumber}</Link></td>
                                                 <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}>{res.ProductDescription}</td>
                                                 <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}><img data-id={res.ID} src={res.FileIconFull} alt="" className='image'/></td>
                                                 <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}>{res.Description}</td>
@@ -101,18 +99,10 @@ class Result extends Component {
                     <div className="container">
                         <ScoreList />
                     </div>
-
                 </Route>
-                {
-
-                    this.props.analCount != false ||
-                    this.props.anal != false ||
-                    this.props.auto != false  ?
-                    <Route exact path={'/search/result/' + this.state.id}>
-                        <DetaleLists />
-                    </Route> : ''
-                }
-
+                <Route path={'/search/result/store/' + this.props.id}>
+                    <StoreInfo />
+                </Route>
                 <Footer />
             </Fragment>
         );

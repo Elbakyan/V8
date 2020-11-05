@@ -8,6 +8,8 @@ import {
     SearchResultAuto, SearchResultImg,
     SearchResultProduct
 } from "../../redux/search/action";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 let data = [
     'http://web.nirax.ru/cross/image/55/00215160503.jpg',
     'http://web.nirax.ru/cross/image/29/00215160603.jpg',
@@ -21,7 +23,9 @@ class DetaleLists extends Component{
             anal: [],
             auto: [],
             product: '',
-            img: []
+            img: [],
+            fullImg: '',
+            openFullImg: false
         }
     }
 
@@ -64,6 +68,10 @@ class DetaleLists extends Component{
 
         return(
             <div className="container">
+                <div className="full_img" style={this.state.openFullImg? {display:"flex"}: {display: "none"}}>
+                    <img src={this.state.fullImg} alt=""/>
+                    <span className="full_img-icon" onClick={() => this.setState({openFullImg: false})}><FontAwesomeIcon icon={faTimesCircle} /></span>
+                </div>
                 <div className="title">
                     <p>АВТОЗАПЧАСТИ</p>
                     <p>Карточка детали: <span>{article?article.DataSupplierArticleNumber:''}</span> {article?article.ProductDescription:''}е</p>
@@ -122,7 +130,7 @@ class DetaleLists extends Component{
                             <p>{'Аналоги ('+this.state.analCount +')'}</p>
                         </div>
                         <div className='articul_list_analog__header table_style_header'>
-                            <ul>
+                            <ul className='analog__title'>
                                 <li>Производитель</li>
                                 <li>Артикул</li>
                                 <li>Наименование</li>
@@ -138,7 +146,16 @@ class DetaleLists extends Component{
                                                 <li>{anal.ManufacturerDescription}</li>
                                                 <li>{anal.DataSupplierArticleNumber}</li>
                                                 <li>{anal.ProductDescription}</li>
-                                                <li><img src={anal.FileIconFull} alt=""/></li>
+                                                <li className='anal__img'>
+                                                    <img src={anal.FileIconFull} alt="" onClick={(e) => {
+                                                        this.setState({
+                                                            fullImg: anal.FileImageFull,
+                                                            openFullImg: true
+                                                        })
+                                                    }}/>
+                                                </li>
+
+
                                             </ul>
                                         )
                                     }): ''
@@ -150,7 +167,7 @@ class DetaleLists extends Component{
                     <nav className='articul_list_auto'>
                         <div className="auto__title"><p>Используется в автомобилях ({this.state.auto.length})</p></div>
                         <div className='articul_list_auto__header table_style_header'>
-                            <ul>
+                            <ul className='auto__title'>
                                 <li>Модель, комплектация</li>
                                 <li>Период выпуска</li>
                                 <li>Куб.см</li>
