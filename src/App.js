@@ -85,7 +85,7 @@ class App extends React.Component {
 
     }
     render() {
-        // console.log(this.props.score.score.status)
+        console.log(this.props)
       return (
           <div className="App">
               <Switch>
