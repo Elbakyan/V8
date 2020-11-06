@@ -46,9 +46,6 @@ class FormAutoParts extends Component {
                 }
             })
         },500)
-
-
-        console.log(this.props.score.scoreList)
     }
 
     closeImage = e => {

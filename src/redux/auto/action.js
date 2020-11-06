@@ -4,6 +4,7 @@ import {Url} from "../../components/config/Url";
 export const GET_MARK = 'GET_MARK';
 export const GET_MODEL = 'GET_MODEL';
 export const GET_AUTO = 'GET_AUTO';
+export const GET_ALL_MODEL = 'GET_ALL_MODEL';
 
 
 
@@ -16,6 +17,17 @@ export function GetMark(){
             })
             dispach({
                 type: GET_MARK,
+                payload: res
+            })
+        })
+
+    }
+}
+export function GetAllModel(){
+    return (dispach) => {
+        GET(Url.allmodels).then(res => {
+            dispach({
+                type: GET_ALL_MODEL,
                 payload: res
             })
         })
