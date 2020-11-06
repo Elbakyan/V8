@@ -165,7 +165,6 @@ class FormAutoParts extends Component {
     }
 
     render() {
-        console.log(this.state.SelectStore)
         return (
             <Fragment>
                 <div className='category-parts'>

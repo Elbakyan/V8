@@ -7,7 +7,7 @@ import {cars} from "../../Menu/autoObj";
 import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import {GET, POST} from "../../config/Requsest";
+import {GET, POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {GetAllModel} from "../../../redux/auto/action";
 
@@ -44,7 +44,23 @@ class FormGlobalAutoParts extends Component {
         e.preventDefault();
         let data = new FormData(e.target)
 
-        console.log(Array.from(data))
+        TEST_POST(Url.addMarkModelAutoParts,data).then(res => {
+            console.log(res)
+        })
+    }
+    Checked = (e,selector) => {
+        selector = document.querySelectorAll(selector);
+
+        selector.forEach(c => {
+            if (c.dataset.id == e.target.dataset.id){
+                if (e.target.checked){
+                    c.disabled = false
+                }else{
+                    c.disabled = true
+                    c.checked = false
+                }
+            }
+        })
     }
 
     render() {
@@ -105,20 +121,17 @@ class FormGlobalAutoParts extends Component {
                                                             width: "10%",
                                                             display: 'flex',
                                                             alignItems: 'center'
-                                                        }}><input className="li_mark" name='mark[]' value={el.name} onChange={(e) => {
-                                                            let newMark = document.querySelectorAll('.new_mark');
-                                                            console.log(newMark)
-                                                        }} type='checkbox'/></li>
+                                                        }}><input className="li_mark" name='mark[]' data-id={el.id} value={el.name} onChange={(e) => {this.Checked(e,'.state_mark')}} type='checkbox'/></li>
                                                         <li style={{
                                                             width: "15%",
                                                             display: 'flex',
                                                             alignItems: 'center'
-                                                        }}>Նոր <input className='new_mark' name='mark_new' defaultChecked type='checkbox'/></li>
+                                                        }}>Նոր <input className='state_mark' disabled data-id={el.id} name={el.name + '_new'} value={1} type='checkbox'/></li>
                                                         <li style={{
                                                             width: "15%",
                                                             display: 'flex',
                                                             alignItems: 'center'
-                                                        }}>օգտ. <input name='mark_old' type='checkbox'/></li>
+                                                        }}>օգտ. <input className='state_mark' disabled data-id={el.id} name={el.name + '_old'} value={1} type='checkbox'/></li>
                                                         <li style={{width: "5%"}}
                                                             className={"open_models open_models" + el.name}
                                                             data-count={i} data-id={el.id} onClick={this.openModels}>
@@ -154,13 +167,13 @@ class FormGlobalAutoParts extends Component {
                                                                             <ul>
                                                                                 <li>{model.name}</li>
                                                                                 <li>
-                                                                                    <input className='li_model' type="checkbox" name='model[]' value={model.name}/>
+                                                                                    <input className='li_model' type="checkbox" name='model[]' value={model.name} onChange={(e) => {this.Checked(e,'.state_model')}}/>
                                                                                     <label>
-                                                                                        <input defaultChecked type="checkbox" name='model_new' value={1}/>
+                                                                                        <input className='state_model' disabled data-id={model.id} type="checkbox" name='model_new' value={1}/>
                                                                                         Նոր
                                                                                     </label>
                                                                                     <label>
-                                                                                        <input type="checkbox" name='model_old' value={1}/>
+                                                                                        <input className='state_model' disabled data-id={model.id} type="checkbox" name='model_old' value={1}/>
                                                                                         Օգտ.
                                                                                     </label>
                                                                                     <input type="hidden" />
