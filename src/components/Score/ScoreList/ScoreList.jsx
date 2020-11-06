@@ -12,8 +12,8 @@ import {Url} from "../../config/Url";
 import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";
 import ScorePage from "../ScorePage/ScorePage";
-import {Link, Route,NavLink} from "react-router-dom";
-// import NavLink from "react-router-dom/modules/NavLink";
+import {Route,NavLink} from "react-router-dom";
+
 
 
 class ScoreList extends React.Component{
@@ -52,12 +52,12 @@ class ScoreList extends React.Component{
 
     }
     ShowPhone = (e) => {
-        if (this.state.phone2 == false){
+        if (this.state.phone2 === false){
             this.setState({
                 phone2: true
             })
         }
-        if (this.state.phone2 == true && this.state.phone3 == false){
+        if (this.state.phone2 === true && this.state.phone3 === false){
             this.setState({
                 phone3: true
             })
