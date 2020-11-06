@@ -46,7 +46,24 @@ class FormGlobalAutoParts extends Component {
 
         console.log(Array.from(data))
     }
+    getChecked = (e) => {
+        // console.log(e.target.disabled)
+        console.log(e.target.dataset.check)
+            let lists = document.querySelectorAll('.'+ e.target.className)
+            console.log(e.target.checked)
+            if(e.target.checked){
+                lists[0].childNodes[2].children[0].disabled = false
+                lists[0].childNodes[2].children[0].checked = true
+                lists[0].childNodes[3].children[0].disabled = false
+                lists[0].childNodes[3].children[0].checked = true
+            }else{
+                lists[0].childNodes[2].children[0].disabled = true
+                lists[0].childNodes[2].children[0].checked = false
+                lists[0].childNodes[3].children[0].disabled = true
+                lists[0].childNodes[3].children[0].checked = false
+            }
 
+    }
     render() {
 
         return (
@@ -94,7 +111,7 @@ class FormGlobalAutoParts extends Component {
                                         if (i !== 0) {
                                             return (
                                                 <li>
-                                                    <ul>
+                                                    <ul className={"li_mark" + i}>
                                                         <li style={{
                                                             width: "20%",
                                                             background: 'rgb(0 117 255)',
@@ -105,20 +122,17 @@ class FormGlobalAutoParts extends Component {
                                                             width: "10%",
                                                             display: 'flex',
                                                             alignItems: 'center'
-                                                        }}><input className="li_mark" name='mark[]' value={el.name} onChange={(e) => {
-                                                            let newMark = document.querySelectorAll('.new_mark');
-                                                            console.log(newMark)
-                                                        }} type='checkbox'/></li>
+                                                        }}><input className={"li_mark" + i} data-check ={1} name='mark[]' value={el.name} onChange={this.getChecked} type='checkbox'/></li>
                                                         <li style={{
                                                             width: "15%",
                                                             display: 'flex',
                                                             alignItems: 'center'
-                                                        }}>Նոր <input className='new_mark' name='mark_new' defaultChecked type='checkbox'/></li>
+                                                        }}>Նոր <input className='new_mark' name='mark_new' disabled  type='checkbox'/></li>
                                                         <li style={{
                                                             width: "15%",
                                                             display: 'flex',
                                                             alignItems: 'center'
-                                                        }}>օգտ. <input name='mark_old' type='checkbox'/></li>
+                                                        }}>օգտ. <input name='mark_old' disabled type='checkbox'/></li>
                                                         <li style={{width: "5%"}}
                                                             className={"open_models open_models" + el.name}
                                                             data-count={i} data-id={el.id} onClick={this.openModels}>
@@ -129,7 +143,7 @@ class FormGlobalAutoParts extends Component {
                                                     </ul>
 
 
-                                                    <ul className={"open_models" + el.name} style={{display: "none"}}
+                                                    <ul className={`open_models${el.name}`} style={{display: "none"}}
                                                         data-count={i} ref={el => this.getModels = el}>
                                                         <li><input type="checkbox" onChange={(e => {
                                                             let li = document.querySelectorAll(".li_model");
@@ -147,24 +161,25 @@ class FormGlobalAutoParts extends Component {
 
                                                         })}/></li>
                                                         {
-                                                            this.props.auto.allModels.map(model => {
+                                                            this.props.auto.allModels.map((model,i) => {
                                                                 if (el.id == model['id_mark']){
                                                                     return (
                                                                         <li>
-                                                                            <ul>
+                                                                            <ul className={`li_model${i}`}>
                                                                                 <li>{model.name}</li>
-                                                                                <li>
-                                                                                    <input className='li_model' type="checkbox" name='model[]' value={model.name}/>
-                                                                                    <label>
-                                                                                        <input defaultChecked type="checkbox" name='model_new' value={1}/>
+                                                                                    <li>
+                                                                                        <input data-check ={2} className={'li_model'+i} onChange={this.getChecked} type="checkbox" name='model[]' value={model.name}/>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input  type="checkbox" disabled name='model_new' value={1}/>
                                                                                         Նոր
-                                                                                    </label>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name='model_old' value={1}/>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <input type="checkbox" disabled name='model_old' value={1}/>
                                                                                         Օգտ.
-                                                                                    </label>
+                                                                                    </li>
                                                                                     <input type="hidden" />
-                                                                                </li>
+
                                                                             </ul>
                                                                         </li>
                                                                     )
