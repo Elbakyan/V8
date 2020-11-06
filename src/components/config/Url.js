@@ -6,6 +6,7 @@ export const Url = {
     city: 'https://brutal.am/Server/location/city',
     registration: 'https://brutal.am/Server/Reg',
     auto: 'https://brutal.am/Server/auto',
+    allmodels: 'https://brutal.am/Server/model',
     model: 'https://brutal.am/Server/auto/model',
     addauto: 'https://brutal.am/Server/AddUserAuto',
     getUserAuto: 'https://brutal.am/Server/GetUserAuto',
