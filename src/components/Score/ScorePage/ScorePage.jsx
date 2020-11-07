@@ -201,7 +201,10 @@ class ScorePage extends Component {
                                 <div className="form"
                                      style={this.state.LocationForm ? {display: 'flex'} : {display: 'none'}}>
                                     <DefaultSelect
+<<<<<<< HEAD
+=======
 
+>>>>>>> 0de80296c9f472709334701b38d28123a0b964fd
                                         ref={this.SircleRef}
                                         data={this.props.location.sircle}
                                         onChange={(e) => {

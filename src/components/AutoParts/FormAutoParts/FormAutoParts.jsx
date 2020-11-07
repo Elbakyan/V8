@@ -30,7 +30,7 @@ class FormAutoParts extends Component {
             top: 0,
             zoomImg:'',
             SelectStore:'',
-            allParts:false
+            allParts:true
         }
     }
 
@@ -297,8 +297,8 @@ class FormAutoParts extends Component {
                                     onChange={this.getSelectStore}
                                 >
                                     {
-                                        this.props.score.scoreList.map(el =>(
-                                            <option value={el.name}>
+                                        this.props.score.scoreList.map((el,i) =>(
+                                            <option key={i} value={el.name}>
                                                 {el.name}
                                             </option>
                                         ))

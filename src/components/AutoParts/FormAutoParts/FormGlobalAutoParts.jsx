@@ -63,8 +63,8 @@ class FormGlobalAutoParts extends Component {
                 lists[0].childNodes[3].children[0].disabled = true
                 lists[0].childNodes[3].children[0].checked = false
             }
-
     }
+
     render() {
         console.log(this.props.score.MarkModelParts)
         return (
@@ -91,28 +91,13 @@ class FormGlobalAutoParts extends Component {
 
                     <div className="score_parts_form">
                         <nav className="auto_mark">
-                            <ul>
-                                <li><input type="checkbox" onChange={(e => {
-                                    let li = document.querySelectorAll(".li_mark");
-                                    if (e.target.checked){
-                                        li.forEach(el => {
-                                            el.checked = true
-                                        })
-                                    }else{
-                                        li.forEach(el => {
-                                            el.checked = false
-                                        })
-                                    }
-
-
-
-                                })}/></li>
+                            <ul className='all_check'>
                                 {
                                     this.props.auto.mark.map((el, i) => {
                                         if (i !== 0) {
                                             return (
-                                                <li>
-                                                    <ul className={"li_mark" + i}>
+                                                <li key={i} className='all_check'>
+                                                    <ul className={"li_mark li_mark" + i}>
                                                         <li style={{
                                                             width: "20%",
                                                             background: 'rgb(0 117 255)',
@@ -146,26 +131,11 @@ class FormGlobalAutoParts extends Component {
 
                                                     <ul className={`open_models${el.name}`} style={{display: "none"}}
                                                         data-count={i} ref={el => this.getModels = el}>
-                                                        <li><input type="checkbox" onChange={(e => {
-                                                            let li = document.querySelectorAll(".li_model");
-                                                            if (e.target.checked){
-                                                                li.forEach(el => {
-                                                                    el.checked = true
-                                                                })
-                                                            }else{
-                                                                li.forEach(el => {
-                                                                    el.checked = false
-                                                                })
-                                                            }
-
-
-
-                                                        })}/></li>
                                                         {
                                                             this.props.auto.allModels.map((model,i) => {
                                                                 if (el.id === model['id_mark']){
                                                                     return (
-                                                                        <li>
+                                                                        <li key={i}>
                                                                             <ul className={`li_model${i}`}>
                                                                                 <li>{model.name}</li>
                                                                                     <li>
