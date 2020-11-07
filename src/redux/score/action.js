@@ -3,6 +3,7 @@ import {GET} from "../../components/config/Requsest";
 export const SCORE_EXIST = "SCORE_EXIST";
 export const GET_SCORE_LIST = "GET_SCORE_LIST";
 export const GET_PRODUCT = "GET_PRODUCT";
+export const GET_MARK_MODEL_AUTO_PARTS = "GET_MARK_MODEL_AUTO_PARTS";
 
 
 export function ScoreExist  () {
@@ -30,6 +31,16 @@ export function GetProduct  () {
         GET(Url.getproduct).then(res => {
             dispach({
                 type: GET_PRODUCT,
+                payload: res
+            })
+        })
+    }
+}
+export function GetMarkModelAutoParts  () {
+    return async (dispach) => {
+        GET(Url.getMarkModelAutoParts).then(res => {
+            dispach({
+                type: GET_MARK_MODEL_AUTO_PARTS,
                 payload: res
             })
         })

@@ -39,9 +39,11 @@ export default function searchReducer(state = initialState, action){
             return {...state, scoreList: action.payload}
         case GET_ID:
             return {...state, id: action.payload}
+        default:
+            return state
 
     }
-    return state;
+
 
 }
 

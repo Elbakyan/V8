@@ -1,16 +1,12 @@
 import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee,faMapMarkerAlt,faMobileAlt ,faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons'
 import {faTrashAlt} from "@fortawesome/free-solid-svg-icons/faTrashAlt";
-import {POST, TEST_POST} from "../config/Requsest";
+import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 
 
 
 class Respondent extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     clear = (e)=>{
        let data = new FormData();
@@ -37,7 +33,7 @@ class Respondent extends Component {
                     <div>
                         <span>{this.props.time.split(' ')[1].slice(0,5)}</span>
                         {
-                            +this.props.status && this.props.send != this.props.userId?
+                            +this.props.status && this.props.send !== this.props.userId?
                                 <span>{this.props.status}</span>:''
                         }
 

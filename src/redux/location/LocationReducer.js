@@ -14,7 +14,7 @@ export default function locationReducer(state = initalState, action){
             return {...state, sircle: action.payload}
         case GET_CITY:
             return {...state, city: action.payload}
+        default:
+                return state
     }
-    return state;
-
 }

@@ -216,7 +216,7 @@ export const engine = (() => {
             temp.push(i + '.0')
         }
         for (let j = 1; j < 10; j++){
-            if(i == 0 && j >= 8){
+            if(i === 0 && j >= 8){
                 temp.push(i + '.' + j)
             }else if(i > 0){
                 temp.push(i + '.' + j)

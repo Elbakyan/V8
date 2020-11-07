@@ -1,24 +1,19 @@
 import React from 'react';
-import {Router, Route, Switch,} from "react-router";
+import { Route, Switch,} from "react-router";
 import './style/style.scss'
 import Home from "./components/Home/Home";
 import User from "./components/User/User";
 import {connect} from "react-redux";
 import {UserExist} from "./redux/user/action";
 import {GetSicle} from "./redux/location/action";
-import {GetAuto, GetMark, GetModel} from "./redux/auto/action";
+import {GetMark} from "./redux/auto/action";
 import Score from "./components/Score/Score";
 import SpaerParts from "./components/spare/SpareParts";
-import {Redirect} from "react-router-dom";
 import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
 import {GetMessage} from "./redux/message/action";
-import {GET, POST} from "./components/config/Requsest";
-import Api from './components/config/Api'
 import Result from "./components/Search/Result";
-import DetaleLists from "./components/Search/DetaeLists";
-import {Url} from "./components/config/Url";
 
 class App extends React.Component {
 
@@ -43,35 +38,27 @@ class App extends React.Component {
 
     }
 
-    GetMes = () => {
-       let getMessage_users = document.querySelector('.getMessage_users');
-       if (getMessage_users != null){
-           getMessage_users.scrollTop = 100000000000000;
-       }
-       const Timer = () => {
-            if (this.state.incriment < 10){
-                this.setState({
-                    incriment: ++this.state.incriment
-                })
-            }else{
-                clearTimeout(Timer)
-                this.setState({
-                    incriment: 0
-                })
-            }
-           this.props.dispatch(GetMessage())
-           setTimeout(Timer,1500)
-        }
-        setTimeout(Timer,4)
-    }
-    Api = (e) => {
-        e.preventDefault()
-        const par = {
-            id: this.VinRef.current.value,
-            code: this.VinRef.current.value,
-            searchNumber: this.VinRef.current.value,
-        }
-    }
+    // GetMes = () => {
+    //    let getMessage_users = document.querySelector('.getMessage_users');
+    //    if (getMessage_users != null){
+    //        getMessage_users.scrollTop = 100000000000000;
+    //    }
+    //    const Timer = () => {
+    //         if (this.state.incriment < 10){
+    //             this.setState({
+    //                 incriment: ++this.state.incriment
+    //             })
+    //         }else{
+    //             clearTimeout(Timer)
+    //             this.setState({
+    //                 incriment: 0
+    //             })
+    //         }
+    //        this.props.dispatch(GetMessage())
+    //        setTimeout(Timer,1500)
+    //     }
+    //     setTimeout(Timer,4)
+    // }
     render() {
       return (
           <div className="App">

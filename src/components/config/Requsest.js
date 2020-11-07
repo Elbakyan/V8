@@ -1,4 +1,3 @@
-import {Url} from "./Url";
 
 export async function GET(url) {
     const  response = fetch(url);
@@ -18,6 +17,7 @@ export async function TEST_GET(url) {
     const  response = fetch(url);
 
     const json = (await response).text();
+    return json
 }
 export async function TEST_POST(url,data) {
     const  response = fetch(url,{

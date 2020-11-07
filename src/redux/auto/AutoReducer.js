@@ -33,7 +33,8 @@ export default function autoReducer(state = initalState, action){
             return {...state, auto: action.payload}
         case GET_ALL_MODEL:
             return {...state, allModels: action.payload}
+        default:
+            return state
     }
-    return state;
 
 }

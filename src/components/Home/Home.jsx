@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header'
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import './Home.scss'
 import Footer from "../Footer/Footer";
 import Content from "../Content/Content";

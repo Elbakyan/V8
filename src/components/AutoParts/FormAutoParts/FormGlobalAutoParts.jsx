@@ -1,20 +1,20 @@
-import React, {Component, createRef} from "react";
+import React, {Component} from "react";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import Loading from "../../Loading";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
-import {cars} from "../../Menu/autoObj";
-import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
+
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import {GET, POST, TEST_POST} from "../../config/Requsest";
+import {faArrowDown} from "@fortawesome/free-solid-svg-icons";
+import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {GetAllModel} from "../../../redux/auto/action";
+import {GetMarkModelAutoParts} from "../../../redux/score/action";
 
 
 class FormGlobalAutoParts extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             message: '',
             openMarker: false,
@@ -24,6 +24,7 @@ class FormGlobalAutoParts extends Component {
 
     componentDidMount() {
         this.props.dispatch(GetAllModel())
+        this.props.dispatch(GetMarkModelAutoParts())
     }
 
     openModels = e => {
@@ -65,7 +66,7 @@ class FormGlobalAutoParts extends Component {
 
     }
     render() {
-
+        console.log(this.props.score.MarkModelParts)
         return (
             <div className="add_auto_parts">
                 {this.state.message ? <p className="message">{this.state.message}</p> : ''}
@@ -162,7 +163,7 @@ class FormGlobalAutoParts extends Component {
                                                         })}/></li>
                                                         {
                                                             this.props.auto.allModels.map((model,i) => {
-                                                                if (el.id == model['id_mark']){
+                                                                if (el.id === model['id_mark']){
                                                                     return (
                                                                         <li>
                                                                             <ul className={`li_model${i}`}>
@@ -183,14 +184,14 @@ class FormGlobalAutoParts extends Component {
                                                                             </ul>
                                                                         </li>
                                                                     )
-                                                                }
+                                                                }else return false;
                                                             })
                                                         }
 
                                                     </ul>
                                                 </li>
                                             )
-                                        }
+                                        }else return false;
                                     })
                                 }
                             </ul>
