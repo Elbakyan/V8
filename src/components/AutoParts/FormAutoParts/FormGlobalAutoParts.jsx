@@ -7,7 +7,7 @@ import {cars} from "../../Menu/autoObj";
 import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import {GET, POST} from "../../config/Requsest";
+import {GET, POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {GetAllModel} from "../../../redux/auto/action";
 
@@ -44,11 +44,11 @@ class FormGlobalAutoParts extends Component {
         e.preventDefault();
         let data = new FormData(e.target)
 
-        console.log(Array.from(data))
+        POST(Url.addMarkModelAutoParts,data).then(res => {
+            console.log(res)
+        })
     }
     getChecked = (e) => {
-        // console.log(e.target.disabled)
-        console.log(e.target.dataset.check)
             let lists = document.querySelectorAll('.'+ e.target.className)
 
             if(e.target.checked){
@@ -112,12 +112,12 @@ class FormGlobalAutoParts extends Component {
                                                             width: "15%",
                                                             display: 'flex',
                                                             alignItems: 'center'
-                                                        }}>Նոր <input className='new_mark' name='mark_new' disabled  type='checkbox'/></li>
+                                                        }}>Նոր <input className='new_mark' name='mark_new' value={1} disabled  type='checkbox'/></li>
                                                         <li style={{
                                                             width: "15%",
                                                             display: 'flex',
                                                             alignItems: 'center'
-                                                        }}>օգտ. <input name='mark_old' disabled type='checkbox'/></li>
+                                                        }}>օգտ. <input name='mark_old' value={1} disabled type='checkbox'/></li>
                                                         <li style={{width: "5%"}}
                                                             className={"open_models open_models" + el.name}
                                                             data-count={i} data-id={el.id} onClick={this.openModels}>
