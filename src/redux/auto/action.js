@@ -1,12 +1,9 @@
 import {GET, POST} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
-
 export const GET_MARK = 'GET_MARK';
 export const GET_MODEL = 'GET_MODEL';
 export const GET_AUTO = 'GET_AUTO';
 export const GET_ALL_MODEL = 'GET_ALL_MODEL';
-
-
 
 export function GetMark(){
     return (dispach) => {
