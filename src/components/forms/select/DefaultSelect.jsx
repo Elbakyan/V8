@@ -12,10 +12,6 @@ class DefaultSelect extends Component {
     render() {
         return (
             <select
-<<<<<<< HEAD
-                refl={this.props.ref}
-=======
->>>>>>> 0de80296c9f472709334701b38d28123a0b964fd
                 name={this.props.name}
                 onChange={this.props.onChange}
                 style={{

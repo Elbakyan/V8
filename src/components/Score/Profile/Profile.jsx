@@ -81,7 +81,7 @@ class Profile extends React.Component{
                                 {/*<Route exact path={'/score/account/' + pathId}>*/}
                                 {/*    <ScoreList />*/}
                                 {/*</Route>*/}
-                                <Route exact path='/score/account/cars'>
+                                <Route  path='/score/account/cars'>
                                     <AutoParts />
                                 </Route>
                                 <Route exact path='/score/account/message'>
