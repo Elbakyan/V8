@@ -39,6 +39,7 @@ class Message extends Component {
             })
         },1000)
         this.props.dispatch(GetId(e.target.dataset.id))
+
     }
     openRespondent = ()=>{
         let block = document.querySelector('.respondent_user')
@@ -54,7 +55,7 @@ class Message extends Component {
     }
 
     render() {
-        // console.log( this.props.message.message)
+        console.log( this.props.message.message)
         // console.log(this.props.user.id == undefined)
         return(
             <div className="message_users">
@@ -87,9 +88,7 @@ class Message extends Component {
                 </div>
 
                 <div className="message">
-                     <span className="open_respondent" onClick={this.openRespondent}>
-                        <FontAwesomeIcon icon={faEnvelopeSquare} />
-                     </span>
+
                     {
                         this.props.message.message.map((data,i) => {
 

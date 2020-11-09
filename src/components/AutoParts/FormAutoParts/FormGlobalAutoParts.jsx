@@ -10,7 +10,7 @@ import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {GetAllModel} from "../../../redux/auto/action";
 import {GetMarkModelAutoParts} from "../../../redux/score/action";
-import {Link, Route} from "react-router-dom";
+import {NavLink, Redirect, Route} from "react-router-dom";
 
 
 class FormGlobalAutoParts extends Component {
@@ -19,6 +19,8 @@ class FormGlobalAutoParts extends Component {
         this.state = {
             message: '',
             openMarker: false,
+            loading:false,
+            redirect: false
         }
 
     }
@@ -42,11 +44,30 @@ class FormGlobalAutoParts extends Component {
 
     }
     AddScorPartsLists = (e) => {
+
         e.preventDefault();
         let data = new FormData(e.target)
-
         POST(Url.addMarkModelAutoParts, data).then(res => {
-            console.log(res)
+            if (res.status) {
+
+                this.setState({
+                    loading: false,
+                    message: "",
+                    redirect: true
+
+                })
+            }else {
+                this.setState({
+                    loading: false,
+                    message: res.message
+                })
+                setTimeout(() => {
+                    this.setState({
+                        loading: false,
+                        message: ''
+                    })
+                },2500)
+            }
         })
     }
     getChecked = (e) => {
@@ -57,22 +78,43 @@ class FormGlobalAutoParts extends Component {
             lists[0].childNodes[2].children[0].checked = true
             lists[0].childNodes[3].children[0].disabled = false
             lists[0].childNodes[3].children[0].checked = true
+            if(lists[0].childNodes[5]){
+                lists[0].childNodes[5].children[0].checked = true
+            }
+
         } else {
             lists[0].childNodes[2].children[0].disabled = true
             lists[0].childNodes[2].children[0].checked = false
             lists[0].childNodes[3].children[0].disabled = true
             lists[0].childNodes[3].children[0].checked = false
+            if(lists[0].childNodes[5]){
+                lists[0].childNodes[5].children[0].checked = false
+            }
+
         }
     }
 
     render() {
-        console.log(this.props.score.MarkModelParts)
         return (
             <div className="add_auto_parts">
+                {
+                    this.state.redirect? <Redirect to='/score/account/cars/lists'/>:''
+                }
                 <div className="add_auto_parts-links">
-                    <Link to='/score/account/cars/add' >Ավելացնել...</Link>
-                    <Link to='/score/account/cars/lists' >Ցանկ...</Link>
+                    <NavLink to='/score/account/cars/add' >Ավելացնել...</NavLink>
+                    <NavLink to='/score/account/cars/lists' >Ցանկ...</NavLink>
                 </div>
+                    {
+                        this.state.message?
+                            <div className="message" style={{
+                                position: "fixed",
+                                top: "15px",
+                                background: "#ffffff"
+
+                            }}>
+                                {this.state.message}
+                            </div>:''
+                    }
                 <Route path='/score/account/cars/add'>
                     <form onSubmit={this.AddScorPartsLists}>
                         <div className="score_list">
@@ -103,9 +145,10 @@ class FormGlobalAutoParts extends Component {
                                                     <li key={i} className='all_check'>
                                                         <ul className={"li_mark li_mark" + i}>
                                                             <li>{el.name}</li>
-                                                            <li><input className={"li_mark" + i} data-check={1}
+                                                            <li><input className={"li_mark" + i} data-id={el.id}
                                                                        name='mark[]' value={el.name}
                                                                        onChange={this.getChecked} type='checkbox'/></li>
+
                                                             <li> <input className='checkbox new_mark' name='mark_new'
                                                                         value={1} disabled type='checkbox'/>Նոր</li>
                                                             <li> <input name='mark_old' value={1} disabled
@@ -117,8 +160,10 @@ class FormGlobalAutoParts extends Component {
                                                                     <FontAwesomeIcon icon={faArrowDown}/>
                                                                 }
                                                             </li>
+                                                            <li style={{display: "none"}}>
+                                                                <input type="checkbox" name='mark_id[]' value={el.id}/>
+                                                            </li>
                                                         </ul>
-
 
                                                         <ul className={`open_models${el.name}`} style={{display: "none"}}
                                                             data-count={i} ref={el => this.getModels = el}>
@@ -135,7 +180,7 @@ class FormGlobalAutoParts extends Component {
                                                                                                onChange={this.getChecked}
                                                                                                type="checkbox"
                                                                                                name='model[]'
-                                                                                               value={model.name}/>
+                                                                                               value={model.name + '/' + model['id_mark']}/>
                                                                                     </li>
                                                                                     <li>
                                                                                         <input type="checkbox" disabled
@@ -165,7 +210,7 @@ class FormGlobalAutoParts extends Component {
                         </div>
 
 
-                        <div className="add__product-btn">
+                        <div className="add_auto_parts-btn">
                             {
                                 this.state.loading ?
                                     <div className="loading_btn"><Loading type='spin' color='#ff0000' size={30}/></div> : ''

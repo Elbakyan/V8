@@ -293,8 +293,11 @@
 
 
 .cars_forma{
-  width: 90%;
+  width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
 
   #add__auto{
@@ -305,7 +308,7 @@
     justify-content: space-between;
 
     .items{
-      width: 140px;
+      width: 160px;
       position: relative;
       display: flex;
       align-items: center;
@@ -389,11 +392,13 @@
       }
     }
     .btn{
-      width: 150px;
-      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
       perspective: 500px;
       border-radius: 50%;
       position: relative;
+      margin-top: 20px;
 
       .add_loading{
         width: 100%;
