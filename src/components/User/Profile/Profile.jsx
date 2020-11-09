@@ -29,13 +29,14 @@ class Profile extends React.Component{
     }
 
     render() {
+        console.log(this.props.message)
         let status = 0;
-        this.props.message.message.map((data) => {
-            if (+this.props.user.id !== +data['send_id']){
-                status += +data.status;
-            }
-
-        })
+        // this.props.message.message.map((data) => {
+        //     if (+this.props.user.id !== +data['send_id']){
+        //         status += +data.status;
+        //     }
+        //
+        // })
 
         return (
             <section className="Profile col">

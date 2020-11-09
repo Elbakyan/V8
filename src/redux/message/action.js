@@ -26,7 +26,6 @@ export function GetMessage() {
     return (dispach) => {
         GET(Url.dialog).then(res => {
             console.log(res)
-            console.log(1111)
             dispach({
                 type: GET_MESSAGE,
                 payload: res
