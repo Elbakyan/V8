@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {GetStoreID} from "../../redux/search/action";
 
 class ScoreList extends Component{
@@ -28,9 +28,9 @@ class ScoreList extends Component{
                         </div>
                         <div className='score_list_info__body table_style_body'>
                             {
-                                this.props.scoreList.store != false? this.props.scoreList.detal.map((detal,i) => {
+                                this.props.scoreList.store !== false? this.props.scoreList.detal.map((detal,i) => {
                                     let store = this.props.scoreList.store[i];
-                                    if (store != undefined){
+                                    if (store !== undefined){
                                         return (
                                             <ul>
                                                 <li>{detal.code}</li>

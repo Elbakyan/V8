@@ -1,10 +1,9 @@
 import React from 'react';
-import {Link, Redirect, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import {Url} from "../config/Url";
-import PersonalDataScore from  './Profile/PersionalDataScore'
-import Menu from "../Menu/Menu";
+
 import Search from "../Search/Search";
 
 
@@ -13,11 +12,6 @@ import Search from "../Search/Search";
 
 
 class Header extends React.Component{
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
         return (
             <header>
@@ -28,29 +22,7 @@ class Header extends React.Component{
                             <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>
-                    {/*<nav className="header__navigation">*/}
-                    {/*    <ul>*/}
-                    {/*        <li className='header__navigation-li'>*/}
-                    {/*            <Link to='/score/account/spare-parts' className='header__link'>*/}
-                    {/*                Պահեստամասեր*/}
-                    {/*            </Link>*/}
-                    {/*        </li>*/}
-                    {/*        <li>*/}
-                    {/*            <Link to='/acauservice'>*/}
-                    {/*                Ծառայություներ*/}
-                    {/*            </Link>*/}
-                    {/*        </li>*/}
-                    {/*        <li>*/}
-                    {/*            <Link to='/announcement'>*/}
-                    {/*                Հայտարարություններ*/}
-                    {/*            </Link>*/}
-                    {/*        </li>*/}
-                    {/*    </ul>*/}
-                    {/*</nav>*/}
                     <Search />
-                    {/*<div className="score_info">*/}
-                    {/*    <PersonalDataScore />*/}
-                    {/*</div>*/}
                     <div className="header__logout">
                         <a href={Url.logoutscore}>
                             <DefaultBtn
@@ -62,8 +34,6 @@ class Header extends React.Component{
                         </a>
                     </div>
                 </div>
-                {/*component*/}
-
             </header>
         );
     }

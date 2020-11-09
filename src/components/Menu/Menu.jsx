@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 import './Menu.scss'
-import {cars, maser, autogruz, service, carsTop} from './autoObj'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBackspace, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
+import {cars, maser, autogruz, service} from './autoObj'
 
 class Menu extends Component {
     outMenu = e =>{
@@ -12,7 +10,7 @@ class Menu extends Component {
         // }
     }
     open = e => {
-        if (e.target.dataset.counter != undefined) {
+        if (e.target.dataset.counter !== undefined) {
 
 
             if(e.target.dataset.counter === '1'){
@@ -115,95 +113,3 @@ class Menu extends Component {
 }
 
 export default Menu;
-
-
-{/*<ul className="spare_parts">*/
-}
-{/*    <li>*/
-}
-{/*        Ավտոմասեր*/
-}
-{/*        <ul className="disp">*/
-}
-{/*            {*/
-}
-{/*                maser.map(({name}, i) => (*/
-}
-{/*                    <li key={i}>*/
-}
-{/*                        {name}*/
-}
-{/*                    </li>*/
-}
-{/*                ))*/
-}
-{/*            }*/
-}
-{/*        </ul>*/
-}
-{/*    </li>*/
-}
-{/*    <li className="menu_cars" data-counter={1} >*/
-}
-{/*        Մարդատարի պահեստամասեր*/
-}
-{/*        <ul className="disp">*/
-}
-{/*            {*/
-}
-{/*                carsTop.map(({name}, i) => (*/
-}
-{/*                    <li key={i}>*/
-}
-{/*                        {name}*/
-}
-{/*                    </li>*/
-}
-{/*                ))*/
-}
-{/*            }*/
-}
-{/*            {*/
-}
-{/*                cars.map(({name}, i) => (*/
-}
-{/*                    <li key={i}>*/
-}
-{/*                        {name}*/
-}
-{/*                    </li>*/
-}
-{/*                ))*/
-}
-{/*            }*/
-}
-{/*        </ul>*/
-}
-{/*    </li>*/
-}
-{/*    <li className="menu_carsTrack" data-counter={1}>*/
-}
-{/*        Բեռնատարի պահեստամասեր*/
-}
-{/*        <ul className="disp" >*/
-}
-{/*            {*/
-}
-{/*                autogruz.map(({name}) => (*/
-}
-{/*                    <li>*/
-}
-{/*                        {name}*/
-}
-{/*                    </li>*/
-}
-{/*                ))*/
-}
-{/*            }*/
-}
-{/*        </ul>*/
-}
-{/*    </li>*/
-}
-{/*</ul>*/
-}

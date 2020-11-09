@@ -18,7 +18,9 @@ export default function sellReducer(state = initalState, action){
             return {...state, data: action.payload}
         case GET_SELL_BY_ID:
             return {...state, OneAuto: action.payload}
+        default:
+            return state
     }
-    return state;
+
 
 }

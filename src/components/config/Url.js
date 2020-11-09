@@ -8,6 +8,7 @@ export const Url = {
     auto: 'https://brutal.am/Server/auto',
     allmodels: 'https://brutal.am/Server/model',
     addMarkModelAutoParts: 'https://brutal.am/Server/ammap',
+    getMarkModelAutoParts: 'https://brutal.am/Server/gmmap',
     model: 'https://brutal.am/Server/auto/model',
     addauto: 'https://brutal.am/Server/AddUserAuto',
     getUserAuto: 'https://brutal.am/Server/GetUserAuto',
