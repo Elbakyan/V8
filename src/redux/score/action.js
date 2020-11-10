@@ -4,6 +4,7 @@ export const SCORE_EXIST = "SCORE_EXIST";
 export const GET_SCORE_LIST = "GET_SCORE_LIST";
 export const GET_PRODUCT = "GET_PRODUCT";
 export const GET_MARK_MODEL_AUTO_PARTS = "GET_MARK_MODEL_AUTO_PARTS";
+export const GET_ID = "GET_ID";
 
 
 export function ScoreExist  () {
@@ -44,5 +45,13 @@ export function GetMarkModelAutoParts  () {
                 payload: res
             })
         })
+    }
+}
+export function GetScoreListId  (id) {
+    return async (dispach) => {
+            dispach({
+                type: GET_ID,
+                payload: id
+            })
     }
 }

@@ -20,6 +20,7 @@ class Score extends Component {
         // data.append("score", 'score');
         // console.log(Array.from(data))
 
+
     }
 
     render() {

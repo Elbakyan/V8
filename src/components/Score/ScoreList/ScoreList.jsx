@@ -12,7 +12,8 @@ import {Url} from "../../config/Url";
 import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";
 import ScorePage from "../ScorePage/ScorePage";
-import {Route,NavLink} from "react-router-dom";
+import {Route, NavLink, Redirect} from "react-router-dom";
+import {GetScoreListId} from "../../../redux/score/action";
 
 
 
@@ -104,15 +105,19 @@ class ScoreList extends React.Component{
 
     }
     render() {
+
         return (
             <div className="ScoreList">
+                {
+                    this.props.score.scoreList[0]? <Redirect to={this.props.score.id? '/score/account/list/'+this.props.score.id: '/score/account/list/'+this.props.score.scoreList[0].id}/>:''
+                }
                 <div className="score__list-links">
                    <ul>
                        <li onClick={this.ShowAddScoreForm}><div className='show__form'>+</div></li>
                        {
                            this.props.score.scoreList.map((list,i) =>{
 
-                               return (<li key={list.id}>
+                               return <li key={list.id}>
                                    <div >
                                        <NavLink
                                        to={'/score/account/list/'+list.id}
@@ -123,7 +128,7 @@ class ScoreList extends React.Component{
 
                                        </NavLink>
                                    </div>
-                               </li>)
+                               </li>
                            })
                        }
 

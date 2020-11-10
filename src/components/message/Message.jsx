@@ -23,9 +23,6 @@ class Message extends Component {
     }
 
     componentDidMount() {
-
-        let data = new FormData();
-        data.append('id',window.location.pathname.split('/').pop());
         this.props.dispatch(GetMessage(this.props.id))
     }
 
@@ -56,8 +53,8 @@ class Message extends Component {
     }
 
     render() {
+        console.log(this.props)
 
-        console.log(this.props.message)
         return(
             <div className="message_users">
 
@@ -66,74 +63,68 @@ class Message extends Component {
                     this.state.redirect?<Redirect to={this.state.link?this.state.link:'/user/account/persional/'+this.props.message.message[0].dialog_id} />:''
                 }
                 <div className="respondent">
-                    {
-                        this.props.message.data.user?this.props.message.data.user.map((data,i) => {
-                            // console.log(data)
-                            // console.log(this.props.message.data.message.user[i])
-                            return (
-                                <Respondent
-                                    key={i}
-                                    id={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}
-                                    // active={active}
-                                    data={data}
-                                    onClick={this.Message}
-                                    status={this.props.message.data.message.user[i].status}
-                                    time={this.props.message.data.message.user[i].time}
-                                    userId={this.props.id}
-                                    send={this.props.message.data.message.user[i].send_id}
-                                />
-                            )
-                
-                        }): ''
-                    }
-                    {
-                        this.props.message.data.score?this.props.message.data.score.map((data,i) => {
 
-                            // console.log(this.props.message.data.message.user[i])
-                            return (
-                                <Respondent
-                                    key={i}
-                                    id={'/score/account/message/'+this.props.message.data.message.score[i].dialog_id}
-                                    // active={active}
-                                    data={data}
-                                    onClick={this.Message}
-                                    // status={this.props.message.data.message.user[i].status}
-                                    time={this.props.message.data.message.score[i].time}
-                                    userId={this.props.id}
-                                    send={this.props.message.data.message.score[i].send_id}
-                                />
-                            )
+                                {/*<Respondent*/}
+                                {/*    key={i}*/}
+                                {/*    id={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}*/}
+                                {/*    // active={active}*/}
+                                {/*    data={data}*/}
+                                {/*    onClick={this.Message}*/}
+                                {/*    status={this.props.message.data.message.user[i].status}*/}
+                                {/*    time={this.props.message.data.message.user[i].time}*/}
+                                {/*    userId={this.props.id}*/}
+                                {/*    send={this.props.message.data.message.user[i].send_id}*/}
+                                {/*/>*/}
 
-                        }): ''
-                    }
+                    {/*{*/}
+                    {/*    this.props.message.data.score?this.props.message.data.score.map((data,i) => {*/}
+                    
+                    {/*        // console.log(this.props.message.data.message.user[i])*/}
+                    {/*        return (*/}
+                    {/*            <Respondent*/}
+                    {/*                key={i}*/}
+                    {/*                id={'/user/account/persional/'+this.props.message.data.message.score[i].dialog_id}*/}
+                    {/*                // active={active}*/}
+                    {/*                data={data}*/}
+                    {/*                onClick={this.Message}*/}
+                    {/*                // status={this.props.message.data.message.user[i].status}*/}
+                    {/*                time={this.props.message.data.message.score[i].time}*/}
+                    {/*                userId={this.props.id}*/}
+                    {/*                send={this.props.message.data.message.score[i].send_id}*/}
+                    {/*            />*/}
+                    {/*        )*/}
+                    
+                    {/*    }): ''*/}
+                    {/*}*/}
                 </div>
                 
                 <div className="message">
-
-                    {
-                        this.props.message.data.message.user?this.props.message.data.message.user.map((data,i) => {
-                            return (
-                                data.delite[0] === this.props.id ?'':
-                                <Switch key={i}>
-                                    <Route exact path={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}>
-                                        <GetMessageClass one_message={data.message} />
-                                    </Route>
-                                </Switch>
-                            )
-                        }):''
-                    }
-                    {
-                        this.props.message.data.message.score?this.props.message.data.message.score.map((data,i) => {
-                            return (
-                                data.delite[0] === this.props.id ?'':
-                                    <Switch key={i}>
-                                        <Route exact path={'/score/account/message/'+this.props.message.data.message.score[i].dialog_id}>
-                                            <GetMessageClass one_message={data.message} />
-                                        </Route>
-                                    </Switch>
-                            )
-                        }):''
-                    }
+                    
+                    {/*{*/}
+                    {/*    this.props.message.data.message.user?this.props.message.data.message.user.map((data,i) => {*/}
+                    {/*        return (*/}
+                    {/*            data.delite[0] === this.props.id ?'':*/}
+                    {/*            <Switch key={i}>*/}
+                    {/*                <Route exact path={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}>*/}
+                    {/*                    <GetMessageClass one_message={data.message} id={this.props.id}/>*/}
+                    {/*                </Route>*/}
+                    {/*            </Switch>*/}
+                    {/*        )*/}
+                    {/*    }):''*/}
+                    {/*}*/}
+                    {/*{*/}
+                    {/*    this.props.message.data.message.score?this.props.message.data.message.score.map((data,i) => {*/}
+                    
+                    {/*        return (*/}
+                    {/*            data.delite[0] === this.props.id ?'':*/}
+                    {/*                <Switch key={i}>*/}
+                    {/*                    <Route exact path={'/score/account/message/'+this.props.message.data.message.score[i].dialog_id}>*/}
+                    {/*                        <GetMessageClass one_message={data.message} id={this.props.id}/>*/}
+                    {/*                    </Route>*/}
+                    {/*                </Switch>*/}
+                    {/*        )*/}
+                    {/*    }):''*/}
+                    {/*}*/}
 
                 </div>
             </div>
@@ -141,7 +132,7 @@ class Message extends Component {
     }
 }
 
-const MapStateToProps = state => state;
+const MapStateToProps = state => state.message;
 const MainMessage = connect(MapStateToProps)(Message)
 
 export default MainMessage;

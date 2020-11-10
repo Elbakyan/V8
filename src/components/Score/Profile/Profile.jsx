@@ -20,10 +20,10 @@ class Profile extends React.Component{
     }
     componentDidMount() {
         this.props.dispatch(GetScoreList())
-        this.props.dispatch(GetMessage(50))
+
     }
+
     render() {
-        console.log(this.props)
         let pathId = '';
         if (this.props.score.scoreList != false){
              pathId = this.props.score.scoreList[0].id;
@@ -48,7 +48,7 @@ class Profile extends React.Component{
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/score/account/message'>
+                                    <Link to='/score/account/message' >
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faEnvelope}/>
                                         </div>
@@ -76,17 +76,14 @@ class Profile extends React.Component{
 
                         <div className="Profile__content">
                             <Switch>
-                                {/*<Route path='/score/account/list'>*/}
-                                {/*    <ScoreList />*/}
-                                {/*</Route>*/}
-                                {/*<Route exact path={'/score/account/' + pathId}>*/}
-                                {/*    <ScoreList />*/}
-                                {/*</Route>*/}
                                 <Route  path='/score/account/cars'>
                                     <AutoParts />
                                 </Route>
                                 <Route  path='/score/account/message'>
-                                    <Message id={1604757016}/>
+                                    {
+                                        this.props.score.id?<Message id={this.props.score.id}/>: ''
+                                    }
+
                                 </Route>
                                 <ScoreList />
                             </Switch>

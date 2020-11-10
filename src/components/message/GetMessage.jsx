@@ -43,7 +43,6 @@ class GetMessageClass extends Component{
         if (this.textareaRef.value.trim().length > 0){
             this.props.dispatch(SendMessage(data))
         }
-        // this.props.dispatch(GetMessage(32))
         this.textareaRef.value = '';
 
         this.scroll()
@@ -53,10 +52,11 @@ class GetMessageClass extends Component{
         if(e.keyCode == 13 && e.shiftKey == false) {
             e.preventDefault();
             let data = new FormData(this.formRef);
+
             if (this.textareaRef.value.trim().length > 0){
                 this.props.dispatch(SendMessage(data))
             }
-            // this.props.dispatch(GetMessage(32))
+
             this.textareaRef.value = ''
             this.scroll()
         }
@@ -79,7 +79,6 @@ class GetMessageClass extends Component{
     }
 
     render() {
-        console.log(this.props)
         let meso = document.querySelectorAll('.meso')
         meso.forEach(elem => {
             elem.innerHTML = elem.innerText
@@ -110,8 +109,8 @@ class GetMessageClass extends Component{
                 <div className="send_message">
                     <form onSubmit={this.Message} ref={el => this.formRef = el}>
                         <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={el => this.textareaRef = el}></textarea>
-                        <input type="hidden" name='send_id' value={this.props.user.id || 1604757016}/>
-                        <input type="hidden" name='get_id' value={this.props.message.id || 32}/>
+                        <input type="hidden" name='send_id' value={this.props.id}/>
+                        <input type="hidden" name='get_id' value={this.props.message.id}/>
                         <div className="message_send_button">
 
                             <DefaultBtn
