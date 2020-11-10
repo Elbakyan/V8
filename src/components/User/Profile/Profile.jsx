@@ -25,11 +25,10 @@ class Profile extends React.Component{
         this.setState({
             link:window.location.pathname
         })
-        this.props.dispatch(GetMessage())
     }
 
     render() {
-        console.log(this.props.message)
+        console.log()
         let status = 0;
         // this.props.message.message.map((data) => {
         //     if (+this.props.user.id !== +data['send_id']){
@@ -102,7 +101,9 @@ class Profile extends React.Component{
                                             <GeFavorite />
                                         </Route>
                                         <Route  path='/user/account/persional'>
-                                            <Message/>
+                                            {
+                                                this.props.user.id? <Message id={this.props.user.id}/>:''
+                                            }
                                         </Route>
                                     </Switch>
                                 </div>

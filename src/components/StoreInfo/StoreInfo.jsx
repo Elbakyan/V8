@@ -15,6 +15,9 @@ import SliderAuto from "../SliderAuto/SliderAuto";
 import {connect} from "react-redux";
 import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
+import DefaultBtn from "../forms/buttons/DefaultBtn";
+import {SendMessage} from "../../redux/message/action";
+
 
 
 class StoreInfo extends Component{
@@ -34,9 +37,24 @@ class StoreInfo extends Component{
             })
         })
     }
+    Send = (e) => {
+        e.preventDefault()
+        let data = new FormData(e.target);
+        console.log(Array.from(data))
+        this.props.dispatch(SendMessage(data))
+        this.textareaRef.value = '';
+        // this.setState({
+        //     message:true
+        // })
+        setTimeout(()=>{
+            this.setState({
+                message:false
+            })
+        },1500)
+    }
 
     render() {
-        console.log(this.state.data)
+
         return(
             <div className="container">
                 {
@@ -111,9 +129,21 @@ class StoreInfo extends Component{
                                 </nav>
                                 <ul className='store_message'>
                                     <li>
-                                        <textarea placeholder='Ուղարկել հաղորդագրություն․․․'></textarea>
+                                        {
+                                            this.state.data.id?
+                                                <form onSubmit={this.Send}>
+                                                    <textarea placeholder='Ուղարկել հաղորդագրություն․․․' ref={el => this.textareaRef = el}></textarea>
+                                                    <input type="hidden" name='get_id' value={this.state.data.id}/>
+                                                    <input type="hidden" name='score' value='score'/>
+                                                    <button type='submit' className='send'>
+                                                        <FontAwesomeIcon icon={faEnvelope} />
+                                                    </button>
+                                                </form>:''
+                                        }
+
+
                                     </li>
-                                    <li className='send'><FontAwesomeIcon icon={faEnvelope} /></li>
+
                                 </ul>
                             </div>
                             <div className="store__slider">
@@ -127,6 +157,11 @@ class StoreInfo extends Component{
     }
 }
 
-const MapStateToProps = state => state.search;
+const MapStateToProps = state => {
+    return {
+        search: state.search,
+        user: state.user
+    }
+};
 const MainStoreInfo = connect(MapStateToProps)(StoreInfo);
 export default MainStoreInfo;

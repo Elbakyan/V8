@@ -187,6 +187,7 @@ class Auto extends Component {
                            <form onSubmit={this.SendMessage}>
                                <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
                                 <input type="hidden" name='get_id' value={auto.user_id}/>
+                               <input type="hidden" name='user' value='user'/>
                                 <DefaultBtn
                                     type='submit'
                                     name='Գրել․․․'

@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {Url} from "../config/Url";
 import {GetMessage} from "../../redux/message/action";
+import Search from "../Search/Search";
 
 
 
@@ -50,26 +51,7 @@ class Header extends React.Component{
                             <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
                         </Link>
                     </div>
-                    <nav className="header__navigation">
-                        <ul style={this.state.close ? {right: '-100%'} : {right: '0%'}}>
-                            <li className='header__navigation-li'>
-                                <Link to='/spare-parts' className='header__link'>
-                                    Պահեստամասեր
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/acauservice'>
-                                    Ծառայություներ
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/announcement'>
-                                    Հայտարարություններ
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    {/* eslint-disable-next-line react/jsx-no-undef */}
+                    <Search />
                     <div className="user_info">
                         <PersonalData />
                     </div>

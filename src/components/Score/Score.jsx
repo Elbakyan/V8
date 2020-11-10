@@ -8,17 +8,18 @@ import Signin from "./Authentication/Signin";
 import './Score.scss'
 import {GetScoreList} from "../../redux/score/action";
 import Result from "../Search/Result";
-import {SendMessage} from "../../redux/message/action";
+import {GetMessage, SendMessage} from "../../redux/message/action";
 
 
 class Score extends Component {
     componentDidMount() {
-        let data = new FormData();
-        data.append("send_id", 1604757016);
-        data.append("get_id", 32);
-        data.append("message", 'hello');
-        console.log(Array.from(data))
-        // this.props.dispatch(SendMessage(data))
+        // let data = new FormData();
+        // data.append("send_id", 1604757123);
+        // data.append("get_id", 32);
+        // data.append("message", 'hellowORLD');
+        // data.append("score", 'score');
+        // console.log(Array.from(data))
+
     }
 
     render() {

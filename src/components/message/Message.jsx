@@ -23,9 +23,10 @@ class Message extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(GetMessage())
+
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
+        this.props.dispatch(GetMessage(this.props.id))
     }
 
     Message = (e) => {
@@ -55,53 +56,85 @@ class Message extends Component {
     }
 
     render() {
-        console.log( this.props.message.message)
-        // console.log(this.props.user.id == undefined)
+
+        console.log(this.props.message)
         return(
             <div className="message_users">
+
+
                 {
                     this.state.redirect?<Redirect to={this.state.link?this.state.link:'/user/account/persional/'+this.props.message.message[0].dialog_id} />:''
                 }
                 <div className="respondent">
                     {
-                        this.props.message.user.map((data,i) => {
-                         let active = this.props.message.message[i].dialog_id === window.location.pathname.split('/').pop()
-                            // if(this.props.message.message && this.props.user.id ){
-                                return (
-                                    this.props.message.message[i].delite[0] === this.props.user.id ?'':
-                                        <Respondent
-                                            key={i}
-                                            id={'/user/account/persional/'+this.props.message.message[i].dialog_id}
-                                            active={active}
-                                            data={data}
-                                            onClick={this.Message}
-                                            status={this.props.message.message[i].status}
-                                            time={this.props.message.message[i].time}
-                                            userId={this.props.user.id}
-                                            send={this.props.message.message[i].send_id}
-                                        />
-                                )
-                            // }
+                        this.props.message.data.user?this.props.message.data.user.map((data,i) => {
+                            // console.log(data)
+                            // console.log(this.props.message.data.message.user[i])
+                            return (
+                                <Respondent
+                                    key={i}
+                                    id={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}
+                                    // active={active}
+                                    data={data}
+                                    onClick={this.Message}
+                                    status={this.props.message.data.message.user[i].status}
+                                    time={this.props.message.data.message.user[i].time}
+                                    userId={this.props.id}
+                                    send={this.props.message.data.message.user[i].send_id}
+                                />
+                            )
+                
+                        }): ''
+                    }
+                    {
+                        this.props.message.data.score?this.props.message.data.score.map((data,i) => {
 
-                        })
+                            // console.log(this.props.message.data.message.user[i])
+                            return (
+                                <Respondent
+                                    key={i}
+                                    id={'/score/account/message/'+this.props.message.data.message.score[i].dialog_id}
+                                    // active={active}
+                                    data={data}
+                                    onClick={this.Message}
+                                    // status={this.props.message.data.message.user[i].status}
+                                    time={this.props.message.data.message.score[i].time}
+                                    userId={this.props.id}
+                                    send={this.props.message.data.message.score[i].send_id}
+                                />
+                            )
+
+                        }): ''
                     }
                 </div>
-
+                
                 <div className="message">
 
                     {
-                        this.props.message.message.map((data,i) => {
-
+                        this.props.message.data.message.user?this.props.message.data.message.user.map((data,i) => {
                             return (
-                                data.delite[0] === this.props.user.id ?'':
+                                data.delite[0] === this.props.id ?'':
                                 <Switch key={i}>
-                                    <Route exact path={'/user/account/persional/'+this.props.message.message[i].dialog_id}>
+                                    <Route exact path={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}>
                                         <GetMessageClass one_message={data.message} />
                                     </Route>
                                 </Switch>
                             )
-                        })
+                        }):''
                     }
+                    {
+                        this.props.message.data.message.score?this.props.message.data.message.score.map((data,i) => {
+                            return (
+                                data.delite[0] === this.props.id ?'':
+                                    <Switch key={i}>
+                                        <Route exact path={'/score/account/message/'+this.props.message.data.message.score[i].dialog_id}>
+                                            <GetMessageClass one_message={data.message} />
+                                        </Route>
+                                    </Switch>
+                            )
+                        }):''
+                    }
+
                 </div>
             </div>
         )
