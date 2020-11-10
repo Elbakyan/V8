@@ -1,7 +1,10 @@
 import {GET_DIALOG_ID, GET_ID, GET_MESSAGE, GET_STATUS, SEND_MESSAGE} from "./action";
 const initialState = {
-    user: [],
-    message: [],
+    data: {
+        user: [],
+        score: [],
+        message: []
+    },
     id: '',
     dialog: '',
     status: []
@@ -10,9 +13,9 @@ const initialState = {
 function MessageReducer(state = initialState , action) {
     switch (action.type){
         case SEND_MESSAGE:
-            return {...state, message: action.payload.message,user:action.payload.user}
+            return {...state, data: action.payload}
         case GET_MESSAGE:
-            return {...state, message: action.payload.message,user:action.payload.user}
+            return {...state, data: action.payload}
         case GET_ID:
             return {...state, id: action.payload}
         case GET_DIALOG_ID:

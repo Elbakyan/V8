@@ -9,6 +9,7 @@ import ScoreList from "../ScoreList/ScoreList";
 import Message from '../../message/Message'
 import {GetScoreList} from "../../../redux/score/action";
 import AutoParts from "../../AutoParts/AutoParts";
+import {GetMessage} from "../../../redux/message/action";
 
 
 
@@ -19,9 +20,10 @@ class Profile extends React.Component{
     }
     componentDidMount() {
         this.props.dispatch(GetScoreList())
+        this.props.dispatch(GetMessage(50))
     }
     render() {
-
+        console.log(this.props)
         let pathId = '';
         if (this.props.score.scoreList != false){
              pathId = this.props.score.scoreList[0].id;
@@ -83,8 +85,8 @@ class Profile extends React.Component{
                                 <Route  path='/score/account/cars'>
                                     <AutoParts />
                                 </Route>
-                                <Route exact path='/score/account/message'>
-                                    {/*<Message />*/}
+                                <Route  path='/score/account/message'>
+                                    <Message id={1604757016}/>
                                 </Route>
                                 <ScoreList />
                             </Switch>

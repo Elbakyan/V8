@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrashAlt} from "@fortawesome/free-solid-svg-icons/faTrashAlt";
-import {POST} from "../config/Requsest";
+import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 
 
@@ -12,7 +12,7 @@ class Respondent extends Component {
        let data = new FormData();
        data.append('send_id',this.props.userId);
        data.append('get_id',e.target.dataset.id);
-        POST(Url.deliteMessage,data).then(res => {
+        TEST_POST(Url.deliteMessage,data).then(res => {
             console.log(res)
         })
 

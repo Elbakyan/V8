@@ -17,7 +17,7 @@ class User extends React.Component{
         }
     }
     componentDidMount() {
-        this.props.dispatch(GetMessage())
+        // this.props.dispatch(GetMessage())
     }
 
     render() {

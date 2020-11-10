@@ -8,7 +8,6 @@ export const GET_DIALOG_ID = 'GET_DIALOG_ID';
 export const GET_STATUS = 'GET_STATUS';
 
 export function SendMessage(data) {
-
     return (dispach) => {
         POST(Url.sendMessage,data).then(res => {
             console.log(res)
@@ -22,11 +21,17 @@ export function SendMessage(data) {
     }
 }
 
-export function GetMessage() {
+export function GetMessage(id) {
+    let data = new FormData();
+    data.append('id', id);
     return (dispach) => {
-        GET(Url.dialog).then(res => {
+        POST(Url.dialog,data).then(res => {
             console.log(res)
-            console.log(1111)
+            // if (res.score){
+            //     res.score.map(r => {
+            //         r.img = JSON.parse(r.img)[0];
+            //     })
+            // }
             dispach({
                 type: GET_MESSAGE,
                 payload: res
