@@ -10,8 +10,8 @@ import {Url} from "../../config/Url";
 import Api from "../../config/Api";
 import {GetProduct} from "../../../redux/score/action";
 import Loading from "../../Loading";
-                                            import DefaultSelect from "../../forms/select/DefaultSelect";
-                                            import {maser} from "../../Menu/autoObj";
+import DefaultSelect from "../../forms/select/DefaultSelect";
+import {maser} from "../../Menu/autoObj";
 import FormGlobalAutoParts from "./FormGlobalAutoParts";
 
 
@@ -23,29 +23,29 @@ class FormAutoParts extends Component {
             search: '',
             loading: false,
             message: "",
-            edit:false,
+            edit: false,
             id: '',
             price: '',
             count: '',
             top: 0,
-            zoomImg:'',
-            SelectStore:'',
-            allParts:true
+            zoomImg: '',
+            SelectStore: '',
+            allParts: true
         }
     }
 
     componentDidMount() {
         this.props.dispatch(GetProduct())
-        setTimeout(()=>{
-            this.props.score.scoreList.map((el,i)=>{
+        setTimeout(() => {
+            this.props.score.scoreList.map((el, i) => {
                 console.log(el)
-                if(i===0){
+                if (i === 0) {
                     this.setState({
-                        SelectStore:el.name
+                        SelectStore: el.name
                     })
                 }
             })
-        },500)
+        }, 500)
     }
 
     closeImage = e => {
@@ -56,7 +56,7 @@ class FormAutoParts extends Component {
         console.log(e.target.dataset.img)
 
 
-        if(e.target.dataset.img){
+        if (e.target.dataset.img) {
             this.setState({
                 zoomImg: e.target.dataset.img
             })
@@ -67,7 +67,7 @@ class FormAutoParts extends Component {
 
     search = e => {
         let el = document.getElementById(e.target.value);
-        if(el){
+        if (el) {
             el.scrollIntoView();
         }
         this.setState({
@@ -99,17 +99,17 @@ class FormAutoParts extends Component {
                 data.append('name', name)
                 POST(Url.addproduct, data).then(res => {
                     console.log(res)
-                    if (res){
+                    if (res) {
                         console.log(res)
                         this.setState({
                             loading: false
                         })
-                        if (res.status){
+                        if (res.status) {
                             this.setState({
                                 message: ""
                             })
                             this.props.dispatch(GetProduct())
-                        }else{
+                        } else {
                             this.setState({
                                 message: res.message
                             })
@@ -123,8 +123,8 @@ class FormAutoParts extends Component {
     UpdateProductData = (e) => {
         e.preventDefault();
         let data = new FormData(e.target)
-        POST(Url.setingsproduct,data).then(res => {
-            if (res.status){
+        POST(Url.setingsproduct, data).then(res => {
+            if (res.status) {
                 this.setState({
                     edit: false,
                 })
@@ -137,9 +137,9 @@ class FormAutoParts extends Component {
         let data = new FormData()
         data.append('id', e.target.dataset.id);
         data.append('delite', true);
-        POST(Url.setingsproduct,data).then(res => {
+        POST(Url.setingsproduct, data).then(res => {
             console.log(res)
-            if (res.status){
+            if (res.status) {
                 this.props.dispatch(GetProduct())
             }
         })
@@ -148,18 +148,18 @@ class FormAutoParts extends Component {
         // console.log(e.target.value)
         e.target.selected = true
         this.setState({
-            SelectStore:e.target.value
+            SelectStore: e.target.value
         })
     }
 
-    checkParts = (e) =>{
-        console.log( e.target.checked)
+    checkParts = (e) => {
+        console.log(e.target.checked)
         this.setState({
-            allParts:e.target.checked
+            allParts: e.target.checked
         })
-        if(this.state.allParts){
+        if (this.state.allParts) {
             this.categoryParts.innerText = 'Ըստ մեքենայի ապրանքանիշի'
-        }else {
+        } else {
             this.categoryParts.innerText = 'Ըստ դետալի կոդի'
         }
     }
@@ -176,14 +176,14 @@ class FormAutoParts extends Component {
                 </div>
 
                 {
-                    this.state.allParts?
+                    this.state.allParts ?
                         <div className="---">
                             <div className="add_auto_parts">
-                                {this.state.message?<p className="message">{this.state.message}</p>:''}
+                                {this.state.message ? <p className="message">{this.state.message}</p> : ''}
                                 <form encType='multipart/form-data' onSubmit={this.AddProduct}>
                                     <div className="score_list">
                                         {
-                                            this.props.score.scoreList.map((el,i) => (
+                                            this.props.score.scoreList.map((el, i) => (
                                                 <label key={i}>
                                                     {el.name}
                                                     <DefaultInput
@@ -262,7 +262,9 @@ class FormAutoParts extends Component {
                                     </div>
                                     <div className="add__product-btn">
                                         {
-                                            this.state.loading ? <div className="loading_btn"> <Loading type='spin' color='#ff0000' size={30}/> </div>: ''
+                                            this.state.loading ?
+                                                <div className="loading_btn"><Loading type='spin' color='#ff0000'
+                                                                                      size={30}/></div> : ''
                                         }
                                         <DefaultBtn
                                             type="submit"
@@ -293,11 +295,11 @@ class FormAutoParts extends Component {
                             <div className="select_store">
                                 <p>Ընտրել խանութը</p>
                                 <select
-                                    ref={el=>this.getStore=el}
+                                    ref={el => this.getStore = el}
                                     onChange={this.getSelectStore}
                                 >
                                     {
-                                        this.props.score.scoreList.map((el,i) =>(
+                                        this.props.score.scoreList.map((el, i) => (
                                             <option key={i} value={el.name}>
                                                 {el.name}
                                             </option>
@@ -327,20 +329,21 @@ class FormAutoParts extends Component {
 
                                 <div className="list_body">
                                     {
-                                        this.state.edit?
-                                            <form className="edit" style={{top: this.state.top + 'px'}} onSubmit={this.UpdateProductData}>
-                                                <input type="number"  name='price' defaultValue={this.state.price}/>
-                                                <input type="number"  name='count' defaultValue={this.state.count}/>
+                                        this.state.edit ?
+                                            <form className="edit" style={{top: this.state.top + 'px'}}
+                                                  onSubmit={this.UpdateProductData}>
+                                                <input type="number" name='price' defaultValue={this.state.price}/>
+                                                <input type="number" name='count' defaultValue={this.state.count}/>
                                                 <input type="hidden" value={this.state.id} name='id'/>
                                                 <button type='submit'>Հաստատել․</button>
-                                            </form>: ''
+                                            </form> : ''
                                     }
 
 
                                     {
-                                        this.props.score.product.data?this.props.score.product.data.map((el,i) => {
+                                        this.props.score.product.data ? this.props.score.product.data.map((el, i) => {
                                             // console.log(el)
-                                            if(el.store_name === this.state.SelectStore){
+                                            if (el.store_name === this.state.SelectStore) {
                                                 return (
                                                     <ul
                                                         key={i}
@@ -360,22 +363,23 @@ class FormAutoParts extends Component {
                                                         <li style={{width: '12%'}}>{el.data.split(' ')[0]}</li>
                                                         <li style={{width: '12%'}}
                                                             onClick={this.openImage}
-                                                            data-img={el.img?el.img:''}
+                                                            data-img={el.img ? el.img : ''}
                                                         >
-                                                            {el.img?<img data-img={el.img?el.img:''} src={el.img} alt=""/>:''}
+                                                            {el.img ? <img data-img={el.img ? el.img : ''} src={el.img}
+                                                                           alt=""/> : ''}
                                                         </li>
-                                                        <li style={{width: '10%'}}>{el.new == 1?'Նոր': 'Օգտ.'}</li>
+                                                        <li style={{width: '10%'}}>{el.new == 1 ? 'Նոր' : 'Օգտ.'}</li>
                                                         <li className='buttons' style={{width: '10%'}}>
-                                            <span  data-id={el.id} data-price={el.price} data-count={el.count}
-                                                   onClick={(e) => {
-                                                       this.setState({
-                                                           edit: true,
-                                                           id: e.target.dataset.id,
-                                                           price: e.target.dataset.price,
-                                                           count: e.target.dataset.count,
-                                                           top:e.pageY - (window.scrollY + 25)
-                                                       })
-                                                   }}>
+                                            <span data-id={el.id} data-price={el.price} data-count={el.count}
+                                                  onClick={(e) => {
+                                                      this.setState({
+                                                          edit: true,
+                                                          id: e.target.dataset.id,
+                                                          price: e.target.dataset.price,
+                                                          count: e.target.dataset.count,
+                                                          top: e.pageY - (window.scrollY + 25)
+                                                      })
+                                                  }}>
                                                 <FontAwesomeIcon icon={faPen}/>
                                             </span>
                                                             <span onClick={this.DeliteProduct} data-id={el.id}>
@@ -388,7 +392,7 @@ class FormAutoParts extends Component {
                                                 )
                                             }
 
-                                        }):''
+                                        }) : ''
 
 
                                     }
@@ -396,9 +400,8 @@ class FormAutoParts extends Component {
                             </div>
                         </div>
                         :
-                        <FormGlobalAutoParts />
+                        <FormGlobalAutoParts/>
                 }
-
 
 
             </Fragment>

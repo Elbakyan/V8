@@ -10,23 +10,70 @@ import ButtonView from "../../ButtonView/ButtonView";
 class ListGlobalAutoParts extends  Component{
     constructor(props) {
         super(props);
+        this.state = {
+            store: ''
+        }
+    }
+    componentDidMount() {
+        let st;
+        this.props.score.scoreList.map((el,i)=>{
+            if(i===0){
+                st = el.id
+            }
+        })
+        this.setState({
+            store:st
+        })
+    }
 
+    getStore = e =>{
+        this.setState({
+            store:e.target.value
+        })
     }
     openModel = e =>{
-       // e.target.innerHTML = <FontAwesomeIcon icon={faFolderOpen}/>
-       //  console.log(this.ban,this.ban2)
+        if(e.target.dataset.title == 1){
+            console.log(e.target.className.split(' ')[1].toString())
+            let block = document.querySelectorAll('.'+e.target.className.split(' ')[1].toString())
+            console.log(block)
+            // console.log(block[0].tagName = 'LI')
+            // console.log(block)
+            block.forEach(el=>{
+                // console.log(el)
+                if(el.tagName != "LI"){
+                    console.log(el.style.display)
+                    if(el.style.display == 'none'){
+                        el.style.display = 'flex'
+                    }else{
+                        el.style.display = 'none'
+                    }
+
+                }
+            })
+            e.target.childNodes[0].click()
+        }
+        // console.log(e.target.childNodes[0])
 
     }
     render() {
         let {mark,model} = this.props.score.MarkModelParts
         // console.log(mark,model)
         console.log(this.props.score)
+        console.log(mark)
         return(
                 <div className="get_list_auto_parts">
                     <div>
-                        <section>
-
-                        </section>
+                        <select onChange={this.getStore}>
+                            {
+                                this.props.score.scoreList.map(el=>{
+                                    return(
+                                        <option value={el.id}>
+                                            {el.name}
+                                        </option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
                     <div className='list_header'>
                         <ul>
@@ -39,46 +86,59 @@ class ListGlobalAutoParts extends  Component{
                     <div className="list_body">
                         {
                             mark?mark.map((mark)=>{
-                                // console.log(mark)
-                                return(
-                                    // <div className="list_body">
-                                    <Fragment>
-                                        <ul key={mark.id}>
-                                            <li>{mark.mark}</li>
-                                            {
-                                                mark.new?<li>նոր</li>:''
-                                            }
-                                            {
-                                                mark.old?<li>օգտ</li>:''
-                                            }
-                                            <li data-bul={false} onClick={this.openModel}>
-                                                <ButtonView
-                                                    button1={<FontAwesomeIcon  icon={faFolder}/>}
-                                                    button2={<FontAwesomeIcon  icon={faFolderOpen}/>}
-                                                />
-                                            </li>
-                                        </ul>
-                                        {
-                                            model.map(model=>{
+                               if(this.state.store == mark.score_id){
+                                   return(
+                                       // <div className="list_body">
+                                       <Fragment>
+                                           <ul key={mark.id}>
+                                               <li>{mark.mark}</li>
+                                               {
+                                                   mark.new?<li>նոր</li>:''
+                                               }
+                                               {
+                                                   mark.old?<li>օգտ</li>:''
+                                               }
+                                               <li data-bul={false} onClick={this.openModel} className={"open_list open_list"+mark.id} data-title={1}>
+                                                   <ButtonView
+                                                       button1={<FontAwesomeIcon  icon={faFolder}/>}
+                                                       button2={<FontAwesomeIcon  icon={faFolderOpen}/>}
+                                                   />
+                                               </li>
+                                           </ul>
+                                           {
+                                               model.map((model,i)=>{
 
-                                                if(mark.mark_id === model.mark_id){
-                                                    return (
-                                                        <ul>
-                                                            <li>{model.model}</li>
-                                                            {
-                                                                model.new?<li>նոր</li>:''
-                                                            }
-                                                            {
-                                                                model.old?<li>օգտ</li>:''
-                                                            }
-                                                        </ul>
-                                                    )
-                                                }
-                                            })
-                                        }
-                                    </Fragment>
+                                                   if(mark.mark_id === model.mark_id && this.state.store == model.score_id){
+                                                       return (
+                                                           <ul
+                                                               key={model.id}
+                                                               className={"open_list"+mark.id}
+                                                               style={
+                                                                   {
+                                                                       display:"none",
+                                                                       background:'#282838',
+                                                                       color:'#ffffff'
+                                                                   }
+                                                               }
+                                                           >
+                                                               <li>{model.model}</li>
+                                                               {
+                                                                   model.new?<li>նոր</li>:''
+                                                               }
+                                                               {
+                                                                   model.old?<li>օգտ</li>:''
+                                                               }
+                                                               <li></li>
+                                                           </ul>
+                                                       )
+                                                   }
+                                               })
+                                           }
+                                       </Fragment>
 
-                                )
+                                   )
+                               }
+
 
                             }):''
                         }
