@@ -149,14 +149,12 @@ class GetMessageClass extends Component{
                         <input type="hidden" name='get_id' value={this.props.id1}/>
 
                         <div className="message_send_button">
-
                             <DefaultBtn
                                 type='submit'
                                 name='Ուղարկել'
                                 background='#143645'
                                 color='#ffffff'
                                 light={30}
-
                             />
                         </div>
                     </form>

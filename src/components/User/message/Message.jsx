@@ -98,7 +98,7 @@ class Message extends Component {
                             <span data-user={1}>Օգտատեր</span>
                             {
                                 this.state.RespondentUser  && this.props.message.data.user?this.props.message.data.user.map((data,i) => {
-
+                
                                     if(data){
                                         let active = window.location.href.split('/')[6] == this.props.message.data.message.user[i].dialog_id
                                         return (
@@ -115,17 +115,17 @@ class Message extends Component {
                                             />
                                         )
                                     }
-
-
+                
+                
                                 }): ''
                             }
                         </div>
-
+                
                         <div className='respondent__stores' data-store={1} onClick={this.openRespondents}>
                             <span data-store={1}>Գործնկեր</span>
                             {
                                 this.state.RespondentStore && this.props.message.data.score?this.props.message.data.score.map((data,i) => {
-
+                
                                     if (data){
                                         let active = window.location.href.split('/')[6] == this.props.message.data.message.score[i].dialog_id
                                         return (
@@ -142,16 +142,16 @@ class Message extends Component {
                                             />
                                         )
                                     }
-
-
+                
+                
                                 }): ''
                             }
                         </div>
-
+                
                     </div>
-
+                
                     <div className="message">
-
+                
                         {
                             this.props.message.data.message.user?this.props.message.data.message.user.map((data,i) => {
                                 console.log('mess',data)
@@ -180,11 +180,11 @@ class Message extends Component {
                                             </Switch>
                                     )
                                 }
-
-
+                
+                
                             }):''
                         }
-
+                
                     </div>
                 </div>
             </div>

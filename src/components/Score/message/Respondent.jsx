@@ -19,7 +19,6 @@ class Respondent extends Component {
     }
 
     render() {
-        console.log(this.props.id.match(/\/\d+\//g))
         return (
 
             <div className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}>
@@ -36,9 +35,7 @@ class Respondent extends Component {
                     <div>
                         <span >{this.props.time.split(' ')[1].slice(0,5)}</span>
                         {
-
                             +this.props.status > 0?
-
                                 <span className='status'></span>:''
                         }
 
