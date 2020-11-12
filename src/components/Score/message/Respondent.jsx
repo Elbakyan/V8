@@ -21,12 +21,9 @@ class Respondent extends Component {
     render() {
         console.log(this.props.id.match(/\/\d+\//g))
         return (
-// <<<<<<< HEAD:src/components/User/message/Respondent.jsx
-            <div
-                className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}
-                style={{background:this.props.bground}}
-            >
-                <div className="click" onClick={this.props.onClick} id={this.props.id} data-id={this.props.data?this.props.data.id:''}></div>
+
+            <div className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}>
+                <div className="click" onClick={this.props.onClick} id={this.props.id} data-id={this.props.data?this.props.id:''} data-dialog-id={this.props.dialogId}></div>
 
                 <div className="respondent_user_image" style={{backgroundImage:`url(${this.props.data?this.props.data.img:''})`}}>
 
@@ -40,7 +37,7 @@ class Respondent extends Component {
                         <span >{this.props.time.split(' ')[1].slice(0,5)}</span>
                         {
 
-                            +this.props.status && this.props.send !== this.props.userId?
+                            +this.props.status > 0?
 
                                 <span className='status'></span>:''
                         }

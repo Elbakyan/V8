@@ -12,7 +12,9 @@ import {Url} from "../../config/Url";
 import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";
 import ScorePage from "../ScorePage/ScorePage";
-import {Route,NavLink} from "react-router-dom";
+import {Route, NavLink, Redirect} from "react-router-dom";
+import {GetScoreListId} from "../../../redux/score/action";
+import {GetMessageId} from "../../../redux/message/action";
 
 
 
@@ -104,6 +106,7 @@ class ScoreList extends React.Component{
 
     }
     render() {
+        // console.log(this.props.score.scoreList[0])
         return (
             <div className="ScoreList">
                 <div className="score__list-links">
@@ -112,18 +115,21 @@ class ScoreList extends React.Component{
                        {
                            this.props.score.scoreList.map((list,i) =>{
 
-                               return (<li key={list.id}>
-                                   <div >
+                               return <li key={list.id}>
+                                   <div onClick={(e) => {
+                                       this.props.dispatch(GetScoreListId(list.id))
+                                   }}>
                                        <NavLink
                                        to={'/score/account/list/'+list.id}
                                        activeClassName="selected"
+
                                        >
 
                                        {list.name}
 
                                        </NavLink>
                                    </div>
-                               </li>)
+                               </li>
                            })
                        }
 
@@ -202,7 +208,7 @@ class ScoreList extends React.Component{
                                 placeholder='https://youtube.com'
                             />
                             <label className='file'>
-                                <span>Ներբեռնել․․․</span>
+                                <span>Ներբեռնել․․․</span>`
                                 <input
                                     type='file'
                                     multiple

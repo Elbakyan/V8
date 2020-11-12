@@ -1,4 +1,4 @@
-import {GET_MARK_MODEL_AUTO_PARTS, GET_PRODUCT, GET_SCORE_LIST, SCORE_EXIST} from "./action";
+import {GET_ID, GET_MARK_MODEL_AUTO_PARTS, GET_PRODUCT, GET_SCORE_LIST, SCORE_EXIST} from "./action";
 const initialState = {
 
     score:{
@@ -9,7 +9,8 @@ const initialState = {
     product: {
         data: []
     },
-    MarkModelParts: []
+    MarkModelParts: [],
+    id: false
 }
 
 export default function ScoreExistReducer(state = initialState,action){
@@ -23,6 +24,8 @@ export default function ScoreExistReducer(state = initialState,action){
             return {...state, product: action.payload}
         case GET_MARK_MODEL_AUTO_PARTS:
             return {...state, MarkModelParts: action.payload}
+        case GET_ID:
+            return {...state, id: action.payload}
         default:
             return state;
     }

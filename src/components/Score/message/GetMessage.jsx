@@ -145,9 +145,8 @@ class GetMessageClass extends Component{
                 <div className="send_message">
                     <form onSubmit={this.Message} ref={el => this.formRef = el}>
                         <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={el => this.textareaRef = el}></textarea>
-
-                        <input type="hidden" name='send_id' value={this.props.user.id }/>
-                        <input type="hidden" name='get_id' value={this.props.getId}/>
+                        <input type="hidden" name='send_id' value={this.props.id}/>
+                        <input type="hidden" name='get_id' value={this.props.id1}/>
 
                         <div className="message_send_button">
 

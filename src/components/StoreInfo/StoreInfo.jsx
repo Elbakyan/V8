@@ -42,10 +42,9 @@ class StoreInfo extends Component{
         let data = new FormData(e.target);
         console.log(Array.from(data))
         this.props.dispatch(SendMessage(data))
-        this.textareaRef.value = '';
-        // this.setState({
-        //     message:true
-        // })
+        this.setState({
+            message:true
+        })
         setTimeout(()=>{
             this.setState({
                 message:false
@@ -132,9 +131,9 @@ class StoreInfo extends Component{
                                         {
                                             this.state.data.id?
                                                 <form onSubmit={this.Send}>
-                                                    <textarea placeholder='Ուղարկել հաղորդագրություն․․․' ref={el => this.textareaRef = el}></textarea>
+                                                    <textarea placeholder='Ուղարկել հաղորդագրություն․․․' name='message'></textarea>
                                                     <input type="hidden" name='get_id' value={this.state.data.id}/>
-                                                    <input type="hidden" name='send_id' value={this.props.user.id }/>
+                                                    <input type="hidden" name='send_id' value={this.props.user.id}/>
                                                     <input type="hidden" name='score' value='score'/>
                                                     <button type='submit' className='send'>
                                                         <FontAwesomeIcon icon={faEnvelope} />

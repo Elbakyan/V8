@@ -6,11 +6,12 @@ export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const GET_ID = 'GET_ID';
 export const GET_DIALOG_ID = 'GET_DIALOG_ID';
 export const GET_STATUS = 'GET_STATUS';
+export const GET_MESSAGE_ID = 'GET_MESSAGE_ID';
+export const GET_MESSAGE_DIALOG_ID = 'GET_MESSAGE_DIALOG_ID';
 
 export function SendMessage(data) {
     return (dispach) => {
         POST(Url.sendMessage,data).then(res => {
-            console.log(res)
             dispach({
                 type: SEND_MESSAGE,
                 payload: res
@@ -26,14 +27,23 @@ export function GetMessage(id) {
     data.append('id', id);
     return (dispach) => {
         POST(Url.dialog,data).then(res => {
-            console.log(res)
-            // if (res.score){
-            //     res.score.map(r => {
-            //         r.img = JSON.parse(r.img)[0];
-            //     })
-            // }
             dispach({
                 type: GET_MESSAGE,
+                payload: res
+
+            })
+        })
+
+    }
+}
+export function GetMessageDialogId(id,dialogId) {
+    let data = new FormData();
+    data.append('id', id);
+    data.append('dialog_id', dialogId);
+    return (dispach) => {
+        POST(Url.getMessage,data).then(res => {
+            dispach({
+                type: GET_MESSAGE_DIALOG_ID,
                 payload: res
 
             })
@@ -51,6 +61,16 @@ export function GetId(id) {
 
     }
 }
+export function GetMessageId(id) {
+    return (dispach) => {
+        dispach({
+            type: GET_MESSAGE_ID,
+            payload: id
+
+        })
+
+    }
+}
 export function GetDialogId(id) {
     return (dispach) => {
         dispach({
@@ -64,8 +84,7 @@ export function GetDialogId(id) {
 
 export function GetStatus(data) {
     let statusData = new FormData()
-    statusData.append('send', data.send_id)
-    statusData.append('get', data.get_id)
+    statusData.append('id', data)
 
     return (dispach) => {
         POST(Url.messageStatus,statusData).then(res => {

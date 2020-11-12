@@ -15,7 +15,7 @@ import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {connect} from "react-redux";
-import {GetScoreList} from "../../../redux/score/action";
+import {GetScoreList, GetScoreListId} from "../../../redux/score/action";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {GetCity} from "../../../redux/location/action";
 import Loading from "../../Loading";
@@ -91,6 +91,10 @@ class ScorePage extends Component {
             })
         })
     }
+    componentDidMount() {
+        this.props.dispatch(GetScoreListId(window.location.pathname.split('/').pop()))
+    }
+
     UbdateImg = (e) => {
         this.setState({
             loadingSlider: true

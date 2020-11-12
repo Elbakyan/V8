@@ -3,7 +3,7 @@ import DefaultSelect from "../forms/select/DefaultSelect";
 import {maser} from "../Menu/autoObj";
 import FormAutoParts from "./FormAutoParts/FormAutoParts";
 import './AutoParts.scss'
-import Message from "../User/message/Message";
+
 
 class AutoParts extends Component{
     constructor(props) {
