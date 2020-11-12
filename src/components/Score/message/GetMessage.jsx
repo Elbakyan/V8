@@ -17,10 +17,8 @@ class GetMessageClass extends Component{
         }
     }
     componentDidMount() {
-// <<<<<<< HEAD:src/components/User/message/GetMessage.jsx
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
-        // this.props.dispatch(GetMessage(32))
         this.setState({
             count:this.props.one_message.length - 1
         })
@@ -126,7 +124,7 @@ class GetMessageClass extends Component{
                         this.props.one_message.map((elem,i)=>{
 
                             return(
-                                <div key={i} className={elem[0].id == this.props.user.id?'block_message block_message_user2':'block_message block_message_user1'} >
+                                <div key={i} className={elem[0].id == this.props.score.id?'block_message block_message_user2':'block_message block_message_user1'} >
                                     {
                                         elem[0].message == ""? '':
                                             <div>

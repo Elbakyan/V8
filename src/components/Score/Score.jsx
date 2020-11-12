@@ -39,7 +39,7 @@ class Score extends Component {
                     </Route>
 
                     {
-                        this.props.score.status === undefined?<Loading/> : this.props.score.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/score/login' />
+                        this.props.score.status === undefined?<Loading/> : this.props.score.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/' />
                     }
                 </div>
             </div>

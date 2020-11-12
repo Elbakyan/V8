@@ -12,11 +12,7 @@ import {
     GetMessageId,
     GetStatus
 } from "../../../redux/message/action";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faEnvelopeSquare, faRedoAlt} from "@fortawesome/free-solid-svg-icons";
-import {POST, TEST_POST} from "../../config/Requsest";
-import {Url} from "../../config/Url";
-import {GetScoreListId} from "../../../redux/score/action";
+
 
 
 
@@ -34,8 +30,8 @@ class Message extends Component {
 
     componentDidMount() {
 
-        this.props.dispatch(GetMessage(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
-        this.props.dispatch(GetDialogId(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
+        // this.props.dispatch(GetMessage(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
+        // this.props.dispatch(GetDialogId(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
         this.setState({
             changeMessage: true
         })
@@ -118,7 +114,7 @@ class Message extends Component {
                 <ul className='dialog_list'>
                     {
                         this.props.score.score.id?
-                            <li className='active' id={this.props.score.score.id} onClick={this.GetIdScoreList}>{this.props.score.score.data.name}</li>:''
+                            <li id={this.props.score.score.id} onClick={this.GetIdScoreList}>{this.props.score.score.data.name}</li>:''
                     }
                     {
                         this.props.score.scoreList.map((res,i) => {

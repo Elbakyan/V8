@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './Menu.scss'
 import {cars, maser, autogruz, service} from './autoObj'
+import {Link} from "react-router-dom";
 
 class Menu extends Component {
 
@@ -113,6 +114,7 @@ class Menu extends Component {
                                 </div>
 
                             </li>
+                            <li><Link to='/announcement'>Հայտարարություն</Link></li>
                         </ul>
                     </nav>
                 </div>
