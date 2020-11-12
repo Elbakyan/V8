@@ -20,10 +20,8 @@ class Result extends Component {
     }
 
     GetAuto = (e) => {
-        let data = new FormData();
-        data.append('id', e.target.dataset.id);
-        this.props.dispatch(GetSellByID(data))
-        this.props.dispatch(GetId(e.target.dataset.user))
+        this.props.dispatch(GetSellByID(e.target.dataset.id))
+        this.props.dispatch(GetId(e.target.dataset.id))
 
 
     }
@@ -36,7 +34,6 @@ class Result extends Component {
 
     }
     render() {
-
         return (
             <div className="result">
                 {/*<SellCar />*/}

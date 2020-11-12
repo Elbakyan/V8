@@ -13,12 +13,13 @@ class GetMessageClass extends Component{
         this.state = {
             ticking:false,
             position:0,
-            count:this.props.one_message.length - 1
+            // count:this.props.one_message.length - 1
         }
     }
     componentDidMount() {
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
+        // this.props.dispatch(GetMessage(32))
         this.setState({
             count:this.props.one_message.length - 1
         })

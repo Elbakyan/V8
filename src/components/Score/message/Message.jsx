@@ -12,6 +12,8 @@ import {
     GetMessageId,
     GetStatus
 } from "../../../redux/message/action";
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
 
 
 
@@ -104,6 +106,7 @@ class Message extends Component {
             })
         },0)
     }
+
     render() {
         let myId = this.props.message.id || this.props.message.messageId;
         return(
@@ -143,9 +146,10 @@ class Message extends Component {
                                 this.props.message.data.score.map((res,i) => {
                                     return(
                                         <Respondent
+                                            Clear={this.Clear}
                                             key={i}
                                             id={'/score/account/message/' + this.props.message.messageId + '/' + this.props.message.data.message.score[i].dialog_id}
-                                            data={res}
+                                            dataMes={res}
                                             dialogId={this.props.message.data.message.score[i].dialog_id}
                                             onClick={this.Message}
                                             status={this.props.message.data.message.score[0].status}

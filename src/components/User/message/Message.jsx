@@ -8,6 +8,8 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import { GetId, GetMessage} from "../../../redux/message/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faEnvelopeSquare, faMapMarkerAlt, faRedoAlt} from "@fortawesome/free-solid-svg-icons";
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
 
 
 
@@ -71,10 +73,19 @@ class Message extends Component {
             respondent.style.width = "0%"
         }
     }
+    Clear = (e)=>{
+        let data = new FormData();
+        data.append('send_id',this.props.user.id);
+        data.append('get_id',e.target.dataset.id);
+        POST(Url.deliteMessage,data).then(res => {
+            if (res.status) {
+                this.props.dispatch(GetMessage(this.props.user.id))
+            }
+        })
 
+    }
     render() {
-        console.log('888',this.props.message)
-        console.log('w',window.location.href.split('/')[6])
+
         return(
             <div className='message_users_component'>
                 <div className='message_reload'>
@@ -98,11 +109,13 @@ class Message extends Component {
                             <span data-user={1}>Օգտատեր</span>
                             {
                                 this.state.RespondentUser  && this.props.message.data.user?this.props.message.data.user.map((data,i) => {
-                
-                                    if(data){
+                                    console.log(data)
+                                    if(data && JSON.parse(this.props.message.data.message.user[i].delite)[0] !== this.props.id){
+
                                         let active = window.location.href.split('/')[6] == this.props.message.data.message.user[i].dialog_id
                                         return (
                                             <Respondent
+                                                Clear={this.Clear}
                                                 key={i}
                                                 id={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}
                                                 active={active}
@@ -125,11 +138,12 @@ class Message extends Component {
                             <span data-store={1}>Գործնկեր</span>
                             {
                                 this.state.RespondentStore && this.props.message.data.score?this.props.message.data.score.map((data,i) => {
-                
-                                    if (data){
+
+                                    if (data && JSON.parse(this.props.message.data.message.score[i].delite)[0] !== this.props.id){
                                         let active = window.location.href.split('/')[6] == this.props.message.data.message.score[i].dialog_id
                                         return (
                                             <Respondent
+                                                Clear={this.Clear}
                                                 key={i}
                                                 id={'/user/account/persional/'+this.props.message.data.message.score[i].dialog_id}
                                                 active={active}
