@@ -3,6 +3,9 @@ import './Menu.scss'
 import {cars, maser, autogruz, service} from './autoObj'
 
 class Menu extends Component {
+
+
+
     outMenu = e =>{
         // if(e.target.dataset.close !== undefined){
             this.autoParts.style.display = 'none';
@@ -10,15 +13,17 @@ class Menu extends Component {
         // }
     }
     open = e => {
+        let overley = document.querySelector('.overley')
+
         if (e.target.dataset.counter !== undefined) {
-
-
             if(e.target.dataset.counter === '1'){
                 this.autoService.style.display = 'none';
                 if(this.autoParts.style.display === 'none' ){
                     this.autoParts.style.display = 'block';
+                    overley.style.display = 'block'
                 }else{
                     this.autoParts.style.display = 'none';
+                    overley.style.display = 'none'
                 }
             }
 
@@ -27,23 +32,27 @@ class Menu extends Component {
                 console.log(this.autoService.style.display)
                 if(this.autoService.style.display === 'none' ){
                     this.autoService.style.display = 'block';
+                    overley.style.display = 'block'
                 }else{
                     this.autoService.style.display = 'none';
+                    overley.style.display = 'none'
                 }
             }
-
-            // switch (e.target.dataset.counter){
-            //     case '1' : this.autoParts.style.display = 'block';
-            //     break;
-            //     case '2' : this.autoService.style.display = 'block';
-            //     break;
-            // }
         }
     }
 
     render() {
+
         return (
             <div className="header_menu">
+                <div className='overley' onClick={(e)=>{
+                    this.autoParts.style.display = 'none';
+                    this.autoService.style.display = 'none';
+                    e.target.style.display = 'none'
+                    console.log(e.target)
+                }}>
+
+                </div>
                 <div className="container row justify-between align-center">
                     <nav>
                         <ul className="menu">

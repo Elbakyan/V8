@@ -10,7 +10,7 @@ import CarsForm from "../UserCars/CarsForm";
 import '../../announcement/Announcement.scss'
 import '../../announcement/SellCar.scss'
 import GeFavorite from "../favorite/GeFavorite";
-import Message from "../../message/Message";
+import Message from "../message/Message";
 import {GetMessage} from "../../../redux/message/action";
 
 

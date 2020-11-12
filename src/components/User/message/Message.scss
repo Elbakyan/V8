@@ -1,7 +1,57 @@
-@import "src/style/var";
-@import "src/style/All.scss";
-@import "src/style/var.scss";
+@import "../../../style/var";
+@import "../../../style/All";
+@import "../../../style/var";
+.message_users_component{
+  display: flex;
+  flex-direction: column;
 
+  .message_reload{
+    width: 100%;
+    height: 70px;
+    background: silver;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    >span{
+      padding: 15px;
+      background: #0e6a99;
+      font-size: 18px;
+      border-radius: 5px;
+      color: white;
+      margin-right: 20px;
+      box-shadow: 2px 3px 1px black;
+      position: relative;
+      &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      &:active{
+        transform: translateY(2px);
+        box-shadow: 1px 1px 1px black;
+
+      }
+
+
+    }
+
+    .message_reload_button{
+      svg{
+        animation-name: example;
+        animation-duration: 1s;
+        @keyframes example {
+          from {transform: rotate(0);}
+          to {transform: rotate(360deg);}
+        }
+      }
+    }
+  }
+}
 .message_users{
   width: 100%;
   height: 90vh;
@@ -29,7 +79,25 @@
     //    right: 0;
     //  }
     //}
+    &__users{
+      width: 100%;
+      margin-top: 15px;
+      >span{
+        background: #0e6a99;
+        color: white;
+        padding: 10px 10px;
+      }
+    }
+    &__stores{
+      width: 100%;
+      margin-top: 40px;
 
+      >span{
+        background: #0e6a99;
+        color: white;
+        padding: 10px 13px;
+      }
+    }
     &::-webkit-scrollbar {
       width: 2px;
     }
@@ -43,7 +111,7 @@
       outline: 1px solid silver;
     }
     .respondent_user_active{
-      border: 2px solid white;
+      border: 3px solid #0e6a99;
     }
     .respondent_user{
       width: 95%;
@@ -56,6 +124,7 @@
       border-radius: 5px;
       position: relative;
       overflow: hidden;
+      position: relative;
       //@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
       //  display: none;
       //  width: 70%;
@@ -112,14 +181,14 @@
               &:nth-child(2){
                 //width: auto;
                 //height: auto;
-                width: 15px;
-                height: 15px;
+                width: 10px;
+                height: 10px;
                 font-size: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
                 border-radius: 50%;
                 background: red;
+                position: absolute;
+                right: 5px;
+                top:-10px;
               }
               font-size: 12px;
               margin-top: 15px;

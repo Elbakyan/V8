@@ -6,7 +6,7 @@ import { faEnvelope, faHome,faCarBattery,faQuestionCircle} from "@fortawesome/fr
 import {Link, Route, Switch} from "react-router-dom";
 
 import ScoreList from "../ScoreList/ScoreList";
-import Message from '../../message/Message'
+import Message from '../../User/message/Message'
 import {GetScoreList} from "../../../redux/score/action";
 import AutoParts from "../../AutoParts/AutoParts";
 import {GetMessage} from "../../../redux/message/action";

@@ -134,6 +134,7 @@ class StoreInfo extends Component{
                                                 <form onSubmit={this.Send}>
                                                     <textarea placeholder='Ուղարկել հաղորդագրություն․․․' ref={el => this.textareaRef = el}></textarea>
                                                     <input type="hidden" name='get_id' value={this.state.data.id}/>
+                                                    <input type="hidden" name='send_id' value={this.props.user.id }/>
                                                     <input type="hidden" name='score' value='score'/>
                                                     <button type='submit' className='send'>
                                                         <FontAwesomeIcon icon={faEnvelope} />

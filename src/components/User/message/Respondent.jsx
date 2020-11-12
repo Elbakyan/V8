@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrashAlt} from "@fortawesome/free-solid-svg-icons/faTrashAlt";
-import {POST, TEST_POST} from "../config/Requsest";
-import {Url} from "../config/Url";
+import {POST, TEST_POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
 
 
 
@@ -20,7 +20,10 @@ class Respondent extends Component {
 
     render() {
         return (
-            <div className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}>
+            <div
+                className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}
+                style={{background:this.props.bground}}
+            >
                 <div className="click" onClick={this.props.onClick} id={this.props.id} data-id={this.props.data?this.props.data.id:''}></div>
                 <div className="respondent_user_image" style={{backgroundImage:`url(${this.props.data?this.props.data.img:''})`}}>
 
@@ -34,7 +37,7 @@ class Respondent extends Component {
                         <span>{this.props.time.split(' ')[1].slice(0,5)}</span>
                         {
                             +this.props.status && this.props.send !== this.props.userId?
-                                <span>{this.props.status}</span>:''
+                                <span className='status'></span>:''
                         }
 
                     </div>

@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import DefaultBtn from "../forms/buttons/DefaultBtn";
+import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
-import {SendMessage, GetMessage, GetId, GetStatus} from "../../redux/message/action";
-import {POST} from "../config/Requsest";
-import {Url} from "../config/Url";
+import {SendMessage, GetMessage, GetId, GetStatus} from "../../../redux/message/action";
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelopeSquare} from "@fortawesome/free-solid-svg-icons";
 
@@ -33,6 +33,10 @@ class GetMessageClass extends Component{
             }
         })
         this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
+        setTimeout(()=>{
+            console.log('score',this.props.score.scoreList)
+        },1000)
+
 
     }
 
@@ -60,8 +64,6 @@ class GetMessageClass extends Component{
             this.textareaRef.value = ''
             this.scroll()
         }
-
-
     }
 
     scroll = (e)=>{
@@ -79,7 +81,7 @@ class GetMessageClass extends Component{
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         let meso = document.querySelectorAll('.meso')
         meso.forEach(elem => {
             elem.innerHTML = elem.innerText
@@ -110,8 +112,8 @@ class GetMessageClass extends Component{
                 <div className="send_message">
                     <form onSubmit={this.Message} ref={el => this.formRef = el}>
                         <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={el => this.textareaRef = el}></textarea>
-                        <input type="hidden" name='send_id' value={this.props.user.id || 1604757016}/>
-                        <input type="hidden" name='get_id' value={this.props.message.id || 32}/>
+                        <input type="hidden" name='send_id' value={this.props.user.id }/>
+                        <input type="hidden" name='get_id' value={this.props.getId}/>
                         <div className="message_send_button">
 
                             <DefaultBtn
