@@ -101,26 +101,8 @@ class GetMessageClass extends Component{
             elem.innerHTML = elem.innerText
         })
         return (
-            <div className="getMessage">
-                <div className="reload">
-                        <span style={this.state.styleRotate?{transform:"rotate(360deg)"}:{transform:"rotate(0deg)",transition: '0s'}}
-                            onClick={(e) => {
-                                this.props.dispatch(GetStatus(this.props.message.dialog))
-                            this.props.dispatch(GetMessage(this.props.message.messageId))
+            <div className="getMessage__user">
 
-                            this.setState({
-                                styleRotate: true
-                            })
-                            setTimeout(() => {
-                                this.setState({
-                                    styleRotate: false
-                                })
-                            },1500)
-                            this.scroll()
-                        }}>
-                            <FontAwesomeIcon icon={faSync} />
-                        </span>
-                </div>
                 <div className="getMessage_users" ref={el => this.scrollRef = el} >
                     {
                         this.props.one_message.map((elem,i)=>{
@@ -145,19 +127,15 @@ class GetMessageClass extends Component{
                 <div className="send_message">
                     <form onSubmit={this.Message} ref={el => this.formRef = el}>
                         <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={el => this.textareaRef = el}></textarea>
-
                         <input type="hidden" name='send_id' value={this.props.user.id }/>
                         <input type="hidden" name='get_id' value={this.props.getId}/>
-
                         <div className="message_send_button">
-
                             <DefaultBtn
                                 type='submit'
                                 name='Ուղարկել'
                                 background='#143645'
                                 color='#ffffff'
                                 light={30}
-
                             />
                         </div>
                     </form>
