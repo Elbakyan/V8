@@ -18,11 +18,6 @@ import {GetSell} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
 import Pagination from "react-js-pagination";
 
-
-
-
-
-
 class Announcement extends Component {
     constructor(props) {
         super(props);
@@ -191,8 +186,6 @@ class Announcement extends Component {
 
                                 />
                             </div>
-
-
                         </form>
 
                         <Route exact path='/announcement'>
@@ -205,12 +198,10 @@ class Announcement extends Component {
                                     onChange={this.handlePageChange.bind(this)}
                                 />
                                 <Result/>
-                                {/*<Favorite />*/}
                             </div>
                         </Route>
                         {
-
-                            this.props.sell.OneAuto === ''  ? <Redirect to='/announcement' />  :
+                            this.props.sell.OneAuto === ''  ? <Redirect to={'/announcement'+ this.props.sell.OneAuto.id}/>  :
                                 <Route exact path={'/announcement/' + this.props.sell.OneAuto.id}>
                                     <Auto/>
                                 </Route>

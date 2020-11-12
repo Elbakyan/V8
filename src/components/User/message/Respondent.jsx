@@ -21,7 +21,7 @@ class Respondent extends Component {
     render() {
         console.log(this.props.id.match(/\/\d+\//g))
         return (
-// <<<<<<< HEAD:src/components/User/message/Respondent.jsx
+
             <div
                 className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}
                 style={{background:this.props.bground}}

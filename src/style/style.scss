@@ -73,11 +73,11 @@ body{
   position: fixed;
   top: 50px;
   z-index: 1500;
-  animation-name: example;
+  animation-name: alll;
   animation-duration: 0.5s;
 }
 
-@keyframes example {
+@keyframes alll {
   from {top:0;opacity: 0}
   to {top:50px;opacity: 1}
 }
