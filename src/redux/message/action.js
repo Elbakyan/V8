@@ -1,4 +1,4 @@
-import {GET, POST} from "../../components/config/Requsest";
+import {POST} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 
 export const GET_MESSAGE = 'GET_MESSAGE';

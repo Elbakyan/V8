@@ -110,14 +110,16 @@ class Message extends Component {
     }
     render() {
         let myId = this.props.message.id || this.props.message.messageId;
-        // console.log(this.props.message)
-
         return(
             <Fragment>
                 {
                     this.state.changeMessage && this.state.link? <Redirect to={this.state.link} />: ''
                 }
                 <ul className='dialog_list'>
+                    {
+                        this.props.score.score.id?
+                            <li className='active' id={this.props.score.score.id} onClick={this.GetIdScoreList}>{this.props.score.score.data.name}</li>:''
+                    }
                     {
                         this.props.score.scoreList.map((res,i) => {
 

@@ -134,7 +134,7 @@ class StoreInfo extends Component{
                                                     <textarea placeholder='Ուղարկել հաղորդագրություն․․․' name='message'></textarea>
                                                     <input type="hidden" name='get_id' value={this.state.data.id}/>
                                                     <input type="hidden" name='send_id' value={this.props.user.id}/>
-                                                    <input type="hidden" name='score' value='score'/>
+                                                    <input type="hidden" name='state' value='score'/>
                                                     <button type='submit' className='send'>
                                                         <FontAwesomeIcon icon={faEnvelope} />
                                                     </button>

@@ -50,7 +50,7 @@ class Auto extends Component {
     }
 
     render() {
-        console.log(this.props.message)
+        console.log(this.props)
         let img;
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)
@@ -188,12 +188,25 @@ class Auto extends Component {
                                <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
                                 <input type="hidden" name='get_id' value={auto.user_id}/>
                                <input type="hidden" name='send_id' value={this.props.user.id }/>
-                               <input type="hidden" name='user' value='user'/>
+                               <input type="hidden" name='state' value='user'/>
                                 <DefaultBtn
                                     type='submit'
                                     name='Գրել․․․'
                                 />
                             </form>
+                        }
+                        {
+                            this.props.score.score?
+                                <form onSubmit={this.SendMessage}>
+                                    <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
+                                    <input type="hidden" name='get_id' value={auto.user_id}/>
+                                    <input type="hidden" name='send_id' value={this.props.score.score.id }/>
+                                    <input type="hidden" name='state' value='users'/>
+                                    <DefaultBtn
+                                        type='submit'
+                                        name='Գրել․․․'
+                                    />
+                                </form>:''
                         }
 
                     </div>

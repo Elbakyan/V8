@@ -26,6 +26,7 @@ class Profile extends React.Component{
     }
     componentDidMount() {
         this.props.dispatch(GetScoreList())
+        this.props.dispatch(GetMessage(25))
 
     }
 
@@ -36,7 +37,6 @@ class Profile extends React.Component{
         if (this.props.score.scoreList != false){
              pathId = this.props.score.scoreList[0].id;
         }
-
         return (
 
             <section className="Profile col">
