@@ -3,12 +3,13 @@ import {connect} from "react-redux";
 import './Profile.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faEnvelope, faHome,faCarBattery,faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
-import {Link, Route, Switch} from "react-router-dom";
+import {Link, NavLink, Route, Switch} from "react-router-dom";
 
 import ScoreList from "../ScoreList/ScoreList";
-import Message from '../../message/Message'
-import {GetScoreList} from "../../../redux/score/action";
+import {GetScoreList, GetScoreListId} from "../../../redux/score/action";
 import AutoParts from "../../AutoParts/AutoParts";
+
+import Message from "../message/Message";
 import {GetMessage} from "../../../redux/message/action";
 
 
@@ -17,20 +18,25 @@ import {GetMessage} from "../../../redux/message/action";
 class Profile extends React.Component{
     constructor(props) {
         super(props);
+        this.state = {
+            id: 0
+        }
     }
     componentDidMount() {
         this.props.dispatch(GetScoreList())
 
     }
 
+
+
     render() {
         let pathId = '';
         if (this.props.score.scoreList != false){
              pathId = this.props.score.scoreList[0].id;
-
         }
 
         return (
+
             <section className="Profile col">
                 {/*{*/}
                 {/*    window.location.pathname == '/score/account' || '/score/account/' ? <Redirect to={'/score/account/list/' +pathId}/>: ''*/}
@@ -48,7 +54,7 @@ class Profile extends React.Component{
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/score/account/message' >
+                                    <Link to={'/score/account/message/' + this.props.message.messageId}>
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faEnvelope}/>
                                         </div>
@@ -79,11 +85,8 @@ class Profile extends React.Component{
                                 <Route  path='/score/account/cars'>
                                     <AutoParts />
                                 </Route>
-                                <Route  path='/score/account/message'>
-                                    {
-                                        this.props.score.id?<Message id={this.props.score.id}/>: ''
-                                    }
-
+                                <Route path={'/score/account/message/' + this.props.message.messageId}>
+                                    <Message/>
                                 </Route>
                                 <ScoreList />
                             </Switch>

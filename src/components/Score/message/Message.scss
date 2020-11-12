@@ -1,6 +1,6 @@
-@import "src/style/var";
-@import "src/style/All.scss";
-@import "src/style/var.scss";
+@import "../../../style/var";
+@import "../../../style/All";
+@import "../../../style/var";
 
 .message_users{
   width: 100%;
@@ -109,18 +109,7 @@
               &:nth-child(1){
                 font-size: 9px;
               }
-              &:nth-child(2){
-                //width: auto;
-                //height: auto;
-                width: 15px;
-                height: 15px;
-                font-size: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-                background: red;
-              }
+
               font-size: 12px;
               margin-top: 15px;
               margin-left: 3px;
@@ -163,6 +152,19 @@
         &:hover > span{
           color: #ef0a0a;
         }
+      }
+    }
+    > div{
+
+      .status{
+        position: absolute;
+        right: 5px;
+        top: -10px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: red;
+
       }
     }
   }
@@ -234,7 +236,7 @@
 
           }
         }
-        .block_message_user1{
+        .block_message_user2{
           justify-content: flex-start;
           &:nth-child(even) > div{
             border-radius: 0px 15px 15px 15px;
@@ -265,7 +267,7 @@
             border-radius: 15px 15px 15px 0px;
           }
         }
-        .block_message_user2{
+        .block_message_user1{
           justify-content: flex-end;
           & > div {
             margin: 5px 0px;

@@ -14,6 +14,7 @@ import Loading from "../../Loading";
 import ScorePage from "../ScorePage/ScorePage";
 import {Route, NavLink, Redirect} from "react-router-dom";
 import {GetScoreListId} from "../../../redux/score/action";
+import {GetMessageId} from "../../../redux/message/action";
 
 
 
@@ -105,12 +106,9 @@ class ScoreList extends React.Component{
 
     }
     render() {
-
+        // console.log(this.props.score.scoreList[0])
         return (
             <div className="ScoreList">
-                {
-                    this.props.score.scoreList[0]? <Redirect to={this.props.score.id? '/score/account/list/'+this.props.score.id: '/score/account/list/'+this.props.score.scoreList[0].id}/>:''
-                }
                 <div className="score__list-links">
                    <ul>
                        <li onClick={this.ShowAddScoreForm}><div className='show__form'>+</div></li>
@@ -118,10 +116,13 @@ class ScoreList extends React.Component{
                            this.props.score.scoreList.map((list,i) =>{
 
                                return <li key={list.id}>
-                                   <div >
+                                   <div onClick={(e) => {
+                                       this.props.dispatch(GetScoreListId(list.id))
+                                   }}>
                                        <NavLink
                                        to={'/score/account/list/'+list.id}
                                        activeClassName="selected"
+
                                        >
 
                                        {list.name}
@@ -207,7 +208,7 @@ class ScoreList extends React.Component{
                                 placeholder='https://youtube.com'
                             />
                             <label className='file'>
-                                <span>Ներբեռնել․․․</span>
+                                <span>Ներբեռնել․․․</span>`
                                 <input
                                     type='file'
                                     multiple

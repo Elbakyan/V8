@@ -48,7 +48,7 @@ export function GetMarkModelAutoParts  () {
     }
 }
 export function GetScoreListId  (id) {
-    return async (dispach) => {
+    return (dispach) => {
             dispach({
                 type: GET_ID,
                 payload: id
