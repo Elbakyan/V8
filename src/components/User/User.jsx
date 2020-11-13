@@ -17,15 +17,12 @@ class User extends React.Component{
         }
     }
     componentDidMount() {
-        // this.props.dispatch(GetMessage())
-
+        console.log(this.props.user)
+        this.props.dispatch(GetAuto(this.props.user.id))
     }
 
     render() {
 
-        if (this.props.user.id){
-            // this.props.dispatch(GetAuto(this.props.user.id))
-        }
         return (
             <div className="User">
 

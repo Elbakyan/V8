@@ -59,6 +59,7 @@ class App extends React.Component {
     //     setTimeout(Timer,4)
     // }
     render() {
+
       return (
           <div className="App">
               <Switch>
@@ -66,7 +67,11 @@ class App extends React.Component {
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>
                   </Route>
                   <Route  path='/user'>
-                      <User/>
+                      {
+                          this.props.user.status?
+                              <User />:''
+                      }
+
                   </Route>
                   <Route path='/score'>
                       <Score/>
