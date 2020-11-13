@@ -46,13 +46,12 @@ class Auto extends Component {
     }
 
     render() {
-        console.log(this.props.score.score)
+
         let img;
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)
         }
         let auto = this.props.sell.OneAuto;
-
         return (
 
             <div className="Auto">
@@ -179,12 +178,12 @@ class Auto extends Component {
                         }
 
                         {
-                            this.props.user.id == auto.user_id || this.props.user.id == undefined?'':
+                            this.props.user.id == auto['user_id'] || !this.props.user.id?'':
                            <form onSubmit={this.SendMessage}>
                                <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
-                                <input type="hidden" name='get_id' value={auto.user_id}/>
+                                <input type="hidden" name='get_id' value={auto['user_id']}/>
                                <input type="hidden" name='send_id' value={this.props.user.id }/>
-                               <input type="hidden" name='user' value='user'/>
+                               <input type="hidden" name='state' value='user'/>
                                 <DefaultBtn
                                     type='submit'
                                     name='Գրել․․․'
@@ -195,7 +194,7 @@ class Auto extends Component {
                             this.props.score.score.id?
                                 <form onSubmit={this.SendMessage}>
                                     <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
-                                    <input type="hidden" name='get_id' value={auto.user_id}/>
+                                    <input type="hidden" name='get_id' value={auto['user_id']}/>
                                     <input type="hidden" name='send_id' value={this.props.score.score.id }/>
                                     <input type="hidden" name='state' value='users'/>
                                     <DefaultBtn

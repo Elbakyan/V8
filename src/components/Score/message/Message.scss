@@ -81,25 +81,7 @@
     //    right: 0;
     //  }
     //}
-    &__users{
-      width: 100%;
-      margin-top: 15px;
-      >span{
-        background: #0e6a99;
-        color: white;
-        padding: 10px 10px;
-      }
-    }
-    &__stores{
-      width: 100%;
-      margin-top: 40px;
 
-      >span{
-        background: #0e6a99;
-        color: white;
-        padding: 10px 13px;
-      }
-    }
     &::-webkit-scrollbar {
       width: 2px;
     }

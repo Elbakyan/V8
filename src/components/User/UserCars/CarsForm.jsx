@@ -22,7 +22,7 @@ class CarsForm extends Component {
             message: 'Մուտքագրեք ձեր մեքենայի տվյալները',
             status: true,
             isAdd: false,
-            loading: true
+            loading: false
         }
     }
 
