@@ -18,11 +18,6 @@ import {GetSell, GetSellByID} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
 import Pagination from "react-js-pagination";
 
-
-
-
-
-
 class Announcement extends Component {
     constructor(props) {
         super(props);
@@ -34,7 +29,9 @@ class Announcement extends Component {
 
     componentDidMount() {
         this.props.dispatch(GetSell(1))
-        this.props.dispatch(GetFavorite())
+        if (this.props.user.id){
+            this.props.dispatch(GetFavorite())
+        }
         let id = +window.location.pathname.split('/').pop();
         if (id !== NaN){
             this.props.dispatch(GetSellByID(id))
@@ -198,8 +195,6 @@ class Announcement extends Component {
 
                                 />
                             </div>
-
-
                         </form>
 
                         <Route exact path='/announcement'>
@@ -212,10 +207,10 @@ class Announcement extends Component {
                                     onChange={this.handlePageChange.bind(this)}
                                 />
                                 <Result/>
-                                {/*<Favorite />*/}
                             </div>
                         </Route>
                         {
+
 
                             this.props.sell.OneAuto?
                                 <Route exact path={'/announcement/' + this.props.sell.OneAuto.id}>

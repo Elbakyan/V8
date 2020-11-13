@@ -111,9 +111,10 @@ class Menu extends Component {
                                         }
                                     </ul>
                                 </div>
-
                             </li>
-                            <li><Link to='/announcement'>Հայտարարություն</Link></li>
+                            <li>
+                                <Link to='/announcement'>Հայտարարություն</Link>
+                            </li>
                         </ul>
                     </nav>
                 </div>

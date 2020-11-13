@@ -85,7 +85,7 @@ class Message extends Component {
 
     }
     render() {
-
+        console.log(this.props.message)
         return(
             <div className='message_users_component'>
                 <div className='message_reload'>
@@ -109,10 +109,9 @@ class Message extends Component {
                             <span data-user={1}>Օգտատեր</span>
                             {
                                 this.state.RespondentUser  && this.props.message.data.user?this.props.message.data.user.map((data,i) => {
-                                    console.log(data)
                                     if(data && JSON.parse(this.props.message.data.message.user[i].delite)[0] !== this.props.id){
 
-                                        let active = window.location.href.split('/')[6] == this.props.message.data.message.user[i].dialog_id
+                                        let active = this.props.message.data.message.user? window.location.href.split('/')[6] == this.props.message.data.message.user[i].dialog_id: ''
                                         return (
                                             <Respondent
                                                 Clear={this.Clear}

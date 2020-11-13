@@ -22,9 +22,8 @@ class Result extends Component {
     GetAuto = (e) => {
         this.props.dispatch(GetSellByID(e.target.dataset.id))
         this.props.dispatch(GetId(e.target.dataset.id))
-
-
     }
+
     Favorite = (e) =>{
         let autoId = e.target.parentElement.parentElement.dataset.id;
         let data = new FormData();
@@ -36,8 +35,6 @@ class Result extends Component {
     render() {
         return (
             <div className="result">
-                {/*<SellCar />*/}
-                {/*<SellCar />*/}
                 {
                     this.props.sell.data.data.map((auto,i) => {
 
@@ -61,7 +58,6 @@ class Result extends Component {
                                 <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
                                     <SellCar Auto={auto} favorite={this.props.favorite} res={res}  />
                                 </Link>
-
                             </div>
                         )
                     })

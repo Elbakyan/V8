@@ -62,6 +62,7 @@ class ListGlobalAutoParts extends  Component{
         console.log(mark)
         return(
                 <div className="get_list_auto_parts">
+
                     <div>
                         <select onChange={this.getStore}>
                             {

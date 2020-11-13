@@ -77,7 +77,8 @@ body{
   animation-duration: 0.5s;
 }
 
-@keyframes alert{
+
+@keyframes alert {
   from {top:0;opacity: 0}
   to {top:50px;opacity: 1}
 }

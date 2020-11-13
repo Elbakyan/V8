@@ -31,7 +31,6 @@ class Message extends Component {
     }
 
     componentDidMount() {
-
         // this.props.dispatch(GetMessage(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
         // this.props.dispatch(GetDialogId(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
         this.setState({
@@ -108,7 +107,8 @@ class Message extends Component {
     }
 
     render() {
-        let myId = this.props.message.id || this.props.message.messageId;
+        let myId =  this.props.message.messageId;
+
         return(
             <Fragment>
                 {
@@ -149,7 +149,7 @@ class Message extends Component {
                                             Clear={this.Clear}
                                             key={i}
                                             id={'/score/account/message/' + this.props.message.messageId + '/' + this.props.message.data.message.score[i].dialog_id}
-                                            dataMes={res}
+                                            data={res}
                                             dialogId={this.props.message.data.message.score[i].dialog_id}
                                             onClick={this.Message}
                                             status={this.props.message.data.message.score[0].status}

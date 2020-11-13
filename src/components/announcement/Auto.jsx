@@ -46,6 +46,7 @@ class Auto extends Component {
     }
 
     render() {
+        console.log(this.props.score.score)
         let img;
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)
@@ -191,7 +192,7 @@ class Auto extends Component {
                             </form>
                         }
                         {
-                            this.props.score.score?'':
+                            this.props.score.score.id?
                                 <form onSubmit={this.SendMessage}>
                                     <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
                                     <input type="hidden" name='get_id' value={auto.user_id}/>
@@ -201,7 +202,7 @@ class Auto extends Component {
                                         type='submit'
                                         name='Գրել․․․'
                                     />
-                                </form>
+                                </form>:''
                         }
 
                     </div>

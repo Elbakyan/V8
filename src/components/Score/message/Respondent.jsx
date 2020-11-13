@@ -7,17 +7,6 @@ import {Url} from "../../config/Url";
 
 
 class Respondent extends Component {
-
-    clear = (e)=>{
-       let data = new FormData();
-       data.append('send_id',this.props.userId);
-       data.append('get_id',e.target.dataset.id);
-        TEST_POST(Url.deliteMessage,data).then(res => {
-            console.log(res)
-        })
-
-    }
-
     render() {
         return (
 
