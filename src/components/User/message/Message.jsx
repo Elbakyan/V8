@@ -106,7 +106,7 @@ class Message extends Component {
                     }
                     <div className="respondent">
                         <div className='respondent__users' data-user={1} onClick={this.openRespondents}>
-                            <span data-user={1}>Օգտատեր</span>
+                            <span data-user={1} className={this.state.RespondentUser? 'active user_span' : 'user_span'}>Օգտատեր</span>
                             {
                                 this.state.RespondentUser  && this.props.message.data.user?this.props.message.data.user.map((data,i) => {
                                     if(data && JSON.parse(this.props.message.data.message.user[i].delite)[0] !== this.props.id){
@@ -134,7 +134,7 @@ class Message extends Component {
                         </div>
                 
                         <div className='respondent__stores' data-store={1} onClick={this.openRespondents}>
-                            <span data-store={1}>Գործնկեր</span>
+                            <span data-store={1} className={this.state.RespondentStore? 'active user_span' : 'user_span'}>Գործնկեր</span>
                             {
                                 this.state.RespondentStore && this.props.message.data.score?this.props.message.data.score.map((data,i) => {
 

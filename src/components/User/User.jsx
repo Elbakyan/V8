@@ -16,10 +16,6 @@ class User extends React.Component{
             id: this.props.id
         }
     }
-    componentDidMount() {
-        console.log(this.props.user)
-        this.props.dispatch(GetAuto(this.props.user.id))
-    }
 
     render() {
         //
@@ -38,7 +34,10 @@ class User extends React.Component{
                        <Signin/>
                    </Route>
                    <Route path='/user/account'>
-                       <Account />
+                       {
+                           this.props.user.status?
+                               <Account />:''
+                       }
                    </Route>
                    {this.props.user.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/' />}
                </Switch>
