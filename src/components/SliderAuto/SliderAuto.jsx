@@ -109,8 +109,6 @@ class SliderAuto extends Component {
                             </div> : <span className="modal_zoom_auto_on" onClick={this.onZoom}>
                                 <FontAwesomeIcon icon={faSearchPlus}/>
                             </span>
-
-
                         }
 
                     </div>

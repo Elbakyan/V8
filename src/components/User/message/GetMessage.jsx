@@ -17,7 +17,6 @@ class GetMessageClass extends Component{
         }
     }
     componentDidMount() {
-// <<<<<<< HEAD:src/components/User/message/GetMessage.jsx
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
         // this.props.dispatch(GetMessage(32))
@@ -91,7 +90,7 @@ class GetMessageClass extends Component{
             }else{
                 clearInterval(scrol)
             }
-        },500)
+        },400)
     }
 
     render() {
@@ -102,7 +101,6 @@ class GetMessageClass extends Component{
         })
         return (
             <div className="getMessage__user">
-
                 <div className="getMessage_users" ref={el => this.scrollRef = el} >
                     {
                         this.props.one_message.map((elem,i)=>{

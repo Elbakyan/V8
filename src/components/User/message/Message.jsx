@@ -73,8 +73,9 @@ class Message extends Component {
     }
 
     render() {
-        console.log('888',this.props.message)
-        console.log('w',window.location.href.split('/')[6])
+        // console.log('888',this.props.message)
+        console.log(this.props.message.data.message.user)
+        console.log(this.props.message.data.user)
         return(
             <div className='message_users_component'>
                 <div className='message_reload'>
@@ -99,7 +100,7 @@ class Message extends Component {
                             {
                                 this.state.RespondentUser  && this.props.message.data.user?this.props.message.data.user.map((data,i) => {
                 
-                                    if(data){
+                                    if(data && this.props.message.data.message.user){
                                         let active = window.location.href.split('/')[6] == this.props.message.data.message.user[i].dialog_id
                                         return (
                                             <Respondent
@@ -126,7 +127,7 @@ class Message extends Component {
                             {
                                 this.state.RespondentStore && this.props.message.data.score?this.props.message.data.score.map((data,i) => {
                 
-                                    if (data){
+                                    if (data && this.props.message.data.message.user){
                                         let active = window.location.href.split('/')[6] == this.props.message.data.message.score[i].dialog_id
                                         return (
                                             <Respondent
