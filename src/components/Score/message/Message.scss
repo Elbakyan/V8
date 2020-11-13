@@ -309,7 +309,7 @@
 
           }
         }
-        .block_message_user1{
+        .block_message_user2{
           justify-content: flex-start;
           &:nth-child(even) > div{
             border-radius: 0px 15px 15px 15px;
@@ -340,7 +340,7 @@
             border-radius: 15px 15px 15px 0px;
           }
         }
-        .block_message_user2{
+        .block_message_user1{
           justify-content: flex-end;
           & > div {
             margin: 5px 0px;

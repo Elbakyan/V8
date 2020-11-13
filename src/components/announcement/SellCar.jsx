@@ -16,8 +16,6 @@ class SellCar extends  Component {
             isFav: false
 
         }
-
-
     }
 
 
@@ -68,19 +66,19 @@ class SellCar extends  Component {
                 </div>
 
                 <div className="getSellCar_body" data-id={this.props.Auto.id} >
-                    <div className='getSellCar_body_block1' data-id={this.props.Auto.id}>
-                        <span data-id={this.props.Auto.id}>{this.props.Auto.model}</span>
+                    <div className='getSellCar_body_block1' data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
+                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.model}</span>
                     </div>
-                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>
-                        <span data-id={this.props.Auto.id}>{this.props.Auto.price} <FontAwesomeIcon icon={faDollarSign} /></span>
-                        <span data-id={this.props.Auto.id}>{this.props.Auto.year}</span>
+                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
+                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.price} <FontAwesomeIcon icon={faDollarSign} /></span>
+                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.year}</span>
                     </div>
-                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>
-                        <span data-id={this.props.Auto.id}>{this.props.Auto.city}</span>
-                        <span data-id={this.props.Auto.id}>{this.props.Auto.sircle}</span>
+                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id } data-user={this.props.Auto.user_id}>
+                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.city}</span>
+                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.sircle}</span>
                     </div>
-                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id}>
-                        <span data-id={this.props.Auto.id}>{this.props.Auto.data.split(' ')[0]}</span>
+                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
+                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.data.split(' ')[0]}</span>
                     </div>
                 </div>
 

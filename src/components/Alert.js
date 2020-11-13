@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Alert from '@material-ui/lab/Alert';
-import './Alert.scss'
 
  class Art extends Component {
      constructor(props) {

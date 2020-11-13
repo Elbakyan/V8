@@ -13,8 +13,10 @@ class GetMessageClass extends Component{
         this.state = {
             ticking:false,
             position:0,
-            count:this.props.one_message.length - 1
+            scroll: true,
+            cou:0
         }
+        this.scrollRef = React.createRef();
     }
     componentDidMount() {
         let data = new FormData();
@@ -31,23 +33,31 @@ class GetMessageClass extends Component{
                 this.props.dispatch(GetId(res.get_id))
             }
         })
-        this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
         setTimeout(()=>{
             console.log('score',this.props.score.scoreList)
         },1000)
+        this.scroll()
+
+    }
+
+    scroll = () => {
+        this.scrollRef.current.scrollTop = this.scrollRef.current.scrollHeight;
+        if(this.state.cou != 2){
+            console.log(this.state.cou)
+            setTimeout(()=>{
+
+                this.setState({
+                    cou:++this.state.cou
+                })
+                this.scroll()
+            },40)
+        }else{
+            this.setState({
+                cou:0
+            })
+        }
 
 
-
-        this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
-        // document.addEventListener('scroll', (e) => {
-        //    let reload = document.querySelector(".reload");
-        //    let top = 100;
-        //    if(window.pageYOffset > 50){
-        //        reload.style.top =  0;
-        //    }else{
-        //        reload.style.top =  '110px';
-        //    }
-        // })
     }
 
     Message = (e) => {
@@ -58,12 +68,10 @@ class GetMessageClass extends Component{
         if (this.textareaRef.value.trim().length > 0){
 
             this.props.dispatch(SendMessage(data))
+
         }
         this.textareaRef.value = '';
-
         this.scroll()
-
-
     }
     onEnterPress = (e) => {
         this.props.dispatch(GetStatus(this.props.message.dialog))
@@ -77,23 +85,12 @@ class GetMessageClass extends Component{
             this.textareaRef.value = ''
             this.scroll()
         }
+
     }
 
-    scroll = (e)=>{
-        let scrol = setInterval(()=>{
-            if(this.props.one_message.length != this.state.count){
-                this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
-                this.setState({
-                    count:this.props.one_message.length
-                })
-            }else{
-                clearInterval(scrol)
-            }
-        },500)
-    }
 
     render() {
-
+        console.log(this.props)
         let meso = document.querySelectorAll('.meso')
         meso.forEach(elem => {
             elem.innerHTML = elem.innerText
@@ -119,12 +116,12 @@ class GetMessageClass extends Component{
                             <FontAwesomeIcon icon={faSync} />
                         </span>
                 </div>
-                <div className="getMessage_users" ref={el => this.scrollRef = el} >
+                <div className="getMessage_users" ref={this.scrollRef} >
                     {
                         this.props.one_message.map((elem,i)=>{
 
                             return(
-                                <div key={i} className={elem[0].id == this.props.score.id?'block_message block_message_user2':'block_message block_message_user1'} >
+                                <div key={i} className={elem[0].id != this.props.id?'block_message block_message_user2':'block_message block_message_user1'} >
                                     {
                                         elem[0].message == ""? '':
                                             <div>

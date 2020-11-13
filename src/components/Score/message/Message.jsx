@@ -12,6 +12,8 @@ import {
     GetMessageId,
     GetStatus
 } from "../../../redux/message/action";
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
 
 
 
@@ -29,7 +31,6 @@ class Message extends Component {
     }
 
     componentDidMount() {
-
         // this.props.dispatch(GetMessage(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
         // this.props.dispatch(GetDialogId(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
         this.setState({
@@ -104,8 +105,10 @@ class Message extends Component {
             })
         },0)
     }
+
     render() {
-        let myId = this.props.message.id || this.props.message.messageId;
+        let myId =  this.props.message.messageId;
+
         return(
             <Fragment>
                 {
@@ -143,6 +146,7 @@ class Message extends Component {
                                 this.props.message.data.score.map((res,i) => {
                                     return(
                                         <Respondent
+                                            Clear={this.Clear}
                                             key={i}
                                             id={'/score/account/message/' + this.props.message.messageId + '/' + this.props.message.data.message.score[i].dialog_id}
                                             data={res}

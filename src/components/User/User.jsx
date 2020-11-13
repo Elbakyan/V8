@@ -18,19 +18,20 @@ class User extends React.Component{
     }
     componentDidMount() {
         // this.props.dispatch(GetMessage())
+
     }
 
     render() {
-        if (this.props.id){
-            this.props.dispatch(GetAuto(this.props.id))
 
+        if (this.props.user.id){
+            // this.props.dispatch(GetAuto(this.props.user.id))
         }
         return (
             <div className="User">
 
                <Switch>
                    <Route exact path='/user/login'>
-                       <Login status={this.props.status} message={this.props.message}/>
+                       <Login status={this.props.user.status} message={this.props.user.message}/>
                    </Route>
                    <Route exact path='/user/sign-in'>
                        <Signin/>
@@ -38,15 +39,17 @@ class User extends React.Component{
                    <Route path='/user/account'>
                        <Account />
                    </Route>
-
+                   {this.props.user.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/' />}
                </Switch>
-                {this.props.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/' />}
-                {this.props.status === undefined?<div className="main__load"> <Loading /> </div>:''}
+                {
+                    this.props.score.score.status?<Redirect to='/score/account' />: ''
+                }
+                {this.props.user.status === undefined?<div className="main__load"> <Loading /> </div>:''}
             </div>
         );
     }
 }
 
-const MapStateToProps = state => state.user;
+const MapStateToProps = state => state;
 const MainUser = connect(MapStateToProps)(User)
 export default MainUser;

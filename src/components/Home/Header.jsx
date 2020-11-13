@@ -44,7 +44,7 @@ class Header extends React.Component{
                             <ul className="header__links-ul row align-center">
 
                                 <li className="header__links-li row align-center">
-                                    <Link to={this.props.user.status? '/user/account': '/user'}>
+                                    <Link to='/user/login'>
                                         <DefaultBtn
                                             name="Հաճախորդ"
                                             color='#fff'
@@ -54,7 +54,7 @@ class Header extends React.Component{
                                     </Link>
                                 </li>
                                 <li className="header__links-li row align-center">
-                                    <Link to={this.props.score.status? '/score/account': '/score'}><DefaultBtn
+                                    <Link to='/score/login'><DefaultBtn
                                         name="Գործնկեր"
                                         color='#fff'
                                         background='#007A61'

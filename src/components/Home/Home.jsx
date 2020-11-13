@@ -5,20 +5,27 @@ import './Home.scss'
 import Footer from "../Footer/Footer";
 import Content from "../Content/Content";
 import Menu from "../Menu/Menu";
+import {connect} from "react-redux";
 
-class Home extends React.Component{
+class Home extends React.Component {
     render() {
         return (
             <div className="Home">
-                {this.props.userStatus? <Redirect to='/user/account'/> : <Redirect to='/'/>}
-                {this.props.scoreStatus? <Redirect to={'/score/account'}/> : <Redirect to='/'/>}
                 <Header/>
-                <Menu />
-                <Content />
-                <Footer />
+                <Menu/>
+                <Content/>
+                <Footer/>
+                {
+                    this.props.score.score.status ? <Redirect to='/score/account'/> : ''
+                }
+                {
+                    this.props.user.status ? <Redirect to='/user/account'/> : ''
+                }
             </div>
         );
     }
 }
 
-export default Home;
+const MapStateToProps = state => state;
+const MainHome = connect(MapStateToProps)(Home)
+export default MainHome;

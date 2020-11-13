@@ -16,13 +16,9 @@ class Auto extends Component {
             message:false
         }
     }
-    componentDidMount() {
-    }
-
     SendMessage = (e) => {
         e.preventDefault()
         let data = new FormData(e.target);
-        console.log(Array.from(data))
         this.props.dispatch(SendMessage(data))
         this.textareaRef.value = '';
         this.setState({
@@ -188,7 +184,7 @@ class Auto extends Component {
                                <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
                                 <input type="hidden" name='get_id' value={auto.user_id}/>
                                <input type="hidden" name='send_id' value={this.props.user.id }/>
-                               <input type="hidden" name='state' value='user'/>
+                               <input type="hidden" name='user' value='user'/>
                                 <DefaultBtn
                                     type='submit'
                                     name='Գրել․․․'
@@ -196,7 +192,7 @@ class Auto extends Component {
                             </form>
                         }
                         {
-                            this.props.score.score?
+                            this.props.score.score.id?
                                 <form onSubmit={this.SendMessage}>
                                     <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
                                     <input type="hidden" name='get_id' value={auto.user_id}/>

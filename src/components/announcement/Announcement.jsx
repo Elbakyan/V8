@@ -14,7 +14,7 @@ import {GetModel} from "../../redux/auto/action";
 import { Redirect, Route} from "react-router-dom";
 import Result from "./Result";
 import Auto from "./Auto";
-import {GetSell} from "../../redux/sellauto/action";
+import {GetSell, GetSellByID} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
 import Pagination from "react-js-pagination";
 
@@ -29,7 +29,16 @@ class Announcement extends Component {
 
     componentDidMount() {
         this.props.dispatch(GetSell(1))
-        this.props.dispatch(GetFavorite())
+        if (this.props.user.id){
+            this.props.dispatch(GetFavorite())
+        }
+        let id = +window.location.pathname.split('/').pop();
+        if (id !== NaN){
+            this.props.dispatch(GetSellByID(id))
+        }
+
+
+
     }
 
 
@@ -201,10 +210,12 @@ class Announcement extends Component {
                             </div>
                         </Route>
                         {
-                            this.props.sell.OneAuto === ''  ? <Redirect to={'/announcement'+ this.props.sell.OneAuto.id}/>  :
+
+
+                            this.props.sell.OneAuto?
                                 <Route exact path={'/announcement/' + this.props.sell.OneAuto.id}>
                                     <Auto/>
-                                </Route>
+                                </Route>:''
                         }
 
 

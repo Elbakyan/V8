@@ -293,19 +293,25 @@ class FormAutoParts extends Component {
                             {/*    name='stores'*/}
                             {/*/>*/}
                             <div className="select_store">
-                                <p>Ընտրել խանութը</p>
-                                <select
-                                    ref={el => this.getStore = el}
-                                    onChange={this.getSelectStore}
-                                >
-                                    {
-                                        this.props.score.scoreList.map((el, i) => (
-                                            <option key={i} value={el.name}>
-                                                {el.name}
-                                            </option>
-                                        ))
-                                    }
-                                </select>
+                                <div>
+                                    <p>Ընտրել խանութը</p>
+                                    <select
+                                        ref={el => this.getStore = el}
+                                        onChange={this.getSelectStore}
+                                    >
+                                        {
+                                            this.props.score.scoreList.map((el, i) => (
+                                                <option key={i} value={el.name}>
+                                                    {el.name}
+                                                </option>
+                                            ))
+                                        }
+                                    </select>
+                                </div>
+                                <div className='search'>
+                                    <p>Գտնել դետալը ըստ համարի</p>
+                                    <input type="text" onChange={this.search} placeholder='Ոորոնում․․․'/>
+                                </div>
                             </div>
 
                             <div className="get_list_auto_parts">
@@ -321,10 +327,6 @@ class FormAutoParts extends Component {
                                         <li style={{width: '10%'}}>Նոր կամ Օգտագործ</li>
                                         <li style={{width: '10%'}}>Կարգավորում</li>
                                     </ul>
-                                    <div className='search'>
-                                        <p>Գտնել դետալը ըստ համարի</p>
-                                        <input type="text" onChange={this.search}/>
-                                    </div>
                                 </div>
 
                                 <div className="list_body">

@@ -19,8 +19,10 @@ export function GetSell(limit = 1,data = null) {
 
     }
 }
-export function GetSellByID(data) {
+export function GetSellByID(id) {
     return async (dispach) => {
+        let data = new FormData();
+        data.append('id', id)
         POST(Url.getsellautobyid,data).then(res=> {
 
             dispach({

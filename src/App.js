@@ -29,7 +29,6 @@ class App extends React.Component {
 
 
     componentDidMount() {
-
         this.props.dispatch(UserExist())
         this.props.dispatch(ScoreExist())
         this.props.dispatch(GetSicle())
