@@ -21,9 +21,6 @@ export function AddFavorite(data){
 
     return (dispach) => {
         POST(Url.addFavorite,data).then(res => {
-            if (typeof res == 'string'){
-               res = JSON.parse(res)
-            }
             dispach({
                 type: ADD_FAVORITE,
                 payload: res
@@ -36,7 +33,6 @@ export function GetUserFavorite(){
 
     return (dispach) => {
         GET(Url.sendFavorite).then(res => {
-            console.log(res)
             dispach({
                 type: GET_USER_FAVORITE,
                 payload: res

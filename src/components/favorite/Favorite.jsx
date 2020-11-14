@@ -55,7 +55,6 @@ class Favorite extends Component {
             <div className="result">
                 {
                     this.props.favorite.userFavorite.map((auto,i) => {
-                        console.log(auto)
                             return (
                                 <div className="result_auto" key={i}>
                                 <span className="favorite_block" data-id={auto.id}  onClick={this.Favorite}>
