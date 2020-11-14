@@ -18,6 +18,7 @@ import DetaleLists from "./DetaeLists";
 import ScoreList from "./ScoreList";
 import {Link} from "react-router-dom";
 import StoreInfo from "../StoreInfo/StoreInfo";
+import ScoreListGlobal from "./ScoreListGlobal";
 
 class Result extends Component {
     constructor(props) {
@@ -98,6 +99,7 @@ class Result extends Component {
                     </div>
                     <div className="container">
                         <ScoreList />
+                        <ScoreListGlobal />
                     </div>
                 </Route>
                 <Route path={'/search/result/store/' + this.props.id}>
