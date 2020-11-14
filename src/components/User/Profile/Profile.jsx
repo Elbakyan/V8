@@ -9,7 +9,7 @@ import UserCars from "../UserCars/UserCars";
 import CarsForm from "../UserCars/CarsForm";
 import '../../announcement/Announcement.scss'
 import '../../announcement/SellCar.scss'
-import GeFavorite from "../favorite/GeFavorite";
+import GeFavorite from "../../favorite/GeFavorite";
 import Message from "../message/Message";
 
 

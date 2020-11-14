@@ -36,7 +36,12 @@ class Score extends Component {
                         <Signin/>
                     </Route>
                     <Route path='/score/account'>
-                        <Account/>
+                        {
+                            this.props.score.score.status?
+                                <Account/>: ''
+                        }
+
+
                     </Route>
                         {
                             this.props.score.score.status ? <Redirect to={window.location.pathname} /> : <Redirect to='/' />
