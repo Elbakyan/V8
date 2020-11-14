@@ -29,9 +29,8 @@ class Announcement extends Component {
 
     componentDidMount() {
         this.props.dispatch(GetSell(1))
-        if (this.props.user.id){
             this.props.dispatch(GetFavorite())
-        }
+
         let id = +window.location.pathname.split('/').pop();
         if (id !== NaN){
             this.props.dispatch(GetSellByID(id))
@@ -77,7 +76,7 @@ class Announcement extends Component {
             <section className="Announcement">
                 {
                     this.props.user.status? <Header2/>:
-                    this.props.score.status?<Header3/>:
+                    this.props.score.score.status?<Header3/>:
                                             <Header1/>
                 }
 

@@ -5,7 +5,56 @@ import {Link} from "react-router-dom";
 
 class Menu extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state ={
+            mark: []
+        }
+    }
+    componentDidMount() {
+       let mark =  this.props.mark.filter(res => {
+            switch (res.name) {
+                case 'Մակնիշ․․․':
+                    return res
+                case 'Audi':
+                    return res
+                case 'BMW':
+                    return res
+                case 'Ford':
+                    return res
+                case 'Hunda':
+                    return res
+                case 'Hundai':
+                    return res
+                case 'Mazda':
+                    return res
+                case 'Mercedes-Benz':
+                    return res
+                case 'Micubishi':
+                    return res
+                case 'Nossan':
+                    return res
+                case 'Opel':
+                    return res
+                case 'Toyota':
+                    return res
+                case 'Volkswagen':
+                    return res
 
+            }
+        })
+        let a = mark.concat(this.props.mark);
+        let uniqueArray = a.filter((item, pos) => {
+
+            return a.indexOf(item) == pos;
+        })
+        uniqueArray.shift();
+        this.setState({
+            mark: uniqueArray
+        })
+
+
+    }
 
     outMenu = e =>{
         // if(e.target.dataset.close !== undefined){
@@ -41,8 +90,11 @@ class Menu extends Component {
             }
         }
     }
-
+    GetStore = (e) => {
+        console.log(e.target.dataset)
+    }
     render() {
+
         return (
             <div className="header_menu">
                 <div className='overley' onClick={(e)=>{
@@ -75,11 +127,14 @@ class Menu extends Component {
                                         Մարդատարի պահեստամասեր
                                         <ul className="cars">
                                             {
-                                                cars.map(({name}, i) => (
-                                                    <li key={i}>
-                                                        {name}
-                                                    </li>
-                                                ))
+                                                this.state.mark.map((mark, i) => {
+                                                    return (
+                                                        <li key={i} data-mark={mark.name} data-id={mark.id} onClick={this.GetStore}>
+                                                            {mark.name}
+                                                        </li>
+                                                    )
+                                                })
+
                                             }
                                         </ul>
                                     </li>

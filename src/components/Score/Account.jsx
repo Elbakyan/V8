@@ -17,7 +17,11 @@ class Account extends React.Component {
         return (
             <div className="Account">
                 <Header/>
-                <Menu/>
+                {
+                    this.props.auto.mark != false?
+                        <Menu mark={this.props.auto.mark}/>:''
+
+                }
                 <Profile />
                 <Footer/>
             </div>
@@ -25,6 +29,6 @@ class Account extends React.Component {
     }
 }
 
-const MapStateToProps = state => state.score;
+const MapStateToProps = state => state;
 const MainAccount = connect(MapStateToProps)(Account);
 export default MainAccount;
