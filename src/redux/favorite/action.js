@@ -21,6 +21,9 @@ export function AddFavorite(data){
 
     return (dispach) => {
         POST(Url.addFavorite,data).then(res => {
+            if (typeof res == 'string'){
+               res = JSON.parse(res)
+            }
             dispach({
                 type: ADD_FAVORITE,
                 payload: res

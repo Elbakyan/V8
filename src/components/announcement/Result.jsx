@@ -6,7 +6,7 @@ import SellCar from "./SellCar";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHeart as sol} from "@fortawesome/free-solid-svg-icons/faHeart";
 import {faHeart as reg} from "@fortawesome/free-regular-svg-icons/faHeart";
-import {AddFavorite, GetFavorite} from "../../redux/favorite/action";
+import {AddFavorite, GetFavorite, GetUserFavorite} from "../../redux/favorite/action";
 import {GetDialogId, GetId, GetMessage} from "../../redux/message/action";
 
 
@@ -27,12 +27,20 @@ class Result extends Component {
     Favorite = (e) =>{
         let autoId = e.target.parentElement.parentElement.dataset.id;
         let data = new FormData();
-        data.append('id', this.props.user.id);
-        data.append('auto_id', autoId);
-        this.props.dispatch(AddFavorite(data))
+        if (this.props.user.status){
+            data.append('id', this.props.user.id);
+            data.append('auto_id', autoId);
+            this.props.dispatch(AddFavorite(data))
+        }
+        if (this.props.score.score.status){
+            data.append('id', this.props.score.score.id);
+            data.append('auto_id', autoId);
+            this.props.dispatch(AddFavorite(data))
+        }
 
     }
     render() {
+        console.log(this.props.favorite.favorite)
         return (
             <div className="result">
                 {

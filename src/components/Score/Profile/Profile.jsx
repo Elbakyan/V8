@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import './Profile.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faEnvelope, faHome,faCarBattery,faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
+import {faEnvelope, faHome, faCarBattery, faQuestionCircle, faHeart} from "@fortawesome/free-solid-svg-icons";
 import {Link, NavLink, Route, Switch} from "react-router-dom";
 
 import ScoreList from "../ScoreList/ScoreList";
@@ -13,6 +13,7 @@ import AutoParts from "../../AutoParts/AutoParts";
 
 import Message from "../message/Message";
 import {GetMessage} from "../../../redux/message/action";
+import GeFavorite from "../../favorite/GeFavorite";
 
 
 
@@ -62,6 +63,15 @@ class Profile extends React.Component{
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link to='/score/account/favorite'>
+                                        <div className="icon">
+                                            <FontAwesomeIcon icon={faHeart}/>
+                                        </div>
+                                        <span>Նախնտրելի</span>
+
+                                    </Link>
+                                </li>
+                                <li>
                                     <Link to='/score/account/cars'>
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faCarBattery}/>
@@ -87,6 +97,10 @@ class Profile extends React.Component{
                                 </Route>
                                 <Route path={'/score/account/message/' + this.props.message.messageId}>
                                     <Message/>
+                                </Route>
+                                <Route path='/score/account/favorite'>
+
+                                    <GeFavorite />
                                 </Route>
                                 <ScoreList />
                             </Switch>

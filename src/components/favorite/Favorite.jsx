@@ -3,9 +3,9 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHeart as sol} from "@fortawesome/free-solid-svg-icons/faHeart";
-import {AddFavorite, GetUserFavorite} from "../../../redux/favorite/action";
-import SellCar from "../../announcement/SellCar";
-import {GetSellByID} from "../../../redux/sellauto/action";
+import {AddFavorite, GetUserFavorite} from "../../redux/favorite/action";
+import SellCar from "../announcement/SellCar";
+import {GetSellByID} from "../../redux/sellauto/action";
 
 
 
@@ -24,19 +24,33 @@ class Favorite extends Component {
     GetAuto = (e) => {
         let data = new FormData();
         data.append('id', e.target.dataset.id);
+
         this.props.dispatch(GetSellByID(data))
     }
     Favorite = (e) =>{
-        let autoId = e.target.parentElement.parentElement.dataset.id;
-        let data = new FormData();
-        data.append('id', this.props.user.id);
-        data.append('auto_id', autoId);
-        this.props.dispatch(AddFavorite(data))
-        this.props.dispatch(GetUserFavorite())
-        console.log(this.props.favorite)
+        if (this.props.score.score.status) {
+            let autoId = e.target.parentElement.parentElement.dataset.id;
+            let data = new FormData();
+            data.append('id', this.props.score.score.id);
+            data.append('state', 'score');
+            data.append('auto_id', autoId);
+            this.props.dispatch(AddFavorite(data))
+            this.props.dispatch(GetUserFavorite())
+        }
+        if (this.props.user.status) {
+            let autoId = e.target.parentElement.parentElement.dataset.id;
+            data.append('state', 'user');
+            let data = new FormData();
+            data.append('id', this.props.user.id);
+            data.append('auto_id', autoId);
+            this.props.dispatch(AddFavorite(data))
+            this.props.dispatch(GetUserFavorite())
+        }
+
 
     }
     render() {
+
         return (
             <div className="result">
                 {
