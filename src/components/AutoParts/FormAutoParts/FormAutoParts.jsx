@@ -38,7 +38,6 @@ class FormAutoParts extends Component {
         this.props.dispatch(GetProduct())
         setTimeout(() => {
             this.props.score.scoreList.map((el, i) => {
-                console.log(el)
                 if (i === 0) {
                     this.setState({
                         SelectStore: el.name

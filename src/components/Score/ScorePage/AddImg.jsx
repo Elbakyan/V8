@@ -13,20 +13,21 @@ class ScoreAddImg extends Component {
 
     render() {
             return (
-                <Fragment>
+
+                <label className='add__img-big'>
                     {
-                        this.props.loading ?<div className="loading_slider-img" > <Loading type='spokes' color='#00FF3F' size={200}/> </div>:''
+                        this.props.loading ?
+                            <div className="loading_slider-img"><Loading type='spokes' color='#00FF3F' size={200}/>
+                            </div> : ''
                     }
-                    <label className='add__img-big' >
-                        <div className="bg" style={{ width: '100%', height: '100%'}}></div>
-                        <input
-                            type='file'
-                            multiple
-                            onChange={this.props.onChange}
-                        />
-                        <span style={{fontSize:'150px'}}>+</span>
-                    </label>
-                </Fragment>
+                    <div className="bg" style={{width: '100%', height: '100%'}}></div>
+                    <input
+                        type='file'
+                        multiple
+                        onChange={this.props.onChange}
+                    />
+                    <span style={{fontSize: '150px'}}>+</span>
+                </label>
             )
 
     }
