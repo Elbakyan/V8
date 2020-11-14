@@ -14,6 +14,8 @@ import {
 } from "../../../redux/message/action";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faRedoAlt} from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -122,66 +124,77 @@ class Message extends Component {
                         this.props.score.scoreList.map((res,i) => {
 
                             return (
-
                                 <li id={res.id} onClick={this.GetIdScoreList}>
-
-
                                     {res.name}
                                 </li>
-
                             )
                         })
                     }
                 </ul>
-                <div className="message_users">
 
-
-                    {
-                        this.state.redirect?<Redirect to={this.state.link?this.state.link:''} />:''
-                    }
-                    <div className="respondent">
-                        {
-                            this.props.message.data.score?
-                                this.props.message.data.score.map((res,i) => {
-                                    let active = this.props.message.data.message.score? window.location.href.split('/')[7] == this.props.message.data.message.score[i].dialog_id: ''
-                                    return(
-                                        <Respondent
-                                            Clear={this.Clear}
-                                            key={i}
-                                            id={'/score/account/message/' + this.props.message.messageId + '/' + this.props.message.data.message.score[i].dialog_id}
-                                            data={res}
-                                            active={active}
-                                            dialogId={this.props.message.data.message.score[i].dialog_id}
-                                            onClick={this.Message}
-                                            status={this.props.message.data.message.score[0].status}
-                                            time={this.props.message.data.message.score[0].time}
-                                            userId={this.props.message.id}
-                                            send={this.props.message.data.score[i].id}
-                                        />
-                                    )
-
-                                })
-                                :''
-                        }
-
+                <div className='message_users_component'>
+                    <div className='message_reload'>
+                    <span onClick={(e)=>{
+                        let aa = e.target
+                        e.target.classList.toggle('message_reload_button')
+                        this.props.dispatch(GetStatus(this.props.message.dialog))
+                        this.props.dispatch(GetMessage(this.props.message.messageId))
+                        setTimeout(()=>{
+                            aa.classList.toggle('message_reload_button')
+                        },1000)
+                    }}>
+                        <FontAwesomeIcon icon={faRedoAlt} />
+                    </span>
                     </div>
-
-                    <div className="message">
-
+                    <div className="message_users">
                         {
-                            this.props.message.data.message.score?this.props.message.data.message.score.map((data,i) => {
-                                return (
-                                    <Switch key={i}>
-                                        <Route path={'/score/account/message/' + this.props.message.messageId + '/' + data['dialog_id']}>
-                                            <GetMessageClass one_message={data.message} id={myId} id1={myId == data['send_id']?data['get_id']:data['send_id']} i/>
-                                        </Route>
-                                    </Switch>
-                                )
-                            }):''
+                            this.state.redirect?<Redirect to={this.state.link?this.state.link:''} />:''
                         }
+                        <div className="respondent">
+                            {
+                                this.props.message.data.score?
+                                    this.props.message.data.score.map((res,i) => {
+                                        let active = this.props.message.data.message.score? window.location.href.split('/')[7] == this.props.message.data.message.score[i].dialog_id: ''
+                                        return(
+                                            <Respondent
+                                                Clear={this.Clear}
+                                                key={i}
+                                                id={'/score/account/message/' + this.props.message.messageId + '/' + this.props.message.data.message.score[i].dialog_id}
+                                                data={res}
+                                                active={active}
+                                                dialogId={this.props.message.data.message.score[i].dialog_id}
+                                                onClick={this.Message}
+                                                status={this.props.message.data.message.score[0].status}
+                                                time={this.props.message.data.message.score[0].time}
+                                                userId={this.props.message.id}
+                                                send={this.props.message.data.score[i].id}
+                                            />
+                                        )
 
+                                    })
+                                    :''
+                            }
+
+                        </div>
+
+                        <div className="message">
+
+                            {
+                                this.props.message.data.message.score?this.props.message.data.message.score.map((data,i) => {
+                                    return (
+                                        <Switch key={i}>
+                                            <Route path={'/score/account/message/' + this.props.message.messageId + '/' + data['dialog_id']}>
+                                                <GetMessageClass one_message={data.message} id={myId} id1={myId == data['send_id']?data['get_id']:data['send_id']} i/>
+                                            </Route>
+                                        </Switch>
+                                    )
+                                }):''
+                            }
+
+                        </div>
                     </div>
                 </div>
+
             </Fragment>
         )
     }

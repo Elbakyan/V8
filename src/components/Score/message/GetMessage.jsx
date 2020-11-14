@@ -97,25 +97,25 @@ class GetMessageClass extends Component{
         })
         return (
             <div className="getMessage">
-                <div className="reload">
-                        <span style={this.state.styleRotate?{transform:"rotate(360deg)"}:{transform:"rotate(0deg)",transition: '0s'}}
-                            onClick={(e) => {
-                                this.props.dispatch(GetStatus(this.props.message.dialog))
-                            this.props.dispatch(GetMessage(this.props.message.messageId))
+                {/*<div className="reload">*/}
+                {/*        <span style={this.state.styleRotate?{transform:"rotate(360deg)"}:{transform:"rotate(0deg)",transition: '0s'}}*/}
+                {/*            onClick={(e) => {*/}
+                {/*                this.props.dispatch(GetStatus(this.props.message.dialog))*/}
+                {/*            this.props.dispatch(GetMessage(this.props.message.messageId))*/}
 
-                            this.setState({
-                                styleRotate: true
-                            })
-                            setTimeout(() => {
-                                this.setState({
-                                    styleRotate: false
-                                })
-                            },1500)
-                            this.scroll()
-                        }}>
-                            <FontAwesomeIcon icon={faSync} />
-                        </span>
-                </div>
+                {/*            this.setState({*/}
+                {/*                styleRotate: true*/}
+                {/*            })*/}
+                {/*            setTimeout(() => {*/}
+                {/*                this.setState({*/}
+                {/*                    styleRotate: false*/}
+                {/*                })*/}
+                {/*            },1500)*/}
+                {/*            this.scroll()*/}
+                {/*        }}>*/}
+                {/*            <FontAwesomeIcon icon={faSync} />*/}
+                {/*        </span>*/}
+                {/*</div>*/}
                 <div className="getMessage_users" ref={this.scrollRef} >
                     {
                         this.props.one_message.map((elem,i)=>{

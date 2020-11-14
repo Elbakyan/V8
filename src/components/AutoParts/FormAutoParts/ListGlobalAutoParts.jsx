@@ -31,13 +31,12 @@ class ListGlobalAutoParts extends  Component{
             store:e.target.value
         })
     }
+
     openModel = e =>{
         if(e.target.dataset.title == 1){
             console.log(e.target.className.split(' ')[1].toString())
             let block = document.querySelectorAll('.'+e.target.className.split(' ')[1].toString())
             console.log(block)
-            // console.log(block[0].tagName = 'LI')
-            // console.log(block)
             block.forEach(el=>{
                 // console.log(el)
                 if(el.tagName != "LI"){
@@ -47,13 +46,10 @@ class ListGlobalAutoParts extends  Component{
                     }else{
                         el.style.display = 'none'
                     }
-
                 }
             })
             e.target.childNodes[0].click()
         }
-        // console.log(e.target.childNodes[0])
-
     }
     render() {
         let {mark,model} = this.props.score.MarkModelParts

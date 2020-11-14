@@ -190,7 +190,7 @@ class FormAutoParts extends Component {
                                                         type='checkbox'
                                                         value={el.name}
                                                         name='score[]'
-                                                        width="5%"
+                                                        // width="5%"
                                                         checked
                                                     />
                                                     <input type="hidden" name='store_id[]' value={el.id}/>
@@ -372,23 +372,23 @@ class FormAutoParts extends Component {
                                                         </li>
                                                         <li style={{width: '10%'}}>{el.new == 1 ? 'Նոր' : 'Օգտ.'}</li>
                                                         <li className='buttons' style={{width: '10%'}}>
-                                            <span data-id={el.id} data-price={el.price} data-count={el.count}
-                                                  onClick={(e) => {
-                                                      this.setState({
-                                                          edit: true,
-                                                          id: e.target.dataset.id,
-                                                          price: e.target.dataset.price,
-                                                          count: e.target.dataset.count,
-                                                          top: e.pageY - (window.scrollY + 25)
-                                                      })
-                                                  }}>
-                                                <FontAwesomeIcon icon={faPen}/>
-                                            </span>
-                                                            <span onClick={this.DeliteProduct} data-id={el.id}>
-                                                <FontAwesomeIcon icon={faTrashAlt}/>
-                                            </span>
-                                                        </li>
+                                                            <span data-id={el.id} data-price={el.price} data-count={el.count}
+                                                                  onClick={(e) => {
+                                                                      this.setState({
+                                                                          edit: true,
+                                                                          id: e.target.dataset.id,
+                                                                          price: e.target.dataset.price,
+                                                                          count: e.target.dataset.count,
+                                                                          top: e.pageY - (window.scrollY + 25)
+                                                                      })
+                                                                  }}>
+                                                                <FontAwesomeIcon icon={faPen}/>
+                                                            </span>
 
+                                                            <span onClick={this.DeliteProduct} data-id={el.id}>
+                                                                <FontAwesomeIcon icon={faTrashAlt}/>
+                                                            </span>
+                                                        </li>
                                                     </ul>
 
                                                 )

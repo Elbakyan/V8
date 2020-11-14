@@ -138,7 +138,6 @@ class FormGlobalAutoParts extends Component {
                                             type='checkbox'
                                             value={el.name}
                                             name='score[]'
-                                            width="5%"
                                             checked
                                         />
                                         <input type="hidden" name='store_id[]' value={el.id}/>

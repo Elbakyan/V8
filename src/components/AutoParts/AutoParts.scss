@@ -85,17 +85,26 @@
         .score_list {
           padding: 10px 0;
           margin-bottom: 5px;
+          height: auto;
+          display: flex;
+          flex-wrap: wrap;
 
           label {
             border: 1px solid black;
             border-radius: 5px;
             padding: 10px;
+            width: 20%;
             margin-right: 5px;
             background: #7c7c7c;
             color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
           }
 
           input {
+            width: 30%;
+            height: 15px;
             &:focus {
               box-shadow: none;
             }
@@ -243,7 +252,7 @@
                     align-items: center;
 
                     &:nth-child(1) {
-                      width: 150px;
+                      width: 180px;
                       background: rgb(0, 117, 255);
                       padding: 5px 15px;
                       margin: 2px 0;
@@ -253,7 +262,6 @@
 
                     &:nth-child(2) {
                       margin-left: -25px;
-
                     }
 
                     &:nth-child(3) {
@@ -293,12 +301,10 @@
         background: silver;
         display: flex;
         align-items: center;
-
         div {
           padding: 5px 10px;
           margin: 0px 10px;
           border: 1px solid #ffffff;
-
           select {
             width: 100%;
           }

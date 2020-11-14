@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from "react-redux";
-import './Profile.scss'
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
@@ -13,7 +12,8 @@ import {
 class PersionalDataScore extends React.Component {
     render() {
 
-        let data = this.props.score.data
+        let data = this.props.score.score.data
+        console.log(data)
         return (
             <div className="persional__data">
 

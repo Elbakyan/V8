@@ -20,7 +20,7 @@ class PersionalData extends React.Component {
     }
 
     render() {
-    let data = this.props.user.data;
+    let data = this.props.user.data || this.props.score.score.data;
         // console.log(data);
         return (
             <div className="persional__data">

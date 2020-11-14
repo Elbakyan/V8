@@ -5,6 +5,8 @@ import {connect} from "react-redux";
 import {Url} from "../config/Url";
 
 import Search from "../Search/Search";
+import PersionalDataScore from "../User/Profile/PersionalData";
+import PersonalData from "../User/Profile/PersionalData";
 
 
 
@@ -23,6 +25,9 @@ class Header extends React.Component{
                         </Link>
                     </div>
                     <Search />
+                    <div className="user_info">
+                        <PersonalData />
+                    </div>
                     <div className="header__logout">
                         <a href={Url.logoutscore}>
                             <DefaultBtn

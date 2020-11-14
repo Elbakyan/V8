@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 // import './SliderAuto.scss';
 import Loading from "../../Loading";
 import {connect} from "react-redux";
@@ -13,7 +13,7 @@ class ScoreAddImg extends Component {
 
     render() {
             return (
-                <div className="slider__container">
+                <Fragment>
                     {
                         this.props.loading ?<div className="loading_slider-img" > <Loading type='spokes' color='#00FF3F' size={200}/> </div>:''
                     }
@@ -26,7 +26,7 @@ class ScoreAddImg extends Component {
                         />
                         <span style={{fontSize:'150px'}}>+</span>
                     </label>
-                </div>
+                </Fragment>
             )
 
     }

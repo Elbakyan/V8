@@ -9,10 +9,7 @@ class ButtonView extends Component {
         }
     }
 
-    componentDidMount() {
-        // let x = this.props.click()
-        // x()
-    }
+
 
     click= ()=>{
         this.setState({
