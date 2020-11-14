@@ -13,47 +13,49 @@ class Menu extends Component {
         }
     }
     componentDidMount() {
-       let mark =  this.props.mark.filter(res => {
-            switch (res.name) {
-                case 'Մակնիշ․․․':
-                    return res
-                case 'Audi':
-                    return res
-                case 'BMW':
-                    return res
-                case 'Ford':
-                    return res
-                case 'Hunda':
-                    return res
-                case 'Hundai':
-                    return res
-                case 'Mazda':
-                    return res
-                case 'Mercedes-Benz':
-                    return res
-                case 'Micubishi':
-                    return res
-                case 'Nossan':
-                    return res
-                case 'Opel':
-                    return res
-                case 'Toyota':
-                    return res
-                case 'Volkswagen':
-                    return res
+       if (this.props.mark){
+           let mark =  this.props.mark.filter(res => {
+               switch (res.name) {
+                   case 'Մակնիշ․․․':
+                       return res
+                   case 'Audi':
+                       return res
+                   case 'BMW':
+                       return res
+                   case 'Ford':
+                       return res
+                   case 'Hunda':
+                       return res
+                   case 'Hundai':
+                       return res
+                   case 'Mazda':
+                       return res
+                   case 'Mercedes-Benz':
+                       return res
+                   case 'Micubishi':
+                       return res
+                   case 'Nossan':
+                       return res
+                   case 'Opel':
+                       return res
+                   case 'Toyota':
+                       return res
+                   case 'Volkswagen':
+                       return res
 
-            }
-        })
-        let a = mark.concat(this.props.mark);
-        let uniqueArray = a.filter((item, pos) => {
+               }
+           })
+           let a = mark.concat(this.props.mark);
+           let uniqueArray = a.filter((item, pos) => {
 
-            return a.indexOf(item) == pos;
-        })
-        uniqueArray.shift();
-        this.setState({
-            mark: uniqueArray
-        })
+               return a.indexOf(item) == pos;
+           })
+           uniqueArray.shift();
+           this.setState({
+               mark: uniqueArray
+           })
 
+       }
 
     }
 
@@ -96,7 +98,7 @@ class Menu extends Component {
         console.log(e.target.dataset)
     }
     render() {
-
+        console.log(this.props)
         return (
             <div className="header_menu">
                 <div className='overley' onClick={(e)=>{
