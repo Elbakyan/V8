@@ -10,7 +10,6 @@ class Respondent extends Component {
         return (
             <div
                 className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}
-                style={{background:this.props.bground}}
             >
                 <div className="click" onClick={this.props.onClick} id={this.props.id} data-id={this.props.data?this.props.data.id:''}></div>
 

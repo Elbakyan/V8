@@ -18,11 +18,7 @@ class User extends React.Component{
     }
 
     render() {
-        //
-        // if (this.props.user.id){
-        //
-        //
-        // }
+
         return (
             <div className="User">
 
