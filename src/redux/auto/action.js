@@ -4,6 +4,8 @@ export const GET_MARK = 'GET_MARK';
 export const GET_MODEL = 'GET_MODEL';
 export const GET_AUTO = 'GET_AUTO';
 export const GET_ALL_MODEL = 'GET_ALL_MODEL';
+export const GET_TRUCK = 'GET_TRUCK';
+export const GET_TRUCK_MODEL = 'GET_TRUCK_MODEL';
 
 export function GetMark(){
     return (dispach) => {
@@ -20,6 +22,7 @@ export function GetMark(){
 
     }
 }
+
 export function GetAllModel(){
     return (dispach) => {
         GET(Url.allmodels).then(res => {
@@ -49,6 +52,7 @@ export function GetModel(e = 1) {
         })
     }
 }
+
 export function GetAuto(id) {
     return async (dispach) => {
         let data = new FormData();
@@ -61,5 +65,35 @@ export function GetAuto(id) {
 
         })
 
+    }
+}
+
+export function GetTruck(){
+    return (dispach) => {
+        GET(Url.truck).then(res => {
+            dispach({
+                type: GET_TRUCK,
+                payload: res
+            })
+        })
+
+    }
+}
+
+export function GetTruckModel(e = 1) {
+    return async (dispach) => {
+        let id = e.target === undefined ? e :e.target.selectedIndex;
+        let data = new FormData()
+        data.append('id',  id);
+        POST(Url.truckID, data).then(data=> {
+            data.unshift({
+                id:"0",
+                name: 'Մոդել․․․'
+            })
+            dispach({
+                type: GET_TRUCK_MODEL,
+                payload: data
+            })
+        })
     }
 }
