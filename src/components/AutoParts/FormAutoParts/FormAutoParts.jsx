@@ -13,6 +13,7 @@ import Loading from "../../Loading";
 import DefaultSelect from "../../forms/select/DefaultSelect";
 import {maser} from "../../Menu/autoObj";
 import FormGlobalAutoParts from "./FormGlobalAutoParts";
+import TypeCars from "../TypeCars";
 
 
 class FormAutoParts extends Component {
@@ -210,7 +211,6 @@ class FormAutoParts extends Component {
                                             placeholder="Արժեքը(Դրամ)"
                                             width="15%"
                                         />
-
                                         <DefaultInput
                                             type='number'
                                             name='count'
@@ -401,7 +401,7 @@ class FormAutoParts extends Component {
                             </div>
                         </div>
                         :
-                        <FormGlobalAutoParts/>
+                        <TypeCars />
                 }
 
 

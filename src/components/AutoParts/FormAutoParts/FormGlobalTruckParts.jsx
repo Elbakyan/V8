@@ -17,8 +17,7 @@ import MainListGlobalAutoParts from "./ListGlobalAutoParts";
 import TypeCars from "../TypeCars";
 
 
-
-class FormGlobalAutoParts extends Component {
+class FormGlobalTruckParts extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -104,21 +103,21 @@ class FormGlobalAutoParts extends Component {
                     this.state.redirect? <Redirect to='/score/account/cars/lists'/>:''
                 }
                 <div className="add_auto_parts-links">
-                    <NavLink to='/score/account/cars/cars/add' >Ավելացնել...</NavLink>
-                    <NavLink to='/score/account/cars/cars/lists' >Ցանկ...</NavLink>
+                    <NavLink to='/score/account/cars/truck/add' >Ավելացնել...</NavLink>
+                    <NavLink to='/score/account/cars/truck/lists' >Ցանկ...</NavLink>
                 </div>
-                    {
-                        this.state.message?
-                            <div className="message" style={{
-                                position: "fixed",
-                                top: "15px",
-                                background: "#ffffff"
+                {
+                    this.state.message?
+                        <div className="message" style={{
+                            position: "fixed",
+                            top: "15px",
+                            background: "#ffffff"
 
-                            }}>
-                                {this.state.message}
-                            </div>:''
-                    }
-                <Route path='/score/account/cars/cars/add'>
+                        }}>
+                            {this.state.message}
+                        </div>:''
+                }
+                <Route path='/score/account/cars/truck/add'>
                     <form onSubmit={this.AddScorPartsLists}>
                         <div className="score_list">
                             {
@@ -234,7 +233,7 @@ class FormGlobalAutoParts extends Component {
                         </div>
                     </form>
                 </Route>
-                <Route path='/score/account/cars/cars/lists'>
+                <Route path='/score/account/cars/truck/lists'>
                     <MainListGlobalAutoParts />
                 </Route>
 
@@ -254,5 +253,5 @@ const MapStateToProps = state => {
     }
 }
 
-const MainFormGlobalAutoParts = connect(MapStateToProps)(FormGlobalAutoParts);
-export default MainFormGlobalAutoParts;
+const MainFormGlobalTruckParts = connect(MapStateToProps)(FormGlobalTruckParts);
+export default MainFormGlobalTruckParts;
