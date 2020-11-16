@@ -27,12 +27,8 @@ class FormGlobalAutoParts extends Component {
         this.state = {
             message: '',
             openMarker: false,
-// <<<<<<< HEAD
-//             getList:false
-// =======
             loading:false,
             redirect: false
-// >>>>>>> 471755b650a8b8f2d02463df6f3bc136fd745727
         }
 
     }

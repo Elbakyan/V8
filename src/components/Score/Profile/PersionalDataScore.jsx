@@ -47,6 +47,7 @@ class PersionalDataScore extends React.Component {
 
                                         <li>
                                             <div className="icon">
+
                                                 <FontAwesomeIcon icon={faEnvelope}/>
                                             </div>
                                             <div>
@@ -59,8 +60,6 @@ class PersionalDataScore extends React.Component {
                         </div>
                     )
                 }
-
-
             </div>
         );
     }

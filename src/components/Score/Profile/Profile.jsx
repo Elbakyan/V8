@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import './Profile.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope, faHome, faCarBattery, faQuestionCircle, faHeart} from "@fortawesome/free-solid-svg-icons";
-import {Link, NavLink, Route, Switch} from "react-router-dom";
+import {Link,Route, Switch} from "react-router-dom";
 
 import ScoreList from "../ScoreList/ScoreList";
 
@@ -12,8 +12,8 @@ import {GetScoreList, GetScoreListId} from "../../../redux/score/action";
 import AutoParts from "../../AutoParts/AutoParts";
 
 import Message from "../message/Message";
-import {GetMessage} from "../../../redux/message/action";
 import GeFavorite from "../../favorite/GeFavorite";
+import ProfilSetingsScore from "./ProfilSetingsScore";
 
 
 
@@ -99,8 +99,10 @@ class Profile extends React.Component{
                                     <Message/>
                                 </Route>
                                 <Route path='/score/account/favorite'>
-
                                     <GeFavorite />
+                                </Route>
+                                <Route path='/score/account/setings'>
+                                    <ProfilSetingsScore />
                                 </Route>
                                 <ScoreList />
                             </Switch>
