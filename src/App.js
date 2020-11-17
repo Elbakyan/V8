@@ -6,7 +6,7 @@ import User from "./components/User/User";
 import {connect} from "react-redux";
 import {UserExist} from "./redux/user/action";
 import {GetSicle} from "./redux/location/action";
-import {GetMark, GetTruck, GetTruckModel} from "./redux/auto/action";
+import {GetMark, GetTruck, GetTruckModel, GetTruckModels} from "./redux/auto/action";
 import Score from "./components/Score/Score";
 import SpaerParts from "./components/spare/SpareParts";
 import {ScoreExist} from "./redux/score/action";
@@ -34,7 +34,7 @@ class App extends React.Component {
         this.props.dispatch(GetSicle())
         this.props.dispatch(GetMark())
         this.props.dispatch(GetTruck())
-        this.props.dispatch(GetTruckModel())
+        this.props.dispatch(GetTruckModels())
         // this.props.dispatch(GetMessage())
 
     }
@@ -61,7 +61,7 @@ class App extends React.Component {
     //     setTimeout(Timer,4)
     // }
     render() {
-        console.log(this.props)
+
       return (
           <div className="App">
               <Switch>

@@ -98,14 +98,16 @@ class FormGlobalAutoParts extends Component {
     }
 
     render() {
+        console.log(window.location.pathname)
         return (
             <div className="add_auto_parts">
                 {
-                    this.state.redirect? <Redirect to='/score/account/cars/lists'/>:''
+                    this.state.redirect? <Redirect to='/score/account/cars/with_mark/cars/lists'/>:''
                 }
                 <div className="add_auto_parts-links">
-                    <NavLink to='/score/account/cars/cars/add' >Ավելացնել...</NavLink>
-                    <NavLink to='/score/account/cars/cars/lists' >Ցանկ...</NavLink>
+
+                    <NavLink to='/score/account/cars/with_mark/cars/add' >Ավելացնել...</NavLink>
+                    <NavLink to='/score/account/cars/with_mark/cars/lists' >Ցանկ...</NavLink>
                 </div>
                     {
                         this.state.message?
@@ -118,8 +120,9 @@ class FormGlobalAutoParts extends Component {
                                 {this.state.message}
                             </div>:''
                     }
-                <Route path='/score/account/cars/cars/add'>
+                <Route path='/score/account/cars/with_mark/cars/add'>
                     <form onSubmit={this.AddScorPartsLists}>
+
                         <div className="score_list">
                             {
                                 this.props.score.scoreList.map((el, i) => (
@@ -234,7 +237,7 @@ class FormGlobalAutoParts extends Component {
                         </div>
                     </form>
                 </Route>
-                <Route path='/score/account/cars/cars/lists'>
+                <Route path='/score/account/cars/with_mark/cars/lists'>
                     <MainListGlobalAutoParts />
                 </Route>
 

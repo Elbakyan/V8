@@ -1,4 +1,4 @@
-import {GET_MODEL, GET_MARK, GET_AUTO, GET_ALL_MODEL, GET_TRUCK, GET_TRUCK_MODEL} from "./action";
+import {GET_MODEL, GET_MARK, GET_AUTO, GET_ALL_MODEL, GET_TRUCK, GET_TRUCK_MODEL, GET_TRUCK_MODELS} from "./action";
 
 import {category, color, engine, fuel, royle, sort, traction, transmission, type, year} from "./Values";
 
@@ -8,6 +8,7 @@ const initalState = {
     model: [],
     truck:[],
     truckModel:[],
+    truckModels:[],
     royle:royle,
     color:color,
     year: year,
@@ -35,10 +36,13 @@ export default function autoReducer(state = initalState, action){
             return {...state, truck: action.payload}
         case GET_TRUCK_MODEL:
             return {...state, truckModel: action.payload}
+        case GET_TRUCK_MODELS:
+            return {...state, truckModels: action.payload}
         case GET_AUTO:
             return {...state, auto: action.payload}
         case GET_ALL_MODEL:
             return {...state, allModels: action.payload}
+
         default:
             return state
     }

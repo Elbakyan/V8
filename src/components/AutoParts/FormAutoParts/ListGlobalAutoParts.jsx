@@ -62,9 +62,9 @@ class ListGlobalAutoParts extends  Component{
                     <div>
                         <select onChange={this.getStore}>
                             {
-                                this.props.score.scoreList.map(el=>{
+                                this.props.score.scoreList.map((el,i)=>{
                                     return(
-                                        <option value={el.id}>
+                                        <option key={i} value={el.id}>
                                             {el.name}
                                         </option>
                                     )
@@ -82,12 +82,12 @@ class ListGlobalAutoParts extends  Component{
                     </div>
                     <div className="list_body">
                         {
-                            mark?mark.map((mark)=>{
+                            mark?mark.map((mark,i) => {
                                if(this.state.store == mark.score_id){
                                    return(
                                        // <div className="list_body">
-                                       <Fragment>
-                                           <ul key={mark.id}>
+                                       <Fragment key={i}>
+                                           <ul >
                                                <li>{mark.mark}</li>
                                                {
                                                    mark.new?<li>նոր</li>:''

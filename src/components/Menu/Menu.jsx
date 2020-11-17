@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import './Menu.scss'
 import {cars, maser, autogruz, service} from './autoObj'
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
 class Menu extends Component {
 
@@ -134,7 +135,7 @@ class Menu extends Component {
                }
 
            })
-           console.log(mark)
+           // console.log(mark)
            this.setState({
                mark:mark,
                truck: truck
@@ -184,7 +185,7 @@ class Menu extends Component {
         console.log(e.target.dataset)
     }
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div className="header_menu">
                 <div className='overley' onClick={(e)=>{
@@ -232,8 +233,8 @@ class Menu extends Component {
                                         Բեռնատարի պահեստամասեր
                                         <ul className="truck">
                                             {
-                                                this.state.truck.map(({name}, i) => (
-                                                    <li key={i}>
+                                                this.props.auto.truck.map(({name,id}, i) => (
+                                                    <li key={i} data-id={id}>
                                                         {name}
                                                     </li>
                                                 ))
@@ -268,4 +269,7 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+const MapStateToProps = state => state;
+const MainMenu = connect(MapStateToProps)(Menu);
+export default MainMenu;
+

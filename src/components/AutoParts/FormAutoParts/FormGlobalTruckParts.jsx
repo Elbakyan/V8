@@ -99,12 +99,14 @@ class FormGlobalTruckParts extends Component {
     render() {
         return (
             <div className="add_auto_parts">
-                {
-                    this.state.redirect? <Redirect to='/score/account/cars/lists'/>:''
-                }
+                {/*{*/}
+                {/*    this.state.redirect? <Redirect to='/score/account/cars/with_mark/cars/lists'/>:''*/}
+                {/*}*/}
+
                 <div className="add_auto_parts-links">
-                    <NavLink to='/score/account/cars/truck/add' >Ավելացնել...</NavLink>
-                    <NavLink to='/score/account/cars/truck/lists' >Ցանկ...</NavLink>
+
+                    <NavLink to='/score/account/cars/with_mark/truck/add' >Ավելացնել...</NavLink>
+                    <NavLink to='/score/account/cars/with_mark/truck/lists' >Ցանկ...</NavLink>
                 </div>
                 {
                     this.state.message?
@@ -117,7 +119,7 @@ class FormGlobalTruckParts extends Component {
                             {this.state.message}
                         </div>:''
                 }
-                <Route path='/score/account/cars/truck/add'>
+                <Route path='/score/account/cars/with_mark/truck/add'>
                     <form onSubmit={this.AddScorPartsLists}>
                         <div className="score_list">
                             {
@@ -140,7 +142,7 @@ class FormGlobalTruckParts extends Component {
                             <nav className="auto_mark">
                                 <ul className='all_check'>
                                     {
-                                        this.props.auto.mark.map((el, i) => {
+                                        this.props.auto.truck.map((el, i) => {
                                             if (i !== 0) {
                                                 return (
 
@@ -176,7 +178,7 @@ class FormGlobalTruckParts extends Component {
                                                         <ul className={`open_models${el.name}`} style={{display: "none"}}
                                                             data-count={i} ref={el => this.getModels = el}>
                                                             {
-                                                                this.props.auto.allModels.map((model, i) => {
+                                                                this.props.auto.truckModels.map((model, i) => {
                                                                     if (el.id === model['id_mark']) {
                                                                         return (
                                                                             <li key={i}>
@@ -233,7 +235,8 @@ class FormGlobalTruckParts extends Component {
                         </div>
                     </form>
                 </Route>
-                <Route path='/score/account/cars/truck/lists'>
+                {/*/score/account/cars/with_mark/cars*/}
+                <Route path='/score/account/cars/with_mark/truck/lists'>
                     <MainListGlobalAutoParts />
                 </Route>
 

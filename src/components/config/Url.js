@@ -41,5 +41,6 @@ export const Url = {
     tmpimg: 'https://brutal.am/Server/tmp-img',
     searchscore: 'https://brutal.am/Server/isset_detal',
     truck: 'https://brutal.am/Server/track',
-    truckID: 'https://brutal.am/Server/track_by_id'
+    truckID: 'https://brutal.am/Server/track_by_id',
+    truckModels: 'https://brutal.am/Server/track_m'
 }
