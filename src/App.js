@@ -14,6 +14,7 @@ import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
 import {GetMessage} from "./redux/message/action";
 import Result from "./components/Search/Result";
+import Api from "./components/config/Api";
 
 class App extends React.Component {
 
@@ -35,7 +36,6 @@ class App extends React.Component {
         this.props.dispatch(GetMark())
         this.props.dispatch(GetTruck())
         this.props.dispatch(GetTruckModels())
-
 
     }
 
@@ -61,7 +61,6 @@ class App extends React.Component {
     //     setTimeout(Timer,4)
     // }
     render() {
-
       return (
           <div className="App">
 

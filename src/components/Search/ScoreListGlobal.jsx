@@ -11,7 +11,6 @@ class ScoreListGlobal extends Component{
         }
     }
     render() {
-        console.log(this.props.scoreList.store)
         return(
             <div className="score_list">
 
@@ -28,14 +27,14 @@ class ScoreListGlobal extends Component{
                     </div>
                     <div className='score_list_info__body table_style_body'>
                         {
-                            this.props.scoreList.store !== false? this.props.scoreList.detal.map((detal,i) => {
-                                let store = this.props.scoreList.store[i];
+                            this.props.MarkModelResult.status? this.props.MarkModelResult.mark.map((mark,i) => {
+                                let store = this.props.MarkModelResult.score[i];
                                 if (store !== undefined){
                                     return (
                                         <ul>
-                                            <li>{detal.code}</li>
-                                            <li>{detal.name}</li>
-                                            <li>{detal.price + 'Դր․'}</li>
+                                            <li>{mark.mark}</li>
+                                            <li>{mark.new}</li>
+                                            <li>{mark.old}</li>
                                             <li ><Link to={'/search/result/store/' + store.id}
                                                        onClick={() => {
                                                            this.setState({

@@ -20,7 +20,8 @@ const initalState = {
     traction: traction,
     auto: {data:[]},
     sort: sort,
-    allModels: []
+    allModels: [],
+
 }
 
 

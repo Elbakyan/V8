@@ -43,5 +43,6 @@ export const Url = {
     searchscore: 'https://brutal.am/Server/isset_detal',
     truck: 'https://brutal.am/Server/track',
     truckID: 'https://brutal.am/Server/track_by_id',
-    truckModels: 'https://brutal.am/Server/track_m'
+    truckModels: 'https://brutal.am/Server/track_m',
+    searchmarkmodel: 'http://brutal.am/Server/mmn_search'
 }

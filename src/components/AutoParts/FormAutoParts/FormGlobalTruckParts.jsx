@@ -122,6 +122,7 @@ class FormGlobalTruckParts extends Component {
                 }
                 <Route path='/score/account/cars/with_mark/truck/add'>
                     <form onSubmit={this.AddScorPartsLists}>
+                        <input type="hidden" name='type' value='truck'/>
                         <div className="score_list">
                             {
                                 this.props.score.scoreList.map((el, i) => (

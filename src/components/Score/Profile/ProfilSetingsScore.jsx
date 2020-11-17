@@ -5,6 +5,7 @@ import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import Art from "../../Alert";
 import {Redirect} from "react-router";
+import {ScoreExist} from "../../../redux/score/action";
 
 class ProfilSetingsScore extends Component {
     constructor(props) {
@@ -31,6 +32,7 @@ class ProfilSetingsScore extends Component {
                     message: res.message,
                     status: true,
                 })
+                this.props.dispatch(ScoreExist())
                 setTimeout(() => {
                     this.setState({
                         status: undefined,

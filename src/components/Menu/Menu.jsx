@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import './Menu.scss'
 import {cars, maser, autogruz, service} from './autoObj'
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
+import {SearchMarkModel} from "../../redux/search/action";
 
 class Menu extends Component {
 
@@ -11,7 +12,8 @@ class Menu extends Component {
         super(props);
         this.state ={
             mark: [],
-            truck: []
+            truck: [],
+            redirect: false
         }
     }
     componentDidMount() {
@@ -169,8 +171,6 @@ class Menu extends Component {
             }
 
             if(e.target.dataset.counter === '2'){
-                this.autoParts.style.display = 'none';
-                console.log(this.autoService.style.display)
                 if(this.autoService.style.display === 'none' ){
                     this.autoService.style.display = 'block';
                     overley.style.display = 'block'
@@ -181,13 +181,29 @@ class Menu extends Component {
             }
         }
     }
-    GetStore = (e) => {
-        console.log(e.target.dataset)
+    GetCarStore = (e) => {
+        let data = new FormData();
+        data.append('id', e.target.dataset.id)
+        data.append('mark', e.target.dataset.mark)
+        data.append('type', 'car')
+        this.props.dispatch(SearchMarkModel(data))
+        this.setState({
+            redirect: true
+        })
+        setTimeout(() => {
+            this.setState({
+                redirect: false
+            })
+        },1000)
     }
-    render() {
 
+    render() {
+        console.log(this.props)
         return (
             <div className="header_menu">
+                {
+                    this.state.redirect? <Redirect to='/search/result/score/parts'/>:''
+                }
                 <div className='overley' onClick={(e)=>{
                     this.autoParts.style.display = 'none';
                     this.autoService.style.display = 'none';
@@ -220,7 +236,7 @@ class Menu extends Component {
                                             {
                                                 this.state.mark.map((mark, i) => {
                                                     return (
-                                                        <li key={i} data-mark={mark.name} data-id={mark.id} onClick={this.GetStore}>
+                                                        <li key={i} data-mark={mark.name} data-id={mark.id} onClick={this.GetCarStore}>
                                                             {mark.name}
                                                         </li>
                                                     )

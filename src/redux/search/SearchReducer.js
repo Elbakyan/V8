@@ -1,5 +1,5 @@
 import {
-    GET_ID,
+    GET_ID, SEARCH_MARK_MODEL,
     SEARCH_RESULT,
     SEARCH_RESULT_ANAL,
     SEARCH_RESULT_ANAL_COUNT,
@@ -19,7 +19,10 @@ const initialState = {
         detal: [],
         store:[]
     },
-    id:''
+    id:'',
+    MarkModelResult: {
+        status:false
+    }
 }
 export default function searchReducer(state = initialState, action){
     switch (action.type){
@@ -39,6 +42,8 @@ export default function searchReducer(state = initialState, action){
             return {...state, scoreList: action.payload}
         case GET_ID:
             return {...state, id: action.payload}
+        case SEARCH_MARK_MODEL:
+            return {...state, MarkModelResult: action.payload}
         default:
             return state
 
