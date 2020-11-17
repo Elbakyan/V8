@@ -1,5 +1,6 @@
+
 const apiurl = {
-    idSession : 373003,
+    idSession : '',
 
     get(name, par) {
         let url = 'https://web.nirax.ru/api/index.php?action=';
@@ -90,5 +91,11 @@ const apiurl = {
         }
     }
 }
+apiurl.get('login',{
+    login: 'infov8.am',
+    password: 'elbakyan2020it'
+}).then(res => {
+    apiurl.idSession = res.idSession
+})
 
 export default apiurl;

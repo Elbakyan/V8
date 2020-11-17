@@ -62,7 +62,7 @@ class Search extends Component {
                     this.state.redirect ? <Redirect to='/search/result' /> : ''
                 }
                 <form onSubmit={this.Search}>
-                    <input type="text" placeholder='Գրեք դետալի կոդը...' ref={this.SearchRef} name='code'/>
+                    <input type="text" placeholder='Գրեք դետալի կոդը...' autoComplete='on' ref={this.SearchRef} name='code'/>
                     <label>
                         <FontAwesomeIcon icon={faSearch} />
                         <input type="submit"/>

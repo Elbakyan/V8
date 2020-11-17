@@ -99,11 +99,14 @@ class Result extends Component {
                     </div>
                     <div className="container">
                         <ScoreList />
-                        <ScoreListGlobal />
+
                     </div>
                 </Route>
                 <Route path={'/search/result/store/' + this.props.id}>
                     <StoreInfo />
+                </Route>
+                <Route path={'/search/result/score/parts' + this.props.id}>
+                    <ScoreListGlobal />
                 </Route>
                 <Footer />
             </Fragment>

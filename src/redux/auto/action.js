@@ -8,6 +8,7 @@ export const GET_TRUCK = 'GET_TRUCK';
 export const GET_TRUCK_MODEL = 'GET_TRUCK_MODEL';
 export const GET_TRUCK_MODELS = 'GET_TRUCK_MODELS';
 
+
 export function GetMark(){
     return (dispach) => {
         GET(Url.auto).then(res => {
