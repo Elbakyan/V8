@@ -1,5 +1,5 @@
 const apiurl = {
-    idSession : 373003,
+    idSession : 380972,
 
     get(name, par) {
         let url = 'https://web.nirax.ru/api/index.php?action=';

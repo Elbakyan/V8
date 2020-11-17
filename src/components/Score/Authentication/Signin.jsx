@@ -152,7 +152,11 @@ class Signin extends Component {
                                     requred
                                     onChange={
                                         (e)=>{
-
+                                            let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);
+                                            if (str){
+                                                let num = str[0].match(/\d{8}$/)[0];
+                                                e.target.value = num
+                                            }
                                         }
                                     }
                                 />

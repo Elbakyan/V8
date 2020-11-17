@@ -8,23 +8,23 @@ export default function (){
 
         {
             icon:<FontAwesomeIcon icon={faMapMarkerAlt} />,
-            name:'Ք․ԵՐԵՎԱՆ Ռաֆու 19'
+            name:<a target='_blank' href="https://goo.gl/maps/N4F8jzEy9cvaGFbe9">Ք․ԵՐԵՎԱՆ Ռաֆու 19</a>
         },
         {
             icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:'(374)-41-88-88-44'
+            name:<a href="tel:+37441888844">(+374)-41-88-88-44</a>
         },
         {
             icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:'(374)-43-88-88-44'
+            name:<a href="tel:+37443888844">(+374)-43-88-88-44</a>
         },
         {
             icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:'(374)-93-88-80-44'
+            name:<a href="tel:+37493888044">(+374)-93-88-80-44</a>
         },
         {
             icon:<FontAwesomeIcon icon={faEnvelopeOpenText} />,
-            name:'info@v8.am'
+            name:<a href="mailto:'info@v8.am">info@v8.am</a>
         },
     ]
 

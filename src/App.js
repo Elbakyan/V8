@@ -64,14 +64,7 @@ class App extends React.Component {
 
       return (
           <div className="App">
-              <input type="text" onChange={(e) => {
-                  let str = e.target.value.match(/^(\+374\d{2})|(374)\d{2}|(0\d{2})/);
-                if (str){
-                    let num = str[0].match(/\d{2}$/)[0];
-                    e.target.value = num
-                }
 
-              }}/>
               <Switch>
                   <Route exact path='/'>
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>

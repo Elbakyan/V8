@@ -52,10 +52,9 @@ class ListGlobalAutoParts extends  Component{
         }
     }
     render() {
-        let {mark,model} = this.props.score.MarkModelParts
+        let {carMark,carModel} = this.props.score.MarkModelParts
         // console.log(mark,model)
         console.log(this.props.score)
-        console.log(mark)
         return(
                 <div className="get_list_auto_parts">
 
@@ -82,7 +81,7 @@ class ListGlobalAutoParts extends  Component{
                     </div>
                     <div className="list_body">
                         {
-                            mark?mark.map((mark,i) => {
+                            carMark?carMark.map((mark,i) => {
                                if(this.state.store == mark.score_id){
                                    return(
                                        // <div className="list_body">
@@ -103,7 +102,7 @@ class ListGlobalAutoParts extends  Component{
                                                </li>
                                            </ul>
                                            {
-                                               model.map((model,i)=>{
+                                               carModel.map((model,i)=>{
 
                                                    if(mark.mark_id === model.mark_id && this.state.store == model.score_id){
                                                        return (
