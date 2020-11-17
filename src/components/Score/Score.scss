@@ -5,7 +5,38 @@
 .Signin-score {
   width: 100%;
   height: calc(100vh - 160px);
+  .phone_style{
+    width: 100%;
+    //border: solid red;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
+    input{
+      width: 85%;
+      border-radius:0 5px 5px 0 ;
+      &:focus{
+        //width: 80%;
+        border: none;
+        box-shadow: 0 0;
+      }
+    }
+    &:before{
+      content: '+374';
+      width: 15%;
+      height: 35px;
+      left: 0;
+      background: #968d8d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      border-radius:5px 0 0 5px ;
+      color: white;
+      //border: solid green;
+    }
+  }
   &__score-content {
     width: 40%;
     height: 90%;

@@ -192,7 +192,7 @@ class Menu extends Component {
                     this.autoParts.style.display = 'none';
                     this.autoService.style.display = 'none';
                     e.target.style.display = 'none'
-                    console.log(e.target)
+
                 }}>
 
                 </div>
