@@ -152,7 +152,6 @@ class Signin extends Component {
                                     requred
                                     onChange={
                                         (e)=>{
-                                            console.log(e.target.value.replace(/^(\+374) | (374)/,''))
 
                                         }
                                     }

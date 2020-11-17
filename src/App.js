@@ -39,7 +39,7 @@ class App extends React.Component {
 
         let str = '+37494419699'
 
-        console.log(str.replace(/^(\+374)|(374)/, ''))
+        console.log(str.match(/^(\+374)|(374)/))
 
     }
 
