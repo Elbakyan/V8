@@ -144,14 +144,20 @@ class Signin extends Component {
 
                             />
 
+                            <label className='phone_style'>
+                                <DefaultInput
+                                    type='number'
+                                    placeholder="Հեռախոսահամար"
+                                    name='phone'
+                                    requred
+                                    onChange={
+                                        (e)=>{
 
-                            <DefaultInput
-                                type='number'
-                                placeholder="Հեռախոսահամար"
-                                name='phone'
-                                width="100%"
-                                requred
-                            />
+                                        }
+                                    }
+                                />
+                            </label>
+
 
                             <div className="div row justify-between">
                                 <DefaultInput

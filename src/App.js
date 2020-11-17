@@ -35,8 +35,6 @@ class App extends React.Component {
         this.props.dispatch(GetMark())
         this.props.dispatch(GetTruck())
         this.props.dispatch(GetTruckModels())
-        // this.props.dispatch(GetMessage())
-
 
 
     }

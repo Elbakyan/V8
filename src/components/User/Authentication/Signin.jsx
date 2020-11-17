@@ -86,13 +86,16 @@ class Signin extends React.Component{
                                 width='100%'
 
                             />
-                            <DefaultInput
-                                type="tel"
-                                placeholder='Հեռախոսահամար․․․'
-                                name='phone'
-                                width='100%'
+                            <label htmlFor="">
+                                +374
+                                <DefaultInput
+                                    type="tel"
+                                    placeholder='Հեռախոսահամար․․․'
+                                    name='phone'
 
-                            />
+                                />
+                            </label>
+
                             <div className="row justify-between">
                                 <DefaultInput
                                     type="password"
