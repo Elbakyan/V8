@@ -61,7 +61,6 @@ class App extends React.Component {
     //     setTimeout(Timer,4)
     // }
     render() {
-        console.log(this.props)
       return (
           <div className="App">
               <Switch>

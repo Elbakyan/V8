@@ -1,45 +1,109 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import './Profile.scss'
-import {Link} from "react-router-dom";
-import DefaultInput from "../../forms/inputs/DefaultInput";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowCircleLeft} from "@fortawesome/free-solid-svg-icons";
-import {GetCity} from "../../../redux/location/action";
-import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
-import {UserExist} from "../../../redux/user/action";
-import Art from "../../Alert";
-
-
 
 class ProfilSetingsScore extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            imgName: '',
-            status:undefined,
-            messahe:'',
-            modifideData:undefined,
-            uploadeImg:undefined,
-            modifidePassword:undefined
+            imgName: ''
         }
+        this.passwordRef = React.createRef();
+        this.NewPasswordRef = React.createRef();
+        this.NewPassword2Ref = React.createRef();
     }
 
-    componentDidMount() {
-        this.props.dispatch(GetCity(1))
+    Setings = (e) => {
+        e.preventDefault();
+        let data = new FormData(e.target)
+        POST(Url.scoreSetingsUser,data).then(res => {
+            console.log(res)
+        })
     }
 
     render() {
         return (
-            <div>
-
+            <div className='score__setings'>
+                <form onSubmit={this.Setings} encType='multipart/form-data'>
+                    <label>
+                        <input
+                            type="text"
+                            name='name'
+                            placeholder='Անուն․․․'
+                            defaultValue={this.props.name}
+                        />
+                    </label>
+                    <label>
+                        <input
+                            type="text"
+                            name='surname'
+                            placeholder='Ազգանուն․․․'
+                            defaultValue={this.props.surname}
+                        />
+                    </label>
+                    <label>
+                        <input
+                            type="number"
+                            name='phone'
+                            placeholder='Հեռախոսահամար․․․'
+                            defaultValue={this.props.phone}
+                        />
+                    </label>
+                    <label>
+                        <input
+                            type="email"
+                            name='email'
+                            placeholder='E-mail'
+                            defaultValue={this.props.email}
+                        />
+                    </label>
+                    <label>
+                        <input
+                            type="password"
+                            name='password'
+                            placeholder='Ձեր գաղտնաբառը․․․'
+                            ref={this.passwordRef}
+                        />
+                    </label>
+                    <label>
+                        <input
+                            type="password"
+                            name='new_password'
+                            placeholder='Նոր գաղտնաբառը․․․'
+                            ref={this.NewPasswordRef}
+                        />
+                    </label>
+                    <label>
+                        <input
+                            type="password"
+                            name='new_password2'
+                            placeholder='Կրկնել նոր գաղտնաբառը․․․'
+                            ref={this.NewPasswordRef}
+                        />
+                    </label>
+                    <label className='file'>
+                        <span>{this.state.imgName ? this.state.imgName.split('\\').pop() : 'Ներբեռնել լուսանկար'}</span>
+                        <input
+                            type="file"
+                            name='img'
+                            onChange={(e) => {
+                                this.setState({
+                                    imgName: e.target.value
+                                })
+                            }}
+                        />
+                    </label>
+                    <label>
+                        <button>Send</button>
+                    </label>
+                </form>
             </div>
         )
     }
 }
 
-const MapStateToProps = state => state;
+const MapStateToProps = state => state.score.score.data;
 const MainProfilSetingsScore = connect(MapStateToProps)(ProfilSetingsScore);
 export default MainProfilSetingsScore;
