@@ -135,7 +135,7 @@ class Menu extends Component {
                }
 
            })
-           // console.log(mark)
+
            this.setState({
                mark:mark,
                truck: truck
@@ -185,7 +185,7 @@ class Menu extends Component {
         console.log(e.target.dataset)
     }
     render() {
-        // console.log(this.state)
+
         return (
             <div className="header_menu">
                 <div className='overley' onClick={(e)=>{

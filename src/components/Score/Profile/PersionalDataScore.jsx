@@ -13,7 +13,6 @@ class PersionalDataScore extends React.Component {
     render() {
 
         let data = this.props.score.score.data
-        console.log(data)
         return (
             <div className="persional__data">
 
@@ -47,6 +46,7 @@ class PersionalDataScore extends React.Component {
 
                                         <li>
                                             <div className="icon">
+
                                                 <FontAwesomeIcon icon={faEnvelope}/>
                                             </div>
                                             <div>
@@ -59,8 +59,6 @@ class PersionalDataScore extends React.Component {
                         </div>
                     )
                 }
-
-
             </div>
         );
     }

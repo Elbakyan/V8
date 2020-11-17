@@ -3,10 +3,8 @@ import {Link} from "react-router-dom";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import {Url} from "../config/Url";
-
 import Search from "../Search/Search";
-import PersionalDataScore from "../User/Profile/PersionalData";
-import PersonalData from "../User/Profile/PersionalData";
+import PersionalDataScore from "./Profile/PersionalDataScore";
 
 
 
@@ -26,7 +24,7 @@ class Header extends React.Component{
                     </div>
                     <Search />
                     <div className="user_info">
-                        <PersonalData />
+                        <PersionalDataScore />
                     </div>
                     <div className="header__logout">
                         <a href={Url.logoutscore}>
