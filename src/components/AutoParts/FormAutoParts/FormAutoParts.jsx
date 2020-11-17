@@ -72,9 +72,6 @@ class FormAutoParts extends Component {
         img.style.display = 'none'
     }
     openImage = e => {
-        console.log(e.target.dataset.img)
-
-
         if (e.target.dataset.img) {
             this.setState({
                 zoomImg: e.target.dataset.img
@@ -118,9 +115,7 @@ class FormAutoParts extends Component {
             if (res.result) {
                 data.append('name', name)
                 POST(Url.addproduct, data).then(res => {
-                    console.log(res)
                     if (res) {
-                        console.log(res)
                         this.setState({
                             loading: false
                         })
@@ -158,14 +153,12 @@ class FormAutoParts extends Component {
         data.append('id', e.target.dataset.id);
         data.append('delite', true);
         POST(Url.setingsproduct, data).then(res => {
-            console.log(res)
             if (res.status) {
                 this.props.dispatch(GetProduct())
             }
         })
     }
     getSelectStore = (e) => {
-        // console.log(e.target.value)
         e.target.selected = true
         this.setState({
             SelectStore: e.target.value
@@ -173,7 +166,6 @@ class FormAutoParts extends Component {
     }
 
     checkParts = (e) => {
-        console.log(e.target.checked)
         this.setState({
             allParts: e.target.checked
         })
@@ -185,7 +177,6 @@ class FormAutoParts extends Component {
     }
 
     render() {
-        console.log('ss',window.location.pathname)
         return (
             <Fragment>
                 <div className='category-parts'>
@@ -373,7 +364,7 @@ class FormAutoParts extends Component {
 
                                         {
                                             this.props.score.product.data ? this.props.score.product.data.map((el, i) => {
-                                                // console.log(el)
+
                                                 if (el.store_name === this.state.SelectStore) {
                                                     return (
                                                         <ul

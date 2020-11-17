@@ -102,7 +102,6 @@ export function GetTruckModel(e = 1) {
 export function GetTruckModels(){
     return (dispach) => {
         GET(Url.truckModels).then(res => {
-            console.log('res',res)
             dispach({
                 type: GET_TRUCK_MODELS,
                 payload: res
