@@ -37,6 +37,10 @@ class App extends React.Component {
         this.props.dispatch(GetTruckModels())
         // this.props.dispatch(GetMessage())
 
+        let str = '+37494419699'
+
+        console.log(str.replace(/^(\+374)|(374)/, ''))
+
     }
 
     // GetMes = () => {
