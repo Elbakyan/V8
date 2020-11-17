@@ -3,6 +3,10 @@ import DefaultSelect from "../forms/select/DefaultSelect";
 import {maser} from "../Menu/autoObj";
 import FormAutoParts from "./FormAutoParts/FormAutoParts";
 import './AutoParts.scss'
+import {Redirect, Route} from "react-router";
+import MainFormGlobalAutoParts from "./FormAutoParts/FormGlobalAutoParts";
+import FormGlobalAutoParts from "./FormAutoParts/FormGlobalAutoParts";
+
 
 
 class AutoParts extends Component{
@@ -33,14 +37,17 @@ class AutoParts extends Component{
                     </div>
                     <div className="get_parts_category">
                         {
-                            this.state.category === '0' ?<FormAutoParts />:''
+                            this.state.category === '0' ?<Redirect to='/score/account/cars'/>:''
                         }
                         {
-                            this.state.category === '1' ?<h1>jjj</h1>:''
+                            this.state.category === '1' ?<Redirect to='/score/account/cars/aaa'/>:''
                         }
                         {
                             this.state.category === '2' ?<h1>bbb</h1>:''
                         }
+                        <Route path='/score/account/cars'>
+                            <FormAutoParts />
+                        </Route>
                     </div>
                 </div>
             </div>

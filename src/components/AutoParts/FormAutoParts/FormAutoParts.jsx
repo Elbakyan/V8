@@ -14,6 +14,7 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {maser} from "../../Menu/autoObj";
 import FormGlobalAutoParts from "./FormGlobalAutoParts";
 import TypeCars from "../TypeCars";
+import {Redirect, Route} from "react-router";
 
 
 class FormAutoParts extends Component {
@@ -31,7 +32,8 @@ class FormAutoParts extends Component {
             top: 0,
             zoomImg: '',
             SelectStore: '',
-            allParts: true
+            allParts: true,
+            redirect:true
         }
     }
 
@@ -46,6 +48,23 @@ class FormAutoParts extends Component {
                 }
             })
         }, 500)
+        if(window.location.pathname == '/score/account/cars/with_code'){
+            this.setState({
+                allParts:true,
+                redirect:false
+            })
+            this.checked.checked = true
+            this.categoryParts.innerText = 'Ըստ դետալի կոդի'
+
+        }else{
+            this.setState({
+                allParts:false,
+                redirect:false
+            })
+            this.checked.checked = false
+            this.categoryParts.innerText = 'Ըստ մեքենայի ապրանքանիշի'
+        }
+
     }
 
     closeImage = e => {
@@ -70,6 +89,7 @@ class FormAutoParts extends Component {
         if (el) {
             el.scrollIntoView();
         }
+
         this.setState({
             search: e.target.value
         })
@@ -165,212 +185,223 @@ class FormAutoParts extends Component {
     }
 
     render() {
+        console.log('ss',window.location.pathname)
         return (
             <Fragment>
                 <div className='category-parts'>
                     <label className="switch">
-                        <input defaultChecked type="checkbox" onChange={this.checkParts}/>
+                        <input ref={el => this.checked = el} defaultChecked type="checkbox" onChange={this.checkParts}/>
                         <span className="slider round"></span>
                     </label>
                     <span ref={el => this.categoryParts = el}>Ըստ դետալի համարի</span>
                 </div>
-
                 {
-                    this.state.allParts ?
-                        <div className="---">
-                            <div className="add_auto_parts">
-                                {this.state.message ? <p className="message">{this.state.message}</p> : ''}
-                                <form encType='multipart/form-data' onSubmit={this.AddProduct}>
-                                    <div className="score_list">
-                                        {
-                                            this.props.score.scoreList.map((el, i) => (
-                                                <label key={i}>
-                                                    {el.name}
-                                                    <DefaultInput
-                                                        type='checkbox'
-                                                        value={el.name}
-                                                        name='score[]'
-                                                        // width="5%"
-                                                        checked
-                                                    />
-                                                    <input type="hidden" name='store_id[]' value={el.id}/>
-                                                </label>
-                                            ))
-                                        }
-                                    </div>
+                    this.state.redirect?<Redirect to={window.location.pathname}/>:''
+                }
+                {
+                    !this.state.redirect?
+                    this.state.allParts ? <Redirect to='/score/account/cars/with_code'/>
+                                            :
+                                            <Redirect to='/score/account/cars/with_mark'/>:''
+                }
 
-                                    <div className="score_parts_form">
-                                        <DefaultInput
-                                            name='code'
-                                            placeholder="Պահեստամասի համարը / CODE"
-                                            width="25%"
-                                        />
-                                        <DefaultInput
-                                            type='number'
-                                            name='price'
-                                            placeholder="Արժեքը(Դրամ)"
-                                            width="15%"
-                                        />
-                                        <DefaultInput
-                                            type='number'
-                                            name='count'
-                                            placeholder="Առկա քանակը"
-                                            width="15%"
-                                        />
-                                        <DefaultInput
-                                            name='comments'
-                                            placeholder="Լրացուցիչ ինֆորմացիյա"
-                                            width="30%"
-                                        />
 
-                                    </div>
+                        <Route path='/score/account/cars/with_code'>
+                            <div className="---">
+                                <div className="add_auto_parts">
+                                    {this.state.message ? <p className="message">{this.state.message}</p> : ''}
+                                    <form encType='multipart/form-data' onSubmit={this.AddProduct}>
+                                        <div className="score_list">
+                                            {
+                                                this.props.score.scoreList.map((el, i) => (
+                                                    <label key={i}>
+                                                        {el.name}
+                                                        <DefaultInput
+                                                            type='checkbox'
+                                                            value={el.name}
+                                                            name='score[]'
+                                                            // width="5%"
+                                                            checked
+                                                        />
+                                                        <input type="hidden" name='store_id[]' value={el.id}/>
+                                                    </label>
+                                                ))
+                                            }
+                                        </div>
 
-                                    <div className='score_parts_view'>
-                                        <label>
-                                            Նոր
+                                        <div className="score_parts_form">
                                             <DefaultInput
-                                                type='radio'
-                                                value="new"
-                                                name="state"
-                                                width="5%"
-                                                checked
+                                                name='code'
+                                                placeholder="Պահեստամասի համարը / CODE"
+                                                width="25%"
                                             />
-                                        </label>
-
-                                        <label>
-                                            Օգտագործված
                                             <DefaultInput
-                                                type='radio'
-                                                value="old"
-                                                name='state'
-                                                width="5%"
+                                                type='number'
+                                                name='price'
+                                                placeholder="Արժեքը(Դրամ)"
+                                                width="15%"
                                             />
-                                        </label>
-                                        <div className='parts_image'>
-                                            <label className='file row align-center' style={{width: '106%'}}>
-                                                <span className='file__name'>Ներբեռնել լուսանկար․․․</span>
+                                            <DefaultInput
+                                                type='number'
+                                                name='count'
+                                                placeholder="Առկա քանակը"
+                                                width="15%"
+                                            />
+                                            <DefaultInput
+                                                name='comments'
+                                                placeholder="Լրացուցիչ ինֆորմացիյա"
+                                                width="30%"
+                                            />
+
+                                        </div>
+
+                                        <div className='score_parts_view'>
+                                            <label>
+                                                Նոր
                                                 <DefaultInput
-                                                    className="file_input"
-                                                    type="file"
-                                                    placeholder='Լուսանկար․․․'
-
-                                                    name='img'
+                                                    type='radio'
+                                                    value="new"
+                                                    name="state"
+                                                    width="5%"
+                                                    checked
                                                 />
                                             </label>
+
+                                            <label>
+                                                Օգտագործված
+                                                <DefaultInput
+                                                    type='radio'
+                                                    value="old"
+                                                    name='state'
+                                                    width="5%"
+                                                />
+                                            </label>
+                                            <div className='parts_image'>
+                                                <label className='file row align-center' style={{width: '106%'}}>
+                                                    <span className='file__name'>Ներբեռնել լուսանկար․․․</span>
+                                                    <DefaultInput
+                                                        className="file_input"
+                                                        type="file"
+                                                        placeholder='Լուսանկար․․․'
+
+                                                        name='img'
+                                                    />
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="add__product-btn">
-                                        {
-                                            this.state.loading ?
-                                                <div className="loading_btn"><Loading type='spin' color='#ff0000'
-                                                                                      size={30}/></div> : ''
-                                        }
-                                        <DefaultBtn
-                                            type="submit"
-                                            name='Առաջ'
-                                            color="#fff"
-                                            width='15%'
-                                            background="rgb(74 141 210)"
+                                        <div className="add__product-btn">
+                                            {
+                                                this.state.loading ?
+                                                    <div className="loading_btn"><Loading type='spin' color='#ff0000'
+                                                                                          size={30}/></div> : ''
+                                            }
+                                            <DefaultBtn
+                                                type="submit"
+                                                name='Առաջ'
+                                                color="#fff"
+                                                width='15%'
+                                                background="rgb(74 141 210)"
+                                            />
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div className='pars_image_open'>
+                                    <div>
+                                        <span onClick={this.closeImage}><FontAwesomeIcon icon={faTimesCircle}/></span>
+                                        <img
+                                            alt=""
+                                            src={this.state.zoomImg}
                                         />
                                     </div>
-                                </form>
-                            </div>
-
-                            <div className='pars_image_open'>
-                                <div>
-                                    <span onClick={this.closeImage}><FontAwesomeIcon icon={faTimesCircle}/></span>
-                                    <img
-                                        alt=""
-                                        src={this.state.zoomImg}
-                                    />
                                 </div>
-                            </div>
-                            {/*<DefaultSelect*/}
-                            {/*    // onChange={this.getCategory}*/}
-                            {/*    data={maser}*/}
-                            {/*    width= '20%'*/}
-                            {/*    name='stores'*/}
-                            {/*/>*/}
-                            <div className="select_store">
-                                <div>
-                                    <p>Ընտրել խանութը</p>
-                                    <select
-                                        ref={el => this.getStore = el}
-                                        onChange={this.getSelectStore}
-                                    >
+                                {/*<DefaultSelect*/}
+                                {/*    // onChange={this.getCategory}*/}
+                                {/*    data={maser}*/}
+                                {/*    width= '20%'*/}
+                                {/*    name='stores'*/}
+                                {/*/>*/}
+                                <div className="select_store">
+                                    <div>
+                                        <p>Ընտրել խանութը</p>
+                                        <select
+                                            ref={el => this.getStore = el}
+                                            onChange={this.getSelectStore}
+                                        >
+                                            {
+                                                this.props.score.scoreList.map((el, i) => (
+                                                    <option key={i} value={el.name}>
+                                                        {el.name}
+                                                    </option>
+                                                ))
+                                            }
+                                        </select>
+                                    </div>
+                                    <div className='search'>
+                                        <p>Գտնել դետալը ըստ համարի</p>
+                                        <input type="text" onChange={this.search} placeholder='Ոորոնում․․․'/>
+                                    </div>
+                                </div>
+
+                                <div className="get_list_auto_parts">
+                                    <div className='list_header'>
+                                        <ul>
+                                            <li style={{width: '15%'}}>Սրահը</li>
+                                            <li style={{width: '15%'}}>Համարը/CODE</li>
+                                            <li style={{width: '15%'}}>Անվանումը</li>
+                                            <li style={{width: '12%'}}>Արժեքը(Դ․)</li>
+                                            <li style={{width: '12%'}}>Քանակը</li>
+                                            <li style={{width: '12%'}}>Մուտքը</li>
+                                            <li style={{width: '12%'}}>Լուսանկարը</li>
+                                            <li style={{width: '10%'}}>Նոր կամ Օգտագործ</li>
+                                            <li style={{width: '10%'}}>Կարգավորում</li>
+                                        </ul>
+                                    </div>
+
+                                    <div className="list_body">
                                         {
-                                            this.props.score.scoreList.map((el, i) => (
-                                                <option key={i} value={el.name}>
-                                                    {el.name}
-                                                </option>
-                                            ))
+                                            this.state.edit ?
+                                                <form className="edit" style={{top: this.state.top + 'px'}}
+                                                      onSubmit={this.UpdateProductData}>
+                                                    <input type="number" name='price' defaultValue={this.state.price}/>
+                                                    <input type="number" name='count' defaultValue={this.state.count}/>
+                                                    <input type="hidden" value={this.state.id} name='id'/>
+                                                    <button type='submit'>Հաստատել․</button>
+                                                </form> : ''
                                         }
-                                    </select>
-                                </div>
-                                <div className='search'>
-                                    <p>Գտնել դետալը ըստ համարի</p>
-                                    <input type="text" onChange={this.search} placeholder='Ոորոնում․․․'/>
-                                </div>
-                            </div>
-
-                            <div className="get_list_auto_parts">
-                                <div className='list_header'>
-                                    <ul>
-                                        <li style={{width: '15%'}}>Սրահը</li>
-                                        <li style={{width: '15%'}}>Համարը/CODE</li>
-                                        <li style={{width: '15%'}}>Անվանումը</li>
-                                        <li style={{width: '12%'}}>Արժեքը(Դ․)</li>
-                                        <li style={{width: '12%'}}>Քանակը</li>
-                                        <li style={{width: '12%'}}>Մուտքը</li>
-                                        <li style={{width: '12%'}}>Լուսանկարը</li>
-                                        <li style={{width: '10%'}}>Նոր կամ Օգտագործ</li>
-                                        <li style={{width: '10%'}}>Կարգավորում</li>
-                                    </ul>
-                                </div>
-
-                                <div className="list_body">
-                                    {
-                                        this.state.edit ?
-                                            <form className="edit" style={{top: this.state.top + 'px'}}
-                                                  onSubmit={this.UpdateProductData}>
-                                                <input type="number" name='price' defaultValue={this.state.price}/>
-                                                <input type="number" name='count' defaultValue={this.state.count}/>
-                                                <input type="hidden" value={this.state.id} name='id'/>
-                                                <button type='submit'>Հաստատել․</button>
-                                            </form> : ''
-                                    }
 
 
-                                    {
-                                        this.props.score.product.data ? this.props.score.product.data.map((el, i) => {
-                                            // console.log(el)
-                                            if (el.store_name === this.state.SelectStore) {
-                                                return (
-                                                    <ul
-                                                        key={i}
-                                                        id={el.code}
-                                                        data-code={el}
-                                                        style={{
-                                                            background: el.code == this.state.search ? 'rgba(0,128,0,0.39)' : ''
-                                                        }}
-                                                    >
-                                                        <li style={{width: '15%'}} className='store_name'>
-                                                            {el.store_name}
-                                                        </li>
-                                                        <li style={{width: '15%'}}>{el.code}</li>
-                                                        <li style={{width: '15%'}}>{el.name}</li>
-                                                        <li style={{width: '12%'}}>{el.price + ' Դր․'}</li>
-                                                        <li style={{width: '12%'}}>{el.count + ' հ.'}</li>
-                                                        <li style={{width: '12%'}}>{el.data.split(' ')[0]}</li>
-                                                        <li style={{width: '12%'}}
-                                                            onClick={this.openImage}
-                                                            data-img={el.img ? el.img : ''}
+                                        {
+                                            this.props.score.product.data ? this.props.score.product.data.map((el, i) => {
+                                                // console.log(el)
+                                                if (el.store_name === this.state.SelectStore) {
+                                                    return (
+                                                        <ul
+                                                            key={i}
+                                                            id={el.code}
+                                                            data-code={el}
+                                                            style={{
+                                                                background: el.code.replace(/\s/g, '').toUpperCase() == this.state.search.replace(/\s/g, '').toUpperCase() ?
+                                                                    'rgba(0,128,0,0.39)' : ''
+                                                            }}
                                                         >
-                                                            {el.img ? <img data-img={el.img ? el.img : ''} src={el.img}
-                                                                           alt=""/> : ''}
-                                                        </li>
-                                                        <li style={{width: '10%'}}>{el.new == 1 ? 'Նոր' : 'Օգտ.'}</li>
-                                                        <li className='buttons' style={{width: '10%'}}>
+                                                            <li style={{width: '15%'}} className='store_name'>
+                                                                {el.store_name}
+                                                            </li>
+                                                            <li style={{width: '15%'}}>{el.code}</li>
+                                                            <li style={{width: '15%'}}>{el.name}</li>
+                                                            <li style={{width: '12%'}}>{el.price + ' Դր․'}</li>
+                                                            <li style={{width: '12%'}}>{el.count + ' հ.'}</li>
+                                                            <li style={{width: '12%'}}>{el.data.split(' ')[0]}</li>
+                                                            <li style={{width: '12%'}}
+                                                                onClick={this.openImage}
+                                                                data-img={el.img ? el.img : ''}
+                                                            >
+                                                                {el.img ? <img data-img={el.img ? el.img : ''} src={el.img}
+                                                                               alt=""/> : ''}
+                                                            </li>
+                                                            <li style={{width: '10%'}}>{el.new == 1 ? 'Նոր' : 'Օգտ.'}</li>
+                                                            <li className='buttons' style={{width: '10%'}}>
                                                             <span data-id={el.id} data-price={el.price} data-count={el.count}
                                                                   onClick={(e) => {
                                                                       this.setState({
@@ -383,26 +414,28 @@ class FormAutoParts extends Component {
                                                                   }}>
                                                                 <FontAwesomeIcon icon={faPen}/>
                                                             </span>
-
-                                                            <span onClick={this.DeliteProduct} data-id={el.id}>
+                                                                <span onClick={this.DeliteProduct} data-id={el.id}>
                                                                 <FontAwesomeIcon icon={faTrashAlt}/>
                                                             </span>
-                                                        </li>
-                                                    </ul>
+                                                            </li>
+                                                        </ul>
 
-                                                )
-                                            }
+                                                    )
+                                                }
 
-                                        }) : ''
+                                            }) : ''
 
 
-                                    }
+                                        }
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        :
-                        <TypeCars />
-                }
+                        </Route>
+                        <Route path='/score/account/cars/with_mark'>
+                            <TypeCars />
+                        </Route>
+
+
 
 
             </Fragment>

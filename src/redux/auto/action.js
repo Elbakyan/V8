@@ -6,6 +6,7 @@ export const GET_AUTO = 'GET_AUTO';
 export const GET_ALL_MODEL = 'GET_ALL_MODEL';
 export const GET_TRUCK = 'GET_TRUCK';
 export const GET_TRUCK_MODEL = 'GET_TRUCK_MODEL';
+export const GET_TRUCK_MODELS = 'GET_TRUCK_MODELS';
 
 export function GetMark(){
     return (dispach) => {
@@ -95,5 +96,18 @@ export function GetTruckModel(e = 1) {
                 payload: data
             })
         })
+    }
+}
+
+export function GetTruckModels(){
+    return (dispach) => {
+        GET(Url.truckModels).then(res => {
+            console.log('res',res)
+            dispach({
+                type: GET_TRUCK_MODELS,
+                payload: res
+            })
+        })
+
     }
 }
