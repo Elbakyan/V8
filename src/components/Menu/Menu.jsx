@@ -171,6 +171,7 @@ class Menu extends Component {
             }
 
             if(e.target.dataset.counter === '2'){
+                this.autoParts.style.display = 'none';
                 if(this.autoService.style.display === 'none' ){
                     this.autoService.style.display = 'block';
                     overley.style.display = 'block'

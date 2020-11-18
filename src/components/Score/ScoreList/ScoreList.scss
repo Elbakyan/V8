@@ -4,6 +4,39 @@
   position: relative;
   margin-bottom: 20px;
   padding: 0px 15px;
+  .working_interval{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    & > input {
+      //border: solid red;
+      //width: 50%;
+      border-radius: 0;
+
+      &:focus{
+        border: none;
+        box-shadow: 0 0;
+      }
+      &:nth-child(2){
+        border-radius:0 5px 5px 0 ;
+        border-left: 1px solid #817e7e;
+      }
+    }
+    &:before{
+      content: 'Աշխ. ժամ. միջ.-ը';
+      font-size: 12px;
+      width: 100%;
+      background: #968d8d;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 35px;
+      border-radius:5px 0 0 5px ;
+      padding: 0 0 0 8px;
+    }
+  }
   .phone_style{
     width: 90%;
     //border: solid red;
@@ -35,6 +68,33 @@
       color: white;
       font-size: 12px;
       //border: solid green;
+    }
+  }
+  .credit-style{
+    width: 90%;
+    //border: solid red;
+    border-radius: 5px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > input {
+      width: 10px;
+      height: 20px;
+      &:focus{
+        //width: 80%;
+        border: none;
+        box-shadow: 0 0;
+      }
+    }
+    &:before{
+      content: 'Ապառիկ վաճառք';
+      width: 20%;
+      padding: 5px 15px;
+      background: #968d8d;
+      border-radius:5px 0 0 5px ;
+      font-size: 10px;
+      color: white;
     }
   }
   .score__list-links{

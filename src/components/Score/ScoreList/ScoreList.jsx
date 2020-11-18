@@ -124,9 +124,7 @@ class ScoreList extends React.Component{
                                        activeClassName="selected"
 
                                        >
-
                                        {list.name}
-
                                        </NavLink>
                                    </div>
                                </li>
@@ -159,6 +157,34 @@ class ScoreList extends React.Component{
                                 placeholder='Խանութի Հասցեն․․․'
                                 required
                             />
+                            <label className='working_interval'>
+                                <DefaultInput
+                                    type='number'
+                                    name='interval[]'
+                                    placeholder='09'
+                                    onChange={(e)=>{
+                                        if (e.target.value.length > 2) {
+                                            e.target.value = e.target.value.slice(0,2);
+                                        }
+                                    }}
+                                />
+                                <DefaultInput
+                                    type='number'
+                                    name='interval[]'
+                                    placeholder='20'
+                                    onChange={(e)=>{
+                                        if (e.target.value.length > 2) {
+                                            e.target.value = e.target.value.slice(0,2);
+                                        }
+                                    }}
+                                />
+                            </label>
+                            <label className='credit-style'>
+                                <DefaultInput
+                                    type='checkbox'
+                                    name='credit'
+                                />
+                            </label>
                             <div className="phone phone1">
                                 <span className='plus__phone'
                                       onClick={this.ShowPhone}
