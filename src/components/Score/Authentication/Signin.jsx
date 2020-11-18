@@ -93,7 +93,6 @@ class Signin extends Component {
                     redirect: false
                 })
             }
-            Art.open()
         })
 
     }
