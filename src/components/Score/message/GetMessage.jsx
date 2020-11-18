@@ -5,7 +5,7 @@ import {SendMessage, GetMessage, GetId, GetStatus} from "../../../redux/message/
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSync} from "@fortawesome/free-solid-svg-icons";
+import {faRedoAlt, faSync} from "@fortawesome/free-solid-svg-icons";
 
 class GetMessageClass extends Component{
     constructor(props) {
@@ -116,6 +116,7 @@ class GetMessageClass extends Component{
                 {/*            <FontAwesomeIcon icon={faSync} />*/}
                 {/*        </span>*/}
                 {/*</div>*/}
+
                 <div className="getMessage_users" ref={this.scrollRef} >
                     {
                         this.props.one_message.map((elem,i)=>{
@@ -134,9 +135,7 @@ class GetMessageClass extends Component{
                         })
                     }
                 </div>
-                <div className="smaylik">
 
-                </div>
                 <div className="send_message">
                     <form onSubmit={this.Message} ref={el => this.formRef = el}>
                         <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={el => this.textareaRef = el}></textarea>

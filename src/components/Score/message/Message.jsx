@@ -133,19 +133,7 @@ class Message extends Component {
                 </ul>
 
                 <div className='message_users_component'>
-                    <div className='message_reload'>
-                    <span onClick={(e)=>{
-                        let aa = e.target
-                        e.target.classList.toggle('message_reload_button')
-                        this.props.dispatch(GetStatus(this.props.message.dialog))
-                        this.props.dispatch(GetMessage(this.props.message.messageId))
-                        setTimeout(()=>{
-                            aa.classList.toggle('message_reload_button')
-                        },1000)
-                    }}>
-                        <FontAwesomeIcon icon={faRedoAlt} />
-                    </span>
-                    </div>
+
                     <div className="message_users">
                         {
                             this.state.redirect?<Redirect to={this.state.link?this.state.link:''} />:''
@@ -178,7 +166,19 @@ class Message extends Component {
                         </div>
 
                         <div className="message">
-
+                            <div className='message_reload'>
+                                <span onClick={(e)=>{
+                                    let aa = e.target
+                                    e.target.classList.toggle('message_reload_button')
+                                    this.props.dispatch(GetStatus(this.props.message.dialog))
+                                    this.props.dispatch(GetMessage(this.props.message.messageId))
+                                    setTimeout(()=>{
+                                        aa.classList.toggle('message_reload_button')
+                                    },1000)
+                                }}>
+                                    <FontAwesomeIcon icon={faRedoAlt} />
+                                </span>
+                            </div>
                             {
                                 this.props.message.data.message.score?this.props.message.data.message.score.map((data,i) => {
                                     return (
