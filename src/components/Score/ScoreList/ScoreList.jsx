@@ -7,7 +7,7 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {GetCity} from "../../../redux/location/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus,faMinus } from '@fortawesome/free-solid-svg-icons'
-import {POST} from "../../config/Requsest";
+import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";
@@ -94,13 +94,13 @@ class ScoreList extends React.Component{
                this.setState({
                    showForm:false,
                    showTmpImg: false,
-                   loading:res.status
+                   // loading:res.status
                })
                this.props.dispatch(ClearImg())
            }else {
-               this.setState({
-                   loading:res.status
-               })
+               // this.setState({
+               //     loading:res.status
+               // })
            }
         })
 
@@ -138,7 +138,7 @@ class ScoreList extends React.Component{
                         <div>
                             <DefaultInput
                                 type='text'
-                                name='scor_name'
+                                name='score_name'
                                 placeholder='Խանութի անունը․․․'
                                 required
                             />
@@ -159,30 +159,20 @@ class ScoreList extends React.Component{
                             />
                             <label className='working_interval'>
                                 <DefaultInput
-                                    type='number'
-                                    name='interval[]'
-                                    placeholder='09'
-                                    onChange={(e)=>{
-                                        if (e.target.value.length > 2) {
-                                            e.target.value = e.target.value.slice(0,2);
-                                        }
-                                    }}
+                                    type='time'
+                                    name='work_to'
+                                    // placeholder='09'
                                 />
                                 <DefaultInput
-                                    type='number'
-                                    name='interval[]'
-                                    placeholder='20'
-                                    onChange={(e)=>{
-                                        if (e.target.value.length > 2) {
-                                            e.target.value = e.target.value.slice(0,2);
-                                        }
-                                    }}
+                                    type='time'
+                                    name='work_from'
                                 />
                             </label>
                             <label className='credit-style'>
                                 <DefaultInput
                                     type='checkbox'
                                     name='credit'
+                                    value={1}
                                 />
                             </label>
                             <div className="phone phone1">
@@ -234,7 +224,7 @@ class ScoreList extends React.Component{
                                     <DefaultInput
                                         type='number'
                                         placeholder="Հեռախոսահամար"
-                                        name='phone'
+                                        name='phone[]'
                                         requred
                                         onChange={
                                             (e)=>{
@@ -292,7 +282,7 @@ class ScoreList extends React.Component{
 
                             <div className="btn">
                                 {
-                                    this.state.loading != undefined? '': <div className="loading_btn"> <Loading type='spin' color='#1c8080' size={40}/> </div>
+                                    // this.state.loading != undefined? '': <div className="loading_btn"> <Loading type='spin' color='#1c8080' size={40}/> </div>
                                 }
                                 <DefaultBtn
                                     type='submit'
