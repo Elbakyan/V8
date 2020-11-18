@@ -3,7 +3,7 @@ import './Menu.scss'
 import {cars, maser, autogruz, service} from './autoObj'
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {SearchMarkModel} from "../../redux/search/action";
+import {GetSearchMarkModelLink, SearchMarkModel} from "../../redux/search/action";
 
 class Menu extends Component {
 
@@ -150,10 +150,10 @@ class Menu extends Component {
 
 
     outMenu = e =>{
-        // if(e.target.dataset.close !== undefined){
+
             this.autoParts.style.display = 'none';
             this.autoService.style.display = 'none';
-        // }
+
     }
     open = e => {
         let overley = document.querySelector('.overley')
@@ -184,25 +184,27 @@ class Menu extends Component {
     GetCarStore = (e) => {
         let data = new FormData();
         data.append('id', e.target.dataset.id)
-        data.append('mark', e.target.dataset.mark)
-        data.append('type', 'car')
+        data.append('type', e.target.dataset.type)
         this.props.dispatch(SearchMarkModel(data))
+        this.props.dispatch(GetSearchMarkModelLink(e.target.dataset.id))
+        this.props.dispatch(GetSearchMarkModelLink(`${e.target.dataset.type}/${e.target.dataset.id}`))
+
         this.setState({
-            redirect: true
+            redirect: true,
         })
         setTimeout(() => {
+            this.props.dispatch(GetSearchMarkModelLink(''))
             this.setState({
                 redirect: false
             })
-        },1000)
+        },500)
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="header_menu">
                 {
-                    this.state.redirect? <Redirect to='/search/result/score/parts'/>:''
+                    this.state.redirect && this.props.search.link? <Redirect to={'/search/result/parts/' + this.props.search.link}/>:''
                 }
                 <div className='overley' onClick={(e)=>{
                     this.autoParts.style.display = 'none';
@@ -236,7 +238,7 @@ class Menu extends Component {
                                             {
                                                 this.state.mark.map((mark, i) => {
                                                     return (
-                                                        <li key={i} data-mark={mark.name} data-id={mark.id} onClick={this.GetCarStore}>
+                                                        <li key={i} data-mark={mark.name} data-id={mark.id} data-type='car' onClick={this.GetCarStore}>
                                                             {mark.name}
                                                         </li>
                                                     )
@@ -249,11 +251,14 @@ class Menu extends Component {
                                         Բեռնատարի պահեստամասեր
                                         <ul className="truck">
                                             {
-                                                this.props.auto.truck.map(({name,id}, i) => (
-                                                    <li key={i} data-id={id}>
-                                                        {name}
-                                                    </li>
-                                                ))
+                                                this.props.auto.truck.map((mark, i) => {
+                                                    return (
+                                                        <li key={i} data-mark={mark.name} data-id={mark.id} data-type='truck' onClick={this.GetCarStore}>
+                                                            {mark.name}
+                                                        </li>
+                                                    )
+                                                })
+
                                             }
                                         </ul>
                                     </li>

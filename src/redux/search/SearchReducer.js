@@ -1,5 +1,5 @@
 import {
-    GET_ID, SEARCH_MARK_MODEL,
+    GET_ID, GET_SEARCH_MARK_MODEL_LINK, SEARCH_MARK_MODEL,
     SEARCH_RESULT,
     SEARCH_RESULT_ANAL,
     SEARCH_RESULT_ANAL_COUNT,
@@ -22,7 +22,8 @@ const initialState = {
     id:'',
     MarkModelResult: {
         status:false
-    }
+    },
+    link: ''
 }
 export default function searchReducer(state = initialState, action){
     switch (action.type){
@@ -44,6 +45,8 @@ export default function searchReducer(state = initialState, action){
             return {...state, id: action.payload}
         case SEARCH_MARK_MODEL:
             return {...state, MarkModelResult: action.payload}
+        case GET_SEARCH_MARK_MODEL_LINK:
+            return {...state, link: action.payload}
         default:
             return state
 
