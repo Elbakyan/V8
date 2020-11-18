@@ -7,6 +7,8 @@ import Header from "../Score/Header";
 import Footer from "../Footer/Footer";
 import {connect} from "react-redux";
 import {
+    GetSearchMarkModelLink,
+    SearchMarkModel,
     SearchResult,
     SearchResultAnal,
     SearchResultAnalCount,
@@ -27,8 +29,6 @@ class Result extends Component {
             id: '',
         }
     }
-
-
     SearchAll = (e) => {
         e.preventDefault();
         Api.get("analCount",{id: e.target.dataset.id}).then( res => {
@@ -54,6 +54,7 @@ class Result extends Component {
 
     }
     render(){
+
         return (
             <Fragment>
                 <Header />
@@ -105,7 +106,7 @@ class Result extends Component {
                 <Route path={'/search/result/store/' + this.props.id}>
                     <StoreInfo />
                 </Route>
-                <Route path={'/search/result/score/parts' + this.props.id}>
+                <Route path={'/search/result/parts/' + this.props.link}>
                     <ScoreListGlobal />
                 </Route>
                 <Footer />

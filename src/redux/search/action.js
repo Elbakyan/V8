@@ -10,6 +10,7 @@ export const SEARCH_RESULT_PRODUCT = 'SEARCH_RESULT_PRODUCT';
 export const SEARCH_SCORE_LISTS = 'SEARCH_SCORE_LISTS';
 export const SEARCH_MARK_MODEL = 'SEARCH_MARK_MODEL';
 export const GET_ID = 'GET_ID';
+export const GET_SEARCH_MARK_MODEL_LINK = 'GET_SEARCH_MARK_MODEL_LINK';
 
 export function SearchResult(data){
     return (dispatch) => {
@@ -80,7 +81,6 @@ export function GetStoreID(data){
 export function SearchMarkModel(data) {
     return async (dispatch) => {
         POST(Url.searchmarkmodel, data).then(res=> {
-            console.log(res)
             dispatch({
                 type: SEARCH_MARK_MODEL,
                 payload: res
@@ -88,5 +88,13 @@ export function SearchMarkModel(data) {
 
         })
 
+    }
+}
+export function GetSearchMarkModelLink(link){
+    return (dispatch) => {
+        dispatch({
+            type: GET_SEARCH_MARK_MODEL_LINK,
+            payload: link
+        })
     }
 }

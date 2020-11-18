@@ -36,6 +36,7 @@ class StoreInfo extends Component{
                 data: res[0]
             })
         })
+
     }
     Send = (e) => {
         e.preventDefault()
@@ -53,7 +54,6 @@ class StoreInfo extends Component{
     }
 
     render() {
-
         return(
             <div className="container">
                 {
