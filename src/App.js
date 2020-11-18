@@ -63,6 +63,7 @@ class App extends React.Component {
     render() {
       return (
           <div className="App">
+
               <Switch>
                   <Route exact path='/'>
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>

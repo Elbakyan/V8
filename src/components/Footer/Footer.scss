@@ -12,6 +12,12 @@ footer{
     >nav{
       color: white;
       width:20%;
+      a{
+        color: white;
+        &:hover{
+          color: rgb(126, 126, 126);
+        }
+      }
       @media (max-width: 768px){
         width: 35%;
       }

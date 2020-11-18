@@ -86,13 +86,21 @@ class Signin extends React.Component{
                                 width='100%'
 
                             />
-                            <label htmlFor="">
-                                +374
+                            <label className='phone_style'>
                                 <DefaultInput
-                                    type="tel"
-                                    placeholder='Հեռախոսահամար․․․'
+                                    type='number'
+                                    placeholder="Հեռախոսահամար"
                                     name='phone'
-
+                                    requred
+                                    onChange={
+                                        (e)=>{
+                                            let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);
+                                            if (str){
+                                                let num = str[0].match(/\d{8}$/)[0];
+                                                e.target.value = num
+                                            }
+                                        }
+                                    }
                                 />
                             </label>
 

@@ -124,9 +124,7 @@ class ScoreList extends React.Component{
                                        activeClassName="selected"
 
                                        >
-
                                        {list.name}
-
                                        </NavLink>
                                    </div>
                                </li>
@@ -159,33 +157,96 @@ class ScoreList extends React.Component{
                                 placeholder='Խանութի Հասցեն․․․'
                                 required
                             />
+                            <label className='working_interval'>
+                                <DefaultInput
+                                    type='number'
+                                    name='interval[]'
+                                    placeholder='09'
+                                    onChange={(e)=>{
+                                        if (e.target.value.length > 2) {
+                                            e.target.value = e.target.value.slice(0,2);
+                                        }
+                                    }}
+                                />
+                                <DefaultInput
+                                    type='number'
+                                    name='interval[]'
+                                    placeholder='20'
+                                    onChange={(e)=>{
+                                        if (e.target.value.length > 2) {
+                                            e.target.value = e.target.value.slice(0,2);
+                                        }
+                                    }}
+                                />
+                            </label>
+                            <label className='credit-style'>
+                                <DefaultInput
+                                    type='checkbox'
+                                    name='credit'
+                                />
+                            </label>
                             <div className="phone phone1">
                                 <span className='plus__phone'
                                       onClick={this.ShowPhone}
                                       style={this.state.phone2 && this.state.phone3? {display: 'none'}: {display: 'block'}}
                                 ><FontAwesomeIcon icon={faPlus} /></span>
-                                <DefaultInput
-                                    type='number'
-                                    name='phone[]'
-                                    placeholder='հեռախոսահամար․․․'
-                                    required
-                                />
+                                <label className='phone_style'>
+                                    <DefaultInput
+                                        type='number'
+                                        placeholder="Հեռախոսահամար"
+                                        name='phone[]'
+                                        requred
+                                        onChange={
+                                            (e)=>{
+                                                let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);
+                                                if (str){
+                                                    let num = str[0].match(/\d{8}$/)[0];
+                                                    e.target.value = num
+                                                }
+                                            }
+                                        }
+                                    />
+                                </label>
                             </div>
                             <div className="phone phone2" style={this.state.phone2?{display: 'flex'}: {display:'none'}}>
                                 <span className='minus__phone' onClick={() => this.setState({phone2:false})}><FontAwesomeIcon icon={faMinus} /></span>
-                                <DefaultInput
-                                    type='number'
-                                    name='phone[]'
-                                    placeholder='հեռախոսահամար․․․'
-                                />
+                                <label className='phone_style'>
+                                    <DefaultInput
+                                        type='number'
+                                        placeholder="Հեռախոսահամար"
+                                        name='phone[]'
+                                        requred
+                                        onChange={
+                                            (e)=>{
+                                                let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);
+                                                if (str){
+                                                    let num = str[0].match(/\d{8}$/)[0];
+                                                    e.target.value = num
+                                                }
+                                            }
+                                        }
+                                    />
+                                </label>
                             </div>
                             <div className="phone phone3" style={this.state.phone3?{display: 'flex'}: {display:'none'}}>
                                 <span className='minus__phone' onClick={() => this.setState({phone3:false})}><FontAwesomeIcon icon={faMinus} /></span>
-                                <DefaultInput
-                                    type='number'
-                                    name='phone[]'
-                                    placeholder='հեռախոսահամար․․․'
-                                />
+                                <label className='phone_style'>
+                                    <DefaultInput
+                                        type='number'
+                                        placeholder="Հեռախոսահամար"
+                                        name='phone'
+                                        requred
+                                        onChange={
+                                            (e)=>{
+                                                let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);
+                                                if (str){
+                                                    let num = str[0].match(/\d{8}$/)[0];
+                                                    e.target.value = num
+                                                }
+                                            }
+                                        }
+                                    />
+                                </label>
                             </div>
                             <DefaultInput
                                 type='url'

@@ -15,6 +15,7 @@ import {GetMarkModelAutoParts} from "../../../redux/score/action";
 import {NavLink, Redirect, Route} from "react-router-dom";
 import MainListGlobalAutoParts from "./ListGlobalAutoParts";
 import TypeCars from "../TypeCars";
+import ListGlobalTruckParts from "./ListGlobalTruckParts";
 
 
 class FormGlobalTruckParts extends Component {
@@ -238,7 +239,7 @@ class FormGlobalTruckParts extends Component {
                 </Route>
                 {/*/score/account/cars/with_mark/cars*/}
                 <Route path='/score/account/cars/with_mark/truck/lists'>
-                    <MainListGlobalAutoParts />
+                    <ListGlobalTruckParts />
                 </Route>
 
             </div>
