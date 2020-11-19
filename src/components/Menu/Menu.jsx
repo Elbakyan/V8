@@ -237,7 +237,7 @@ class Menu extends Component {
                                         Մարդատարի պահեստամասեր
                                         <ul className="cars">
                                             {
-                                                this.state.mark.map((mark, i) => {
+                                                this.props.auto.mark.map((mark, i) => {
                                                     return (
                                                         <li key={i} data-mark={mark.name} data-id={mark.id} data-type='car' onClick={this.GetCarStore}>
                                                             {mark.name}

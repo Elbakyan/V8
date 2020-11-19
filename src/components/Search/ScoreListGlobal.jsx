@@ -79,13 +79,12 @@ class ScoreListGlobal extends Component{
                                                             if (p){
                                                                 let tmp = p.split('');
                                                                 let [p1,p2,p3,p4] = [
-                                                                    tmp.splice(0,3).join(''),
                                                                     tmp.splice(0,2).join(''),
                                                                     tmp.splice(0,3).join(''),
-                                                                    tmp.splice(0,3).join('')
+                                                                    tmp.splice(0,3).join(''),
                                                                 ];
 
-                                                                let phone = '(+' + p1 + ') ' + p2 + '-' + p3 + '-' + p4;
+                                                                let phone = '(+374) ' + p1 + ' ' + p2 + '-' + p3;
                                                                 return  <p>{phone}</p>
                                                             }else {
                                                                 return ''
