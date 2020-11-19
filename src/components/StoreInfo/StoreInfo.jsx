@@ -54,6 +54,7 @@ class StoreInfo extends Component{
     }
 
     render() {
+        console.log(this.props)
         return(
             <div className="container">
                 {
@@ -129,11 +130,23 @@ class StoreInfo extends Component{
                                 <ul className='store_message'>
                                     <li>
                                         {
-                                            this.state.data.id?
+                                            this.state.data.id && this.props.user.id?
                                                 <form onSubmit={this.Send}>
                                                     <textarea placeholder='Ուղարկել հաղորդագրություն․․․' name='message'></textarea>
                                                     <input type="hidden" name='get_id' value={this.state.data.id}/>
                                                     <input type="hidden" name='send_id' value={this.props.user.id}/>
+                                                    <input type="hidden" name='state' value='score'/>
+                                                    <button type='submit' className='send'>
+                                                        <FontAwesomeIcon icon={faEnvelope} />
+                                                    </button>
+                                                </form>:''
+                                        }
+                                        {
+                                            this.state.data.id && this.props.score.score.id?
+                                                <form onSubmit={this.Send}>
+                                                    <textarea placeholder='Ուղարկել հաղորդագրություն․․․' name='message'></textarea>
+                                                    <input type="hidden" name='get_id' value={this.state.data.id}/>
+                                                    <input type="hidden" name='send_id' value={this.props.score.score.id}/>
                                                     <input type="hidden" name='state' value='score'/>
                                                     <button type='submit' className='send'>
                                                         <FontAwesomeIcon icon={faEnvelope} />
@@ -160,7 +173,8 @@ class StoreInfo extends Component{
 const MapStateToProps = state => {
     return {
         search: state.search,
-        user: state.user
+        user: state.user,
+        score: state.score
     }
 };
 const MainStoreInfo = connect(MapStateToProps)(StoreInfo);

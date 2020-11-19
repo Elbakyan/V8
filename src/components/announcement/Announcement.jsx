@@ -35,9 +35,6 @@ class Announcement extends Component {
         if (id !== NaN){
             this.props.dispatch(GetSellByID(id))
         }
-
-
-
     }
 
 
@@ -59,6 +56,7 @@ class Announcement extends Component {
         }
         return arr
     }
+
     Search = (e) => {
         this.props.sell.OneAuto = [];
         e.preventDefault();
@@ -71,6 +69,7 @@ class Announcement extends Component {
         this.props.dispatch(GetSell(pageNumber))
 
     }
+
     render() {
         return (
             <section className="Announcement">
@@ -99,7 +98,6 @@ class Announcement extends Component {
                                 </label>
                                 <label >
                                     <DefaultSelect
-
                                         name='model'
                                         data={this.props.auto.model}
                                     />
@@ -209,15 +207,11 @@ class Announcement extends Component {
                             </div>
                         </Route>
                         {
-
-
                             this.props.sell.OneAuto?
                                 <Route exact path={'/announcement/' + this.props.sell.OneAuto.id}>
                                     <Auto/>
                                 </Route>:''
                         }
-
-
                     </div>
                 </div>
                 <Footer/>
@@ -225,6 +219,7 @@ class Announcement extends Component {
         )
     }
 }
+
 const MapStateToProps = state => state;
 const MainAnnouncement = connect(MapStateToProps)(Announcement)
 export default MainAnnouncement;

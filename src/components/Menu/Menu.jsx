@@ -238,11 +238,14 @@ class Menu extends Component {
                                         <ul className="cars">
                                             {
                                                 this.props.auto.mark.map((mark, i) => {
-                                                    return (
-                                                        <li key={i} data-mark={mark.name} data-id={mark.id} data-type='car' onClick={this.GetCarStore}>
-                                                            {mark.name}
-                                                        </li>
-                                                    )
+                                                    if(i !== 0){
+                                                        return (
+                                                            <li key={i} data-mark={mark.name} data-id={mark.id} data-type='car' onClick={this.GetCarStore}>
+                                                                {mark.name}
+                                                            </li>
+                                                        )
+                                                    }
+
                                                 })
 
                                             }

@@ -20,6 +20,7 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {GetCity} from "../../../redux/location/action";
 import Loading from "../../Loading";
 import ScoreAddImg from "./AddImg";
+import {faClock} from "@fortawesome/free-regular-svg-icons";
 
 
 
@@ -40,7 +41,7 @@ class ScorePage extends Component {
             SircleValue: '',
             CityValue: '',
             loading: false,
-            loadingSlider: false
+            loadingSlider: false,
         }
         this.NameRef = React.createRef()
         this.SircleRef = React.createRef()
@@ -148,8 +149,14 @@ class ScorePage extends Component {
 
     }
 
+
+
     render() {
         let data = this.props.data;
+        console.log(data)
+        let time = new Date().getHours()
+        // let time = 10
+        console.log(time >= +data.work_from.split(':')[0]  &&  time <= +data.work_to.split(':')[0])
         return (
             <div className="score_page" style={
                 this.state.NameForm ||
@@ -171,6 +178,16 @@ class ScorePage extends Component {
                     }
                     <div className='info__container' style={this.state.NameForm ? {margin: '10px 0'} : {margin: '0'}}>
                         <h3 style={{color: "brown"}}>{data.name}</h3>
+                        <ul className='working_interval_style'>
+                            <li>{data.work_to}</li>
+
+                            {
+                                time >= +data.work_to.split(':')[0]  &&  time <= +data.work_from.split(':')[0]?
+                                    <li style={{color:"green"}} ><FontAwesomeIcon icon={faClock}/></li>:
+                                    <li style={{color:"red"}} ><FontAwesomeIcon icon={faClock}/></li>
+                            }
+                            <li>{data.work_from}</li>
+                        </ul>
                         <div className="edit" onClick={() => this.setState({NameForm: true})}>
                             <FontAwesomeIcon icon={faPencilAlt}/>
                         </div>
@@ -234,6 +251,7 @@ class ScorePage extends Component {
                                 </div>
                             </div>
                         </ul>
+
                         <ul className="phone">
                             <ul>
                                 <div className='info__container' style={this.state.PhoneForm?{margin:'10px 0'}:{margin:'0'}}>

@@ -13,7 +13,7 @@ import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";
 import ScorePage from "../ScorePage/ScorePage";
 import {Route, NavLink, Redirect} from "react-router-dom";
-import {GetScoreListId} from "../../../redux/score/action";
+import {GetScoreList, GetScoreListId} from "../../../redux/score/action";
 import {GetMessageId} from "../../../redux/message/action";
 
 
@@ -51,7 +51,6 @@ class ScoreList extends React.Component{
     }
     GetCity = (e) => {
         this.props.dispatch(GetCity(e.target.selectedIndex + 1))
-
     }
     ShowPhone = (e) => {
         if (this.state.phone2 === false){
@@ -88,9 +87,11 @@ class ScoreList extends React.Component{
         this.setState({
             loading:undefined
         })
+
         POST(Url.addscorelist,data).then(res => {
             console.log(res)
            if (res.status) {
+               this.props.dispatch(GetScoreList())
                this.setState({
                    showForm:false,
                    showTmpImg: false,

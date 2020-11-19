@@ -15,6 +15,7 @@ import Loading from "./components/Loading";
 import {GetMessage} from "./redux/message/action";
 import Result from "./components/Search/Result";
 import Api from "./components/config/Api";
+import {GET} from "./components/config/Requsest";
 
 class App extends React.Component {
 
@@ -38,27 +39,7 @@ class App extends React.Component {
         this.props.dispatch(GetTruckModels())
     }
 
-    // GetMes = () => {
-    //    let getMessage_users = document.querySelector('.getMessage_users');
-    //    if (getMessage_users != null){
-    //        getMessage_users.scrollTop = 100000000000000;
-    //    }
-    //    const Timer = () => {
-    //         if (this.state.incriment < 10){
-    //             this.setState({
-    //                 incriment: ++this.state.incriment
-    //             })
-    //         }else{
-    //             clearTimeout(Timer)
-    //             this.setState({
-    //                 incriment: 0
-    //             })
-    //         }
-    //        this.props.dispatch(GetMessage())
-    //        setTimeout(Timer,1500)
-    //     }
-    //     setTimeout(Timer,4)
-    // }
+
     render() {
       return (
           <div className="App">

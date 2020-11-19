@@ -29,7 +29,16 @@
     width: 40%;
     animation-name: score_page_info;
     animation-duration: 1.5s;
-
+    .working_interval_style{
+      display: flex;
+      margin-left: 20%;
+      & > li{
+        margin: 0 2px;
+        font-size: 14px;
+        color: #0745e2;
+        font-weight: bold;
+      }
+    }
     //@keyframes score_page_info {
     //  from{
     //    transform: scale(2);
@@ -50,6 +59,7 @@
       display: flex;
       align-items: center;
       position: relative;
+      justify-content: space-between;
       >li{
         display: flex;
 
@@ -121,7 +131,6 @@
       justify-content: flex-start;
      > button{
         width: 30%;
-
         display: flex;
         align-items: center;
         justify-content: flex-end;

@@ -122,9 +122,8 @@ class Message extends Component {
                     }
                     {
                         this.props.score.scoreList.map((res,i) => {
-
                             return (
-                                <li id={res.id} onClick={this.GetIdScoreList}>
+                                <li key={res.id} id={res.id} onClick={this.GetIdScoreList}>
                                     {res.name}
                                 </li>
                             )
