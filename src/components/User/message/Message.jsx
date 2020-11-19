@@ -87,18 +87,7 @@ class Message extends Component {
     render() {
         return(
             <div className='message_users_component'>
-                <div className='message_reload'>
-                    <span onClick={(e)=>{
-                        let aa = e.target
-                        e.target.classList.toggle('message_reload_button')
-                        this.props.dispatch(GetMessage(this.props.id))
-                        setTimeout(()=>{
-                            aa.classList.toggle('message_reload_button')
-                        },1000)
-                    }}>
-                        <FontAwesomeIcon icon={faRedoAlt} />
-                    </span>
-                </div>
+
                 <div className="message_users">
                     {
                         this.state.redirect?<Redirect to={this.state.link?this.state.link:'/user/account/persional/'} />:''
@@ -140,8 +129,7 @@ class Message extends Component {
                                 this.state.RespondentStore && this.props.message.data.score?this.props.message.data.score.map((data,i) => {
 
                 
-                                    if (data && this.props.message.data.message.user){
-
+                                    if (data && this.props.message.data.message.score){
                                         let active = window.location.href.split('/')[6] == this.props.message.data.message.score[i].dialog_id
                                         return (
                                             <Respondent
@@ -167,6 +155,18 @@ class Message extends Component {
                     </div>
                 
                     <div className="message">
+                        <div className='message_reload'>
+                            <span onClick={(e)=>{
+                                let aa = e.target
+                                e.target.classList.toggle('message_reload_button')
+                                this.props.dispatch(GetMessage(this.props.id))
+                                setTimeout(()=>{
+                                    aa.classList.toggle('message_reload_button')
+                                },1000)
+                            }}>
+                                <FontAwesomeIcon icon={faRedoAlt} />
+                            </span>
+                        </div>
                 
                         {
                             this.props.message.data.message.user?this.props.message.data.message.user.map((data,i) => {
