@@ -110,6 +110,7 @@ class Message extends Component {
 
     render() {
         let myId =  this.props.message.messageId;
+        console.log(this.props)
         return(
             <Fragment>
                 {
