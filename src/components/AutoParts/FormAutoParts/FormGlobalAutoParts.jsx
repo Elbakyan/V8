@@ -52,7 +52,7 @@ class FormGlobalAutoParts extends Component {
         let data = new FormData(e.target)
         POST(Url.addMarkModelAutoParts, data).then(res => {
             if (res.status) {
-
+                this.props.dispatch(GetMarkModelAutoParts())
                 this.setState({
                     loading: false,
                     message: "",
@@ -102,12 +102,12 @@ class FormGlobalAutoParts extends Component {
         return (
             <div className="add_auto_parts">
                 {
-                    this.state.redirect? <Redirect to='/score/account/cars/with_mark/cars/lists'/>:''
+                    this.state.redirect? <Redirect to='/score/account/cars/spare_parts/with_mark/cars/lists'/>:''
                 }
                 <div className="add_auto_parts-links">
 
-                    <NavLink to='/score/account/cars/with_mark/cars/add' >Ավելացնել...</NavLink>
-                    <NavLink to='/score/account/cars/with_mark/cars/lists' >Ցանկ...</NavLink>
+                    <NavLink to='/score/account/cars/spare_parts/with_mark/cars/add' >Ավելացնել...</NavLink>
+                    <NavLink to='/score/account/cars/spare_parts/with_mark/cars/lists' >Ցանկ...</NavLink>
                 </div>
                     {
                         this.state.message?
@@ -120,7 +120,7 @@ class FormGlobalAutoParts extends Component {
                                 {this.state.message}
                             </div>:''
                     }
-                <Route path='/score/account/cars/with_mark/cars/add'>
+                <Route path='/score/account/cars/spare_parts/with_mark/cars/add'>
                     <form onSubmit={this.AddScorPartsLists}>
                         <input type="hidden" name='type' value='car'/>
                         <div className="score_list">
@@ -237,7 +237,7 @@ class FormGlobalAutoParts extends Component {
                         </div>
                     </form>
                 </Route>
-                <Route path='/score/account/cars/with_mark/cars/lists'>
+                <Route path='/score/account/cars/spare_parts/with_mark/cars/lists'>
                     <MainListGlobalAutoParts />
                 </Route>
 

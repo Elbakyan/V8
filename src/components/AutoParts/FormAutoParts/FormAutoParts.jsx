@@ -48,7 +48,7 @@ class FormAutoParts extends Component {
                 }
             })
         }, 500)
-        if(window.location.pathname == '/score/account/cars/with_code'){
+        if(window.location.pathname == '/score/account/cars/spare_parts/with_code'){
             this.setState({
                 allParts:true,
                 redirect:false
@@ -193,13 +193,13 @@ class FormAutoParts extends Component {
                 }
                 {
                     !this.state.redirect?
-                    this.state.allParts ? <Redirect to='/score/account/cars/with_code'/>
+                    this.state.allParts ? <Redirect to='/score/account/cars/spare_parts/with_code'/>
                                             :
-                                            <Redirect to='/score/account/cars/with_mark'/>:''
+                                            <Redirect to='/score/account/cars/spare_parts/with_mark'/>:''
                 }
 
 
-                        <Route path='/score/account/cars/with_code'>
+                        <Route path='/score/account/cars/spare_parts/with_code'>
                             <div className="---">
                                 <div className="add_auto_parts">
                                     {this.state.message ? <p className="message">{this.state.message}</p> : ''}
@@ -424,7 +424,7 @@ class FormAutoParts extends Component {
                                 </div>
                             </div>
                         </Route>
-                        <Route path='/score/account/cars/with_mark'>
+                        <Route path='/score/account/cars/spare_parts/with_mark'>
                             <TypeCars />
                         </Route>
 

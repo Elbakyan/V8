@@ -52,7 +52,7 @@ class FormGlobalTruckParts extends Component {
         let data = new FormData(e.target)
         POST(Url.addMarkModelAutoParts, data).then(res => {
             if (res.status) {
-
+                this.props.dispatch(GetMarkModelAutoParts())
                 this.setState({
                     loading: false,
                     message: "",
@@ -100,14 +100,13 @@ class FormGlobalTruckParts extends Component {
     render() {
         return (
             <div className="add_auto_parts">
-                {/*{*/}
-                {/*    this.state.redirect? <Redirect to='/score/account/cars/with_mark/cars/lists'/>:''*/}
-                {/*}*/}
+                {
+                    this.state.redirect? <Redirect to='/score/account/cars/spare_parts/with_mark/truck/lists'/>:''
+                }
 
                 <div className="add_auto_parts-links">
-
-                    <NavLink to='/score/account/cars/with_mark/truck/add' >Ավելացնել...</NavLink>
-                    <NavLink to='/score/account/cars/with_mark/truck/lists' >Ցանկ...</NavLink>
+                    <NavLink to='/score/account/cars/spare_parts/with_mark/truck/add' >Ավելացնել...</NavLink>
+                    <NavLink to='/score/account/cars/spare_parts/with_mark/truck/lists' >Ցանկ...</NavLink>
                 </div>
                 {
                     this.state.message?
@@ -120,7 +119,7 @@ class FormGlobalTruckParts extends Component {
                             {this.state.message}
                         </div>:''
                 }
-                <Route path='/score/account/cars/with_mark/truck/add'>
+                <Route path='/score/account/cars/spare_parts/with_mark/truck/add'>
                     <form onSubmit={this.AddScorPartsLists}>
                         <input type="hidden" name='type' value='truck'/>
                         <div className="score_list">
@@ -238,7 +237,7 @@ class FormGlobalTruckParts extends Component {
                     </form>
                 </Route>
                 {/*/score/account/cars/with_mark/cars*/}
-                <Route path='/score/account/cars/with_mark/truck/lists'>
+                <Route path='/score/account/cars/spare_parts/with_mark/truck/lists'>
                     <ListGlobalTruckParts />
                 </Route>
 
