@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
     faMapMarkerAlt,
-    faPhoneSquareAlt, faTag, faAt,
+    faPhoneSquareAlt, faTag, faAt, faClock, faCreditCard,
 } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons/faEnvelope";
@@ -32,6 +32,7 @@ class StoreInfo extends Component{
         let data = new FormData()
         data.append('id', this.props.id || window.location.pathname.split('/').pop())
         POST(Url.getstoreforcustomer,data).then(res => {
+            this.OpenClose(res[0]['work_to'],res[0]['work_from'])
             this.setState({
                 data: res[0]
             })
@@ -41,7 +42,7 @@ class StoreInfo extends Component{
     Send = (e) => {
         e.preventDefault()
         let data = new FormData(e.target);
-        console.log(Array.from(data))
+
         this.props.dispatch(SendMessage(data))
         this.setState({
             message:true
@@ -52,7 +53,40 @@ class StoreInfo extends Component{
             })
         },1500)
     }
+    OpenClose = (to, from) => {
+        let hourse = new Date().getHours(),
+            minute = new Date().getMinutes(),
+            toHourse = +to.split(':')[0],
+            toMinute = +to.split(':')[1],
+            fromHourse = +from.split(':')[0],
+            fromMinute = +from.split(':')[1];
+        if (toHourse < fromHourse){
+            if (hourse >= toHourse && minute >= toMinute && hourse <= fromHourse && minute  <= fromMinute){
+                console.log(fromMinute)
+                this.setState({
+                    open: true
+                })
+            }else{
+                this.setState({
+                    open: false
+                })
+            }
+        }else{
+            
+            if (hourse <= toHourse && minute >= toMinute && hourse >= fromHourse && minute  >= fromMinute){
+                this.setState({
+                    open: true
+                })
+            }else{
+                this.setState({
+                    open: false
+                })
+            }
+        }
 
+
+
+    }
     render() {
         return(
             <div className="container">
@@ -123,6 +157,35 @@ class StoreInfo extends Component{
                                                 <li><FontAwesomeIcon icon={faYoutube} /></li>
                                                 <li><a href={this.state.data.youtube} target='_blank'>Youtube</a></li>
                                             </ul>: ''
+                                    }
+                                    <ul className='store_phone'>
+                                        <li><FontAwesomeIcon icon={faClock} /></li>
+                                        <li style={{fontWeight:'bold'}}>Աշխ-Ժամերը:</li>
+                                        <ul>
+                                            {
+                                                this.state.data['work_to']?
+                                                    <li>
+                                                        {this.state.data['work_to'] + '-' + this.state.data['work_from']}
+                                                        {
+                                                            this.state.open?
+                                                                <span style={{color:"green",margin: "0px 10px", fontWeight:"bold"}}>Բաց է</span>:
+                                                                <span style={{color:"red",margin: "0px 10px", fontWeight:"bold"}}>Փակ է</span>
+                                                        }
+
+
+                                                    </li>:''
+                                            }
+
+                                        </ul>
+
+                                    </ul>
+                                    {
+                                        +this.state.data.credit?
+                                            <ul className='store_phone'>
+                                                <li><FontAwesomeIcon icon={faCreditCard} /></li>
+                                                <li style={{fontWeight:'bold'}}>Ապառիկ վաճառք․․․</li>
+
+                                            </ul>:''
                                     }
 
                                 </nav>

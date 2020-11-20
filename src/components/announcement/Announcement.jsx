@@ -17,6 +17,7 @@ import Auto from "./Auto";
 import {GetSell, GetSellByID} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
 import Pagination from "react-js-pagination";
+import {TEST_POST} from "../config/Requsest";
 
 class Announcement extends Component {
     constructor(props) {
@@ -63,6 +64,7 @@ class Announcement extends Component {
         this.props.sell.OneAuto = [];
         e.preventDefault();
         this.props.dispatch(GetSell(this.state.id,e.target))
+
     }
     handlePageChange(pageNumber) {
         this.setState({activePage: pageNumber});

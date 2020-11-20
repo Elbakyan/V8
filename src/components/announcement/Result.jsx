@@ -40,7 +40,6 @@ class Result extends Component {
 
     }
     render() {
-        console.log(this.props.favorite.favorite)
         return (
             <div className="result">
                 {
