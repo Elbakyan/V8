@@ -56,12 +56,28 @@ class StoreInfo extends Component{
     OpenClose = (to, from) => {
         let hourse = new Date().getHours(),
             minute = new Date().getMinutes(),
+            time = (hourse * 60) + minute,
             toHourse = +to.split(':')[0],
             toMinute = +to.split(':')[1],
+            toTime = (toHourse * 60) + toMinute,
             fromHourse = +from.split(':')[0],
-            fromMinute = +from.split(':')[1];
+            fromMinute = +from.split(':')[1],
+            fromTime = (fromHourse * 60) + fromMinute;
+        console.log('time',time)
+        console.log('toTime',toTime)
+        console.log('fromTime',fromTime)
         if (toHourse < fromHourse){
-            if (hourse >= toHourse && minute >= toMinute && hourse <= fromHourse && minute  <= fromMinute){
+            // if (hourse >= toHourse && minute >= toMinute && hourse <= fromHourse && minute  <= fromMinute){
+            //     console.log(fromMinute)
+            //     this.setState({
+            //         open: true
+            //     })
+            // }else{
+            //     this.setState({
+            //         open: false
+            //     })
+            // }
+            if (time >= toTime && time <= fromTime){
                 console.log(fromMinute)
                 this.setState({
                     open: true

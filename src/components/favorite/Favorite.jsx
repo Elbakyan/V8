@@ -6,6 +6,7 @@ import {faHeart as sol} from "@fortawesome/free-solid-svg-icons/faHeart";
 import {AddFavorite, GetUserFavorite} from "../../redux/favorite/action";
 import SellCar from "../announcement/SellCar";
 import {GetSellByID} from "../../redux/sellauto/action";
+import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
 
 
 
@@ -24,7 +25,6 @@ class Favorite extends Component {
     GetAuto = (e) => {
         let data = new FormData();
         data.append('id', e.target.dataset.id);
-
         this.props.dispatch(GetSellByID(data))
     }
     Favorite = (e) =>{
@@ -39,27 +39,25 @@ class Favorite extends Component {
         }
         if (this.props.user.status) {
             let autoId = e.target.parentElement.parentElement.dataset.id;
-            data.append('state', 'user');
             let data = new FormData();
+            data.append('state', 'user');
             data.append('id', this.props.user.id);
             data.append('auto_id', autoId);
             this.props.dispatch(AddFavorite(data))
             this.props.dispatch(GetUserFavorite())
         }
-
-
     }
     render() {
-
-        return (
-            <div className="result">
-                {
-                    this.props.favorite.userFavorite.map((auto,i) => {
+        if(this.props.favorite.userFavorite){
+            return (
+                <div className="result">
+                    {
+                        this.props.favorite.userFavorite.map((auto,i) => {
                             return (
                                 <div className="result_auto" key={i}>
                                 <span className="favorite_block" data-id={auto.id}  onClick={this.Favorite}>
                                     <span data-id={auto.id} >
-                                        <FontAwesomeIcon icon={sol} />
+                                        <FontAwesomeIcon icon={faTimesCircle} />
                                     </span>
                                 </span>
                                     <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
@@ -68,11 +66,12 @@ class Favorite extends Component {
                                 </div>
                             )
 
-                    })
-                }
+                        })
+                    }
+                </div>
+            )
+        }
 
-            </div>
-        )
     }
 }
 
