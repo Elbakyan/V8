@@ -71,6 +71,7 @@ class FormAutoParts extends Component {
         let img = document.querySelector('.pars_image_open')
         img.style.display = 'none'
     }
+
     openImage = e => {
         if (e.target.dataset.img) {
             this.setState({
@@ -91,6 +92,7 @@ class FormAutoParts extends Component {
             search: e.target.value
         })
     }
+
     AddProduct = (e) => {
         e.preventDefault();
         let data = new FormData(e.target);
