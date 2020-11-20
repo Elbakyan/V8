@@ -68,7 +68,6 @@ class Profile extends React.Component{
                                             <FontAwesomeIcon icon={faHeart}/>
                                         </div>
                                         <span>Նախնտրելի</span>
-
                                     </Link>
                                 </li>
                                 <li>

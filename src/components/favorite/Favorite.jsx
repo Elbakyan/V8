@@ -46,6 +46,9 @@ class Favorite extends Component {
             this.props.dispatch(AddFavorite(data))
             this.props.dispatch(GetUserFavorite())
         }
+
+        this.props.dispatch(GetUserFavorite())
+
     }
     render() {
         if(this.props.favorite.userFavorite){
