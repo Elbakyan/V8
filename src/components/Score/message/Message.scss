@@ -179,8 +179,6 @@
 
       }
       .respondent_user_clear{
-        //height: 80%;
-        //border: 1px solid red;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -212,7 +210,6 @@
       }
     }
     > div{
-
       .status{
         position: absolute;
         right: 5px;
@@ -221,7 +218,6 @@
         height: 10px;
         border-radius: 50%;
         background: red;
-
       }
     }
   }
@@ -278,10 +274,7 @@
           width: 100%;
           display: flex;
           height: auto;
-
           padding: 0px 10px;
-
-
           >div{
             max-width: 75%;
             height: auto;
@@ -292,8 +285,6 @@
             flex-direction: column;
             position: relative;
             cursor: pointer;
-
-
           }
         }
         .block_message_user2{

@@ -8,7 +8,7 @@ import {
     faMapMarkerAlt,
     faPhoneSquareAlt,
     faShareAltSquare,
-    faPencilAlt, faAngleDoubleRight, faMailBulk, faEnvelopeSquare, faLink,
+    faPencilAlt, faAngleDoubleRight, faMailBulk, faEnvelopeSquare, faLink, faCreditCard,
 } from "@fortawesome/free-solid-svg-icons";
 import SliderAuto from "../../SliderAuto/SliderAuto";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
@@ -20,6 +20,7 @@ import DefaultSelect from "../../forms/select/DefaultSelect";
 import {GetCity} from "../../../redux/location/action";
 import Loading from "../../Loading";
 import ScoreAddImg from "./AddImg";
+import {faClock} from "@fortawesome/free-regular-svg-icons";
 
 
 
@@ -40,7 +41,9 @@ class ScorePage extends Component {
             SircleValue: '',
             CityValue: '',
             loading: false,
-            loadingSlider: false
+            loadingSlider: false,
+            TimeForm: false,
+            CreditForm: false
         }
         this.NameRef = React.createRef()
         this.SircleRef = React.createRef()
@@ -54,6 +57,11 @@ class ScorePage extends Component {
         this.FacebookRef = React.createRef()
         this.InstagramRef = React.createRef()
         this.YoutubeRef = React.createRef()
+        this.WorRef = React.createRef()
+        this.YoutubeRef = React.createRef()
+        this.WorkToRef = React.createRef()
+        this.WorkFromRef = React.createRef()
+        this.CreditRef = React.createRef()
     }
 
 
@@ -73,9 +81,17 @@ class ScorePage extends Component {
         data.append('facebook', this.FacebookRef.current.value)
         data.append('instagram', this.InstagramRef.current.value)
         data.append('youtube', this.YoutubeRef.current.value)
+        data.append('work_to', this.WorkToRef.current.value)
+        data.append('work_from', this.WorkFromRef.current.value)
 
+        if (this.CreditRef.current.checked){
+            data.append('credit', 1)
+        }else{
+            data.append('credit', 0)
+        }
         POST(Url.scoreSetings, data).then(res => {
             if (res) {
+                console.log(res)
                 this.setState({loading: false})
             }
             this.props.dispatch(GetScoreList())
@@ -88,11 +104,14 @@ class ScorePage extends Component {
                 FacebookForm: false,
                 InstagramForm: false,
                 YoutubeForm: false,
+                TimeForm: false,
+                CreditForm: false
             })
         })
     }
     componentDidMount() {
         this.props.dispatch(GetScoreListId(window.location.pathname.split('/').pop()))
+
     }
 
     UbdateImg = (e) => {
@@ -148,8 +167,11 @@ class ScorePage extends Component {
 
     }
 
+
+
     render() {
         let data = this.props.data;
+
         return (
             <div className="score_page" style={
                 this.state.NameForm ||
@@ -159,7 +181,9 @@ class ScorePage extends Component {
                 this.state.EmailForm ||
                 this.state.FacebookForm ||
                 this.state.InstagramForm ||
-                this.state.YoutubeForm
+                this.state.YoutubeForm ||
+                    this.state.TimeForm ||
+                    this.state.CreditForm
                     ? {background: '#00000050'} : {background: 'none'}}
             >
                 <div className="score_page_info">
@@ -183,6 +207,33 @@ class ScorePage extends Component {
                                 ref={this.NameRef}
                             />
                         </div>
+                    </div>
+
+                    <div className='info__container'>
+                        <ul className='working_interval_style'>
+                            <li>{data.work_to}</li>
+
+                            <li>{data.work_from}</li>
+                            <div className="form" style={this.state.TimeForm ? {display: 'flex'} : {display: 'none'}}>
+                                <input
+                                    type='time'
+                                    name='work_to'
+                                    defaultValue={data.work_to}
+                                    ref={this.WorkToRef}
+                                />
+                                <input
+                                    type='time'
+                                    name='work_from'
+                                    defaultValue={data.work_from}
+                                    ref={this.WorkFromRef}
+                                />
+                            </div>
+                            <div className="edit" onClick={() => this.setState({TimeForm: true})}>
+                                <FontAwesomeIcon icon={faPencilAlt}/>
+                            </div>
+
+                        </ul>
+
                     </div>
                     <nav>
                         <ul>
@@ -234,6 +285,7 @@ class ScorePage extends Component {
                                 </div>
                             </div>
                         </ul>
+
                         <ul className="phone">
                             <ul>
                                 <div className='info__container' style={this.state.PhoneForm?{margin:'10px 0'}:{margin:'0'}}>
@@ -427,7 +479,24 @@ class ScorePage extends Component {
                                 </div>
 
                             </ul>
+                            <div className='info__container credit'>
+                                <li>
+                                    <FontAwesomeIcon icon={faCreditCard} style={{marginRight: '10px'}}/>
+                                    Ապառիկ վաճառք։
+                                </li>
+                                    <input
+                                        style={{boxShadow:"none"}}
+                                        className='credit'
+                                        value={1}
+                                        type='checkbox'
+                                        defaultChecked={+data.credit?'checked': ''}
+                                        ref={this.CreditRef}
+                                        onChange={() => this.setState({CreditForm: true})}
+                                    />
+
+                            </div>
                         </ul>
+
                     </nav>
                     {
                         this.state.NameForm ||
@@ -437,7 +506,9 @@ class ScorePage extends Component {
                         this.state.EmailForm ||
                         this.state.FacebookForm ||
                         this.state.InstagramForm ||
-                        this.state.YoutubeForm
+                        this.state.YoutubeForm ||
+                            this.state.TimeForm ||
+                            this.state.CreditForm
                             ?
                             <div className='btns'>
                                 <div className="send">
@@ -463,6 +534,8 @@ class ScorePage extends Component {
                                                 FacebookForm: false,
                                                 InstagramForm: false,
                                                 YoutubeForm: false,
+                                                TimeForm: false,
+                                                CreditForm: false
                                             })
                                         }}
                                     />

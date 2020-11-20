@@ -6,6 +6,7 @@ import './AutoParts.scss'
 import {Redirect, Route} from "react-router";
 import MainFormGlobalAutoParts from "./FormAutoParts/FormGlobalAutoParts";
 import FormGlobalAutoParts from "./FormAutoParts/FormGlobalAutoParts";
+import Soon from "./FormAutoParts/Soon";
 
 
 
@@ -47,6 +48,9 @@ class AutoParts extends Component{
                         }
                         <Route path='/score/account/cars'>
                             <FormAutoParts />
+                        </Route>
+                        <Route path='/score/account/cars/aaa'>
+                            <Soon />
                         </Route>
                     </div>
                 </div>

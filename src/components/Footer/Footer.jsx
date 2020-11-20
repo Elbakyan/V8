@@ -8,7 +8,7 @@ export default function (){
 
         {
             icon:<FontAwesomeIcon icon={faMapMarkerAlt} />,
-            name:<a target='_blank' href="https://goo.gl/maps/N4F8jzEy9cvaGFbe9">Ք․ԵՐԵՎԱՆ Ռաֆու 19</a>
+            name:<a target='_blank' href="https://www.google.com/maps/@40.1742553,44.4522407,20.75z">Ք․ԵՐԵՎԱՆ Ռաֆու 19</a>
         },
         {
             icon:<FontAwesomeIcon icon={faMobileAlt} />,
