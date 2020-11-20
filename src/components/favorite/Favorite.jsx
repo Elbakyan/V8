@@ -39,15 +39,14 @@ class Favorite extends Component {
         }
         if (this.props.user.status) {
             let autoId = e.target.parentElement.parentElement.dataset.id;
-            data.append('state', 'user');
             let data = new FormData();
+            data.append('state', 'user');
             data.append('id', this.props.user.id);
             data.append('auto_id', autoId);
             this.props.dispatch(AddFavorite(data))
             this.props.dispatch(GetUserFavorite())
         }
-
-
+        this.props.dispatch(GetUserFavorite())
     }
     render() {
 
