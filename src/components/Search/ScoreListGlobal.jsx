@@ -22,6 +22,7 @@ class ScoreListGlobal extends Component{
 
 
     render() {
+        console.log()
         return(
             <div className="score_list">
                 <div className="container">

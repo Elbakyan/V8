@@ -11,13 +11,13 @@ class TypeCars extends  Component {
             <Fragment>
                 {/*<Redirect to={window.location.pathname}/>*/}
                 <div className="add_auto_parts-links">
-                    <NavLink to='/score/account/cars/with_mark/cars' >Մարդատար</NavLink>
-                    <NavLink to='/score/account/cars/with_mark/truck' >Բեռնատար</NavLink>
+                    <NavLink to='/score/account/cars/spare_parts/with_mark/cars' >Մարդատար</NavLink>
+                    <NavLink to='/score/account/cars/spare_parts/with_mark/truck' >Բեռնատար</NavLink>
                 </div>
-                <Route path='/score/account/cars/with_mark/cars'>
+                <Route path='/score/account/cars/spare_parts/with_mark/cars'>
                     <FromGlobalAutoParts />
                 </Route>
-                <Route path='/score/account/cars/with_mark/truck'>
+                <Route path='/score/account/cars/spare_parts/with_mark/truck'>
                     <FromGlobalTruckParts />
                 </Route>
             </Fragment>
