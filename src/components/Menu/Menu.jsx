@@ -276,7 +276,9 @@ class Menu extends Component {
                                         {
                                             service.map(({name},i)=>(
                                                 <li key={i}>
-                                                    {name}
+                                                    <Link to='/soon'>
+                                                        {name}
+                                                    </Link>
                                                 </li>
                                             ))
                                         }

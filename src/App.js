@@ -16,6 +16,7 @@ import {GetMessage} from "./redux/message/action";
 import Result from "./components/Search/Result";
 import Api from "./components/config/Api";
 import {GET} from "./components/config/Requsest";
+import Soon from "./components/Soon/Soon";
 
 class App extends React.Component {
 
@@ -62,6 +63,9 @@ class App extends React.Component {
                   </Route>
                   <Route path='/search/result'>
                       <Result/>
+                  </Route>
+                  <Route path='/soon'>
+                      <Soon/>
                   </Route>
               </Switch>
               {this.props.user.status  === undefined? <div className="main__load">  <Loading type="spinningBubbles" size={500} color="#101423"/><Loading /> </div> : ''}

@@ -5,9 +5,12 @@ import './Soon.scss'
 class Soon extends Component {
     render() {
         return (
-            <div>
+            <div className='soon'>
                 <Redirect to={window.location.pathname}/>
-                <div className='soon'>
+                <div >
+                    <a href="/">
+                        <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
+                    </a>
                     <h1>Շուտով</h1>
                 </div>
             </div>
