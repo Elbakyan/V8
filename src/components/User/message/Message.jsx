@@ -85,6 +85,11 @@ class Message extends Component {
 
     }
     render() {
+        if(this.props.message.data.message.score){
+            console.log(this.props.message.data.message.score[0].delite)
+            console.log(JSON.parse(this.props.message.data.message.score[0].delite))
+        }
+
         return(
             <div className='message_users_component'>
 
@@ -102,20 +107,22 @@ class Message extends Component {
 
                                         let active = this.props.message.data.message.user? window.location.href.split('/')[6] == this.props.message.data.message.user[i].dialog_id: ''
 
-                                        return (
-                                            <Respondent
-                                                Clear={this.Clear}
-                                                key={i}
-                                                id={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}
-                                                active={active}
-                                                data={data}
-                                                onClick={this.Message}
-                                                status={this.props.message.data.message.user[i].status}
-                                                time={this.props.message.data.message.user[i].time}
-                                                userId={this.props.id}
-                                                send={this.props.message.data.message.user[i].send_id}
-                                            />
-                                        )
+                                            return (
+                                                <Respondent
+                                                    Clear={this.Clear}
+                                                    key={i}
+                                                    id={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}
+                                                    active={active}
+                                                    data={data}
+                                                    onClick={this.Message}
+                                                    status={this.props.message.data.message.user[i].status}
+                                                    time={this.props.message.data.message.user[i].time}
+                                                    userId={this.props.id}
+                                                    send={this.props.message.data.message.user[i].send_id}
+                                                />
+                                            )
+
+
                                     }
                 
                 
@@ -129,22 +136,26 @@ class Message extends Component {
                                 this.state.RespondentStore && this.props.message.data.score?this.props.message.data.score.map((data,i) => {
 
                 
-                                    if (data && this.props.message.data.message.score){
+                                    if (data && JSON.parse(this.props.message.data.message.score[i].delite)[0] !== this.props.id){
                                         let active = window.location.href.split('/')[6] == this.props.message.data.message.score[i].dialog_id
-                                        return (
-                                            <Respondent
-                                                Clear={this.Clear}
-                                                key={i}
-                                                id={'/user/account/persional/'+this.props.message.data.message.score[i].dialog_id}
-                                                active={active}
-                                                data={data}
-                                                onClick={this.Message}
-                                                status={this.props.message.data.message.score[i].status}
-                                                time={this.props.message.data.message.score[i].time}
-                                                userId={this.props.id}
-                                                send={this.props.message.data.message.score[i].send_id}
-                                            />
-                                        )
+
+                                            console.log(this.props.message.data.message.score)
+                                            return (
+                                                <Respondent
+                                                    Clear={this.Clear}
+                                                    key={i}
+                                                    id={'/user/account/persional/'+this.props.message.data.message.score[i].dialog_id}
+                                                    active={active}
+                                                    data={data}
+                                                    onClick={this.Message}
+                                                    status={this.props.message.data.message.score[i].status}
+                                                    time={this.props.message.data.message.score[i].time}
+                                                    userId={this.props.id}
+                                                    send={this.props.message.data.message.score[i].send_id}
+                                                />
+                                            )
+
+
                                     }
                 
                 
