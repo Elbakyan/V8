@@ -104,7 +104,7 @@ class StoreInfo extends Component{
 
     }
     render() {
-        console.log(this.props)
+        console.log(this.state.data)
         return(
             <div className="container">
                 {
@@ -221,10 +221,10 @@ class StoreInfo extends Component{
                                                 </form>:''
                                         }
                                         {
-                                            this.state.data.id && this.props.score.score.id?
+                                            this.state.data.score_id && this.props.score.score.id?
                                                 <form onSubmit={this.Send}>
                                                     <textarea placeholder='Ուղարկել հաղորդագրություն․․․' name='message'></textarea>
-                                                    <input type="hidden" name='get_id' value={this.state.data.id}/>
+                                                    <input type="hidden" name='get_id' value={this.state.data.score_id}/>
                                                     <input type="hidden" name='send_id' value={this.props.score.score.id}/>
                                                     <input type="hidden" name='state' value='scores'/>
                                                     <button type='submit' className='send'>

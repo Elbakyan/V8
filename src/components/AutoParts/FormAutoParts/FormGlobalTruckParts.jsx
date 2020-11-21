@@ -129,11 +129,10 @@ class FormGlobalTruckParts extends Component {
                                         {el.name}
                                         <DefaultInput
                                             type='checkbox'
-                                            value={el.name}
+                                            value={el.id}
                                             name='score[]'
                                             checked
                                         />
-                                        <input type="hidden" name='store_id[]' value={el.id}/>
                                     </label>
                                 ))
                             }

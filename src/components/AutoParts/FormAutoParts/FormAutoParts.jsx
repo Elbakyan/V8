@@ -117,6 +117,7 @@ class FormAutoParts extends Component {
             if (res.result) {
                 data.append('name', name)
                 POST(Url.addproduct, data).then(res => {
+                    console.log(res)
                     if (res) {
                         this.setState({
                             loading: false
@@ -211,12 +212,11 @@ class FormAutoParts extends Component {
                                                         {el.name}
                                                         <DefaultInput
                                                             type='checkbox'
-                                                            value={el.name}
+                                                            value={el.name + '/' + el.id}
                                                             name='score[]'
                                                             // width="5%"
                                                             checked
                                                         />
-                                                        <input type="hidden" name='store_id[]' value={el.id}/>
                                                     </label>
                                                 ))
                                             }
