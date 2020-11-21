@@ -72,9 +72,8 @@ class Message extends Component {
         },1000)
         this.props.dispatch(GetStatus(this.props.message.dialog))
         this.props.dispatch(GetDialogId(e.target.dataset.dialogId))
-
-
     }
+
     openRespondent = ()=>{
         let block = document.querySelector('.respondent_user')
         let respondent = document.querySelector('.respondent')
@@ -86,7 +85,9 @@ class Message extends Component {
             block.style.display = 'none'
             respondent.style.width = "0%"
         }
+
     }
+
     GetIdScoreList = (e) => {
         this.props.dispatch(GetMessageId(e.target.id))
         this.props.dispatch(GetMessage(e.target.id))
