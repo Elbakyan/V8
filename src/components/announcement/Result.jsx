@@ -36,6 +36,7 @@ class Result extends Component {
             data.append('auto_id', autoId);
             this.props.dispatch(AddFavorite(data))
         }
+        this.props.dispatch(GetFavorite())
     }
     render() {
 
@@ -43,7 +44,6 @@ class Result extends Component {
             <div className="result">
                 {
                     this.props.sell.data.data.map((auto,i) => {
-
                         let res = false;
                         this.props.favorite.favorite.map((e)=> {
                           if (e == auto.id){
