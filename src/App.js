@@ -59,7 +59,11 @@ class App extends React.Component {
                       <SpaerParts/>
                   </Route>
                   <Route path='/announcement'>
-                      <Announcement/>
+                      {/*{*/}
+                      {/*    this.props.user.status || this.props.score.score.status?*/}
+                      {/*        <Announcement brjo={true}/>:<Announcement brjo={false}/>*/}
+                      {/*}*/}
+                      <Announcement />
                   </Route>
                   <Route path='/search/result'>
                       <Result/>

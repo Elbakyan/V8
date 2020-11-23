@@ -6,6 +6,7 @@ import {Url} from "../../config/Url";
 import Art from "../../Alert";
 import {Redirect} from "react-router";
 import {ScoreExist} from "../../../redux/score/action";
+import DefaultInput from "../../forms/inputs/DefaultInput";
 
 class ProfilSetingsScore extends Component {
     constructor(props) {
@@ -91,12 +92,21 @@ class ProfilSetingsScore extends Component {
                             defaultValue={this.props.surname}
                         />
                     </label>
-                    <label>
-                        <input
-                            type="number"
+                    <label className='phone_style' >
+                        <DefaultInput
+                            type='number'
+                            placeholder="Հեռախոսահամար"
                             name='phone'
-                            placeholder='Հեռախոսահամար․․․'
-                            defaultValue={this.props.phone}
+                            requred
+                            onChange={
+                                (e)=>{
+                                    let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);
+                                    if (str){
+                                        let num = str[0].match(/\d{8}$/)[0];
+                                        e.target.value = num
+                                    }
+                                }
+                            }
                         />
                     </label>
                     <label>

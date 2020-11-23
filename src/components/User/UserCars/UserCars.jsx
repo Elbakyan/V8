@@ -99,12 +99,11 @@ class UserCars extends Component {
                     el.style.display = 'none'
                 })
                     this.props.dispatch(GetAuto(this.props.user.id))
-
             }
         })
     }
     render() {
-        console.log(this.props.auto.auto)
+        // console.log(this.props.auto.auto)
         return (
             <div>
                 {/*{this.state.Redirect ? <Redirect to='/user/account/cars' /> : ''}*/}

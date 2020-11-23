@@ -16,7 +16,6 @@ class Result extends Component {
         this.state = {
             favorite: ''
         }
-
     }
 
     GetAuto = (e) => {
@@ -62,6 +61,7 @@ class Result extends Component {
                                         }
                                     </span>
                                 </span>
+
                                 <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
                                     <SellCar Auto={auto} favorite={this.props.favorite} res={res}  />
                                 </Link>

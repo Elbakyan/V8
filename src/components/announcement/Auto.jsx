@@ -52,6 +52,7 @@ class Auto extends Component {
             img  = JSON.parse(this.props.sell.OneAuto.img)
         }
         let auto = this.props.sell.OneAuto;
+        console.log(auto)
         return (
 
             <div className="Auto">
@@ -147,7 +148,7 @@ class Auto extends Component {
                                     </tr>
                                     <tr>
                                         <td>Վազք</td>
-                                        <td>{auto.mileage} {auto.mesuruments}</td>
+                                        <td>{auto.mileage} : {auto.measurements}</td>
                                     </tr>
                                     <tr>
                                         <td>Մաս մաս վճարում</td>
