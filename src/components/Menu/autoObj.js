@@ -76,7 +76,6 @@ export const autogruz = [
 ]
 
 export const maser = [
-    {id:1,name:'Պահեստամաս'},
     {id:2,name:'Անվադող և անվասկավառակ'},
     {id:3,name:'Ավտոապակի'},
     {id:4,name:'Ավտոբոքս և դուգա'},

@@ -19,9 +19,11 @@ class Favorite extends Component {
         }
 
     }
+
     componentDidMount() {
         this.props.dispatch(GetUserFavorite())
     }
+
     GetAuto = (e) => {
         let data = new FormData();
         data.append('id', e.target.dataset.id);

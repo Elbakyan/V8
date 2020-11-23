@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Route, Switch,} from "react-router";
 import './style/style.scss'
 import Home from "./components/Home/Home";
@@ -14,8 +14,9 @@ import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
 import Result from "./components/Search/Result";
 import Soon from "./components/Soon/Soon";
+import {GetUserFavorite} from "./redux/favorite/action";
 
-class App extends React.Component {
+class App extends Component {
 
     constructor(props) {
         super(props);
@@ -57,10 +58,6 @@ class App extends React.Component {
                       <SpaerParts/>
                   </Route>
                   <Route path='/announcement'>
-                      {/*{*/}
-                      {/*    this.props.user.status || this.props.score.score.status?*/}
-                      {/*        <Announcement brjo={true}/>:<Announcement brjo={false}/>*/}
-                      {/*}*/}
                       <Announcement />
                   </Route>
                   <Route path='/search/result'>

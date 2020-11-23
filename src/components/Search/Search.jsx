@@ -20,9 +20,7 @@ class Search extends Component {
             store: []
         }
     }
-    componentDidMount() {
 
-    }
 
     Search = (e) => {
         e.preventDefault()
