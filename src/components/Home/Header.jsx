@@ -4,6 +4,7 @@ import './Home.scss'
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import Search from "../Search/Search";
+import SITE_NAME from "../config/Url";
 
 
 
@@ -14,8 +15,8 @@ class Header extends React.Component{
             <header>
                 <div className="container row align-center justify-between">
                     <div className="header__log">
-                        <Link to='/' onClick={() => window.location.href = '/'}>
-                            <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
+                        <Link to='/'>
+                            <img src={SITE_NAME + "/Server/img/logo_1.svg"} alt=""/>
                         </Link>
                     </div>
                     {/*<nav className="header__navigation ">*/}

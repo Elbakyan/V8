@@ -1,9 +1,19 @@
 .PageNotFound{
-  background-image: url("https://brutal.am/Server/img/NoteFound.png");
   width: 100%;
   height: 100vh;
   background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;
   background-color: white;
+  padding: 15px;
+
+  .header__logo{
+    width: 100px;
+    height: 100px;
+
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
