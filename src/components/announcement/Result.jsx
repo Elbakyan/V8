@@ -36,9 +36,9 @@ class Result extends Component {
             data.append('auto_id', autoId);
             this.props.dispatch(AddFavorite(data))
         }
-
     }
     render() {
+
         return (
             <div className="result">
                 {
@@ -46,18 +46,21 @@ class Result extends Component {
 
                         let res = false;
                         this.props.favorite.favorite.map((e)=> {
-                            if (e == auto.id){
+                          if (e == auto.id){
                                 res = true
-                            }
+                          }
                         })
 
                         let img = JSON.parse(auto.img);
                         return (
                             <div className="result_auto" key={i}>
+
                                 <span className="favorite_block" data-id={auto.id}  onClick={this.Favorite}>
                                     <span data-id={auto.id} >
                                         {
-                                            res?<FontAwesomeIcon icon={sol} />:<FontAwesomeIcon icon={reg} />
+                                            this.props.user.id === undefined &&
+                                                this.props.score.score.id === undefined?'':
+                                                res?<FontAwesomeIcon icon={sol} />:<FontAwesomeIcon icon={reg} />
                                         }
                                     </span>
                                 </span>

@@ -1,4 +1,4 @@
-import {GET, POST} from "../../components/config/Requsest";
+import {GET, POST, TEST_GET} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 
 export const GET_FAVORITE = 'GET_FAVORITE';

@@ -46,6 +46,7 @@ class Favorite extends Component {
             this.props.dispatch(AddFavorite(data))
             this.props.dispatch(GetUserFavorite())
         }
+        console.log(e.target.parentElement.parentElement.dataset.id)
 
         this.props.dispatch(GetUserFavorite())
 
