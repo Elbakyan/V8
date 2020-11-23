@@ -36,6 +36,7 @@ class Result extends Component {
             data.append('auto_id', autoId);
             this.props.dispatch(AddFavorite(data))
         }
+        this.props.dispatch(GetFavorite())
     }
     render() {
 
