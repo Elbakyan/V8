@@ -29,6 +29,7 @@ class Signin extends Component {
             status: undefined,
             scoreCreated: false,
             redirect: false,
+            mes:false
 
         }
 
@@ -77,22 +78,22 @@ class Signin extends Component {
         e.preventDefault();
         let data = new FormData(e.target);
         POST(Url.addscore, data).then(res => {
-            console.log(res)
             this.setState({
-                message: res.message,
-                status: res.status
+                status: res.status,
+                message:res.message,
+                mes: true
             })
-            if (res.status) {
+            setTimeout(() => {
+                this.setState({
+                    mes: false,
+                    redirect: res.status
+                })
                 setTimeout(() => {
                     this.setState({
-                        redirect: true
+                        redirect: false
                     })
-                }, 1000)
-            } else {
-                this.setState({
-                    redirect: false
-                })
-            }
+                },1000)
+            },2000)
         })
 
     }
@@ -107,10 +108,11 @@ class Signin extends Component {
                 <Header/>
                 <div className="container row align-center justify-center">
                     {
-                        this.state.status === undefined ? '' : this.state.status ?
-                            <Art type='success' width={50} content={this.state.message}/> :
-                            <Art type='warning' width={50} content={this.state.message}/>
-
+                        this.state.mes?
+                            this.state.status?
+                                <Art  type='success' content={this.state.message}/>:
+                                <Art  type='warning' content={this.state.message}/>
+                            :''
                     }
                     <div className="Signin-score__score-content score col align-center justify-center">
                         <form className="col align-center justify-center" onSubmit={this.addScore}
