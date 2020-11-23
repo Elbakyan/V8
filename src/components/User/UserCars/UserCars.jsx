@@ -1,20 +1,17 @@
 import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt} from '@fortawesome/free-solid-svg-icons'
-import {Link, Redirect, Route} from "react-router-dom";
-import CarsForm from "./CarsForm";
+import { Redirect} from "react-router-dom";
 import './UserCars.scss'
-import {royle} from "../../../redux/auto/Values";
 import SliderAuto from "../../SliderAuto/SliderAuto";
-import engine from './icon/car-engine.svg'
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import DefaultInput from "../../forms/inputs/DefaultInput";
-import {GetAuto, GetModel} from "../../../redux/auto/action";
+import {GetAuto} from "../../../redux/auto/action";
 import DefaultSelect from "../../forms/select/DefaultSelect";
-import {POST, TEST_POST} from "../../config/Requsest";
+import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {connect} from "react-redux";
-const status = 0
+
 
 
 class UserCars extends Component {
@@ -51,7 +48,7 @@ class UserCars extends Component {
     clear = (e)=>{
         const modal = document.querySelectorAll('.delet_car')
         modal.forEach((el,i)=>{
-            if(e.target.dataset.num == el.dataset.num){
+            if(e.target.dataset.num === el.dataset.num){
                 el.style.display = 'flex'
             }
         })
@@ -233,7 +230,7 @@ class UserCars extends Component {
                                                 <span>{number}</span>
                                             </div>
                                             {
-                                                state == 0?
+                                                state === 0?
                                                 <DefaultBtn
                                                     onClick={this.openSell}
                                                     name='Վաճառել'
@@ -309,17 +306,17 @@ class UserCars extends Component {
                                                         <DefaultInput
                                                             type='hidden'
                                                             name='phone'
-                                                            value={this.props.user.data != undefined ?this.props.user.data.phone: ''}
+                                                            value={this.props.user.data !== undefined ?this.props.user.data.phone: ''}
                                                         />
                                                         <DefaultInput
                                                             type='hidden'
                                                             name='sircle'
-                                                            value={this.props.user.data != undefined ?this.props.user.data.sircle: ''}
+                                                            value={this.props.user.data !== undefined ?this.props.user.data.sircle: ''}
                                                         />
                                                         <DefaultInput
                                                             type='hidden'
                                                             name='city'
-                                                            value={this.props.user.data != undefined ?this.props.user.data.city: ''}
+                                                            value={this.props.user.data !== undefined ?this.props.user.data.city: ''}
                                                         />
                                                         <label>
                                                             Մաս մաս վճարում
