@@ -14,6 +14,7 @@ import AutoParts from "../../AutoParts/AutoParts";
 import Message from "../message/Message";
 import GeFavorite from "../../favorite/GeFavorite";
 import ProfilSetingsScore from "./ProfilSetingsScore";
+import Soon from "../../Soon/Soon";
 
 
 
@@ -79,7 +80,7 @@ class Profile extends React.Component{
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/score/account/cars'>
+                                    <Link to='/soon'>
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faQuestionCircle}/>
                                         </div>
@@ -102,6 +103,9 @@ class Profile extends React.Component{
                                 </Route>
                                 <Route path='/score/account/setings'>
                                     <ProfilSetingsScore />
+                                </Route>
+                                <Route path='/soon'>
+                                    <Soon />
                                 </Route>
                                 <ScoreList />
                             </Switch>

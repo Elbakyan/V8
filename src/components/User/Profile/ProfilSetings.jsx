@@ -120,13 +120,23 @@ class ProfilSetings extends Component {
                                             name='surname'
                                             width='48%'
                                         />
-                                        <DefaultInput
-                                            defaultValue={this.props.user.data.phone}
-                                            type="tel"
-                                            placeholder='Հեռախոսահամար․․․'
-                                            name='phone'
-                                            width='48%'
-                                        />
+                                        <label className='phone_style' style={{width:'48%'}}>
+                                            <DefaultInput
+                                                type='number'
+                                                placeholder="Հեռախոսահամար"
+                                                name='phone'
+                                                requred
+                                                onChange={
+                                                    (e)=>{
+                                                        let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);
+                                                        if (str){
+                                                            let num = str[0].match(/\d{8}$/)[0];
+                                                            e.target.value = num
+                                                        }
+                                                    }
+                                                }
+                                            />
+                                        </label>
                                         <DefaultInput
                                             defaultValue={this.props.user.data.email}
                                             type="text"

@@ -30,8 +30,9 @@ class Announcement extends Component {
 
     componentDidMount() {
         this.props.dispatch(GetSell(1))
+        if(this.props.brjo){
             this.props.dispatch(GetFavorite())
-
+        }
         let id = +window.location.pathname.split('/').pop();
         if (id !== NaN){
             this.props.dispatch(GetSellByID(id))
