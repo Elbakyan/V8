@@ -16,6 +16,8 @@ class Auto extends Component {
             message:false
         }
     }
+
+
     SendMessage = (e) => {
         e.preventDefault()
         let data = new FormData(e.target);
@@ -33,13 +35,20 @@ class Auto extends Component {
     onEnterPress = (e) => {
         if(e.keyCode == 13 && e.shiftKey == false) {
             e.preventDefault();
-            let data = new FormData(this.formRef);
+            let data = new FormData(this.form);
             if (this.textareaRef.value.trim().length > 0){
                 this.props.dispatch(SendMessage(data))
             }
             this.props.dispatch(GetMessage())
             this.textareaRef.value = ''
-            this.scroll()
+            this.setState({
+                message:true
+            })
+            setTimeout(()=>{
+                this.setState({
+                    message:false
+                })
+            },1500)
         }
 
 
@@ -180,7 +189,7 @@ class Auto extends Component {
 
                         {
                             this.props.user.id == auto['user_id'] || !this.props.user.id?'':
-                           <form onSubmit={this.SendMessage}>
+                           <form onSubmit={this.SendMessage} ref={el => this.form = el}>
                                <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
                                 <input type="hidden" name='get_id' value={auto['user_id']}/>
                                <input type="hidden" name='send_id' value={this.props.user.id }/>
@@ -193,7 +202,7 @@ class Auto extends Component {
                         }
                         {
                             this.props.score.score.id?
-                                <form onSubmit={this.SendMessage}>
+                                <form onSubmit={this.SendMessage} ref={el => this.form = el}>
                                     <textarea name="message" ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
                                     <input type="hidden" name='get_id' value={auto['user_id']}/>
                                     <input type="hidden" name='send_id' value={this.props.score.score.id }/>

@@ -16,7 +16,8 @@ import {connect} from "react-redux";
 import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
-import {SendMessage} from "../../redux/message/action";
+import {GetMessage, SendMessage} from "../../redux/message/action";
+import Art from "../Alert";
 
 
 
@@ -25,9 +26,11 @@ class StoreInfo extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            data: ''
+            data: '',
+            message:false
         }
     }
+
     componentDidMount() {
         let data = new FormData()
         data.append('id', this.props.id || window.location.pathname.split('/').pop())
@@ -52,6 +55,27 @@ class StoreInfo extends Component{
                 message:false
             })
         },1500)
+    }
+    onEnterPress = (e) => {
+        if(e.keyCode == 13 && e.shiftKey == false) {
+            e.preventDefault();
+            let data = new FormData(this.form);
+            if (this.textareaRef.value.trim().length > 0){
+                this.props.dispatch(SendMessage(data))
+            }
+            this.props.dispatch(GetMessage())
+            this.textareaRef.value = ''
+            this.setState({
+                message:true
+            })
+            setTimeout(()=>{
+                this.setState({
+                    message:false
+                })
+            },1500)
+        }
+
+
     }
     OpenClose = (to, from) => {
         let hourse = new Date().getHours(),
@@ -206,12 +230,16 @@ class StoreInfo extends Component{
                                     }
 
                                 </nav>
+                                {
+                                    // this.state.message?<Alert>hax</Alert>:''
+                                    this.state.message?<Art width={50} content="Հաղորդագրությունը ուղարկված է"/>:''
+                                }
                                 <ul className='store_message'>
                                     <li>
                                         {
                                             this.state.data.id && this.props.user.id?
-                                                <form onSubmit={this.Send}>
-                                                    <textarea placeholder='Ուղարկել հաղորդագրություն․․․' name='message'></textarea>
+                                                <form onSubmit={this.Send} ref={el => this.form = el}>
+                                                    <textarea placeholder='Ուղարկել հաղորդագրություն․․․' ref={el => this.textareaRef = el} name='message' onKeyDown={this.onEnterPress}></textarea>
                                                     <input type="hidden" name='get_id' value={this.state.data.id}/>
                                                     <input type="hidden" name='send_id' value={this.props.user.id}/>
                                                     <input type="hidden" name='state' value='score'/>
@@ -222,8 +250,8 @@ class StoreInfo extends Component{
                                         }
                                         {
                                             this.state.data.score_id && this.props.score.score.id?
-                                                <form onSubmit={this.Send}>
-                                                    <textarea placeholder='Ուղարկել հաղորդագրություն․․․' name='message'></textarea>
+                                                <form onSubmit={this.Send} ref={el => this.form = el}>
+                                                    <textarea placeholder='Ուղարկել հաղորդագրություն․․․' name='message' ref={el => this.textareaRef = el} onKeyDown={this.onEnterPress}></textarea>
                                                     <input type="hidden" name='get_id' value={this.state.data.score_id}/>
                                                     <input type="hidden" name='send_id' value={this.props.score.score.id}/>
                                                     <input type="hidden" name='state' value='scores'/>

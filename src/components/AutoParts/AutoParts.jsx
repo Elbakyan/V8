@@ -46,7 +46,6 @@ class AutoParts extends Component{
                         <select
                             ref = {el => this.select = el}
                             onChange={this.getCategory}
-
                         >
                             {
                                 maser.map((el,i)=>{

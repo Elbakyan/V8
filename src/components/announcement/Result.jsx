@@ -17,6 +17,9 @@ class Result extends Component {
             favorite: ''
         }
     }
+    componentDidMount() {
+        this.props.dispatch(GetFavorite())
+    }
 
     GetAuto = (e) => {
         this.props.dispatch(GetSellByID(e.target.dataset.id))

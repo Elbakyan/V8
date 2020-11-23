@@ -230,7 +230,10 @@ class UserCars extends Component {
 
                                         <div className="sell_cars">
                                             <div className="number_cars">
-                                                <span>{number}</span>
+                                                {
+                                                    number?<span>{number}</span>:<span>XX VV XXX</span>
+                                                }
+
                                             </div>
                                             {
                                                 state == 0?
