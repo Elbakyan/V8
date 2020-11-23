@@ -18,6 +18,7 @@ import {GetSell, GetSellByID} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
 import Pagination from "react-js-pagination";
 import {TEST_POST} from "../config/Requsest";
+import Menu from '../Menu/Menu'
 
 class Announcement extends Component {
     constructor(props) {
@@ -81,7 +82,7 @@ class Announcement extends Component {
                     this.props.score.score.status?<Header3/>:
                                             <Header1/>
                 }
-
+                <Menu />
                 <div className="content">
                     <div>
 
@@ -158,7 +159,6 @@ class Announcement extends Component {
                                 </label>
                                 <label >
                                     <DefaultSelect
-
                                         name='traction'
                                         data={this.props.auto.traction}
                                     />
@@ -181,7 +181,6 @@ class Announcement extends Component {
                             <div >
                                 <label style={{width: '100%'}}>
                                     <DefaultSelect
-
                                         name='sort'
                                         data={this.props.auto.sort}
                                     />
@@ -192,7 +191,6 @@ class Announcement extends Component {
                                     type='submit'
                                     name='Որոնել'
                                     background='#5b716d'
-
                                 />
                             </div>
                         </form>
@@ -209,12 +207,14 @@ class Announcement extends Component {
                                 <Result/>
                             </div>
                         </Route>
+
                         {
                             this.props.sell.OneAuto?
                                 <Route exact path={'/announcement/' + this.props.sell.OneAuto.id}>
                                     <Auto/>
                                 </Route>:''
                         }
+
                     </div>
                 </div>
                 <Footer/>

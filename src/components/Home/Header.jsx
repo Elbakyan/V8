@@ -10,7 +10,6 @@ import Search from "../Search/Search";
 
 class Header extends React.Component{
     render() {
-
         return (
             <header>
                 <div className="container row align-center justify-between">

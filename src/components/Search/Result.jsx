@@ -3,9 +3,13 @@ import './Search.scss'
 import Api from "../config/Api";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
-import Header from "../Score/Header";
+import Header1 from "../Home/Header";
+import Header2 from "../User/Header";
+import Header3 from "../Score/Header";
+
 import Footer from "../Footer/Footer";
 import {connect} from "react-redux";
+import Menu from '../Menu/Menu'
 import {
     GetSearchMarkModelLink,
     SearchMarkModel,
@@ -21,6 +25,7 @@ import ScoreList from "./ScoreList";
 import {Link} from "react-router-dom";
 import StoreInfo from "../StoreInfo/StoreInfo";
 import ScoreListGlobal from "./ScoreListGlobal";
+
 
 class Result extends Component {
     constructor(props) {
@@ -57,7 +62,12 @@ class Result extends Component {
 
         return (
             <Fragment>
-                <Header />
+                {
+                    this.props.user.status? <Header2/>:
+                        this.props.score.score.status?<Header3/>:
+                            <Header1/>
+                }
+                <Menu />
                 <Route exact path={'/search/result/detal/' + window.location.pathname.split('/')[window.location.pathname.split('/').length -1]}>
                     <DetaleLists />
                 </Route>
@@ -79,8 +89,8 @@ class Result extends Component {
 
                             <tbody>
                             {
-                                this.props.result?
-                                    this.props.result.map((res, i) => {
+                                this.props.search.result?
+                                    this.props.search.result.map((res, i) => {
                                         return (
                                             <tr data-id={res.ID} data-article={res.DataSupplierArticleNumber} key={i} onClick={this.SearchAll}>
                                                 <td data-id={res.ID} data-article={res.DataSupplierArticleNumber}>{res.ManufacturerDescription}</td>
@@ -115,6 +125,6 @@ class Result extends Component {
     }
 }
 
-const MapStateToProps = state => state.search;
+const MapStateToProps = state => state;
 const MainResult = connect(MapStateToProps)(Result);
 export default MainResult;

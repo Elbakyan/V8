@@ -55,7 +55,6 @@ class Auto extends Component {
     }
 
     render() {
-
         let img;
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)

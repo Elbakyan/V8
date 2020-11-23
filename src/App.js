@@ -18,6 +18,7 @@ import Api from "./components/config/Api";
 import {GET} from "./components/config/Requsest";
 import Soon from "./components/Soon/Soon";
 import {GetUserFavorite} from "./redux/favorite/action";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 class App extends Component {
 
@@ -67,6 +68,9 @@ class App extends Component {
                   </Route>
                   <Route path='/soon'>
                       <Soon/>
+                  </Route>
+                  <Route >
+                      <PageNotFound/>
                   </Route>
               </Switch>
               {this.props.user.status  === undefined? <div className="main__load">  <Loading type="spinningBubbles" size={500} color="#101423"/><Loading /> </div> : ''}
