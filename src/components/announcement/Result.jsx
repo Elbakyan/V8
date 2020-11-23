@@ -44,7 +44,6 @@ class Result extends Component {
             <div className="result">
                 {
                     this.props.sell.data.data.map((auto,i) => {
-
                         let res = false;
                         this.props.favorite.favorite.map((e)=> {
                           if (e == auto.id){
