@@ -12,10 +12,7 @@ import SpaerParts from "./components/spare/SpareParts";
 import {ScoreExist} from "./redux/score/action";
 import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
-import {GetMessage} from "./redux/message/action";
 import Result from "./components/Search/Result";
-import Api from "./components/config/Api";
-import {GET} from "./components/config/Requsest";
 import Soon from "./components/Soon/Soon";
 import {GetUserFavorite} from "./redux/favorite/action";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
@@ -47,6 +44,7 @@ class App extends Component {
     render() {
       return (
           <div className="App">
+
               <Switch>
                   <Route exact path='/'>
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>

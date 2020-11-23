@@ -87,9 +87,7 @@ class StoreInfo extends Component{
             fromHourse = +from.split(':')[0],
             fromMinute = +from.split(':')[1],
             fromTime = (fromHourse * 60) + fromMinute;
-        console.log('time',time)
-        console.log('toTime',toTime)
-        console.log('fromTime',fromTime)
+
         if (toHourse < fromHourse){
             // if (hourse >= toHourse && minute >= toMinute && hourse <= fromHourse && minute  <= fromMinute){
             //     console.log(fromMinute)
@@ -128,7 +126,7 @@ class StoreInfo extends Component{
 
     }
     render() {
-        console.log(this.state.data)
+
         return(
             <div className="container">
                 {

@@ -9,6 +9,7 @@ import {connect} from "react-redux";
 import {GetCity} from "../../../redux/location/action";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
+import Art from "../../Alert";
 
 class Signin extends React.Component{
     constructor(props) {
@@ -37,29 +38,41 @@ class Signin extends React.Component{
         let data = new FormData(e.target)
 
        POST(Url.registration,data).then(res => {
-            this.setState({
-                status: res.status,
-                message:res.message
-            })
-           setTimeout(() => {
                this.setState({
-                   redirect: res.status
+                   status: res.status,
+                   message:res.message,
+                   mes: true
                })
-           },1000)
-
+               setTimeout(() => {
+                   this.setState({
+                       mes: false,
+                       redirect: res.status
+                   })
+                   setTimeout(() => {
+                       this.setState({
+                           redirect: false
+                       })
+                   },1000)
+               },2000)
         })
     }
     render() {
-        console.log(this.state)
         return (
             <div className="Signin">
+
                 {
                     this.state.redirect ? <Redirect to='/user/login'/> : ''
                 }
 
                 <Header/>
                 <div className="container row align-center justify-center">
-
+                    {
+                        this.state.mes?
+                            this.state.status?
+                                <Art  type='success' content={this.state.message}/>:
+                                <Art  type='warning' content={this.state.message}/>
+                                :''
+                    }
                     <div className="Signin__content col align-center justify-center">
 
                         <form className="col align-center justify-center" onSubmit={this.Signin.bind(this)}>
