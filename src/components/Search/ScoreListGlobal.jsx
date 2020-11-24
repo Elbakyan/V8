@@ -20,6 +20,9 @@ class ScoreListGlobal extends Component{
             this.props.dispatch(SearchMarkModel(data))
     }
 
+    // componentWillUnmount() {
+    //     this.props.dispatch(SearchMarkModel(null))
+    // }
 
     render() {
         console.log()
@@ -38,6 +41,7 @@ class ScoreListGlobal extends Component{
                             </ul>
                         </div>
                         <div className='score_list_info__body table_style_body'>
+
                             {
                                 this.props.MarkModelResult.status?'':
                                     <div className="message">
@@ -52,7 +56,7 @@ class ScoreListGlobal extends Component{
                                     let store = this.props.MarkModelResult.score[i];
                                     if (store !== undefined){
                                         return (
-                                            <ul>
+                                            <ul key={i}>
                                                 <li>{mark.mark}</li>
                                                 <li>
                                                     {+mark.new?
@@ -76,7 +80,7 @@ class ScoreListGlobal extends Component{
                                                 >{store.name}</Link></li>
                                                 <li>
                                                     {
-                                                        store.phone.map(p => {
+                                                        store.phone.map((p,i) => {
                                                             if (p){
                                                                 let tmp = p.split('');
                                                                 let [p1,p2,p3,p4] = [
@@ -86,7 +90,7 @@ class ScoreListGlobal extends Component{
                                                                 ];
 
                                                                 let phone = '(+374) ' + p1 + ' ' + p2 + '-' + p3;
-                                                                return  <p>{phone}</p>
+                                                                return  <p key={i}>{phone}</p>
                                                             }else {
                                                                 return ''
                                                             }

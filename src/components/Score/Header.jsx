@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
-import {Url} from "../config/Url";
+import SITE_NAME, {Url} from "../config/Url";
 import Search from "../Search/Search";
 import PersionalDataScore from "./Profile/PersionalDataScore";
 
@@ -19,7 +19,7 @@ class Header extends React.Component{
                 <div className="container row justify-between align-center">
                     <div className="header__logo">
                         <Link to="/score/account">
-                            <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
+                            <img src={SITE_NAME + "/Server/img/logo_1.svg"} alt=""/>
                         </Link>
                     </div>
                     <Search />

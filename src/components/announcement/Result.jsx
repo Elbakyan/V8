@@ -19,6 +19,7 @@ class Result extends Component {
     }
     componentDidMount() {
         this.props.dispatch(GetFavorite())
+        this.props.dispatch(GetUserFavorite())
     }
 
     GetAuto = (e) => {

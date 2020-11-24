@@ -180,15 +180,19 @@ class Menu extends Component {
                     overley.style.display = 'none'
                 }
             }
+        }else{
+            this.autoParts.style.display = 'none';
+            overley.style.display = 'none'
         }
+
     }
     GetCarStore = (e) => {
         let data = new FormData();
         data.append('id', e.target.dataset.id)
         data.append('type', e.target.dataset.type)
         this.props.dispatch(SearchMarkModel(data))
-        this.props.dispatch(GetSearchMarkModelLink(e.target.dataset.id))
-        this.props.dispatch(GetSearchMarkModelLink(`${e.target.dataset.type}/${e.target.dataset.id}`))
+        // this.props.dispatch(GetSearchMarkModelLink(e.target.dataset.id))
+        this.props.dispatch(GetSearchMarkModelLink(e.target.dataset.type + '/' + e.target.dataset.id))
 
         this.setState({
             redirect: true,
@@ -199,6 +203,10 @@ class Menu extends Component {
                 redirect: false
             })
         },500)
+    }
+    componentWillUnmount() {
+        console.log('5')
+        this.props.dispatch(GetSearchMarkModelLink('/'))
     }
 
     render() {
@@ -242,6 +250,7 @@ class Menu extends Component {
                                                         return (
                                                             <li key={i} data-mark={mark.name} data-id={mark.id} data-type='car' onClick={this.GetCarStore}>
                                                                 {mark.name}
+
                                                             </li>
                                                         )
                                                     }
