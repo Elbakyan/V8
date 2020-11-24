@@ -272,8 +272,8 @@ class ScoreList extends React.Component{
                                     <div className='tmp__img' >
                                         {
                                             !this.props.tmp.tmpImg.status?<div className="add_loading"> <Loading type='bars' color='#143645' size={50}/> </div>:
-                                                this.props.tmp.tmpImg.data.map(img => {
-                                                    return <img key={img.url} src={img.url}/>
+                                                this.props.tmp.tmpImg.data.map((img,i) => {
+                                                    return <img key={i} src={img.url}/>
                                                 })
                                         }
                                     </div>

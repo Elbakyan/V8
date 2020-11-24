@@ -110,7 +110,6 @@ class Result extends Component {
                     </div>
                     <div className="container">
                         <ScoreList />
-
                     </div>
                 </Route>
                 <Route path={'/search/result/store/' + this.props.search.id}>

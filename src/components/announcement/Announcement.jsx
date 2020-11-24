@@ -39,7 +39,9 @@ class Announcement extends Component {
             this.props.dispatch(GetSellByID(id))
         }
     }
+    componentWillUnmount() {
 
+    }
 
     Count = () =>{
         let arr = [];
@@ -73,6 +75,7 @@ class Announcement extends Component {
         this.props.dispatch(GetSell(pageNumber))
 
     }
+
 
     render() {
         return (

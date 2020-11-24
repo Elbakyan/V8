@@ -91,6 +91,7 @@ export function SearchMarkModel(data) {
     }
 }
 export function GetSearchMarkModelLink(link){
+
     return (dispatch) => {
         dispatch({
             type: GET_SEARCH_MARK_MODEL_LINK,

@@ -33,7 +33,7 @@ class ScoreList extends Component{
                                     let store = this.props.scoreList.store[i];
                                     if (store !== undefined){
                                         return (
-                                            <ul>
+                                            <ul key={i}>
                                                 <li>{detal.code}</li>
                                                 <li>{detal.name}</li>
                                                 <li>{detal.price + 'Դր․'}</li>
@@ -47,7 +47,7 @@ class ScoreList extends Component{
                                                 >{store.name}</Link></li>
                                                 <li>
                                                     {
-                                                        store.phone.map(p => {
+                                                        store.phone.map((p,i) => {
                                                             if (p){
                                                                 let tmp = p.split('');
                                                                 let [p1,p2,p3,p4] = [
@@ -58,7 +58,7 @@ class ScoreList extends Component{
                                                                 ];
 
                                                                 let phone = '(+' + p1 + ') ' + p2 + '-' + p3 + '-' + p4;
-                                                                return  <p>{phone}</p>
+                                                                return  <p key={i}>{phone}</p>
                                                             }else {
                                                                 return ''
                                                             }

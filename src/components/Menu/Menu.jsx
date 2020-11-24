@@ -17,134 +17,6 @@ class Menu extends Component {
         }
     }
     componentDidMount() {
-       if (this.props.mark){
-           let mark =  this.props.mark.filter(res => {
-               switch (res.name) {
-                   case 'Audi' :
-                       return res;
-                   case 'BMW' :
-                       return res;
-                   case 'Ford' :
-                       return res;
-                   case 'Honda' :
-                       return res;
-                   case 'Hyundai' :
-                       return res;
-                   case 'Mazda' :
-                       return res;
-                   case 'Mercedes-Benz' :
-                       return res;
-                   case 'Mitsubishi' :
-                       return res;
-                   case 'Nissan' :
-                       return res;
-                   case 'Opel' :
-                       return res;
-                   case 'Toyota' :
-                       return res;
-                   case 'Volkswagen':
-                       return res;
-                   case 'Acura' :
-                       return res;
-                   case 'Bentley' :
-                       return res;
-                   case 'Cadillac' :
-                       return res;
-                   case 'Chevrolet' :
-                       return res;
-                   case 'Chrysler' :
-                       return res;
-                   case 'Citroen' :
-                       return res;
-                   case 'Chery' :
-                       return res;
-                   case 'Daewoo' :
-                       return res;
-                   case 'Dodge' :
-                       return res;
-                   case 'Fiat' :
-                       return res;
-                   case 'Infiniti' :
-                       return res;
-                   case 'Isuzu' :
-                       return res;
-                   case 'Jaguar' :
-                       return res;
-                   case 'Jeep' :
-                       return res;
-                   case 'Kia' :
-                       return res;
-                   case 'Land Rover' :
-                       return res;
-                   case 'Lexus' :
-                       return res;
-                   case 'Mini' :
-                       return res;
-                   case 'Peugeot' :
-                       return res;
-                   case 'Porsche' :
-                       return res;
-                   case 'Renault' :
-                       return res;
-                   case 'Samand' :
-                       return res;
-                   case 'Skoda' :
-                       return res;
-                   case 'Subaru' :
-                       return res;
-                   case 'Suzuki' :
-                       return res;
-                   case 'Volvo' :
-                       return res;
-                   case 'ВАЗ LADA' :
-                       return res;
-                   case 'ГАЗ Волга' :
-                       return res;
-                   case 'УАЗ' :
-                       return res;
-               }
-           })
-           let truck = this.props.mark.filter(res => {
-               switch (res.name) {
-                   case 'DAF' :
-                       return res;
-                   case 'HOWO' :
-                       return res;
-                   case 'Iveco' :
-                       return res;
-                   case 'MAN' :
-                       return res;
-                   case 'Mercedes-Benz' :
-                       return res;
-                   case 'Renault' :
-                       return res;
-                   case 'Scania' :
-                       return res;
-                   case 'Volvo' :
-                       return res;
-                   case 'ГАЗ' :
-                       return res;
-                   case 'ЗИЛ' :
-                       return res;
-                   case 'КамАЗ' :
-                       return res;
-                   case 'КрАЗ' :
-                       return res;
-                   case 'МАЗ' :
-                       return res;
-                   case 'УАЗ' :
-                       return res;
-               }
-
-           })
-
-           this.setState({
-               mark:mark,
-               truck: truck
-           })
-
-
-       }
 
     }
 
@@ -180,19 +52,18 @@ class Menu extends Component {
                     overley.style.display = 'none'
                 }
             }
+        }else{
+            this.autoParts.style.display = 'none';
+            overley.style.display = 'none'
         }
+
     }
     GetCarStore = (e) => {
         let data = new FormData();
         data.append('id', e.target.dataset.id)
         data.append('type', e.target.dataset.type)
         this.props.dispatch(SearchMarkModel(data))
-        this.props.dispatch(GetSearchMarkModelLink(e.target.dataset.id))
-        this.props.dispatch(GetSearchMarkModelLink(`${e.target.dataset.type}/${e.target.dataset.id}`))
-
-        this.setState({
-            redirect: true,
-        })
+        this.props.dispatch(GetSearchMarkModelLink(e.target.dataset.type + '/' + e.target.dataset.id))
         setTimeout(() => {
             this.props.dispatch(GetSearchMarkModelLink(''))
             this.setState({
@@ -200,6 +71,7 @@ class Menu extends Component {
             })
         },500)
     }
+
 
     render() {
         return (
@@ -242,6 +114,7 @@ class Menu extends Component {
                                                         return (
                                                             <li key={i} data-mark={mark.name} data-id={mark.id} data-type='car' onClick={this.GetCarStore}>
                                                                 {mark.name}
+
                                                             </li>
                                                         )
                                                     }
