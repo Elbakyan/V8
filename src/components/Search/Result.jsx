@@ -67,7 +67,7 @@ class Result extends Component {
                         this.props.score.score.status?<Header3/>:
                             <Header1/>
                 }
-                <Menu />
+                {/*<Menu />*/}
                 <Route exact path={'/search/result/detal/' + window.location.pathname.split('/')[window.location.pathname.split('/').length -1]}>
                     <DetaleLists />
                 </Route>

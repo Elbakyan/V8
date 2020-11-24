@@ -6,7 +6,7 @@ import User from "./components/User/User";
 import {connect} from "react-redux";
 import {UserExist} from "./redux/user/action";
 import {GetSicle} from "./redux/location/action";
-import {GetMark, GetTruck, GetTruckModel, GetTruckModels} from "./redux/auto/action";
+import {GetMark, GetTruck, GetTruckModels} from "./redux/auto/action";
 import Score from "./components/Score/Score";
 import SpaerParts from "./components/spare/SpareParts";
 import {ScoreExist} from "./redux/score/action";
@@ -14,10 +14,8 @@ import Announcement from "./components/announcement/Announcement";
 import Loading from "./components/Loading";
 import Result from "./components/Search/Result";
 import Soon from "./components/Soon/Soon";
-import {GetUserFavorite} from "./redux/favorite/action";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 
-import Api from "./components/config/Api"
 
 class App extends Component {
 

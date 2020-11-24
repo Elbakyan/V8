@@ -17,7 +17,6 @@ class Menu extends Component {
         }
     }
     componentDidMount() {
-
     }
 
 
@@ -64,16 +63,20 @@ class Menu extends Component {
         data.append('type', e.target.dataset.type)
         this.props.dispatch(SearchMarkModel(data))
         this.props.dispatch(GetSearchMarkModelLink(e.target.dataset.type + '/' + e.target.dataset.id))
-        setTimeout(() => {
-            this.props.dispatch(GetSearchMarkModelLink(''))
+        this.setState({
+            redirect: true,
+        })
+    }
+    componentWillUnmount() {
+        this.props.dispatch(GetSearchMarkModelLink(''))
             this.setState({
                 redirect: false
             })
-        },500)
     }
 
 
     render() {
+
         return (
             <div className="header_menu">
                 {

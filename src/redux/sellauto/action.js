@@ -10,7 +10,6 @@ export function GetSell(limit = 1,data = null) {
         body.append('limit', limit)
 
         POST(Url.getsell,body).then(data=> {
-            // console.log(data)
             dispach({
                 type: GET_SELL,
                 payload: data
