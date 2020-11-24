@@ -7,7 +7,7 @@ import {Link,Route, Switch} from "react-router-dom";
 
 import ScoreList from "../ScoreList/ScoreList";
 
-import {GetScoreList, GetScoreListId} from "../../../redux/score/action";
+import {GetScoreList} from "../../../redux/score/action";
 
 import AutoParts from "../../AutoParts/AutoParts";
 

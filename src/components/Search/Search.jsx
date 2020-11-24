@@ -38,11 +38,6 @@ class Search extends Component {
             this.setState({
                 redirect: true
             })
-            setTimeout(() => {
-                this.setState({
-                    redirect: false
-                })
-            },2000)
         })
         POST(Url.searchscore,data).then(res => {
             if (res.status){
@@ -50,6 +45,11 @@ class Search extends Component {
             }
         })
 
+    }
+    componentWillUnmount() {
+        this.setState({
+            redirect: false
+        })
     }
 
     render(){
