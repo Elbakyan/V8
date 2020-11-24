@@ -20,7 +20,6 @@ class ScoreList extends Component{
                             <ul>
                                 <li>Պահեստամասի համարը</li>
                                 <li>Պահեստամասի անվանումը</li>
-                                <li></li>
                                 <li>Արժեքը</li>
                                 <li>Ընկերությունը</li>
                                 <li>Հեռախոսահամրը</li>
