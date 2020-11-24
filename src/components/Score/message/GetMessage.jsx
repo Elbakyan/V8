@@ -43,9 +43,7 @@ class GetMessageClass extends Component{
     scroll = () => {
         this.scrollRef.current.scrollTop = this.scrollRef.current.scrollHeight;
         if(this.state.cou != 2){
-            console.log(this.state.cou)
             setTimeout(()=>{
-
                 this.setState({
                     cou:++this.state.cou
                 })
@@ -56,19 +54,14 @@ class GetMessageClass extends Component{
                 cou:0
             })
         }
-
-
     }
 
     Message = (e) => {
         e.preventDefault();
         this.props.dispatch(GetStatus(this.props.message.dialog))
         let data = new FormData(e.target);
-        console.log(Array.from(data))
         if (this.textareaRef.value.trim().length > 0){
-
             this.props.dispatch(SendMessage(data))
-
         }
         this.textareaRef.value = '';
         this.scroll()
@@ -90,7 +83,6 @@ class GetMessageClass extends Component{
 
 
     render() {
-        console.log(this.props)
         let meso = document.querySelectorAll('.meso')
         meso.forEach(elem => {
             elem.innerHTML = elem.innerText

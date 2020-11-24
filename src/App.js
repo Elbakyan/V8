@@ -17,6 +17,8 @@ import Soon from "./components/Soon/Soon";
 import {GetUserFavorite} from "./redux/favorite/action";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 
+import Api from "./components/config/Api"
+
 class App extends Component {
 
     constructor(props) {

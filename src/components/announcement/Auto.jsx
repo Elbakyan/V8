@@ -56,11 +56,13 @@ class Auto extends Component {
 
     render() {
         let img;
+
         if (this.props.sell.OneAuto.img != undefined){
             img  = JSON.parse(this.props.sell.OneAuto.img)
         }
         let auto = this.props.sell.OneAuto;
-        console.log(auto)
+        let phone = auto.phone.split('')
+
         return (
 
             <div className="Auto">
@@ -103,7 +105,7 @@ class Auto extends Component {
                                     </tr>
                                     <tr>
                                         <td>Հեռախոսահամար</td>
-                                        <td>{auto.phone}</td>
+                                        <td>{`(+374) ${phone.splice(0,2).join('')}  ${phone.splice(0,3).join('')}-${phone.splice(0,3).join('')}`}</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -112,7 +114,7 @@ class Auto extends Component {
                                     </tr>
                                     <tr>
                                         <td>Շարժիչը</td>
-                                        <td>{auto.engine}</td>
+                                        <td>{auto.engine} Լ</td>
                                     </tr>
                                     <tr>
                                         <td>Ձիաուժը</td>

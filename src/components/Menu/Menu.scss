@@ -19,7 +19,8 @@
   }
   nav{
     width: 100%;
-    z-index: 2;
+
+
     li{
       padding: 3px 5px;
       //border-left: 1px solid white;
@@ -54,7 +55,7 @@
           animation-duration: 2s;
           overflow: hidden;
           position: absolute;
-          z-index: 5;
+          z-index: 1001;
           background: #fff8f8;
           top: 27px;
           @keyframes auto_parts_block {
