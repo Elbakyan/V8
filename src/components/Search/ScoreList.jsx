@@ -11,10 +11,8 @@ class ScoreList extends Component{
         }
     }
     render() {
-        console.log(this.props.scoreList.store)
         return(
             <div className="score_list">
-
                     <nav className='score_list_info'>
                         <div className='score_list_info__header table_style_header'>
                             <ul>

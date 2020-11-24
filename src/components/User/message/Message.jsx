@@ -7,7 +7,7 @@ import GetMessageClass from "./GetMessage";
 import {Redirect, Route, Switch} from "react-router-dom";
 import { GetId, GetMessage} from "../../../redux/message/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faEnvelopeSquare, faMapMarkerAlt, faRedoAlt} from "@fortawesome/free-solid-svg-icons";
+import {faRedoAlt} from "@fortawesome/free-solid-svg-icons";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 
@@ -105,7 +105,7 @@ class Message extends Component {
 
                                     if(data && JSON.parse(this.props.message.data.message.user[i].delite)[0] !== this.props.id){
 
-                                        let active = this.props.message.data.message.user? window.location.href.split('/')[6] == this.props.message.data.message.user[i].dialog_id: ''
+                                        let active = this.props.message.data.message.user? window.location.href.split('/')[6] === this.props.message.data.message.user[i].dialog_id: ''
 
                                             return (
                                                 <Respondent
@@ -137,7 +137,7 @@ class Message extends Component {
 
                 
                                     if (data && JSON.parse(this.props.message.data.message.score[i].delite)[0] !== this.props.id){
-                                        let active = window.location.href.split('/')[6] == this.props.message.data.message.score[i].dialog_id
+                                        let active = window.location.href.split('/')[6] === this.props.message.data.message.score[i].dialog_id
 
                                             console.log(this.props.message.data.message.score)
                                             return (
@@ -187,7 +187,7 @@ class Message extends Component {
                                         data.delite[0] === this.props.id ?'':
                                             <Switch key={i}>
                                                 <Route exact path={'/user/account/persional/'+data.dialog_id}>
-                                                    <GetMessageClass one_message={data.message} getId={data.send_id != this.props.user.id?data.send_id:data.get_id}/>
+                                                    <GetMessageClass one_message={data.message} getId={data.send_id !== this.props.user.id?data.send_id:data.get_id}/>
                                                 </Route>
                                             </Switch>
                                     )
