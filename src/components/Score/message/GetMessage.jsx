@@ -33,9 +33,6 @@ class GetMessageClass extends Component{
                 this.props.dispatch(GetId(res.get_id))
             }
         })
-        setTimeout(()=>{
-            console.log('score',this.props.score.scoreList)
-        },1000)
         this.scroll()
 
     }

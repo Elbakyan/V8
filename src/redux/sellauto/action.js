@@ -7,8 +7,7 @@ export function GetSell(limit = 1,data = null) {
     return async (dispach) => {
         let body;
         data != null ? body = new FormData(data) :body = new FormData()
-        body.append('limit', limit)
-
+        body.append('limit', limit - 1)
         POST(Url.getsell,body).then(data=> {
             dispach({
                 type: GET_SELL,
@@ -24,7 +23,6 @@ export function GetSellByID(id) {
         let data = new FormData();
         data.append('id', id)
         POST(Url.getsellautobyid,data).then(res=> {
-
             dispach({
                 type: GET_SELL_BY_ID,
                 payload: res
