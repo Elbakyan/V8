@@ -4,8 +4,11 @@ import {faCheckCircle, faDollarSign, faCaretSquareDown, faTimesCircle} from '@fo
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import SliderAuto from "../SliderAuto/SliderAuto";
-import {GetDialogId, GetId, GetMessage, SendMessage} from "../../redux/message/action";
+import {GetMessage, SendMessage} from "../../redux/message/action";
 import Art from "../Alert";
+import {POST} from "../config/Requsest";
+import {Url} from "../config/Url";
+import {GetSell} from "../../redux/sellauto/action";
 
 
 
@@ -17,6 +20,18 @@ class Auto extends Component {
         }
     }
 
+    componentDidMount() {
+        let data = new FormData();
+        data.append('id', +this.props.sell.OneAuto.id);
+        data.append('watch', +this.props.sell.OneAuto.watch + 1);
+        data.append('watch_id', +this.props.user.id || this.props.score.score.id);
+        POST(Url.watckcount,data).then(res => {
+            if (res.status){
+                this.props.dispatch(GetSell())
+            }
+        })
+        console.log()
+    }
 
     SendMessage = (e) => {
         e.preventDefault()

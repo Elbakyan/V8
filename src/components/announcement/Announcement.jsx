@@ -19,6 +19,7 @@ import {GetFavorite} from "../../redux/favorite/action";
 import Pagination from "react-js-pagination";
 import {TEST_POST} from "../config/Requsest";
 import Menu from '../Menu/Menu'
+import {Url} from "../config/Url";
 
 class Announcement extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class Announcement extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(GetSell(1))
+        this.props.dispatch(GetSell())
         if(this.props.brjo){
             this.props.dispatch(GetFavorite())
         }
@@ -38,6 +39,7 @@ class Announcement extends Component {
         if (id !== NaN){
             this.props.dispatch(GetSellByID(id))
         }
+
     }
     componentWillUnmount() {
 

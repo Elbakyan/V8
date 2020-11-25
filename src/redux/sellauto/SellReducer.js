@@ -5,7 +5,7 @@ import {GET_SELL, GET_SELL_BY_ID} from "./action";
 const initalState = {
 
     data: {
-        data: []
+        status: false
     },
     OneAuto:[]
 }
