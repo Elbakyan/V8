@@ -30,7 +30,7 @@ class Respondent extends Component {
 
                     </div>
                 </div>
-                <div className="respondent_user_clear" onClick={this.clear} data-id={this.props.data?this.props.data.id: ''}>
+                <div className="respondent_user_clear" onClick={this.props.Clear} data-id={this.props.data?this.props.data.id: ''}>
                     <div className="click"></div>
                     <span ><FontAwesomeIcon icon={faTrashAlt} /></span>
                 </div>

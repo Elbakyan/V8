@@ -40,7 +40,53 @@ body{
   justify-content: center;
   align-items: center;
 }
+.pos_fix{
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  & span{
+    font-size: 30px;
+  }
+  &__facebook{
+    //border: 1px solid red;
+    //display: flex;
+    //justify-content: center;
+    cursor: pointer;
+    width: 50px;
+    height: 60px;
+    //box-shadow: 1px 1px 1px red;
+    clip-path: polygon(100% 0, 100% 38%, 100% 100%, 18% 100%, 18% 41%);    position: relative;
+    background:$main-color;
+    margin-bottom: 1px;
+    & > a {
+      position: absolute;
 
+      top: 23px;
+      left: 18px;
+      color: white;
+    }
+  }
+  &__instagram{
+    //border: 1px solid red;
+
+    position: relative;
+    width: 50px;
+    height: 60px;
+    clip-path: polygon(100% 0, 100% 38%, 100% 100%, 18% 100%, 18% 41%);    position: relative;
+    transform: rotateX(180deg);
+    background: $main-color;
+    & >  a{
+      transform: rotateX(180deg);
+      position: absolute;
+      top: 23px;
+      left: 18px;
+      color: white;
+    }
+  }
+}
 .burger{
   width: 30px;
   height: 30px;

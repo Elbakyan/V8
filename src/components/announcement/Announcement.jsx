@@ -45,6 +45,7 @@ class Announcement extends Component {
 
     Count = () =>{
         let arr = [];
+
         if(this.props.sell.data.count !== undefined){
             if (this.props.sell.data.count % 15 === 0){
                 for (let i = 1; i <= (this.props.sell.data.count / 15); i++){
@@ -57,7 +58,6 @@ class Announcement extends Component {
                 }
 
             }
-
         }
         return arr
     }
@@ -66,14 +66,12 @@ class Announcement extends Component {
         this.props.sell.OneAuto = [];
         e.preventDefault();
         this.props.dispatch(GetSell(this.state.id,e.target))
-
     }
     handlePageChange(pageNumber) {
         this.setState({activePage: pageNumber});
         pageNumber === 1 ?pageNumber = pageNumber: pageNumber = (pageNumber - 1) * 15;
         console.log(this.props.sell.data);
         this.props.dispatch(GetSell(pageNumber))
-
     }
 
 

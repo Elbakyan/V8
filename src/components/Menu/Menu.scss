@@ -35,6 +35,8 @@
       >a{
         color: #2b2b2c;
         transition: .3s;
+        display: flex;
+
         &:hover{
           color: white;
           //background: white;

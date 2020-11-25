@@ -82,7 +82,6 @@ class Message extends Component {
                 this.props.dispatch(GetMessage(this.props.user.id))
             }
         })
-
     }
     render() {
         if(this.props.message.data.message.score){

@@ -3,14 +3,8 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
 
-
-
-
-
 class Header extends React.Component{
-
     render() {
-
         return (
             <header>
                 <div className="container row justify-between align-center">

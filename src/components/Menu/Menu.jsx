@@ -17,6 +17,7 @@ class Menu extends Component {
         }
     }
     componentDidMount() {
+
     }
 
 
@@ -53,6 +54,7 @@ class Menu extends Component {
             }
         }else{
             this.autoParts.style.display = 'none';
+            this.autoService.style.display = 'none';
             overley.style.display = 'none'
         }
 
@@ -123,7 +125,6 @@ class Menu extends Component {
                                                     }
 
                                                 })
-
                                             }
                                         </ul>
                                     </li>
@@ -143,6 +144,7 @@ class Menu extends Component {
                                         </ul>
                                     </li>
                                 </ul>
+
                                 </div>
                             </li>
                             <li className="auto_service" data-counter={2} onClick={this.open}>

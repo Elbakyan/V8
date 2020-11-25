@@ -12,7 +12,7 @@ import {
     GetMessageId,
     GetStatus
 } from "../../../redux/message/action";
-import {POST} from "../../config/Requsest";
+import {POST, TEST_GET} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faRedoAlt} from "@fortawesome/free-solid-svg-icons";
@@ -74,6 +74,17 @@ class Message extends Component {
         this.props.dispatch(GetDialogId(e.target.dataset.dialogId))
     }
 
+    Clear = (e)=>{
+        let data = new FormData();
+        data.append('send_id',this.props.message.messageId);
+        data.append('get_id',e.target.dataset.id);
+        POST(Url.deliteMessage,data).then(res => {
+            if (res.status) {
+                this.props.dispatch(GetMessage(this.props.message.messageId))
+            }
+        })
+    }
+
     openRespondent = ()=>{
         let block = document.querySelector('.respondent_user')
         let respondent = document.querySelector('.respondent')
@@ -111,6 +122,8 @@ class Message extends Component {
 
     render() {
         let myId =  this.props.message.messageId;
+        console.log(this.props.message)
+        console.log('id',this.props.message.messageId)
         return(
             <Fragment>
                 {
@@ -143,21 +156,25 @@ class Message extends Component {
                                 this.props.message.data.score?
                                     this.props.message.data.score.map((res,i) => {
                                         let active = this.props.message.data.message.score? window.location.href.split('/')[7] == this.props.message.data.message.score[i].dialog_id: ''
-                                        return(
-                                            <Respondent
-                                                Clear={this.Clear}
-                                                key={i}
-                                                id={'/score/account/message/' + this.props.message.messageId + '/' + this.props.message.data.message.score[i].dialog_id}
-                                                data={res}
-                                                active={active}
-                                                dialogId={this.props.message.data.message.score[i].dialog_id}
-                                                onClick={this.Message}
-                                                status={this.props.message.data.message.score[0].status}
-                                                time={this.props.message.data.message.score[0].time}
-                                                userId={this.props.message.id}
-                                                send={this.props.message.data.score[i].id}
-                                            />
-                                        )
+                                        console.log(JSON.parse(this.props.message.data.message.score[i].delite)[0] != this.props.message.messageId)
+                                        if(+JSON.parse(this.props.message.data.message.score[i].delite)[0] !== +this.props.message.messageId){
+                                            return(
+                                                <Respondent
+                                                    Clear={this.Clear}
+                                                    key={i}
+                                                    id={'/score/account/message/' + this.props.message.messageId + '/' + this.props.message.data.message.score[i].dialog_id}
+                                                    data={res}
+                                                    active={active}
+                                                    dialogId={this.props.message.data.message.score[i].dialog_id}
+                                                    onClick={this.Message}
+                                                    status={this.props.message.data.message.score[0].status}
+                                                    time={this.props.message.data.message.score[0].time}
+                                                    userId={this.props.message.id}
+                                                    send={this.props.message.data.score[i].id}
+                                                />
+                                            )
+                                        }
+
 
                                     })
                                     :''

@@ -15,6 +15,10 @@ import Loading from "./components/Loading";
 import Result from "./components/Search/Result";
 import Soon from "./components/Soon/Soon";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
+import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faFacebookSquare, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
+import {Link} from "react-router-dom";
 
 
 class App extends Component {
@@ -44,6 +48,22 @@ class App extends Component {
     render() {
       return (
           <div className="App">
+              <div className='pos_fix'>
+                  <div className='pos_fix__facebook'>
+                      <a href='https://www.facebook.com/www.V8.am'>
+                          <span>
+                            <FontAwesomeIcon icon={faFacebookSquare} />
+                          </span>
+                      </a>
+                  </div>
+                  <div className='pos_fix__instagram'>
+                      <a href='https://www.instagram.com/'>
+                          <span>
+                            <FontAwesomeIcon icon={faInstagramSquare} />
+                          </span>
+                      </a>
+                  </div>
+              </div>
               <Switch>
                   <Route exact path='/'>
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>

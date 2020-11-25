@@ -18,6 +18,7 @@ import {Url} from "../config/Url";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {GetMessage, SendMessage} from "../../redux/message/action";
 import Art from "../Alert";
+import Loading from "../Loading";
 
 
 
@@ -40,8 +41,8 @@ class StoreInfo extends Component{
                 data: res[0]
             })
         })
-
     }
+    
     Send = (e) => {
         e.preventDefault()
         let data = new FormData(e.target);
@@ -151,10 +152,10 @@ class StoreInfo extends Component{
                                         <li style={{fontWeight:'bold'}}>Հեռախոսահամար:</li>
                                         <ul>
                                             {
-                                                this.state.data.phone.map(p => {
+                                                this.state.data.phone.map((p,i) => {
                                                     if (p){
                                                         return (
-                                                            <li>{p}</li>
+                                                            <li key={i}>{p}</li>
                                                         )
                                                     }
                                                 })
@@ -267,7 +268,7 @@ class StoreInfo extends Component{
                             <div className="store__slider">
                                 <SliderAuto autoImage={this.state.data.img}/>
                             </div>
-                        </div>: ''
+                        </div>: <Loading type="spinningBubbles" size={500} color="#101423"/>
                 }
 
             </div>

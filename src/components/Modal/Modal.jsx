@@ -24,7 +24,6 @@ import './modal.scss'
     }
 
      render() {
-
         return (
             <div className='Modal'ref='modal'
                  style={
