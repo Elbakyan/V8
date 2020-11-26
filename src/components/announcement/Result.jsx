@@ -90,7 +90,8 @@ class Result extends Component {
                                             city={auto.city}
                                             // Auto={auto}
                                             dataImg={auto.img}
-                                            favorite={this.props.favorite} res={res}/>
+
+                                        />
                                     </Link>
                                 </div>
                             )

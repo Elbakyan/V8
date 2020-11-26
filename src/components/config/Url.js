@@ -47,6 +47,9 @@ export const Url = {
     truckID: SITE_NAME + '/Server/track_by_id',
     truckModels: SITE_NAME + '/Server/track_m',
     searchmarkmodel: SITE_NAME + '/Server/mmn_search',
-    watckcount: SITE_NAME + '/Server/watch-count'
+    watckcount: SITE_NAME + '/Server/watch-count',
+    getallauto: SITE_NAME + '/Server/auto-get',
+    getallproduct: SITE_NAME + '/Server/product-get',
+
 }
 export default SITE_NAME;
