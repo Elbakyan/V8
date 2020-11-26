@@ -27,7 +27,7 @@ class Header extends React.Component{
                     <Search />
                     {
                         this.props.user.status?
-                            <div className="user_info">
+                            <div className="persional__info">
                                 <PersonalData />
                             </div>: ''
 
