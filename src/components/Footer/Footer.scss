@@ -62,12 +62,13 @@ footer{
     .facebook{
       display: flex;
       align-items: center;
-      padding: 4px 16px;
+      padding: 4px 16px 0 16px;
     }
     .instagram{
       display: flex;
       align-items: center;
-      padding: 9px 13px;
+      //padding: 9px 13px;
+      padding: 9px 13px 8px 13px;
     }
 
   }

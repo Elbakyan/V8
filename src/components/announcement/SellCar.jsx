@@ -34,16 +34,20 @@ class SellCar extends  Component {
 
 
     render() {
-        let img = JSON.parse(this.props.Auto.img);
+        console.log(this.props)
+        let img = JSON.parse(this.props.dataImg);
         let navWidth = (100 / img.length) + '%' ;
         return (
-            <div className="getSellCar" data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
-                <div className="getSellCar_header" data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
 
-                    <div className="getSellCar_header_image" data-id={this.props.Auto.id} data-user={this.props.Auto.user_id} style={{backgroundImage:`url(${img[this.state.index]})`}}>
+            <div className="getSellCar" data-id={this.props.dataId} data-user={this.props.dataUser}>
+
+                <div className="getSellCar_header" data-id={this.props.dataId} data-user={this.props.dataUser}>
+
+
+                    <div className="getSellCar_header_image" data-id={this.props.dataId} data-user={this.props.dataUser} style={{backgroundImage:`url(${img[this.state.index]})`}}>
                     </div>
 
-                    <div className="getSellCar_header_check" data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
+                    <div className="getSellCar_header_check" data-id={this.props.dataId} data-user={this.props.dataUser}>
                         {
                             img.map((e,i)=>(
                                 img.length > 1?
@@ -54,29 +58,29 @@ class SellCar extends  Component {
                                     onMouseOver={this.show}
                                     data-src={i}
                                     style={{width:navWidth}}
-                                    data-id={this.props.Auto.id}
+                                    data-id={this.props.dataId}
                                 >
-                                    <span data-id={this.props.Auto.id} className='getSellCar_block'></span>
+                                    <span data-id={this.props.dataId} className='getSellCar_block'></span>
                                 </div>:''
                             ))
                         }
                     </div>
                 </div>
 
-                <div className="getSellCar_body" data-id={this.props.Auto.id} >
-                    <div className='getSellCar_body_block1' data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
-                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.model}</span>
+                <div className="getSellCar_body" data-id={this.props.dataId} >
+                    <div className='getSellCar_body_block1' data-id={this.props.dataId} data-user={this.props.dataUser}>
+                        <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.name}</span>
                     </div>
-                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
-                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.price} <FontAwesomeIcon icon={faDollarSign} /></span>
-                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.year}</span>
+                    <div className='getSellCar_body_block2' data-id={this.props.dataId} data-user={this.props.dataUser}>
+                        <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.price} <FontAwesomeIcon icon={faDollarSign} /></span>
+                        <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.year}</span>
                     </div>
-                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id } data-user={this.props.Auto.user_id}>
-                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.sircle}</span>
-                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.city}</span>
+                    <div className='getSellCar_body_block2' data-id={this.props.dataId} data-user={this.props.dataUser}>
+                        <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.sircle}</span>
+                        <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.city}</span>
                     </div>
-                    <div className='getSellCar_body_block2' data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>
-                        <span data-id={this.props.Auto.id} data-user={this.props.Auto.user_id}>{this.props.Auto.data.split(' ')[0]}</span>
+                    <div className='getSellCar_body_block3' data-id={this.props.dataId} data-user={this.props.dataUser}>
+                        <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.data.split(' ')[0]}</span>
                     </div>
                 </div>
 
@@ -86,6 +90,6 @@ class SellCar extends  Component {
 }
 
 
-const MapStateToProps = state => state;
-const MainSellCar = connect(MapStateToProps)(SellCar)
-export default MainSellCar;
+// const MapStateToProps = state => state;
+// const MainSellCar = connect(MapStateToProps)(SellCar)
+export default SellCar;
