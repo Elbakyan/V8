@@ -3,10 +3,7 @@ import './Search.scss'
 import Api from "../config/Api";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
-import Header1 from "../Home/Header";
-import Header2 from "../User/Header";
-import Header3 from "../Score/Header";
-
+import Header from "../Home/Header";
 import Footer from "../Footer/Footer";
 import {connect} from "react-redux";
 import Menu from '../Menu/Menu'
@@ -62,11 +59,7 @@ class Result extends Component {
 
         return (
             <Fragment>
-                {
-                    this.props.user.status? <Header2/>:
-                        this.props.score.score.status?<Header3/>:
-                            <Header1/>
-                }
+               <Header />
                 {/*<Menu />*/}
                 <Route exact path={'/search/result/detal/' + window.location.pathname.split('/')[window.location.pathname.split('/').length -1]}>
                     <DetaleLists />

@@ -48,6 +48,7 @@ header{
 
   .header__link{
     margin-left: 15px;
+    letter-spacing: 2px;
 
     &-message{
       font-size: 25px;
@@ -66,3 +67,118 @@ header{
     }
   }
 }
+.persional__info{
+  position: relative;
+  min-width: 250px;
+  margin-top: 9px;
+  height: 60px;
+  color: $white;
+  z-index: 1001;
+
+  .persional__data{
+    width:250px;
+    height: 50px;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    &:hover{
+      transition: 1s;
+      height: 200px;
+    }
+    //border: 1px solid red;
+
+    .persional__header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 0 10px;
+      @media (max-width: 420px) {
+        &{
+          padding: 0;
+          justify-content: flex-start;
+        }
+      }
+
+      .img{
+        width: 50px;
+        height: 50px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 2px solid white;
+        border-radius: 50%;
+        @media (max-width: 420px) {
+          &{
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+          }
+        }
+      }
+      .fullname{
+        >span{
+          margin: 0 2px;
+          @media (max-width: 420px) {
+            &{
+              font-size: 14px;
+            }
+          }
+        }
+
+      }
+    }
+
+    .persional__body{
+      background: white;
+      background: $main-color;
+      color: $white;
+
+      >nav{
+        width: 90%;
+        li{
+          display: flex;
+          >div:nth-child(1){
+            width:20px;
+            height: 20px;
+            font-size: 12px;
+            background: white;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 5px;
+            border-radius: 50%;
+          }
+          >div:nth-child(2){
+            width: 80%;
+          }
+
+          width: 90%;
+          margin: 10px 0;
+          font-size: 16px;
+          >span{
+            margin-left: 10px;
+          }
+        }
+      }
+
+
+      .persional__setings{
+        margin: 20px 0;
+        width: 100%;
+        display: flex;
+        color: white;
+        justify-content: flex-end;
+        padding-right: 50px;
+      }
+    }
+
+    .phone{
+      width: 100%;
+    }
+  }
+}
+

@@ -5,8 +5,7 @@ import Account from "./Account";
 import {connect} from "react-redux";
 import Loading from "../Loading";
 import Signin from "./Authentication/Signin";
-import {GetAuto} from "../../redux/auto/action";
-import {GetMessage} from "../../redux/message/action";
+
 
 
 class User extends React.Component{
