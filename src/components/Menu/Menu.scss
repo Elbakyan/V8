@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   border-bottom: 2px solid #666374;
-
+  padding: 0 25px;
   .open{
     display: none;
   }
@@ -48,9 +48,7 @@
     //height: 30px;
     //background: red;
     .menu{
-      .home_button{
-        margin-right: 30px;
-      }
+
 
       .menu_button{
         border: 2px solid #666374;
@@ -58,6 +56,7 @@
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
         //width: 138pfont-size: 17px;x;
         //height: 43px;
+        margin-right: 5px;
         background: #ffffff;
         padding: 10px 20px;
         color: #322C4A;
@@ -73,7 +72,9 @@
         }
 
       }
-
+      .home_button{
+        margin-right: 30px;
+      }
       width: 100%;
       display: flex;
       .auto_parts,{

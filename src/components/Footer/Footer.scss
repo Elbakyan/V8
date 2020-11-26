@@ -2,59 +2,73 @@
 @import "../../style/var.scss";
 
 footer{
-  height: 150px;
+  width: 100%;
+  height: 300px;
   background: $main-color;
-
-  .footer_container{
+  .Footer{
     display: flex;
-    align-items: center;
-    //justify-content: space-between;
-    >nav{
-      color: white;
-      width:20%;
-      a{
-        color: white;
-        &:hover{
-          color: rgb(126, 126, 126);
+    justify-content: space-between;
+    .Footer_nav{
+      padding: 25px 0 0 0;
+      &__about{
+
+        & > li {
+          //border: solid red;
+          padding: 10px 0;
+          font-size: 20px;
+          a{
+            color: white;
+            &:hover{
+              color: #918f8f;
+            }
+          }
         }
       }
-      @media (max-width: 768px){
-        width: 35%;
-      }
-      //text-align: left;
-      >h4{
-        font-size: 16px;
-        margin-bottom: 10px;
-      }//>h4
-      >ul{
+
+      .Designed_Elbakyan{
         display: flex;
-        &:hover{
-          color: rgb(126, 126, 126);
-        }//&:hover
-        >li:nth-child(1){
-          width: 10%;
-        }//li:nth-child(1)
+        flex-direction: column;
+        color: white;
+        font-size: 20px;
+        margin-top: 30px;
+        & > span{
+          padding: 5px 0;
+          sup{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .social_network{
+    display: flex;
+    padding: 25px 0 0 0;
+    li{
+      background: $color-btn;
+      border: 4px solid $border-color;
+      //border-radius: 4px;
+      margin-left: 10px;
+      font-size: 30px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 2px 0px 4px rgba(0, 0, 0, 0.25), -2px -2px 4px rgba(0, 0, 0, 0.25), 2px 2px 4px rgba(35, 30, 30, 0.34);
+      border-radius: 8px;
+      a{
+        color: $border-color;
+        svg{
+          filter: drop-shadow( 0px 0px 4px rgba(255, 255, 255, 0.25));
+        }
+      }
 
-        >li:nth-child(2){
-          width: 80%;
-        }//li:nth-child(2)
+    }
+    .facebook{
+      display: flex;
+      align-items: center;
+      padding: 4px 16px;
+    }
+    .instagram{
+      display: flex;
+      align-items: center;
+      padding: 9px 13px;
+    }
 
-        >li{
-          display: flex;
-          font-size: 12px;
-          align-items: center;
-          padding: 2px 5px;
-
-          &:hover{
-            color: rgb(126, 126, 126);
-          }//&:hover
-
-        }//>li
-
-      }//>ul
-
-    }//>nav
-
-  }//.footer_container
-
-}//footer
+  }
+}

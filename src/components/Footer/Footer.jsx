@@ -2,6 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt,faMobileAlt ,faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons'
 import './Footer.scss'
+import {Link} from "react-router-dom";
+import {faFacebook, faFacebookF, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
 export default function (){
     // <i class="fas fa-mobile-alt"></i>
     const info = [
@@ -30,19 +32,52 @@ export default function (){
 
     return (
         <footer >
-            <div className="container row footer_container ">
+            <div className="container Footer">
                     <nav className="Footer_nav">
-
-                            <h4>Հասցե</h4>
-                               {
-                                   info.map(({icon,name},i)=>(
-                                       <ul key={i}>
-                                           <li>{icon}</li>
-                                           <li>{name}</li>
-                                       </ul>
-                                   ))
-                               }
-
+                        <ul className='Footer_nav__about'>
+                            <li>
+                                <Link to={''}>
+                                    Մեր Մասին
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={''}>
+                                    Հետադարձ կապ
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={''}>
+                                    Դառնալ գործընկեր
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={''}>
+                                    Գնացուցակ
+                                </Link>
+                            </li>
+                        </ul>
+                        <div className='Designed_Elbakyan'>
+                            <span>
+                                Copyright © 2016-2020. All rights reserved.
+                            </span>
+                            <span>
+                                Elbakyan Soft.<sup>&copy;</sup>
+                            </span>
+                        </div>
+                    </nav>
+                    <nav>
+                        <ul className='social_network'>
+                            <li className='facebook'>
+                                <Link to={''}>
+                                    <FontAwesomeIcon icon={faFacebookF} />
+                                </Link>
+                            </li>
+                            <li className='instagram'>
+                                <Link to={''}>
+                                    <FontAwesomeIcon icon={faInstagramSquare} />
+                                </Link>
+                            </li>
+                        </ul>
                     </nav>
             </div>
         </footer>
