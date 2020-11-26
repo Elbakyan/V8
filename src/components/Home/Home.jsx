@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import Content from "../Content/Content";
 import Menu from "../Menu/Menu";
 import {connect} from "react-redux";
+import DecorTitle from "../Decor/DecorTitle";
 
 class Home extends React.Component {
     render() {
@@ -13,7 +14,14 @@ class Home extends React.Component {
             <div className="Home">
                 <Header/>
                 <Menu/>
-                <Content/>
+                <DecorTitle title='Ավտոմեքենաներ' />
+                <div className="container">
+                    <div className="auto__list">
+
+                    </div>
+                </div>
+                <DecorTitle title='Պահետամասեր' />
+                <DecorTitle title='Ծառայություններ' />
                 <Footer/>
                 {
                     this.props.score.score.status ? <Redirect to='/score/account'/> : ''
