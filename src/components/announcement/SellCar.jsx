@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SellCar.scss'
 import {connect} from "react-redux";
 import {faDollarSign, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
+import {Link} from "react-router-dom";
 
 
 class SellCar extends  Component {
@@ -38,8 +39,8 @@ class SellCar extends  Component {
         let img = JSON.parse(this.props.dataImg);
         let navWidth = (100 / img.length) + '%' ;
         return (
-
-            <div className="getSellCar" data-id={this.props.dataId} data-user={this.props.dataUser}>
+            <Link to={'/announcement/' + this.props.dataId} data-id={this.props.dataId} onClick={this.props.click}>
+                <div className="getSellCar" data-id={this.props.dataId} data-user={this.props.dataUser}>
 
                 <div className="getSellCar_header" data-id={this.props.dataId} data-user={this.props.dataUser}>
 
@@ -85,6 +86,7 @@ class SellCar extends  Component {
                 </div>
 
             </div>
+            </Link>
         )
     }
 }
