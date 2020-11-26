@@ -20,8 +20,8 @@ class Result extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(GetFavorite())
-        this.props.dispatch(GetUserFavorite())
+        // this.props.dispatch(GetFavorite())
+        // this.props.dispatch(GetUserFavorite())
     }
 
     GetAuto = (e) => {
@@ -79,7 +79,18 @@ class Result extends Component {
 
 
                                     <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
-                                        <SellCar Auto={auto} favorite={this.props.favorite} res={res}/>
+                                        <SellCar
+                                            dataId={auto.id}
+                                            dataUser={auto.user_id}
+                                            name={auto.model}
+                                            price={auto.price}
+                                            year={auto.year}
+                                            sircle={auto.sircle}
+                                            data={auto.data}
+                                            city={auto.city}
+                                            // Auto={auto}
+                                            dataImg={auto.img}
+                                            favorite={this.props.favorite} res={res}/>
                                     </Link>
                                 </div>
                             )
