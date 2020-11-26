@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {maser}  from '../Menu/autoObj'
 import './Search.scss'
 import Api from "../config/Api";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -61,7 +62,7 @@ class Search extends Component {
                 }
                 <form onSubmit={this.Search}>
                     <div className="select">
-                        <DefaultSelect data={this.props.location.sircle} name='sircle'/>
+                        <DefaultSelect data={maser} name='maser'/>
                         <span><FontAwesomeIcon icon={faCheck} /></span>
                     </div>
                     <input type="text" placeholder='Մուտքագրեք դետալի կոդը կամ անվանումը' autoComplete='on' ref={this.SearchRef} name='code'/>

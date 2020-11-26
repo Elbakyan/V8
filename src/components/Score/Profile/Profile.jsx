@@ -4,13 +4,9 @@ import './Profile.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope, faHome, faCarBattery, faQuestionCircle, faHeart} from "@fortawesome/free-solid-svg-icons";
 import {Link,Route, Switch} from "react-router-dom";
-
 import ScoreList from "../ScoreList/ScoreList";
-
 import {GetScoreList} from "../../../redux/score/action";
-
 import AutoParts from "../../AutoParts/AutoParts";
-
 import Message from "../message/Message";
 import GeFavorite from "../../favorite/GeFavorite";
 import ProfilSetingsScore from "./ProfilSetingsScore";

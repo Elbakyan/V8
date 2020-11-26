@@ -6,9 +6,7 @@ import Account from "./Account";
 import Loading from "../Loading";
 import Signin from "./Authentication/Signin";
 import './Score.scss'
-import {GetScoreList} from "../../redux/score/action";
-import Result from "../Search/Result";
-import {GetMessage, SendMessage} from "../../redux/message/action";
+
 
 
 class Score extends Component {

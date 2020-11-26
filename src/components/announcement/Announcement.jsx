@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 import './Announcement.scss';
-import Header1 from "../Home/Header";
-import Header2 from "../User/Header";
-import Header3 from "../Score/Header";
+import Header from "../Home/Header";
 import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDollarSign} from '@fortawesome/free-solid-svg-icons'
@@ -80,11 +78,7 @@ class Announcement extends Component {
     render() {
         return (
             <section className="Announcement">
-                {
-                    this.props.user.status? <Header2/>:
-                    this.props.score.score.status?<Header3/>:
-                                            <Header1/>
-                }
+                <Header />
                 <Menu />
                 <div className="content">
                     <div>

@@ -4,15 +4,18 @@ import './Home.scss'
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import Search from "../Search/Search";
-import SITE_NAME from "../config/Url";
+import SITE_NAME, {Url} from "../config/Url";
 import {faBell} from "@fortawesome/free-regular-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import PersonalData from "../User/Profile/PersionalData";
+import PersionalDataScore from "../Score/Profile/PersionalDataScore";
 
 
 
 
 class Header extends React.Component{
     render() {
+
         return (
             <header>
                     <div className="header__log">
@@ -22,26 +25,67 @@ class Header extends React.Component{
                         </Link>
                     </div>
                     <Search />
+                    {
+                        this.props.user.status?
+                            <div className="user_info">
+                                <PersonalData />
+                            </div>: ''
+
+                    }
+                    {
+                        this.props.score.score.status?
+                            <div className="persional__info">
+                                <PersionalDataScore />
+                            </div>: ''
+
+                    }
                     <div className="header__links ">
-                        <nav className="header_links-nav">
-                            <ul className="header__links-ul row align-center">
+                        {
+                            !this.props.score.score.status && !this.props.user.status?
+                                <nav className="header_links-nav">
+                                    <ul className="header__links-ul row align-center">
+                                        <li className="header__links-li row align-center">
+                                            <Link className='link__btn header__link' to='/user/login'>
+                                                Հաճախորդ
+                                            </Link>
+                                        </li>
+                                        <li className="header__links-li row align-center">
+                                            <Link className='link__btn header__link' to='/score/login'>
+                                                Գործնկեր
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </nav>:this.props.user.status?
+                                <nav className="header_links-nav">
+                                    <ul className="header__links-ul row align-center">
+                                        <li className="header__links-li row align-center">
+                                            <Link className='link__btn header__link-message' to='/user/login'>
+                                                <FontAwesomeIcon icon={faBell} />
+                                            </Link>
+                                        </li>
+                                        <li className="header__links-li row align-center">
+                                            <a className='link__btn header__link' href={Url.logout}>
+                                                Ելք
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>:
+                                <nav className="header_links-nav">
+                                    <ul className="header__links-ul row align-center">
+                                        <li className="header__links-li row align-center">
+                                            <Link className='link__btn header__link-message' to='/user/login'>
+                                                <FontAwesomeIcon icon={faBell} />
+                                            </Link>
+                                        </li>
+                                        <li className="header__links-li row align-center">
+                                            <a className='link__btn header__link' href={Url.logoutscore}>
+                                                Ելք
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                        }
 
-                                <li className="header__links-li row align-center">
-                                    <Link className='link__btn header__link-message' to='/user/login'>
-                                        <FontAwesomeIcon icon={faBell} />
-                                    </Link>
-
-                                    <Link className='link__btn header__link' to='/user/login'>
-                                        Հաճախորդ
-                                    </Link>
-                                </li>
-                                <li className="header__links-li row align-center">
-                                    <Link className='link__btn header__link' to='/score/login'>
-                                        Գործնկեր
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
             </header>
         );
