@@ -7,8 +7,7 @@ import {AddFavorite, GetUserFavorite} from "../../redux/favorite/action";
 import SellCar from "../announcement/SellCar";
 import {GetSellByID} from "../../redux/sellauto/action";
 import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
-
-
+import {faEye} from "@fortawesome/free-solid-svg-icons";
 
 
 class Favorite extends Component {
@@ -58,11 +57,21 @@ class Favorite extends Component {
                         this.props.favorite.userFavorite.map((auto,i) => {
                             return (
                                 <div className="result_auto" key={i}>
-                                <span className="favorite_block" data-id={auto.id}  onClick={this.Favorite}>
-                                    <span data-id={auto.id} >
-                                        <FontAwesomeIcon icon={faTimesCircle} />
-                                    </span>
-                                </span>
+                                    <div className="watch">
+                                        <p>
+                                            <span><FontAwesomeIcon icon={faEye}/></span>
+                                            <span>{auto.watch}</span>
+                                        </p>
+                                        <span className="favorite_block" data-id={auto.id} onClick={this.Favorite}>
+                                            <span data-id={auto.id}>
+                                                {
+                                                    this.props.user.id === undefined &&
+                                                    this.props.score.score.id === undefined ? '' :
+                                                        <FontAwesomeIcon icon={faTimesCircle} />
+                                                }
+                                            </span>
+                                        </span>
+                                    </div>
                                     <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
                                         <SellCar Auto={auto} />
                                     </Link>

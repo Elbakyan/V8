@@ -67,14 +67,14 @@ class Result extends Component {
                                             <span>{auto.watch}</span>
                                         </p>
                                         <span className="favorite_block" data-id={auto.id} onClick={this.Favorite}>
-                                        <span data-id={auto.id}>
-                                            {
-                                                this.props.user.id === undefined &&
-                                                this.props.score.score.id === undefined ? '' :
-                                                    res ? <FontAwesomeIcon icon={sol}/> : <FontAwesomeIcon icon={reg}/>
-                                            }
+                                            <span data-id={auto.id}>
+                                                {
+                                                    this.props.user.id === undefined &&
+                                                    this.props.score.score.id === undefined ? '' :
+                                                        res ? <FontAwesomeIcon icon={sol}/> : <FontAwesomeIcon icon={reg}/>
+                                                }
+                                            </span>
                                         </span>
-                                </span>
                                     </div>
 
 
@@ -85,7 +85,6 @@ class Result extends Component {
                             )
                         }) : <h1>{this.props.sell.data.message}</h1>
                 }
-
             </div>
         )
     }

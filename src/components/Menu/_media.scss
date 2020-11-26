@@ -1,0 +1,13 @@
+
+.menu_button{
+  background: red;
+}
+@media(max-width:1400px){
+  .header_menu{
+    .menu{
+      .menu_button{
+        background: red;
+      }
+    }
+  }
+}

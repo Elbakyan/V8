@@ -92,11 +92,16 @@ class Menu extends Component {
                 }}>
 
                 </div>
-                <div className="container row justify-between align-center">
+                {/*<div className="container row justify-between align-center">*/}
                     <nav>
                         <ul className="menu">
-                            <li className="auto_parts" data-counter={1} onClick={this.open}>
-                                Ավտոմասեր
+                            <li>
+                                <span className='home_button menu_button'>
+                                    <Link to='/announcement'>HOME</Link>
+                                </span>
+                            </li>
+                            <li className="auto_parts"  onClick={this.open}>
+                                <span data-counter={1} className='menu_button'>Մասեր</span>
                                 <div className='parts_on open' data-counter={1} style={{display:'none'}} ref={el => this.autoParts = el}>
                                 <ul className="auto_parts_block openX flex" data-close={1}>
                                     <li>
@@ -147,8 +152,8 @@ class Menu extends Component {
 
                                 </div>
                             </li>
-                            <li className="auto_service" data-counter={2} onClick={this.open}>
-                                Ծառայություններ
+                            <li className="auto_service"  onClick={this.open}>
+                                 <span data-counter={2} className='menu_button'>Ծառայություն</span>
                                 <div className="service_on open" style={{display:'none'}} ref={el => this.autoService = el}>
                                     <ul className="service">
                                         {
@@ -164,11 +169,13 @@ class Menu extends Component {
                                 </div>
                             </li>
                             <li>
-                                <Link to='/announcement'>Հայտարարություն</Link>
+                                <span className='menu_button'>
+                                    <Link to='/announcement'>Մեքենաներ</Link>
+                                </span>
                             </li>
                         </ul>
                     </nav>
-                </div>
+                {/*</div>*/}
             </div>
         )
     }

@@ -6,8 +6,6 @@ import {connect} from "react-redux";
 import {faDollarSign, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 
 
-
-
 class SellCar extends  Component {
     constructor(props) {
         super(props);

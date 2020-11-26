@@ -18,11 +18,8 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookSquare, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
-import {Link} from "react-router-dom";
-
 
 class App extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
