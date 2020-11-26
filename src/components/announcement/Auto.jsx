@@ -24,8 +24,8 @@ class Auto extends Component {
         let data = new FormData();
         data.append('id', +this.props.sell.OneAuto.id);
         data.append('watch', +this.props.sell.OneAuto.watch + 1);
-        data.append('watch_id', +this.props.user.id || this.props.score.score.id);
         POST(Url.watckcount,data).then(res => {
+            console.log(res)
             if (res.status){
                 this.props.dispatch(GetSell())
             }

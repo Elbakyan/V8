@@ -5,6 +5,8 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import Search from "../Search/Search";
 import SITE_NAME from "../config/Url";
+import {faBell} from "@fortawesome/free-regular-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 
@@ -13,59 +15,34 @@ class Header extends React.Component{
     render() {
         return (
             <header>
-                <div className="container row align-center justify-between">
                     <div className="header__log">
                         <Link to='/'>
+                            <h2>ՈՒղարկել հարցում</h2>
                             <img src={SITE_NAME + "/Server/img/logo_1.svg"} alt=""/>
                         </Link>
                     </div>
-                    {/*<nav className="header__navigation ">*/}
-                    {/*    <ul className="header__links-ul row align-center">*/}
-                    {/*            <li className='header__navigation-li'>*/}
-                    {/*                <Link to='/spare-parts' className='header__link'>*/}
-                    {/*                    Պահեստամասեր*/}
-                    {/*                </Link>*/}
-                    {/*            </li>*/}
-                    {/*            <li>*/}
-                    {/*                <Link to='/acauservice'>*/}
-                    {/*                    Ծառայություներ*/}
-                    {/*                </Link>*/}
-                    {/*            </li>*/}
-                    {/*            <li>*/}
-                    {/*                <Link to='/announcement'>*/}
-                    {/*                    Հայտարարություններ*/}
-                    {/*                </Link>*/}
-                    {/*            </li>*/}
-                    {/*    </ul>*/}
-                    {/*</nav>*/}
                     <Search />
                     <div className="header__links ">
                         <nav className="header_links-nav">
                             <ul className="header__links-ul row align-center">
 
                                 <li className="header__links-li row align-center">
-                                    <Link to='/user/login'>
-                                        <DefaultBtn
-                                            name="Հաճախորդ"
-                                            color='#fff'
-                                            background='#007A61'
-                                            light={50}
-                                        />
+                                    <Link className='link__btn header__link-message' to='/user/login'>
+                                        <FontAwesomeIcon icon={faBell} />
+                                    </Link>
+
+                                    <Link className='link__btn header__link' to='/user/login'>
+                                        Հաճախորդ
                                     </Link>
                                 </li>
                                 <li className="header__links-li row align-center">
-                                    <Link to='/score/login'><DefaultBtn
-                                        name="Գործնկեր"
-                                        color='#fff'
-                                        background='#007A61'
-                                        light={50}
-                                     />
+                                    <Link className='link__btn header__link' to='/score/login'>
+                                        Գործնկեր
                                     </Link>
                                 </li>
                             </ul>
                         </nav>
                     </div>
-                </div>
             </header>
         );
     }
