@@ -186,7 +186,14 @@ class ScorePage extends Component {
                     this.state.CreditForm
                     ? {background: '#00000050'} : {background: 'none'}}
             >
+                {
+                    +data.status === 0?
+                        <div className="state">
+                            <button>Ոչ ակտիվ․․․</button>
+                        </div>: ''
+                }
                 <div className="score_page_info">
+
                     {
                         this.state.loading ?
                             <div className="loading_score_setings"><Loading type='spokes' color='#1c8080' size={150}/>
@@ -546,6 +553,8 @@ class ScorePage extends Component {
                 </div>
 
                 <div className="slider__container">
+
+
                     {
                         data.img != false?
                             <SliderAuto autoImage={data.img} edit={true} onClick={this.UbdateImg} id={data.id} loading={this.state.loadingSlider} AddImg={this.AddSliderImg}/>:

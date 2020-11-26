@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Search.scss'
 import Api from "../config/Api";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {faCheck, faSearch} from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
 import {SearchResult, SearchScoreLists} from "../../redux/search/action";
 import {Redirect} from "react-router";
@@ -60,12 +60,19 @@ class Search extends Component {
                     this.state.redirect ? <Redirect to='/search/result' /> : ''
                 }
                 <form onSubmit={this.Search}>
-                    <input type="text" placeholder='Գրեք դետալի կոդը...' autoComplete='on' ref={this.SearchRef} name='code'/>
+                    <div className="select">
+                        <DefaultSelect data={this.props.location.sircle} name='sircle'/>
+                        <span><FontAwesomeIcon icon={faCheck} /></span>
+                    </div>
+                    <input type="text" placeholder='Մուտքագրեք դետալի կոդը կամ անվանումը' autoComplete='on' ref={this.SearchRef} name='code'/>
                     <label>
                         <FontAwesomeIcon icon={faSearch} />
                         <input type="submit"/>
                     </label>
-                    <DefaultSelect data={this.props.location.sircle} name='sircle'/>
+                    <div className="select">
+                        <DefaultSelect data={this.props.location.sircle} name='sircle'/>
+                        <span><FontAwesomeIcon icon={faCheck} /></span>
+                    </div>
                 </form>
             </div>
         );

@@ -1,12 +1,24 @@
 @charset "UTF-8";
-$main-color: #101423;
-$color-btn: #143645;
+$main-color: #666374;
+$color-btn: #322C4A;
+$link-color: #E3DCD9;
+$border-color: #C9B6CD;
 $white: #ffffff;
 $black: #000000;
 $color-1: #1c8080;
+$placeholder: #C9B6CD;
 
 
 
 $number-auto-icon: "https://brutal.am/Server/img/icon/auto-number.jpg";
 $btn-1:"https://brutal.am/Server/img/icon/Circle.png";
 $btn-2: "https://brutal.am/Server/img/icon/insideCircle.png";
+
+
+
+///media
+
+$desktop: 1440px;
+$ipadePro: 1024px;
+$ipade: 768px;
+$mobilee: 480px;

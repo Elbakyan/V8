@@ -247,3 +247,21 @@
 
   }
 }
+.state{
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  display: flex;
+  button{
+    padding: 5px 10px;
+    background: none;
+    font-weight: bold;
+    color: #c80000;
+    border: 2px solid #c80000;
+    transition: .3s;
+    &:hover{
+      background: #c80000;
+      color: #fff8f8;
+    }
+  }
+}

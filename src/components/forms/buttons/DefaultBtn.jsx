@@ -34,7 +34,9 @@ class DefaultBtn extends Component {
                     color:'' || this.props.color,
                     padding: this.props.padding,
                     borderRadius: this.props.borderRadius,
+                    border: this.props.border,
                     fontSize: this.props.fontSize,
+                    fontWeight: this.props.fontWeight,
                     fontFamily: this.props.fontFamily,
                     width: this.props.width
                 }}
