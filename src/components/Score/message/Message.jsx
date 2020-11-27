@@ -122,8 +122,7 @@ class Message extends Component {
 
     render() {
         let myId =  this.props.message.messageId;
-        console.log('message',this.props.message)
-        // console.log('id',this.props.message.messageId)
+
         return(
             <Fragment>
                 {
@@ -156,7 +155,7 @@ class Message extends Component {
                                 this.props.message.data.score?
                                     this.props.message.data.score.map((res,i) => {
                                         let active = this.props.message.data.message.score? window.location.href.split('/')[7] == this.props.message.data.message.score[i].dialog_id: ''
-                                        console.log(JSON.parse(this.props.message.data.message.score[i].delite)[0] != this.props.message.messageId)
+
                                         if(+JSON.parse(this.props.message.data.message.score[i].delite)[0] !== +this.props.message.messageId){
                                             return(
                                                 <Respondent

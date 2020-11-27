@@ -15,6 +15,7 @@ import {GetMessage} from "../../redux/message/action";
 
 
 class Header extends React.Component{
+
     componentDidMount() {
         if(this.props.user.status){
             this.props.dispatch(GetMessage(this.props.user.id))
@@ -24,14 +25,18 @@ class Header extends React.Component{
         // }
     }
 
-    render() {
 
+
+
+
+
+    render() {
+        // console.log(this.props.message)
         return (
             <header>
                     <div className="header__log">
                         <Link to='/'>
-                            <h2>ՈՒղարկել հարցում</h2>
-                            <img src={SITE_NAME + "/Server/img/logo_1.svg"} alt=""/>
+                            <img src={SITE_NAME + "/Server/img/header_logo.png"} alt=""/>
                         </Link>
                     </div>
                     <Search />
@@ -68,9 +73,11 @@ class Header extends React.Component{
                                 </nav>:this.props.user.status?
                                 <nav className="header_links-nav">
                                     <ul className="header__links-ul row align-center">
-                                        <li className="header__links-li row align-center" >
-                                            <Link className='link__btn header__link-message' to='/user/login'>
-                                                <FontAwesomeIcon icon={faBell} />
+
+                                        <li className="header__links-li row align-center">
+                                            <Link className='link__btn header__link-message' to='/user/account/message/'>
+
+                                                <FontAwesomeIcon icon={faBell} style={this.props.message.notifications?{color:'red'}:''}/>
                                             </Link>
                                         </li>
                                         <li className="header__links-li row align-center">
@@ -82,9 +89,11 @@ class Header extends React.Component{
                                 </nav>:
                                 <nav className="header_links-nav">
                                     <ul className="header__links-ul row align-center">
+
                                         <li className="header__links-li row align-center" >
                                             <Link className='link__btn header__link-message' to='/user/login'>
                                                 <FontAwesomeIcon icon={faBell} style={this.props.message.notifications?{color:'red'}:''}/>
+
                                             </Link>
                                         </li>
                                         <li className="header__links-li row align-center">

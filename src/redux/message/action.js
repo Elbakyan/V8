@@ -13,7 +13,6 @@ export const GET_NOTIFICATION = 'GET_NOTIFICATION';
 export function SendMessage(data) {
     return (dispach) => {
         POST(Url.sendMessage,data).then(res => {
-            console.log(res)
             dispach({
                 type: SEND_MESSAGE,
                 payload: res

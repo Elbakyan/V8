@@ -104,7 +104,10 @@ class Profile extends React.Component{
                                         <GeFavorite />
                                     </Route>
                                     <Route  path='/user/account/persional'>
-                                        <Message id={this.props.user.id}/>
+                                        {
+                                            this.props.user.status?
+                                                <Message id={this.props.user.id}/>:''
+                                        }
                                     </Route>
                                 </Switch>
                             </div>
