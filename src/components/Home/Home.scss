@@ -189,7 +189,7 @@ header{
   align-items: baseline;
   flex-wrap: wrap;
   overflow-y: auto;
-  padding: 10px;
+  padding: 0px 10px;
   &::-webkit-scrollbar {
     width: 5px;
   }
@@ -203,12 +203,14 @@ header{
   }
 
   .result_auto{
-    min-width: 15%;
-    height: 200px;
+    width: 16%;
+    height: 220px;
     background: #fff8f8;
     box-shadow: 5px 5px 5px #acacac;
-
-
-
+    padding: 10px;
+    margin-bottom: 10px;
   }
+}
+.services{
+  padding-bottom: 150px;
 }
