@@ -48,6 +48,7 @@ class Message extends Component {
         },1000)
         this.props.dispatch(GetId(e.target.dataset.id))
 
+
     }
     openRespondents = (e)=>{
         if(e.target.dataset.user){
@@ -84,11 +85,6 @@ class Message extends Component {
         })
     }
     render() {
-        if(this.props.message.data.message.score){
-            console.log(this.props.message.data.message.score[0].delite)
-            console.log(JSON.parse(this.props.message.data.message.score[0].delite))
-        }
-
         return(
             <div className='message_users_component'>
 
@@ -136,9 +132,7 @@ class Message extends Component {
 
                 
                                     if (data && JSON.parse(this.props.message.data.message.score[i].delite)[0] !== this.props.id){
-                                        let active = window.location.href.split('/')[6] === this.props.message.data.message.score[i].dialog_id
-
-                                            console.log(this.props.message.data.message.score)
+                                        let active = window.location.href.split('/')[6] === this.props.message.data.message.score[i].dialog_id;
                                             return (
                                                 <Respondent
                                                     Clear={this.Clear}
@@ -180,13 +174,12 @@ class Message extends Component {
                 
                         {
                             this.props.message.data.message.user?this.props.message.data.message.user.map((data,i) => {
-                                console.log('mess',data)
                                 if(data){
                                     return (
                                         data.delite[0] === this.props.id ?'':
                                             <Switch key={i}>
                                                 <Route exact path={'/user/account/persional/'+data.dialog_id}>
-                                                    <GetMessageClass one_message={data.message} getId={data.send_id !== this.props.user.id?data.send_id:data.get_id}/>
+                                                    <GetMessageClass one_message={data.message} getId={this.props.message.id}/>
                                                 </Route>
                                             </Switch>
                                     )
@@ -196,12 +189,13 @@ class Message extends Component {
                         }
                         {
                             this.props.message.data.message.score?this.props.message.data.message.score.map((data,i) => {
+                                console.log('data', data)
                                 if(data){
                                     return (
                                         data.delite[0] === this.props.id ?'':
                                             <Switch key={i}>
                                                 <Route exact path={'/user/account/persional/'+data.dialog_id}>
-                                                    <GetMessageClass one_message={data.message} getId={data.send_id != this.props.user.id?data.send_id:data.get_id}/>
+                                                    <GetMessageClass one_message={data.message} getId={data.send_id !== this.props.user.id?data.send_id:data.get_id}/>
                                                 </Route>
                                             </Switch>
                                     )

@@ -33,22 +33,8 @@ class GetMessageClass extends Component{
             }
         })
         this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
-        setTimeout(()=>{
-            console.log('score',this.props.score.scoreList)
-        },1000)
-
-
-
         this.scrollRef.scrollTop = this.scrollRef.scrollHeight;
-        // document.addEventListener('scroll', (e) => {
-        //    let reload = document.querySelector(".reload");
-        //    let top = 100;
-        //    if(window.pageYOffset > 50){
-        //        reload.style.top =  0;
-        //    }else{
-        //        reload.style.top =  '110px';
-        //    }
-        // })
+
     }
 
     Message = (e) => {

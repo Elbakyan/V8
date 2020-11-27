@@ -16,18 +16,10 @@ import {GetMessage} from "../../redux/message/action";
 
 class Header extends React.Component{
 
-    componentDidMount() {
 
-        if (this.props.user.status){
-            this.props.dispatch(GetMessage(this.props.user.id))
-        }
-        if (this.props.score.score.status){
-            this.props.dispatch(GetMessage(this.props.score.score.id))
-        }
-    }
 
     render() {
-        console.log(this.props.message)
+        // console.log(this.props.message)
         return (
             <header>
                     <div className="header__log">
