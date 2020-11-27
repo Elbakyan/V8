@@ -83,7 +83,10 @@ class SellCar extends  Component {
                         <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.city}</span>
                     </div>
                     <div className='getSellCar_body_block3' data-id={this.props.dataId} data-user={this.props.dataUser}>
-                        <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.data.split(' ')[0]}</span>
+                        {
+                            this.props.data? <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.data.split(' ')[0]}</span>:''
+                        }
+
                     </div>
                 </div>
 

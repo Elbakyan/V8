@@ -71,7 +71,6 @@ class GetMessageClass extends Component{
             if (this.textareaRef.value.trim().length > 0){
                 this.props.dispatch(SendMessage(data))
             }
-
             this.textareaRef.value = ''
             this.scroll()
         }

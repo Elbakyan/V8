@@ -58,24 +58,21 @@ export default function (){
                         </ul>
                         <div className='Designed_Elbakyan'>
                             <span>
-                                Copyright © 2016-2020. All rights reserved.
-                            </span>
-                            <span>
-                                Elbakyan Soft.<sup>&copy;</sup>
+                                Copyright  2016-2020. All rights reserved.Elbakyan Soft.<sup>&copy;</sup>
                             </span>
                         </div>
                     </nav>
                     <nav>
                         <ul className='social_network'>
                             <li className='facebook'>
-                                <Link to={''}>
+                                <a href='https://www.facebook.com/www.V8.am' target="_blank">
                                     <FontAwesomeIcon icon={faFacebookF} />
-                                </Link>
+                                </a>
                             </li>
                             <li className='instagram'>
-                                <Link to={''}>
+                                <a href='https://www.facebook.com/www.V8.am' target="_blank">
                                     <FontAwesomeIcon icon={faInstagramSquare} />
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </nav>

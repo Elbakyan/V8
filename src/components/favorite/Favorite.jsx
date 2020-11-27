@@ -8,6 +8,7 @@ import SellCar from "../announcement/SellCar";
 import {GetSellByID} from "../../redux/sellauto/action";
 import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
 import {faEye} from "@fortawesome/free-solid-svg-icons";
+import {GetId} from "../../redux/message/action";
 
 
 class Favorite extends Component {
@@ -72,9 +73,25 @@ class Favorite extends Component {
                                             </span>
                                         </span>
                                     </div>
-                                    <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
-                                        <SellCar Auto={auto} />
-                                    </Link>
+                                        <SellCar
+                                            dataId={auto.id}
+                                            dataUser={auto.user_id}
+                                            name={auto.model}
+                                            price={auto.price}
+                                            year={auto.year}
+                                            sircle={auto.sircle}
+                                            data={auto.data}
+                                            city={auto.city}
+                                            dataImg={auto.img}
+                                            click={
+                                                (e)=>{
+                                                    let data = new FormData();
+                                                    data.append('id', e.target.dataset.id);
+                                                    this.props.dispatch(GetSellByID(data))
+                                                }
+                                            }
+                                        />
+
                                 </div>
                             )
 

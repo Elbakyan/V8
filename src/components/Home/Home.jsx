@@ -11,7 +11,7 @@ import {GET} from "../config/Requsest";
 import {Url} from "../config/Url";
 import SellCar from "../announcement/SellCar";
 import {GetSellByID} from "../../redux/sellauto/action";
-import {GetId} from "../../redux/message/action";
+import {GetId, GetMessage} from "../../redux/message/action";
 
 class Home extends React.Component {
     constructor(post) {
@@ -39,6 +39,15 @@ class Home extends React.Component {
                 })
             }
         })
+
+
+            if(this.props.user.status){
+                this.props.dispatch(GetMessage(this.props.user.id))
+            }
+            // if(this.props.score.score.status){
+            //     this.props.dispatch(GetMessage(this.props.score.score.id))
+            // }
+
     }
     GetAuto = (e) => {
         this.props.dispatch(GetSellByID(e.target.dataset.id))
@@ -120,7 +129,6 @@ class Home extends React.Component {
                                             sircle={res.sircle}
                                             city={res.city}
                                             dataImg={res.img}
-
                                         />
                                     </div>
                                 )

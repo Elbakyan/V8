@@ -5,13 +5,11 @@ import './Message.scss';
 import Respondent from "./Respondent";
 import GetMessageClass from "./GetMessage";
 import {Redirect, Route, Switch} from "react-router-dom";
-import { GetId, GetMessage} from "../../../redux/message/action";
+import {GetId, GetMessage, GetStatus} from "../../../redux/message/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faRedoAlt} from "@fortawesome/free-solid-svg-icons";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
-
-
 
 class Message extends Component {
     constructor(props) {
@@ -23,17 +21,14 @@ class Message extends Component {
             RedirectLink: '',
             RespondentUser:true,
             RespondentStore:true
-
         }
-
     }
 
     componentDidMount() {
-
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
         this.props.dispatch(GetMessage(this.props.id))
-
+        this.props.dispatch(GetStatus(this.props.id))
     }
 
     Message = (e) => {
@@ -47,8 +42,8 @@ class Message extends Component {
             })
         },1000)
         this.props.dispatch(GetId(e.target.dataset.id))
-
     }
+
     openRespondents = (e)=>{
         if(e.target.dataset.user){
             this.setState({
@@ -61,6 +56,7 @@ class Message extends Component {
             })
         }
     }
+
     openRespondent = ()=>{
         let block = document.querySelector('.respondent_user')
         let respondent = document.querySelector('.respondent')
@@ -73,6 +69,7 @@ class Message extends Component {
             respondent.style.width = "0%"
         }
     }
+
     Clear = (e)=>{
         let data = new FormData();
         data.append('send_id',this.props.user.id);
@@ -83,7 +80,9 @@ class Message extends Component {
             }
         })
     }
+
     render() {
+
         if(this.props.message.data.message.score){
             console.log(this.props.message.data.message.score[0].delite)
             console.log(JSON.parse(this.props.message.data.message.score[0].delite))
@@ -120,11 +119,7 @@ class Message extends Component {
                                                     send={this.props.message.data.message.user[i].send_id}
                                                 />
                                             )
-
-
                                     }
-                
-                
                                 }): ''
                             }
                         </div>
@@ -156,8 +151,6 @@ class Message extends Component {
 
 
                                     }
-                
-                
                                 }): ''
                             }
                         </div>
@@ -206,8 +199,6 @@ class Message extends Component {
                                             </Switch>
                                     )
                                 }
-                
-                
                             }):''
                         }
                 

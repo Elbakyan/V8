@@ -8,19 +8,17 @@ export const GET_DIALOG_ID = 'GET_DIALOG_ID';
 export const GET_STATUS = 'GET_STATUS';
 export const GET_MESSAGE_ID = 'GET_MESSAGE_ID';
 export const GET_MESSAGE_DIALOG_ID = 'GET_MESSAGE_DIALOG_ID';
+export const GET_NOTIFICATION = 'GET_NOTIFICATION';
 
 export function SendMessage(data) {
-
     return (dispach) => {
         POST(Url.sendMessage,data).then(res => {
             console.log(res)
             dispach({
                 type: SEND_MESSAGE,
                 payload: res
-
             })
         })
-
     }
 }
 
@@ -29,6 +27,22 @@ export function GetMessage(id) {
     data.append('id', id);
     return (dispach) => {
         POST(Url.dialog,data).then(res => {
+            if(res.message.score){
+                res.message.score.map((el)=>{
+                    if(+el.status){
+                        dispach(Notifications(+el.status))
+                    }
+                    console.log('status',+el.status)
+                })
+            }
+            if(res.message.user){
+                res.message.user.map((el)=>{
+                    if(+el.status){
+                        dispach(Notifications(+el.status))
+                    }
+                    console.log('status',+el.status)
+                })
+            }
             dispach({
                 type: GET_MESSAGE,
                 payload: res
@@ -47,7 +61,6 @@ export function GetMessageDialogId(id,dialogId) {
             dispach({
                 type: GET_MESSAGE_DIALOG_ID,
                 payload: res
-
             })
         })
 
@@ -90,6 +103,7 @@ export function GetStatus(data) {
 
     return (dispach) => {
         POST(Url.messageStatus,statusData).then(res => {
+            console.log('status',res)
             dispach({
                 type: GET_STATUS,
                 payload: res
@@ -97,5 +111,14 @@ export function GetStatus(data) {
             })
         })
 
+    }
+}
+
+export function Notifications(boolean) {
+    return (dispach) => {
+        dispach({
+            type: GET_NOTIFICATION,
+            payload: boolean
+        })
     }
 }

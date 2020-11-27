@@ -55,7 +55,7 @@ class Message extends Component {
         // data.append('id', dialog_id);
         // data.append('dialog_id', dialog_id);
         // this.props.dispatch(GetMessageDialogId(id,dialog_id))
-
+        this.props.dispatch(GetStatus(this.props.message.messageId))
     }
 
     Message = (e) => {
@@ -122,8 +122,8 @@ class Message extends Component {
 
     render() {
         let myId =  this.props.message.messageId;
-        console.log(this.props.message)
-        console.log('id',this.props.message.messageId)
+        console.log('message',this.props.message)
+        // console.log('id',this.props.message.messageId)
         return(
             <Fragment>
                 {
