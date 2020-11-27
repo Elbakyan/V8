@@ -97,7 +97,7 @@ class Menu extends Component {
                         <ul className="menu">
                             <li>
                                 <span className='home_button menu_button'>
-                                    <Link to='/announcement'>HOME</Link>
+                                    <Link to='/'>HOME</Link>
                                 </span>
                             </li>
                             <li className="auto_parts"  onClick={this.open}>

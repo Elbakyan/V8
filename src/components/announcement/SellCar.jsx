@@ -35,6 +35,7 @@ class SellCar extends  Component {
 
     render() {
         let img = this.props.dataImg?JSON.parse(this.props.dataImg):[];
+
         let navWidth = (100 / img.length) + '%' ;
         return (
 
