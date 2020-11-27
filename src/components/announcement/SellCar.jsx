@@ -35,9 +35,10 @@ class SellCar extends  Component {
 
 
     render() {
-        console.log(this.props)
-        let img = JSON.parse(this.props.dataImg);
+
+        let img = this.props.dataImg?JSON.parse(this.props.dataImg):[];
         let navWidth = (100 / img.length) + '%' ;
+        console.log(img)
         return (
             <Link to={'/announcement/' + this.props.dataId} data-id={this.props.dataId} onClick={this.props.click}>
                 <div className="getSellCar" data-id={this.props.dataId} data-user={this.props.dataUser}>

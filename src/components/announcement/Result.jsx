@@ -77,7 +77,6 @@ class Result extends Component {
                                     </div>
 
 
-                                    {/*<Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>*/}
                                         <SellCar
                                             dataId={auto.id}
                                             dataUser={auto.user_id}
@@ -87,7 +86,6 @@ class Result extends Component {
                                             sircle={auto.sircle}
                                             data={auto.data}
                                             city={auto.city}
-                                            // Auto={auto}
                                             dataImg={auto.img}
                                             click={
                                                 (e)=>{
@@ -95,8 +93,9 @@ class Result extends Component {
                                                     this.props.dispatch(GetId(e.target.dataset.id))
                                                 }
                                             }
-                                            />
-                                    {/*</Link>*/}
+                                        />
+
+
                                 </div>
                             )
                         }) : <h1>{this.props.sell.data.message}</h1>
