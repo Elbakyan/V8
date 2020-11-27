@@ -233,7 +233,7 @@ class UserCars extends Component {
 
                                             </div>
                                             {
-                                                state === 0?
+                                                +state === 0?
                                                 <DefaultBtn
                                                     onClick={this.openSell}
                                                     name='Վաճառել'
