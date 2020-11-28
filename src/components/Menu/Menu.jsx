@@ -127,7 +127,6 @@ class Menu extends Component {
                                                         return (
                                                             <li key={i} data-mark={mark.name} data-id={mark.id} data-type='car' onClick={this.GetCarStore}>
                                                                 {mark.name}
-
                                                             </li>
                                                         )
                                                     }

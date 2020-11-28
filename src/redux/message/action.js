@@ -27,20 +27,36 @@ export function GetMessage(id) {
     return (dispach) => {
         POST(Url.dialog,data).then(res => {
             if(res.message.score){
+                let status = false
                 res.message.score.map((el)=>{
                     if(+el.status){
-                        dispach(Notifications(+el.status))
+                        status = true
+                        // dispach(Notifications(+el.status))
                     }
                     console.log('status',+el.status)
                 })
+                if(status){
+                    dispach(Notifications(true))
+                }else{
+                    dispach(Notifications(false))
+                }
             }
             if(res.message.user){
+                let status = false
                 res.message.user.map((el)=>{
                     if(+el.status){
-                        dispach(Notifications(+el.status))
+                        status = true
+                        // dispach(Notifications(+el.status))
                     }
                     console.log('status',+el.status)
                 })
+
+                if(status){
+                    dispach(Notifications(true))
+                }else{
+                    dispach(Notifications(false))
+                }
+
             }
             dispach({
                 type: GET_MESSAGE,
@@ -62,7 +78,6 @@ export function GetMessageDialogId(id,dialogId) {
                 payload: res
             })
         })
-
     }
 }
 export function GetId(id) {
@@ -80,7 +95,6 @@ export function GetMessageId(id) {
         dispach({
             type: GET_MESSAGE_ID,
             payload: id
-
         })
 
     }
@@ -92,7 +106,6 @@ export function GetDialogId(id) {
             payload: id
 
         })
-
     }
 }
 

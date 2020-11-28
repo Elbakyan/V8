@@ -11,7 +11,7 @@ class Respondent extends Component {
             <div
                 className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}
             >
-                <div className="click" onClick={this.props.onClick} id={this.props.id} data-id={this.props.data?this.props.data.id:''}></div>
+                <div className="click" onClick={this.props.onClick} id={this.props.id} data-id={this.props.data?this.props.data.id:''} data-dialog={this.props.dialogId}></div>
 
                 <div className="respondent_user_image" style={{backgroundImage:`url(${this.props.data?this.props.data.img:''})`}}>
 

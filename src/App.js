@@ -25,11 +25,9 @@ class App extends Component {
         this.state = {
             path: '/',
             incriment: 0
-
         }
         this.VinRef = React.createRef()
     }
-
 
     componentDidMount() {
         this.props.dispatch(UserExist())
@@ -42,7 +40,6 @@ class App extends Component {
 
 
     render() {
-        console.log(this.props.message)
       return (
           <div className="App">
               <Switch>
@@ -67,7 +64,7 @@ class App extends Component {
                   <Route path='/soon'>
                       <Soon/>
                   </Route>
-                  <Route >
+                  <Route>
                       <PageNotFound/>
                   </Route>
               </Switch>

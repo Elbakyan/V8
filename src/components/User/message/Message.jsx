@@ -42,7 +42,10 @@ class Message extends Component {
             })
         },1000)
         this.props.dispatch(GetId(e.target.dataset.id))
-        this.props.dispatch(GetDialogId(e.target.dataset.id))
+        this.props.dispatch(GetDialogId(e.target.dataset.dialog))
+        this.props.dispatch(GetMessage(this.props.id))
+        console.log(e.target.dataset.dialog)
+
     }
 
     openRespondents = (e)=>{
@@ -108,6 +111,7 @@ class Message extends Component {
                                                     key={i}
                                                     id={'/user/account/persional/'+this.props.message.data.message.user[i].dialog_id}
                                                     active={active}
+                                                    dialogId={this.props.message.data.message.user[i].dialog_id}
                                                     data={data}
                                                     onClick={this.Message}
                                                     status={this.props.message.data.message.user[i].status}
@@ -143,8 +147,6 @@ class Message extends Component {
                                                     send={this.props.message.data.message.score[i].send_id}
                                                 />
                                             )
-
-
                                     }
                                 }): ''
                             }
@@ -190,7 +192,7 @@ class Message extends Component {
                                         data.delite[0] === this.props.id ?'':
                                             <Switch key={i}>
                                                 <Route exact path={'/user/account/persional/'+data.dialog_id}>
-                                                    <GetMessageClass one_message={data.message} getId={data.send_id !== this.props.user.id?data.send_id:data.get_id}/>
+                                                    <GetMessageClass one_message={data.message} getId={this.props.message.id}/>
                                                 </Route>
                                             </Switch>
                                     )
