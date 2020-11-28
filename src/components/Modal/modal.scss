@@ -1,3 +1,4 @@
+@import "../../style/var";
 .Modal{
   width: 100%;
   height: 100vh;
@@ -13,6 +14,105 @@
     span{
       padding: 10px 20px;
       background: white;
+    }
+  }
+}
+
+.ModalRequest{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+    cursor: pointer;
+  }
+  .modal__content{
+    width: 768px;
+    height: 359px;
+    background: $white;
+    position: relative;
+    box-shadow: 0px 0px 15px;
+    border-radius: 5px;
+    transform-origin: left;
+
+    .close{
+      font-size: 22px;
+      position: absolute;
+      right: 5px;
+      top: 3px;
+      cursor: pointer;
+      color: red;
+      transition: .3s;
+      &:hover{
+        color: #b50000;
+      }
+    }
+
+    .modal__title{
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h2{
+        font-size: 20px;
+      }
+    }
+
+    .modal__block{
+      width: 100%;
+      height: calc(100% - 40px);
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-auto-rows: 43px;
+      padding: 10px;
+      .modal__items{
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        border: 2px solid $border-color;
+        border-radius: 4px;
+        &:nth-child(2){
+          grid-column-start: 2;
+          grid-column-end: 5;
+          grid-row-start: 1;
+          grid-row-end: 3;
+          box-shadow: none;
+          border: none;
+          border-radius: 0px;
+        }
+
+        textarea{
+          width: 100%;
+          height: 100%;
+          resize: none;
+          border: none;
+          padding: 10px;
+          background: #C4C4C4;
+        }
+        select,input{
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          border-radius: 4px;
+
+          &:focus,&:hover{
+            box-shadow: none;
+          }
+        }
+      }
     }
   }
 }

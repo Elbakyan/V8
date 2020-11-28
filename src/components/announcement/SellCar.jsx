@@ -28,14 +28,13 @@ class SellCar extends  Component {
             index:e.target.dataset.src
         })
         let span = document.querySelector('.'+e.target.className + '>span')
-        e.target.childNodes[0].style.background = 'blue'
+        e.target.childNodes[0].style.background = '#322C4A'
 
 
     }
 
 
     render() {
-
         let img = this.props.dataImg?JSON.parse(this.props.dataImg):[];
         let navWidth = (100 / img.length) + '%' ;
         return (
