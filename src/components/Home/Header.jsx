@@ -10,34 +10,45 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import PersonalData from "../User/Profile/PersionalData";
 import PersionalDataScore from "../Score/Profile/PersionalDataScore";
 import {GetMessage} from "../../redux/message/action";
+import ModalRequest from "../Modal/ModalRequest";
 
 
 
 
 class Header extends React.Component{
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            modal: true
+        }
+    }
     componentDidMount() {
         if(this.props.user.status){
             this.props.dispatch(GetMessage(this.props.user.id))
         }
-        // if(this.props.score.score.status){
-        //     this.props.dispatch(GetMessage(this.props.score.score.id))
-        // }
+        if(this.props.score.score.status){
+            this.props.dispatch(GetMessage(this.props.score.score.id))
+        }
     }
 
-
-
-
-
-
+    OpenModal = (e)  =>{
+        this.setState({
+            modal: true
+        })
+    }
+    Close = (e) => {
+        this.setState({
+            modal: false
+        })
+    }
     render() {
         // console.log(this.props.message)
         return (
             <header>
+                <ModalRequest modal={this.state.modal} close={this.Close}/>
                     <div className="header__log">
-                        <Link to='/'>
-                            <img src={SITE_NAME + "/Server/img/header_logo.png"} alt=""/>
-                        </Link>
+                        <img src={SITE_NAME + "/Server/img/header_logo.png"} alt="logo" onClick={this.OpenModal}/>
                     </div>
                     <Search />
                     {

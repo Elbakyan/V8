@@ -38,11 +38,11 @@ class App extends Component {
         this.props.dispatch(GetMark())
         this.props.dispatch(GetTruck())
         this.props.dispatch(GetTruckModels())
-
     }
 
 
     render() {
+        console.log(this.props.message)
       return (
           <div className="App">
               <Switch>

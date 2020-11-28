@@ -56,64 +56,78 @@ class Home extends React.Component {
     }
 
     render() {
+
         return (
             <div className="Home">
                 <Header/>
                 <Menu/>
-                <DecorTitle title='Ավտոմեքենաներ' />
-                <div className="container">
-                    <div className="content__list">
-                                {
-                                    this.state.auto.length?
-                                    this.state.auto.map(res => {
-                                        return (
-                                            <div className='result_auto'>
-                                                <Link to={'/announcement/' + res.id} data-id={res.id} onClick={this.GetAuto}>
+
+                {
+                    this.state.auto?
+                        <div>
+                            <DecorTitle title='Ավտոմեքենաներ' />
+                            <div className="container">
+                                <div className="content__list">
+                                    {
+                                        this.state.auto.map(res => {
+                                            return (
+                                                <div className='result_auto'>
+                                                    <Link to={'/announcement/' + res.id} data-id={res.id} onClick={this.GetAuto}>
+                                                        <SellCar
+                                                            dataId={res.id}
+                                                            dataUser={res.user_id}
+                                                            name={res.model}
+                                                            price={res.price}
+                                                            year={res.year}
+                                                            data={res.data}
+                                                            sircle={res.sircle}
+                                                            city={res.city}
+                                                            dataImg={res.img}
+                                                        />
+                                                    </Link>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        </div>:''
+                }
+                {
+                    this.state.product ?
+                        <div>
+                            <DecorTitle title='Պահետամասեր' />
+                            <div className="container ">
+                                <div className="content__list">
+                                    {
+                                        this.state.product.map((res, i) => {
+                                            let score = this.state.score[i];
+                                            let img = JSON.stringify([res.img])
+                                            return (
+                                                <div className='result_auto'>
                                                     <SellCar
                                                         dataId={res.id}
-                                                        dataUser={res.user_id}
-                                                        name={res.model}
+                                                        dataUser={res.store_id}
+                                                        name={res.code}
                                                         price={res.price}
-                                                        year={res.year}
+                                                        sircle={score.sircle}
+                                                        city={score.city}
                                                         data={res.data}
-                                                        sircle={res.sircle}
-                                                        city={res.city}
-                                                        dataImg={res.img}
-
+                                                        dataImg={img}
                                                     />
-                                                </Link>
-                                            </div>
-                                        )
-                                    }):<Loading />
-                                }
-                            </div>
-                </div>
-                <DecorTitle title='Պահետամասեր' />
-                <div className="container ">
-                    <div className="content__list">
-                        {
-                            this.state.product.length?
-                            this.state.product.map((res, i) => {
-                                let score = this.state.score[i];
-                                return (
-                                    <div className='result_auto'>
-                                        <SellCar
-                                            dataId={res.id}
-                                            dataUser={res.store_id}
-                                            name={res.code}
-                                            price={res.price}
-                                            sircle={score.sircle}
-                                            city={score.city}
-                                            data={res.data}
-                                            // dataImg={res.img}
-                                        />
-                                    </div>
-                                )
-                            }):<Loading />
-                        }
-                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
 
-                </div>
+                            </div>
+                        </div>
+                        :''
+                }
+
+
+
                 <DecorTitle title='Ծառայություններ' />
                 <div className="container services">
 

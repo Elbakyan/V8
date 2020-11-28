@@ -5,7 +5,7 @@ import './Message.scss';
 import Respondent from "./Respondent";
 import GetMessageClass from "./GetMessage";
 import {Redirect, Route, Switch} from "react-router-dom";
-import {GetId, GetMessage, GetStatus} from "../../../redux/message/action";
+import {GetDialogId, GetId, GetMessage, GetStatus} from "../../../redux/message/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faRedoAlt} from "@fortawesome/free-solid-svg-icons";
 import {POST} from "../../config/Requsest";
@@ -42,7 +42,7 @@ class Message extends Component {
             })
         },1000)
         this.props.dispatch(GetId(e.target.dataset.id))
-
+        this.props.dispatch(GetDialogId(e.target.dataset.id))
     }
 
     openRespondents = (e)=>{
@@ -158,6 +158,7 @@ class Message extends Component {
                                 let aa = e.target
                                 e.target.classList.toggle('message_reload_button')
                                 this.props.dispatch(GetMessage(this.props.id))
+                                this.props.dispatch(GetStatus(this.props.message.dialog))
                                 setTimeout(()=>{
                                     aa.classList.toggle('message_reload_button')
                                 },1000)
