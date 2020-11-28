@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import './modal.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faWindowClose} from "@fortawesome/free-solid-svg-icons";
@@ -10,14 +10,42 @@ import DefaultInput from "../forms/inputs/DefaultInput";
 class ModalRequest extends React.Component{
     constructor(props) {
         super(props);
+        this.state = {
+            mark: false,
+            model: false,
+            vin:false,
+            year: false,
+            engine: false,
+        }
     }
+    MyCar = (e) => {
+        let data = e.target.selectedOptions[0].dataset;
+        if (e.target.value !== ''){
+            this.setState({
+                mark: [e.target.value],
+                model: [data.model],
+                vin:data.vin,
+                year: [data.year],
+                engine: [data.engine],
+            })
+        }else{
+            this.setState({
+                mark: false,
+                model: false,
+                vin:false,
+                year: false,
+                engine: false,
+            })
+        }
 
+        console.log()
+    }
     render() {
-        console.log(this.props.auto)
+        console.log(this.state.vin)
         return (
             <div className='ModalRequest' style={this.props.modal? {transform: 'scaleX(1)'}:{transform: 'scaleX(0)'}}>
                 <div className="overlay" onClick={this.props.close}></div>
-                <div className='modal__content'>
+                <form className='modal__content'>
                     <div className="close" onClick={this.props.close}>
                         <FontAwesomeIcon icon={faWindowClose} />
                     </div>
@@ -26,55 +54,124 @@ class ModalRequest extends React.Component{
                     </div>
                     <div className="modal__block">
                         <div className='modal__items'>
-                            <DefaultSelect data={maser} />
+                            <DefaultSelect name='' data={maser} />
                         </div>
                         <div className='modal__items'>
                             <textarea name="" placeholder='Նկարագրությունը․․․'></textarea>
                         </div>
                         <div className='modal__items'>
-                            <DefaultSelect data={this.props.location.sircle} />
+                            <DefaultSelect name='sircle' data={this.props.location.sircle} />
                         </div>
-                        <div className='modal__items'>Four</div>
+                        <div className='modal__items'>
+                            <select onChange={this.MyCar}>
+                                <option value=''>Մեքենա</option>
+                                {
+                                    this.props.auto.auto.data? this.props.auto.auto.data.map(res => {
+                                        return (
+                                            <option
+                                                value={res.mark}
+                                                data-model={res.model}
+                                                data-vin={res.vin}
+                                                data-year={res.year}
+                                                data-engine={res.engine}
+                                            >{res.mark}</option>
+                                        )
+                                    }):''
+                                }
+                            </select>
+                        </div>
                         <div className='modal__items'>
                             <label className=''>
                                 <input type="file"/>
                             </label>
                         </div>
                         <div className='modal__items'>
-                            <DefaultSelect data={this.props.auto.mark} />
+                            {
+                                this.state.mark?
+                                    <select name="mark">
+                                        <option value={this.state.mark}>
+                                            {this.state.mark}
+                                        </option>
+                                    </select>:
+                                    <DefaultSelect name='mark' data={this.props.auto.mark} />
+                            }
                         </div>
                         <div className='modal__items'>
-                            <DefaultSelect data={this.props.auto.model} />
+                            {
+                                this.state.model?
+                                    <select name="model">
+                                        <option value={this.state.model}>
+                                            {this.state.model}
+                                        </option>
+                                    </select>:
+                                    <DefaultSelect name='model' data={this.props.auto.model} />
+                            }
                         </div>
                         <div className='modal__items'>
-                            <DefaultInput
+                            <input
+                                name='vin'
+                                defaultValue={this.state.vin?this.state.vin:''}
                                 placeholder='VIN'
                             />
                         </div>
                         <div className='modal__items'>
-                            <select name="" id="">
+                            <select name="year">
                                 {
-                                    this.props.auto.year.map(res => {
-                                        return (
-                                            <option key={res} value="res">{res}</option>
-                                        )
-                                    })
+                                    this.state.year?
+                                        this.state.year.map(res => {
+                                            return (
+                                                <option key={res} value={res}>{res}</option>
+                                            )
+                                        }):
+                                        this.props.auto.year.map(res => {
+                                            return (
+                                                <option key={res}>{res}</option>
+                                            )
+                                        })
                                 }
                             </select>
                         </div>
                         <div className='modal__items'>
-                            <select name="" id="">
+                            <select name="engine">
                                 {
-                                    this.props.auto.engine.map(res => {
-                                        return (
-                                            <option key={res} value="res">{res}</option>
-                                        )
-                                    })
+                                    this.state.engine?
+                                        this.state.engine.map(res => {
+                                            return (
+                                                <option key={res} value={res}>{res}</option>
+                                            )
+                                        }):
+                                        this.props.auto.engine.map(res => {
+                                            return (
+                                                <option key={res}>{res}</option>
+                                            )
+                                        })
                                 }
                             </select>
                         </div>
+                        <div className="modal__items">
+                            <label>
+                                Նոր
+                                <input name='new' value={1} type="checkbox"/>
+                            </label>
+                        </div>
+                        <div className="modal__items">
+                            <label>
+                                Օգտ․
+                                <input name='new' value={1} type="checkbox"/>
+                            </label>
+                        </div>
+                        <div className="modal__items">
+                            <button className='modal__button'>
+                                Ընդլանված որոնում
+                            </button>
+                        </div>
+                        <div className="modal__items">
+                            <button className='modal__button'>
+                                Ուղարկել
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         )
     }
