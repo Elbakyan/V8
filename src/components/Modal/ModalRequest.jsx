@@ -38,14 +38,18 @@ class ModalRequest extends React.Component{
             })
         }
 
-        console.log()
+    }
+    SendRequest = (e) => {
+        e.preventDefault();
+        let data = new FormData(e.target);
+        console.log(Array.from(data))
     }
     render() {
-        console.log(this.state.vin)
+
         return (
-            <div className='ModalRequest' style={this.props.modal? {transform: 'scaleX(1)'}:{transform: 'scaleX(0)'}}>
+            <form className='ModalRequest' onSubmit={this.SendRequest} style={this.props.modal? {transform: 'scaleX(1)'}:{transform: 'scaleX(0)'}}>
                 <div className="overlay" onClick={this.props.close}></div>
-                <form className='modal__content'>
+                <div className='modal__content'>
                     <div className="close" onClick={this.props.close}>
                         <FontAwesomeIcon icon={faWindowClose} />
                     </div>
@@ -74,46 +78,13 @@ class ModalRequest extends React.Component{
                                                 data-vin={res.vin}
                                                 data-year={res.year}
                                                 data-engine={res.engine}
-                                            >{res.mark}</option>
+                                            >{res.model}</option>
                                         )
                                     }):''
                                 }
                             </select>
                         </div>
-                        <div className='modal__items'>
-                            <label className=''>
-                                <input type="file"/>
-                            </label>
-                        </div>
-                        <div className='modal__items'>
-                            {
-                                this.state.mark?
-                                    <select name="mark">
-                                        <option value={this.state.mark}>
-                                            {this.state.mark}
-                                        </option>
-                                    </select>:
-                                    <DefaultSelect name='mark' data={this.props.auto.mark} />
-                            }
-                        </div>
-                        <div className='modal__items'>
-                            {
-                                this.state.model?
-                                    <select name="model">
-                                        <option value={this.state.model}>
-                                            {this.state.model}
-                                        </option>
-                                    </select>:
-                                    <DefaultSelect name='model' data={this.props.auto.model} />
-                            }
-                        </div>
-                        <div className='modal__items'>
-                            <input
-                                name='vin'
-                                defaultValue={this.state.vin?this.state.vin:''}
-                                placeholder='VIN'
-                            />
-                        </div>
+
                         <div className='modal__items'>
                             <select name="year">
                                 {
@@ -131,6 +102,19 @@ class ModalRequest extends React.Component{
                                 }
                             </select>
                         </div>
+
+                        <div className='modal__items'>
+                            {
+                                this.state.mark?
+                                    <select name="mark">
+                                        <option value={this.state.mark}>
+                                            {this.state.mark}
+                                        </option>
+                                    </select>:
+                                    <DefaultSelect name='mark' data={this.props.auto.mark} />
+                            }
+                        </div>
+
                         <div className='modal__items'>
                             <select name="engine">
                                 {
@@ -148,22 +132,46 @@ class ModalRequest extends React.Component{
                                 }
                             </select>
                         </div>
+
+                        <div className='modal__items'>
+                            {
+                                this.state.model?
+                                    <select name="model">
+                                        <option value={this.state.model}>
+                                            {this.state.model}
+                                        </option>
+                                    </select>:
+                                    <DefaultSelect name='model' data={this.props.auto.model} />
+                            }
+                        </div>
+
+                        <div className='modal__items'>
+                            <input
+                                name='vin'
+                                defaultValue={this.state.vin?this.state.vin:''}
+                                placeholder='VIN'
+                            />
+                        </div>
+                        <div className="modal__items">
+                                <input name='code' type="text" placeholder='Դետալի կոդը'/>
+                        </div>
+                        <div className='modal__file'>
+                            <label className='modal__file-label'>
+                                Ներբեռնել նկար
+                                <input name='img' type="file"/>
+                            </label>
+                        </div>
                         <div className="modal__items">
                             <label>
                                 Նոր
-                                <input name='new' value={1} type="checkbox"/>
+                                <input defaultChecked name='new' value={1} type="checkbox"/>
                             </label>
                         </div>
                         <div className="modal__items">
                             <label>
                                 Օգտ․
-                                <input name='new' value={1} type="checkbox"/>
+                                <input defaultChecked name='old' value={1} type="checkbox"/>
                             </label>
-                        </div>
-                        <div className="modal__items">
-                            <button className='modal__button'>
-                                Ընդլանված որոնում
-                            </button>
                         </div>
                         <div className="modal__items">
                             <button className='modal__button'>
@@ -171,8 +179,8 @@ class ModalRequest extends React.Component{
                             </button>
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         )
     }
 }
