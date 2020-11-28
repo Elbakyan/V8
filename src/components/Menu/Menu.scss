@@ -49,8 +49,8 @@
     //height: 30px;
     //background: red;
     .menu{
-
-
+      display: flex;
+      align-items: center;
       .menu_button{
         border: 2px solid #666374;
         border-radius: 4px;
@@ -68,7 +68,7 @@
           color: #322C4A;
         }
         &:active{
-          transform: translate(50px, 100px);
+          transform: translate(2px, 2px);
           box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
         }
 
@@ -175,7 +175,7 @@
           }
           >li{
             color: black;
-            font-size: 18px;
+            font-size: 14px;
             padding: 6px 5px;
             border: none;
             margin: 0;

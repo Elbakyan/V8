@@ -12,6 +12,7 @@ import {Url} from "../config/Url";
 import SellCar from "../announcement/SellCar";
 import {GetSellByID} from "../../redux/sellauto/action";
 import {GetId, GetMessage} from "../../redux/message/action";
+import Loading from "../Loading";
 
 class Home extends React.Component {
     constructor(post) {
@@ -63,6 +64,7 @@ class Home extends React.Component {
                 <div className="container">
                     <div className="content__list">
                                 {
+                                    this.state.auto.length?
                                     this.state.auto.map(res => {
                                         return (
                                             <div className='result_auto'>
@@ -82,7 +84,7 @@ class Home extends React.Component {
                                                 </Link>
                                             </div>
                                         )
-                                    })
+                                    }):<Loading />
                                 }
                             </div>
                 </div>
@@ -90,6 +92,7 @@ class Home extends React.Component {
                 <div className="container ">
                     <div className="content__list">
                         {
+                            this.state.product.length?
                             this.state.product.map((res, i) => {
                                 let score = this.state.score[i];
                                 return (
@@ -106,7 +109,7 @@ class Home extends React.Component {
                                         />
                                     </div>
                                 )
-                            })
+                            }):<Loading />
                         }
                     </div>
 
@@ -116,6 +119,7 @@ class Home extends React.Component {
 
                     <div className="content__list">
                         {
+                            this.state.auto.length?
                             this.state.auto.map(res => {
                                 return (
                                     <div className='result_auto'>
@@ -132,7 +136,7 @@ class Home extends React.Component {
                                         />
                                     </div>
                                 )
-                            })
+                            }):<Loading />
                         }
                     </div>
                 </div>

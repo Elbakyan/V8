@@ -96,9 +96,12 @@ class Menu extends Component {
                     <nav>
                         <ul className="menu">
                             <li>
-                                <span className='home_button menu_button'>
-                                    <Link to='/'>HOME</Link>
-                                </span>
+                                <Link to='/'>
+                                    <span className='home_button menu_button'>
+                                        HOME
+                                    </span>
+                                </Link>
+
                             </li>
                             <li className="auto_parts"  onClick={this.open}>
                                 <span data-counter={1} className='menu_button'>Մասեր</span>
@@ -169,9 +172,11 @@ class Menu extends Component {
                                 </div>
                             </li>
                             <li>
-                                <span className='menu_button'>
-                                    <Link to='/announcement'>Մեքենաներ</Link>
-                                </span>
+                                <Link to='/announcement'>
+                                    <span className='menu_button'>
+                                        Մեքենաներ
+                                    </span>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
