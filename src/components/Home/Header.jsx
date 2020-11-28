@@ -11,6 +11,7 @@ import PersonalData from "../User/Profile/PersionalData";
 import PersionalDataScore from "../Score/Profile/PersionalDataScore";
 import {GetMessage} from "../../redux/message/action";
 import ModalRequest from "../Modal/ModalRequest";
+import Art from "../Alert";
 
 
 
@@ -20,7 +21,8 @@ class Header extends React.Component{
         super(props);
 
         this.state = {
-            modal: true
+            modal: true,
+            message: false
         }
     }
     componentDidMount() {
@@ -34,8 +36,14 @@ class Header extends React.Component{
 
     OpenModal = (e)  =>{
         this.setState({
-            modal: true
+            modal: true,
+            message: true
         })
+        setTimeout(() => {
+            this.setState({
+                message: false
+            })
+        },3000)
     }
     Close = (e) => {
         this.setState({
@@ -43,10 +51,16 @@ class Header extends React.Component{
         })
     }
     render() {
-        // console.log(this.props.message)
         return (
             <header>
-                <ModalRequest modal={this.state.modal} close={this.Close}/>
+                {
+                    this.props.user.status || this.props.score.score.status ?
+                        <ModalRequest modal={this.state.modal} close={this.Close}/>:
+                        this.state.message?
+                            <div className='user_warning'>
+                                <Art type='warning' content='Հառցում ուղարկելու համար անհրաժեշտ է գրանցվել․․․․'/>
+                            </div>: ''
+                }
                     <div className="header__log">
                         <img src={SITE_NAME + "/Server/img/header_logo.png"} alt="logo" onClick={this.OpenModal}/>
                     </div>
