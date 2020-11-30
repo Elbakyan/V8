@@ -21,7 +21,7 @@ class Header extends React.Component{
         super(props);
 
         this.state = {
-            modal: true,
+            modal: false,
             message: false
         }
     }

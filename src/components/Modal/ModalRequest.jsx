@@ -16,6 +16,7 @@ class ModalRequest extends React.Component{
             vin:false,
             year: false,
             engine: false,
+            imgName: 'Ներբեռնել նկար'
         }
     }
     MyCar = (e) => {
@@ -47,7 +48,7 @@ class ModalRequest extends React.Component{
     render() {
 
         return (
-            <form className='ModalRequest' onSubmit={this.SendRequest} style={this.props.modal? {transform: 'scaleX(1)'}:{transform: 'scaleX(0)'}}>
+            <form className='ModalRequest' onSubmit={this.SendRequest} style={this.props.modal? {transform: 'scale(1)'}:{transform: 'scale(0)'}}>
                 <div className="overlay" onClick={this.props.close}></div>
                 <div className='modal__content'>
                     <div className="close" onClick={this.props.close}>
@@ -157,8 +158,14 @@ class ModalRequest extends React.Component{
                         </div>
                         <div className='modal__file'>
                             <label className='modal__file-label'>
-                                Ներբեռնել նկար
-                                <input name='img' type="file"/>
+                                {
+                                    this.state.imgName
+                                }
+                                <input name='img' type="file" onChange={(e) => {
+                                    this.setState({
+                                        imgName: e.target.value.split('\\').pop()
+                                    })
+                                }}/>
                             </label>
                         </div>
                         <div className="modal__items">
