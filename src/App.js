@@ -48,6 +48,10 @@ class App extends Component {
         })
     }
 
+    componentWillUnmount() {
+        this.props.dispatch()
+    }
+
 
     render() {
       return (

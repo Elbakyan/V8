@@ -57,10 +57,11 @@ class Result extends Component {
 
                             let img = JSON.parse(auto.img);
                             return (
-                                <div className="result_auto" key={i}>
+                                <div className="result_auto" key={i} style={this.props.user.status || this.props.score.score.status?
+                                    {height:'270px'}:{height:'250px'}}>
                                     <div className="watch"
                                          style={this.props.user.status || this.props.score.score.status?
-                                             {display:'flex'}:{display:'none'}}>
+                                             {height:'flex'}:{display:'none'}}>
                                         {/*<p>*/}
                                         {/*    <span><FontAwesomeIcon icon={faEye}/></span>*/}
                                         {/*    <span>{auto.watch}</span>*/}
@@ -87,15 +88,16 @@ class Result extends Component {
                                             data={auto.data}
                                             city={auto.city}
                                             dataImg={auto.img}
+                                            top={this.props.user.status || this.props.score.score.status?'20px':'0'}
+                                            heigth={this.props.user.status || this.props.score.score.status?'230px':''}
                                             click={
                                                 (e)=>{
                                                     this.props.dispatch(GetSellByID(e.target.dataset.id))
                                                     this.props.dispatch(GetId(e.target.dataset.id))
                                                 }
                                             }
+
                                         />
-
-
                                 </div>
                             )
                         }) : <h1>{this.props.sell.data.message}</h1>

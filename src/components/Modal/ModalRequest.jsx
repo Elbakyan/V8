@@ -55,6 +55,7 @@ class ModalRequest extends React.Component{
     render() {
 
         return (
+
             <form className='ModalRequest' onSubmit={this.SendRequest} style={this.props.modal? {transform: 'scale(1)'}:{transform: 'scale(0)'}}>
                 <div className="overlay" onClick={this.props.close}></div>
                 <div className='modal__content'>

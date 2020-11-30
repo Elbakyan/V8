@@ -2,7 +2,14 @@ import React from 'react';
 import {connect} from "react-redux";
 import './Profile.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEnvelope, faHome, faCarBattery, faQuestionCircle, faHeart} from "@fortawesome/free-solid-svg-icons";
+import {
+    faEnvelope,
+    faHome,
+    faCarBattery,
+    faQuestionCircle,
+    faHeart,
+    faEnvelopeOpenText
+} from "@fortawesome/free-solid-svg-icons";
 import {Link,Route, Switch} from "react-router-dom";
 import ScoreList from "../ScoreList/ScoreList";
 import {GetScoreList} from "../../../redux/score/action";
@@ -57,6 +64,14 @@ class Profile extends React.Component{
                                             <FontAwesomeIcon icon={faEnvelope}/>
                                         </div>
                                         Հաղորդագրություններ
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to={'/score/account/message/' + this.props.message.messageId}>
+                                        <div className="icon">
+                                            <FontAwesomeIcon icon={faEnvelopeOpenText}/>
+                                        </div>
+                                        Հարցում
                                     </Link>
                                 </li>
                                 <li>

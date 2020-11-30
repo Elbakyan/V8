@@ -22,6 +22,7 @@ import ScoreList from "./ScoreList";
 import {Link} from "react-router-dom";
 import StoreInfo from "../StoreInfo/StoreInfo";
 import ScoreListGlobal from "./ScoreListGlobal";
+import Home from "./Home";
 
 
 class Result extends Component {
@@ -60,7 +61,7 @@ class Result extends Component {
         return (
             <Fragment>
                <Header />
-                {/*<Menu />*/}
+                <Home />
                 <Route exact path={'/search/result/detal/' + window.location.pathname.split('/')[window.location.pathname.split('/').length -1]}>
                     <DetaleLists />
                 </Route>

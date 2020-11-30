@@ -52,9 +52,10 @@ class SpeareParts extends Component{
                     <select onChange={this.MyCar}>
                         <option value=''>Մեքենա</option>
                         {
-                            this.props.auto? this.props.auto.map(res => {
+                            this.props.auto? this.props.auto.map((res,i) => {
                                 return (
                                     <option
+                                        key={i}
                                         value={res.mark}
                                         data-model={res.model}
                                         data-vin={res.vin}
