@@ -17,30 +17,35 @@ import Loading from "../Loading";
 class Home extends React.Component {
     constructor(post) {
         super(post);
+        this.requset = '';
         this.state = {
             auto: [],
             product: [],
             score: [],
         }
     }
-    componentDidMount() {
-        GET(Url.getallauto).then(res => {
-            if (res.status){
-                this.setState({
-                    auto: res.data
-                })
-            }
-        })
-        GET(Url.getallproduct).then(res => {
-            console.log(res)
-            if (res.status){
-                this.setState({
-                    product: res.data.product,
-                    score: res.data.score
-                })
-            }
-        })
 
+    componentDidMount() {
+        this.requset = true
+        if(this.requset){
+            GET(Url.getallauto).then(res => {
+                if (res.status && this.requset){
+                    this.setState({
+                        auto: res.data
+                    })
+                }
+            })
+
+            GET(Url.getallproduct).then(res => {
+                if (res.status && this.requset){
+                    this.setState({
+                        product: res.data.product,
+                        score: res.data.score
+                    })
+                }
+            })
+
+        }
 
             if(this.props.user.status){
                 this.props.dispatch(GetMessage(this.props.user.id))
@@ -48,8 +53,12 @@ class Home extends React.Component {
             // if(this.props.score.score.status){
             //     this.props.dispatch(GetMessage(this.props.score.score.id))
             // }
-
+        console.log(this.state)
     }
+    componentWillUnmount() {
+        this.requset = false
+    }
+
     GetAuto = (e) => {
         this.props.dispatch(GetSellByID(e.target.dataset.id))
         this.props.dispatch(GetId(e.target.dataset.id))

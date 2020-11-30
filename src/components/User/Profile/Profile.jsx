@@ -56,6 +56,15 @@ class Profile extends React.Component{
                                         </Link>
                                     </li>
                                     <li>
+                                        <Link to='/user/account/persional'>
+                                            <div className="icon">
+                                                <FontAwesomeIcon icon={faEnvelope} color={status? 'red':''}/>
+                                            </div>
+                                            <span>Հաղորդագրություններ</span>
+
+                                        </Link>
+                                    </li>
+                                    <li>
                                         <Link to='/user/account/cars'>
                                             <div className="icon">
                                                 <FontAwesomeIcon icon={faCar}/>

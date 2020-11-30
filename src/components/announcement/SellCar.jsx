@@ -39,7 +39,13 @@ class SellCar extends  Component {
         let navWidth = (100 / img.length) + '%' ;
         return (
             <Link to={'/announcement/' + this.props.dataId} data-id={this.props.dataId} onClick={this.props.click}>
-                <div className="getSellCar" data-id={this.props.dataId} data-user={this.props.dataUser}>
+                <div
+                    className="getSellCar"
+                    data-id={this.props.dataId}
+                    data-user={this.props.dataUser}
+                    style={{marginTop:this.props.top}}
+                >
+
 
                 <div className="getSellCar_header" data-id={this.props.dataId} data-user={this.props.dataUser}>
 
