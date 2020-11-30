@@ -26,12 +26,12 @@ class Header extends React.Component{
         }
     }
     componentDidMount() {
-        if(this.props.user.status){
-            this.props.dispatch(GetMessage(this.props.user.id))
-        }
-        if(this.props.score.score.status){
-            this.props.dispatch(GetMessage(this.props.score.score.id))
-        }
+        // if(this.props.user.status){
+        //     this.props.dispatch(GetMessage(this.props.user.id))
+        // }
+        // if(this.props.score.score.status){
+        //     this.props.dispatch(GetMessage(this.props.score.score.id))
+        // }
     }
 
     OpenModal = (e)  =>{
@@ -118,7 +118,6 @@ class Header extends React.Component{
                                         <li className="header__links-li row align-center" >
                                             <Link className='link__btn header__link-message' to='/user/login'>
                                                 <FontAwesomeIcon icon={faBell} style={this.props.message.notifications?{color:'red'}:''}/>
-
                                             </Link>
                                         </li>
                                         <li className="header__links-li row align-center">

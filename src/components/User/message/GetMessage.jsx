@@ -53,7 +53,7 @@ class GetMessageClass extends Component{
 
     }
     onEnterPress = (e) => {
-        this.props.dispatch(GetStatus(this.props.message.dialog))
+        this.props.dispatch(GetStatus(this.props.user.id))
         if(e.keyCode == 13 && e.shiftKey == false) {
             e.preventDefault();
             let data = new FormData(this.formRef);

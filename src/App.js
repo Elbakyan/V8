@@ -18,6 +18,8 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookSquare, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
+import {GET, TEST_GET, TEST_POST} from "./components/config/Requsest";
+import {Url} from "./components/config/Url";
 
 class App extends Component {
     constructor(props) {
@@ -25,11 +27,9 @@ class App extends Component {
         this.state = {
             path: '/',
             incriment: 0
-
         }
         this.VinRef = React.createRef()
     }
-
 
     componentDidMount() {
         this.props.dispatch(UserExist())
@@ -39,6 +39,13 @@ class App extends Component {
         this.props.dispatch(GetTruck())
         this.props.dispatch(GetTruckModels())
 
+        GET(Url.getrequest).then(res => {
+            let arr = [];
+            for (const key in res) {
+                arr.push(res[key]);
+            }
+            console.log(arr)
+        })
     }
 
 
@@ -67,7 +74,7 @@ class App extends Component {
                   <Route path='/soon'>
                       <Soon/>
                   </Route>
-                  <Route >
+                  <Route>
                       <PageNotFound/>
                   </Route>
               </Switch>

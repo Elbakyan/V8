@@ -50,6 +50,9 @@ export const Url = {
     watckcount: SITE_NAME + '/Server/watch-count',
     getallauto: SITE_NAME + '/Server/auto-get',
     getallproduct: SITE_NAME + '/Server/product-get',
+    addrequest: SITE_NAME + '/Server/add-request',
+    getrequest: SITE_NAME + '/Server/get-request',
+
 
 }
 export default SITE_NAME;

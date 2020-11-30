@@ -70,6 +70,8 @@ class Message extends Component {
                 link: ''
             })
         },1000)
+
+        this.props.dispatch(GetId(e.target.dataset.id))
         this.props.dispatch(GetStatus(this.props.message.dialog))
         this.props.dispatch(GetDialogId(e.target.dataset.dialogId))
     }

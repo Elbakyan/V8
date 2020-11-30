@@ -12,6 +12,7 @@ import {Url} from "../config/Url";
 import SellCar from "../announcement/SellCar";
 import {GetSellByID} from "../../redux/sellauto/action";
 import {GetId, GetMessage} from "../../redux/message/action";
+import Loading from "../Loading";
 
 class Home extends React.Component {
     constructor(post) {
@@ -60,6 +61,7 @@ class Home extends React.Component {
             <div className="Home">
                 <Header/>
                 <Menu/>
+
                 {
                     this.state.auto?
                         <div>
@@ -81,7 +83,6 @@ class Home extends React.Component {
                                                             sircle={res.sircle}
                                                             city={res.city}
                                                             dataImg={res.img}
-
                                                         />
                                                     </Link>
                                                 </div>
@@ -126,11 +127,13 @@ class Home extends React.Component {
                 }
 
 
+
                 <DecorTitle title='Ծառայություններ' />
                 <div className="container services">
 
                     <div className="content__list">
                         {
+                            this.state.auto.length?
                             this.state.auto.map(res => {
                                 return (
                                     <div className='result_auto'>
@@ -147,7 +150,7 @@ class Home extends React.Component {
                                         />
                                     </div>
                                 )
-                            })
+                            }):<Loading />
                         }
                     </div>
                 </div>
