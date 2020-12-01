@@ -18,6 +18,7 @@ import Message from "../message/Message";
 import GeFavorite from "../../favorite/GeFavorite";
 import ProfilSetingsScore from "./ProfilSetingsScore";
 import Soon from "../../Soon/Soon";
+import GetRequest from "../../GetRequest/GetRequest";
 
 
 
@@ -67,7 +68,7 @@ class Profile extends React.Component{
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to={'/score/account/message/' + this.props.message.messageId}>
+                                    <Link to={'/score/account/request/'}>
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faEnvelopeOpenText}/>
                                         </div>
@@ -108,6 +109,9 @@ class Profile extends React.Component{
                                 </Route>
                                 <Route path={'/score/account/message/' + this.props.message.messageId}>
                                     <Message/>
+                                </Route>
+                                <Route path={'/score/account/request/'}>
+                                    <GetRequest/>
                                 </Route>
                                 <Route path='/score/account/favorite'>
                                     <GeFavorite />

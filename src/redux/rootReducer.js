@@ -8,6 +8,7 @@ import FavoriteReducer from "./favorite/FavoriteReducer";
 import MessageReducer from "./message/MessageReducer";
 import tmpReducer from "./tmp/tmpReducer";
 import SearchReducer from "./search/SearchReducer";
+import requestReducer from "./GetRequest/requestReducer";
 export default combineReducers({
     user: UserExistReducer,
     location: locationReducer,
@@ -17,5 +18,6 @@ export default combineReducers({
     favorite: FavoriteReducer,
     message: MessageReducer,
     tmp: tmpReducer,
-    search: SearchReducer
+    search: SearchReducer,
+    request:requestReducer
 })

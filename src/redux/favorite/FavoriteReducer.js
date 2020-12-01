@@ -12,10 +12,8 @@ export default function favoriteReducer(state = initialState, action){
             return {...state, favorite: action.payload}
         case GET_USER_FAVORITE:
             return {...state, userFavorite: action.payload}
-
     }
     return state;
-
 }
 
 
