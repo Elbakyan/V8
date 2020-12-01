@@ -7,17 +7,26 @@
     display: flex;
     justify-content: space-between;
 
-
-
     .respondent{
       width: 25%;
+
       .users{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         ul{
           display: flex;
           align-items: center;
-          border: 1px solid red;
+          //border: 1px solid red;
           height: 65px;
           cursor: pointer;
+          background: #0e6a99;
+          border-radius: 5px;
+          width: 100%;
+          margin-bottom: 10px;
+          color: white;
+          padding: 0 10px;
           & > li{
             &:nth-child(1){
               width: 70%;
@@ -50,27 +59,63 @@
       //height: 100%;
       .message{
         width: 100%;
-        border:1px solid green;
+        //border:1px solid green;
         & > ul{
           overflow: auto;
-          border: 1px solid red;
+          //border: 1px solid red;
           width: 100%;
           height: 75%;
           .send{
             justify-content: flex-end;
+            .message_request_style{
+              .message_info{
+                align-items: flex-end;
+              }
+              .message_text{
+                margin-top: 5px;
+                background: #5268bc;
+                color: white;
+                border-radius: 10px;
+                padding: 15px;
+                display: flex;
+                justify-content: flex-end;
+                width: auto;
+                min-width: 30%;
+              }
+              //& > li{
+              //  border:1px solid #1c8080;
+              //  &:last-child{
+              //    margin-top: 10px;
+              //    border-radius: 5px;
+              //    background: white;
+              //    color: black;
+              //  }
+              //}
+
+            }
           }
           .get{
             justify-content: flex-start;
+            .message_request_style{
+              .message_info{
+                align-items: flex-start;
+              }
+              .message_text{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+              }
+
+
+            }
           }
           .msStyle{
             width: 100%;
             display: flex;
             align-items: center;
             padding: 10px;
-
             .message_request_style{
-              //width: 80%;
-              min-height: 80px;
+              min-width: 30%;
               .message_info{
                 background: #727eb3;
                 color: white;
@@ -78,27 +123,23 @@
                 padding: 15px;
                 display: flex;
                 flex-direction: column;
-                align-items: flex-end;
 
                 &__image{
-                  width: 100%;
-                  //border: 1px solid #1c8080;
+                  //width: 100%;
                   display: flex;
                   justify-content: center;
-
                   li{
-                    width: 40%;
                     display: flex;
                     justify-content: center;
+                    img{
+                      max-width: 80%;
+                      width: 250px;
+                    }
                   }
-                  img{
-                    max-width: 100%;
-                  }
+
                 }
                 &__description{
                   margin-top: 10px;
-                  width: 60%;
-                  //border: 1px solid #1c2577;
                   background: white;
                   color: black;
                   font-size: 14px;
@@ -127,53 +168,51 @@
                   color: black;
                 }
               }
-              img{
-                max-width: 80%;
-              }
+
             }
           }
-          .get{
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            .message_request_style{
-              width: 48%;
-              //border: 1px solid blue;
-              background: #7e7e7e;
-              border-radius: 10px;
-              min-height: 80px;
-              padding: 15px;
-              .message_info{
-                background: #727eb3;
-                color: white;
-                border-radius: 10px;
-                padding: 15px;
-                display: flex;
-                justify-content: flex-start;
-              }
-              .message_text{
-                margin-top: 5px;
-                background: #5268bc;
-                color: white;
-                border-radius: 10px;
-                padding: 15px;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-              }
-              & > li{
-                border:1px solid #1c8080;
-                &:last-child{
-                  background: white;
-                  color: black;
-                }
-              }
-              img{
-                max-width: 100%;
-                width: 150px;
-              }
-            }
-          }
+          //.get{
+          //  width: 100%;
+          //  display: flex;
+          //  justify-content: flex-start;
+          //  .message_request_style{
+          //    width: 48%;
+          //    //border: 1px solid blue;
+          //    background: #7e7e7e;
+          //    border-radius: 10px;
+          //    min-height: 80px;
+          //    padding: 15px;
+          //    .message_info{
+          //      background: #727eb3;
+          //      color: white;
+          //      border-radius: 10px;
+          //      padding: 15px;
+          //      display: flex;
+          //      justify-content: flex-start;
+          //    }
+          //    .message_text{
+          //      margin-top: 5px;
+          //      background: #5268bc;
+          //      color: white;
+          //      border-radius: 10px;
+          //      padding: 15px;
+          //      display: flex;
+          //      flex-direction: column;
+          //      align-items: flex-start;
+          //    }
+          //    & > li{
+          //      border:1px solid #1c8080;
+          //      &:last-child{
+          //        background: white;
+          //        color: black;
+          //      }
+          //    }
+          //    img{
+          //      max-width: 100%;
+          //      width: 150px;
+          //    }
+          //  }
+          //}
         }
         .send_message{
           width: 100%;

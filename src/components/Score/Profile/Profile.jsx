@@ -68,7 +68,7 @@ class Profile extends React.Component{
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to={'/score/account/request/'}>
+                                    <Link to={'/score/account/request'}>
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faEnvelopeOpenText}/>
                                         </div>
@@ -110,7 +110,7 @@ class Profile extends React.Component{
                                 <Route path={'/score/account/message/' + this.props.message.messageId}>
                                     <Message/>
                                 </Route>
-                                <Route path={'/score/account/request/'}>
+                                <Route path={'/score/account/request'}>
                                     <GetRequest/>
                                 </Route>
                                 <Route path='/score/account/favorite'>
