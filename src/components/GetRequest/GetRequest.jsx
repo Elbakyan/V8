@@ -55,7 +55,7 @@ class GetRequest extends Component{
                                                     el.message.map((mess,i)=>{
                                                         console.log(mess)
                                                         return(
-                                                            <li className={this.props.score.score.id || this.props.user.id === mess.send?'msStyle send':'msStyle get'}>
+                                                            <li className={+this.props.score.score.id === +mess.send || +this.props.user.id === +mess.send?'msStyle send':'msStyle get'}>
                                                                 <ul className='message_request_style'>
                                                                     {
                                                                         mess.img ||  mess.message.mark ||
