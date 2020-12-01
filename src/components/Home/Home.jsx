@@ -78,9 +78,9 @@ class Home extends React.Component {
                             <div className="container">
                                 <div className="content__list">
                                     {
-                                        this.state.auto.map(res => {
+                                        this.state.auto.map((res,i) => {
                                             return (
-                                                <div className='result_auto'>
+                                                <div key={i} className='result_auto'>
                                                     <Link to={'/announcement/' + res.id} data-id={res.id} onClick={this.GetAuto}>
                                                         <SellCar
                                                             dataId={res.id}
