@@ -11,6 +11,8 @@ import Test from "./Test";
 import {GetModel} from "../../redux/auto/action";
 import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
+import Art from "../Alert";
+import {Redirect} from "react-router";
 
 class ModalRequest extends React.Component{
     constructor(props) {
@@ -21,7 +23,9 @@ class ModalRequest extends React.Component{
             vin:false,
             year: false,
             engine: false,
-            imgName: 'Ներբեռնել նկար'
+            imgName: 'Ներբեռնել նկար',
+            message: undefined,
+            redirect: false
         }
     }
     MyCar = (e) => {
@@ -48,17 +52,43 @@ class ModalRequest extends React.Component{
     SendRequest = (e) => {
         e.preventDefault();
         let data = new FormData(e.target);
-        TEST_POST(Url.addrequest,data).then(res => {
-            console.log(res)
+        POST(Url.addrequest,data).then(res => {
+            if (res.status !== undefined){
+                this.setState({
+                    message: res.message
+                })
+                setTimeout(() => {
+                    this.setState({
+                       message: undefined
+                    })
+                },2000)
+            }else{
+                this.setState({
+                    redirect: true
+                })
+            }
         })
     }
-    render() {
+    componentWillUnmount() {
+        this.setState({
+            redirect: false
+        })
+    }
 
+    render() {
         return (
 
-            <form className='ModalRequest' onSubmit={this.SendRequest} style={this.props.modal? {transform: 'scale(1)'}:{transform: 'scale(0)'}}>
+            <form className='ModalRequest' onSubmit={this.SendRequest}>
+
+                {
+                    this.state.redirect? <Redirect to={this.props.user.status? 'user/account/request' : 'score/account/request'} />:''
+                }
                 <div className="overlay" onClick={this.props.close}></div>
                 <div className='modal__content'>
+                    {
+                        this.state.message !== undefined?
+                            <Art type='warning' content={this.state.message} />: ''
+                    }
                     <div className="close" onClick={this.props.close}>
                         <FontAwesomeIcon icon={faWindowClose} />
                     </div>

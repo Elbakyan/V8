@@ -55,7 +55,9 @@ class Header extends React.Component{
             <header>
                 {
                     this.props.user.status || this.props.score.score.status ?
-                        <ModalRequest modal={this.state.modal} close={this.Close}/>:
+                        this.state.modal?
+                        <ModalRequest close={this.Close}/>:''
+                        :
                         this.state.message?
                             <div className='user_warning'>
                                 <Art type='warning' content='Հառցում ուղարկելու համար անհրաժեշտ է գրանցվել․․․․'/>

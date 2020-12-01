@@ -49,7 +49,7 @@ class SpeareParts extends Component{
                 </div>
 
                 <div className='modal__items'>
-                    <select onChange={this.MyCar}>
+                    <select onChange={this.MyCar} >
                         <option value=''>Մեքենա</option>
                         {
                             this.props.auto? this.props.auto.map((res,i) => {
@@ -61,6 +61,7 @@ class SpeareParts extends Component{
                                         data-vin={res.vin}
                                         data-year={res.year}
                                         data-engine={res.engine}
+
                                     >{res.model}</option>
                                 )
                             }):''
@@ -89,12 +90,13 @@ class SpeareParts extends Component{
                 <div className='modal__items'>
                     {
                         this.state.mark?
-                            <select name="mark">
+                            <select name="mark" >
                                 <option value={this.state.mark}>
                                     {this.state.mark}
                                 </option>
                             </select>:
                             <DefaultSelect
+
                                 name='mark'
                                 data={this.props.mark}
                                 onChange={(e)=>{
@@ -139,6 +141,7 @@ class SpeareParts extends Component{
                         name='vin'
                         defaultValue={this.state.vin?this.state.vin:''}
                         placeholder='VIN'
+                        required
                     />
                 </div>
 
