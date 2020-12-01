@@ -1,0 +1,215 @@
+.message_users_component{
+  width: 100%;
+  background: red;
+  .message_users{
+    width: 100%;
+    height: 100vh;
+    background: blue;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.respondent{
+  width: 20%;
+
+
+  .users{
+    ul{
+      display: flex;
+      align-items: center;
+      border: 1px solid red;
+      height: 65px;
+      cursor: pointer;
+      & > li{
+        &:nth-child(1){
+          width: 70%;
+        }
+        &:nth-child(2){
+          width: 30%;
+          height: 100%;
+          border: 1px solid white;
+          border-radius: 100%;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          background: white;
+        }
+      }
+    }
+
+  }
+
+
+  img{
+    max-width: 100%;
+  }
+
+
+}
+
+.get_message{
+  width: 80%;
+  //height: 100%;
+  .message{
+    width: 100%;
+    border:1px solid green;
+    & > ul{
+      overflow: auto;
+      border: 1px solid red;
+      width: 100%;
+      height: 75%;
+      .send_message{
+        width: 100%;
+
+        display: flex;
+        justify-content: flex-end;
+        padding: 25px;
+        .message_request_style{
+          width: 80%;
+          min-height: 80px;
+          .message_info{
+            background: #727eb3;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            &__image{
+              width: 100%;
+              border: 1px solid #1c8080;
+              display: flex;
+              justify-content: center;
+
+              li{
+                width: 80%;
+                display: flex;
+                justify-content: center;
+              }
+              img{
+                max-width: 80%;
+              }
+            }
+            &__description{
+              width: 60%;
+              border: 1px solid #1c8080;
+              background: white;
+              color: black;
+            }
+          }
+          .message_text{
+            margin-top: 5px;
+            background: #5268bc;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-end;
+
+          }
+          & > li{
+            border:1px solid #1c8080;
+            &:last-child{
+              margin-top: 10px;
+              border-radius: 5px;
+              background: white;
+              color: black;
+            }
+          }
+          img{
+            max-width: 80%;
+          }
+        }
+      }
+      .get_message{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        .message_request_style{
+          width: 48%;
+          //border: 1px solid blue;
+          background: #7e7e7e;
+          border-radius: 10px;
+          min-height: 80px;
+          padding: 15px;
+          .message_info{
+            background: #727eb3;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-start;
+          }
+          .message_text{
+            margin-top: 5px;
+            background: #5268bc;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          & > li{
+            border:1px solid #1c8080;
+            &:last-child{
+              background: white;
+              color: black;
+            }
+          }
+          img{
+            max-width: 100%;
+            width: 150px;
+          }
+        }
+      }
+    }
+    .send_message{
+      width: 100%;
+      height: 25%;
+      //box-shadow: 0px 0px 0px 1px #acabab;
+      >form{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        .message_text{
+          resize: none;
+          border: none;
+          border-radius: 5px;
+          width: 90%;
+          height:70%;
+          @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+            height: 100%;
+          }
+        }
+        .message_send_button{
+          margin-top: 5px;
+          width: 90%;
+          display: flex;
+          justify-content: flex-end;
+          //height:70%;
+        }
+
+      }
+
+    }
+  }
+
+
+}
+.R__link{
+  position: relative;
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+  }
+}

@@ -52,6 +52,7 @@ export const Url = {
     getallproduct: SITE_NAME + '/Server/product-get',
     addrequest: SITE_NAME + '/Server/add-request',
     getrequest: SITE_NAME + '/Server/get-request',
+    sendrequest: SITE_NAME + '/Server/send-request',
 
 
 }

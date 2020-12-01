@@ -9,6 +9,7 @@ export const GET_USER_FAVORITE = 'GET_USER_FAVORITE';
 export function GetFavorite(){
     return (dispach) => {
         GET(Url.getFavorite).then(res => {
+
             dispach({
                 type: GET_FAVORITE,
                 payload: res
