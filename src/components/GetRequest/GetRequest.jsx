@@ -33,7 +33,7 @@ class GetRequest extends Component{
             dialog: dialog
         })
         setTimeout(() => {
-            this.scroll();
+            // this.scroll();
         },1000)
 
     }
@@ -200,8 +200,6 @@ class GetRequest extends Component{
                                                 </form>
                                             </div>
                                         </div>
-
-
 
                                     </Route>
                                 )
