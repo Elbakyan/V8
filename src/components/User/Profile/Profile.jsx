@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import './Profile.scss'
 import {Link, Route, Switch} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faEnvelope, faCar, faPlusCircle} from "@fortawesome/free-solid-svg-icons";
+import {faHeart, faEnvelope, faCar, faPlusCircle, faEnvelopeOpenText} from "@fortawesome/free-solid-svg-icons";
 import ProfilSetings from "./ProfilSetings";
 import UserCars from "../UserCars/UserCars";
 import CarsForm from "../UserCars/CarsForm";
@@ -14,6 +14,7 @@ import Message from "../message/Message";
 
 
 import {GetMessage} from "../../../redux/message/action";
+import GetRequest from "../../GetRequest/GetRequest";
 
 
 class Profile extends React.Component{
@@ -56,12 +57,11 @@ class Profile extends React.Component{
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='/user/account/persional'>
+                                        <Link to={'/user/account/request'}>
                                             <div className="icon">
-                                                <FontAwesomeIcon icon={faEnvelope} color={status? 'red':''}/>
+                                                <FontAwesomeIcon icon={faEnvelopeOpenText}/>
                                             </div>
-                                            <span>Հաղորդագրություններ</span>
-
+                                            Հարցում
                                         </Link>
                                     </li>
                                     <li>
@@ -105,6 +105,9 @@ class Profile extends React.Component{
                                         {
                                             this.props.auto.auto.status ? <UserCars/> :this.props.auto.auto.message
                                         }
+                                    </Route>
+                                    <Route path={'/user/account/request'}>
+                                        <GetRequest/>
                                     </Route>
                                     <Route path='/user/account/setings'>
                                         <ProfilSetings />

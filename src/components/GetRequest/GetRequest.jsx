@@ -95,7 +95,7 @@ class GetRequest extends Component{
                                     return(
                                         <Link key={i} onClick={this.Send}
                                               to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
-                                                  :'user/account/request/'+el.message[0].dialog + '/' + el.user.id}
+                                                  :'/user/account/request/'+el.message[0].dialog + '/' + el.user.id}
 
                                         >
                                             <ul className={'R__link'} data-id={el.user.id} data-dialog={el.message[0].dialog}>
@@ -115,15 +115,10 @@ class GetRequest extends Component{
                                 return(
                                     <Route key={i} path={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
                                         :
-                                        'user/account/request/'+el.message.dialog + '/' + el.user.id
+                                        '/user/account/request/'+el.message[0].dialog + '/' + el.user.id
                                     }>
                                         <div className="message" >
                                             <ul ref={this.scrollRef}>
-                                                <li className='get_message' >
-                                                    <ul className='message_request_style' >
-                                                        <li>1111</li>
-                                                    </ul>
-                                                </li>
                                                 {
                                                     el.message.map((mess,i)=>{
                                                         return(
@@ -177,8 +172,6 @@ class GetRequest extends Component{
                                                                             </div>
                                                                             :''
                                                                     }
-
-
                                                                 </ul>
                                                             </li>
                                                         )
