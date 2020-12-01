@@ -15,11 +15,6 @@ import Loading from "./components/Loading";
 import Result from "./components/Search/Result";
 import Soon from "./components/Soon/Soon";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFacebookSquare, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
-import {GET, TEST_GET, TEST_POST} from "./components/config/Requsest";
-import {Url} from "./components/config/Url";
 import {GetRequst} from "./redux/GetRequest/action";
 
 class App extends Component {
@@ -41,23 +36,14 @@ class App extends Component {
         this.props.dispatch(GetTruckModels())
         this.props.dispatch(GetRequst())
 
-        // GET(Url.getrequest).then(res => {
-        //     let arr = [];
-        //     for (const key in res) {
-        //         arr.push(res[key]);
-        //     }
-        //     console.log(arr)
-        // })
-
     }
 
     componentWillUnmount() {
-        this.props.dispatch()
+
     }
 
 
     render() {
-        console.log(this.props.request)
       return (
           <div className="App">
               <Switch>
