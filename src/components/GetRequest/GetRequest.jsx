@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from "react";
-import '../User/message/Message.scss';
+// import '../User/message/Message.scss';
 import './GetRequest.scss';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
@@ -46,7 +46,7 @@ class GetRequest extends Component{
                                     }>
                                         <div className="message">
                                             <ul>
-                                                <li className='get_message'>
+                                                <li className='msStyle get'>
                                                     <ul className='message_request_style'>
                                                         <li>1111</li>
                                                     </ul>
@@ -55,7 +55,7 @@ class GetRequest extends Component{
                                                     el.message.map((mess,i)=>{
                                                         console.log(mess)
                                                         return(
-                                                            <li className={'message_request ' + this.props.score.score.id || this.props.user.id === mess.send?'send_message':'get_message'}>
+                                                            <li className={this.props.score.score.id || this.props.user.id === mess.send?'msStyle send':'msStyle get'}>
                                                                 <ul className='message_request_style'>
                                                                     {
                                                                         mess.img ||  mess.message.mark ||
@@ -71,16 +71,16 @@ class GetRequest extends Component{
 
                                                                             <div className='message_info__description'>
                                                                                 {
-                                                                                    mess.message.mark? <li>{mess.message.mark}</li> :''
+                                                                                    mess.message.mark? <li>Մակնիշ - {mess.message.mark}</li> :''
                                                                                 }
                                                                                 {
-                                                                                    mess.message.model? <li>{mess.message.model}</li> :''
+                                                                                    mess.message.model? <li>Մոդել - {mess.message.model}</li> :''
                                                                                 }
                                                                                 {
-                                                                                    mess.message.engine? <li>{mess.message.engine}</li> :''
+                                                                                    mess.message.engine? <li>Շարժիճի ծավալը ։{mess.message.engine}</li> :''
                                                                                 }
                                                                                 {
-                                                                                    mess.message.year? <li>{mess.message.year}</li> :''
+                                                                                    mess.message.year? <li>Տարեթիվ ։{mess.message.year}</li> :''
                                                                                 }
                                                                                 {
                                                                                     mess.message.vin? <li>VIN:({mess.message.vin})</li> :''
@@ -92,7 +92,7 @@ class GetRequest extends Component{
                                                                                     mess.message.old? <li>{'Օգտագործված'}</li> :''
                                                                                 }
                                                                                 {
-                                                                                    mess.message.sircle? <li>{ mess.message.sircle}</li> :''
+                                                                                    mess.message.sircle? <li>Տարածաշրջան ։{ mess.message.sircle}</li> :''
                                                                                 }
                                                                             </div>
 
@@ -101,7 +101,7 @@ class GetRequest extends Component{
 
                                                                     <div className='message_text'>
                                                                         {
-                                                                            mess.message.message? <li>{ mess.message.message}</li> :''
+                                                                            mess.message.message || mess.message.message!== ''? <li>{ mess.message.message}</li> :''
                                                                         }
                                                                     </div>
 
