@@ -20,6 +20,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookSquare, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
 import {GET, TEST_GET, TEST_POST} from "./components/config/Requsest";
 import {Url} from "./components/config/Url";
+import {Link} from "react-router-dom";
 
 class App extends Component {
     constructor(props) {
@@ -40,11 +41,12 @@ class App extends Component {
         this.props.dispatch(GetTruckModels())
 
         GET(Url.getrequest).then(res => {
+            console.log(res)
             let arr = [];
             for (const key in res) {
                 arr.push(res[key]);
             }
-            console.log(arr)
+            // console.log(arr)
         })
     }
 

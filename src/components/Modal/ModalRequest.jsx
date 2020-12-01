@@ -81,7 +81,6 @@ class ModalRequest extends React.Component{
                     </div>
                 </div>
                 <input type="hidden" name='id' value={this.props.user.status?this.props.user.id:this.props.score.score.id}/>
-                <input type="hidden" name='state' value={this.props.user.status?'user':'score'}/>
             </form>
         )
     }
