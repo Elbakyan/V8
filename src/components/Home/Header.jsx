@@ -12,6 +12,7 @@ import PersionalDataScore from "../Score/Profile/PersionalDataScore";
 import {GetMessage} from "../../redux/message/action";
 import ModalRequest from "../Modal/ModalRequest";
 import Art from "../Alert";
+import {GetRequst} from "../../redux/GetRequest/action";
 
 
 
@@ -26,12 +27,7 @@ class Header extends React.Component{
         }
     }
     componentDidMount() {
-        // if(this.props.user.status){
-        //     this.props.dispatch(GetMessage(this.props.user.id))
-        // }
-        // if(this.props.score.score.status){
-        //     this.props.dispatch(GetMessage(this.props.score.score.id))
-        // }
+        this.props.dispatch(GetRequst())
     }
 
     OpenModal = (e)  =>{

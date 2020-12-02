@@ -23,7 +23,8 @@ class GetRequest extends Component{
             dialog: '',
             scroll: true,
             cou:0,
-            redirect:false
+            redirect:false,
+            interval:false
         }
         this.textareaRef = React.createRef()
         this.formRef = React.createRef()
@@ -34,14 +35,12 @@ class GetRequest extends Component{
         let dialog = window.location.pathname.split('/')[window.location.pathname.split('/').length - 2];
         this.setState({
             id: id,
-            dialog: dialog
+            dialog: dialog,
+            interval: true
         })
-        setTimeout(() => {
-            // this.scroll();
-        },1000)
+
 
     }
-
     Send = (e) => {
         this.setState({
             id: e.target.dataset.id,
@@ -126,14 +125,18 @@ class GetRequest extends Component{
                         <ul className='users' >
                             {
                                 this.props.request.request.map((el,i)=>{
-                                    let myId = 0;
-                                    if (this.props.score.score.status){
-                                        myId = this.props.score.score.id
+
+                                    let id;
+
+                                    if(this.props.score.score.status){
+                                        id = this.props.score.score.id
                                     }
-                                    if (this.props.user.status){
-                                        myId = this.props.user.id
+                                    if(this.props.user.status){
+                                        id = this.props.user.id
                                     }
-                                    if(+el.message[0].delite[0] !== +this.props.user.id){
+
+                                    console.log(el.message.length)
+                                    if(+el.message[0].delite[0] !== +this.props.user.id ){
                                         return(
                                             <Link key={i} onClick={this.Send}
                                                   to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
@@ -165,16 +168,14 @@ class GetRequest extends Component{
                                                     }}><FontAwesomeIcon icon={faTrashAlt} /></li>
                                                     {
 
-                                                        el.message.map(el => +el.status).pop() &&  el.message.map(el => +el.send).pop() !== myId?
-                                                            <li></li>
-                                                            :''
+                                                        +el.message[el.message.length-1].status && +el.message[el.message.length-1].send != id?
+                                                            <li style={{background:'red'}}></li>:<li style={{background:'none'}}></li>
 
                                                     }
                                                 </ul>
                                             </Link>
                                         )
                                     }
-
                                 })
                             }
                         </ul>
@@ -239,7 +240,7 @@ class GetRequest extends Component{
                                                                     {
                                                                         mess.message.message?
                                                                             <div className='message_text'>
-                                                                                    <li>{ mess.message.message}</li>
+                                                                                <li>{mess.message.message}</li>
                                                                             </div>
                                                                             :''
                                                                     }

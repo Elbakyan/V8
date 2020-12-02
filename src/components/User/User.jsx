@@ -5,6 +5,7 @@ import Account from "./Account";
 import {connect} from "react-redux";
 import Loading from "../Loading";
 import Signin from "./Authentication/Signin";
+import {GetRequst} from "../../redux/GetRequest/action";
 
 
 
@@ -14,6 +15,9 @@ class User extends React.Component{
         this.state = {
             id: this.props.id
         }
+    }
+    componentDidMount() {
+        this.props.dispatch(GetRequst())
     }
 
     render() {
