@@ -112,8 +112,17 @@ class GetRequest extends Component{
                         <ul className='users' >
                             {
                                 this.props.request.request.map((el,i)=>{
-                                    console.log(el.message[0].status)
-                                    if(+el.message[0].delite[0] !== +this.props.user.id){
+                                    let id;
+
+                                    if(this.props.score.score.status){
+                                        id = this.props.score.score.id
+                                    }
+                                    if(this.props.user.status){
+                                        id = this.props.user.id
+                                    }
+
+                                    console.log(el.message.length)
+                                    if(+el.message[0].delite[0] !== +this.props.user.id ){
                                         return(
                                             <Link key={i} onClick={this.Send}
                                                   to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
@@ -144,13 +153,15 @@ class GetRequest extends Component{
 {}                                                        })
                                                     }}><FontAwesomeIcon icon={faTrashAlt} /></li>
                                                     {
-                                                        +el.message[0].status?<li></li>:''
+
+                                                        +el.message[el.message.length-1].status && +el.message[el.message.length-1].send != id?
+                                                            <li style={{background:'red'}}></li>:<li style={{background:'none'}}></li>
+
                                                     }
                                                 </ul>
                                             </Link>
                                         )
                                     }
-
                                 })
                             }
                         </ul>
