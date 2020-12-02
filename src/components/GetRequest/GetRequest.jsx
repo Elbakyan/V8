@@ -48,7 +48,6 @@ class GetRequest extends Component{
             dialog: e.target.dataset.dialog
         })
         let id = e.target.dataset.id
-        console.log(id)
         let data = new FormData()
         data.append('get', id);
         console.log(data)
@@ -65,6 +64,14 @@ class GetRequest extends Component{
         POST(Url.sendrequest,data).then(res => {
             this.props.dispatch(GetRequst())
             this.textareaRef.current.value = ''
+        })
+        let status = new FormData()
+        status.append('get', this.state.id)
+        data.append('get', status);
+        POST(Url.statusrequest,data).then(res=>{
+            if(res){
+                this.props.dispatch(GetRequst())
+            }
         })
         this.scroll();
     }
@@ -94,13 +101,20 @@ class GetRequest extends Component{
                     this.textareaRef.current.value = '';
                     this.scroll()
                 })
+                let status = new FormData()
+                status.append('get', this.state.id)
+                data.append('get', status);
+                POST(Url.statusrequest,data).then(res=>{
+                    if(res){
+                        this.props.dispatch(GetRequst())
+                    }
+                })
             }
 
         }
 
     }
     render() {
-        console.log(this.props.request)
         return(
 
             <div className='message_users_component'>
@@ -112,7 +126,13 @@ class GetRequest extends Component{
                         <ul className='users' >
                             {
                                 this.props.request.request.map((el,i)=>{
-                                    console.log(el.message[0].status)
+                                    let myId = 0;
+                                    if (this.props.score.score.status){
+                                        myId = this.props.score.score.id
+                                    }
+                                    if (this.props.user.status){
+                                        myId = this.props.user.id
+                                    }
                                     if(+el.message[0].delite[0] !== +this.props.user.id){
                                         return(
                                             <Link key={i} onClick={this.Send}
@@ -144,7 +164,11 @@ class GetRequest extends Component{
 {}                                                        })
                                                     }}><FontAwesomeIcon icon={faTrashAlt} /></li>
                                                     {
-                                                        +el.message[0].status?<li></li>:''
+
+                                                        el.message.map(el => +el.status).pop() &&  el.message.map(el => +el.send).pop() !== myId?
+                                                            <li></li>
+                                                            :''
+
                                                     }
                                                 </ul>
                                             </Link>
