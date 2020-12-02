@@ -36,11 +36,9 @@ class App extends Component {
         this.props.dispatch(GetTruckModels())
         this.props.dispatch(GetRequst())
 
-    }
-
-    componentWillUnmount() {
 
     }
+
 
 
     render() {
