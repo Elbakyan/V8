@@ -53,7 +53,7 @@ export const Url = {
     addrequest: SITE_NAME + '/Server/add-request',
     getrequest: SITE_NAME + '/Server/get-request',
     sendrequest: SITE_NAME + '/Server/send-request',
-
-
+    delrequest: SITE_NAME + '/Server/del-request',
+    statusrequest: SITE_NAME + '/Server/status-request',
 }
 export default SITE_NAME;

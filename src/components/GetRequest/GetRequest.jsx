@@ -2,13 +2,16 @@ import React, {Component, Fragment} from "react";
 import '../User/message/Message.scss';
 import './GetRequest.scss';
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link,Redirect} from "react-router-dom";
 import {Route} from "react-router";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
-import {POST} from "../config/Requsest";
+import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import {GetRequst} from "../../redux/GetRequest/action";
 import {GetStatus, SendMessage} from "../../redux/message/action";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
+import {faTrashAlt} from "@fortawesome/free-regular-svg-icons";
 
 
 
@@ -19,7 +22,8 @@ class GetRequest extends Component{
             id: '',
             dialog: '',
             scroll: true,
-            cou:0
+            cou:0,
+            redirect:false
         }
         this.textareaRef = React.createRef()
         this.formRef = React.createRef()
@@ -43,7 +47,18 @@ class GetRequest extends Component{
             id: e.target.dataset.id,
             dialog: e.target.dataset.dialog
         })
+        let id = e.target.dataset.id
+        console.log(id)
+        let data = new FormData()
+        data.append('get', id);
+        console.log(data)
+        POST(Url.statusrequest,data).then(res=>{
+            if(res){
+                this.props.dispatch(GetRequst())
+            }
+        })
     }
+
     Message = (e) => {
         e.preventDefault();
         let data = new FormData(e.target);
@@ -52,8 +67,8 @@ class GetRequest extends Component{
             this.textareaRef.current.value = ''
         })
         this.scroll();
-
     }
+
     scroll = () => {
         this.scrollRef.current.scrollTop = this.scrollRef.current.scrollHeight;
         if(this.state.cou != 2){
@@ -85,25 +100,57 @@ class GetRequest extends Component{
 
     }
     render() {
+        console.log(this.props.request)
         return(
+
             <div className='message_users_component'>
+                {
+                    this.state.redirect ? <Redirect to={this.props.user.status?'/user/account/request':'/score/account/request'} />: ''
+                }
                 <div className="message_users">
                     <div className="respondent">
                         <ul className='users' >
                             {
                                 this.props.request.request.map((el,i)=>{
-                                    return(
-                                        <Link key={i} onClick={this.Send}
-                                              to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
-                                                  :'/user/account/request/'+el.message[0].dialog + '/' + el.user.id}
+                                    console.log(el.message[0].status)
+                                    if(+el.message[0].delite[0] !== +this.props.user.id){
+                                        return(
+                                            <Link key={i} onClick={this.Send}
+                                                  to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
+                                                      :'/user/account/request/'+el.message[0].dialog + '/' + el.user.id}
 
-                                        >
-                                            <ul className={'R__link'} data-id={el.user.id} data-dialog={el.message[0].dialog}>
-                                                <li>{el.user.name}{el.user.surname}</li>
-                                                <li><img src={el.user.img} alt=""/></li>
-                                            </ul>
-                                        </Link>
-                                    )
+                                            >
+                                                <ul className={'R__link'} data-id={el.user.id} data-dialog={el.message[0].dialog}>
+                                                    <li><img src={el.user.img} alt=""/></li>
+                                                    <li>{el.user.name} {el.user.surname}</li>
+
+                                                    <li data-id={el.user.id} data-dialog={el.message[0].dialog} onClick={(e)=>{
+                                                        let id = e.target.dataset.id
+                                                        // console.log(id)
+                                                        let data = new FormData()
+                                                        data.append('id', id);
+                                                        POST(Url.delrequest,data).then(res=>{
+                                                            if(res){
+                                                                this.props.dispatch(GetRequst())
+                                                                this.setState({
+                                                                    redirect:true
+                                                                })
+                                                                setTimeout(()=>{
+                                                                    this.setState({
+                                                                        redirect:false
+                                                                    })
+                                                                },500)
+                                                            }
+{}                                                        })
+                                                    }}><FontAwesomeIcon icon={faTrashAlt} /></li>
+                                                    {
+                                                        +el.message[0].status?<li></li>:''
+                                                    }
+                                                </ul>
+                                            </Link>
+                                        )
+                                    }
+
                                 })
                             }
                         </ul>
@@ -122,8 +169,8 @@ class GetRequest extends Component{
                                                 {
                                                     el.message.map((mess,i)=>{
                                                         return(
-                                                            <li className={+this.props.score.score.id === +mess.send || +this.props.user.id === +mess.send?'msStyle send':'msStyle get'}>
-                                                                <ul className='message_request_style'>
+                                                            <li key={i} className={+this.props.score.score.id === +mess.send || +this.props.user.id === +mess.send?'msStyle send':'msStyle get'}>
+                                                                <ul className='message_request_style' >
                                                                     {
                                                                         mess.img ||  mess.message.mark ||
                                                                         mess.message.model || mess.message.engine ||
