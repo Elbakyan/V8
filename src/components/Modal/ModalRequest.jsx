@@ -63,15 +63,8 @@ class ModalRequest extends React.Component{
                     })
                 },2000)
             }else{
-                this.setState({
-                    redirect: true
-                })
+                window.location.reload(true)
             }
-        })
-    }
-    componentWillUnmount() {
-        this.setState({
-            redirect: false
         })
     }
 
@@ -79,10 +72,6 @@ class ModalRequest extends React.Component{
         return (
 
             <form className='ModalRequest' onSubmit={this.SendRequest}>
-
-                {
-                    this.state.redirect? <Redirect to={this.props.user.status? 'user/account/request' : 'score/account/request'} />:''
-                }
                 <div className="overlay" onClick={this.props.close}></div>
                 <div className='modal__content'>
                     {
