@@ -226,7 +226,19 @@ class GetRequest extends Component{
                                                                     {
                                                                         mess.message.message?
                                                                             <div className='message_text'>
-                                                                                    <li>{ mess.message.message}</li>
+                                                                                <li>
+                                                                                    {
+                                                                                        mess.message.message.split('/*/').map((el)=>{
+                                                                                            return(
+                                                                                                <Fragment>
+                                                                                                    {el} <br/>
+                                                                                                </Fragment>
+                                                                                            )
+                                                                                        })
+                                                                                    }
+                                                                                </li>
+
+
                                                                             </div>
                                                                             :''
                                                                     }
