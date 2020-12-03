@@ -36,6 +36,15 @@ class App extends Component {
         this.props.dispatch(GetTruckModels())
         this.props.dispatch(GetRequst())
 
+        setTimeout(()=>{
+            let id ;
+            if(this.props.user.status){
+                id = this.props.user.id
+            }else{
+                id = this.props.score.score.id
+            }
+            // this.props.request.request.map()
+        },500)
 
     }
 

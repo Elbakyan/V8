@@ -2,7 +2,7 @@ import React, {Component, Fragment} from "react";
 import '../User/message/Message.scss';
 import './GetRequest.scss';
 import {connect} from "react-redux";
-import {Link,Redirect} from "react-router-dom";
+import {Link, NavLink, Redirect} from "react-router-dom";
 import {Route} from "react-router";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {POST, TEST_POST} from "../config/Requsest";
@@ -97,7 +97,6 @@ class GetRequest extends Component{
             }
 
         }
-
     }
     render() {
         console.log(this.props.request)
@@ -122,9 +121,9 @@ class GetRequest extends Component{
                                     }
 
                                     console.log(el.message.length)
-                                    if(+el.message[0].delite[0] !== +this.props.user.id ){
+                                    if(+el.message[0].delite[0] !== +id){
                                         return(
-                                            <Link key={i} onClick={this.Send}
+                                            <NavLink className='default_user' activeClassName='active_user' key={i} onClick={this.Send}
                                                   to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
                                                       :'/user/account/request/'+el.message[0].dialog + '/' + el.user.id}
 
@@ -153,13 +152,11 @@ class GetRequest extends Component{
 {}                                                        })
                                                     }}><FontAwesomeIcon icon={faTrashAlt} /></li>
                                                     {
-
                                                         +el.message[el.message.length-1].status && +el.message[el.message.length-1].send != id?
                                                             <li style={{background:'red'}}></li>:<li style={{background:'none'}}></li>
-
                                                     }
                                                 </ul>
-                                            </Link>
+                                            </NavLink>
                                         )
                                     }
                                 })
@@ -237,8 +234,6 @@ class GetRequest extends Component{
                                                                                         })
                                                                                     }
                                                                                 </li>
-
-
                                                                             </div>
                                                                             :''
                                                                     }
@@ -265,7 +260,6 @@ class GetRequest extends Component{
                                                 </form>
                                             </div>
                                         </div>
-
                                     </Route>
                                 )
                             })
