@@ -16,9 +16,7 @@ class User extends React.Component{
             id: this.props.id
         }
     }
-    componentDidMount() {
-        this.props.dispatch(GetRequst())
-    }
+
 
     render() {
 

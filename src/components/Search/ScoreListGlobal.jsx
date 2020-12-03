@@ -25,7 +25,7 @@ class ScoreListGlobal extends Component{
     // }
 
     render() {
-        console.log()
+        console.log(this.props)
         return(
             <div className="score_list">
                 <div className="container">

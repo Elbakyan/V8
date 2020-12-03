@@ -33,7 +33,6 @@ class Profile extends React.Component{
     }
     componentDidMount() {
         this.props.dispatch(GetScoreList())
-        this.props.dispatch(GetRequst())
     }
 
 

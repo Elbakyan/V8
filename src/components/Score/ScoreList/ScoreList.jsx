@@ -33,7 +33,6 @@ class ScoreList extends React.Component{
     }
     componentDidMount() {
         this.props.dispatch(GetCity(1))
-        this.props.dispatch(GetRequst())
     }
 
 

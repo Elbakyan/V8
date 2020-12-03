@@ -8,11 +8,9 @@ export function GetRequst(){
     return (dispatch) => {
         GET(Url.getrequest).then(res => {
             let arr = [];
-            console.log(res)
             for (const key in res) {
                 arr.push(res[key]);
             }
-            console.log(arr)
             dispatch({
                 type: GET_REQUEST,
                 payload: arr
@@ -28,7 +26,6 @@ export function DelRequest(e = 1) {
         let data = new FormData()
         data.append('id',  id);
         POST(Url.model, data).then(data=> {
-
             dispach({
                 type: GET_MODEL,
                 payload: data
