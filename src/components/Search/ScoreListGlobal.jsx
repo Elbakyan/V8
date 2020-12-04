@@ -25,19 +25,18 @@ class ScoreListGlobal extends Component{
     // }
 
     render() {
-        console.log(this.props)
         return(
             <div className="score_list">
                 <div className="container">
                     <nav className='score_list_info'>
                         <div className='score_list_info__header table_style_header'>
                             <ul>
-                                <li>Ապրանքանիշը</li>
-                                <li>Նոր</li>
+                                <li>Անվանումը</li>
+                                <li>Նոր/Օգտ</li>
                                 <li>Օգտ․</li>
                                 <li>Ընկերությունը</li>
                                 <li>Հեռախոսահամրը</li>
-                                <li>Տարածաշրջանը</li>
+                                <li>Հասցե</li>
                             </ul>
                         </div>
                         <div className='score_list_info__body table_style_body'>
@@ -94,8 +93,6 @@ class ScoreListGlobal extends Component{
                                                             }else {
                                                                 return ''
                                                             }
-
-
                                                         })
                                                     }
                                                 </li>

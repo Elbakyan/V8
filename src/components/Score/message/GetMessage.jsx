@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import {SendMessage, GetMessage, GetId, GetStatus} from "../../../redux/message/action";
@@ -115,7 +115,15 @@ class GetMessageClass extends Component{
                                         elem[0].message == ""? '':
                                             <div>
                                                 <span>{elem[0].time}</span>
-                                                <span className='meso'>{elem[0].message}</span>
+                                                <span className='meso'>{
+                                                    elem[0].message.split((el,i)=>{
+                                                        return(
+                                                            <Fragment>
+                                                                {el} <br/>
+                                                            </Fragment>
+                                                        )
+                                                    })
+                                                }</span>
                                             </div>
                                     }
                                 </div>

@@ -1,6 +1,8 @@
 import {GET, POST, TEST_GET} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 import {GET_MODEL} from "../auto/action";
+import {GET_NOTIFICATION} from "../message/action";
+import {combineReducers} from "redux";
 
 export const  GET_REQUEST = 'GET_REQUEST';
 
@@ -30,6 +32,15 @@ export function DelRequest(e = 1) {
                 type: GET_MODEL,
                 payload: data
             })
+        })
+    }
+}
+
+export function Notifications(boolean) {
+    return (dispatch) => {
+        dispatch({
+            type: GET_NOTIFICATION,
+            payload: boolean
         })
     }
 }
