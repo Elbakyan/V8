@@ -27,7 +27,20 @@ class Header extends React.Component{
         }
     }
     componentDidMount() {
+        let id;
+        if (this.props.user.status){
+            id = this.props.user.id
+        }
+        if (this.props.score.score.status){
+            id = this.props.score.score.id
+        }
+
         this.props.dispatch(GetRequst())
+        document.addEventListener("click", (e) => {
+            this.props.dispatch(GetRequst())
+            this.props.dispatch(GetMessage(id))
+        })
+
     }
 
     OpenModal = (e)  =>{

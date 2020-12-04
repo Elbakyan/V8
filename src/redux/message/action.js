@@ -33,7 +33,6 @@ export function GetMessage(id) {
                         status = true
                         // dispach(Notifications(+el.status))
                     }
-                    console.log('status',+el.status)
                 })
                 if(status){
                     dispach(Notifications(true))
@@ -48,7 +47,6 @@ export function GetMessage(id) {
                         status = true
                         // dispach(Notifications(+el.status))
                     }
-                    console.log('status',+el.status)
                 })
 
                 if(status){

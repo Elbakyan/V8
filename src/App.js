@@ -38,9 +38,7 @@ class App extends Component {
         this.props.dispatch(GetTruckModels())
         this.props.dispatch(GetRequst())
 
-        document.addEventListener("click", (e) => {
-            this.props.dispatch(GetRequst())
-        })
+
         GET(Url.ubdatestatus).then(res => {
         })
 

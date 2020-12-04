@@ -191,7 +191,7 @@ class GetRequest extends Component{
                                                         {
                                                             el.message.map((mess,i)=>{
                                                                 return(
-                                                                    <li key={i} className={+this.props.score.score.id === +mess.send || +this.props.user.id === +mess.send?'msStyle send':'msStyle get'}>
+                                                                    <div key={i} className={+this.props.score.score.id === +mess.send || +this.props.user.id === +mess.send?'msStyle send':'msStyle get'}>
                                                                         <ul className='message_request_style' >
                                                                             {
                                                                                 mess.img ||  mess.message.mark ||
@@ -199,60 +199,105 @@ class GetRequest extends Component{
                                                                                 mess.message.year ||   mess.message.vin ||
                                                                                 mess.message.new || mess.message.old || mess.message.sircle?
                                                                                     <div className='message_info'>
+
+                                                                                        <div className='message_info__description'>
+                                                                                            {
+                                                                                                mess.message.mark?
+                                                                                                    <h2>Անհրաժեշտ է</h2>:''
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.mark && mess.message.model || mess.message.mark?
+                                                                                                    <li>
+                                                                                                        {mess.message.mark} {mess.message.model} -ի
+                                                                                                        {
+                                                                                                            mess.message.message?
+                                                                                                                <div className='message_request'>
+                                                                                                                        {
+                                                                                                                            mess.message.message.split('/*/').map((el)=>{
+                                                                                                                                return(
+                                                                                                                                    <Fragment>
+                                                                                                                                        {el} <br/>
+                                                                                                                                    </Fragment>
+                                                                                                                                )
+                                                                                                                            })
+                                                                                                                        }
+                                                                                                                </div>
+                                                                                                                :''
+                                                                                                        }
+
+                                                                                                    </li> :''
+                                                                                            }
+
+                                                                                            {
+                                                                                                mess.message.engine && mess.message.year || mess.message.year || mess.message.engine?
+                                                                                                    <li>
+                                                                                                        <p>{mess.message.year?mess.message.year+'Թ,':''}  {mess.message.engine?mess.message.engine +'Լ':''}</p>
+                                                                                                    </li> :''
+                                                                                            }
+                                                                                            {
+
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.vin?
+                                                                                                    <li>
+                                                                                                        <p>
+                                                                                                            <h3>VIN:</h3>{mess.message.vin}
+                                                                                                        </p>
+                                                                                                    </li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.code?
+                                                                                                    <li>
+                                                                                                        <p>
+                                                                                                            <h3>դետալի կոդ</h3> {mess.message.code}
+                                                                                                        </p>
+                                                                                                    </li>:''
+                                                                                            }
+                                                                                            {
+                                                                                                +mess.message.new && +mess.message.old?
+                                                                                                    <li>
+                                                                                                        Խնդրում եմ առաջարկել,  նոր կամ <br/>օգտագործած պահեստամասեր
+                                                                                                    </li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                +mess.message.new && !+mess.message.old?
+                                                                                                    <li>
+                                                                                                        Խնդրում եմ առաջարկել, միայն նոր պահեստամասեր
+                                                                                                    </li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                !+mess.message.new && +mess.message.old?
+                                                                                                    <li>
+                                                                                                        Խնդրում եմ առաջարկել, միայն օգտագործած պահեստամասեր
+                                                                                                    </li> :''
+                                                                                            }
+                                                                                        </div>
                                                                                         <div className='message_info__image'>
                                                                                             {
                                                                                                 mess.img? <li><img src={mess.img} alt={mess.img} /></li> :''
                                                                                             }
                                                                                         </div>
-
-                                                                                        <div className='message_info__description'>
-                                                                                            {
-                                                                                                mess.message.mark? <li>{mess.message.mark}</li> :''
-                                                                                            }
-                                                                                            {
-                                                                                                mess.message.model? <li>{mess.message.model}</li> :''
-                                                                                            }
-                                                                                            {
-                                                                                                mess.message.engine? <li>{mess.message.engine}</li> :''
-                                                                                            }
-                                                                                            {
-                                                                                                mess.message.year? <li>{mess.message.year}</li> :''
-                                                                                            }
-                                                                                            {
-                                                                                                mess.message.vin? <li>VIN:({mess.message.vin})</li> :''
-                                                                                            }
-                                                                                            {
-                                                                                                mess.message.new? <li>{'Նոր'}</li> :''
-                                                                                            }
-                                                                                            {
-                                                                                                mess.message.old? <li>{'Օգտագործված'}</li> :''
-                                                                                            }
-                                                                                            {
-                                                                                                mess.message.sircle? <li>{ mess.message.sircle}</li> :''
-                                                                                            }
-                                                                                        </div>
-
                                                                                     </div>:''
                                                                             }
                                                                             {
-                                                                                mess.message.message?
-                                                                                    <div className='message_text'>
-                                                                                        <li>
-                                                                                            {
-                                                                                                mess.message.message.split('/*/').map((el)=>{
-                                                                                                    return(
-                                                                                                        <Fragment>
-                                                                                                            {el} <br/>
-                                                                                                        </Fragment>
-                                                                                                    )
-                                                                                                })
-                                                                                            }
-                                                                                        </li>
-                                                                                    </div>
+                                                                                mess.message.message && !mess.message.mark?
+                                                                                       <div className='message_request-text'>
+                                                                                           {
+                                                                                               mess.message.message.split('/*/').map((el)=>{
+                                                                                                   return(
+                                                                                                       <Fragment>
+                                                                                                           {el} <br/>
+                                                                                                       </Fragment>
+                                                                                                   )
+                                                                                               })
+                                                                                           }
+                                                                                       </div>
+
                                                                                     :''
                                                                             }
+
                                                                         </ul>
-                                                                    </li>
+                                                                    </div>
                                                                 )
                                                             })
                                                         }
@@ -285,7 +330,9 @@ class GetRequest extends Component{
             }else{
                return (
                    <div className='message_users_component'>
-                       Salamalekum
+                       <h2 className="message_request">
+                           Դուք դեռ չեք կատաել հարցում․․․
+                       </h2>
                    </div>
                )
             }
