@@ -396,4 +396,51 @@
     }
   }
 }
+
+
+
+.score_list_global{
+  .score_list_info{
+    width: 100%;
+
+    &__body{
+      & > ul{
+        display: flex;
+        min-height: 150px;
+        //width: 100%;
+        background: white;
+
+        margin-bottom: 10px;
+
+        &>li{
+          width: 100%;
+          font-size: 14px;
+          border: 1px solid silver;
+          padding: 5px 10px;
+        }
+        .store_info{
+            display: flex;
+          justify-content: center;
+          align-items: center;
+           li{
+             width: auto;
+             padding: 1px 0;
+            //border: 1px solid red;
+          }
+        }
+        .new_model,.old_model{
+          //border: 1px solid red;
+          max-height: 150px;
+          overflow: auto;
+          li{
+            padding: 2px 0;
+          }
+        }
+      }
+
+    }
+  }
+
+
+}
 @import "./media";
