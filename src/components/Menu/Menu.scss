@@ -83,8 +83,7 @@
         .auto_parts_block,{
           width: 940px;
           display: flex;
-          animation-name: auto_parts_block;
-          animation-duration: 2s;
+          animation: auto_parts_block 1s linear;
           overflow: hidden;
           position: absolute;
           z-index: 1001;

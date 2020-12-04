@@ -110,7 +110,7 @@ class Result extends Component {
                     <StoreInfo />
                 </Route>
                 <Route path={'/search/result/parts/' + this.props.search.link}>
-                    <ScoreListGlobal />
+                    <ScoreListGlobal/>
                 </Route>
                 <Footer />
             </Fragment>

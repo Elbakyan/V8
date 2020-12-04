@@ -38,7 +38,6 @@ class Header extends React.Component{
         this.props.dispatch(GetRequst())
         document.addEventListener("click", (e) => {
             this.props.dispatch(GetRequst())
-            this.props.dispatch(GetMessage(id))
         })
 
     }

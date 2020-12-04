@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {GetStoreID, SearchMarkModel} from "../../redux/search/action";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheckCircle, faTimesCircle} from "@fortawesome/free-regular-svg-icons";
+import DecorTitle from "../Decor/DecorTitle";
 
 class ScoreListGlobal extends Component{
     constructor(props) {
@@ -25,9 +26,10 @@ class ScoreListGlobal extends Component{
     // }
 
     render() {
-        console.log(this.props.MarkModelResult)
+
         return(
             <div className="score_list_global">
+                <DecorTitle title={this.props.MarkModelResult.mark?this.props.MarkModelResult.mark[0].mark + '-ի պահեստամասերի խանութներ':''}  fontSize='16px'/>
                 <div className="container">
                     <nav className='score_list_info'>
                         <div className='score_list_info__header table_style_header'>
@@ -51,11 +53,12 @@ class ScoreListGlobal extends Component{
                                     let mark = [];
                                     let model=[];
                                     let count = 0;
+                                    let img = JSON.parse(score.img)
                                     if(score){
                                          mark = this.props.MarkModelResult.mark[sIndex]
                                          model = this.props.MarkModelResult.model
                                     }
-                                    console.log(score,mark,model)
+
                                     if (score){
                                         return (
                                             <ul key={sIndex}>
@@ -66,11 +69,11 @@ class ScoreListGlobal extends Component{
                                                                 {score.name}
                                                             </h3>
                                                         </li>
-                                                        <li>
-                                                            <img src={JSON.parse(score.image)} alt=""/>
+                                                        <li className='search__result-img'>
+                                                            <img src={img[0]} alt=""/>
                                                         </li>
-                                                        <li>
-                                                            Բաց է
+                                                        <li className='open__close'>
+                                                            Բաց է <span></span>
                                                         </li>
                                                         <li>
                                                             <ul>
@@ -87,14 +90,10 @@ class ScoreListGlobal extends Component{
                                                     <ul>
                                                         {
                                                             model.map((model,mIndex)=>{
-                                                                console.log(+model.new === 1)
-                                                                console.log(model.new,model.score_id,score.id,mark.new,mIndex)
                                                                 if(+model.new === 1 && +model.score_id === +score.id){
-                                                                    console.log(+model.score_id === +score.id)
-
                                                                     if(+model.score_id === +score.id){
                                                                         return (
-                                                                            <li>{model.model}</li>
+                                                                            <li key={mIndex}>{model.model}</li>
                                                                         )
                                                                     }
                                                                 }
@@ -107,12 +106,9 @@ class ScoreListGlobal extends Component{
                                                     <ul>
                                                         {
                                                             model.map((model,mIndex)=>{
-                                                                console.log(+model.new === 1)
-                                                                console.log(model.new,model.score_id,score.id,mark.new,mIndex)
                                                                 if(+model.old === 1 && +model.score_id === +score.id){
-                                                                    console.log(+model.score_id === +score.id)
                                                                         return (
-                                                                            <li>{model.model}</li>
+                                                                            <li key={mIndex}>{model.model}</li>
                                                                         )
                                                                 }
                                                             })
@@ -125,7 +121,7 @@ class ScoreListGlobal extends Component{
                                                             score.phone.map((phone,i)=>{
                                                                 if(phone){
                                                                     return(
-                                                                        <li>(+374){phone}</li>
+                                                                        <li key={i}>(+374){phone}</li>
                                                                     )
                                                                 }
                                                             })
