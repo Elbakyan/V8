@@ -25,8 +25,6 @@ class ScoreListGlobal extends Component{
     // }
 
     render() {
-        console.log(this.props.MarkModelResult.mark)
-        console.log(this.props.MarkModelResult)
         return(
             <div className="score_list">
                 <div className="container">

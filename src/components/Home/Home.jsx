@@ -50,10 +50,10 @@ class Home extends React.Component {
             if(this.props.user.status){
                 this.props.dispatch(GetMessage(this.props.user.id))
             }
-            // if(this.props.score.score.status){
-            //     this.props.dispatch(GetMessage(this.props.score.score.id))
-            // }
-        console.log(this.state)
+            if(this.props.score.score.status){
+                this.props.dispatch(GetMessage(this.props.score.score.id))
+            }
+
     }
     componentWillUnmount() {
         this.requset = false

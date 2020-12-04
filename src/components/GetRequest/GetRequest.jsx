@@ -23,7 +23,8 @@ class GetRequest extends Component{
             dialog: '',
             scroll: true,
             cou:0,
-            redirect:false
+            redirect:false,
+            interval:false
         }
         this.textareaRef = React.createRef()
         this.formRef = React.createRef()
@@ -34,21 +35,18 @@ class GetRequest extends Component{
         let dialog = window.location.pathname.split('/')[window.location.pathname.split('/').length - 2];
         this.setState({
             id: id,
-            dialog: dialog
+            dialog: dialog,
+            interval: true
         })
-        setTimeout(() => {
-            // this.scroll();
-        },1000)
+
 
     }
-
     Send = (e) => {
         this.setState({
             id: e.target.dataset.id,
             dialog: e.target.dataset.dialog
         })
         let id = e.target.dataset.id
-        console.log(id)
         let data = new FormData()
         data.append('get', id);
         console.log(data)
@@ -65,6 +63,14 @@ class GetRequest extends Component{
         POST(Url.sendrequest,data).then(res => {
             this.props.dispatch(GetRequst())
             this.textareaRef.current.value = ''
+        })
+        let status = new FormData()
+        status.append('get', this.state.id)
+        data.append('get', status);
+        POST(Url.statusrequest,data).then(res=>{
+            if(res){
+                this.props.dispatch(GetRequst())
+            }
         })
         this.scroll();
     }
@@ -94,180 +100,197 @@ class GetRequest extends Component{
                     this.textareaRef.current.value = '';
                     this.scroll()
                 })
+                let status = new FormData()
+                status.append('get', this.state.id)
+                data.append('get', status);
+                POST(Url.statusrequest,data).then(res=>{
+                    if(res){
+                        this.props.dispatch(GetRequst())
+                    }
+                })
             }
 
         }
     }
     render() {
-        console.log(this.props.request)
-        return(
+        if(this.props.request.request){
+            if (this.props.request.request[0] !== false){
+                return(
+                    <div className='message_users_component'>
 
-            <div className='message_users_component'>
-                {
-                    this.state.redirect ? <Redirect to={this.props.user.status?'/user/account/request':'/score/account/request'} />: ''
-                }
-                <div className="message_users">
-                    <div className="respondent">
-                        <ul className='users' >
-                            {
-                                this.props.request.request.map((el,i)=>{
-                                    let id;
-
-                                    if(this.props.score.score.status){
-                                        id = this.props.score.score.id
-                                    }
-                                    if(this.props.user.status){
-                                        id = this.props.user.id
-                                    }
-
-                                    console.log(el.message.length)
-                                    if(+el.message[0].delite[0] !== +id){
-                                        return(
-                                            <NavLink className='default_user' activeClassName='active_user' key={i} onClick={this.Send}
-                                                  to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
-                                                      :'/user/account/request/'+el.message[0].dialog + '/' + el.user.id}
-
-                                            >
-                                                <ul className={'R__link'} data-id={el.user.id} data-dialog={el.message[0].dialog}>
-                                                    <li><img src={el.user.img} alt=""/></li>
-                                                    <li>{el.user.name} {el.user.surname}</li>
-
-                                                    <li data-id={el.user.id} data-dialog={el.message[0].dialog} onClick={(e)=>{
-                                                        let id = e.target.dataset.id
-                                                        // console.log(id)
-                                                        let data = new FormData()
-                                                        data.append('id', id);
-                                                        POST(Url.delrequest,data).then(res=>{
-                                                            if(res){
-                                                                this.props.dispatch(GetRequst())
-                                                                this.setState({
-                                                                    redirect:true
-                                                                })
-                                                                setTimeout(()=>{
-                                                                    this.setState({
-                                                                        redirect:false
-                                                                    })
-                                                                },500)
-                                                            }
-{}                                                        })
-                                                    }}><FontAwesomeIcon icon={faTrashAlt} /></li>
-                                                    {
-                                                        +el.message[el.message.length-1].status && +el.message[el.message.length-1].send != id?
-                                                            <li style={{background:'red'}}></li>:<li style={{background:'none'}}></li>
-                                                    }
-                                                </ul>
-                                            </NavLink>
-                                        )
-                                    }
-                                })
-                            }
-                        </ul>
-
-                    </div>
-                    <div className="get_message" >
                         {
-                            this.props.request.request.map((el,i)=>{
-                                return(
-                                    <Route key={i} path={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
-                                        :
-                                        '/user/account/request/'+el.message[0].dialog + '/' + el.user.id
-                                    }>
-                                        <div className="message" >
-                                            <ul ref={this.scrollRef}>
-                                                {
-                                                    el.message.map((mess,i)=>{
-                                                        return(
-                                                            <li key={i} className={+this.props.score.score.id === +mess.send || +this.props.user.id === +mess.send?'msStyle send':'msStyle get'}>
-                                                                <ul className='message_request_style' >
-                                                                    {
-                                                                        mess.img ||  mess.message.mark ||
-                                                                        mess.message.model || mess.message.engine ||
-                                                                        mess.message.year ||   mess.message.vin ||
-                                                                        mess.message.new || mess.message.old || mess.message.sircle?
-                                                                            <div className='message_info'>
-                                                                                <div className='message_info__image'>
-                                                                                    {
-                                                                                        mess.img? <li><img src={mess.img} alt={mess.img} /></li> :''
-                                                                                    }
-                                                                                </div>
-
-                                                                                <div className='message_info__description'>
-                                                                                    {
-                                                                                        mess.message.mark? <li>{mess.message.mark}</li> :''
-                                                                                    }
-                                                                                    {
-                                                                                        mess.message.model? <li>{mess.message.model}</li> :''
-                                                                                    }
-                                                                                    {
-                                                                                        mess.message.engine? <li>{mess.message.engine}</li> :''
-                                                                                    }
-                                                                                    {
-                                                                                        mess.message.year? <li>{mess.message.year}</li> :''
-                                                                                    }
-                                                                                    {
-                                                                                        mess.message.vin? <li>VIN:({mess.message.vin})</li> :''
-                                                                                    }
-                                                                                    {
-                                                                                        mess.message.new? <li>{'Նոր'}</li> :''
-                                                                                    }
-                                                                                    {
-                                                                                        mess.message.old? <li>{'Օգտագործված'}</li> :''
-                                                                                    }
-                                                                                    {
-                                                                                        mess.message.sircle? <li>{ mess.message.sircle}</li> :''
-                                                                                    }
-                                                                                </div>
-
-                                                                            </div>:''
-                                                                    }
-                                                                    {
-                                                                        mess.message.message?
-                                                                            <div className='message_text'>
-                                                                                <li>
-                                                                                    {
-                                                                                        mess.message.message.split('/*/').map((el)=>{
-                                                                                            return(
-                                                                                                <Fragment>
-                                                                                                    {el} <br/>
-                                                                                                </Fragment>
-                                                                                            )
-                                                                                        })
-                                                                                    }
-                                                                                </li>
-                                                                            </div>
-                                                                            :''
-                                                                    }
-                                                                </ul>
-                                                            </li>
-                                                        )
-                                                    })
-                                                }
-                                            </ul>
-                                            <div className='send_message'>
-                                                <form onSubmit={this.Message} ref={this.formRef}>
-                                                    <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={this.textareaRef}></textarea>
-                                                    <input type="hidden" name='get' value={this.state.id?this.state.id: ''}/>
-                                                    <input type="hidden" name='dialog' value={this.state.dialog?this.state.dialog:''}/>
-                                                    <div className="message_send_button">
-                                                        <DefaultBtn
-                                                            type='submit'
-                                                            name='Ուղարկել'
-                                                            background='#143645'
-                                                            color='#ffffff'
-                                                            light={30}
-                                                        />
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </Route>
-                                )
-                            })
+                            this.state.redirect ? <Redirect to={this.props.user.status?'/user/account/request':'/score/account/request'} />: ''
                         }
+                        <div className="message_users">
+                            <div className="respondent">
+                                <ul className='users' >
+                                    {
+                                        this.props.request.request.map((el,i)=>{
+
+                                            let id;
+
+                                            if(this.props.score.score.status){
+                                                id = this.props.score.score.id
+                                            }
+                                            if(this.props.user.status){
+                                                id = this.props.user.id
+                                            }
+                                            if(+el.message[0].delite[0] !== +id){
+                                                return(
+                                                    <NavLink className='default_user' activeClassName='active_user' key={i} onClick={this.Send}
+                                                             to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
+                                                                 :'/user/account/request/'+el.message[0].dialog + '/' + el.user.id}
+
+                                                    >
+                                                        <ul className={'R__link'} data-id={el.user.id} data-dialog={el.message[0].dialog}>
+                                                            <li><img src={el.user.img} alt=""/></li>
+                                                            <li>{el.user.name} {el.user.surname}</li>
+
+                                                            <li data-id={el.user.id} data-dialog={el.message[0].dialog} onClick={(e)=>{
+                                                                let id = e.target.dataset.id
+                                                                // console.log(id)
+                                                                let data = new FormData()
+                                                                data.append('id', id);
+                                                                POST(Url.delrequest,data).then(res=>{
+                                                                    if(res){
+                                                                        this.props.dispatch(GetRequst())
+                                                                        this.setState({
+                                                                            redirect:true
+                                                                        })
+                                                                        setTimeout(()=>{
+                                                                            this.setState({
+                                                                                redirect:false
+                                                                            })
+                                                                        },500)
+                                                                    }
+                                                                    {}                                                        })
+                                                            }}><FontAwesomeIcon icon={faTrashAlt} /></li>
+                                                            {
+                                                                +el.message[el.message.length-1].status && +el.message[el.message.length-1].send != id?
+                                                                    <li style={{background:'red'}}></li>:<li style={{background:'none'}}></li>
+                                                            }
+                                                        </ul>
+                                                    </NavLink>
+                                                )
+                                            }
+                                        })
+                                    }
+                                </ul>
+
+                            </div>
+                            <div className="get_message" >
+                                {
+                                    this.props.request.request.map((el,i)=>{
+                                        return(
+                                            <Route key={i} path={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
+                                                :
+                                                '/user/account/request/'+el.message[0].dialog + '/' + el.user.id
+                                            }>
+                                                <div className="message" >
+                                                    <ul ref={this.scrollRef}>
+                                                        {
+                                                            el.message.map((mess,i)=>{
+                                                                return(
+                                                                    <li key={i} className={+this.props.score.score.id === +mess.send || +this.props.user.id === +mess.send?'msStyle send':'msStyle get'}>
+                                                                        <ul className='message_request_style' >
+                                                                            {
+                                                                                mess.img ||  mess.message.mark ||
+                                                                                mess.message.model || mess.message.engine ||
+                                                                                mess.message.year ||   mess.message.vin ||
+                                                                                mess.message.new || mess.message.old || mess.message.sircle?
+                                                                                    <div className='message_info'>
+                                                                                        <div className='message_info__image'>
+                                                                                            {
+                                                                                                mess.img? <li><img src={mess.img} alt={mess.img} /></li> :''
+                                                                                            }
+                                                                                        </div>
+
+                                                                                        <div className='message_info__description'>
+                                                                                            {
+                                                                                                mess.message.mark? <li>{mess.message.mark}</li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.model? <li>{mess.message.model}</li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.engine? <li>{mess.message.engine}</li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.year? <li>{mess.message.year}</li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.vin? <li>VIN:({mess.message.vin})</li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.new? <li>{'Նոր'}</li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.old? <li>{'Օգտագործված'}</li> :''
+                                                                                            }
+                                                                                            {
+                                                                                                mess.message.sircle? <li>{ mess.message.sircle}</li> :''
+                                                                                            }
+                                                                                        </div>
+
+                                                                                    </div>:''
+                                                                            }
+                                                                            {
+                                                                                mess.message.message?
+                                                                                    <div className='message_text'>
+                                                                                        <li>
+                                                                                            {
+                                                                                                mess.message.message.split('/*/').map((el)=>{
+                                                                                                    return(
+                                                                                                        <Fragment>
+                                                                                                            {el} <br/>
+                                                                                                        </Fragment>
+                                                                                                    )
+                                                                                                })
+                                                                                            }
+                                                                                        </li>
+                                                                                    </div>
+                                                                                    :''
+                                                                            }
+                                                                        </ul>
+                                                                    </li>
+                                                                )
+                                                            })
+                                                        }
+                                                    </ul>
+                                                    <div className='send_message'>
+                                                        <form onSubmit={this.Message} ref={this.formRef}>
+                                                            <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={this.textareaRef}></textarea>
+                                                            <input type="hidden" name='get' value={this.state.id?this.state.id: ''}/>
+                                                            <input type="hidden" name='dialog' value={this.state.dialog?this.state.dialog:''}/>
+                                                            <div className="message_send_button">
+                                                                <DefaultBtn
+                                                                    type='submit'
+                                                                    name='Ուղարկել'
+                                                                    background='#143645'
+                                                                    color='#ffffff'
+                                                                    light={30}
+                                                                />
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </Route>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        )
+                )
+            }else{
+               return (
+                   <div className='message_users_component'>
+                       Salamalekum
+                   </div>
+               )
+            }
+        }
+
     }
 }
 

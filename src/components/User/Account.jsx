@@ -5,10 +5,12 @@ import Profile from "./Profile/Profile";
 import Menu from "../Menu/Menu";
 import {GetAuto} from "../../redux/auto/action";
 import {connect} from "react-redux";
+import {GetRequst} from "../../redux/GetRequest/action";
 
 class Account extends React.Component{
     componentDidMount() {
         this.props.dispatch(GetAuto(this.props.user.id))
+        this.props.dispatch(GetRequst())
     }
 
     render() {

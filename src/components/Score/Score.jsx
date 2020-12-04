@@ -6,20 +6,12 @@ import Account from "./Account";
 import Loading from "../Loading";
 import Signin from "./Authentication/Signin";
 import './Score.scss'
+import {GetRequst} from "../../redux/GetRequest/action";
 
 
 
 class Score extends Component {
-    componentDidMount() {
-        // let data = new FormData();
-        // data.append("send_id", 1604757123);
-        // data.append("get_id", 32);
-        // data.append("message", 'hellowORLD');
-        // data.append("score", 'score');
-        // console.log(Array.from(data))
 
-
-    }
 
     render() {
 

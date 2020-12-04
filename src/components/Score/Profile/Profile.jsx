@@ -19,6 +19,7 @@ import GeFavorite from "../../favorite/GeFavorite";
 import ProfilSetingsScore from "./ProfilSetingsScore";
 import Soon from "../../Soon/Soon";
 import GetRequest from "../../GetRequest/GetRequest";
+import {GetRequst} from "../../../redux/GetRequest/action";
 
 
 

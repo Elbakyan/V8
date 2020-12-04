@@ -14,6 +14,7 @@ import Loading from "../../Loading";
 import ScorePage from "../ScorePage/ScorePage";
 import {Route, NavLink, Redirect} from "react-router-dom";
 import {GetScoreList, GetScoreListId} from "../../../redux/score/action";
+import {GetRequst} from "../../../redux/GetRequest/action";
 
 
 
@@ -32,8 +33,6 @@ class ScoreList extends React.Component{
     }
     componentDidMount() {
         this.props.dispatch(GetCity(1))
-
-
     }
 
 

@@ -16,6 +16,8 @@ import Result from "./components/Search/Result";
 import Soon from "./components/Soon/Soon";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import {GetRequst} from "./redux/GetRequest/action";
+import {Url} from "./components/config/Url";
+import {GET, POST} from "./components/config/Requsest";
 
 class App extends Component {
     constructor(props) {
@@ -36,21 +38,18 @@ class App extends Component {
         this.props.dispatch(GetTruckModels())
         this.props.dispatch(GetRequst())
 
-        setTimeout(()=>{
-            let id ;
-            if(this.props.user.status){
-                id = this.props.user.id
-            }else{
-                id = this.props.score.score.id
-            }
-            // this.props.request.request.map()
-        },500)
+        document.addEventListener("click", (e) => {
+            this.props.dispatch(GetRequst())
+        })
+        GET(Url.ubdatestatus).then(res => {
+        })
 
     }
 
 
 
     render() {
+
       return (
           <div className="App">
               <Switch>

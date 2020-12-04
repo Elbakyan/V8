@@ -10,20 +10,9 @@ export function GetRequst(){
     return (dispatch) => {
         GET(Url.getrequest).then(res => {
             let arr = [];
-            console.log(res)
             for (const key in res) {
                 arr.push(res[key]);
             }
-            // console.log('arr',arr)
-            // arr.map((el)=>{
-            //     console.log('status',el.message[el.message.length - 1].status)
-            //     console.log()
-            //     if(+el.message[el.message.length - 1].status){
-            //         dispatch(Notifications(true))
-            //     }else{
-            //         dispatch(Notifications(false))
-            //     }
-            // })
             dispatch({
                 type: GET_REQUEST,
                 payload: arr
@@ -39,7 +28,6 @@ export function DelRequest(e = 1) {
         let data = new FormData()
         data.append('id',  id);
         POST(Url.model, data).then(data=> {
-
             dispach({
                 type: GET_MODEL,
                 payload: data

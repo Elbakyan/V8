@@ -4,6 +4,7 @@ import Footer from "../Footer/Footer";
 import Profile from "./Profile/Profile";
 import Menu from "../Menu/Menu";
 import {connect} from "react-redux";
+import {GetRequst} from "../../redux/GetRequest/action";
 
 class Account extends React.Component {
     constructor(props) {
@@ -11,6 +12,9 @@ class Account extends React.Component {
         this.state = {
             search: true,
         }
+    }
+    componentDidMount() {
+        this.props.dispatch(GetRequst())
     }
 
     render() {
