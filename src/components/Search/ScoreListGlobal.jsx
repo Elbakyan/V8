@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {GetStoreID, SearchMarkModel} from "../../redux/search/action";
@@ -25,78 +25,156 @@ class ScoreListGlobal extends Component{
     // }
 
     render() {
+        console.log(this.props.MarkModelResult)
         return(
-            <div className="score_list">
+            <div className="score_list_global">
                 <div className="container">
                     <nav className='score_list_info'>
                         <div className='score_list_info__header table_style_header'>
                             <ul>
                                 <li>Անվանումը</li>
-                                <li>Նոր/Օգտ</li>
+                                <li>Նոր</li>
                                 <li>Օգտ․</li>
-                                <li>Ընկերությունը</li>
                                 <li>Հեռախոսահամրը</li>
                                 <li>Հասցե</li>
                             </ul>
                         </div>
-                        <div className='score_list_info__body table_style_body'>
-
+                        <div className='score_list_info__body '>
                             {
                                 this.props.MarkModelResult.status?'':
                                     <div className="message">
                                         <p>{this.props.MarkModelResult.message}</p>
                                     </div>
                             }
-
-
                             {
-                                this.props.MarkModelResult.status? this.props.MarkModelResult.mark.map((mark,i) => {
-
-                                    let store = this.props.MarkModelResult.score[i];
-                                    if (store !== undefined){
+                                this.props.MarkModelResult.status? this.props.MarkModelResult.score.map((score,sIndex) => {
+                                    let mark = [];
+                                    let model=[];
+                                    let count = 0;
+                                    if(score){
+                                         mark = this.props.MarkModelResult.mark[sIndex]
+                                         model = this.props.MarkModelResult.model
+                                    }
+                                    console.log(score,mark,model)
+                                    if (score){
                                         return (
-                                            <ul key={i}>
-                                                <li>{mark.mark}</li>
-                                                <li>
-                                                    {+mark.new?
-                                                        <span style={{color:'green'}}><FontAwesomeIcon icon={faCheckCircle}/></span>:
-                                                        <span style={{color:'red'}}><FontAwesomeIcon icon={faTimesCircle} /></span>
-                                                    }
-                                                </li>
-                                                <li>
-                                                    {+mark.old?
-                                                        <span style={{color:'green'}}><FontAwesomeIcon icon={faCheckCircle}/></span>:
-                                                        <span style={{color:'red'}}><FontAwesomeIcon icon={faTimesCircle} /></span>
-                                                    }
-                                                </li>
-                                                <li ><Link to={'/search/result/store/' + store.id}
-                                                           onClick={() => {
-                                                               this.setState({
-                                                                   id: store.id
-                                                               })
-                                                               this.props.dispatch(GetStoreID(store.id))
-                                                           }}
-                                                >{store.name}</Link></li>
-                                                <li>
-                                                    {
-                                                        store.phone.map((p,i) => {
-                                                            if (p){
-                                                                let tmp = p.split('');
-                                                                let [p1,p2,p3,p4] = [
-                                                                    tmp.splice(0,2).join(''),
-                                                                    tmp.splice(0,3).join(''),
-                                                                    tmp.splice(0,3).join(''),
-                                                                ];
+                                            <ul key={sIndex}>
+                                                <li className='store_info'>
+                                                    <ul>
+                                                        <li>
+                                                            <h3>
+                                                                {score.name}
+                                                            </h3>
+                                                        </li>
+                                                        <li>
+                                                            <img src={JSON.parse(score.image)} alt=""/>
+                                                        </li>
+                                                        <li>
+                                                            Բաց է
+                                                        </li>
+                                                        <li>
+                                                            <ul>
+                                                                <li>Աշխատանքային ժամերը՝</li>
+                                                                <li>{score.work_to}:{score.work_from}</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
 
-                                                                let phone = '(+374) ' + p1 + ' ' + p2 + '-' + p3;
-                                                                return  <p key={i}>{phone}</p>
-                                                            }else {
-                                                                return ''
-                                                            }
-                                                        })
-                                                    }
+                                                        </li>
+                                                    </ul>
                                                 </li>
-                                                <li>{store.sircle}</li>
+                                                <li className='new_model'>
+                                                    <ul>
+                                                        {
+                                                            model.map((model,mIndex)=>{
+                                                                console.log(+model.new === 1)
+                                                                console.log(model.new,model.score_id,score.id,mark.new,mIndex)
+                                                                if(+model.new === 1 && +model.score_id === +score.id){
+                                                                    console.log(+model.score_id === +score.id)
+
+                                                                    if(+model.score_id === +score.id){
+                                                                        return (
+                                                                            <li>{model.model}</li>
+                                                                        )
+                                                                    }
+                                                                }
+                                                            })
+                                                        }
+                                                    </ul>
+
+                                                </li>
+                                                <li className='old_model'>
+                                                    <ul>
+                                                        {
+                                                            model.map((model,mIndex)=>{
+                                                                console.log(+model.new === 1)
+                                                                console.log(model.new,model.score_id,score.id,mark.new,mIndex)
+                                                                if(+model.old === 1 && +model.score_id === +score.id){
+                                                                    console.log(+model.score_id === +score.id)
+                                                                        return (
+                                                                            <li>{model.model}</li>
+                                                                        )
+                                                                }
+                                                            })
+                                                        }
+                                                    </ul>
+                                                </li>
+                                                <li className='store_phones'>
+                                                    <ul>
+                                                        {
+                                                            score.phone.map((phone,i)=>{
+                                                                if(phone){
+                                                                    return(
+                                                                        <li>(+374){phone}</li>
+                                                                    )
+                                                                }
+                                                            })
+                                                        }
+                                                    </ul>
+                                                </li>
+                                                <li className='store_addres'>
+                                                    {score.sircle} {score.city} <br/> {score.addres}
+                                                </li>
+                                                {/*<li>*/}
+                                                {/*    {+mark.new?*/}
+                                                {/*        <span style={{color:'green'}}><FontAwesomeIcon icon={faCheckCircle}/></span>:*/}
+                                                {/*        <span style={{color:'red'}}><FontAwesomeIcon icon={faTimesCircle} /></span>*/}
+                                                {/*    }*/}
+                                                {/*</li>*/}
+                                                {/*<li>*/}
+                                                {/*    {+mark.old?*/}
+                                                {/*        <span style={{color:'green'}}><FontAwesomeIcon icon={faCheckCircle}/></span>:*/}
+                                                {/*        <span style={{color:'red'}}><FontAwesomeIcon icon={faTimesCircle} /></span>*/}
+                                                {/*    }*/}
+                                                {/*</li>*/}
+                                                {/*<li ><Link to={'/search/result/store/' + store.id}*/}
+                                                {/*           onClick={() => {*/}
+                                                {/*               this.setState({*/}
+                                                {/*                   id: store.id*/}
+                                                {/*               })*/}
+                                                {/*               this.props.dispatch(GetStoreID(store.id))*/}
+                                                {/*           }}*/}
+                                                {/*>{store.name}</Link></li>*/}
+                                                {/*<li>*/}
+                                                {/*    {*/}
+                                                {/*        store.phone.map((p,i) => {*/}
+                                                {/*            if (p){*/}
+                                                {/*                let tmp = p.split('');*/}
+                                                {/*                let [p1,p2,p3,p4] = [*/}
+                                                {/*                    tmp.splice(0,2).join(''),*/}
+                                                {/*                    tmp.splice(0,3).join(''),*/}
+                                                {/*                    tmp.splice(0,3).join(''),*/}
+                                                {/*                ];*/}
+
+                                                {/*                let phone = '(+374) ' + p1 + ' ' + p2 + '-' + p3;*/}
+                                                {/*                return  <p key={i}>{phone}</p>*/}
+                                                {/*            }else {*/}
+                                                {/*                return ''*/}
+                                                {/*            }*/}
+                                                {/*        })*/}
+                                                {/*    }*/}
+                                                {/*</li>*/}
+                                                {/*<li>{store.sircle}</li>*/}
                                             </ul>
                                         )
                                     }
