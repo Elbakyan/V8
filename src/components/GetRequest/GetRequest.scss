@@ -92,7 +92,18 @@
               border-radius: 50%;
               background: #d41c1c;
               margin-left: 5px;
+              animation:status 0.5s linear infinite alternate ;
               filter: drop-shadow( 0px 0px 4px rgba(238, 10, 10,0.7))
+
+            }
+            @keyframes status {
+              from{
+                opacity: 0;
+              }
+              to{
+                opacity: 1;
+              }
+
             }
           }
         }
