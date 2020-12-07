@@ -65,7 +65,7 @@ class Header extends React.Component{
                         :
                         this.state.message?
                             <div className='user_warning'>
-                                <Art type='warning' content='Հառցում ուղարկելու համար անհրաժեշտ է գրանցվել․․․․'/>
+                                <Art type='warning' content='Հարցում ուղարկելու համար անհրաժեշտ է գրանցվել․․․․'/>
                             </div>: ''
                 }
                     <div className="header__log">

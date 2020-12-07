@@ -32,7 +32,7 @@ class ScoreListGlobal extends Component{
                 <DecorTitle title={this.props.MarkModelResult.mark?this.props.MarkModelResult.mark[0].mark + '-ի պահեստամասերի խանութներ':''}  fontSize='16px'/>
                 <div className="container">
                     <nav className='score_list_info'>
-                        <div className='score_list_info__header table_style_header'>
+                        <div className='score_list_info__header'>
                             <ul>
                                 <li>Անվանումը</li>
                                 <li>Նոր</li>
@@ -50,6 +50,7 @@ class ScoreListGlobal extends Component{
                             }
                             {
                                 this.props.MarkModelResult.status? this.props.MarkModelResult.score.map((score,sIndex) => {
+                                    console.log(score)
                                     let hour = new Date().getHours()
                                     let from = score['work_to'].split(':')[0];
                                     let to = score['work_from'].split(':')[0];
@@ -63,6 +64,7 @@ class ScoreListGlobal extends Component{
                                     let model=[];
                                     let count = 0;
                                     let img = JSON.parse(score.img)
+
                                     if(score){
                                          mark = this.props.MarkModelResult.mark[sIndex]
                                          model = this.props.MarkModelResult.model
@@ -134,7 +136,6 @@ class ScoreListGlobal extends Component{
                                                 </li>
                                                 <li className='store_addres'>
                                                     {score.sircle} {score.city} <br/> {score.addres}
-
                                                         <ul>
                                                             <br/>
                                                             <li>Աշխատանքային ժամերը՝</li>
