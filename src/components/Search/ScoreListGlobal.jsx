@@ -50,12 +50,9 @@ class ScoreListGlobal extends Component {
                                     </div>
                             }
                             {
-<<<<<<< HEAD
-                                this.props.MarkModelResult.status? this.props.MarkModelResult.score.map((score,sIndex) => {
-                                    console.log(score)
-=======
+
                                 this.props.MarkModelResult.status ? this.props.MarkModelResult.score.map((score, sIndex) => {
->>>>>>> 369bfad96b6b777581f0b8737642d9b49931369c
+
                                     let hour = new Date().getHours()
                                     let from = score['work_to'].split(':')[0];
                                     let to = score['work_from'].split(':')[0];
@@ -70,16 +67,11 @@ class ScoreListGlobal extends Component {
                                     let model = [];
                                     let count = 0;
                                     let img = JSON.parse(score.img)
-<<<<<<< HEAD
 
-                                    if(score){
-                                         mark = this.props.MarkModelResult.mark[sIndex]
-                                         model = this.props.MarkModelResult.model
-=======
                                     if (score) {
                                         mark = this.props.MarkModelResult.mark[sIndex]
                                         model = this.props.MarkModelResult.model
->>>>>>> 369bfad96b6b777581f0b8737642d9b49931369c
+
                                     }
 
                                     if (score) {
@@ -151,13 +143,7 @@ class ScoreListGlobal extends Component {
 
                                                 <li className='store_addres'>
                                                     {score.sircle} {score.city} <br/> {score.addres}
-<<<<<<< HEAD
-                                                        <ul>
-                                                            <br/>
-                                                            <li>Աշխատանքային ժամերը՝</li>
-                                                            <li>{score.work_to}:{score.work_from}</li>
-                                                        </ul>
-=======
+
 
                                                     <ul>
 
@@ -174,7 +160,7 @@ class ScoreListGlobal extends Component {
                                                         </div>
                                                         <li>{score.work_to}:{score.work_from}</li>
                                                     </ul>
->>>>>>> 369bfad96b6b777581f0b8737642d9b49931369c
+
                                                 </li>
 
                                             </ul>
