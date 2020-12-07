@@ -70,7 +70,7 @@ class ScoreListGlobal extends Component {
 
                                     if (score) {
                                         mark = this.props.MarkModelResult.mark[sIndex]
-                                        model = this.props.MarkModelResult.model
+                                        model = this.props.MarkModelResult.model?this.props.MarkModelResult.model:[]
 
                                     }
 
