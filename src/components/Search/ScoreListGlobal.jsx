@@ -50,6 +50,15 @@ class ScoreListGlobal extends Component{
                             }
                             {
                                 this.props.MarkModelResult.status? this.props.MarkModelResult.score.map((score,sIndex) => {
+                                    let hour = new Date().getHours()
+                                    let from = score['work_to'].split(':')[0];
+                                    let to = score['work_from'].split(':')[0];
+                                    let OpenClose = false
+                                    if (hour > from && hour < to){
+                                        OpenClose = true
+                                    }else{
+                                       OpenClose = false
+                                    }
                                     let mark = [];
                                     let model=[];
                                     let count = 0;
@@ -61,25 +70,17 @@ class ScoreListGlobal extends Component{
 
                                     if (score){
                                         return (
-                                            <ul key={sIndex}>
+                                            <ul key={sIndex} style={OpenClose? {border:'2px solid #00FF57'}: {border: '2px solid red'}}>
                                                 <li className='store_info'>
                                                     <ul>
-                                                        <li>
-                                                            <h3>
-                                                                {score.name}
-                                                            </h3>
-                                                        </li>
                                                         <li className='search__result-img'>
-                                                            <img src={img[0]} alt=""/>
-                                                        </li>
-                                                        <li className='open__close'>
-                                                            Բաց է <span></span>
-                                                        </li>
-                                                        <li>
-                                                            <ul>
-                                                                <li>Աշխատանքային ժամերը՝</li>
-                                                                <li>{score.work_to}:{score.work_from}</li>
-                                                            </ul>
+                                                            <Link className='store__info-link' to={'/search/result/store/' + score.id}
+                                                                  onClick={() => {
+                                                                      this.props.dispatch(GetStoreID(score.id))
+                                                            }}>
+                                                                <img src={img[0]} alt=""/>
+                                                                <h3>{score.name}</h3>
+                                                            </Link>
                                                         </li>
                                                         <li>
 
@@ -89,7 +90,8 @@ class ScoreListGlobal extends Component{
                                                 <li className='new_model'>
                                                     <ul>
                                                         {
-                                                            model.map((model,mIndex)=>{
+                                                            model != false?model.map((model,mIndex)=>{
+
                                                                 if(+model.new === 1 && +model.score_id === +score.id){
                                                                     if(+model.score_id === +score.id){
                                                                         return (
@@ -97,21 +99,23 @@ class ScoreListGlobal extends Component{
                                                                         )
                                                                     }
                                                                 }
-                                                            })
+                                                            }):<li>Բոլոր մոդելները</li>
                                                         }
+
                                                     </ul>
 
                                                 </li>
                                                 <li className='old_model'>
                                                     <ul>
                                                         {
-                                                            model.map((model,mIndex)=>{
+                                                            model != false?model.map((model,mIndex)=>{
+
                                                                 if(+model.old === 1 && +model.score_id === +score.id){
                                                                         return (
                                                                             <li key={mIndex}>{model.model}</li>
                                                                         )
                                                                 }
-                                                            })
+                                                            }):<li>Բոլոր մոդելները</li>
                                                         }
                                                     </ul>
                                                 </li>
@@ -130,7 +134,14 @@ class ScoreListGlobal extends Component{
                                                 </li>
                                                 <li className='store_addres'>
                                                     {score.sircle} {score.city} <br/> {score.addres}
+
+                                                        <ul>
+                                                            <br/>
+                                                            <li>Աշխատանքային ժամերը՝</li>
+                                                            <li>{score.work_to}:{score.work_from}</li>
+                                                        </ul>
                                                 </li>
+
                                                 {/*<li>*/}
                                                 {/*    {+mark.new?*/}
                                                 {/*        <span style={{color:'green'}}><FontAwesomeIcon icon={faCheckCircle}/></span>:*/}

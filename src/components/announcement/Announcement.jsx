@@ -9,15 +9,13 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../redux/auto/action";
-import { Redirect, Route} from "react-router-dom";
+import { Route} from "react-router-dom";
 import Result from "./Result";
 import Auto from "./Auto";
 import {GetSell, GetSellByID} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
 import Pagination from "react-js-pagination";
-import {TEST_POST} from "../config/Requsest";
 import Menu from '../Menu/Menu'
-import {Url} from "../config/Url";
 
 class Announcement extends Component {
     constructor(props) {

@@ -53,7 +53,7 @@ class PersionalData extends React.Component {
                                                 <FontAwesomeIcon icon={faMobileAlt}/>
                                             </div>
                                             <div>
-                                                <span>{data.phone}</span>
+                                                <span>+374{data.phone}</span>
                                             </div>
                                         </li>
 

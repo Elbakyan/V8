@@ -38,6 +38,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "rules": {
+      "no-whitespace-before-property": "off",
+      "jsx-a11y/anchor-is-valid": "off"
+    },
     "extends": "react-app"
   },
   "browserslist": {

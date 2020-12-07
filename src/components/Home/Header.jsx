@@ -13,6 +13,7 @@ import {GetMessage} from "../../redux/message/action";
 import ModalRequest from "../Modal/ModalRequest";
 import Art from "../Alert";
 import {GetRequst} from "../../redux/GetRequest/action";
+import PersionalData from "../User/Profile/PersionalData";
 
 
 
@@ -23,7 +24,8 @@ class Header extends React.Component{
 
         this.state = {
             modal: false,
-            message: false
+            message: false,
+            user: false,
         }
     }
     componentDidMount() {
@@ -34,12 +36,7 @@ class Header extends React.Component{
         if (this.props.score.score.status){
             id = this.props.score.score.id
         }
-
         this.props.dispatch(GetRequst())
-        document.addEventListener("click", (e) => {
-            this.props.dispatch(GetRequst())
-        })
-
     }
 
     OpenModal = (e)  =>{
@@ -78,16 +75,14 @@ class Header extends React.Component{
                     {
                         this.props.user.status?
                             <div className="persional__info">
-                                <PersonalData />
+                                <PersionalData />
                             </div>: ''
-
                     }
                     {
                         this.props.score.score.status?
                             <div className="persional__info">
                                 <PersionalDataScore />
-                            </div>: ''
-
+                            </div>:''
                     }
                     <div className="header__links ">
                         {
@@ -126,7 +121,7 @@ class Header extends React.Component{
                                     <ul className="header__links-ul row align-center">
 
                                         <li className="header__links-li row align-center" >
-                                            <Link className='link__btn header__link-message' to='/user/login'>
+                                            <Link className='link__btn header__link-message' to='/score/account/message'>
                                                 <FontAwesomeIcon icon={faBell} style={this.props.message.notifications?{color:'red'}:''}/>
                                             </Link>
                                         </li>

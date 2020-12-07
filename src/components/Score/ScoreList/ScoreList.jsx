@@ -12,9 +12,8 @@ import {Url} from "../../config/Url";
 import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";
 import ScorePage from "../ScorePage/ScorePage";
-import {Route, NavLink, Redirect} from "react-router-dom";
+import {Route, NavLink} from "react-router-dom";
 import {GetScoreList, GetScoreListId} from "../../../redux/score/action";
-import {GetRequst} from "../../../redux/GetRequest/action";
 
 
 
@@ -74,6 +73,7 @@ class ScoreList extends React.Component{
             showTmpImg: true
         })
         this.props.dispatch(TmpImg(data))
+        return true
     }
     AddScoreList = (e) => {
         e.preventDefault();
@@ -105,12 +105,11 @@ class ScoreList extends React.Component{
 
     }
     render() {
-        // console.log(this.props.score.scoreList[0])
         return (
             <div className="ScoreList">
                 <div className="score__list-links">
                    <ul>
-                       <li onClick={this.ShowAddScoreForm}><div className='show__form'>+</div></li>
+                       <li onClick={this.ShowAddScoreForm}><div className='show__form'>Ավելացնել խանութ</div></li>
                        {
                            this.props.score.scoreList.map((list,i) =>{
 

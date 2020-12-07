@@ -13,10 +13,6 @@ class Account extends React.Component {
             search: true,
         }
     }
-    componentDidMount() {
-        this.props.dispatch(GetRequst())
-    }
-
     render() {
         return (
             <div className="Account">

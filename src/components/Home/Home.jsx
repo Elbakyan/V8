@@ -145,7 +145,7 @@ class Home extends React.Component {
                             this.state.auto.length?
                             this.state.auto.map(res => {
                                 return (
-                                    <div className='result_auto'>
+                                    <div className='result_auto' key={res.id}>
                                         <SellCar
                                             dataId={res.id}
                                             dataUser={res.user_id}

@@ -67,8 +67,6 @@ class ProfilSetings extends Component {
                 },3000)
             }
             this.props.dispatch(UserExist());
-            Art.open()
-            console.log(res)
             this.setState({
                 modifideData:res.message.modifideData || undefined,
                 uploadeImg:res.message.uploadeImg || undefined,

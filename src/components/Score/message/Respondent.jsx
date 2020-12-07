@@ -8,7 +8,6 @@ import {Url} from "../../config/Url";
 
 class Respondent extends Component {
     render() {
-        console.log('data',this.props.data)
         return (
 
             <div className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}>

@@ -33,29 +33,7 @@ class Message extends Component {
     }
 
     componentDidMount() {
-        // this.props.dispatch(GetMessage(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
-        // this.props.dispatch(GetDialogId(this.props.message.id || this.props.message.messageId || window.location.pathname.split('/').pop()))
-        // this.setState({
-        //     changeMessage: true
-        // })
-        // setTimeout(() => {
-        //     this.setState({
-        //         changeMessage: false
-        //     })
-        // },0)
-        // let data = new FormData();
-        // let dialog_id = window.location.pathname.match(/V8.+/g);
-        // if (dialog_id){
-        //     dialog_id = dialog_id.join()
-        // }
-        // let id  = window.location.pathname.match(/\/\d{2}\//g);
-        // if (id){
-        //     id = id.join('').replace(/\//g,'')
-        // }
-        // data.append('id', dialog_id);
-        // data.append('dialog_id', dialog_id);
-        // this.props.dispatch(GetMessageDialogId(id,dialog_id))
-        // this.props.dispatch(GetStatus(this.props.message.messageId))
+        this.props.dispatch(GetMessage(this.props.message.messageId))
     }
 
     Message = (e) => {
@@ -63,13 +41,6 @@ class Message extends Component {
             link:e.target.dataset.id,
             redirect: true
         })
-        setTimeout(() => {
-            this.setState({
-                redirect: false,
-                changeMessage: false,
-                link: ''
-            })
-        },1000)
 
         this.props.dispatch(GetId(e.target.dataset.id))
         this.props.dispatch(GetStatus(this.props.message.dialog))
@@ -114,15 +85,18 @@ class Message extends Component {
             changeMessage: true,
             link:'/score/account/message/' + e.target.id
         })
-        setTimeout(() => {
-            this.setState({
-                changeMessage: false,
-                link: ''
-            })
-        },0)
+
+    }
+    componentWillUnmount() {
+        this.setState({
+            redirect: false,
+            changeMessage: false,
+            link: ''
+        })
     }
 
     render() {
+        console.log(this.props)
         let myId =  this.props.message.messageId;
 
         return(

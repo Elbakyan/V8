@@ -65,12 +65,12 @@ export default function (){
                     <nav>
                         <ul className='social_network'>
                             <li className='facebook'>
-                                <a href='https://www.facebook.com/www.V8.am' target="_blank">
+                                <a href='https://www.facebook.com/groups/V8Armenia' target="_blank">
                                     <FontAwesomeIcon icon={faFacebookF} />
                                 </a>
                             </li>
                             <li className='instagram'>
-                                <a href='https://www.facebook.com/www.V8.am' target="_blank">
+                                <a href='https://www.instagram.com/avtoteghekatu' target="_blank">
                                     <FontAwesomeIcon icon={faInstagramSquare} />
                                 </a>
                             </li>

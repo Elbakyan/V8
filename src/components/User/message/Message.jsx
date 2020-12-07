@@ -83,6 +83,7 @@ class Message extends Component {
                 this.props.dispatch(GetMessage(this.props.user.id))
             }
         })
+        return true
     }
 
     render() {

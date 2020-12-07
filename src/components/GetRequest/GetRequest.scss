@@ -9,6 +9,7 @@
     justify-content: space-between;
 
     .respondent{
+      padding-top: 10px;
       width: 30%;
 
       .users{
@@ -33,7 +34,14 @@
           //padding: 0 10px;
         }
         .active_user{
-          background: #ec2424;
+          background: #0b84c6;
+          box-shadow:
+                  2px 2px 8px rgba(0, 0, 0, .2),
+                  -2px -2px 8px rgba(0,0,0,.2),
+                  inset 0px 0px 5px 5px #008bd7,
+                  inset 0px 0px 10px 5px #000507,
+                  inset 10px 10px 15px 10px #1297db,
+                  inset -10px -10px 15px 10px #1297db;
         }
         ul{
           display: flex;

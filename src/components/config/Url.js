@@ -31,7 +31,7 @@ export const Url = {
     logoutscore: SITE_NAME + '/Server/score_l',
     existScore: SITE_NAME + '/Server/score-exist',
     scoreSetings: SITE_NAME + '/Server/score-setings',
-    scoreSetingsUser: 'http://brutal+ am/Server/score_user_setings',
+    scoreSetingsUser:SITE_NAME + '/Server/score_user_setings',
     getFavorite: SITE_NAME + '/Server/favorite-get',
     addFavorite: SITE_NAME + '/Server/favorite-add',
     sendFavorite: SITE_NAME + '/Server/favorite-send',
