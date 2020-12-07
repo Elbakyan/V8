@@ -218,8 +218,12 @@ class ScorePage extends Component {
 
                     <div className='info__container'>
                         <ul className='working_interval_style'>
+                            {
+                                data.working_days.map((day,i) => {
+                                    return <li key={i}>{day}</li>
+                                })
+                            }
                             <li>{data.work_to}</li>
-
                             <li>{data.work_from}</li>
                             <div className="form" style={this.state.TimeForm ? {display: 'flex'} : {display: 'none'}}>
                                 <input

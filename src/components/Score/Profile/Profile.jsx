@@ -20,6 +20,8 @@ import ProfilSetingsScore from "./ProfilSetingsScore";
 import Soon from "../../Soon/Soon";
 import GetRequest from "../../GetRequest/GetRequest";
 import {GetRequst} from "../../../redux/GetRequest/action";
+import {Url} from "../../config/Url";
+import {GET, POST} from "../../config/Requsest";
 
 
 
@@ -33,6 +35,11 @@ class Profile extends React.Component{
     }
     componentDidMount() {
         this.props.dispatch(GetScoreList())
+        let data= new FormData();
+        data.append("id", this.props.score.score.id)
+        POST(Url.ubdatestatus,data).then(res => {
+            console.log(res)
+        })
     }
 
 

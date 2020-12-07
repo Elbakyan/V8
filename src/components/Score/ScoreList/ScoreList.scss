@@ -225,6 +225,25 @@
           width: 90%;
           margin: 5px 0;
         }
+        .working__days{
+          display: flex;
+
+          >label{
+            color: white;
+            font-size: 14px;
+            padding: 2px;
+            margin: 0px 2px;
+            background: #1e3f4e;
+            border-radius: 5px;
+            cursor: pointer;
+            input{
+              cursor: pointer;
+            }
+            input:focus{
+              box-shadow: none;
+            }
+          }
+        }
       }
     }
     .tmp__img{
