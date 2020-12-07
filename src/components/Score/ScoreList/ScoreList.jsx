@@ -155,6 +155,15 @@ class ScoreList extends React.Component{
                                 placeholder='Խանութի Հասցեն․․․'
                                 required
                             />
+                            <li className='working__days'>
+                                <label > Երկ․<input name='working_days[]' type="checkbox" value='Երկ․'/></label>
+                                <label> Երք․<input name='working_days[]' type="checkbox" value='Երք․'/></label>
+                                <label >Չոր․<input name='working_days[]' type="checkbox" value='Չոր․'/></label>
+                                <label >Հին․<input name='working_days[]' type="checkbox" value='Հին․'/></label>
+                                <label>Որբ․<input name='working_days[]' type="checkbox" value='Որբ․'/></label>
+                                <label>Շաբ․<input name='working_days[]' type="checkbox" value='Շաբ․'/></label>
+                                <label>Կիր․<input name='working_days[]' type="checkbox" value='Կիր․'/></label>
+                            </li>
                             <label className='working_interval'>
                                 <DefaultInput
                                     type='time'
