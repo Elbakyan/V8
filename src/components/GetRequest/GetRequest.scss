@@ -121,12 +121,24 @@
 
     .get_message{
       width: 70%;
+
       .message{
         width: 100%;
+
         & > ul{
           overflow: auto;
           width: 100%;
           height: 75%;
+          &::-webkit-scrollbar {
+            width: 10px;
+          }
+          &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(16, 16, 16, 0.3);
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: #737373;
+            outline: 1px solid silver;
+          }
           .send{
             justify-content: flex-end;
             .message_request_style{
