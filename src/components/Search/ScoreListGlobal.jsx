@@ -143,10 +143,7 @@ class ScoreListGlobal extends Component {
 
                                                 <li className='store_addres'>
                                                     {score.sircle} {score.city} <br/> {score.addres}
-
-
                                                     <ul>
-
                                                         <br/>
                                                         <li>Աշխատանքային օերը և ժամերը՝</li>
                                                         <div className='working__days'>

@@ -92,7 +92,7 @@ class Profile extends React.Component{
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/score/account/cars'>
+                                    <Link to='/score/account/cars/spare_parts/with_mark'>
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faCarBattery}/>
                                         </div>

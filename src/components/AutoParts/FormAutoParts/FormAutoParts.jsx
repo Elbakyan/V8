@@ -276,7 +276,6 @@ class FormAutoParts extends Component {
                                                         className="file_input"
                                                         type="file"
                                                         placeholder='Լուսանկար․․․'
-
                                                         name='img'
                                                     />
                                                 </label>
