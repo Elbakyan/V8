@@ -99,6 +99,9 @@ class UserCars extends Component {
             }
         })
     }
+    UbdateImg = (e) => {
+        console.log(e)
+    }
     render() {
         // console.log(this.props.auto.auto)
         return (
@@ -169,7 +172,7 @@ class UserCars extends Component {
 
                                     </div>
                                     <div className="car_slider">
-                                        <SliderAuto autoImage={JSON.parse(img)}/>
+                                        <SliderAuto autoImage={JSON.parse(img)} edit={true} onClick={this.UbdateImg}  loading={this.state.loadingSlider} AddImg={this.AddSliderImg}/>
                                         {/*<SliderAuto autoImage={img}/>*/}
                                     </div>
                                 </div>
