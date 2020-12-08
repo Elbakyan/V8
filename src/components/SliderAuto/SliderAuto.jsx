@@ -128,10 +128,10 @@ class SliderAuto extends Component {
                                 >
                                     {
                                         this.state.edit ?
-                                            <div className="edit" data-url={img} onClick={this.props.onClick}
+                                            <div className="edit" data-url={img} data-id={this.props.id} onClick={this.props.onClick}
                                                  data-img={this.props.autoImage}>
-                                                <span data-url={img}>
-                                                    <FontAwesomeIcon icon={faTimes} data-url={img}/>
+                                                <span>
+                                                    <FontAwesomeIcon icon={faTimes} />
                                                 </span>
                                             </div>:''
                                     }
@@ -149,6 +149,7 @@ class SliderAuto extends Component {
                                             type='file'
                                             multiple
                                             onChange={this.props.AddImg}
+                                            data-id={this.props.id}
                                         />
                                         <span
                                             style={this.ImgRef.current ? {fontSize: this.ImgRef.current.offsetWidth + 'px'} : {fontSize: '20px'}}>+</span>

@@ -75,14 +75,15 @@
       }
       .edit{
         position: relative;
+
         &::before{
           content: '';
-          width: 13px;
-          height: 15px;
+          width: 20px;
+          height: 20px;
           display: block;
           position: absolute;
-          right: -5px;
-          top: 15px;
+          right: -7px;
+          top: 7px;
           z-index: 1;
         }
         >span{
@@ -176,6 +177,7 @@
   color: #ffffff;
   cursor: pointer;
   transition: .3s;
+
   &-big{
     position: absolute;
     width: 100%;
