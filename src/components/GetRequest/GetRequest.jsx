@@ -8,10 +8,11 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import {GetRequst} from "../../redux/GetRequest/action";
-import {GetStatus, SendMessage} from "../../redux/message/action";
+import {GetMessage, GetStatus, SendMessage} from "../../redux/message/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
+import {faMapMarkerAlt, faRedoAlt} from "@fortawesome/free-solid-svg-icons";
 import {faTrashAlt} from "@fortawesome/free-regular-svg-icons";
+import ReqMessage from "./myScroll";
 
 
 
@@ -24,11 +25,12 @@ class GetRequest extends Component{
             scroll: true,
             cou:0,
             redirect:false,
-            interval:false
+            interval:false,
+            reloadPos:false,
+            count:0
         }
         this.textareaRef = React.createRef()
         this.formRef = React.createRef()
-        this.scrollRef = React.createRef()
     }
     componentDidMount() {
         let id = window.location.pathname.split('/').pop();
@@ -38,9 +40,19 @@ class GetRequest extends Component{
             dialog: dialog,
             interval: true
         })
-
-
+        window.addEventListener('scroll',(e)=>{
+            if(window.scrollY >= 200){
+                this.setState({
+                    reloadPos:true
+                })
+            }else{
+                this.setState({
+                    reloadPos:false
+                })
+            }
+        })
     }
+
     Send = (e) => {
         this.setState({
             id: e.target.dataset.id,
@@ -55,6 +67,7 @@ class GetRequest extends Component{
                 this.props.dispatch(GetRequst())
             }
         })
+        this.scroll()
     }
 
     Message = (e) => {
@@ -76,19 +89,24 @@ class GetRequest extends Component{
     }
 
     scroll = () => {
-        this.scrollRef.current.scrollTop = this.scrollRef.current.scrollHeight;
-        if(this.state.cou != 2){
-            setTimeout(()=>{
+        setTimeout(()=>{
+            let bar = document.querySelector('.scroll_bar'+this.state.id)
+            bar.scrollTop = bar.scrollHeight
+            console.log(bar)
+            if(this.state.count != 2){
+                setTimeout(()=>{
+                    this.setState({
+                        count:++this.state.count
+                    })
+                    this.scroll()
+                },40)
+            }else{
                 this.setState({
-                    cou:++this.state.cou
+                    count:0
                 })
-                this.scroll()
-            },40)
-        }else{
-            this.setState({
-                cou:0
-            })
-        }
+            }
+        },40)
+
     }
     onEnterPress = (e) => {
         if(e.keyCode == 13 && e.shiftKey == false) {
@@ -176,9 +194,37 @@ class GetRequest extends Component{
                                         })
                                     }
                                 </ul>
+                                {
+                                    this.state.reloadPos?<div className='message_reload message_reload__bottom'>
+                            <span onClick={(e)=>{
+                                let aa = e.target
+                                e.target.classList.toggle('message_reload_button')
+                                this.props.dispatch(GetMessage(this.props.id))
+                                this.props.dispatch(GetStatus(this.props.message.dialog))
+                                setTimeout(()=>{
+                                    aa.classList.toggle('message_reload_button')
+                                },1000)
+                            }}>
+                                <FontAwesomeIcon icon={faRedoAlt} />
+                            </span>
+                                    </div>:''
+                                }
 
                             </div>
                             <div className="get_message" >
+                                <div className='message_reload message_reload__top'>
+                            <span onClick={(e)=>{
+                                let aa = e.target
+                                e.target.classList.toggle('message_reload_button')
+                                this.props.dispatch(GetMessage(this.props.id))
+                                this.props.dispatch(GetStatus(this.props.message.dialog))
+                                setTimeout(()=>{
+                                    aa.classList.toggle('message_reload_button')
+                                },1000)
+                            }}>
+                                <FontAwesomeIcon icon={faRedoAlt} />
+                            </span>
+                                </div>
                                 {
                                     this.props.request.request.map((el,i)=>{
                                         return(
@@ -187,7 +233,8 @@ class GetRequest extends Component{
                                                 '/user/account/request/'+el.message[0].dialog + '/' + el.user.id
                                             }>
                                                 <div className="message" >
-                                                    <ul ref={this.scrollRef}>
+
+                                                    <ul className={'scroll_bar'+this.state.id}>
                                                         {
                                                             el.message.map((mess,i)=>{
                                                                 return(
@@ -319,6 +366,14 @@ class GetRequest extends Component{
                                                         </form>
                                                     </div>
                                                 </div>
+                                                {/*<ReqMessage*/}
+                                                {/*    message={el.message}*/}
+                                                {/*    user_id={this.props.user.id}*/}
+                                                {/*    score_id={this.props.score.score.id}*/}
+                                                {/*    Message={this.Message}*/}
+                                                {/*    onEnterPress={this.onEnterPress}*/}
+                                                {/*    */}
+                                                {/*/>*/}
                                             </Route>
                                         )
                                     })

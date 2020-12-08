@@ -28,16 +28,12 @@ class SliderAuto extends Component {
 
 
 
-    offZoom = (e) => {
 
+    getZoom = (e) => {
         this.setState({
-            zoom: false
+            zoom: !this.state.zoom
         })
-    }
-    onZoom = (e) => {
-        this.setState({
-            zoom: true
-        })
+
     }
     show = (e) => {
         let a = this.props.autoImage
@@ -77,7 +73,7 @@ class SliderAuto extends Component {
                 }
                 {
                     this.state.zoom ? <div className='modal_zoom_auto'>
-                        <Zoom autoImage={this.props.autoImage} offZoom={this.offZoom}/>
+                        <Zoom autoImage={this.props.autoImage} offZoom={this.getZoom}/>
                         {/*<SliderAuto autoImage={this.props.autoImage}/>*/}
                     </div> : ''
                 }
@@ -103,10 +99,10 @@ class SliderAuto extends Component {
                                 <span onClick={this.next}>
                                 <FontAwesomeIcon icon={faChevronRight}/>
                             </span>
-                                <span className="modal_zoom_auto_on" onClick={this.onZoom}>
+                                <span className="modal_zoom_auto_on" onClick={this.getZoom}>
                                     <FontAwesomeIcon icon={faSearchPlus}/>
                                 </span>
-                            </div> : <span className="modal_zoom_auto_on" onClick={this.onZoom}>
+                            </div> : <span className="modal_zoom_auto_on" onClick={this.getZoom}>
                                 <FontAwesomeIcon icon={faSearchPlus}/>
                             </span>
                         }

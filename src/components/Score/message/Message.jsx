@@ -27,13 +27,18 @@ class Message extends Component {
             link:false,
             dialog: '',
             redirect:false,
-            RedirectLink: ''
+            RedirectLink: '',
+            reloadPos:false
         }
 
     }
 
     componentDidMount() {
         this.props.dispatch(GetMessage(this.props.message.messageId))
+        document.addEventListener('scroll',()=>{
+            let scrollTop = document.scrollHeight
+            console.log(scrollTop)
+        })
     }
 
     Message = (e) => {
@@ -158,7 +163,7 @@ class Message extends Component {
                         </div>
 
                         <div className="message">
-                            <div className='message_reload'>
+                            <div className='message_reload' ref={el=>this.reload=el}>
                                 <span onClick={(e)=>{
                                     let aa = e.target
                                     e.target.classList.toggle('message_reload_button')
