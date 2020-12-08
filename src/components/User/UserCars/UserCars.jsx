@@ -8,9 +8,10 @@ import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import DefaultInput from "../../forms/inputs/DefaultInput";
 import {GetAuto} from "../../../redux/auto/action";
 import DefaultSelect from "../../forms/select/DefaultSelect";
-import {POST} from "../../config/Requsest";
+import {POST, TEST_POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {connect} from "react-redux";
+import Art from "../../Alert";
 
 
 
@@ -24,6 +25,7 @@ class UserCars extends Component {
 
         }
     }
+
     closeSell = (e)=>{
         const modal = document.querySelectorAll('.delet_car')
         modal.forEach((el,i)=>{
@@ -100,7 +102,37 @@ class UserCars extends Component {
         })
     }
     UbdateImg = (e) => {
-        console.log(e)
+        let data = new FormData();
+        data.append('id',e.target.dataset.id)
+        data.append('url',e.target.dataset.url)
+        data.append('img',e.target.dataset.img)
+        POST(Url.updateAutoImg,data).then(res => {
+            if (res.status){
+                this.props.dispatch(GetAuto(this.props.user.id))
+            }
+        })
+    }
+    AddSliderImg = (e) => {
+        let data = new FormData();
+        data.append('id', e.target.dataset.id)
+        Object.values(e.target.files).map(img => {
+            data.append('img[]', img)
+        })
+
+       POST(Url.addAutoImg,data).then(res => {
+           if (res.status){
+                this.props.dispatch(GetAuto(this.props.user.id))
+           }else{
+               this.setState({
+                   message: res.message
+               })
+               setTimeout(() => {
+                   this.setState({
+                       message: ''
+                   })
+               },2000)
+           }
+       })
     }
     render() {
         // console.log(this.props.auto.auto)
@@ -109,6 +141,7 @@ class UserCars extends Component {
                 {/*{this.state.Redirect ? <Redirect to='/user/account/cars' /> : ''}*/}
                 {this.state.RedirectSell ? <Redirect to='/announcement' /> : ''}
                 <div className="User__cars">
+
                     {
 
                         this.props.auto.auto.data.map(({
@@ -135,7 +168,7 @@ class UserCars extends Component {
                             <div key={id} className='car col'>
                                 <div className='block-left'>
                                     <div className="car_name">
-                                        <span>{model}</span>
+                                        <span>{mark} {model}</span>
                                         <span>
                                             <FontAwesomeIcon data-num={id} icon={faTrashAlt} />
                                             <span data-num={id} onClick={this.clear}></span>
@@ -172,8 +205,28 @@ class UserCars extends Component {
 
                                     </div>
                                     <div className="car_slider">
-                                        <SliderAuto autoImage={JSON.parse(img)} edit={true} onClick={this.UbdateImg}  loading={this.state.loadingSlider} AddImg={this.AddSliderImg}/>
-                                        {/*<SliderAuto autoImage={img}/>*/}
+                                        {
+                                            this.state.message?
+                                                <Art type='warning' content={this.state.message} />:''
+                                        }
+
+                                        <SliderAuto autoImage={JSON.parse(img)} id={id} edit={true} onClick={this.UbdateImg}  loading={this.state.loadingSlider} AddImg={this.AddSliderImg}/>
+                                        {
+                                            JSON.parse(img) != false?'':
+                                                <form encType='multipart/form-data' className='add__first-img'>
+                                                    <label className='add__img'>
+                                                        <div className="bg"></div>
+                                                        <input
+                                                            type='file'
+                                                            multiple
+                                                            onChange={this.AddSliderImg}
+                                                            data-id={id}
+                                                        />
+                                                        <span className='add'>+</span>
+
+                                                    </label>
+                                                </form>
+                                        }
                                     </div>
                                 </div>
 

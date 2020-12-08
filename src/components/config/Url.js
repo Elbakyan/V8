@@ -55,6 +55,9 @@ export const Url = {
     sendrequest: SITE_NAME + '/Server/send-request',
     delrequest: SITE_NAME + '/Server/del-request',
     statusrequest: SITE_NAME + '/Server/status-request',
-    ubdatestatus: SITE_NAME + '/Server/update-status'
+    ubdatestatus: SITE_NAME + '/Server/update-status',
+    updateAutoImg:SITE_NAME + '/Server/auto-update-img',
+    addAutoImg:SITE_NAME + '/Server/auto-add-img'
 }
 export default SITE_NAME;
+
