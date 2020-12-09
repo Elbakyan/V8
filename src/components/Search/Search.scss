@@ -1,7 +1,7 @@
 @import "src/style/var";
 
 .Search{
-  width: 45%;
+  width: 600px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@
 
 
      input[type=text]{
-       width: 70%;
+       width: 350px;
        height: 100%;
        font-weight: bold;
        font-size: 17px;
@@ -37,7 +37,7 @@
      label{
        font-size: 18px;
        position: absolute;
-       right: 23%;
+       right: 29%;
        z-index: 1;
        color: $placeholder;
        transition: .3s;
@@ -52,6 +52,7 @@
 
      }
      .select  {
+       width: 170px;
        height: 100%;
        display: flex;
        align-items: center;

@@ -40,17 +40,24 @@ class GetRequest extends Component{
             dialog: dialog,
             interval: true
         })
-        window.addEventListener('scroll',(e)=>{
-            if(window.scrollY >= 200){
-                this.setState({
-                    reloadPos:true
-                })
-            }else{
-                this.setState({
-                    reloadPos:false
-                })
-            }
-        })
+
+        window.addEventListener('scroll',this.scrl)
+    }
+    scrl = (e)=>{
+        if(window.scrollY >= 200){
+            this.setState({
+                reloadPos:true
+            })
+        }else{
+            this.setState({
+                reloadPos:false
+            })
+        }
+    }
+    componentWillUnmount() {
+        window.removeEventListener('scroll',this.scrl)
+
+        // console.log(window.onscroll)
     }
 
     Send = (e) => {
@@ -105,7 +112,7 @@ class GetRequest extends Component{
                     count:0
                 })
             }
-        },40)
+        },100)
 
     }
     onEnterPress = (e) => {
@@ -155,7 +162,7 @@ class GetRequest extends Component{
                                             }
                                             if(+el.message[0].delite[0] !== +id){
                                                 return(
-                                                    <NavLink className='default_user' activeClassName='active_user' key={i} onClick={this.Send}
+                                                    <NavLink className='default_user' data-id={el.user.id} activeClassName='active_user' key={i} onClick={this.Send}
                                                              to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
                                                                  :'/user/account/request/'+el.message[0].dialog + '/' + el.user.id}
 
@@ -181,7 +188,7 @@ class GetRequest extends Component{
                                                                             })
                                                                         },500)
                                                                     }
-                                                                    {}                                                        })
+                                                                                                                  })
                                                             }}><FontAwesomeIcon icon={faTrashAlt} /></li>
                                                             {
                                                                 +el.message[el.message.length-1].status && +el.message[el.message.length-1].send != id?
@@ -260,9 +267,9 @@ class GetRequest extends Component{
                                                                                                             mess.message.message?
                                                                                                                 <div className='message_request'>
                                                                                                                         {
-                                                                                                                            mess.message.message.split('/*/').map((el)=>{
+                                                                                                                            mess.message.message.split('/*/').map((el,i)=>{
                                                                                                                                 return(
-                                                                                                                                    <Fragment>
+                                                                                                                                    <Fragment key={i}>
                                                                                                                                         {el} <br/>
                                                                                                                                     </Fragment>
                                                                                                                                 )
@@ -287,17 +294,17 @@ class GetRequest extends Component{
                                                                                             {
                                                                                                 mess.message.vin?
                                                                                                     <li>
-                                                                                                        <p>
+                                                                                                        {/*<p>*/}
                                                                                                             <h3>VIN:</h3>{mess.message.vin}
-                                                                                                        </p>
+                                                                                                        {/*</p>*/}
                                                                                                     </li> :''
                                                                                             }
                                                                                             {
                                                                                                 mess.message.code?
                                                                                                     <li>
-                                                                                                        <p>
+                                                                                                        {/*<p>*/}
                                                                                                             <h3>դետալի կոդ</h3> {mess.message.code}
-                                                                                                        </p>
+                                                                                                        {/*</p>*/}
                                                                                                     </li>:''
                                                                                             }
                                                                                             {
@@ -330,9 +337,9 @@ class GetRequest extends Component{
                                                                                 mess.message.message && !mess.message.mark?
                                                                                        <div className='message_request-text'>
                                                                                            {
-                                                                                               mess.message.message.split('/*/').map((el)=>{
+                                                                                               mess.message.message.split('/*/').map((el,i)=>{
                                                                                                    return(
-                                                                                                       <Fragment>
+                                                                                                       <Fragment key={i}>
                                                                                                            {el} <br/>
                                                                                                        </Fragment>
                                                                                                    )
@@ -366,14 +373,6 @@ class GetRequest extends Component{
                                                         </form>
                                                     </div>
                                                 </div>
-                                                {/*<ReqMessage*/}
-                                                {/*    message={el.message}*/}
-                                                {/*    user_id={this.props.user.id}*/}
-                                                {/*    score_id={this.props.score.score.id}*/}
-                                                {/*    Message={this.Message}*/}
-                                                {/*    onEnterPress={this.onEnterPress}*/}
-                                                {/*    */}
-                                                {/*/>*/}
                                             </Route>
                                         )
                                     })

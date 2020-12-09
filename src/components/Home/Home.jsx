@@ -113,7 +113,7 @@ class Home extends React.Component {
                                             let score = this.state.score[i];
                                             let img = JSON.stringify([res.img])
                                             return (
-                                                <div className='result_auto'>
+                                                <div className='result_auto' key={i}>
                                                     <SellCar
                                                         dataId={res.id}
                                                         dataUser={res.store_id}
