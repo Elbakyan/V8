@@ -27,7 +27,6 @@ class ScoreListGlobal extends Component {
     // }
 
     render() {
-        console.log(this.props)
         return (
             <div className="score_list_global">
                 {/*<DecorTitle title={this.props.MarkModelResult.mark?this.props.MarkModelResult.mark[0].mark + '-ի պահեստամասերի խանութներ':''}  fontSize='16px'/>*/}
@@ -107,7 +106,7 @@ class ScoreListGlobal extends Component {
                                                                         )
                                                                     }
                                                                 }
-                                                            }) : <li>Բոլոր մոդելները</li>
+                                                            }) : +mark.new? 'Բոլոր մոդելները':'Նոր չկա․'
                                                         }
 
                                                     </ul>
@@ -116,14 +115,16 @@ class ScoreListGlobal extends Component {
                                                 <li className='old_model'>
                                                     <ul>
                                                         {
-                                                            model != false ? model.map((model, mIndex) => {
+                                                            model != false? model.map((model, mIndex) => {
 
                                                                 if (+model.old === 1 && +model.score_id === +score.id) {
                                                                     return (
                                                                         <li key={mIndex}>{model.model}</li>
                                                                     )
+                                                                }else{
+                                                                    return ''
                                                                 }
-                                                            }) : <li>Բոլոր մոդելները</li>
+                                                            }) : +mark.old? 'Բոլոր մոդելները':'Օգտագործված չկա․'
                                                         }
                                                     </ul>
                                                 </li>
