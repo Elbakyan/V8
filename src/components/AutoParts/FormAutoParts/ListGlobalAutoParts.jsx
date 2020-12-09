@@ -89,10 +89,10 @@ class ListGlobalAutoParts extends  Component{
                                            <ul >
                                                <li>{mark.mark}</li>
                                                {
-                                                   mark.new?<li>նոր</li>:''
+                                                   +mark.new?<li>նոր</li>:<li></li>
                                                }
                                                {
-                                                   mark.old?<li>օգտ</li>:''
+                                                   +mark.old?<li>օգտ</li>:<li></li>
                                                }
                                                <li data-bul={false} onClick={this.openModel} className={"open_list open_list"+mark.id} data-title={1}>
                                                    <ButtonView
