@@ -16,6 +16,7 @@ import {NavLink, Redirect, Route} from "react-router-dom";
 import MainListGlobalAutoParts from "./ListGlobalAutoParts";
 import TypeCars from "../TypeCars";
 import ListGlobalTruckParts from "./ListGlobalTruckParts";
+import Art from "../../Alert";
 
 
 class FormGlobalTruckParts extends Component {
@@ -110,14 +111,7 @@ class FormGlobalTruckParts extends Component {
                 </div>
                 {
                     this.state.message?
-                        <div className="message" style={{
-                            position: "fixed",
-                            top: "15px",
-                            background: "#ffffff"
-
-                        }}>
-                            {this.state.message}
-                        </div>:''
+                        <Art type='warning' content={this.state.message}/>:''
                 }
                 <Route path='/score/account/cars/spare_parts/with_mark/truck/add'>
                     <form onSubmit={this.AddScorPartsLists}>

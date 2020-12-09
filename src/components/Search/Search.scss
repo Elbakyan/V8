@@ -141,6 +141,15 @@
   height: calc(100vh - 230px);
   //padding: 20px;
   margin: 10px 0;
+  .full_img{
+
+    img{
+      padding: 20px;
+      width: 70%;
+
+    }
+  }
+
 }
 .message{
   width: 100%;
@@ -202,6 +211,10 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      img{
+        width: 50px;
+        cursor: pointer;
+      }
       p {
         margin: 3px 0;
       }
