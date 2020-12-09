@@ -2,22 +2,31 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {GetStoreID} from "../../redux/search/action";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 
 class ScoreList extends Component{
     constructor(props) {
         super(props);
         this.state ={
-            id: ''
+            id: '',
+            fullImg: '',
+            openFullImg: false
         }
     }
     render() {
         return(
             <div className="score_list">
+                <div className="full_img" style={this.state.openFullImg? {display:"flex"}: {display: "none"}}>
+                    <img src={this.state.fullImg} alt=""/>
+                    <span className="full_img-icon" onClick={() => this.setState({openFullImg: false})}><FontAwesomeIcon icon={faTimesCircle} /></span>
+                </div>
                     <nav className='score_list_info'>
                         <div className='score_list_info__header table_style_header'>
                             <ul>
                                 <li>Պահեստամասի համարը</li>
                                 <li>Պահեստամասի անվանումը</li>
+                                <li>Նկար</li>
                                 <li>Արժեքը</li>
                                 <li>Ընկերությունը</li>
                                 <li>Հեռախոսահամրը</li>
@@ -33,6 +42,14 @@ class ScoreList extends Component{
                                             <ul key={i}>
                                                 <li>{detal.code}</li>
                                                 <li>{detal.name}</li>
+                                                <li>
+                                                    <img src={detal.img} alt=""onClick={(e) => {
+                                                        this.setState({
+                                                            fullImg: detal.img,
+                                                            openFullImg: true
+                                                        })
+                                                    }}/>
+                                                </li>
                                                 <li>{detal.price + 'Դր․'}</li>
                                                 <li ><Link to={'/search/result/store/' + store.id}
                                                            onClick={() => {

@@ -15,6 +15,7 @@ import {maser} from "../../Menu/autoObj";
 import FormGlobalAutoParts from "./FormGlobalAutoParts";
 import TypeCars from "../TypeCars";
 import {Redirect, Route} from "react-router";
+import Art from "../../Alert";
 
 
 class FormAutoParts extends Component {
@@ -131,6 +132,11 @@ class FormAutoParts extends Component {
                             this.setState({
                                 message: res.message
                             })
+                            setTimeout(() => {
+                                this.setState({
+                                    message: ''
+                                })
+                            },5000)
                         }
                     }
                 })
@@ -203,7 +209,10 @@ class FormAutoParts extends Component {
                         <Route path='/score/account/cars/spare_parts/with_code'>
                             <div className="---">
                                 <div className="add_auto_parts">
-                                    {this.state.message ? <p className="message">{this.state.message}</p> : ''}
+                                    {
+                                        this.state.message?
+                                            <Art type='warning' content={this.state.message}/>:''
+                                    }
                                     <form encType='multipart/form-data' onSubmit={this.AddProduct}>
                                         <div className="score_list">
                                             {

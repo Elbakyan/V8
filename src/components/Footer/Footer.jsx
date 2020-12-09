@@ -4,35 +4,67 @@ import { faMapMarkerAlt,faMobileAlt ,faEnvelopeOpenText} from '@fortawesome/free
 import './Footer.scss'
 import {Link} from "react-router-dom";
 import {faFacebook, faFacebookF, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
-export default function (){
-    // <i class="fas fa-mobile-alt"></i>
-    const info = [
+import {POST, TEST_POST} from "../config/Requsest";
+import {Url} from "../config/Url";
+import Art from "../Alert";
+export default class Footer extends  React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            backConection: false,
+            alert: false
+        }
+    }
+    Send = (e) => {
+        e.preventDefault();
+        let data = new FormData(e.target)
+        POST(Url.mail,data).then(res => {
+            if (res.status){
+                this.setState({
+                    alert: true
+                })
+                setTimeout(() => {
+                    this.setState({
+                        backConection: false,
+                        alert: false
+                    })
+                },1500)
+            }
+        })
+    }
+    render() {
+        return (
+            <footer >
 
-        {
-            icon:<FontAwesomeIcon icon={faMapMarkerAlt} />,
-            name:<a target='_blank' href="https://www.google.com/maps/@40.1742553,44.4522407,20.75z">Ք․ԵՐԵՎԱՆ Ռաֆու 19</a>
-        },
-        {
-            icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:<a href="tel:+37441888844">(+374)-41-88-88-44</a>
-        },
-        {
-            icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:<a href="tel:+37443888844">(+374)-43-88-88-44</a>
-        },
-        {
-            icon:<FontAwesomeIcon icon={faMobileAlt} />,
-            name:<a href="tel:+37493888044">(+374)-93-88-80-44</a>
-        },
-        {
-            icon:<FontAwesomeIcon icon={faEnvelopeOpenText} />,
-            name:<a href="mailto:'info@v8.am">info@v8.am</a>
-        },
-    ]
+                {
+                    this.state.backConection?<div className="back__conection">
+                        {
+                            this.state.alert?
+                                <Art type='success' content='Հաղորդագրությունը ուղարկված է․' />:''
+                        }
 
-    return (
-        <footer >
-            <div className="container Footer">
+                        <form onSubmit={this.Send}>
+
+                            <div className="inputs">
+                                <input type="text" name='name' placeholder='Անուն' required/>
+                                <input type="text" name='surname' placeholder='Ազգանուն' required/>
+                                <input type="number" name='phone' placeholder='Հեռախոսահամար' required/>
+                            </div>
+                            <div className="text">
+                                <textarea name="message" placeholder='Հաղորդագրություն' required></textarea>
+                            </div>
+                            <div className="button">
+                                <input type="email" name='email' placeholder='E-mail' required/>
+                                <button className='close' onClick={(e) => {
+                                    e.preventDefault();
+                                    this.setState({backConection: false})
+                                }}>Չեղարկել</button>
+                                <button className='send' type='submit'>Ուղարկել</button>
+                            </div>
+                        </form>
+                    </div>:''
+                }
+                <div className="container Footer">
                     <nav className="Footer_nav">
                         <ul className='Footer_nav__about'>
                             <li>
@@ -41,7 +73,10 @@ export default function (){
                                 </Link>
                             </li>
                             <li>
-                                <Link to={''}>
+                                <Link onClick={(e) => {
+                                    e.preventDefault();
+                                    this.setState({backConection: true})
+                                }}>
                                     Հետադարձ կապ
                                 </Link>
                             </li>
@@ -76,7 +111,8 @@ export default function (){
                             </li>
                         </ul>
                     </nav>
-            </div>
-        </footer>
-    )
+                </div>
+            </footer>
+        )
+    }
 }

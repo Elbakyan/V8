@@ -15,6 +15,7 @@ import {GetMarkModelAutoParts} from "../../../redux/score/action";
 import {NavLink, Redirect, Route} from "react-router-dom";
 import MainListGlobalAutoParts from "./ListGlobalAutoParts";
 import TypeCars from "../TypeCars";
+import Art from "../../Alert";
 
 
 
@@ -98,7 +99,7 @@ class FormGlobalAutoParts extends Component {
     }
 
     render() {
-        console.log(window.location.pathname)
+
         return (
             <div className="add_auto_parts">
                 {
@@ -111,14 +112,7 @@ class FormGlobalAutoParts extends Component {
                 </div>
                     {
                         this.state.message?
-                            <div className="message" style={{
-                                position: "fixed",
-                                top: "15px",
-                                background: "#ffffff"
-
-                            }}>
-                                {this.state.message}
-                            </div>:''
+                            <Art type='warning' content={this.state.message}/>:''
                     }
                 <Route path='/score/account/cars/spare_parts/with_mark/cars/add'>
                     <form onSubmit={this.AddScorPartsLists}>
