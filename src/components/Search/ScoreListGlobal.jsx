@@ -27,7 +27,6 @@ class ScoreListGlobal extends Component {
     // }
 
     render() {
-        console.log(this.props)
         return (
             <div className="score_list_global">
                 {/*<DecorTitle title={this.props.MarkModelResult.mark?this.props.MarkModelResult.mark[0].mark + '-ի պահեստամասերի խանութներ':''}  fontSize='16px'/>*/}
@@ -87,7 +86,7 @@ class ScoreListGlobal extends Component {
                                                                       this.props.dispatch(GetStoreID(score.id))
                                                                   }}>
                                                                 <img src={img[0]} alt=""/>
-                                                                <h3>{score.name}</h3>
+                                                                <h3 style={{fontSize:'18px'}}>{score.name}</h3>
                                                             </Link>
                                                         </li>
                                                         <li>
@@ -107,7 +106,7 @@ class ScoreListGlobal extends Component {
                                                                         )
                                                                     }
                                                                 }
-                                                            }) : <li>Բոլոր մոդելները</li>
+                                                            }) : +mark.new? 'Բոլոր մոդելները':'Նոր չկա․'
                                                         }
 
                                                     </ul>
@@ -116,14 +115,16 @@ class ScoreListGlobal extends Component {
                                                 <li className='old_model'>
                                                     <ul>
                                                         {
-                                                            model != false ? model.map((model, mIndex) => {
+                                                            model != false? model.map((model, mIndex) => {
 
                                                                 if (+model.old === 1 && +model.score_id === +score.id) {
                                                                     return (
                                                                         <li key={mIndex}>{model.model}</li>
                                                                     )
+                                                                }else{
+                                                                    return ''
                                                                 }
-                                                            }) : <li>Բոլոր մոդելները</li>
+                                                            }) : +mark.old? 'Բոլոր մոդելները':'Օգտագործված չկա․'
                                                         }
                                                     </ul>
                                                 </li>
@@ -131,9 +132,15 @@ class ScoreListGlobal extends Component {
                                                     <ul>
                                                         {
                                                             score.phone.map((phone, i) => {
+                                                                let p = phone.split(''),
+                                                                    p1 = p.slice(0,2).join(''),
+                                                                    p2 = p.slice(2,4).join(''),
+                                                                    p3 = p.slice(4,6).join(''),
+                                                                    p4 = p.slice(6,8).join('');
+
                                                                 if (phone) {
                                                                     return (
-                                                                        <li key={i}>(+374){phone}</li>
+                                                                        <li key={i} style={{margin: '5px 0'}}>{`0${p1} ${p2} ${p3} ${p4}`}</li>
                                                                     )
                                                                 }
                                                             })
@@ -142,9 +149,10 @@ class ScoreListGlobal extends Component {
                                                 </li>
 
                                                 <li className='store_addres'>
-                                                    {score.sircle} {score.city} <br/> {score.addres}
-                                                    <ul>
-                                                        <br/>
+                                                    <p>
+                                                        {score.sircle} {score.city} <br/> {score.addres}
+                                                    </p>
+                                                    <ul style={{marginTop: '5px'}}>
                                                         <li>Աշխատանքային օերը և ժամերը՝</li>
                                                         <div className='working__days'>
                                                             {
@@ -155,7 +163,7 @@ class ScoreListGlobal extends Component {
                                                                 })
                                                             }
                                                         </div>
-                                                        <li>{score.work_to}:{score.work_from}</li>
+                                                        <li >{score.work_to}:{score.work_from}</li>
                                                     </ul>
 
                                                 </li>

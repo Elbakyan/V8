@@ -137,7 +137,6 @@ class FormGlobalTruckParts extends Component {
                                 <ul className='all_check'>
                                     {
                                         this.props.auto.truck.map((el, i) => {
-                                            if (i !== 0) {
                                                 return (
 
                                                     <li key={i} className='all_check'>
@@ -206,7 +205,6 @@ class FormGlobalTruckParts extends Component {
                                                         </ul>
                                                     </li>
                                                 )
-                                            } else return false;
                                         })
                                     }
                                 </ul>

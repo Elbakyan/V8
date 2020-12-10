@@ -1,0 +1,174 @@
+AUTOSAN Դավիթ Բեկի
+login:info@autosan.am
+password:123456
+
+AUTOSAN Լենինգրադյան
+login:info@autosan.am
+password:123456
+
+Autodoc
+login:autodoc@v8.am
+password:autodoc321
+
+Myparts.am
+login:myparts@v8.am
+password:mayparts587
+
+Autoparts WORLD
+login:kievyan-2@mail.ru
+password:123456
+
+AUTOSAN Ռուբինյանց
+login:info@autosan.am
+password:123456
+
+Binam Bosh
+login:info@binam.am
+password:binambosh578
+
+Ավտոպահեստամասեր Վանաձորում
+login:vanadzor@v8.am
+password:123456
+
+YEREVANMOTORS
+login:info@yerevanmotors.com
+password:yerevanmotors579
+
+Ազատության 11
+login:goars999@mail.ru
+password:123456
+
+Էդգար
+login:edgar678@mail.ru
+password:edgar528
+
+EuroCar
+login:eurocar@v8.am
+password:123456
+
+Էդո
+login:edo@v8.am
+password:edo5875
+
+Ananda
+login:ananda2@mail.ru
+password:123456
+
+Auto Power
+login:autopower@v8.am
+password:123456
+
+Garaj
+login:kapeners@gmail.com
+password:123456
+
+GV Parts
+login:gvparts@v8.am
+password:123456
+
+JBR
+login:jrb_hrayer@yahoo.com
+password:123456
+
+Ա1
+login:Hayk-Sargsyan@mail.ru
+password:123456
+
+NK GROUP
+login:nkgroup@v8.am
+password:nkgroup849
+
+ԲԼԻՑ
+login:blitz62@mail.ru
+password:123456
+
+ԱՍԱ Ավտոսերվիս
+login:aaa@v8.am
+password:autoserviceaaa428
+
+Գայլ-Գետ ՍՊԸ
+login:gayl@v8.am
+password:123456
+
+Տրդատ
+login:trdat7620@mail.ru
+password:123456
+
+ՖԼԵՇ ՄՈՏՈՐՍ Մարգարյան փ.
+login:info@flashmotors.am
+password:flashmotors587
+
+Սեբաստիա8
+login:sebastia@v8.am
+password:123456
+
+Միքայել Այվազյան
+login:mikhael.ayvazyan.74@mail.ru
+password:miqayel528
+
+TRUCK SERVICE
+login:truckservice@v8.am
+password:123456
+
+Auto Garo
+login:autogaro@v8.am
+password:autogaro514
+
+Վարդան
+login:vardan-avetisyan-2016@mail.ru
+password:vardan521
+
+GM GROUP
+login:gmgroup@v8.am
+password: 123456
+
+NAR DOS
+login: haykhella@yandex.com
+password: 123456
+
+SANTASAUTO
+login: opelarmenia@mail.ru
+password: 123456
+
+First AutoParts
+login: First AutoParts
+password: 123456
+
+555 ԱՎՏՈՄԱՍԵՐ
+login: 555cpc@tech-center.com
+password: 123456
+
+MAS AUTO SERVISE
+login:auto.am033@mail.ru
+password:123456
+
+Vag Auto Service
+login: vag71@mail.ru
+password: 123456
+
+G service HELLA
+login:  hayko06@mail.ru
+password: hella121
+
+Ալ-Նշան
+login:  al-nshan@v8.am
+password: alnshan697
+
+Արտյոմ
+login:  artyom@v8.am
+password: artyom569
+
+
+
+Սարգիս
+login:  sargis@v8.am
+password: sargis559
+
+Սերգեյ
+login:  sergey@v8.am
+password: sergey257
+
+
+ԳԱԳ Մոթրս
+login:  sva-motors@mail.ru
+password: gagmotors587
