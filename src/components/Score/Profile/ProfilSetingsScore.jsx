@@ -97,6 +97,7 @@ class ProfilSetingsScore extends Component {
                             type='number'
                             placeholder="Հեռախոսահամար"
                             name='phone'
+                            defaultValue={this.props.phone}
                             requred
                             onChange={
                                 (e)=>{
@@ -154,7 +155,7 @@ class ProfilSetingsScore extends Component {
                         />
                     </label>
                     <label>
-                        <button>Send</button>
+                        <button>Պահպանել</button>
                     </label>
                 </form>
             </div>

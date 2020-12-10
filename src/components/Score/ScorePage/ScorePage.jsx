@@ -91,7 +91,7 @@ class ScorePage extends Component {
         }
         POST(Url.scoreSetings, data).then(res => {
             if (res) {
-                console.log(res)
+                // console.log(res)
                 this.setState({loading: false})
             }
             this.props.dispatch(GetScoreList())

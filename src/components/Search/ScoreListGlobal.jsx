@@ -86,7 +86,7 @@ class ScoreListGlobal extends Component {
                                                                       this.props.dispatch(GetStoreID(score.id))
                                                                   }}>
                                                                 <img src={img[0]} alt=""/>
-                                                                <h3>{score.name}</h3>
+                                                                <h3 style={{fontSize:'18px'}}>{score.name}</h3>
                                                             </Link>
                                                         </li>
                                                         <li>
@@ -132,9 +132,15 @@ class ScoreListGlobal extends Component {
                                                     <ul>
                                                         {
                                                             score.phone.map((phone, i) => {
+                                                                let p = phone.split(''),
+                                                                    p1 = p.slice(0,2).join(''),
+                                                                    p2 = p.slice(2,4).join(''),
+                                                                    p3 = p.slice(4,6).join(''),
+                                                                    p4 = p.slice(6,8).join('');
+
                                                                 if (phone) {
                                                                     return (
-                                                                        <li key={i}>(+374){phone}</li>
+                                                                        <li key={i} style={{margin: '5px 0'}}>{`0${p1} ${p2} ${p3} ${p4}`}</li>
                                                                     )
                                                                 }
                                                             })
@@ -143,9 +149,10 @@ class ScoreListGlobal extends Component {
                                                 </li>
 
                                                 <li className='store_addres'>
-                                                    {score.sircle} {score.city} <br/> {score.addres}
-                                                    <ul>
-                                                        <br/>
+                                                    <p>
+                                                        {score.sircle} {score.city} <br/> {score.addres}
+                                                    </p>
+                                                    <ul style={{marginTop: '5px'}}>
                                                         <li>Աշխատանքային օերը և ժամերը՝</li>
                                                         <div className='working__days'>
                                                             {
@@ -156,7 +163,7 @@ class ScoreListGlobal extends Component {
                                                                 })
                                                             }
                                                         </div>
-                                                        <li>{score.work_to}:{score.work_from}</li>
+                                                        <li >{score.work_to}:{score.work_from}</li>
                                                     </ul>
 
                                                 </li>
