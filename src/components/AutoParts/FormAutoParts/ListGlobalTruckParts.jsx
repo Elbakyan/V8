@@ -4,6 +4,9 @@ import {faArrowDown, faFolderOpen, faPen} from "@fortawesome/free-solid-svg-icon
 import {faFolder, faTrashAlt} from "@fortawesome/free-regular-svg-icons";
 import {connect} from "react-redux";
 import ButtonView from "../../ButtonView/ButtonView";
+import {POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
+import {GetMarkModelAutoParts} from "../../../redux/score/action";
 
 
 
@@ -31,10 +34,35 @@ class ListGlobalAutoParts extends  Component{
             store:e.target.value
         })
     }
+    DeliteMark = (e) => {
+        let data = new  FormData();
+        data.append('id', e.target.dataset.id);
+        data.append('mark', e.target.dataset.mark);
+        data.append('score', e.target.dataset.score);
+        data.append('which', 'truck_mark');
 
+        POST(Url.mmpd,data).then(res => {
+            if (res.status){
+                this.props.dispatch(GetMarkModelAutoParts())
+            }
+        })
+
+    }
+    DeliteModel = (e) => {
+        let data = new  FormData();
+        data.append('id', e.target.dataset.id);
+        data.append('score', e.target.dataset.score);
+        data.append('which', 'truck_model');
+
+        POST(Url.mmpd,data).then(res => {
+            if (res.status){
+                this.props.dispatch(GetMarkModelAutoParts())
+            }
+        })
+
+    }
     openModel = e =>{
         if(e.target.dataset.title == 1){
-            console.log(e.target.className.split(' ')[1].toString())
             let block = document.querySelectorAll('.'+e.target.className.split(' ')[1].toString())
             block.forEach(el=>{
                 if(el.tagName != "LI"){
@@ -51,7 +79,6 @@ class ListGlobalAutoParts extends  Component{
     }
     render() {
         let {truckMark,truckModel} = this.props.score.MarkModelParts
-        console.log('ssss',this.props.score.MarkModelParts)
         return(
             <div className="get_list_auto_parts">
                 <div>
@@ -96,6 +123,13 @@ class ListGlobalAutoParts extends  Component{
                                                     button2={<FontAwesomeIcon  icon={faFolderOpen}/>}
                                                 />
                                             </li>
+                                            <li className='delite' onClick={this.DeliteMark}
+                                                data-id={mark.id}
+                                                data-mark={mark['mark_id']}
+                                                data-score={mark['score_id']}
+                                            >
+                                                <FontAwesomeIcon icon={faTrashAlt} />
+                                            </li>
                                         </ul>
                                         {
                                             truckModel.map((model,i)=>{
@@ -120,7 +154,13 @@ class ListGlobalAutoParts extends  Component{
                                                             {
                                                                 model.old?<li>օգտ</li>:''
                                                             }
-                                                            <li></li>
+                                                            <li className='delite' onClick={this.DeliteModel}
+                                                                data-id={model.id}
+                                                                data-score={model['score_id']}
+
+                                                            >
+                                                                <FontAwesomeIcon icon={faTrashAlt} />
+                                                            </li>
                                                         </ul>
                                                     )
                                                 }

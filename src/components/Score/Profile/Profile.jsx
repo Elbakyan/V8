@@ -37,9 +37,7 @@ class Profile extends React.Component{
         this.props.dispatch(GetScoreList())
         let data= new FormData();
         data.append("id", this.props.score.score.id)
-        POST(Url.ubdatestatus,data).then(res => {
-            console.log(res)
-        })
+        POST(Url.ubdatestatus,data)
     }
 
 
