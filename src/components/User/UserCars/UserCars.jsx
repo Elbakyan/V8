@@ -42,7 +42,7 @@ class UserCars extends Component {
         }
 
         const block = document.querySelectorAll('.' + e.target.className)
-        console.log(block[1])
+
         block[1].classList.toggle('sell_user_car_open')
 
     }

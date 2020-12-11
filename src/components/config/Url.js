@@ -58,6 +58,7 @@ export const Url = {
     ubdatestatus: SITE_NAME + '/Server/update-status',
     updateAutoImg:SITE_NAME + '/Server/auto-update-img',
     addAutoImg:SITE_NAME + '/Server/auto-add-img',
+    mmpd:SITE_NAME + '/Server/mmpd',
     mail:SITE_NAME + '/Server/mail'
 }
 export default SITE_NAME;

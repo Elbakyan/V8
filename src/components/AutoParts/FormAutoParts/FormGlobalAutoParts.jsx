@@ -99,7 +99,7 @@ class FormGlobalAutoParts extends Component {
     }
 
     render() {
-
+        let myMark = [];
         return (
             <div className="add_auto_parts">
                 {
@@ -146,7 +146,7 @@ class FormGlobalAutoParts extends Component {
                                                             <li>{el.name}</li>
                                                             <li><input className={"li_mark" + i} data-id={el.id}
                                                                        name='mark[]' value={el.name}
-                                                                       onChange={this.getChecked} type='checkbox'/>
+                                                                       onChange={this.getChecked} type='checkbox' />
                                                             </li>
 
                                                             <li>

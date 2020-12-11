@@ -1,9 +1,12 @@
 import React, {Component, Fragment} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowDown, faFolderOpen, faPen} from "@fortawesome/free-solid-svg-icons";
+import {faArrowDown, faCheck, faCog, faFolderOpen, faPen} from "@fortawesome/free-solid-svg-icons";
 import {faFolder, faTrashAlt} from "@fortawesome/free-regular-svg-icons";
 import {connect} from "react-redux";
 import ButtonView from "../../ButtonView/ButtonView";
+import {POST, TEST_POST} from "../../config/Requsest";
+import {Url} from "../../config/Url";
+import {GetMarkModelAutoParts} from "../../../redux/score/action";
 
 
 
@@ -11,7 +14,8 @@ class ListGlobalAutoParts extends  Component{
     constructor(props) {
         super(props);
         this.state = {
-            store: ''
+            store: '',
+            settings: false
         }
     }
     componentDidMount() {
@@ -31,16 +35,40 @@ class ListGlobalAutoParts extends  Component{
             store:e.target.value
         })
     }
+    DeliteMark = (e) => {
+        let data = new  FormData();
+        data.append('id', e.target.dataset.id);
+        data.append('mark', e.target.dataset.mark);
+        data.append('score', e.target.dataset.score);
+        data.append('which', 'car_mark');
+
+        POST(Url.mmpd,data).then(res => {
+            if (res.status){
+                this.props.dispatch(GetMarkModelAutoParts())
+            }
+        })
+
+    }
+    DeliteModel = (e) => {
+        let data = new  FormData();
+        data.append('id', e.target.dataset.id);
+        data.append('score', e.target.dataset.score);
+        data.append('which', 'car_model');
+
+        POST(Url.mmpd,data).then(res => {
+            if (res.status){
+                this.props.dispatch(GetMarkModelAutoParts())
+            }
+        })
+
+    }
 
     openModel = e =>{
         if(e.target.dataset.title == 1){
-            console.log(e.target.className.split(' ')[1].toString())
             let block = document.querySelectorAll('.'+e.target.className.split(' ')[1].toString())
-            console.log(block)
             block.forEach(el=>{
                 // console.log(el)
                 if(el.tagName != "LI"){
-                    console.log(el.style.display)
                     if(el.style.display == 'none'){
                         el.style.display = 'flex'
                     }else{
@@ -53,8 +81,6 @@ class ListGlobalAutoParts extends  Component{
     }
     render() {
         let {carMark,carModel} = this.props.score.MarkModelParts
-        // console.log(mark,model)
-        console.log(this.props.score)
         return(
                 <div className="get_list_auto_parts">
 
@@ -100,10 +126,16 @@ class ListGlobalAutoParts extends  Component{
                                                        button2={<FontAwesomeIcon  icon={faFolderOpen}/>}
                                                    />
                                                </li>
+                                               <li className='delite' onClick={this.DeliteMark}
+                                                        data-id={mark.id}
+                                                        data-mark={mark['mark_id']}
+                                                        data-score={mark['score_id']}
+                                               >
+                                                   <FontAwesomeIcon icon={faTrashAlt} />
+                                               </li>
                                            </ul>
                                            {
                                                carModel.map((model,i)=>{
-
                                                    if(mark.mark_id === model.mark_id && this.state.store == model.score_id){
                                                        return (
                                                            <ul
@@ -124,7 +156,13 @@ class ListGlobalAutoParts extends  Component{
                                                                {
                                                                    model.old?<li>օգտ</li>:''
                                                                }
-                                                               <li></li>
+                                                               <li className='delite' onClick={this.DeliteModel}
+                                                                   data-id={model.id}
+                                                                   data-score={model['score_id']}
+
+                                                               >
+                                                                   <FontAwesomeIcon icon={faTrashAlt} />
+                                                               </li>
                                                            </ul>
                                                        )
                                                    }
