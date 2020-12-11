@@ -19,6 +19,7 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {GetMessage, SendMessage} from "../../redux/message/action";
 import Art from "../Alert";
 import Loading from "../Loading";
+import {faCalendar} from "@fortawesome/free-regular-svg-icons";
 
 
 
@@ -127,13 +128,12 @@ class StoreInfo extends Component{
 
     }
     render() {
-
+        console.log(this.state.data)
         return(
             <div className="container">
                 {
                     this.state.data?
                         <div className='store'>
-
                             <div className='store__info'>
                                 <div className='store__name'>
                                     <p>{this.state.data.name}</p>
@@ -146,6 +146,20 @@ class StoreInfo extends Component{
                                         <li>{this.state.data.sircle}</li>
                                         <li>{this.state.data.city}</li>
                                         <li>{this.state.data.addres}</li>
+                                    </ul>
+                                    <ul className='working__days'>
+
+                                        <li><FontAwesomeIcon icon={faCalendar} /></li>
+                                        <li>Աշխ․ օր․</li>
+                                        {
+                                            this.state.data.working_days.map((el,i)=>{
+                                                return(
+                                                    <li key={i}>{el}</li>
+                                                )
+                                            })
+
+                                        }
+
                                     </ul>
                                     <ul className='store_phone'>
                                         <li><FontAwesomeIcon icon={faPhoneSquareAlt } /></li>
@@ -259,8 +273,6 @@ class StoreInfo extends Component{
                                                     </button>
                                                 </form>:''
                                         }
-
-
                                     </li>
 
                                 </ul>
