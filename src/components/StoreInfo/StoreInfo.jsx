@@ -150,11 +150,11 @@ class StoreInfo extends Component{
                                     <ul className='working__days'>
 
                                         <li><FontAwesomeIcon icon={faCalendar} /></li>
-                                        <li>Աշխ․ օր․</li>
+                                        <li style={{fontWeight:'bold'}}>Աշխ․ օր․</li>
                                         {
                                             this.state.data.working_days.map((el,i)=>{
                                                 return(
-                                                    <li key={i}>{el}</li>
+                                                    <li key={i} style={{fontSize:'14px'}}>{el} </li>
                                                 )
                                             })
 
