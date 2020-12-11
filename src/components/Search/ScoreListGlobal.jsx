@@ -29,7 +29,6 @@ class ScoreListGlobal extends Component {
     // }
 
     render() {
-        console.log(this.props.MarkModelResult)
         return (
             <div className="score_list_global">
                 {/*<DecorTitle title={this.props.MarkModelResult.mark?this.props.MarkModelResult.mark[0].mark + '-ի պահեստամասերի խանութներ':''}  fontSize='16px'/>*/}
@@ -143,7 +142,6 @@ class ScoreListGlobal extends Component {
                                                              model != false? model.map((model, mIndex) => {
 
                                                                 if (+model.old === 1 && +model.score_id === +score.id) {
-                                                                    console.log(model)
                                                                     markOldPlus = false
                                                                     markOldMinus = false
                                                                     return (

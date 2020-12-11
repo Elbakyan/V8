@@ -12,8 +12,9 @@ import {Url} from "../../config/Url";
 import {TmpImg,ClearImg} from "../../../redux/tmp/action";
 import Loading from "../../Loading";
 import ScorePage from "../ScorePage/ScorePage";
-import {Route, NavLink} from "react-router-dom";
+import {Route, NavLink, Switch} from "react-router-dom";
 import {GetScoreList, GetScoreListId} from "../../../redux/score/action";
+import ScorePageSetings from "../ScorePage/ScorePageSetings";
 
 
 
@@ -304,7 +305,12 @@ class ScoreList extends React.Component{
                 </div>
                 {
                     this.props.score.scoreList.map(list =>{
-                        return (<Route  key={list.id} exact path={'/score/account/list/' + list.id}><ScorePage data={list}/></Route>)
+                        return (
+                            <Switch>
+                                <Route  key={list.id} exact path={'/score/account/list/' + list.id}><ScorePage data={list}/></Route>
+                                <Route  key={list.id} exact path={'/score/account/settings/' + list.id}><ScorePageSetings data={list}/></Route>
+                            </Switch>
+                        )
                     })
                 }
 

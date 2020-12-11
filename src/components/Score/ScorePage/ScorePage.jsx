@@ -1,26 +1,28 @@
 import React, {Component} from "react";
 import './ScorePage.scss'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faFacebookSquare, faInstagram, faYoutubeSquare} from "@fortawesome/free-brands-svg-icons";
 import {
-    faCog,
-    faExternalLinkAlt,
-    faMapMarkerAlt,
+    faFacebookSquare,
+    faInstagram,
+    faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import {
     faPhoneSquareAlt,
-    faShareAltSquare,
-    faPencilAlt, faAngleDoubleRight, faMailBulk, faEnvelopeSquare, faLink, faCreditCard,
+    faLink,
+    faCreditCard,
+    faTimesCircle,
+    faCalendarAlt,
+    faBuilding,
+    faSlidersH,
 } from "@fortawesome/free-solid-svg-icons";
 import SliderAuto from "../../SliderAuto/SliderAuto";
-import DefaultBtn from "../../forms/buttons/DefaultBtn";
-import {POST, TEST_POST} from "../../config/Requsest";
+import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {connect} from "react-redux";
 import {GetScoreList, GetScoreListId} from "../../../redux/score/action";
-import DefaultSelect from "../../forms/select/DefaultSelect";
-import {GetCity} from "../../../redux/location/action";
-import Loading from "../../Loading";
 import ScoreAddImg from "./AddImg";
-import {faClock} from "@fortawesome/free-regular-svg-icons";
+import {faCheckCircle, faClock} from "@fortawesome/free-regular-svg-icons";
+import {Link} from "react-router-dom";
 
 
 
@@ -29,85 +31,8 @@ class ScorePage extends Component {
         super(props);
         this.state = {
             id: '',
-            img: [],
-            NameForm: false,
-            LocationForm: false,
-            PhoneForm: false,
-            UrlForm: false,
-            EmailForm: false,
-            FacebookForm: false,
-            InstagramForm: false,
-            YoutubeForm: false,
-            SircleValue: '',
-            CityValue: '',
-            loading: false,
-            loadingSlider: false,
-            TimeForm: false,
-            CreditForm: false
+            img: []
         }
-        this.NameRef = React.createRef()
-        this.SircleRef = React.createRef()
-        this.CityRef = React.createRef()
-        this.AddresRef = React.createRef()
-        this.PhoneRef1 = React.createRef()
-        this.PhoneRef2 = React.createRef()
-        this.PhoneRef3 = React.createRef()
-        this.UrlRef = React.createRef()
-        this.EmailRef = React.createRef()
-        this.FacebookRef = React.createRef()
-        this.InstagramRef = React.createRef()
-        this.YoutubeRef = React.createRef()
-        this.WorRef = React.createRef()
-        this.YoutubeRef = React.createRef()
-        this.WorkToRef = React.createRef()
-        this.WorkFromRef = React.createRef()
-        this.CreditRef = React.createRef()
-    }
-
-
-    Setings = (e) => {
-        this.setState({loading: true})
-        let data = new FormData();
-        data.append('id', this.props.data.id)
-        data.append('name', this.NameRef.current.value)
-        data.append('sircle', this.state.SircleValue ? this.state.SircleValue : this.SircleRef.current.props.selected)
-        data.append('city', this.state.CityValue ? this.state.CityValue : this.CityRef.current.props.selected)
-        data.append('addres', this.AddresRef.current.value)
-        data.append('phone[]', this.PhoneRef1.current.value)
-        data.append('phone[]', this.PhoneRef2.current.value)
-        data.append('phone[]', this.PhoneRef3.current.value)
-        data.append('url', this.UrlRef.current.value)
-        data.append('email', this.EmailRef.current.value)
-        data.append('facebook', this.FacebookRef.current.value)
-        data.append('instagram', this.InstagramRef.current.value)
-        data.append('youtube', this.YoutubeRef.current.value)
-        data.append('work_to', this.WorkToRef.current.value)
-        data.append('work_from', this.WorkFromRef.current.value)
-
-        if (this.CreditRef.current.checked){
-            data.append('credit', 1)
-        }else{
-            data.append('credit', 0)
-        }
-        POST(Url.scoreSetings, data).then(res => {
-            if (res) {
-                // console.log(res)
-                this.setState({loading: false})
-            }
-            this.props.dispatch(GetScoreList())
-            this.setState({
-                NameForm: false,
-                LocationForm: false,
-                PhoneForm: false,
-                UrlForm: false,
-                EmailForm: false,
-                FacebookForm: false,
-                InstagramForm: false,
-                YoutubeForm: false,
-                TimeForm: false,
-                CreditForm: false
-            })
-        })
     }
     componentDidMount() {
         this.props.dispatch(GetScoreListId(window.location.pathname.split('/').pop()))
@@ -166,405 +91,105 @@ class ScorePage extends Component {
         }
 
     }
-
-
-
     render() {
         let data = this.props.data;
-
         return (
-            <div className="score_page" style={
-                this.state.NameForm ||
-                this.state.LocationForm ||
-                this.state.PhoneForm ||
-                this.state.UrlForm ||
-                this.state.EmailForm ||
-                this.state.FacebookForm ||
-                this.state.InstagramForm ||
-                this.state.YoutubeForm ||
-                    this.state.TimeForm ||
-                    this.state.CreditForm
-                    ? {background: '#00000050'} : {background: 'none'}}
-            >
-                {
-                    +data.status === 0?
-                        <div className="state">
-                            <button>Ոչ ակտիվ․․․</button>
-                        </div>: ''
-                }
-                <div className="score_page_info">
-
-                    {
-                        this.state.loading ?
-                            <div className="loading_score_setings"><Loading type='spokes' color='#1c8080' size={150}/>
-                            </div> : ''
-
-                    }
-                    <div className='info__container' style={this.state.NameForm ? {margin: '10px 0'} : {margin: '0'}}>
-                        <h3 style={{color: "brown"}}>{data.name}</h3>
-                        <div className="edit" onClick={() => this.setState({NameForm: true})}>
-                            <FontAwesomeIcon icon={faPencilAlt}/>
-                        </div>
-                        <div className="form" style={this.state.NameForm ? {display: 'flex'} : {display: 'none'}}>
-                            <input
-
-                                type='text'
-                                name='name'
-                                defaultValue={data.name}
-                                ref={this.NameRef}
-                            />
+            <div className="score__page">
+                <div className="spage__container">
+                    <div className="spage__title">
+                        <h2>{data.name}</h2>
+                        <div className="spage__settings">
+                            <Link to={'/score/account/settings/' + data.id}><FontAwesomeIcon icon={faSlidersH}/></Link>
                         </div>
                     </div>
-
-                    <div className='info__container'>
-                        <ul className='working_interval_style'>
+                    <div className="spage__working__days">
+                        <h3 className='spage__subtitle'>Աշխատանքաին օրեր և ժամեր․</h3>
+                        <ul>
+                            <li>
+                                <span className='spage__icon'>
+                                    <FontAwesomeIcon icon={faCalendarAlt} />
+                                </span>
+                                {data['working_days']}
+                            </li>
+                            <li>
+                                <span className='spage__icon'>
+                                    <FontAwesomeIcon icon={faClock} />
+                                </span>
+                                {data['work_to']}-
+                                {data['work_from']}
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="spage__location">
+                        <h3 className="spage__subtitle">Տարածաշրջան․</h3>
+                        <ul>
+                            <span className="spage__icon">
+                                <FontAwesomeIcon icon={faBuilding} />
+                            </span>
+                            <li>{data.sircle}</li>
+                            <li>{data.city}</li>
+                            <li>{data.addres}</li>
+                        </ul>
+                    </div>
+                    <div className="spage__phone">
+                        <h3 className="spage__subtitle">Հեռախոսահամար․</h3>
+                        <ul>
+                            <span className="spage__icon">
+                                <FontAwesomeIcon icon={faPhoneSquareAlt} />
+                            </span>
                             {
-                                data.working_days.map((day,i) => {
-                                    return <li key={i}>{day}</li>
+                                data.phone.map(phone =>{
+                                    let p1 = phone.slice(0,2)
+                                    let p2 = phone.slice(2,4)
+                                    let p3 = phone.slice(4,6)
+                                    let p4 = phone.slice(6,8)
+                                    if (phone){
+                                        return <li key={phone}>(0{`${p1} ${p2} ${p3} ${p4}`})</li>
+                                    }
                                 })
                             }
-                            <li>{data.work_to}</li>
-                            <li>{data.work_from}</li>
-                            <div className="form" style={this.state.TimeForm ? {display: 'flex'} : {display: 'none'}}>
-                                <input
-                                    type='time'
-                                    name='work_to'
-                                    defaultValue={data.work_to}
-                                    ref={this.WorkToRef}
-                                />
-                                <input
-                                    type='time'
-                                    name='work_from'
-                                    defaultValue={data.work_from}
-                                    ref={this.WorkFromRef}
-                                />
-                            </div>
-                            <div className="edit" onClick={() => this.setState({TimeForm: true})}>
-                                <FontAwesomeIcon icon={faPencilAlt}/>
-                            </div>
-
                         </ul>
-
                     </div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <FontAwesomeIcon icon={faMapMarkerAlt}/>
-                            </li>
-                            <div className='info__container'
-                                 style={this.state.LocationForm ? {margin: '10px 0'} : {margin: '0'}}>
-                                <ul className="addres">
-                                    <li>{data.sircle}</li>
-                                    <li>{data.city}</li>
-                                    <li>{data.addres}</li>
-                                </ul>
-                                <div className="edit" onClick={() => {
-                                    this.props.dispatch(GetCity(this.SircleRef.current.state.optId || 1))
-                                    this.setState({LocationForm: true})
-                                }}>
-                                    <FontAwesomeIcon icon={faPencilAlt}/>
-                                </div>
-                                <div className="form"
-                                     style={this.state.LocationForm ? {display: 'flex'} : {display: 'none'}}>
-                                    <DefaultSelect
-                                        ref={this.SircleRef}
-                                        data={this.props.location.sircle}
-                                        onChange={(e) => {
-                                            this.props.dispatch(GetCity(e.target.selectedIndex + 1))
-                                            this.setState({
-                                                SircleValue: e.target.value
-                                            })
-                                        }}
-
-                                    />
-                                    <DefaultSelect
-                                        data={this.props.location.city}
-                                        width='48%'
-                                        ref={this.CityRef}
-                                        onChange={(e) => {
-                                            this.setState({
-                                                CityValue: e.target.value
-                                            })
-                                        }}
-                                    />
-                                    <input
-                                        type='text'
-                                        id='addres'
-                                        ref={this.AddresRef}
-                                        defaultValue={data.addres}
-                                    />
-                                </div>
-                            </div>
-                        </ul>
-
-                        <ul className="phone">
-                            <ul>
-                                <div className='info__container' style={this.state.PhoneForm?{margin:'10px 0'}:{margin:'0'}}>
-                                    <li>
-                                        <div className="icon">
-                                            <FontAwesomeIcon icon={faPhoneSquareAlt}/>
-                                        </div>
-                                        {data.phone[0].replace(/374/g, '(+374)')}
-                                    </li>
-                                    <div className="edit" onClick={() => this.setState({PhoneForm: true})}>
-                                        <FontAwesomeIcon icon={faPencilAlt}/>
-                                    </div>
-                                    <div className="form"
-                                         style={this.state.PhoneForm ? {display: 'flex'} : {display: 'none'}}>
-                                        <input
-                                            className='phone'
-                                            type='text'
-                                            defaultValue={data.phone[0]}
-                                            ref={this.PhoneRef1}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='info__container' style={this.state.PhoneForm?{margin:'10px 0'}:{margin:'0'}}>
-                                    <li>
-                                        <div className="icon">
-                                            <FontAwesomeIcon icon={faPhoneSquareAlt}/>
-                                        </div>
-                                        {data.phone[1].replace(/374/g, '(+374)')}
-                                    </li>
-                                    <div className="edit" onClick={() => this.setState({PhoneForm: true})}>
-                                        <FontAwesomeIcon icon={faPencilAlt}/>
-                                    </div>
-                                    <div className="form"
-                                         style={this.state.PhoneForm ? {display: 'flex'} : {display: 'none'}}>
-                                        <input
-                                            className='phone'
-                                            type='text'
-                                            defaultValue={data.phone[1]}
-                                            ref={this.PhoneRef2}
-                                        />
-                                    </div>
-                                </div>
-                                <div className='info__container' style={this.state.PhoneForm?{margin:'10px 0'}:{margin:'0'}}>
-                                    <li>
-                                        <div className="icon">
-                                            <FontAwesomeIcon icon={faPhoneSquareAlt}/>
-                                        </div>
-                                        {data.phone[2].replace(/374/g, '(+374)')}
-                                    </li>
-                                    <div className="edit" onClick={() => this.setState({PhoneForm: true})}>
-                                        <FontAwesomeIcon icon={faPencilAlt}/>
-                                    </div>
-                                    <div className="form"
-                                         style={this.state.PhoneForm ? {display: 'flex'} : {display: 'none'}}>
-                                        <input
-                                            className='phone'
-                                            type='text'
-                                            defaultValue={data.phone[2]}
-                                            ref={this.PhoneRef3}
-                                        />
-                                    </div>
-                                </div>
-
-                            </ul>
-
-                        </ul>
-
-                        <ul>
-                            <li>
-                                <FontAwesomeIcon icon={faExternalLinkAlt}/>
-                            </li>
-                            <ul className="site_network">
-
-                                <div className='info__container' style={this.state.UrlForm?{margin:'10px 0'}:{margin:'0'}}>
-                                    <li>
-                                        <div className="icon">
-                                            <FontAwesomeIcon icon={faLink}/>
-                                        </div>
-                                        <a href={data.url} target='_blank'>
-                                            {data.url}
-                                        </a>
-                                    </li>
-                                    <div className="edit" onClick={() => this.setState({UrlForm: true})}>
-                                        <FontAwesomeIcon icon={faPencilAlt}/>
-                                    </div>
-                                    <div className="form"
-                                         style={this.state.UrlForm ? {display: 'flex'} : {display: 'none'}}>
-                                        <input
-                                            className='url'
-                                            type='text'
-                                            defaultValue={data.url}
-                                            ref={this.UrlRef}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='info__container'>
-
-                                    <li>
-                                        <div className="icon">
-                                            <FontAwesomeIcon icon={faEnvelopeSquare}/>
-                                        </div>
-                                        {data.email}
-                                    </li>
-                                    <div className="edit" onClick={() => this.setState({EmailForm: true})}>
-                                        <FontAwesomeIcon icon={faPencilAlt}/>
-                                    </div>
-                                    <div className="form"
-                                         style={this.state.EmailForm ? {display: 'flex'} : {display: 'none'}}>
-                                        <input
-                                            className='url'
-                                            type='text'
-                                            defaultValue={data.email}
-                                            ref={this.EmailRef}
-                                        />
-                                    </div>
-                                </div>
-                            </ul>
-
-                        </ul>
-
-                        <ul>
-                            {
-                                data.facebook || data.instagram ? <li>
-                                    <FontAwesomeIcon icon={faShareAltSquare}/>
-                                </li> : ''
-                            }
-                            <ul className="social_network links">
-                                <div className='info__container urls'>
-                                    <li>
-                                        <a className="facebook" href={data.facebook}>
-                                            <FontAwesomeIcon icon={faFacebookSquare} style={{marginRight: '10px'}}/>
-                                            Facebook
-                                        </a>
-                                    </li>
-                                    <div className="edit" onClick={() => this.setState({FacebookForm: true})}>
-                                        <FontAwesomeIcon icon={faPencilAlt}/>
-                                    </div>
-                                    <div className="form"
-                                         style={this.state.FacebookForm ? {display: 'flex'} : {display: 'none'}}>
-                                        <input
-                                            className='url'
-                                            type='text'
-                                            defaultValue={data.facebook}
-                                            ref={this.FacebookRef}
-                                        />
-                                    </div>
-                                </div>
-                                <div className='info__container urls'>
-                                    <li>
-                                        <a className="instagram" href={data.instagram}>
-                                            <FontAwesomeIcon icon={faInstagram} style={{marginRight: '10px'}}/>
-                                            Instagram
-                                        </a>
-
-                                    </li>
-                                    <div className="edit" onClick={() => this.setState({InstagramForm: true})}>
-                                        <FontAwesomeIcon icon={faPencilAlt}/>
-                                    </div>
-                                    <div className="form"
-                                         style={this.state.InstagramForm ? {display: 'flex'} : {display: 'none'}}>
-                                        <input
-                                            className='url'
-                                            type='text'
-                                            defaultValue={data.instagram}
-                                            ref={this.InstagramRef}
-                                        />
-                                    </div>
-                                </div>
-                                <div className='info__container urls'>
-                                    <li>
-                                        <a className="youtube" href={data.youtube}>
-                                            <FontAwesomeIcon icon={faYoutubeSquare} style={{marginRight: '10px'}}/>
-                                            Youtube
-                                        </a>
-
-                                    </li>
-                                    <div className="edit" onClick={() => this.setState({YoutubeForm: true})}>
-                                        <FontAwesomeIcon icon={faPencilAlt}/>
-                                    </div>
-                                    <div className="form"
-                                         style={this.state.YoutubeForm ? {display: 'flex'} : {display: 'none'}}>
-                                        <input
-                                            className='url'
-                                            type='text'
-                                            defaultValue={data.youtube}
-                                            ref={this.YoutubeRef}
-                                        />
-                                    </div>
-                                </div>
-
-                            </ul>
-                            <div className='info__container credit'>
-                                <li>
-                                    <FontAwesomeIcon icon={faCreditCard} style={{marginRight: '10px'}}/>
-                                    Ապառիկ վաճառք։
-                                </li>
-                                    <input
-                                        style={{boxShadow:"none"}}
-                                        className='credit'
-                                        value={1}
-                                        type='checkbox'
-                                        defaultChecked={+data.credit?'checked': ''}
-                                        ref={this.CreditRef}
-                                        onChange={() => this.setState({CreditForm: true})}
-                                    />
-
-                            </div>
-                        </ul>
-
-                    </nav>
                     {
-                        this.state.NameForm ||
-                        this.state.LocationForm ||
-                        this.state.PhoneForm ||
-                        this.state.UrlForm ||
-                        this.state.EmailForm ||
-                        this.state.FacebookForm ||
-                        this.state.InstagramForm ||
-                        this.state.YoutubeForm ||
-                            this.state.TimeForm ||
-                            this.state.CreditForm
-                            ?
-                            <div className='btns'>
-                                <div className="send">
-                                    <DefaultBtn
-                                        name='Պահպանել․․․'
-                                        color='#ffffff'
-                                        background='#434455'
-                                        onClick={this.Setings}
-                                    />
-                                </div>
-                                <div className="send">
-                                    <DefaultBtn
-                                        name='Չեղարկել․․․'
-                                        color='#ffffff'
-                                        background='#434455'
-                                        onClick={() => {
-                                            this.setState({
-                                                NameForm: false,
-                                                LocationForm: false,
-                                                PhoneForm: false,
-                                                UrlForm: false,
-                                                EmailForm: false,
-                                                FacebookForm: false,
-                                                InstagramForm: false,
-                                                YoutubeForm: false,
-                                                TimeForm: false,
-                                                CreditForm: false
-                                            })
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                            : ''
+                        data.url || data.facebook || data.instagram || data.youtube?
+                            <div className="spage__links">
+                                <h3 className="spage__subtitle">Հղումներ․</h3>
+                                <ul>
+                                    {
+                                        data.url?
+                                            <li><a href={data.url} className="spage__links"><FontAwesomeIcon icon={faLink} /></a></li>:''
+                                    }
+                                    {
+                                        data.facebook?
+                                            <li><a href={data.facebook} className="spage__links"><FontAwesomeIcon icon={faFacebookSquare} /></a></li>:''
+                                    }
+                                    {
+                                        data.instagram?
+                                            <li><a href={data.instagram} className="spage__links"><FontAwesomeIcon icon={faInstagram} /></a></li>:''
+                                    }
+                                    {
+                                        data.youtube?
+                                            <li><a href={data.youtube} className="spage__links"><FontAwesomeIcon icon={faYoutube} /></a></li>:''
+                                    }
+                                </ul>
+                            </div>:''
                     }
+                    <div className="spage__credit">
+                        <span className="spage__icon"><FontAwesomeIcon icon={faCreditCard} /></span>
+                        <h3 className="spage__subtitle">Ապառիկ վաճառք․</h3>
+                        {
+                            +data.credit?
+                                <span className="spage__icon yes"><FontAwesomeIcon icon={faCheckCircle} /></span>:
+                                <span className="spage__icon no"><FontAwesomeIcon icon={faTimesCircle} /></span>
+                        }
+                    </div>
                 </div>
-
                 <div className="slider__container">
-
-
                     {
                         data.img != false?
                             <SliderAuto autoImage={data.img} edit={true} onClick={this.UbdateImg} id={data.id} loading={this.state.loadingSlider} AddImg={this.AddSliderImg}/>:
                             <ScoreAddImg autoImage={data.img} id={data.id} onChange={this.AddSliderImg} loading={this.state.loadingSlider}/>
                     }
-
                 </div>
             </div>
         )
