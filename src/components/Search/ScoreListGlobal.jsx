@@ -5,6 +5,8 @@ import {GetStoreID, SearchMarkModel} from "../../redux/search/action";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheckCircle, faTimesCircle} from "@fortawesome/free-regular-svg-icons";
 import DecorTitle from "../Decor/DecorTitle";
+import {faFacebookF} from "@fortawesome/free-brands-svg-icons";
+import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
 
 class ScoreListGlobal extends Component {
     constructor(props) {
@@ -27,10 +29,12 @@ class ScoreListGlobal extends Component {
     // }
 
     render() {
+        console.log(this.props.MarkModelResult)
         return (
             <div className="score_list_global">
                 {/*<DecorTitle title={this.props.MarkModelResult.mark?this.props.MarkModelResult.mark[0].mark + '-ի պահեստամասերի խանութներ':''}  fontSize='16px'/>*/}
                 <div className="container">
+                    <DecorTitle fontSize='14px' title={this.props.MarkModelResult.mark?`${this.props.MarkModelResult.mark[0].mark}-ի պահեստամասերի խանութներ`:''}/>
                     <nav className='score_list_info'>
                         <div className='score_list_info__header'>
                             <ul>
@@ -64,13 +68,17 @@ class ScoreListGlobal extends Component {
                                     }
                                     let mark = [];
                                     let model = [];
-                                    let count = 0;
+                                    let countNew = 0;
+                                    let countOld = 0;
+                                    let markOldPlus = true;
+                                    let markOldMinus = true;
+                                    let markNewPlus = true;
+                                    let markNewMinus = true;
                                     let img = JSON.parse(score.img)
 
                                     if (score) {
                                         mark = this.props.MarkModelResult.mark[sIndex]
                                         model = this.props.MarkModelResult.model?this.props.MarkModelResult.model:[]
-
                                     }
 
                                     if (score) {
@@ -86,45 +94,82 @@ class ScoreListGlobal extends Component {
                                                                       this.props.dispatch(GetStoreID(score.id))
                                                                   }}>
                                                                 <img src={img[0]} alt=""/>
-                                                                <h3 style={{fontSize:'18px'}}>{score.name}</h3>
+                                                                <h3 style={score.name.length < 12?{fontSize:'18px'}:{fontSize:'12px'}}>{score.name}</h3>
                                                             </Link>
-                                                        </li>
-                                                        <li>
-
                                                         </li>
                                                     </ul>
                                                 </li>
                                                 <li className='new_model'>
                                                     <ul>
                                                         {
-                                                            model != false ? model.map((model, mIndex) => {
 
+                                                            model != false ? model.map((model, mIndex) => {
+                                                                // console.log(sIndex,countNew,model.new,mark.new)
                                                                 if (+model.new === 1 && +model.score_id === +score.id) {
+                                                                    markNewPlus = false
+                                                                    markNewMinus = false
                                                                     if (+model.score_id === +score.id) {
                                                                         return (
                                                                             <li key={mIndex}>{model.model}</li>
                                                                         )
                                                                     }
                                                                 }
-                                                            }) : +mark.new? 'Բոլոր մոդելները':'Նոր չկա․'
+                                                            }) :''
                                                         }
 
+                                                    </ul>
+                                                    <ul>
+                                                        {
+                                                            markNewPlus && +mark.new?
+                                                                <li className='style_plus'>
+                                                                    <span className='style_plus_minus'>
+                                                                        <FontAwesomeIcon icon={faPlus} />
+                                                                    </span>
+                                                                </li>
+                                                                :
+                                                                markNewMinus?
+                                                                    <li className='style_minus'>
+                                                                        <span  className='style_plus_minus'>
+                                                                            <FontAwesomeIcon icon={faMinus} />
+                                                                        </span>
+                                                                    </li> :''
+                                                        }
                                                     </ul>
 
                                                 </li>
                                                 <li className='old_model'>
                                                     <ul>
                                                         {
-                                                            model != false? model.map((model, mIndex) => {
+                                                             model != false? model.map((model, mIndex) => {
 
                                                                 if (+model.old === 1 && +model.score_id === +score.id) {
+                                                                    console.log(model)
+                                                                    markOldPlus = false
+                                                                    markOldMinus = false
                                                                     return (
                                                                         <li key={mIndex}>{model.model}</li>
                                                                     )
-                                                                }else{
-                                                                    return ''
                                                                 }
-                                                            }) : +mark.old? 'Բոլոր մոդելները':'Օգտագործված չկա․'
+                                                            }) : ''
+                                                        }
+                                                    </ul>
+                                                    <ul>
+                                                        {
+                                                            markOldPlus && +mark.old?
+                                                                <li className='style_plus'>
+                                                                    <span className='style_plus_minus'>
+                                                                        <FontAwesomeIcon icon={faPlus} />
+                                                                    </span>
+                                                                </li>
+
+                                                                :
+                                                                markOldMinus?
+                                                                    <li className='style_minus'>
+                                                                        <span  className='style_plus_minus'>
+                                                                            <FontAwesomeIcon icon={faMinus} />
+                                                                        </span>
+                                                                    </li> :''
+
                                                         }
                                                     </ul>
                                                 </li>
