@@ -1,225 +1,159 @@
 @import "./src/style/var";
-.score_page{
+.score__page{
   width: 100%;
-  //height: calc(100vh - 170px);
   display: flex;
   margin-top: 20px;
-  border: 1px solid silver;
   border-right: 1px solid transparent;
-  padding: 5px 0px 5px 5px;
   animation-name: scorePage;
   animation-duration: 1.5s;
-  background: red;
-  @media (max-width: 768px){
-    flex-direction: column;
-    height: auto
-  }
-  @keyframes scorePage {
-    from{
-      opacity: 0;
-    }
-    to{
-      opacity: 1;
-    }
+
   }
 
+.spage__container{
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: #2b2b2b;
 
-  .score_page_info{
-    position: relative;
-    width: 40%;
-    animation-name: score_page_info;
-    animation-duration: 1.5s;
+  .spage__icon{
+    margin-right: 5px;
+    color: #6d6d6d;
+  }
+  .spage__subtitle{
+    font-size: 16px;
+    margin: 5px 0;
+  }
+}
+.spage__title{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #dbdbdb;
+  margin-bottom: 10px;
+  h2{
+    font-size: 25px;
 
-    .working_interval_style{
-      width: 100%;
-      height: 40px;
+  }
+}
+.spage__settings{
+  opacity: 0;
+  transition: .5s;
+  a{
+    font-size: 22px;
+    color: #6d6d6d;
+    transition: .3s;
+    &:hover {
+      color: #3e3e3e;
+    }
+  }
+
+}
+.spage__container:hover .spage__settings{
+  opacity: 1;
+}
+
+.spage__working__days{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  ul{
+    display: flex;
+    justify-content: space-between;
+    li{
+      margin: 5px 0;
+    }
+  }
+
+}
+.spage__location{
+  width: 100%;
+  margin-top: 10px;
+  ul{
+    width: 100%;
+    display: flex;
+    li{
+      margin-right: 10px;
+    }
+  }
+}
+.spage__phone{
+  width: 100%;
+  margin-top: 10px;
+    ul{
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      position: relative;
-
-      .edit{
+      li{
         margin-right: 10px;
       }
-
-      & > li{
-        margin: 0 2px;
-        font-size: 14px;
-        color: #0745e2;
-        font-weight: bold;
-        cursor: pointer;
-      }
     }
-    .loading_score_setings{
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: 5;
-    }
-    .info__container{
-      width: 100%;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      >li{
-        
-        display: flex;
+}
+.spage__links{
+  width: 100%;
+  margin-top: 10px;
+  ul{
+    display: flex;
+    li{
+      margin-right: 20px;
 
-        .icon{
-          margin-right: 5px;
-          color: lighten($black,50);
-        }
-      }
-
-      .edit{
-        font-size: 18px;
-        color: lighten($black, 30);
-        cursor: pointer;
-        margin-left: 10px;
+      a{
+        font-size: 25px;
+        color: #02689f;
         transition: .3s;
-        opacity: 0;
         &:hover{
-          color: $color-1;
+          color: #03b6bc;
         }
       }
-      &:hover .edit{
-        opacity: 1;
-      }
 
-
-      .form{
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        width: 100%;
-        height: auto;
-        position: absolute;
-        padding: 10px;
-        display: none;
-        >input,>select{
-          width: 45%;
-          @media (max-width: 768px){
-            width: 100%;
-          }
-        }
-        >select{
-          option{
-            color: black;
-          }
-        }
-        .phone{
-          margin-left: -10px;
-        }
-        .url{
-          margin-left: -10px;
-          width: 100%;
-        }
-        #addres{
-          width: 100%;
-        }
-
-      }
-    }
-    .credit{
-      position: static;
-      input {
-        margin-left: 10px;
-        width: 15px;
-        height: 15px;
-      }
-
-    }
-    .urls{
-      margin: 5px;
-    }
-    .btns{
-      width: 100%;
-      height: 100px;
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-      justify-content: flex-start;
-     > button{
-        width: 30%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-      }
-    }
-
-    >nav{
-      .links{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-      >ul{
-        padding-top: 10px;
-        //border-bottom: 1px solid white;
-        cursor: pointer;
-
-        >ul{
-          padding-left: 12px;
-          font-size:1.1em;
-
-
-        }
-        >li{
-
-          &:first-child{
-            font-size: 12px;
-            color: #322f35;
-
-          }
-        }
-        a{
-          color: lighten($black, 30);
-          transition: .3s;
-        }
-        a:hover{
-          color: #6610e7;
-        }
-      }
-      .addres{
-        display: flex;
-        >li{
-          padding-right:10px;
-        }
-      }
-      .social_network{
-        display: flex;
-        >li{
-          padding-right:10px;
-          font-size: 25px;
-
-
-          .facebook{
-            color: #6610e7;
-
-          }
-          .instagram{
-            color: #ae3264;
-          }
-          .youtube{
-            color: #b11818;
-          }
-        }
-      }
     }
   }
+}
+.spage__credit{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+
+  .yes,no{
+    margin: 0px 10px;
+    font-size: 18px;
+  }
+  .yes{
+    color: #06bc33;
+  }
+  .no{
+    color: #b80c0c;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //-------------
-  .slider__container{
-    width: 60%;
+  .slider__container {
+    width: 50%;
+    height: 50vh;
     display: flex;
-    height: 100%;
     justify-content: center;
     align-items: center;
     position: relative;
-    @media (max-width: 768px){
-      width: 100%;
-    }
     &::-webkit-scrollbar {
       width: 2px;
     }
@@ -232,36 +166,26 @@
       background-color: #404051;
       outline: 1px solid silver;
     }
-    .add__img-big{
+
+    .add__img-big {
       width: 300px;
       height: 300px;
       display: flex;
       align-items: center;
-      margin-top: 50px;
+      margin-top: 30px;
     }
 
-    .score_page_slider{
+    .score_page_slider {
       width: 100%;
       height: 50%;
     }
 
-  }
 }
-.state{
-  position: absolute;
-  top: -5px;
-  right: 10px;
-  display: flex;
-  button{
-    padding: 5px 10px;
-    background: none;
-    font-weight: bold;
-    color: #c80000;
-    border: 2px solid #c80000;
-    transition: .3s;
-    &:hover{
-      background: #c80000;
-      color: #fff8f8;
-    }
+@keyframes scorePage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

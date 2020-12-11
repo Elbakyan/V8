@@ -22,6 +22,7 @@ import GetRequest from "../../GetRequest/GetRequest";
 import {GetRequst} from "../../../redux/GetRequest/action";
 import {Url} from "../../config/Url";
 import {GET, POST} from "../../config/Requsest";
+import ScorePageSetings from "../ScorePage/ScorePageSetings";
 
 
 
