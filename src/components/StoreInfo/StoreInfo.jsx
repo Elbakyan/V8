@@ -168,8 +168,12 @@ class StoreInfo extends Component{
                                             {
                                                 this.state.data.phone.map((p,i) => {
                                                     if (p){
+                                                        let p1 = p.slice(0,2)
+                                                        let p2 = p.slice(2,4)
+                                                        let p3 = p.slice(4,6)
+                                                        let p4 = p.slice(6,8)
                                                         return (
-                                                            <li key={i}>{p}</li>
+                                                            <li key={i}>0{`${p1} ${p2} ${p3} ${p4}`}</li>
                                                         )
                                                     }
                                                 })
