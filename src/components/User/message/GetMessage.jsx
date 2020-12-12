@@ -12,6 +12,7 @@ class GetMessageClass extends Component{
         super(props);
         this.state = {
             ticking:false,
+            reloadPos:false,
             position:0,
             count:this.props.one_message.length - 1
         }

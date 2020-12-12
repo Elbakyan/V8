@@ -12,6 +12,7 @@ class GetMessageClass extends Component{
         super(props);
         this.state = {
             ticking:false,
+            reloadPos:false,
             position:0,
             scroll: true,
             cou:0
@@ -19,6 +20,21 @@ class GetMessageClass extends Component{
         this.scrollRef = React.createRef();
     }
     componentDidMount() {
+        window.addEventListener('scroll',(e)=>{
+            let scrollTop = document.body.scrollHeight
+            console.log('1',window.scrollY)
+            if(window.scrollY >= 200){
+                this.setState({
+                    reloadPos:true
+                })
+            }else{
+                this.setState({
+                    reloadPos:false
+                })
+            }
+
+            console.log(scrollTop)
+        })
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
         this.setState({
@@ -148,6 +164,21 @@ class GetMessageClass extends Component{
                             />
                         </div>
                     </form>
+                    {
+                        this.state.reloadPos?<div className='message_reload message_reload__bottom' >
+                            <span onClick={(e)=>{
+                                let aa = e.target
+                                e.target.classList.toggle('message_reload_button')
+                                this.props.dispatch(GetMessage(this.props.id))
+                                this.props.dispatch(GetStatus(this.props.message.dialog))
+                                setTimeout(()=>{
+                                    aa.classList.toggle('message_reload_button')
+                                },1000)
+                            }}>
+                                <FontAwesomeIcon icon={faRedoAlt} />
+                            </span>
+                        </div>:''
+                    }
                 </div>
             </div>
         )
