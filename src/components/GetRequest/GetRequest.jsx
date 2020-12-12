@@ -213,8 +213,8 @@ class GetRequest extends Component{
                                     <span onClick={(e)=>{
                                         let aa = e.target
                                         e.target.classList.toggle('message_reload_button')
-                                        this.props.dispatch(GetMessage(this.props.id))
-                                        this.props.dispatch(GetStatus(this.props.message.dialog))
+
+                                        this.props.dispatch(GetRequst())
                                         setTimeout(()=>{
                                             aa.classList.toggle('message_reload_button')
                                         },1000)
@@ -366,8 +366,7 @@ class GetRequest extends Component{
                                                                 <span onClick={(e)=>{
                                                                     let aa = e.target
                                                                     e.target.classList.toggle('message_reload_button')
-                                                                    this.props.dispatch(GetMessage(this.props.id))
-                                                                    this.props.dispatch(GetStatus(this.props.message.dialog))
+                                                                    this.props.dispatch(GetRequst())
                                                                     setTimeout(()=>{
                                                                         aa.classList.toggle('message_reload_button')
                                                                     },1000)
