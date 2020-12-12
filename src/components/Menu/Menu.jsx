@@ -159,9 +159,9 @@ class Menu extends Component {
                                 <div className="service_on open" style={{display:'none'}} ref={el => this.autoService = el}>
                                     <ul className="service">
                                         {
-                                            service.map(({name},i)=>(
-                                                <li key={i}>
-                                                    <Link to='/soon'>
+                                            this.props.service.service.map(({id,name},i)=>(
+                                                <li key={id}>
+                                                    <Link to='/soon' data-service={name} data-id={id}>
                                                         {name}
                                                     </Link>
                                                 </li>

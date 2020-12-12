@@ -17,13 +17,27 @@ class ScoreListGlobal extends Component {
     }
 
     componentDidMount() {
+        window.addEventListener('scroll',(e)=>{
+            let scrollTop = document.body.scrollHeight
+            console.log(this.scrollBar)
+            console.log('1',window.scrollY)
+            if(window.scrollY >= 200){
+                this.scrollBar.classList.add('scrollActive')
+            }else{
+                this.scrollBar.classList.remove('scrollActive')
+            }
+
+            console.log(scrollTop)
+        })
         let dataArray = window.location.pathname.match(/(\w+\/\d+)/g).join().split('/'),
             data = new FormData();
         data.append('id', dataArray[1])
         data.append('type', dataArray[0])
         this.props.dispatch(SearchMarkModel(data))
     }
+    scrollActive = (e)=>{
 
+    }
     // componentWillUnmount() {
     //     this.props.dispatch(SearchMarkModel(null))
     // }
@@ -35,7 +49,7 @@ class ScoreListGlobal extends Component {
                 <div className="container">
                     <DecorTitle fontSize='14px' title={this.props.MarkModelResult.mark?`${this.props.MarkModelResult.mark[0].mark}-ի պահեստամասերի խանութներ`:''}/>
                     <nav className='score_list_info'>
-                        <div className='score_list_info__header'>
+                        <div className='score_list_info__header' ref={el=>this.scrollBar=el}>
                             <ul>
                                 <li>Անվանումը</li>
                                 <li>Նոր</li>
