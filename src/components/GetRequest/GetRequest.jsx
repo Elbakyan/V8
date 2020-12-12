@@ -74,7 +74,11 @@ class GetRequest extends Component{
                 this.props.dispatch(GetRequst())
             }
         })
-        this.scroll()
+        console.log()
+        if(e.target.dataset.scroll){
+            this.scroll()
+        }
+
     }
 
     Message = (e) => {
@@ -100,7 +104,7 @@ class GetRequest extends Component{
             let bar = document.querySelector('.scroll_bar'+this.state.id)
             bar.scrollTop = bar.scrollHeight
             console.log(bar)
-            if(this.state.count != 2){
+            if(this.state.count != 1){
                 setTimeout(()=>{
                     this.setState({
                         count:++this.state.count
@@ -167,7 +171,7 @@ class GetRequest extends Component{
                                                                  :'/user/account/request/'+el.message[0].dialog + '/' + el.user.id}
 
                                                     >
-                                                        <ul className={'R__link'} data-id={el.user.id} data-dialog={el.message[0].dialog}>
+                                                        <ul className={'R__link' } data-scroll={1} data-id={el.user.id} data-dialog={el.message[0].dialog}>
                                                             <li><img src={el.user.img} alt=""/></li>
                                                             <li>{el.user.name} {el.user.surname}</li>
 
@@ -201,36 +205,22 @@ class GetRequest extends Component{
                                         })
                                     }
                                 </ul>
-                                {
-                                    this.state.reloadPos?<div className='message_reload message_reload__bottom'>
-                            <span onClick={(e)=>{
-                                let aa = e.target
-                                e.target.classList.toggle('message_reload_button')
-                                this.props.dispatch(GetMessage(this.props.id))
-                                this.props.dispatch(GetStatus(this.props.message.dialog))
-                                setTimeout(()=>{
-                                    aa.classList.toggle('message_reload_button')
-                                },1000)
-                            }}>
-                                <FontAwesomeIcon icon={faRedoAlt} />
-                            </span>
-                                    </div>:''
-                                }
+
 
                             </div>
                             <div className="get_message" >
                                 <div className='message_reload message_reload__top'>
-                            <span onClick={(e)=>{
-                                let aa = e.target
-                                e.target.classList.toggle('message_reload_button')
-                                this.props.dispatch(GetMessage(this.props.id))
-                                this.props.dispatch(GetStatus(this.props.message.dialog))
-                                setTimeout(()=>{
-                                    aa.classList.toggle('message_reload_button')
-                                },1000)
-                            }}>
-                                <FontAwesomeIcon icon={faRedoAlt} />
-                            </span>
+                                    <span onClick={(e)=>{
+                                        let aa = e.target
+                                        e.target.classList.toggle('message_reload_button')
+                                        this.props.dispatch(GetMessage(this.props.id))
+                                        this.props.dispatch(GetStatus(this.props.message.dialog))
+                                        setTimeout(()=>{
+                                            aa.classList.toggle('message_reload_button')
+                                        },1000)
+                                    }}>
+                                        <FontAwesomeIcon icon={faRedoAlt} />
+                                    </span>
                                 </div>
                                 {
                                     this.props.request.request.map((el,i)=>{
@@ -371,6 +361,21 @@ class GetRequest extends Component{
                                                                 />
                                                             </div>
                                                         </form>
+                                                        {
+                                                            this.state.reloadPos?<div className='message_reload message_reload__bottom'>
+                                                                <span onClick={(e)=>{
+                                                                    let aa = e.target
+                                                                    e.target.classList.toggle('message_reload_button')
+                                                                    this.props.dispatch(GetMessage(this.props.id))
+                                                                    this.props.dispatch(GetStatus(this.props.message.dialog))
+                                                                    setTimeout(()=>{
+                                                                        aa.classList.toggle('message_reload_button')
+                                                                    },1000)
+                                                                }}>
+                                                                    <FontAwesomeIcon icon={faRedoAlt} />
+                                                                </span>
+                                                            </div>:''
+                                                        }
                                                     </div>
                                                 </div>
                                             </Route>
