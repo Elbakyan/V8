@@ -61,9 +61,9 @@
     }
 
     &__bottom{
-      position: fixed;
-      bottom: 130px;
-      left: 45%;
+      position: absolute;
+      bottom: 5px;
+      left: 0;
       width: 70px;
       display: flex;
       justify-content: center;

@@ -175,21 +175,7 @@ class Message extends Component {
                                 }): ''
                             }
                         </div>
-                        {
-                            this.state.reloadPos?<div className='message_reload message_reload__bottom' >
-                            <span onClick={(e)=>{
-                                let aa = e.target
-                                e.target.classList.toggle('message_reload_button')
-                                this.props.dispatch(GetMessage(this.props.id))
-                                this.props.dispatch(GetStatus(this.props.message.dialog))
-                                setTimeout(()=>{
-                                    aa.classList.toggle('message_reload_button')
-                                },1000)
-                            }}>
-                                <FontAwesomeIcon icon={faRedoAlt} />
-                            </span>
-                            </div>:''
-                        }
+
 
                 
                     </div>
