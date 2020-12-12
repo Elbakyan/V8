@@ -176,13 +176,24 @@ class ScoreList extends React.Component{
                                     name='work_from'
                                 />
                             </label>
-                            <label className='credit-style'>
-                                <DefaultInput
-                                    type='checkbox'
-                                    name='credit'
-                                    value={1}
-                                />
-                            </label>
+                            <div className='delivery__credit'>
+                                <label className='credit-style'>
+                                    <span>Ապառիկ վաճառք․</span>
+                                    <DefaultInput
+                                        type='checkbox'
+                                        name='credit'
+                                        value={1}
+                                    />
+                                </label>
+                                <label className='delivery-style'>
+                                    <span>Ապառիկ վաճառք․</span>
+                                    <DefaultInput
+                                        type='checkbox'
+                                        name='delivery'
+                                        value={1}
+                                    />
+                                </label>
+                            </div>
                             <div className="phone phone1">
                                 <span className='plus__phone'
                                       onClick={this.ShowPhone}
