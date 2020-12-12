@@ -43,7 +43,7 @@ class App extends Component {
 
 
     render() {
-        console.log(this.props.service.service)
+
       return (
           <div className="App">
               <Switch>
