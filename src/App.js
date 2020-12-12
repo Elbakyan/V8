@@ -16,8 +16,7 @@ import Result from "./components/Search/Result";
 import Soon from "./components/Soon/Soon";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import {GetRequst} from "./redux/GetRequest/action";
-import {Url} from "./components/config/Url";
-import {GET, POST} from "./components/config/Requsest";
+import {GetService} from "./redux/Service/action";
 
 class App extends Component {
     constructor(props) {
@@ -37,13 +36,14 @@ class App extends Component {
         this.props.dispatch(GetTruck())
         this.props.dispatch(GetTruckModels())
         this.props.dispatch(GetRequst())
+        this.props.dispatch(GetService())
 
     }
 
 
 
     render() {
-
+        console.log(this.props.service.service)
       return (
           <div className="App">
               <Switch>

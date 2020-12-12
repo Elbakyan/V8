@@ -9,6 +9,7 @@ import MessageReducer from "./message/MessageReducer";
 import tmpReducer from "./tmp/tmpReducer";
 import SearchReducer from "./search/SearchReducer";
 import requestReducer from "./GetRequest/requestReducer";
+import serviceReducer from "./Service/serviceReducer";
 export default combineReducers({
     user: UserExistReducer,
     location: locationReducer,
@@ -19,5 +20,6 @@ export default combineReducers({
     message: MessageReducer,
     tmp: tmpReducer,
     search: SearchReducer,
-    request:requestReducer
+    request:requestReducer,
+    service: serviceReducer
 })

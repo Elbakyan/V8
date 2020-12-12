@@ -59,7 +59,8 @@ export const Url = {
     updateAutoImg:SITE_NAME + '/Server/auto-update-img',
     addAutoImg:SITE_NAME + '/Server/auto-add-img',
     mmpd:SITE_NAME + '/Server/mmpd',
-    mail:SITE_NAME + '/Server/mail'
+    mail:SITE_NAME + '/Server/mail',
+    getService:SITE_NAME + '/Server/services',
 }
 export default SITE_NAME;
 
