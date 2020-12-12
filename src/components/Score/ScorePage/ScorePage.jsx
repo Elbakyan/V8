@@ -13,7 +13,7 @@ import {
     faTimesCircle,
     faCalendarAlt,
     faBuilding,
-    faSlidersH,
+    faSlidersH, faTruck,
 } from "@fortawesome/free-solid-svg-icons";
 import SliderAuto from "../../SliderAuto/SliderAuto";
 import {POST} from "../../config/Requsest";
@@ -179,6 +179,15 @@ class ScorePage extends Component {
                         <h3 className="spage__subtitle">Ապառիկ վաճառք․</h3>
                         {
                             +data.credit?
+                                <span className="spage__icon yes"><FontAwesomeIcon icon={faCheckCircle} /></span>:
+                                <span className="spage__icon no"><FontAwesomeIcon icon={faTimesCircle} /></span>
+                        }
+                    </div>
+                    <div className="spage__delivery">
+                        <span className="spage__icon"><FontAwesomeIcon icon={faTruck} /></span>
+                        <h3 className="spage__subtitle">Առաքում․</h3>
+                        {
+                            +data.delivery?
                                 <span className="spage__icon yes"><FontAwesomeIcon icon={faCheckCircle} /></span>:
                                 <span className="spage__icon no"><FontAwesomeIcon icon={faTimesCircle} /></span>
                         }
