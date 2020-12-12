@@ -157,19 +157,19 @@ class ScorePage extends Component {
                                 <ul>
                                     {
                                         data.url?
-                                            <li><a href={data.url} className="spage__links"><FontAwesomeIcon icon={faLink} /></a></li>:''
+                                            <li><a href={data.url} className="spage__links" target='_blank'><FontAwesomeIcon icon={faLink} /></a></li>:''
                                     }
                                     {
                                         data.facebook?
-                                            <li><a href={data.facebook} className="spage__links"><FontAwesomeIcon icon={faFacebookSquare} /></a></li>:''
+                                            <li><a href={data.facebook} className="spage__links" target='_blank'><FontAwesomeIcon icon={faFacebookSquare} /></a></li>:''
                                     }
                                     {
                                         data.instagram?
-                                            <li><a href={data.instagram} className="spage__links"><FontAwesomeIcon icon={faInstagram} /></a></li>:''
+                                            <li><a href={data.instagram} className="spage__links" target='_blank'><FontAwesomeIcon icon={faInstagram} /></a></li>:''
                                     }
                                     {
                                         data.youtube?
-                                            <li><a href={data.youtube} className="spage__links"><FontAwesomeIcon icon={faYoutube} /></a></li>:''
+                                            <li><a href={data.youtube} className="spage__links" target='_blank'><FontAwesomeIcon icon={faYoutube} /></a></li>:''
                                     }
                                 </ul>
                             </div>:''

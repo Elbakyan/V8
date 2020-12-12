@@ -45,22 +45,19 @@ class Profile extends React.Component{
 
 
     render() {
+
         let pathId = '';
         if (this.props.score.scoreList != false){
              pathId = this.props.score.scoreList[0].id;
         }
         return (
-
             <section className="Profile col">
-                {/*{*/}
-                {/*    window.location.pathname == '/score/account' || '/score/account/' ? <Redirect to={'/score/account/list/' +pathId}/>: ''*/}
-                {/*}*/}
                 <div className="container">
                     <div className="Profile__information row justify-between">
                         <nav className='Profile__nav'>
                             <ul >
                                 <li>
-                                    <Link to={'/score/account'}>
+                                    <Link to={'/score/account/list/'+pathId}>
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faHome}/>
                                         </div>
