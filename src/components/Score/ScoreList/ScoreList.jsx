@@ -304,9 +304,9 @@ class ScoreList extends React.Component{
                     </form>
                 </div>
                 {
-                    this.props.score.scoreList.map(list =>{
+                    this.props.score.scoreList.map((list,i) =>{
                         return (
-                            <Switch>
+                            <Switch key={i}>
                                 <Route  key={list.id} exact path={'/score/account/list/' + list.id}><ScorePage data={list}/></Route>
                                 <Route  key={list.id} exact path={'/score/account/settings/' + list.id}><ScorePageSetings data={list}/></Route>
                             </Switch>

@@ -73,12 +73,12 @@ export default class Footer extends  React.Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link onClick={(e) => {
+                                <a onClick={(e) => {
                                     e.preventDefault();
                                     this.setState({backConection: true})
                                 }}>
                                     Հետադարձ կապ
-                                </Link>
+                                </a>
                             </li>
                             <li>
                                 <Link to={''}>

@@ -37,10 +37,12 @@ class StoreInfo extends Component{
         let data = new FormData()
         data.append('id', this.props.id || window.location.pathname.split('/').pop())
         POST(Url.getstoreforcustomer,data).then(res => {
-            this.OpenClose(res[0]['work_to'],res[0]['work_from'])
-            this.setState({
-                data: res[0]
-            })
+            if(res){
+                this.OpenClose(res[0]['work_to'],res[0]['work_from'])
+                this.setState({
+                    data: res[0]
+                })
+            }
         })
     }
     

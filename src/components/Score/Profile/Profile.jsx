@@ -23,6 +23,7 @@ import {GetRequst} from "../../../redux/GetRequest/action";
 import {Url} from "../../config/Url";
 import {GET, POST} from "../../config/Requsest";
 import ScorePageSetings from "../ScorePage/ScorePageSetings";
+import AutoService from "../../AutoService/AutoService";
 
 
 
@@ -99,7 +100,7 @@ class Profile extends React.Component{
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/soon'>
+                                    <Link to='/score/account/auto_service'>
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faQuestionCircle}/>
                                         </div>
@@ -125,6 +126,9 @@ class Profile extends React.Component{
                                 </Route>
                                 <Route path='/score/account/setings'>
                                     <ProfilSetingsScore />
+                                </Route>
+                                <Route path='/score/account/auto_service'>
+                                    <AutoService />
                                 </Route>
                                 <Route path='/soon'>
                                     <Soon />

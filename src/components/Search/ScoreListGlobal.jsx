@@ -56,11 +56,14 @@ class ScoreListGlobal extends Component {
                                 this.props.MarkModelResult.status ? this.props.MarkModelResult.score.map((score, sIndex) => {
 
                                     let hour = new Date().getHours()
-                                    let from = score['work_to'].split(':')[0];
-                                    let to = score['work_from'].split(':')[0];
+                                    let minute = new Date().getMinutes() + (hour * 60)
+                                    let from = (+score['work_to'].split(':')[0] * 60) + +score['work_to'].split(':')[1];
+                                    let to = (+score['work_from'].split(':')[0] * 60) + +score['work_from'].split(':')[1];
                                     let OpenClose = false;
                                     let workingDays = JSON.parse(score['working_days'])
-                                    if (hour > from && hour < to) {
+                                    console.log(score['work_to'],score['work_from'])
+                                    console.log(minute,from,to)
+                                    if (minute > from && minute < to) {
                                         OpenClose = true
                                     } else {
                                         OpenClose = false
