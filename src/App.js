@@ -16,8 +16,6 @@ import Result from "./components/Search/Result";
 import Soon from "./components/Soon/Soon";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import {GetRequst} from "./redux/GetRequest/action";
-import {Url} from "./components/config/Url";
-import {GET, POST} from "./components/config/Requsest";
 
 class App extends Component {
     constructor(props) {
@@ -43,7 +41,7 @@ class App extends Component {
 
 
     render() {
-
+        console.log(this.props)
       return (
           <div className="App">
               <Switch>
