@@ -40,7 +40,7 @@ class FormAutoService extends Component {
                                                <ul>
                                                    <li><input type="checkbox"/></li>
                                                    <li><input type="hidden"/> {service.name}</li>
-                                                   <li><input type="text" placeholder="Նկարագրություն"/></li>
+                                                   <li><input  type="text" placeholder="Նկարագրություն"/></li>
                                                </ul>
                                            </label>
                                         </li>
