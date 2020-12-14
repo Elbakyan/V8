@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import {GetMyService} from "../../redux/Service/action";
+import './AutoService.scss'
 
 class FormAutoService extends Component {
     constructor(props) {
@@ -22,13 +23,15 @@ class FormAutoService extends Component {
         e.preventDefault();
         let data = new FormData(e.target);
         POST(Url.addServices,data).then(res => {
+            if(res){
+                this.props.dispatch(GetMyService())
+            }
             console.log(res)
         })
     }
     render() {
-        console.log(this.props.service)
-        console.log(this.state.activeStore)
-        if(this.state.activeStore.length >= 0){
+        console.log('a')
+
             return(
                 <div className='formAutoService'>
                     <nav className="formAutoService__list">
@@ -61,7 +64,7 @@ class FormAutoService extends Component {
                                                                 }
                                                             }
                                                         }
-                                                        console.log(this.state.activeStore)
+                                                        // console.log(this.state.activeStore)
                                                     }}
                                                 />
                                             </label>
@@ -84,43 +87,63 @@ class FormAutoService extends Component {
                                                 }
                                             })
                                         })
-                                        return(
-                                            <li key={iS}>
-                                                <label className="price_list">
-                                                    <ul>
-                                                        <li>
-                                                            {
-                                                                <input name='service[]' defaultChecked={check?'checked':null} type="checkbox" value={service.name + '//' + service.id} onChange={(e) => {
-                                                                    if (e.target.checked){
-                                                                        e.target.parentElement.nextSibling.nextSibling.childNodes[0].disabled = false
-                                                                    }else{
-                                                                        e.target.parentElement.nextSibling.nextSibling.childNodes[0].disabled = true
-                                                                    }
-                                                                }}/>
-                                                            }
 
-                                                        </li>
-                                                        <li>{service.name}</li>
-                                                        <li>{
+                                        if(this.state.activeStore.length >=1){
+                                            return(
+                                                <li key={iS}>
+                                                    <label className="price_list">
+                                                        <ul>
+                                                            <li>
+                                                                {
+                                                                    check?
+                                                                        <input name='service[]' defaultChecked={true} type="checkbox" value={service.name + '//' + service.id} onChange={(e) => {
+                                                                            if (e.target.checked){
+                                                                                e.target.parentElement.nextSibling.nextSibling.childNodes[0].disabled = false
+                                                                            }else{
+                                                                                e.target.parentElement.nextSibling.nextSibling.childNodes[0].disabled = true
+                                                                            }
+                                                                        }}/>: <DefaultInput
+                                                                            type="checkbox"
+                                                                            name='service[]'
+                                                                            value={service.name + '//' + service.id}
+                                                                            onChange={(e) => {
+                                                                                if (e.target.checked){
+                                                                                    e.target.parentElement.nextSibling.nextSibling.childNodes[0].disabled = false
+                                                                                }else{
+                                                                                    e.target.parentElement.nextSibling.nextSibling.childNodes[0].disabled = true
+                                                                                }
+                                                                            }}
+                                                                        />
+                                                                }
+
+                                                            </li>
+                                                            <li>{service.name}</li>
+                                                            <li>{
                                                                 check?<input   name={'desc[]'} defaultValue={value} type="text" placeholder="Նկարագրություն"/>
-                                                                            :<input  disabled name={'desc[]'} defaultValue={''} type="text" placeholder="Նկարագրություն"/>
+                                                                    :<input  disabled name={'desc[]'} defaultValue={''} type="text" placeholder="Նկարագրություն"/>
                                                             }
-                                                        </li>
-                                                    </ul>
-                                                </label>
-                                            </li>
-                                        )
+                                                            </li>
+                                                        </ul>
+                                                    </label>
+                                                </li>
+                                            )
+                                        }
+
                                     })
                                 }
                             </ul>
-                            <div className="formAutoService__button">
-                                <button>Առաջ</button>
-                            </div>
+                            {
+                                this.state.activeStore.length >=1?
+                                <div className="formAutoService__button">
+                                    <button>Առաջ</button>
+                                </div> :''
+                            }
+
                         </form>
                     </nav>
                 </div>
             )
-        }
+
 
     }
 }

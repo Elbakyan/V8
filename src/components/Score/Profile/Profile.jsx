@@ -24,6 +24,7 @@ import {Url} from "../../config/Url";
 import {GET, POST} from "../../config/Requsest";
 import ScorePageSetings from "../ScorePage/ScorePageSetings";
 import AutoService from "../../AutoService/AutoService";
+import FormAutoService from "../../AutoService/FormAutoService";
 
 
 
@@ -125,7 +126,7 @@ class Profile extends React.Component{
                                     <ProfilSetingsScore />
                                 </Route>
                                 <Route path='/score/account/auto_service'>
-                                    <AutoService />
+                                    <FormAutoService />
                                 </Route>
                                 <Route path='/soon'>
                                     <Soon />
