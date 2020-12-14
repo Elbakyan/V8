@@ -17,18 +17,7 @@ class ScoreListGlobal extends Component {
     }
 
     componentDidMount() {
-        window.addEventListener('scroll',(e)=>{
-            let scrollTop = document.body.scrollHeight
-            console.log(this.scrollBar)
-            console.log('1',window.scrollY)
-            if(window.scrollY >= 200){
-                this.scrollBar.classList.add('scrollActive')
-            }else{
-                this.scrollBar.classList.remove('scrollActive')
-            }
-
-            console.log(scrollTop)
-        })
+        window.addEventListener('scroll',this.scrollActive)
         let dataArray = window.location.pathname.match(/(\w+\/\d+)/g).join().split('/'),
             data = new FormData();
         data.append('id', dataArray[1])
@@ -36,11 +25,17 @@ class ScoreListGlobal extends Component {
         this.props.dispatch(SearchMarkModel(data))
     }
     scrollActive = (e)=>{
+            let scrollTop = document.body.scrollHeight
+            if(window.scrollY >= 200){
+                this.scrollBar.classList.add('scrollActive')
+            }else{
+                this.scrollBar.classList.remove('scrollActive')
+            }
 
     }
-    // componentWillUnmount() {
-    //     this.props.dispatch(SearchMarkModel(null))
-    // }
+    componentWillUnmount() {
+        window.addEventListener('scroll',this.scrollActive())
+    }
 
     render() {
         return (
