@@ -4,6 +4,9 @@ import {cars, maser, autogruz, service} from './autoObj'
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {GetSearchMarkModelLink, SearchMarkModel} from "../../redux/search/action";
+import {POST, TEST_POST} from "../config/Requsest";
+import {Url} from "../config/Url";
+import {SearchService, SearchServiceLink} from "../../redux/Service/action";
 
 class Menu extends Component {
 
@@ -13,7 +16,8 @@ class Menu extends Component {
         this.state ={
             mark: [],
             truck: [],
-            redirect: false
+            redirect: false,
+            serviceRedirect: false
         }
     }
     componentDidMount() {
@@ -71,18 +75,29 @@ class Menu extends Component {
     }
     componentWillUnmount() {
         this.props.dispatch(GetSearchMarkModelLink(''))
+        this.props.dispatch(SearchServiceLink(''))
             this.setState({
-                redirect: false
+                redirect: false,
+                serviceRedirect: false,
             })
     }
 
-
+    SearchService = (e) => {
+        this.props.dispatch(SearchService(e.target.dataset.id))
+        this.props.dispatch(SearchServiceLink('/search/result/service/' + e.target.dataset.id))
+        this.setState({
+            serviceRedirect: true,
+        })
+    }
     render() {
 
         return (
             <div className="header_menu">
                 {
                     this.state.redirect && this.props.search.link? <Redirect to={'/search/result/parts/' + this.props.search.link}/>:''
+                }
+                {
+                    this.state.serviceRedirect && this.props.service.link? <Redirect to={this.props.service.link}/>:''
                 }
                 <div className='overley' onClick={(e)=>{
                     this.autoParts.style.display = 'none';
@@ -159,13 +174,14 @@ class Menu extends Component {
                                 <div className="service_on open" style={{display:'none'}} ref={el => this.autoService = el}>
                                     <ul className="service">
                                         {
-                                            this.props.service.service.map(({id,name},i)=>(
-                                                <li key={id}>
-                                                    <Link to='/soon' data-service={name} data-id={id}>
+                                            this.props.service.service.map(({id,name},i)=> {
+
+                                                return (
+                                                    <li key={id} data-id={id} onClick={this.SearchService}>
                                                         {name}
-                                                    </Link>
-                                                </li>
-                                            ))
+                                                    </li>
+                                                )
+                                            })
                                         }
                                     </ul>
                                 </div>

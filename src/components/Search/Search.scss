@@ -618,5 +618,108 @@
 .working__days{
   display: flex;
 }
+.service__result{
+  width: 100%;
+
+  .service__container{
+
+    &-header{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+
+      > li{
+        width: 23%;
+        border: 2px solid #666374;
+        border-radius: 4px;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        color: #322C4A;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 0;
+        margin-bottom: 10px;
+        position: relative;
+        &::before{
+          content: '';
+          display: block;
+          position: absolute;
+          border: 10px solid transparent;
+          border-top: 10px solid #666374;
+          bottom: -20px;
+        }
+      }
+    }
+
+      .service_items{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        .service__logo{
+          transition: .3s;
+          &:hover{
+            background-color: rgba(0, 0, 0, 0.25);
+          }
+        }
+        .service__logo,
+        .service__phone{
+          width: 23%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          img{
+            width: 50px;
+          }
+        }
+        .service__logo > li{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .working__days{
+          width: 23%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          li{
+            width: 20%;
+            background-color: #666374;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 5px;
+
+          }
+        }
+        .service__address{
+          width: 23%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          li{
+            font-size: 18px;
+            margin: 3px 0;
+          }
+        }
+      }
+
+  }
+}
+.service__message{
+  width: 100%;
+  height: calc(100vh - 380px);
+}
 
 @import "./media";

@@ -34,7 +34,7 @@ class ScoreListGlobal extends Component {
 
     }
     componentWillUnmount() {
-        window.addEventListener('scroll',this.scrollActive())
+        window.removeEventListener('scroll',this.scrollActive)
     }
 
     render() {
@@ -70,8 +70,6 @@ class ScoreListGlobal extends Component {
                                     let to = (+score['work_from'].split(':')[0] * 60) + +score['work_from'].split(':')[1];
                                     let OpenClose = false;
                                     let workingDays = JSON.parse(score['working_days'])
-                                    console.log(score['work_to'],score['work_from'])
-                                    console.log(minute,from,to)
                                     if (minute > from && minute < to) {
                                         OpenClose = true
                                     } else {

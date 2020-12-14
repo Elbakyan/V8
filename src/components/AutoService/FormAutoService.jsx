@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {service} from "../Menu/autoObj";
 import DefaultInput from "../forms/inputs/DefaultInput";
 import {connect} from "react-redux";
 import {POST} from "../config/Requsest";
@@ -8,8 +7,8 @@ import {GetMyService} from "../../redux/Service/action";
 import './AutoService.scss'
 
 class FormAutoService extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             desc: [],
             activeStore:[]
@@ -47,8 +46,6 @@ class FormAutoService extends Component {
                                                     value={el.id}
                                                     name='score[]'
                                                     onChange={(e)=>{
-                                                        console.log(e.target.value)
-                                                        console.log(e.target.checked)
                                                         if(e.target.checked){
                                                             this.state.activeStore.push(e.target.value)
                                                             this.setState({

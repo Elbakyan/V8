@@ -62,7 +62,9 @@ export const Url = {
     mail:SITE_NAME + '/Server/mail',
     getService:SITE_NAME + '/Server/services',
     addServices: SITE_NAME + '/Server/services-add',
+    searchServices: SITE_NAME + '/Server/services-search',
     getMyService:SITE_NAME + '/Server/services-get'
+
 }
 export default SITE_NAME;
 
