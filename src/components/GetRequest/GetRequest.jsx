@@ -155,9 +155,7 @@ class GetRequest extends Component{
                                 <ul className='users' >
                                     {
                                         this.props.request.request.map((el,i)=>{
-
                                             let id;
-
                                             if(this.props.score.score.status){
                                                 id = this.props.score.score.id
                                             }
