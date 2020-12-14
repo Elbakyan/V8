@@ -13,8 +13,7 @@
 }
 .header_menu{
   width: 100%;
-  height: 55px;
-  //background: red;
+  height: 40px;
   display: flex;
   align-items: center;
   border-bottom: 2px solid #666374;
@@ -26,55 +25,28 @@
     width: 100%;
     z-index: 15;
     li{
-      padding: 3px 5px;
       cursor: pointer;
       color:#2b2b2c;
-      //border: 1px solid red;
-      //font-size: 15px;
-      &:hover{
-        color: white;
-        //background: white;
-      }
-      >a{
-        color: #2b2b2c;
-        transition: .3s;
-        display: flex;
-
-        &:hover{
-          color: white;
-          //background: white;
-        }
+      span{
+        padding: 5px 10px;
       }
     }
-    //height: 30px;
-    //background: red;
     .menu{
       display: flex;
       align-items: center;
+
       .menu_button{
-        border: 2px solid #666374;
-        border-radius: 4px;
-        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-        //width: 138pfont-size: 17px;x;
-        //height: 43px;
-        margin-right: 5px;
-        background: #ffffff;
-        padding: 10px 20px;
-        color: #322C4A;
+        border: 1px solid #cbc0b7;
+        background: #E9E2D6;
+        padding: 5px 10px;
+        margin: 0px 1px;
+        color: #432;
         font-weight: bold;
-
-        line-height: 20px;
-        & > a{
-          color: #322C4A;
+        font-size: 12px;
+        transition: .3s;
+        &:hover{
+          background: #d2e3f4;
         }
-        &:active{
-          transform: translate(2px, 2px);
-          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-        }
-
-      }
-      .home_button{
-        margin-right: 30px;
       }
       width: 100%;
       display: flex;
@@ -88,7 +60,7 @@
           position: absolute;
           z-index: 1001;
           background: #fff8f8;
-          top: 41px;
+          top: 25px;
           @keyframes auto_parts_block {
             0%{
               opacity: 0;
@@ -113,7 +85,6 @@
             >li{
               color: black;
               border: none;
-              margin: 0;
               border-bottom: 1px solid silver;
               &:hover{
                 background: #4f65a247;
@@ -177,7 +148,6 @@
             font-size: 14px;
             padding: 6px 5px;
             border: none;
-            margin: 0;
             border-bottom: 1px solid silver;
             &:hover{
               background: #4f65a247;

@@ -630,7 +630,7 @@
 
 
       > li{
-        width: 23%;
+        width: 19%;
         border: 2px solid #666374;
         border-radius: 4px;
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -667,7 +667,7 @@
         }
         .service__logo,
         .service__phone{
-          width: 23%;
+          width: 19%;
           height: 100%;
           display: flex;
           flex-direction: column;
@@ -678,6 +678,12 @@
             width: 50px;
           }
         }
+        .service__desc{
+          width: 19%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
         .service__logo > li{
           width: 100%;
           display: flex;
@@ -685,7 +691,7 @@
           align-items: center;
         }
         .working__days{
-          width: 23%;
+          width: 19%;
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
@@ -698,11 +704,12 @@
             align-items: center;
             color: white;
             border-radius: 5px;
+            font-size: 14px;
 
           }
         }
         .service__address{
-          width: 23%;
+          width: 19%;
           display: flex;
           flex-direction: column;
           align-items: center;

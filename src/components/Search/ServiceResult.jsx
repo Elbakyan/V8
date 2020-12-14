@@ -24,6 +24,7 @@ class ServiceResult extends Component {
                                         <ul className='service__container-header'>
                                             <li>Անվանումը</li>
                                             <li>Հեռախոսահամրը</li>
+                                            <li>Նկարագրություն</li>
                                             <li>Աշխատանքին օրեր</li>
                                             <li>Հասցե</li>
                                         </ul>
@@ -63,6 +64,11 @@ class ServiceResult extends Component {
                                                                        )
                                                                    }
                                                                })
+                                                           }
+                                                       </div>
+                                                       <div className="service__desc">
+                                                           {
+                                                               <li>{this.props.service.search.data.service[i].desc}</li>
                                                            }
                                                        </div>
                                                        <div className='working__days'>

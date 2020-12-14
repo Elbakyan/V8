@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+
 import DefaultInput from "../forms/inputs/DefaultInput";
 import {connect} from "react-redux";
 import {POST} from "../config/Requsest";
@@ -43,6 +44,8 @@ class FormAutoService extends Component {
                                                     value={el.id}
                                                     name='score[]'
                                                     onChange={(e)=>{
+                                                        console.log(e.target.value)
+                                                        console.log(e.target.checked)
                                                         if(e.target.checked){
                                                             this.state.activeStore.push(e.target.value)
                                                             this.setState({
@@ -79,26 +82,21 @@ class FormAutoService extends Component {
                                                     check = true
                                                     value = myService.desc
                                                 }
-                                                // console.log(ind,'store',store,myService.score_id,'service',service.id,myService.service_id)
                                             })
                                         })
-                                        // console.log(iS,value,!!check)
                                         return(
                                             <li key={iS}>
                                                 <label className="price_list">
                                                     <ul>
                                                         <li>
                                                             {
-                                                                check?
-                                                                    <input name='service[]' defaultChecked={'checked'} type="checkbox" value={service.name + '//' + service.id} onChange={(e) => {
+                                                                <input name='service[]' defaultChecked={check?'checked':null} type="checkbox" value={service.name + '//' + service.id} onChange={(e) => {
                                                                     if (e.target.checked){
                                                                         e.target.parentElement.nextSibling.nextSibling.childNodes[0].disabled = false
                                                                     }else{
                                                                         e.target.parentElement.nextSibling.nextSibling.childNodes[0].disabled = true
                                                                     }
                                                                 }}/>
-                                                                :
-                                                                    ''
                                                             }
 
                                                         </li>
