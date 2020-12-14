@@ -24,6 +24,9 @@ import StoreInfo from "../StoreInfo/StoreInfo";
 import ScoreListGlobal from "./ScoreListGlobal";
 import Home from "./Home";
 
+import ServiceResult from "./ServiceResult";
+import {SearchServiceLink} from "../../redux/Service/action";
+
 
 class Result extends Component {
     constructor(props) {
@@ -32,6 +35,7 @@ class Result extends Component {
             id: '',
         }
     }
+
     SearchAll = (e) => {
         e.preventDefault();
         Api.get("analCount",{id: e.target.dataset.id}).then( res => {
@@ -57,7 +61,6 @@ class Result extends Component {
 
     }
     render(){
-
         return (
             <Fragment>
                <Header />
@@ -111,6 +114,9 @@ class Result extends Component {
                 </Route>
                 <Route path={'/search/result/parts/' + this.props.search.link}>
                     <ScoreListGlobal/>
+                </Route>
+                <Route  path={this.props.service.link? this.props.service.link: '/search/result/service'}>
+                    <ServiceResult/>
                 </Route>
                 <Footer />
             </Fragment>
