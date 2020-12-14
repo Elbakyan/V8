@@ -61,6 +61,8 @@ export const Url = {
     mmpd:SITE_NAME + '/Server/mmpd',
     mail:SITE_NAME + '/Server/mail',
     getService:SITE_NAME + '/Server/services',
+    addServices: SITE_NAME + '/Server/services-add',
+    getMyService:SITE_NAME + '/Server/services-get'
 }
 export default SITE_NAME;
 
