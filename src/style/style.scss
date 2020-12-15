@@ -12,6 +12,7 @@
 }
 body{
   background: #e1e1e1;
+
   &::-webkit-scrollbar {
     width: 14px;
   }
@@ -30,7 +31,11 @@ body{
   width: 100%;
   min-height: 100vh;
 }
-
+.margin-top{
+  display: flex;
+  width: 100%;
+  height: 100px;
+}
 .Loading{
   width: 100%;
   height: 100%;

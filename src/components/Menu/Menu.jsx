@@ -1,11 +1,10 @@
 import React, {Component} from "react";
 import './Menu.scss'
-import {cars, maser, autogruz, service} from './autoObj'
+import {maser} from './autoObj'
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {GetSearchMarkModelLink, SearchMarkModel} from "../../redux/search/action";
-import {POST, TEST_POST} from "../config/Requsest";
-import {Url} from "../config/Url";
+
 import {SearchService, SearchServiceLink} from "../../redux/Service/action";
 
 class Menu extends Component {
@@ -20,11 +19,6 @@ class Menu extends Component {
             serviceRedirect: false
         }
     }
-    componentDidMount() {
-
-    }
-
-
     outMenu = e =>{
 
             this.autoParts.style.display = 'none';

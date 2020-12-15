@@ -46,6 +46,7 @@ class App extends Component {
 
       return (
           <div className="App">
+              <div className="margin-top"></div>
               <Switch>
                   <Route exact path='/'>
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>

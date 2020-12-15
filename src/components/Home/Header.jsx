@@ -57,7 +57,7 @@ class Header extends React.Component{
     }
     render() {
         return (
-            <header>
+            <header style={{position: 'fixed'}}>
                 {
                     this.props.user.status || this.props.score.score.status ?
                         this.state.modal?

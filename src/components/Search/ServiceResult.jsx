@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {SearchService, SearchServiceLink} from "../../redux/Service/action";
 import DecorTitle from "../Decor/DecorTitle";
 import {Link} from "react-router-dom";
+import {GetStoreID} from "../../redux/search/action";
 
 class ServiceResult extends Component {
     constructor(props) {
@@ -43,7 +44,9 @@ class ServiceResult extends Component {
                                                }
                                                return(
                                                    <ul className='service_items' style={OpenClose ? {border: '2px solid #00FF57'} : {border: '2px solid red'}}>
-                                                       <Link to={'/search/result/store/'+ res.id} className='service__logo'>
+                                                       <Link to={'/search/result/store/'+ res.id} className='service__logo' onClick={() => {
+                                                           this.props.dispatch(GetStoreID(res.id))
+                                                       }}>
                                                            <li>
                                                                <img src={res.img[0]} alt=""/>
                                                                <h2>{res.name}</h2>
