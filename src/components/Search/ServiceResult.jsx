@@ -43,7 +43,7 @@ class ServiceResult extends Component {
                                                    OpenClose = false
                                                }
                                                return(
-                                                   <ul className='service_items' style={OpenClose ? {border: '2px solid #00FF57'} : {border: '2px solid red'}}>
+                                                   <ul key={i} className='service_items' style={OpenClose ? {border: '2px solid #00FF57'} : {border: '2px solid red'}}>
                                                        <Link to={'/search/result/store/'+ res.id} className='service__logo' onClick={() => {
                                                            this.props.dispatch(GetStoreID(res.id))
                                                        }}>

@@ -251,7 +251,7 @@ class StoreInfo extends Component{
                                 </nav>
                                 {
                                     // this.state.message?<Alert>hax</Alert>:''
-                                    this.state.message?<Art width={50} content="Հաղորդագրությունը ուղարկված է"/>:''
+                                    true?<Art width={100} content="Հաղորդագրությունը ուղարկված է"/>:''
                                 }
                                 <ul className='store_message'>
                                     <li>

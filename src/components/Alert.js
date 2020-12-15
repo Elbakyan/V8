@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import Alert from '@material-ui/lab/Alert';
 
  class Art extends Component {
+     constructor() {
+         super();
+     }
     render(){
+        console.log(this.scroll)
         return (
             <div className='alert' ref={this.alertRef} style={{
-                width: this.props.width +'%'
+                width: 100 +'%',
+
             }}
             >
                 <Alert severity={this.props.type}>{this.props.content}</Alert>

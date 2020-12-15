@@ -120,11 +120,14 @@ body{
 
 }
 .alert{
-  display: block;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
   transition: .5s;
   position: fixed;
-  top: 50px;
+  top: 120px;
+  left: 0;
+  padding: 0 50px;
   z-index: 1500;
   animation-name: alert;
   animation-duration: 0.5s;
