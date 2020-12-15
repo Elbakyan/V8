@@ -17,6 +17,7 @@ import Soon from "./components/Soon/Soon";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import {GetRequst} from "./redux/GetRequest/action";
 import {GetMyService, GetService} from "./redux/Service/action";
+import Admin from "./components/admin/Admin";
 
 class App extends Component {
     constructor(props) {
@@ -35,40 +36,50 @@ class App extends Component {
         this.props.dispatch(GetMark())
         this.props.dispatch(GetTruck())
         this.props.dispatch(GetTruckModels())
-        this.props.dispatch(GetRequst())
         this.props.dispatch(GetService())
         this.props.dispatch(GetMyService())
+        this.props.dispatch(GetRequst())
     }
 
 
 
     render() {
-
       return (
           <div className="App">
-              <div className="margin-top"></div>
+
               <Switch>
+
                   <Route exact path='/'>
+                      <div className="margin-top"></div>
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>
                   </Route>
+                  <Route  path='/administrator'>
+                      <Admin/>
+                  </Route>
                   <Route  path='/user'>
+                      <div className="margin-top"></div>
                       <User/>
                   </Route>
                   <Route path='/score'>
+                      <div className="margin-top"></div>
                       <Score/>
                   </Route>
                   <Route exact path='/spare-parts'>
+                      <div className="margin-top"></div>
                       <SpaerParts/>
                   </Route>
                   <Route path='/announcement'>
+                      <div className="margin-top"></div>
                       <Announcement />
                   </Route>
                   <Route path='/search/result'>
+                      <div className="margin-top"></div>
                       <Result/>
                   </Route>
                   <Route path='/soon'>
                       <Soon/>
                   </Route>
+
                   <Route>
                       <PageNotFound/>
                   </Route>

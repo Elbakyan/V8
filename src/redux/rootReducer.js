@@ -21,5 +21,5 @@ export default combineReducers({
     tmp: tmpReducer,
     search: SearchReducer,
     request:requestReducer,
-    service: serviceReducer
+    service: serviceReducer,
 })

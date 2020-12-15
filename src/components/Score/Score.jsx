@@ -12,7 +12,6 @@ import {GetRequst} from "../../redux/GetRequest/action";
 
 class Score extends Component {
 
-
     render() {
 
         return(

@@ -1,4 +1,4 @@
-import {GET, POST, TEST_GET} from "../../components/config/Requsest";
+import {GET, POST} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 import {GET_MODEL} from "../auto/action";
 import {GET_NOTIFICATION} from "../message/action";
@@ -9,6 +9,7 @@ export const  GET_REQUEST = 'GET_REQUEST';
 export function GetRequst(){
     return (dispatch) => {
         GET(Url.getrequest).then(res => {
+
             let arr = [];
             for (const key in res) {
                 arr.push(res[key]);

@@ -63,7 +63,16 @@ export const Url = {
     getService:SITE_NAME + '/Server/services',
     addServices: SITE_NAME + '/Server/services-add',
     searchServices: SITE_NAME + '/Server/services-search',
-    getMyService:SITE_NAME + '/Server/services-get'
+    getMyService:SITE_NAME + '/Server/services-get',
+
+
+    // Admin
+    admin: SITE_NAME + '/Server/admin',
+    issetAdmin: SITE_NAME + '/Server/isset-admin',
+    logoutAdmin: SITE_NAME + '/Server/logout-admin',
+    addSliderImgAdmin: SITE_NAME + '/Server/add-slider-img-admin',
+    getSliderImgAdmin: SITE_NAME + '/Server/get-slider-img-admin',
+    delSliderImgAdmin: SITE_NAME + '/Server/del-slider-img-admin',
 
 }
 export default SITE_NAME;

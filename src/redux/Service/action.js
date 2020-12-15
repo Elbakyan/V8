@@ -34,7 +34,6 @@ export function SearchService(id) {
 export function GetMyService(){
     return (dispatch) => {
         GET(Url.getMyService).then(res => {
-            console.log(res)
             dispatch({
                 type: GET_MY_SERVICE,
                 payload: res

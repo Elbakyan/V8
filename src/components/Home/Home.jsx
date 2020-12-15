@@ -3,7 +3,6 @@ import Header from './Header'
 import {Link, Redirect} from "react-router-dom";
 import './Home.scss'
 import Footer from "../Footer/Footer";
-import Content from "../Content/Content";
 import Menu from "../Menu/Menu";
 import {connect} from "react-redux";
 import DecorTitle from "../Decor/DecorTitle";
@@ -13,6 +12,7 @@ import SellCar from "../announcement/SellCar";
 import {GetSellByID} from "../../redux/sellauto/action";
 import {GetId, GetMessage} from "../../redux/message/action";
 import Loading from "../Loading";
+import Slider from "../Slider/Slider";
 
 class Home extends React.Component {
     constructor(post) {
@@ -22,6 +22,7 @@ class Home extends React.Component {
             auto: [],
             product: [],
             score: [],
+            img: []
         }
     }
 
@@ -46,13 +47,23 @@ class Home extends React.Component {
             })
 
         }
-
-            if(this.props.user.status){
-                this.props.dispatch(GetMessage(this.props.user.id))
+        if(this.props.user.status){
+            this.props.dispatch(GetMessage(this.props.user.id))
+        }
+        if(this.props.score.score.status){
+            this.props.dispatch(GetMessage(this.props.score.score.id))
+        }
+        GET(Url.getSliderImgAdmin).then(res=>{
+            if (res.status){
+                let img = []
+                res.img.map(res => {
+                    img.push(res.img)
+                })
+                this.setState({
+                    img: img
+                })
             }
-            if(this.props.score.score.status){
-                this.props.dispatch(GetMessage(this.props.score.score.id))
-            }
+        })
 
     }
     componentWillUnmount() {
@@ -62,6 +73,7 @@ class Home extends React.Component {
     GetAuto = (e) => {
         this.props.dispatch(GetSellByID(e.target.dataset.id))
         this.props.dispatch(GetId(e.target.dataset.id))
+
     }
 
     render() {
@@ -70,6 +82,7 @@ class Home extends React.Component {
             <div className="Home">
                 <Header/>
                 <Menu/>
+                <Slider img={this.state.img}/>
 
                 {
                     this.state.auto?
