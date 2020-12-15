@@ -35,11 +35,8 @@ class Message extends Component {
 
     componentDidMount() {
         this.props.dispatch(GetMessage(this.props.message.messageId))
-        document.addEventListener('scroll',()=>{
-            let scrollTop = document.scrollHeight
-            console.log(scrollTop)
-        })
     }
+
 
     Message = (e) => {
         this.setState({

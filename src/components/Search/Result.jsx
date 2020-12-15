@@ -64,7 +64,7 @@ class Result extends Component {
         return (
             <Fragment>
                <Header />
-                <Home />
+               <Menu/>
                 <Route exact path={'/search/result/detal/' + window.location.pathname.split('/')[window.location.pathname.split('/').length -1]}>
                     <DetaleLists />
                 </Route>
