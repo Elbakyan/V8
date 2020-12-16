@@ -146,7 +146,8 @@ class Message extends Component {
                             {
                                 this.state.RespondentStore && this.props.message.data.score?this.props.message.data.score.map((data,i) => {
 
-                
+
+
                                     if (data && JSON.parse(this.props.message.data.message.score[i].delite)[0] !== this.props.id){
                                         let active = window.location.href.split('/')[6] === this.props.message.data.message.score[i].dialog_id;
                                             return (

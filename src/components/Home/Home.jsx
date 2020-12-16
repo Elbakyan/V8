@@ -20,7 +20,7 @@ import {GetServiceList} from "../../redux/Service/action";
 class Home extends React.Component {
     constructor(post) {
         super(post);
-        this.requset = '';
+        this.requset = false;
         this.state = {
             auto: [],
             product: [],
@@ -49,29 +49,33 @@ class Home extends React.Component {
                 }
             })
 
-        }
-        if(this.props.user.status){
-            this.props.dispatch(GetMessage(this.props.user.id))
-        }
-        if(this.props.score.score.status){
-            this.props.dispatch(GetMessage(this.props.score.score.id))
-        }
-        GET(Url.getSliderImgAdmin).then(res=>{
-            if (res.status){
-                let img = []
-                res.img.map(res => {
-                    img.push(res.img)
-                })
-                this.setState({
-                    img: img
-                })
+            GET(Url.getSliderImgAdmin).then(res=>{
+                if (res.status && this.requset){
+                    let img = []
+                    res.img.map(res => {
+                        img.push(res.img)
+                    })
+                    this.setState({
+                        img: img
+                    })
+                }
+            })
+
+            if(this.props.user.status){
+                this.props.dispatch(GetMessage(this.props.user.id))
             }
-        })
-        this.props.dispatch(GetServiceList())
+            if(this.props.score.score.status){
+                this.props.dispatch(GetMessage(this.props.score.score.id))
+            }
+
+            this.props.dispatch(GetServiceList())
+        }
+
 
     }
     componentWillUnmount() {
         this.requset = false
+        console.log(this.requset)
     }
 
     GetAuto = (e) => {
