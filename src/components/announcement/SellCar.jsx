@@ -29,8 +29,6 @@ class SellCar extends  Component {
         })
         let span = document.querySelector('.'+e.target.className + '>span')
         e.target.childNodes[0].style.background = '#322C4A'
-
-
     }
 
 

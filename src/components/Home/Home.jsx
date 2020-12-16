@@ -13,6 +13,7 @@ import {GetSellByID} from "../../redux/sellauto/action";
 import {GetId, GetMessage} from "../../redux/message/action";
 import Loading from "../Loading";
 import Slider from "../Slider/Slider";
+import ServiceProduct from "../Products/ServiceProduct";
 
 class Home extends React.Component {
     constructor(post) {
@@ -98,7 +99,7 @@ class Home extends React.Component {
                                                         <SellCar
                                                             dataId={res.id}
                                                             dataUser={res.user_id}
-                                                            name={res.model}
+                                                            name={res.mark +  ' ' + res.model}
                                                             price={res.price}
                                                             year={res.year}
                                                             data={res.data}
@@ -159,17 +160,20 @@ class Home extends React.Component {
                             this.state.auto.map(res => {
                                 return (
                                     <div className='result_auto' key={res.id}>
-                                        <SellCar
+                                        <Link to={'/announcement/' + res.id} data-id={res.id} onClick={this.GetAuto}>
+
+                                        <ServiceProduct
                                             dataId={res.id}
                                             dataUser={res.user_id}
                                             name={res.model}
                                             price={res.price}
-                                            year={res.year}
-                                            data={res.data}
+                                            // year={res.year}
+                                            // data={res.data}
                                             sircle={res.sircle}
                                             city={res.city}
                                             dataImg={res.img}
                                         />
+                                        </Link>
                                     </div>
                                 )
                             }):<Loading />
