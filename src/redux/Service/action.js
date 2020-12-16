@@ -2,6 +2,7 @@ import {GET, POST} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 
 export const GET_SERVICE = 'GET_SERVICE';
+export const GET_SERVICE_LIST = 'GET_SERVICE_LIST';
 
 export const SEARCH_SERVICE = 'SEARCH_SERVICE';
 export const SEARCH_SERVICE_LINK = 'SEARCH_SERVICE_LINK';
@@ -12,6 +13,16 @@ export function GetService(){
         GET(Url.getService).then(res => {
             dispatch({
                 type: GET_SERVICE,
+                payload: res
+            })
+        })
+    }
+}
+export function GetServiceList(){
+    return (dispatch) => {
+        GET(Url.getserviceList).then(res => {
+            dispatch({
+                type: GET_SERVICE_LIST,
                 payload: res
             })
         })

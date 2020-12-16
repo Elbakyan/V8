@@ -13,6 +13,7 @@ import {GetSellByID} from "../../redux/sellauto/action";
 import {GetId, GetMessage} from "../../redux/message/action";
 import Loading from "../Loading";
 import Slider from "../Slider/Slider";
+import {GetServiceList} from "../../redux/Service/action";
 
 class Home extends React.Component {
     constructor(post) {
@@ -64,6 +65,7 @@ class Home extends React.Component {
                 })
             }
         })
+        this.props.dispatch(GetServiceList())
 
     }
     componentWillUnmount() {
@@ -77,7 +79,7 @@ class Home extends React.Component {
     }
 
     render() {
-
+        console.log(this.props.service.serviceList)
         return (
             <div className="Home">
                 <Header/>
@@ -123,6 +125,7 @@ class Home extends React.Component {
                                 <div className="content__list">
                                     {
                                         this.state.product.map((res, i) => {
+                                            console.log(res)
                                             let score = this.state.score[i];
                                             let img = JSON.stringify([res.img])
                                             return (

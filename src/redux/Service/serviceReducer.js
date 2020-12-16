@@ -1,8 +1,12 @@
 
-import {GET_SERVICE,GET_MY_SERVICE, SEARCH_SERVICE, SEARCH_SERVICE_LINK} from "./action";
+import {GET_SERVICE, GET_MY_SERVICE, SEARCH_SERVICE, SEARCH_SERVICE_LINK, GET_SERVICE_LIST} from "./action";
 
 const initialState = {
     service: [],
+    serviceList: {
+        service: [],
+        score:[]
+    },
     search: {
         status: false,
         data: []
@@ -25,6 +29,8 @@ export default function requestReducer(state = initialState, action){
             return {...state, link: action.payload}
         case GET_MY_SERVICE:
             return {...state, myService: action.payload}
+        case GET_SERVICE_LIST:
+            return {...state, serviceList: action.payload}
         default: return  state
     }
 }
