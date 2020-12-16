@@ -81,7 +81,6 @@ class Home extends React.Component {
     }
 
     render() {
-        console.log(this.props.service.serviceList)
         let service = this.props.service.serviceList
         return (
             <div className="Home">
@@ -128,21 +127,23 @@ class Home extends React.Component {
                                 <div className="content__list">
                                     {
                                         this.state.product.map((res, i) => {
-                                            console.log(res)
                                             let score = this.state.score[i];
                                             let img = JSON.stringify([res.img])
                                             return (
                                                 <div className='result_auto' key={i}>
-                                                    <SellCar
-                                                        dataId={res.id}
-                                                        dataUser={res.store_id}
-                                                        name={res.code}
-                                                        price={res.price}
-                                                        sircle={score.sircle}
-                                                        city={score.city}
-                                                        data={res.data}
-                                                        dataImg={img}
-                                                    />
+
+                                                    <Link to={'/search/result/store/' + score.id}>
+                                                        <SellCar
+                                                            dataId={res.id}
+                                                            dataUser={res.store_id}
+                                                            name={res.code}
+                                                            price={res.price}
+                                                            sircle={score.sircle}
+                                                            city={score.city}
+                                                            data={res.data}
+                                                            dataImg={img}
+                                                        />
+                                                    </Link>
                                                 </div>
                                             )
                                         })
@@ -165,20 +166,14 @@ class Home extends React.Component {
                                 service.score.map((res,i) => {
                                 return (
                                     <div className='result_auto' key={i}>
-                                        <Link to={'/announcement/' + res.id} data-id={res.id} onClick={this.GetAuto}>
-
-                                        <ServiceProduct
-                                            // dataId={res.id}
-                                            // dataUser={res.user_id}
-                                            name={service.service[i].name}
-                                            // price={res.price}
-                                            // year={res.year}
-                                            // data={res.data}
-                                            declaration={service.service[i].desc}
-                                            sircle={res.sircle}
-                                            city={res.city}
-                                            dataImg={res.img}
-                                        />
+                                        <Link to={'/search/result/store/' + res.id}>
+                                            <ServiceProduct
+                                                name={service.service[i].name}
+                                                declaration={service.service[i].desc}
+                                                sircle={res.sircle}
+                                                city={res.city}
+                                                dataImg={res.img}
+                                            />
                                         </Link>
                                     </div>
                                 )

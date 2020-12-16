@@ -4,24 +4,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   margin-top: 10px;
+  .container{
+    position: relative;
+  }
   .controls{
-    width: 89%;
+    width: 110%;
     display: flex;
     justify-content: space-between;
     animation: center;
     position: absolute;
     top: 50%;
+    left: -5%;
     transform: translateY(-50%);
+
+
 
     button{
       font-size: 50px;
       background: none;
-      color: rgba(217, 216, 216, 0.5);
+      color: rgb(152, 152, 152);
       transition: .3s;
       &:hover{
-        color: rgba(217, 216, 216,.8);
+        color: rgba(86, 86, 86, 0.8);
       }
     }
   }

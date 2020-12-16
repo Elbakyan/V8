@@ -43,15 +43,7 @@ class Message extends Component {
                     reloadPos:false
                 })
             }
-
-            console.log(scrollTop)
         })
-        // document.body.onscroll = (e)=>{
-        //     let scrollTop = document.body.scrollHeight
-        //     console.log('1',scrollTop)
-        //     console.log(window.scrollY)
-        // }
-        // console.log(document.body.onscroll)
     }
 
     Message = (e) => {

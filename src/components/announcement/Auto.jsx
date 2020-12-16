@@ -85,7 +85,7 @@ class Auto extends Component {
                     <div className="block">
                         <div className='block-left'>
                             <div className="car_name">
-                                <span>{auto.model}</span>
+                                <span>{auto.mark} {auto.model}</span>
                                 {/*<span className="phone_car_owner"><FontAwesomeIcon icon={faMobileAlt}/>{auto.phone}</span>*/}
                             </div>
                             <div className="car_slider">

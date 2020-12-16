@@ -1,7 +1,10 @@
 import React from 'react';
 import './Slider.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronCircleLeft, faChevronCircleRight} from "@fortawesome/free-solid-svg-icons";
+import {
+    faChevronLeft,
+    faChevronRight
+} from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -57,7 +60,7 @@ export default class Slider extends React.Component{
                 let i = this.props.img.pop()
                 this.props.img.unshift(i)
             },1000)
-        },5000)
+        },10000)
     }
     componentWillUnmount() {
         clearImmediate(this.interval);
@@ -70,10 +73,10 @@ export default class Slider extends React.Component{
                 <div className='container'>
                     <div className="controls">
                         <button onClick={this.prev}>
-                            <FontAwesomeIcon icon={faChevronCircleLeft} />
+                            <FontAwesomeIcon icon={faChevronLeft} />
                         </button>
                         <button onClick={this.next}>
-                            <FontAwesomeIcon icon={faChevronCircleRight} />
+                            <FontAwesomeIcon icon={faChevronRight} />
                         </button>
                     </div>
                     <div className="slide__item"  style={

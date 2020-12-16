@@ -33,10 +33,10 @@ class SellCar extends  Component {
 
 
     render() {
+
         let img = this.props.dataImg?JSON.parse(this.props.dataImg):[];
         let navWidth = (100 / img.length) + '%' ;
         return (
-            <Link to={'/announcement/' + this.props.dataId} data-id={this.props.dataId} onClick={this.props.click}>
                 <div
                     className="getSellCar"
                     data-id={this.props.dataId}
@@ -90,9 +90,7 @@ class SellCar extends  Component {
 
                     </div>
                 </div>
-
             </div>
-            </Link>
         )
     }
 }
