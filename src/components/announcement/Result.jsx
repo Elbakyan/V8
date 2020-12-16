@@ -41,7 +41,11 @@ class Result extends Component {
         }
         this.props.dispatch(GetFavorite())
     }
+    GetAuto = (e) => {
+        this.props.dispatch(GetSellByID(e.target.dataset.id))
+        this.props.dispatch(GetId(e.target.dataset.id))
 
+    }
     render() {
         return (
             <div className="result">
@@ -78,26 +82,22 @@ class Result extends Component {
                                     </div>
 
 
-                                        <SellCar
-                                            dataId={auto.id}
-                                            dataUser={auto.user_id}
-                                            name={auto.model}
-                                            price={auto.price}
-                                            year={auto.year}
-                                            sircle={auto.sircle}
-                                            data={auto.data}
-                                            city={auto.city}
-                                            dataImg={auto.img}
-                                            top={this.props.user.status || this.props.score.score.status?'20px':'0'}
-                                            heigth={this.props.user.status || this.props.score.score.status?'230px':''}
-                                            click={
-                                                (e)=>{
-                                                    this.props.dispatch(GetSellByID(e.target.dataset.id))
-                                                    this.props.dispatch(GetId(e.target.dataset.id))
-                                                }
-                                            }
+                                        <Link to={'/announcement/' + auto.id} data-id={auto.id} onClick={this.GetAuto}>
+                                            <SellCar
+                                                dataId={auto.id}
+                                                dataUser={auto.user_id}
+                                                name={auto.model}
+                                                price={auto.price}
+                                                year={auto.year}
+                                                sircle={auto.sircle}
+                                                data={auto.data}
+                                                city={auto.city}
+                                                dataImg={auto.img}
+                                                top={this.props.user.status || this.props.score.score.status?'20px':'0'}
+                                                heigth={this.props.user.status || this.props.score.score.status?'230px':''}
 
-                                        />
+                                            />
+                                        </Link>
                                 </div>
                             )
                         }) : <h1>{this.props.sell.data.message}</h1>

@@ -30,10 +30,8 @@ class Message extends Component {
         data.append('id',window.location.pathname.split('/').pop());
         this.props.dispatch(GetMessage(this.props.id))
         this.props.dispatch(GetStatus(this.props.id))
-        console.log(document.body)
         window.addEventListener('scroll',(e)=>{
             let scrollTop = document.body.scrollHeight
-            console.log('1',window.scrollY)
             if(window.scrollY >= 200){
                 this.setState({
                     reloadPos:true
@@ -58,8 +56,8 @@ class Message extends Component {
         },1000)
         this.props.dispatch(GetId(e.target.dataset.id))
         this.props.dispatch(GetDialogId(e.target.dataset.dialog))
+        this.props.dispatch(GetStatus(e.target.dataset.dialog))
         this.props.dispatch(GetMessage(this.props.id))
-        console.log(e.target.dataset.dialog)
 
     }
 
@@ -94,6 +92,7 @@ class Message extends Component {
         data.append('send_id',this.props.user.id);
         data.append('get_id',e.target.dataset.id);
         POST(Url.deliteMessage,data).then(res => {
+            console.log(res)
             if (res.status) {
                 this.props.dispatch(GetMessage(this.props.user.id))
             }
@@ -117,7 +116,7 @@ class Message extends Component {
                             {
                                 this.state.RespondentUser  && this.props.message.data.user?this.props.message.data.user.map((data,i) => {
 
-                                    if(data && JSON.parse(this.props.message.data.message.user[i].delite)[0] !== this.props.id){
+                                    if(data && +JSON.parse(this.props.message.data.message.user[i].delite)[0] !== this.props.id){
 
                                         let active = this.props.message.data.message.user? window.location.href.split('/')[6] === this.props.message.data.message.user[i].dialog_id: ''
 
@@ -134,6 +133,7 @@ class Message extends Component {
                                                     time={this.props.message.data.message.user[i].time}
                                                     userId={this.props.id}
                                                     send={this.props.message.data.message.user[i].send_id}
+                                                    user={this.props.user.id}
                                                 />
                                             )
                                     }
@@ -147,7 +147,7 @@ class Message extends Component {
                                 this.state.RespondentStore && this.props.message.data.score?this.props.message.data.score.map((data,i) => {
 
                 
-                                    if (data && JSON.parse(this.props.message.data.message.score[i].delite)[0] !== this.props.id){
+                                    if (data && +JSON.parse(this.props.message.data.message.score[i].delite)[0] !== this.props.id){
                                         let active = window.location.href.split('/')[6] === this.props.message.data.message.score[i].dialog_id;
                                             return (
                                                 <Respondent
@@ -207,13 +207,13 @@ class Message extends Component {
                         }
                         {
                             this.props.message.data.message.score?this.props.message.data.message.score.map((data,i) => {
-                                console.log('data', data)
+
                                 if(data){
                                     return (
                                         data.delite[0] === this.props.id ?'':
                                             <Switch key={i}>
                                                 <Route exact path={'/user/account/persional/'+data.dialog_id}>
-                                                    <GetMessageClass one_message={data.message} getId={this.props.message.id}/>
+                                                    <GetMessageClass dialog={data['dialog_id']} one_message={data.message} getId={this.props.message.id}/>
                                                 </Route>
                                             </Switch>
                                     )

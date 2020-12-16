@@ -5,7 +5,14 @@ import {faTrashAlt} from "@fortawesome/free-solid-svg-icons/faTrashAlt";
 
 
 class Respondent extends Component {
-
+    Status = (user,status,send) =>{
+        status = +status;
+        if (user !== send && status >= 1){
+            return true
+        }else{
+            return false
+        }
+    }
     render() {
         return (
             <div
@@ -25,7 +32,7 @@ class Respondent extends Component {
                         <span >{this.props.time.split(' ')[1].slice(0,5)}</span>
                         {
 
-                            +this.props.status && this.props.send !== this.props.userId?
+                                this.Status(this.props.user,this.props.status,this.props.send)?
 
                                 <span className='status'></span>:''
                         }

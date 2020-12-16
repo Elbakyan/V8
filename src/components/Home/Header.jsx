@@ -105,7 +105,7 @@ class Header extends React.Component{
                                     <ul className="header__links-ul row align-center">
 
                                         <li className="header__links-li row align-center">
-                                            <Link className='link__btn header__link-message' to='/user/account/message/'>
+                                            <Link className='link__btn header__link-message' to='/user/account/persional'>
 
                                                 <FontAwesomeIcon icon={faBell} style={this.props.message.notifications?{color:'red'}:''}/>
                                             </Link>
