@@ -72,32 +72,38 @@ class ServiceProduct extends  Component {
                     </div>
 
                     <div className="getService_body" data-id={this.props.dataId} >
-                        <div className='getService_body_block1' data-id={this.props.dataId} data-user={this.props.dataUser}>
+                        <div className={this.props.name.length < 30? 'getService_body_block1':'getService_body_block1_hover'} data-id={this.props.dataId} data-user={this.props.dataUser}>
                             <span
                                 data-id={this.props.dataId}
                                 data-user={this.props.dataUser}
-                                style={this.props.name.length > 10?{fontSize:'12px'}:{fontSize:'14px'}}
+                                // style={this.props.name.length > 30?{fontSize:'12px'}:{fontSize:'12px'}}
                             >
                                 {this.props.name}
                             </span>
                         </div>
-                        <div className='getService_body_block2' data-id={this.props.dataId} data-user={this.props.dataUser}>
+                        <div className={this.props.declaration.length >= 1?'getService_body_block2_hover':'getService_body_block2'} data-id={this.props.dataId} data-user={this.props.dataUser}>
                             {/*<span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.declaration} </span>*/}
-                            <span >
-                                {
-                                    this.props.declaration
-                                }
+                            {
+                                    <span>
+                                        {this.props.declaration}
+                                    </span>
+                            }
+                        </div>
+                        <div className='getService_body_block3' data-id={this.props.dataId} data-user={this.props.dataUser}>
+                            <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.sircle}</span>
+                            <span
+                                data-id={this.props.dataId}
+                                data-user={this.props.dataUser}
+                                // style={this.props.city.length > 10?{fontSize:"10px"}:{fontSize:"14px"}}
+                            >
+                                {this.props.city.split(' ')[0]}
+                                <br/>
+                                {this.props.city.split(' ')[1]}
                             </span>
                         </div>
-                        <div className='getService_body_block2' data-id={this.props.dataId} data-user={this.props.dataUser}>
-                            <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.sircle}</span>
-                            <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.city}</span>
-                        </div>
-                        {/*<div className='getService_body_block3' data-id={this.props.dataId} data-user={this.props.dataUser}>*/}
-                        {/*    {*/}
-                        {/*        this.props.data? <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.data.split(' ')[0]}</span>:''*/}
-                        {/*    }*/}
-                        {/*</div>*/}
+                    </div>
+                    <div className="getService_description">
+
                     </div>
 
                 </div>

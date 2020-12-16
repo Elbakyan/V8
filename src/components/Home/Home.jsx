@@ -165,7 +165,7 @@ class Home extends React.Component {
                                 service.score.map((res,i) => {
                                 return (
                                     <div className='result_auto' key={i}>
-                                        <Link to={'/announcement/' + res.id} data-id={res.id} onClick={this.GetAuto}>
+                                        <Link to={'/search/result/store/' + res.id} data-id={res.id} onClick={this.GetAuto}>
 
                                         <ServiceProduct
                                             // dataId={res.id}

@@ -63,6 +63,47 @@
     flex-direction: column;
     width: 100%;
     margin-top: 15px;
+    position: relative;
+    .getService_body_block2_hover{
+      height: 16px;
+      overflow: hidden;
+      padding: 5px;
+      //position: absolute;
+      top: 20px;
+      span{
+        font-size: 12px;
+      }
+      &:hover{
+        color: white;
+        background: #707070;
+        position: absolute;
+        height: 80px;
+        width: 100%;
+        overflow: auto;
+      }
+      //background: black;
+      //display: none;
+    }
+    .getService_body_block1{
+      width: 100%;
+      min-height: 30px;
+      background: #707070;
+
+      color: white;
+      padding: 5px;
+      span{
+        font-size: 12px;
+      }
+    }
+    .getService_body_block1_hover{
+      width: 100%;
+      height: 30px;
+      overflow: auto;
+      background: #707070;
+      color: white;
+      padding: 5px;
+    }
+
 
     >div{
       display: flex;
