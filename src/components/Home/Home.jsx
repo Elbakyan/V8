@@ -14,6 +14,8 @@ import {GetId, GetMessage} from "../../redux/message/action";
 import Loading from "../Loading";
 import Slider from "../Slider/Slider";
 import ServiceProduct from "../Products/ServiceProduct";
+import {GetServiceList} from "../../redux/Service/action";
+
 
 class Home extends React.Component {
     constructor(post) {
@@ -65,6 +67,7 @@ class Home extends React.Component {
                 })
             }
         })
+        this.props.dispatch(GetServiceList())
 
     }
     componentWillUnmount() {
@@ -78,7 +81,8 @@ class Home extends React.Component {
     }
 
     render() {
-
+        console.log(this.props.service.serviceList)
+        let service = this.props.service.serviceList
         return (
             <div className="Home">
                 <Header/>
@@ -124,6 +128,7 @@ class Home extends React.Component {
                                 <div className="content__list">
                                     {
                                         this.state.product.map((res, i) => {
+                                            console.log(res)
                                             let score = this.state.score[i];
                                             let img = JSON.stringify([res.img])
                                             return (
@@ -156,19 +161,20 @@ class Home extends React.Component {
 
                     <div className="content__list">
                         {
-                            this.state.auto.length?
-                            this.state.auto.map(res => {
+                            service.score?
+                                service.score.map((res,i) => {
                                 return (
-                                    <div className='result_auto' key={res.id}>
+                                    <div className='result_auto' key={i}>
                                         <Link to={'/announcement/' + res.id} data-id={res.id} onClick={this.GetAuto}>
 
                                         <ServiceProduct
-                                            dataId={res.id}
-                                            dataUser={res.user_id}
-                                            name={res.model}
-                                            price={res.price}
+                                            // dataId={res.id}
+                                            // dataUser={res.user_id}
+                                            name={service.service[i].name}
+                                            // price={res.price}
                                             // year={res.year}
                                             // data={res.data}
+                                            declaration={service.service[i].desc}
                                             sircle={res.sircle}
                                             city={res.city}
                                             dataImg={res.img}

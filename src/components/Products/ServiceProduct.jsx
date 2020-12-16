@@ -33,7 +33,7 @@ class ServiceProduct extends  Component {
 
 
     render() {
-        let img = this.props.dataImg?JSON.parse(this.props.dataImg):[];
+        let img = this.props.dataImg
         let navWidth = (100 / img.length) + '%' ;
         return (
             // <Link to={'/announcement/' + this.props.dataId} data-id={this.props.dataId} onClick={this.props.click}>
@@ -73,13 +73,19 @@ class ServiceProduct extends  Component {
 
                     <div className="getService_body" data-id={this.props.dataId} >
                         <div className='getService_body_block1' data-id={this.props.dataId} data-user={this.props.dataUser}>
-                            <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.name}</span>
+                            <span
+                                data-id={this.props.dataId}
+                                data-user={this.props.dataUser}
+                                style={this.props.name.length > 10?{fontSize:'12px'}:{fontSize:'14px'}}
+                            >
+                                {this.props.name}
+                            </span>
                         </div>
                         <div className='getService_body_block2' data-id={this.props.dataId} data-user={this.props.dataUser}>
                             {/*<span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.declaration} </span>*/}
-                            <span style={this.state.declaration.length > 25?{height:'50px',overflow:"auto"}:''}>
+                            <span >
                                 {
-                                    this.state.declaration
+                                    this.props.declaration
                                 }
                             </span>
                         </div>
@@ -87,12 +93,11 @@ class ServiceProduct extends  Component {
                             <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.sircle}</span>
                             <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.city}</span>
                         </div>
-                        <div className='getService_body_block3' data-id={this.props.dataId} data-user={this.props.dataUser}>
-                            {
-                                this.props.data? <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.data.split(' ')[0]}</span>:''
-                            }
-
-                        </div>
+                        {/*<div className='getService_body_block3' data-id={this.props.dataId} data-user={this.props.dataUser}>*/}
+                        {/*    {*/}
+                        {/*        this.props.data? <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.data.split(' ')[0]}</span>:''*/}
+                        {/*    }*/}
+                        {/*</div>*/}
                     </div>
 
                 </div>
