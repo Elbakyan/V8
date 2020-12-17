@@ -66,6 +66,7 @@ export const Url = {
     getMyService:SITE_NAME + '/Server/services-get',
     getserviceList: SITE_NAME + '/Server/service-list',
     partsAndAccessories: SITE_NAME + '/Server/service-get-search-links',
+    partsMyAndAccessories: SITE_NAME + '/Server/service-my-get-search-links',
     // Admin
     admin: SITE_NAME + '/Server/admin',
     issetAdmin: SITE_NAME + '/Server/isset-admin',

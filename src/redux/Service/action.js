@@ -1,4 +1,4 @@
-import {GET, POST} from "../../components/config/Requsest";
+import {GET, POST, TEST_POST} from "../../components/config/Requsest";
 import {Url} from "../../components/config/Url";
 
 export const GET_SERVICE = 'GET_SERVICE';
@@ -36,10 +36,25 @@ export function SearchService(id) {
         let data = new FormData()
         data.append('id', id)
         POST(Url.searchServices, data).then(res => {
+            console.log(res)
             dispatch({
                 type: SEARCH_SERVICE,
                 payload: res
             })
+        })
+    }
+}
+export function SearchLink(id) {
+
+    return (dispatch) => {
+        let data = new FormData()
+        data.append('id', id)
+        POST(Url.partsMyAndAccessories, data).then(res => {
+            console.log(res)
+            // dispatch({
+            //     type: SEARCH_SERVICE,
+            //     payload: res
+            // })
         })
     }
 }

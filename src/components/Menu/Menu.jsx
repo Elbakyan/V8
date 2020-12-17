@@ -5,7 +5,7 @@ import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {GetSearchMarkModelLink, SearchMarkModel} from "../../redux/search/action";
 
-import {SearchService, SearchServiceLink} from "../../redux/Service/action";
+import {SearchLink, SearchService, SearchServiceLink} from "../../redux/Service/action";
 
 class Menu extends Component {
 
@@ -82,6 +82,13 @@ class Menu extends Component {
             serviceRedirect: true,
         })
     }
+    SearchServiceLink = (e) =>{
+        this.props.dispatch(SearchLink(e.target.dataset.id))
+        this.props.dispatch(SearchServiceLink('/search/result/service/' + e.target.dataset.id))
+        this.setState({
+            serviceRedirect: true,
+        })
+    }
     render() {
 
         return (
@@ -118,8 +125,8 @@ class Menu extends Component {
                                     <li>
                                         <ul className="parts">
                                             {
-                                                this.props.service.partsAndAccessories.map(({name}, i) => (
-                                                    <li key={i}>
+                                                this.props.service.partsAndAccessories.map(({id,name}, i) => (
+                                                    <li key={i} data-id={id} onClick={this.SearchServiceLink}>
                                                         {name}
                                                     </li>
                                                 ))

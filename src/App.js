@@ -47,7 +47,6 @@ class App extends Component {
 
 
     render() {
-        console.log(this.props.service.partsAndAccessories)
       return (
           <div className="App">
               <Switch>
