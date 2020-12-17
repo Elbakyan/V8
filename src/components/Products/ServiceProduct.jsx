@@ -12,8 +12,7 @@ class ServiceProduct extends  Component {
         super(props);
         this.state = {
             index:0,
-            isFav: false,
-            declaration:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis cumque delectus id libero, '
+            isFav: false
         }
     }
 

@@ -105,6 +105,14 @@ class Profile extends React.Component{
                                         Ծառայություներ
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link to='/score/account/price'>
+                                        <div className="icon">
+                                            <FontAwesomeIcon icon={faQuestionCircle}/>
+                                        </div>
+                                        Պահեստամասեր և Աքսեսուարներ
+                                    </Link>
+                                </li>
                             </ul>
                         </nav>
 
@@ -126,6 +134,9 @@ class Profile extends React.Component{
                                     <ProfilSetingsScore />
                                 </Route>
                                 <Route path='/score/account/auto_service'>
+                                    <FormAutoService />
+                                </Route>
+                                <Route path='/score/account/price'>
                                     <FormAutoService />
                                 </Route>
                                 <Route path='/soon'>

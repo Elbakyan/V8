@@ -47,7 +47,7 @@ class App extends Component {
 
 
     render() {
-        console.log(this.props.service.partsAndAccessories)
+        console.log(this.props.service)
       return (
           <div className="App">
 
