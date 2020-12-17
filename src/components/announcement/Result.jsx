@@ -86,7 +86,7 @@ class Result extends Component {
                                             <SellCar
                                                 dataId={auto.id}
                                                 dataUser={auto.user_id}
-                                                name={auto.model}
+                                                name={auto.mark + ' ' + auto.model}
                                                 price={auto.price}
                                                 year={auto.year}
                                                 sircle={auto.sircle}

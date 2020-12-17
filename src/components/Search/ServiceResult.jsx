@@ -31,7 +31,6 @@ class ServiceResult extends Component {
                                         </ul>
                                        {
                                            this.props.service.search.data.score.map((res, i) => {
-                                               console.log(res)
                                                let hour = new Date().getHours()
                                                let minute = new Date().getMinutes() + (hour * 60)
                                                let from = (+res['work_to'].split(':')[0] * 60) + +res['work_to'].split(':')[1];

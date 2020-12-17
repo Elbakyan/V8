@@ -27,7 +27,6 @@ class Menu extends Component {
     }
     open = e => {
         let overley = document.querySelector('.overley')
-        console.log(overley)
         if (e.target.dataset.counter !== undefined) {
             if(e.target.dataset.counter === '1'){
                 this.autoService.style.display = 'none';

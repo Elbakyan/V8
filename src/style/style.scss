@@ -13,6 +13,7 @@
 body{
   background: #e1e1e1;
 
+
   &::-webkit-scrollbar {
     width: 14px;
   }
@@ -125,7 +126,7 @@ body{
   margin: 0 auto;
   transition: .5s;
   position: fixed;
-  top: 120px;
+  top: 50px;
   left: 0;
   padding: 0 50px;
   z-index: 1500;

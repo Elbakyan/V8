@@ -198,7 +198,7 @@ class Auto extends Component {
                     </div>
                     <div className="message__button">
                         {
-                            // this.state.message?<Alert>hax</Alert>:''
+
                             this.state.message?<Art width={50} content="Հաղորդագրությունը ուղարկված է"/>:''
                         }
 

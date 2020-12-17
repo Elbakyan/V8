@@ -47,13 +47,8 @@ class Message extends Component {
     Message = (e) => {
         this.setState({
             link:e.target.id,
-            redirect: true
+            redirect: true,
         })
-        setTimeout(() => {
-            this.setState({
-                redirect: false
-            })
-        },1000)
         this.props.dispatch(GetId(e.target.dataset.id))
         this.props.dispatch(GetDialogId(e.target.dataset.dialog))
         this.props.dispatch(GetStatus(e.target.dataset.dialog))
@@ -92,12 +87,19 @@ class Message extends Component {
         data.append('send_id',this.props.user.id);
         data.append('get_id',e.target.dataset.id);
         POST(Url.deliteMessage,data).then(res => {
-            console.log(res)
             if (res.status) {
                 this.props.dispatch(GetMessage(this.props.user.id))
+                this.setState({
+                    redirect: true,
+                })
             }
         })
         return true
+    }
+    componentWillUnmount() {
+        this.setState({
+            redirect: false
+        })
     }
 
     render() {
@@ -116,7 +118,7 @@ class Message extends Component {
                             {
                                 this.state.RespondentUser  && this.props.message.data.user?this.props.message.data.user.map((data,i) => {
 
-                                    if(data && +JSON.parse(this.props.message.data.message.user[i].delite)[0] !== this.props.id){
+                                    if(data && +JSON.parse(this.props.message.data.message.user[i].delite)[0] !== +this.props.user.id){
 
                                         let active = this.props.message.data.message.user? window.location.href.split('/')[6] === this.props.message.data.message.user[i].dialog_id: ''
 
@@ -146,8 +148,7 @@ class Message extends Component {
                             {
                                 this.state.RespondentStore && this.props.message.data.score?this.props.message.data.score.map((data,i) => {
 
-                
-                                    if (data && +JSON.parse(this.props.message.data.message.score[i].delite)[0] !== this.props.id){
+                                    if (data && +JSON.parse(this.props.message.data.message.score[i].delite)[0] !== +this.props.user.id){
                                         let active = window.location.href.split('/')[6] === this.props.message.data.message.score[i].dialog_id;
                                             return (
                                                 <Respondent
