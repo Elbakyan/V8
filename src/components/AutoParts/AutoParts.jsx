@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import DefaultSelect from "../forms/select/DefaultSelect";
-import {maser} from "../Menu/autoObj";
+import {parts} from "../Menu/autoObj";
 import FormAutoParts from "./FormAutoParts/FormAutoParts";
 import './AutoParts.scss'
 import {Redirect, Route} from "react-router";
@@ -48,7 +48,7 @@ class AutoParts extends Component{
                             onChange={this.getCategory}
                         >
                             {
-                                maser.map((el,i)=>{
+                                parts.map((el,i)=>{
                                     return (
                                         <option
                                             value={el.name}

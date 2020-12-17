@@ -14,6 +14,7 @@ const initialState = {
     auto: [],
     img: [],
     product: [],
+
     scoreList: {
         status: false,
         detal: [],

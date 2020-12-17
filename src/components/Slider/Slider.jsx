@@ -44,6 +44,7 @@ export default class Slider extends React.Component{
             })
             let i = this.props.img.pop()
             this.props.img.unshift(i)
+            // e.target.disabled = ''
         },1000)
         clearInterval(this.interval)
         this.auto()
@@ -63,7 +64,7 @@ export default class Slider extends React.Component{
         },10000)
     }
     componentWillUnmount() {
-        clearImmediate(this.interval);
+        clearInterval(this.interval);
     }
 
     render() {

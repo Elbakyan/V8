@@ -83,11 +83,11 @@ class ServiceProduct extends  Component {
                         </div>
                         <div className={this.props.declaration.length >= 1?'getService_body_block2_hover':'getService_body_block2'} data-id={this.props.dataId} data-user={this.props.dataUser}>
                             {/*<span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.declaration} </span>*/}
-                            {
-                                    <span>
-                                        {this.props.declaration}
-                                    </span>
-                            }
+                            {/*{*/}
+                            {/*        <span>*/}
+                            {/*            {this.props.declaration}*/}
+                            {/*        </span>*/}
+                            {/*}*/}
                         </div>
                         <div className='getService_body_block3' data-id={this.props.dataId} data-user={this.props.dataUser}>
                             <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.sircle}</span>
