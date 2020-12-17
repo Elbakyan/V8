@@ -21,7 +21,6 @@ class GetMessageClass extends Component{
 
         window.addEventListener('scroll',(e)=>{
             let scrollTop = document.body.scrollHeight
-            console.log('1',window.scrollY)
             if(window.scrollY >= 200){
                 this.setState({
                     reloadPos:true
@@ -31,16 +30,14 @@ class GetMessageClass extends Component{
                     reloadPos:false
                 })
             }
-
-            console.log(scrollTop)
         })
         let data = new FormData();
         data.append('id',window.location.pathname.split('/').pop());
-        // this.props.dispatch(GetMessage(32))
         this.setState({
             count:this.props.one_message.length - 1
         })
         POST(Url.messageId,data).then(res => {
+
             this.props.dispatch(GetStatus(res))
             if (res.id != res.send_id){
                 this.props.dispatch(GetId(res.send_id))
@@ -58,10 +55,10 @@ class GetMessageClass extends Component{
         e.preventDefault();
         this.props.dispatch(GetStatus(this.props.message.dialog))
         let data = new FormData(e.target);
-        console.log(Array.from(data))
         if (this.textareaRef.value.trim().length > 0){
 
             this.props.dispatch(SendMessage(data))
+            this.props.dispatch(GetStatus(e.target.dataset.dialog))
         }
         this.textareaRef.value = '';
 
@@ -76,6 +73,7 @@ class GetMessageClass extends Component{
             let data = new FormData(this.formRef);
             if (this.textareaRef.value.trim().length > 0){
                 this.props.dispatch(SendMessage(data))
+                this.props.dispatch(GetStatus(e.target.dataset.dialog))
             }
 
             this.textareaRef.value = ''
@@ -98,7 +96,6 @@ class GetMessageClass extends Component{
 
     render() {
 
-
         return (
             <div className="getMessage__user">
                 <div className="getMessage_users" ref={el => this.scrollRef = el} >
@@ -114,7 +111,7 @@ class GetMessageClass extends Component{
                                                 <span className='meso'>{
                                                     elem[0].message.split('/*/').map((el,i)=>{
                                                         return(
-                                                            <Fragment>
+                                                            <Fragment key={i}>
                                                                 {el} <br/>
                                                             </Fragment>
                                                             )
@@ -133,7 +130,7 @@ class GetMessageClass extends Component{
                 </div>
                 <div className="send_message">
                     <form onSubmit={this.Message} ref={el => this.formRef = el}>
-                        <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={el => this.textareaRef = el}></textarea>
+                        <textarea className="message_text" data-dialog={this.props.dialog} onKeyDown={this.onEnterPress} name="message" ref={el => this.textareaRef = el}></textarea>
                         <input type="hidden" name='send_id' value={this.props.user.id }/>
                         <input type="hidden" name='get_id' value={this.props.getId}/>
                         <div className="message_send_button">

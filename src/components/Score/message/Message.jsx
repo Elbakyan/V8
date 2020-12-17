@@ -56,6 +56,10 @@ class Message extends Component {
         POST(Url.deliteMessage,data).then(res => {
             if (res.status) {
                 this.props.dispatch(GetMessage(this.props.message.messageId))
+                this.setState({
+                    redirect: true,
+                    link: '/score/account/message/' + this.props.message.messageId
+                })
             }
         })
     }
@@ -98,9 +102,7 @@ class Message extends Component {
     }
 
     render() {
-        console.log(this.props)
         let myId =  this.props.message.messageId;
-
         return(
             <Fragment>
                 {

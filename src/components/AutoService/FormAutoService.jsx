@@ -30,8 +30,6 @@ class FormAutoService extends Component {
         })
     }
     render() {
-        console.log('a')
-
             return(
                 <div className='formAutoService'>
                     <nav className="formAutoService__list">

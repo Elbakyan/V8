@@ -76,7 +76,6 @@ class Home extends React.Component {
 
     componentWillUnmount() {
         this.requset = false
-        console.log(this.requset)
     }
 
     GetAuto = (e) => {

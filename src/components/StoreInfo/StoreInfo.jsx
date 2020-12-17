@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
     faMapMarkerAlt,
-    faPhoneSquareAlt, faTag, faAt, faClock, faCreditCard,
+    faPhoneSquareAlt, faTag, faAt, faClock, faCreditCard, faTruck,
 } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons/faEnvelope";
@@ -93,18 +93,7 @@ class StoreInfo extends Component{
             fromTime = (fromHourse * 60) + fromMinute;
 
         if (toHourse < fromHourse){
-            // if (hourse >= toHourse && minute >= toMinute && hourse <= fromHourse && minute  <= fromMinute){
-            //     console.log(fromMinute)
-            //     this.setState({
-            //         open: true
-            //     })
-            // }else{
-            //     this.setState({
-            //         open: false
-            //     })
-            // }
             if (time >= toTime && time <= fromTime){
-                console.log(fromMinute)
                 this.setState({
                     open: true
                 })
@@ -114,7 +103,6 @@ class StoreInfo extends Component{
                 })
             }
         }else{
-            
             if (hourse <= toHourse && minute >= toMinute && hourse >= fromHourse && minute  >= fromMinute){
                 this.setState({
                     open: true
@@ -125,12 +113,8 @@ class StoreInfo extends Component{
                 })
             }
         }
-
-
-
     }
     render() {
-        console.log(this.state.data)
         return(
             <div className="container">
                 {
@@ -240,18 +224,26 @@ class StoreInfo extends Component{
 
                                     </ul>
                                     {
-                                        +this.state.data.credit?
+                                        +this.state.data.credit === 1?
                                             <ul className='store_phone'>
                                                 <li><FontAwesomeIcon icon={faCreditCard} /></li>
                                                 <li style={{fontWeight:'bold'}}>Ապառիկ վաճառք․․․</li>
 
                                             </ul>:''
                                     }
+                                    {
+                                        +this.state.data.delivery === 1?
+                                            <ul className='store_phone'>
+                                                <li><FontAwesomeIcon icon={faTruck} /></li>
+                                                <li style={{fontWeight:'bold'}}>Առաքում․․․</li>
+
+                                            </ul>:''
+                                    }
 
                                 </nav>
                                 {
-                                    // this.state.message?<Alert>hax</Alert>:''
-                                    true?<Art width={100} content="Հաղորդագրությունը ուղարկված է"/>:''
+                                    this.state.message?
+                                        <Art width={100} content="Հաղորդագրությունը ուղարկված է"/>:''
                                 }
                                 <ul className='store_message'>
                                     <li>

@@ -113,7 +113,6 @@ export function GetStatus(data) {
 
     return (dispach) => {
         POST(Url.messageStatus,statusData).then(res => {
-            console.log('status',res)
             dispach({
                 type: GET_STATUS,
                 payload: res
