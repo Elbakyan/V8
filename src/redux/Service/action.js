@@ -7,6 +7,7 @@ export const GET_SERVICE_LIST = 'GET_SERVICE_LIST';
 export const SEARCH_SERVICE = 'SEARCH_SERVICE';
 export const SEARCH_SERVICE_LINK = 'SEARCH_SERVICE_LINK';
 export const GET_MY_SERVICE = 'GET_MY_SERVICE';
+export const GET_PARTS_ACCESSORIES = 'GET_PARTS_ACCESSORIES'
 
 export function GetService(){
     return (dispatch) => {
@@ -58,5 +59,16 @@ export function SearchServiceLink(link){
                 type: SEARCH_SERVICE_LINK,
                 payload: link
             })
+    }
+}
+export function GetPartsAccessories(){
+    return (dispatch) => {
+        GET(Url.partsAndAccessories).then(res => {
+            console.log('res',res)
+            dispatch({
+                type: GET_PARTS_ACCESSORIES,
+                payload: res
+            })
+        })
     }
 }

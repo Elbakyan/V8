@@ -64,7 +64,7 @@ export default class Slider extends React.Component{
         },10000)
     }
     componentWillUnmount() {
-        clearImmediate(this.interval);
+        clearInterval(this.interval);
     }
 
     render() {

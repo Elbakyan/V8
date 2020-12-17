@@ -3,7 +3,7 @@ import './modal.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faWindowClose} from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
-import {maser} from '../Menu/autoObj'
+import {parts} from '../Menu/autoObj'
 import DefaultSelect from "../forms/select/DefaultSelect";
 import DefaultInput from "../forms/inputs/DefaultInput";
 import SpeareParts from "./SpeareParts";
@@ -86,7 +86,7 @@ class ModalRequest extends React.Component{
                     </div>
                     <div className="modal__block">
                         <div className='modal__items'>
-                            <DefaultSelect name='' data={maser} />
+                            <DefaultSelect name='' data={parts} />
                         </div>
                         <SpeareParts
                             sircle={this.props.location.sircle}

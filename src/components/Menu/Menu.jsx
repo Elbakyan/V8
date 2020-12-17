@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import './Menu.scss'
-import {maser} from './autoObj'
+import {parts} from './autoObj'
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {GetSearchMarkModelLink, SearchMarkModel} from "../../redux/search/action";
@@ -118,7 +118,7 @@ class Menu extends Component {
                                     <li>
                                         <ul className="parts">
                                             {
-                                                maser.map(({name}, i) => (
+                                                this.props.service.partsAndAccessories.map(({name}, i) => (
                                                     <li key={i}>
                                                         {name}
                                                     </li>
