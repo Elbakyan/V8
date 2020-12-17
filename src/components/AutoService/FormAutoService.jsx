@@ -26,7 +26,6 @@ class FormAutoService extends Component {
             if(res){
                 this.props.dispatch(GetMyService())
             }
-            console.log(res)
         })
     }
     render() {

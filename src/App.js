@@ -46,9 +46,7 @@ class App extends Component {
     render() {
       return (
           <div className="App">
-
               <Switch>
-
                   <Route exact path='/'>
                       <div className="margin-top"></div>
                       <Home userStatus={this.props.user.status} scoreStatus={this.props.score.score.status}/>
@@ -86,7 +84,6 @@ class App extends Component {
               </Switch>
               {this.props.user.status  === undefined? <div className="main__load">  <Loading type="spinningBubbles" size={500} color="#101423"/><Loading /> </div> : ''}
               {this.props.score.score.status  === undefined? <div className="main__load">  <Loading type="spinningBubbles" size={500} color="#101423"/><Loading /> </div> : ''}
-
           </div>
       )
     }
@@ -95,3 +92,4 @@ class App extends Component {
 const MapStateToProps = state => state;
 const MainApp = connect(MapStateToProps)(App)
 export default MainApp;
+
