@@ -1,31 +1,26 @@
 import React, {Component, Fragment} from 'react';
 import './Search.scss'
 import Api from "../config/Api";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import Header from "../Home/Header";
 import Footer from "../Footer/Footer";
 import {connect} from "react-redux";
 import Menu from '../Menu/Menu'
 import {
-    GetSearchMarkModelLink,
-    SearchMarkModel,
-    SearchResult,
+
     SearchResultAnal,
     SearchResultAnalCount,
     SearchResultAuto,
     SearchResultImg, SearchResultProduct
 } from "../../redux/search/action";
-import {Redirect, Route} from "react-router";
+import { Route} from "react-router";
 import DetaleLists from "./DetaeLists";
 import ScoreList from "./ScoreList";
 import {Link} from "react-router-dom";
 import StoreInfo from "../StoreInfo/StoreInfo";
 import ScoreListGlobal from "./ScoreListGlobal";
-import Home from "./Home";
-
 import ServiceResult from "./ServiceResult";
-import {SearchServiceLink} from "../../redux/Service/action";
+import AccessoriesResult from "./AccessoriesResult";
+import {SearchAccessories, SearchAccessoriesLink} from "../../redux/Service/action";
 
 
 class Result extends Component {
@@ -34,6 +29,9 @@ class Result extends Component {
         this.state = {
             id: '',
         }
+    }
+    componentDidMount() {
+        this.props.dispatch(SearchAccessoriesLink(window.location.pathname))
     }
 
     SearchAll = (e) => {
@@ -117,6 +115,9 @@ class Result extends Component {
                 </Route>
                 <Route  path={this.props.service.link? this.props.service.link: '/search/result/service'}>
                     <ServiceResult/>
+                </Route>
+                <Route exact  path={this.props.service.accessoriesLink? this.props.service.accessoriesLink: '/search/result/accessoris'}>
+                    <AccessoriesResult />
                 </Route>
                 <Footer />
             </Fragment>

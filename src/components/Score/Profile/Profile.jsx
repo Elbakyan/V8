@@ -25,6 +25,7 @@ import {GET, POST} from "../../config/Requsest";
 import ScorePageSetings from "../ScorePage/ScorePageSetings";
 import AutoService from "../../AutoService/AutoService";
 import FormAutoService from "../../AutoService/FormAutoService";
+import Accessories from "../../Accessories/Accessories";
 
 
 
@@ -105,6 +106,14 @@ class Profile extends React.Component{
                                         Ծառայություներ
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link to='/score/account/price'>
+                                        <div className="icon">
+                                            <FontAwesomeIcon icon={faQuestionCircle}/>
+                                        </div>
+                                        Պահեստամասեր և Աքսեսուարներ
+                                    </Link>
+                                </li>
                             </ul>
                         </nav>
 
@@ -127,6 +136,9 @@ class Profile extends React.Component{
                                 </Route>
                                 <Route path='/score/account/auto_service'>
                                     <FormAutoService />
+                                </Route>
+                                <Route path='/score/account/price'>
+                                    <Accessories />
                                 </Route>
                                 <Route path='/soon'>
                                     <Soon />

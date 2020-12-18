@@ -16,7 +16,13 @@ import Result from "./components/Search/Result";
 import Soon from "./components/Soon/Soon";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import {GetRequst} from "./redux/GetRequest/action";
-import {GetMyService, GetPartsAccessories, GetService} from "./redux/Service/action";
+import {
+    GetMyPartAccessoris,
+    GetMyService,
+    GetPartAccessoris,
+    GetPartsAccessories,
+    GetService
+} from "./redux/Service/action";
 import Admin from "./components/admin/Admin";
 
 
@@ -40,8 +46,9 @@ class App extends Component {
         this.props.dispatch(GetService())
         this.props.dispatch(GetMyService())
         this.props.dispatch(GetRequst())
+        this.props.dispatch(GetPartAccessoris())
+        this.props.dispatch(GetMyPartAccessoris())
 
-        this.props.dispatch(GetPartsAccessories())
     }
 
 

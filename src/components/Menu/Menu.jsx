@@ -1,11 +1,17 @@
 import React, {Component} from "react";
 import './Menu.scss'
-import {parts} from './autoObj'
+
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {GetSearchMarkModelLink, SearchMarkModel} from "../../redux/search/action";
 
-import {SearchLink, SearchService, SearchServiceLink} from "../../redux/Service/action";
+import {
+    GetPartAccessoris,
+    SearchAccessoriesLink,
+    SearchPartAccessoris,
+    SearchService,
+    SearchServiceLink
+} from "../../redux/Service/action";
 
 class Menu extends Component {
 
@@ -16,7 +22,8 @@ class Menu extends Component {
             mark: [],
             truck: [],
             redirect: false,
-            serviceRedirect: false
+            serviceRedirect: false,
+            accessoriesRedirect: false
         }
     }
     outMenu = e =>{
@@ -69,9 +76,11 @@ class Menu extends Component {
     componentWillUnmount() {
         this.props.dispatch(GetSearchMarkModelLink(''))
         this.props.dispatch(SearchServiceLink(''))
+        this.props.dispatch(SearchAccessoriesLink(''))
             this.setState({
                 redirect: false,
                 serviceRedirect: false,
+                accessoriesRedirect: false
             })
     }
 
@@ -83,10 +92,10 @@ class Menu extends Component {
         })
     }
     SearchServiceLink = (e) =>{
-        this.props.dispatch(SearchLink(e.target.dataset.id))
-        this.props.dispatch(SearchServiceLink('/search/result/service/' + e.target.dataset.id))
+        this.props.dispatch(SearchPartAccessoris(e.target.dataset.id))
+        this.props.dispatch(SearchAccessoriesLink('/search/result/accessoris/' + e.target.dataset.id))
         this.setState({
-            serviceRedirect: true,
+            accessoriesRedirect: true,
         })
     }
     render() {
@@ -98,6 +107,9 @@ class Menu extends Component {
                 }
                 {
                     this.state.serviceRedirect && this.props.service.link? <Redirect to={this.props.service.link}/>:''
+                }
+                {
+                    this.state.accessoriesRedirect && this.props.service.accessoriesLink? <Redirect to={this.props.service.accessoriesLink}/>:''
                 }
                 <div className='overley' onClick={(e)=>{
                     this.autoParts.style.display = 'none';

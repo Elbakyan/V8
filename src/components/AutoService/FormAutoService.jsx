@@ -35,37 +35,49 @@ class FormAutoService extends Component {
                         <form onSubmit={this.AddServices}>
                             <ul className="formAutoService__score_list">
                                 {
-                                    this.props.score.scoreList.map((el, i) => (
-                                        <li key={i}>
-                                            <label>
-                                                {el.name}
-                                                <DefaultInput
-                                                    type='checkbox'
-                                                    value={el.id}
-                                                    name='score[]'
-                                                    onChange={(e)=>{
-                                                        if(e.target.checked){
-                                                            this.state.activeStore.push(e.target.value)
-                                                            this.setState({
-                                                                activeStore:this.state.activeStore
+                                    this.props.score.scoreList.map((el, i) => {
+                                        return(
+                                            <li key={i}>
+                                                <label>
+                                                    {el.name}
+                                                    <DefaultInput
+                                                        type='checkbox'
+                                                        className={'store_check ' + 'store_check' + el.id}
+                                                        value={el.id}
+                                                        name='score[]'
+                                                        onChange={(e) => {
+                                                            console.log(e.target.classList)
+                                                            let storsCheck = document.querySelectorAll(`.${e.target.classList[0]}`)
+                                                            storsCheck.forEach(el => {
+                                                                if (el.classList[1] !== e.target.classList[1] && el.checked == true) {
+                                                                    console.log(el.checked)
+                                                                    el.click()
+                                                                }
                                                             })
-                                                        }else{
-                                                            for(let i = 0; i < this.state.activeStore.length;i++){
-                                                                if(this.state.activeStore[i] === e.target.value){
-                                                                    this.state.activeStore.splice(i,1)
-                                                                    this.setState({
-                                                                        activeStore:this.state.activeStore
-                                                                    })
+                                                            if (e.target.checked) {
+                                                                this.state.activeStore.push(e.target.value)
+                                                                this.setState({
+                                                                    activeStore: this.state.activeStore
+                                                                })
+                                                            }else {
+                                                                for (let i = 0; i < this.state.activeStore.length; i++) {
+                                                                    if (this.state.activeStore[i] === e.target.value) {
+                                                                        this.state.activeStore.splice(i, 1)
+                                                                        this.setState({
+                                                                            activeStore: this.state.activeStore
+                                                                        })
+                                                                    }
                                                                 }
                                                             }
-                                                        }
-                                                        // console.log(this.state.activeStore)
-                                                    }}
-                                                />
-                                            </label>
-                                        </li>
+                                                            // console.log(this.state.activeStore)
+                                                        }}
+                                                    />
+                                                </label>
+                                            </li>
+                                            )
 
-                                    ))
+
+                                    })
                                 }
                             </ul>
                             <ul className="formAutoService__scrollBar">
