@@ -146,7 +146,9 @@ class Menu extends Component {
                                         </ul>
                                     </li>
                                     <li>
-                                        Մարդատարի պահեստամասեր
+                                        <span>
+                                            Մարդատարի պահեստամասեր
+                                        </span>
                                         <ul className="cars">
                                             {
                                                 this.props.auto.mark.map((mark, i) => {
@@ -163,7 +165,7 @@ class Menu extends Component {
                                         </ul>
                                     </li>
                                     <li>
-                                        Բեռնատարի պահեստամասեր
+                                        <span>Բեռնատարի պահեստամասեր</span>
                                         <ul className="truck">
                                             {
                                                 this.props.auto.truck.map((mark, i) => {
