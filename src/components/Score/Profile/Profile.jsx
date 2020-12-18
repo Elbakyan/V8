@@ -8,7 +8,7 @@ import {
     faCarBattery,
     faQuestionCircle,
     faHeart,
-    faEnvelopeOpenText
+    faEnvelopeOpenText, faWrench, faToolbox
 } from "@fortawesome/free-solid-svg-icons";
 import {Link,Route, Switch} from "react-router-dom";
 import ScoreList from "../ScoreList/ScoreList";
@@ -101,7 +101,7 @@ class Profile extends React.Component{
                                 <li>
                                     <Link to='/score/account/auto_service'>
                                         <div className="icon">
-                                            <FontAwesomeIcon icon={faQuestionCircle}/>
+                                            <FontAwesomeIcon icon={faWrench}/>
                                         </div>
                                         Ծառայություներ
                                     </Link>
@@ -109,9 +109,9 @@ class Profile extends React.Component{
                                 <li>
                                     <Link to='/score/account/price'>
                                         <div className="icon">
-                                            <FontAwesomeIcon icon={faQuestionCircle}/>
+                                            <FontAwesomeIcon icon={faToolbox}/>
                                         </div>
-                                        Պահեստամասեր և Աքսեսուարներ
+                                        Այլ
                                     </Link>
                                 </li>
                             </ul>
