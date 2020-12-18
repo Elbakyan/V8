@@ -26,7 +26,7 @@ class ServiceResult extends Component {
                                             <li>Անվանումը</li>
                                             <li>Հեռախոսահամրը</li>
                                             <li>Նկարագրություն</li>
-                                            <li>Աշխատանքին օրեր</li>
+                                            <li>Աշխատանքին օր․ և ժ․</li>
                                             <li>Հասցե</li>
                                         </ul>
                                        {
@@ -81,6 +81,7 @@ class ServiceResult extends Component {
                                                                    )
                                                                })
                                                            }
+                                                           <li>{res['work_to'] + '-' + res['work_from']}</li>
                                                        </div>
                                                        <div className="service__address">
                                                            <li>{res.sircle}</li>

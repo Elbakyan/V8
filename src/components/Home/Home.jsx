@@ -93,7 +93,7 @@ class Home extends React.Component {
                 <Slider img={this.state.img}/>
 
                 {
-                    this.state.auto?
+                    this.state.auto != false?
                         <div>
                             <DecorTitle title='Ավտոմեքենաներ' />
                             <div className="container">
