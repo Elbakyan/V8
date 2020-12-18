@@ -20,7 +20,7 @@ import StoreInfo from "../StoreInfo/StoreInfo";
 import ScoreListGlobal from "./ScoreListGlobal";
 import ServiceResult from "./ServiceResult";
 import AccessoriesResult from "./AccessoriesResult";
-import {SearchAccessories, SearchAccessoriesLink} from "../../redux/Service/action";
+import {SearchAccessories, SearchAccessoriesLink, SearchService} from "../../redux/Service/action";
 
 
 class Result extends Component {
@@ -31,7 +31,14 @@ class Result extends Component {
         }
     }
     componentDidMount() {
-        this.props.dispatch(SearchAccessoriesLink(window.location.pathname))
+        let link = window.location.pathname.split('/')[window.location.pathname.split('/').length - 2];
+        let id = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1];
+        if (link === 'accessoris') {
+            this.props.dispatch(SearchAccessories(id))
+        }
+        if (link === 'service') {
+            this.props.dispatch(SearchService(id))
+        }
     }
 
     SearchAll = (e) => {
@@ -107,16 +114,16 @@ class Result extends Component {
                         <ScoreList />
                     </div>
                 </Route>
-                <Route path={'/search/result/store/' + this.props.search.id}>
+                <Route  path={'/search/result/store/' + this.props.search.id}>
                     <StoreInfo />
                 </Route>
                 <Route path={'/search/result/parts/' + this.props.search.link}>
                     <ScoreListGlobal/>
                 </Route>
-                <Route  path={this.props.service.link? this.props.service.link: '/search/result/service'}>
+                <Route path={this.props.service.link? this.props.service.link: '/search/result/service'}>
                     <ServiceResult/>
                 </Route>
-                <Route exact  path={this.props.service.accessoriesLink? this.props.service.accessoriesLink: '/search/result/accessoris'}>
+                <Route path={this.props.service.accessoriesLink? this.props.service.accessoriesLink: '/search/result/accessoris'}>
                     <AccessoriesResult />
                 </Route>
                 <Footer />

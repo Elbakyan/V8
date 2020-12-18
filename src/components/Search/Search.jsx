@@ -62,10 +62,15 @@ class Search extends Component {
                 }
                 <form onSubmit={this.Search}>
                     <div className="select">
-                        <DefaultSelect data={parts} name='maser'/>
+                        {/*<DefaultSelect data={parts} name='maser'/>*/}
+                        <select name="" id="">
+                            <option value="">
+                                Պահեստամաս
+                            </option>
+                        </select>
                         <span><FontAwesomeIcon icon={faCheck} /></span>
                     </div>
-                    <input type="text" placeholder='Մուտքագրեք դետալի կոդը կամ անվանումը' autoComplete='on' ref={this.SearchRef} name='code'/>
+                    <input type="text" placeholder='Մուտքագրեք դետալի կոդը' autoComplete='on' ref={this.SearchRef} name='code'/>
                     <label>
                         <FontAwesomeIcon icon={faSearch} />
                         <input type="submit"/>
