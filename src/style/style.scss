@@ -126,7 +126,7 @@ body{
   margin: 0 auto;
   transition: .5s;
   position: fixed;
-  top: 50px;
+  top: 100px;
   left: 0;
   padding: 0 50px;
   z-index: 1500;
@@ -137,5 +137,5 @@ body{
 
 @keyframes alert {
   from {top:0;opacity: 0}
-  to {top:120px;opacity: 1}
+  to {top:100px;opacity: 1}
 }

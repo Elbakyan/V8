@@ -6,13 +6,15 @@ import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import {GetMyPartAccessoris, GetMyService, SearchMyLink} from "../../redux/Service/action";
 import '../AutoService/AutoService.scss'
+import Art from "../Alert";
 
 class Accessories extends Component {
     constructor(props) {
         super(props);
         this.state = {
             desc: [],
-            activeStore:[]
+            activeStore:[],
+            alert: false
         }
     }
     componentDidMount() {
@@ -24,16 +26,28 @@ class Accessories extends Component {
         let data = new FormData(e.target);
         POST(Url.partsAddAndAccessories,data).then(res => {
             if(res){
+                this.setState({
+                    alert: true
+                })
                 this.props.dispatch(GetMyPartAccessoris())
+                setTimeout(() => {
+                    this.setState({
+                        alert: false
+                    })
+                },3000)
             }
         })
     }
     render() {
-        console.log(this.props.service)
         return(
             <div className='formAutoService'>
+                {
+                    this.state.alert?
+                        <Art type='success' content='Տվյալները փոփոխված են․' />:''
+                }
                 <nav className="formAutoService__list">
                     <form onSubmit={this.AddServices}>
+
                         <ul className="formAutoService__score_list">
                             {
                                 this.props.score.scoreList.map((el, i) => {
@@ -47,7 +61,6 @@ class Accessories extends Component {
                                                     value={el.id}
                                                     name='score[]'
                                                     onChange={(e) => {
-                                                        console.log(e.target.classList)
                                                         let storsCheck = document.querySelectorAll(`.${e.target.classList[0]}`)
                                                         storsCheck.forEach(el => {
                                                             if (el.classList[1] !== e.target.classList[1] && el.checked == true) {
