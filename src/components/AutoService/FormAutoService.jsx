@@ -6,13 +6,15 @@ import {POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import {GetMyService} from "../../redux/Service/action";
 import './AutoService.scss'
+import Art from "../Alert";
 
 class FormAutoService extends Component {
     constructor(props) {
         super(props);
         this.state = {
             desc: [],
-            activeStore:[]
+            activeStore:[],
+            alert:false
         }
     }
     componentDidMount() {
@@ -25,6 +27,14 @@ class FormAutoService extends Component {
         POST(Url.addServices,data).then(res => {
             if(res){
                 this.props.dispatch(GetMyService())
+                this.setState({
+                    alert:true
+                })
+                setTimeout(()=>{
+                    this.setState({
+                        alert:false
+                    })
+                },3000)
             }
         })
     }
@@ -139,6 +149,9 @@ class FormAutoService extends Component {
                                     })
                                 }
                             </ul>
+                            {
+                                this.state.alert?<Art type={'success'} content={'Տվյալները փոփոխված են․'}/>:''
+                            }
                             {
                                 this.state.activeStore.length >=1?
                                 <div className="formAutoService__button">
