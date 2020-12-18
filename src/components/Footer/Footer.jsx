@@ -93,7 +93,7 @@ export default class Footer extends  React.Component {
                         </ul>
                         <div className='Designed_Elbakyan'>
                             <span>
-                                Copyright  2016-2020. All rights reserved.Elbakyan Soft.<sup>&copy;</sup>
+                                Copyright  2016-2020.<a href="https://www.facebook.com/ElbakyanSoft" target="_blank">All rights reserved.Elbakyan Soft</a> .<sup>&copy;</sup>
                             </span>
                         </div>
                     </nav>

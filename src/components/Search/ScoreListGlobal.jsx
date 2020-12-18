@@ -24,6 +24,7 @@ class ScoreListGlobal extends Component {
         data.append('type', dataArray[0])
         this.props.dispatch(SearchMarkModel(data))
     }
+
     scrollActive = (e)=>{
             let scrollTop = document.body.scrollHeight
             if(window.scrollY >= 200){
@@ -31,8 +32,9 @@ class ScoreListGlobal extends Component {
             }else{
                 this.scrollBar.classList.remove('scrollActive')
             }
-
     }
+
+
     componentWillUnmount() {
         window.removeEventListener('scroll',this.scrollActive)
     }
