@@ -73,7 +73,7 @@ class GetRequest extends Component{
                 this.props.dispatch(GetRequst())
             }
         })
-        console.log()
+
         if(e.target.dataset.scroll){
             this.scroll()
         }
