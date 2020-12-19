@@ -666,7 +666,22 @@
         }
       }
     }
+    &-body{
+      max-height: 500px;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
 
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #2727ab;
+        outline: 1px solid silver;
+      }
+    }
       .service_items{
         width: 100%;
         height: 100px;

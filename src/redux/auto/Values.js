@@ -13,74 +13,98 @@ export const royle = [
     }
 ];
 
+
 export  const color = [
     {
         id:0,
         name:'Գույն․․․',
-        color:'#000000'
     },
     {
         id:1,
         name:'Կարմիր',
-        color:'#FF0000'
     },
     {
         id:2,
         name:'Նարնջագույն',
-        color:'#FF8000'
     },
     {
         id:3,
         name:'Դեղին',
-        color:'#FFFF00'
     },
     {
         id:4,
         name:'Դեղնականաչ',
-        color:'#80FF00'
     },
     {
         id:5,
         name:'Կանաչ',
-        color:'#00FF00'
     },
     {
         id:6,
         name:'Զմրուխտ',
-        color:'#00FF80'
     },
     {
         id:6,
         name:'Կապտականաչ',
-        color:'#00FFFF'
     },
     {
         id:7,
         name:'Երկնագույն',
-        color:'#0080FF'
     },
     {
         id:8,
         name:'Կապույտ',
-        color:'#0000FF'
     },
     {
         id:9,
         name:'Մանուշակագույն',
-        color:'#8000FF'
     },
     {
         id:10,
         name:'Բաց վարդագույն',
-        color:'#FF00FF'
     },
     {
         id:11,
         name:'Վարդագույն',
-        color:'#FF0080'
     },
     {
         id:12,
+        name:'Սպիտակ',
+    },
+    {
+        id:13,
+        name:'Սև',
+    },
+    {
+        id:14,
+        name:'Արծաթագույն',
+    },
+    {
+        id:15,
+        name:'Մոխրագույն',
+    },
+    {
+        id:16,
+        name:'Վարդագույն',
+    },
+    {
+        id:17,
+        name:'Բեժ',
+    },
+    {
+        id:18,
+        name:'Սմբուկագույն',
+    },
+    {
+        id:19,
+        name:'Բալագույն',
+    },
+    {
+        id:20,
+        name:'Ոսկեգույն',
+    },
+    {
+        id:21,
         name:'Այլ',
         color:'#FF0080'
     }
@@ -186,15 +210,15 @@ export const transmission = [
         name:'Փոխանցման տուփ․․․'
     },
     {
-        id:1,
+        id:2,
         name:'Մեխանիկական'
     },
     {
-        id:1,
+        id:3,
         name:'Ավտոմատ'
     },
     {
-        id:1,
+        id:4,
         name:'Տիպտրոնիկ'
     }
 ];
