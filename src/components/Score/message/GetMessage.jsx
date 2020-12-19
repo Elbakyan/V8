@@ -101,26 +101,6 @@ class GetMessageClass extends Component{
         })
         return (
             <div className="getMessage">
-                {/*<div className="reload">*/}
-                {/*        <span style={this.state.styleRotate?{transform:"rotate(360deg)"}:{transform:"rotate(0deg)",transition: '0s'}}*/}
-                {/*            onClick={(e) => {*/}
-                {/*                this.props.dispatch(GetStatus(this.props.message.dialog))*/}
-                {/*            this.props.dispatch(GetMessage(this.props.message.messageId))*/}
-
-                {/*            this.setState({*/}
-                {/*                styleRotate: true*/}
-                {/*            })*/}
-                {/*            setTimeout(() => {*/}
-                {/*                this.setState({*/}
-                {/*                    styleRotate: false*/}
-                {/*                })*/}
-                {/*            },1500)*/}
-                {/*            this.scroll()*/}
-                {/*        }}>*/}
-                {/*            <FontAwesomeIcon icon={faSync} />*/}
-                {/*        </span>*/}
-                {/*</div>*/}
-
                 <div className="getMessage_users" ref={this.scrollRef} >
                     {
                         this.props.one_message.map((elem,i)=>{
@@ -171,6 +151,7 @@ class GetMessageClass extends Component{
                                 e.target.classList.toggle('message_reload_button')
                                 this.props.dispatch(GetMessage(this.props.id))
                                 this.props.dispatch(GetStatus(this.props.message.dialog))
+                                this.scroll();
                                 setTimeout(()=>{
                                     aa.classList.toggle('message_reload_button')
                                 },1000)
