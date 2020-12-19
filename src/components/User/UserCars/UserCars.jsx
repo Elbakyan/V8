@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt} from '@fortawesome/free-solid-svg-icons'
+import {faEdit, faTimes, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import { Redirect} from "react-router-dom";
 import './UserCars.scss'
 import SliderAuto from "../../SliderAuto/SliderAuto";
@@ -21,7 +21,8 @@ class UserCars extends Component {
         this.state ={
             message: '',
             Redirect: false,
-            RedirectSell: false
+            RedirectSell: false,
+            edit: false
 
         }
     }
@@ -134,11 +135,22 @@ class UserCars extends Component {
            }
        })
     }
+    Update = (e) => {
+        e.preventDefault();
+        let data = new FormData(e.target)
+        POST(Url.updateAutoInfo,data).then(res => {
+           if (res.status){
+               this.setState({
+                   edit:false
+               })
+               this.props.dispatch(GetAuto(this.props.user.id))
+           }
+       })
+
+    }
     render() {
-        // console.log(this.props.auto.auto)
         return (
             <div>
-                {/*{this.state.Redirect ? <Redirect to='/user/account/cars' /> : ''}*/}
                 {this.state.RedirectSell ? <Redirect to='/announcement' /> : ''}
                 <div className="User__cars">
 
@@ -231,56 +243,236 @@ class UserCars extends Component {
                                 </div>
 
                                 <div className='block-right'>
-                                    <div className="car_info">
-                                        <table className="auto_parapters">
-                                            <tbody>
-                                            <tr>
-                                                <td>Շարժիչը</td>
-                                                <td>{engine}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ձիաուժը</td>
-                                                <td>{power}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Տարեթիվ</td>
-                                                <td>{year}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Գույն</td>
-                                                <td>{color}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Փոխանցման տուփը</td>
-                                                <td>{transmission}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ղեկը</td>
-                                                <td>{royle}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Քարշակը</td>
-                                                <td>{traction}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Նույնացման համար (VIN)</td>
-                                                <td>{vin}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Վառելիքը</td>
-                                                <td>{fuel}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Թափքի տեսակը</td>
-                                                <td>{type}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>ՏՄ Տեսակը</td>
-                                                <td>{category}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                    <div className="edit">
+                                        {
+                                            this.state.edit?
+                                                <span onClick={() => this.setState({edit:false})}>
+                                                    <FontAwesomeIcon icon={faTimes} />
+                                                </span>
+                                                :
+                                                <span onClick={() => this.setState({edit:true})}>
+                                                    <FontAwesomeIcon icon={faEdit} />
+                                                </span>
 
+                                        }
+
+                                    </div>
+                                    <div className="car_info">
+                                        <form onSubmit={this.Update}>
+                                            <table className="auto_parapters">
+                                                <input type="hidden" name='id' value={id}/>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Շարժիչը</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <select name="engine">
+                                                                    {
+                                                                        this.props.auto.engine.map(res => {
+                                                                            if (res !== 'Շարժիչ․․․'){
+                                                                                return(
+                                                                                    <option selected={res == engine?'selected':''} value={res}>{res}</option>
+                                                                                )
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </td>:
+                                                            <td>{engine}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td>Ձիաուժը</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <input type="number" name='power' defaultValue={power}/>
+                                                            </td>:
+                                                            <td>{power}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td>Տարեթիվ</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <select name="year">
+                                                                    {
+                                                                        this.props.auto.year.map(res => {
+                                                                            if (res !== 'Տարեթիվ․․․'){
+                                                                                return(
+                                                                                    <option selected={res == year?'selected':''} value={res}>{res}</option>
+                                                                                )
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </td>:
+                                                            <td>{year}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+
+                                                    <td>Գույն</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <select name="color">
+                                                                    {
+                                                                        this.props.auto.color.map(res => {
+                                                                            if (res.name !== 'Գույն․․․'){
+                                                                                return(
+                                                                                    <option selected={res.name == color?'selected':''} value={res.name}>{res.name}</option>
+                                                                                )
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </td>:
+                                                            <td>{color}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td>Փոխանցման տուփը</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <select name="transmission">
+                                                                    {
+                                                                        this.props.auto.transmission.map(res => {
+                                                                            if (res.name !== 'Փոխանցման տուփ․․․'){
+                                                                                return(
+                                                                                    <option selected={res.name == transmission?'selected':''} value={res.name}>{res.name}</option>
+                                                                                )
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </td>:
+                                                            <td>{transmission}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td>Ղեկը</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <select name="royle">
+                                                                    {
+                                                                        this.props.auto.royle.map(res => {
+                                                                            if (res.name !== 'Ղեկ․․․'){
+                                                                                return(
+                                                                                    <option selected={res.name == royle?'selected':''} value={res.name}>{res.name}</option>
+                                                                                )
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </td>:
+                                                            <td>{royle}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td>Քարշակը</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <select name="traction">
+                                                                    {
+                                                                        this.props.auto.traction.map(res => {
+                                                                            if (res.name !== 'Քարշակ'){
+                                                                                return(
+                                                                                    <option selected={res.name == traction?'selected':''} value={res.name}>{res.name}</option>
+                                                                                )
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </td>:
+                                                            <td>{traction}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td>Նույնացման համար (VIN)</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <input type="text" name='vin' defaultValue={vin}/>
+                                                            </td>:
+                                                            <td>{vin}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td>Վառելիքը</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <select name="fuel">
+                                                                    {
+                                                                        this.props.auto.fuel.map(res => {
+                                                                            if (res.name !== 'Վառելիք․․․'){
+                                                                                return(
+                                                                                    <option selected={res.name == fuel?'selected':''} value={res.name}>{res.name}</option>
+                                                                                )
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </td>:
+                                                            <td>{fuel}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td>Թափքի տեսակը</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <select name="type">
+                                                                    {
+                                                                        this.props.auto.type.map(res => {
+                                                                            if (res.name !== 'Թափք․․․'){
+                                                                                return(
+                                                                                    <option selected={res.name == type?'selected':''} value={res.name}>{res.name}</option>
+                                                                                )
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </td>:
+                                                            <td>{type}</td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td>ՏՄ Տեսակը</td>
+                                                    {
+                                                        this.state.edit?
+                                                            <td>
+                                                                <select name="category">
+                                                                    {
+                                                                        this.props.auto.category.map(res => {
+                                                                            if (res.name !== 'ՏՄ Տեսակ․․․'){
+                                                                                return(
+                                                                                    <option selected={res.name == category?'selected':''} value={res.name}>{res.name}</option>
+                                                                                )
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </td>:
+                                                            <td>{category}</td>
+                                                    }
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            {
+                                                this.state.edit?
+                                                    <div className='send'>
+                                                        <button>Հաստատել</button>
+                                                    </div>:''
+                                            }
+
+                                        </form>
                                         <div className="sell_cars">
                                             <div className="number_cars">
                                                 {

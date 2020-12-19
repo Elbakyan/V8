@@ -104,7 +104,6 @@ class Menu extends Component {
         })
     }
     render() {
-        console.log(this.props.menu.active)
         return (
             <div className="header_menu">
                 {

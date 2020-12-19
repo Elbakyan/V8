@@ -1,4 +1,5 @@
 
+
 @import "src/style/var";
 @import "../../../style/All.scss";
 @import "../../../style/var.scss";
@@ -117,15 +118,63 @@
       //align-items: center;
       justify-content: center;
       //border: 1px solid red;
-
+      .edit{
+        width: 80%;
+        font-size: 22px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        span{
+          cursor: pointer;
+          position: relative;
+          &:before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+          }
+        }
+      }
       .car_info{
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        input{
+          width: 200px;
+          border: 1px solid silver;
+          padding: 5px;
+        }
+        select{
+          width: 200px;
+          padding: 5px;
+          border: 1px solid silver;
+        }
+        form{
+          width: 80%;
+
+          .send{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+
+            button{
+              background-color: #143645;
+              color: #fff;
+              transition: .5s;
+
+              &:hover{
+                background-color: #16638a;
+              }
+            }
+          }
+        }
+
         .auto_parapters{
           margin: 20px 0;
-          width: 80%;
+          width: 100%;
+
           >tbody{
             width: 50%;
             >tr{
