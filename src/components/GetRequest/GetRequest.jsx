@@ -68,7 +68,6 @@ class GetRequest extends Component{
         let id = e.target.dataset.id
         let data = new FormData()
         data.append('get', id);
-        console.log(data)
         POST(Url.statusrequest,data).then(res=>{
             if(res){
                 this.props.dispatch(GetRequst())
@@ -213,6 +212,7 @@ class GetRequest extends Component{
                                         e.target.classList.toggle('message_reload_button')
 
                                         this.props.dispatch(GetRequst())
+                                        this.scroll()
                                         setTimeout(()=>{
                                             aa.classList.toggle('message_reload_button')
                                         },1000)
@@ -365,6 +365,7 @@ class GetRequest extends Component{
                                                                     let aa = e.target
                                                                     e.target.classList.toggle('message_reload_button')
                                                                     this.props.dispatch(GetRequst())
+                                                                    this.scroll()
                                                                     setTimeout(()=>{
                                                                         aa.classList.toggle('message_reload_button')
                                                                     },1000)

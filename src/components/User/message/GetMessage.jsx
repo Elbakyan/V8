@@ -150,6 +150,7 @@ class GetMessageClass extends Component{
                                 e.target.classList.toggle('message_reload_button')
                                 this.props.dispatch(GetMessage(this.props.user.id))
                                 this.props.dispatch(GetStatus(this.props.message.dialog))
+                                this.scroll()
                                 setTimeout(()=>{
                                     aa.classList.toggle('message_reload_button')
                                 },1000)
