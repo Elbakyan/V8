@@ -59,10 +59,10 @@ class Favorite extends Component {
                             return (
                                 <div className="result_auto" key={i}>
                                     <div className="watch">
-                                        <p>
-                                            <span><FontAwesomeIcon icon={faEye}/></span>
-                                            <span>{auto.watch}</span>
-                                        </p>
+                                        {/*<p>*/}
+                                        {/*    <span><FontAwesomeIcon icon={faEye}/></span>*/}
+                                        {/*    <span>{auto.watch}</span>*/}
+                                        {/*</p>*/}
                                         <span className="favorite_block" data-id={auto.id} onClick={this.Favorite}>
                                             <span data-id={auto.id}>
                                                 {

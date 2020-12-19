@@ -13,7 +13,6 @@ export const royle = [
     }
 ];
 
-
 export  const color = [
     {
         id:0,
@@ -227,7 +226,6 @@ export const year = (()=>{
     let temp = ["Տարեթիվ․․․"];
     let year = new Date().getFullYear();
     for (let i = year; i >= 1975; i--){
-
         temp.push(i);
     }
     return temp;

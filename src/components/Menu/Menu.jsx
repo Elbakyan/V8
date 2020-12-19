@@ -135,7 +135,7 @@ class Menu extends Component {
 
                             </li>
                             <li className="auto_parts"  onClick={this.open}>
-                                <span data-counter={1} className='menu_button'>Մասեր</span>
+                                <span data-counter={1} className='menu_button'>Պահեստամասեր</span>
                                 <div className='parts_on open' data-counter={1} style={{display:'none'}} ref={el => this.autoParts = el}>
                                 <ul className="auto_parts_block openX flex" data-close={1}>
                                     <li>
@@ -215,7 +215,7 @@ class Menu extends Component {
                                 </div>
                             </li>
                             <li className="auto_service"  onClick={this.open}>
-                                 <span data-counter={2} className='menu_button'>Ծառայություն</span>
+                                 <span data-counter={2} className='menu_button'>Ծառայություններ</span>
                                 <div className="service_on open" style={{display:'none'}} ref={el => this.autoService = el}>
                                     <ul className="service">
                                         {
