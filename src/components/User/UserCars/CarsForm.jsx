@@ -229,6 +229,7 @@ class CarsForm extends Component {
                                                 e.target.value += ' '
                                         }
                                     }}
+
                                 />
                             </label>
                         </div>

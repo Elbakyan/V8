@@ -465,47 +465,71 @@ class UserCars extends Component {
                                                 </tr>
                                                 </tbody>
                                             </table>
+
                                             {
                                                 this.state.edit?
                                                     <div className='send'>
+                                                        {
+                                                            this.state.edit?
+                                                                <div className="items">
+                                                                    <label className='auto__number'>
+                                                                        <DefaultInput
+                                                                            type='text'
+                                                                            name='number'
+                                                                            placeholder='XX YY XXX'
+                                                                            defaultValue={number}
+                                                                            onInput={(e) =>{
+                                                                                switch (e.target.value.length){
+                                                                                    case 2:
+                                                                                        e.target.value += ' '
+                                                                                    case 6:
+                                                                                        e.target.value += ' '
+                                                                                }
+                                                                            }}
+                                                                        />
+                                                                    </label>
+                                                                </div>:''
+                                                        }
                                                         <button>Հաստատել</button>
-                                                    </div>:''
+                                                    </div>:
+                                                    <div className="number_cars">
+                                                        <span>{number}</span>
+                                                    </div>
                                             }
+
 
                                         </form>
-                                        <div className="sell_cars">
-                                            <div className="number_cars">
-                                                {
-                                                    number?<span>{number}</span>:<span>XX VV XXX</span>
-                                                }
+                                        {
+                                            this.state.edit?'':
+                                                <div className="sell_cars">
 
-                                            </div>
-                                            {
-                                                +state === 0?
-                                                <DefaultBtn
-                                                    onClick={this.openSell}
-                                                    name='Վաճառել'
-                                                    width="200px"
-                                                    className={'sell_user_car' + id}
-                                                    type='submit'
-                                                    background='#143645'
-                                                    color='#ffffff'
-                                                    light={30}
-                                                />:
-                                                    <DefaultBtn
-                                                        name='Հրաժարվել Վաճառքից'
-                                                        width="200px"
-                                                        type='submit'
-                                                        background='#143645'
-                                                        color='#ffffff'
-                                                        light={30}
-                                                        id={id}
-                                                        onClick={this.RefuseSell}
-                                                    />
+                                                    {
+                                                        +state === 0?
+                                                            <DefaultBtn
+                                                                onClick={this.openSell}
+                                                                name='Վաճառել'
+                                                                width="200px"
+                                                                className={'sell_user_car' + id}
+                                                                type='submit'
+                                                                background='#143645'
+                                                                color='#ffffff'
+                                                                light={30}
+                                                            />:
+                                                            <DefaultBtn
+                                                                name='Հրաժարվել Վաճառքից'
+                                                                width="200px"
+                                                                type='submit'
+                                                                background='#143645'
+                                                                color='#ffffff'
+                                                                light={30}
+                                                                id={id}
+                                                                onClick={this.RefuseSell}
+                                                            />
 
-                                            }
+                                                    }
 
-                                        </div>
+                                                </div>
+                                        }
                                         <div className={'sell_user_car sell_user_car' + id + ' sell_user_car_open'}>
                                             {/*<p style={{color: 'red'}}>{this.state.message}</p>*/}
                                             <form id="sellCar" onSubmit={this.SellAuto}>
