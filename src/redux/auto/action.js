@@ -39,9 +39,11 @@ export function GetAllModel(){
 
 export function GetModel(e = 1) {
     return async (dispach) => {
+
         let id = e.target === undefined ? e :e.target.selectedIndex;
         let data = new FormData()
         data.append('id',  id);
+        console.log(e.target)
         POST(Url.model, data).then(data=> {
             data.unshift({
                 id:"0",

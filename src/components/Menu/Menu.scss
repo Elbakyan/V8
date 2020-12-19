@@ -53,6 +53,7 @@
           background: #d2e3f4;
         }
       }
+
       width: 100%;
       display: flex;
       .auto_parts,{
@@ -186,9 +187,13 @@
           }
         }
       }
+      .active_menu_nav{
+        background: rgba(183, 182, 182, 0.3);
+      }
     }
   }
 }
+
 @media(max-width:1400px){
   .header_menu{
     .menu{
@@ -198,5 +203,6 @@
     }
   }
 }
+
 @import "_media";
 

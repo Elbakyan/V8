@@ -12,6 +12,7 @@ import {
     SearchService,
     SearchServiceLink
 } from "../../redux/Service/action";
+import {MenuActive} from "../../redux/Menu/action";
 
 class Menu extends Component {
 
@@ -27,10 +28,8 @@ class Menu extends Component {
         }
     }
     outMenu = e =>{
-
             this.autoParts.style.display = 'none';
             this.autoService.style.display = 'none';
-
     }
     open = e => {
         let overley = document.querySelector('.overley')
@@ -64,11 +63,13 @@ class Menu extends Component {
 
     }
     GetCarStore = (e) => {
+
         let data = new FormData();
         data.append('id', e.target.dataset.id)
         data.append('type', e.target.dataset.type)
         this.props.dispatch(SearchMarkModel(data))
         this.props.dispatch(GetSearchMarkModelLink(e.target.dataset.type + '/' + e.target.dataset.id))
+        this.props.dispatch(MenuActive(e.target.dataset.id,e.target.dataset.type))
         this.setState({
             redirect: true,
         })
@@ -85,8 +86,11 @@ class Menu extends Component {
     }
 
     SearchService = (e) => {
+        console.log(e.target.dataset.id)
         this.props.dispatch(SearchService(e.target.dataset.id))
         this.props.dispatch(SearchServiceLink('/search/result/service/' + e.target.dataset.id))
+        this.props.dispatch(MenuActive(e.target.dataset.id,e.target.dataset.type))
+
         this.setState({
             serviceRedirect: true,
         })
@@ -94,12 +98,13 @@ class Menu extends Component {
     SearchServiceLink = (e) =>{
         this.props.dispatch(SearchPartAccessoris(e.target.dataset.id))
         this.props.dispatch(SearchAccessoriesLink('/search/result/accessoris/' + e.target.dataset.id))
+        this.props.dispatch(MenuActive(e.target.dataset.id,e.target.dataset.type))
         this.setState({
             accessoriesRedirect: true,
         })
     }
     render() {
-
+        console.log(this.props.menu.active)
         return (
             <div className="header_menu">
                 {
@@ -138,7 +143,16 @@ class Menu extends Component {
                                         <ul className="parts">
                                             {
                                                 this.props.service.partsAndAccessories.map(({id,name}, i) => (
-                                                    <li key={i} data-id={id} onClick={this.SearchServiceLink}>
+                                                    <li
+                                                        key={i}
+                                                        data-type={'accessories'}
+                                                        data-id={id}
+                                                        onClick={this.SearchServiceLink}
+                                                        className={
+                                                            this.props.menu.active[1]===id && this.props.menu.active[0]==='accessories'?
+                                                                'active_menu_nav':'desActive_menu_nav'
+                                                        }
+                                                    >
                                                         {name}
                                                     </li>
                                                 ))
@@ -154,7 +168,16 @@ class Menu extends Component {
                                                 this.props.auto.mark.map((mark, i) => {
                                                     if(i !== 0){
                                                         return (
-                                                            <li key={i} data-mark={mark.name} data-id={mark.id} data-type='car' onClick={this.GetCarStore}>
+                                                            <li
+                                                                key={i}
+                                                                data-mark={mark.name}
+                                                                data-id={mark.id} data-type='car'
+                                                                onClick={this.GetCarStore}
+                                                                className={
+                                                                    this.props.menu.active[1]===mark.id && this.props.menu.active[0]==='car'?
+                                                                        'active_menu_nav':'desActive_menu_nav'
+                                                                }
+                                                            >
                                                                 {mark.name}
                                                             </li>
                                                         )
@@ -170,7 +193,16 @@ class Menu extends Component {
                                             {
                                                 this.props.auto.truck.map((mark, i) => {
                                                     return (
-                                                        <li key={i} data-mark={mark.name} data-id={mark.id} data-type='truck' onClick={this.GetCarStore}>
+                                                        <li
+                                                            key={i}
+                                                            data-mark={mark.name}
+                                                            data-id={mark.id} data-type='truck'
+                                                            onClick={this.GetCarStore}
+                                                            className={
+                                                                this.props.menu.active[1]===mark.id && this.props.menu.active[0]==='truck'?
+                                                                    'active_menu_nav':'desActive_menu_nav'
+                                                            }
+                                                        >
                                                             {mark.name}
                                                         </li>
                                                     )
@@ -191,7 +223,16 @@ class Menu extends Component {
                                             this.props.service.service.map(({id,name},i)=> {
 
                                                 return (
-                                                    <li key={id} data-id={id} onClick={this.SearchService}>
+                                                    <li
+                                                        key={id}
+                                                        data-id={id}
+                                                        data-type={'service'}
+                                                        onClick={this.SearchService}
+                                                        className={
+                                                            this.props.menu.active[1]===id && this.props.menu.active[0]==='service'?
+                                                            'active_menu_nav':'desActive_menu_nav'
+                                                        }
+                                                    >
                                                         {name}
                                                     </li>
                                                 )

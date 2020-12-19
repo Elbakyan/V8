@@ -4,6 +4,7 @@ import {SearchService, SearchServiceLink} from "../../redux/Service/action";
 import DecorTitle from "../Decor/DecorTitle";
 import {Link} from "react-router-dom";
 import {GetStoreID} from "../../redux/search/action";
+import {MenuActive} from "../../redux/Menu/action";
 
 class ServiceResult extends Component {
     constructor(props) {
@@ -12,6 +13,11 @@ class ServiceResult extends Component {
     }
     componentDidMount() {
         this.props.dispatch(SearchService(window.location.pathname.split('/').pop()))
+        this.props.dispatch(MenuActive(window.location.pathname.split('/').pop(),'service'))
+    }
+
+    componentWillUnmount() {
+        this.props.dispatch(MenuActive(window.location.pathname.split('/').pop(),''))
     }
 
     render(){

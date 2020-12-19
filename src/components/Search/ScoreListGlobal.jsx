@@ -7,6 +7,7 @@ import {faCheckCircle, faTimesCircle} from "@fortawesome/free-regular-svg-icons"
 import DecorTitle from "../Decor/DecorTitle";
 import {faFacebookF} from "@fortawesome/free-brands-svg-icons";
 import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {MenuActive} from "../../redux/Menu/action";
 
 class ScoreListGlobal extends Component {
     constructor(props) {
@@ -23,6 +24,10 @@ class ScoreListGlobal extends Component {
         data.append('id', dataArray[1])
         data.append('type', dataArray[0])
         this.props.dispatch(SearchMarkModel(data))
+
+        this.props.dispatch(MenuActive(window.location.pathname.split('/').pop(),window.location.pathname.split('/')[window.location.pathname.split('/').length - 2]))
+        // console.log(window.location.pathname.split('/').pop())
+        // console.log(window.location.pathname.split('/')[window.location.pathname.split('/').length - 2])
     }
 
     scrollActive = (e)=>{

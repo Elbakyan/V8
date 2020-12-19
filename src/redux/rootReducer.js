@@ -10,6 +10,7 @@ import tmpReducer from "./tmp/tmpReducer";
 import SearchReducer from "./search/SearchReducer";
 import requestReducer from "./GetRequest/requestReducer";
 import serviceReducer from "./Service/serviceReducer";
+import MenuReducer from "./Menu/MenuReducer";
 export default combineReducers({
     user: UserExistReducer,
     location: locationReducer,
@@ -22,4 +23,5 @@ export default combineReducers({
     search: SearchReducer,
     request:requestReducer,
     service: serviceReducer,
+    menu:MenuReducer
 })
