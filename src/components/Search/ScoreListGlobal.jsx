@@ -60,7 +60,7 @@ class ScoreListGlobal extends Component {
                                 <li>Հասցե</li>
                             </ul>
                         </div>
-                        <div className='score_list_info__body '>
+                        <div className='score_list_info__body'>
                             {
                                 this.props.MarkModelResult.status ? '' :
                                     <div className="message">

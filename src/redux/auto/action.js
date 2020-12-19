@@ -43,13 +43,9 @@ export function GetModel(e = 1) {
         let id = e.target === undefined ? e :''
         let data = new FormData()
         if(e.target !== undefined){
-            // console.dir(e.target.childNodes[5].dataset.id)
-            // console.dir(e.target.childNodes[5].innerText)
-            // console.log(e.target.value)
             e.target.childNodes.forEach(el =>{
-                // console.log(e.target.value,el.innerText)
                 if(e.target.value === el.innerText){
-                     id = el.dataset.id
+                    id = el.dataset.id
                     console.log(id)
                 }
             })

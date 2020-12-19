@@ -38,7 +38,7 @@ class AccesoriesResult extends Component {
                                     </ul>
                                 </div>
 
-                                <div className={'score_list_global__body'}>
+                                <div className={'service__container-body'}>
                                     {
                                         this.props.service.searchPartAccessories.data.score.map((res, i) => {
                                             let hour = new Date().getHours()
