@@ -58,20 +58,22 @@ class Header extends React.Component{
     render() {
         return (
             <header style={{position: 'fixed'}}>
-                {
-                    this.props.user.status || this.props.score.score.status ?
-                        this.state.modal?
-                        <ModalRequest close={this.Close}/>:''
-                        :
-                        this.state.message?
-                            <div className='user_warning'>
-                                <Art type='warning' content='Հարցում ուղարկելու համար անհրաժեշտ է գրանցվել․․․․'/>
-                            </div>: ''
-                }
+                <div className='header__desktop'>
+                    {
+                        this.props.user.status || this.props.score.score.status ?
+                            this.state.modal?
+                                <ModalRequest close={this.Close}/>:''
+                            :
+                            this.state.message?
+                                <div className='user_warning'>
+                                    <Art type='warning' content='Հարցում ուղարկելու համար անհրաժեշտ է գրանցվել․․․․'/>
+                                </div>: ''
+                    }
                     <div className="header__log">
                         <img src={SITE_NAME + "/Server/img/header_logo.png"} alt="logo" onClick={this.OpenModal}/>
                     </div>
                     <Search />
+
                     {
                         this.props.user.status?
                             <div className="persional__info">
@@ -135,6 +137,11 @@ class Header extends React.Component{
                         }
 
                     </div>
+                </div>
+                <div className='header__phone'>
+                    <Search />
+                </div>
+
             </header>
         );
     }

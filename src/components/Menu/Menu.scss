@@ -20,6 +20,9 @@
   align-items: center;
   padding: 0 25px;
   z-index: 100;
+  @media (max-width: $ipade) {
+    top: 120px;
+  }
   .open{
     display: none;
   }
@@ -48,6 +51,9 @@
         font-weight: bold;
         font-size: 14px;
         transition: .3s;
+        @media (max-width: $ipade) {
+          font-size: 12px;
+        }
         &:hover{
           background: #d2e3f4;
         }
@@ -58,7 +64,7 @@
       .auto_parts,{
         position: relative;
         .auto_parts_block,{
-          width: 940px;
+
           display: flex;
           animation: auto_parts_block 1s linear;
           overflow: hidden;
@@ -81,6 +87,20 @@
             70%{
               opacity: 1;
               width: 940px;
+            }
+          }
+          @media (max-width: $ipade) {
+            flex-direction: column;
+            width: 300px;
+            height: 500px;
+            overflow: auto;
+            @keyframes auto_parts_block {
+              0%{
+                height: 0;
+              }
+              50%{
+                height: 500px;
+              }
             }
           }
           .parts,.cars,.truck,.service{
