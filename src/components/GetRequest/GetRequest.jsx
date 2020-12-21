@@ -388,7 +388,7 @@ class GetRequest extends Component{
                return (
                    <div className='message_users_component'>
                        <h2 className="message_request">
-                           Դուք դեռ չեք կատաել հարցում․․․
+                           Դուք դեռ չեք կատարել հարցում․․․
                        </h2>
                    </div>
                )
