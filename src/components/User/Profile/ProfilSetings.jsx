@@ -119,16 +119,16 @@ class ProfilSetings extends Component {
                                             defaultValue={this.props.user.data.name}
                                             placeholder='Անուն․․․'
                                             name='name'
-                                            width='48%'
+                                            width='60%'
                                         />
                                         <DefaultInput
                                             defaultValue={this.props.user.data.surname}
                                             type="text"
                                             placeholder='Ազգանուն․․․'
                                             name='surname'
-                                            width='48%'
+                                            width='60%'
                                         />
-                                        <label className='phone_style' style={{width:'48%'}}>
+                                        <label className='phone_style' style={{width:'60%'}}>
                                             <DefaultInput
                                                 type='number'
                                                 placeholder="Հեռախոսահամար"
@@ -151,29 +151,29 @@ class ProfilSetings extends Component {
                                             type="text"
                                             placeholder='E-mail․․․'
                                             name='email'
-                                            width='48%'
+                                            width='60%'
 
                                         />
                                         <DefaultInput
                                             type="password"
                                             placeholder='Հին Գաղտնաբառ․․․'
                                             name='old_password'
-                                            width='48%'
+                                            width='60%'
                                         />
                                         <DefaultInput
                                             type="password"
                                             placeholder='Նոր Գաղտնաբառ․․․'
                                             name='password'
-                                            width='48%'
+                                            width='60%'
                                         />
                                         <DefaultInput
                                             type="password"
                                             placeholder='Կրկնել Նոր Գաղտնաբառը․․․'
                                             name='password2'
-                                            width='48%'
+                                            width='60%'
                                         />
 
-                                        <label className='file row align-center' style={{width: '48%'}}>
+                                        <label className='file row align-center' style={{width: '60%'}}>
                                             <span className='file__name'>{this.state.imgName === ''? 'Ներբեռնել լուսանկար․․․': this.state.imgName}</span>
                                             <DefaultInput
                                                 onChange={(e) => {
