@@ -23,7 +23,8 @@ class ProfilSetings extends Component {
             messahe:'',
             modifideData:undefined,
             uploadeImg:undefined,
-            modifidePassword:undefined
+            modifidePassword:undefined,
+            alert:false
         }
     }
 
@@ -47,22 +48,30 @@ class ProfilSetings extends Component {
                 if (res.message.modifideData){
                     this.setState({
                         status: res.status,
-                        message: 'Ձեր տվյալները փոփոխված են․․․'
+                        message: 'Ձեր տվյալները փոփոխված են․․․',
+                        alert:true
                     })
                 }
                 btn.setAttribute('disabled','disabled')
                 setTimeout(() => {
                     window.history.back()
+                    this.setState({
+                        alert:false
+                    })
                     btn.removeAttribute('disabled')
                 },3000)
             }else{
                 this.setState({
                     status: res.status,
-                    message: res.message
+                    message: res.message,
+                    alert:true
                 })
                 btn.setAttribute('disabled','disabled')
                 setTimeout(() => {
                     window.history.back()
+                    this.setState({
+                        alert:false
+                    })
                     btn.removeAttribute('disabled')
                 },3000)
             }
@@ -81,14 +90,15 @@ class ProfilSetings extends Component {
             <div className="profile__setings">
                 <div className="Signin__alert">
                     {
-                        this.state.status === undefined ? '' :
-                            this.state.status ?
-                                <Art type={'success'}
-                                     width={50}
-                                     content={this.state.message} />
-                                : <Art type={'error'}
-                                       width={50}
-                                       content={this.state.message} />
+                        this.state.alert?
+                            this.state.status === undefined ? '' :
+                                this.state.status ?
+                                    <Art type={'success'}
+                                         width={50}
+                                         content={this.state.message} />
+                                    : <Art type={'error'}
+                                           width={50}
+                                           content={this.state.message} />:''
                     }
                 </div>
                 {
