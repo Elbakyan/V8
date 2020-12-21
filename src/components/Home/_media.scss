@@ -1,0 +1,160 @@
+//@import "../../style/All.scss";
+@import "../../style/var.scss";
+@media (max-width: $desktop){
+  header{
+    .header__log{
+      width: 25%;
+      min-width: 230px;
+      img{
+        max-width: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: $ipadePro){
+  header{
+    .header__log{
+      width: 25%;
+      img{
+        max-width: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+  .persional__info{
+    width: auto;
+    min-width:100px;
+    .persional__data{
+      .persional__header{
+        width: 100px;
+        .fullname{
+          display: none;
+        }
+
+
+        .img{
+
+        }
+        .fullname{
+          >span{
+            margin: 0 2px;
+          }
+
+        }
+      }
+
+      .persional__body{
+        width: 220px;
+        >nav{
+
+          li{
+
+            >div:nth-child(1){
+
+            }
+            >div:nth-child(2){
+
+            }
+
+            >span{
+            }
+          }
+        }
+
+
+        .persional__setings{
+          margin: 20px 0;
+          width: 100%;
+          display: flex;
+          color: white;
+          justify-content: flex-end;
+          padding-right: 50px;
+        }
+      }
+
+      .phone{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: $ipade){
+  header{
+    height: 120px;
+    .header__desktop{
+      .Search{
+        display: none;
+      }
+    }
+    .header__phone{
+      display: block;
+
+    }
+    .header__log{
+      width: 25%;
+      img{
+        max-width: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+  .persional__info{
+    width: auto;
+    min-width:100px;
+    .persional__data{
+      .persional__header{
+        width: 100px;
+        .fullname{
+          display: none;
+        }
+
+
+        .img{
+
+        }
+        .fullname{
+          >span{
+            margin: 0 2px;
+          }
+
+        }
+      }
+
+      .persional__body{
+        width: 220px;
+        >nav{
+
+          li{
+
+            >div:nth-child(1){
+
+            }
+            >div:nth-child(2){
+
+            }
+
+            >span{
+            }
+          }
+        }
+
+
+        .persional__setings{
+          margin: 20px 0;
+          width: 100%;
+          display: flex;
+          color: white;
+          justify-content: flex-end;
+          padding-right: 50px;
+        }
+      }
+
+      .phone{
+        width: 100%;
+      }
+    }
+  }
+}
