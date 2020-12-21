@@ -2,9 +2,9 @@
 @import "../../style/var.scss";
 
 header{
-  background-color: $main-color;
+  background: $main-color;
   width: 100%;
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -180,6 +180,7 @@ header{
 
   .result_auto{
     width: 16%;
+    min-width: 200px;
     height: 250px;
     background: #fff8f8;
     box-shadow: 5px 5px 5px #acacac;

@@ -60,6 +60,7 @@ class StoreInfo extends Component{
             })
         },1500)
     }
+
     onEnterPress = (e) => {
         if(e.keyCode == 13 && e.shiftKey == false) {
             e.preventDefault();
@@ -78,8 +79,6 @@ class StoreInfo extends Component{
                 })
             },1500)
         }
-
-
     }
     OpenClose = (to, from) => {
         let hourse = new Date().getHours(),

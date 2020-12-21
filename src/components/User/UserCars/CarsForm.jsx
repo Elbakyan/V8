@@ -146,7 +146,6 @@ class CarsForm extends Component {
                         <div className="items">
                             <span>*</span>
                             <select name="engine">
-
                                 {
                                    this.props.auto.engine.map((val,id) => {
                                        return (

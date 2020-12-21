@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import './Home.scss'
+
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import {connect} from "react-redux";
 import Search from "../Search/Search";
@@ -14,7 +14,7 @@ import ModalRequest from "../Modal/ModalRequest";
 import Art from "../Alert";
 import {GetRequst} from "../../redux/GetRequest/action";
 import PersionalData from "../User/Profile/PersionalData";
-
+import './Home.scss'
 
 
 

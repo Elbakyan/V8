@@ -21,7 +21,6 @@ class Header extends React.Component{
                             <img src={SITE_NAME + "/Server/img/logo_1.svg"} alt=""/>
                         </Link>
                     </div>
-
                 </div>
             </header>
         );

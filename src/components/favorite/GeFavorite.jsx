@@ -12,9 +12,6 @@ class GeFavorite extends Component {
         }
     }
 
-
-
-
     render() {
         return (
             <div className='auto_content'>
@@ -23,6 +20,7 @@ class GeFavorite extends Component {
         )
     }
 }
+
 const MapStateToProps = state => state;
 const MainGeFavorite = connect(MapStateToProps)(GeFavorite)
 export default MainGeFavorite;

@@ -1,24 +1,27 @@
-@media (max-width: $desktop) {
-  .Search{
-    > form {
-      height: 35px;
-
-      input[type=text]{
-        font-size: 12px;
-      }
-      .select{
-        select{
-          font-size: 14px;
-          width: 130px;
-        }
-      }
-      label{
-        right: 25%;
-        font-size: 16px;
-      }
-    }
-  }
-}
-
-
-
+//@media (max-width: $desktop) {
+//  .Search{
+//    //width: 50%;
+//    //width: 600px;
+//    > form {
+//      height: 35px;
+//      //width: 80%;
+//      input[type=text]{
+//        font-size: 12px;
+//        width: 20%;
+//      }
+//      .select{
+//        select{
+//          font-size: 14px;
+//          //width: 130px;
+//        }
+//      }
+//      label{
+//        right: 25%;
+//        font-size: 16px;
+//      }
+//    }
+//  }
+//}
+//
+//
+//
