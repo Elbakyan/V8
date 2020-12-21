@@ -1,4 +1,4 @@
-
+@import "../../style/var";
 
 .auto_content{
   width: 100%;
@@ -8,66 +8,6 @@
   .col{
     flex-direction: column;
   }
-  //.result{
-  //  width: 100%;
-  //  height: 100%;
-  //  display: flex;
-  //  flex-wrap: wrap;
-  //  justify-content: flex-start;
-  //  overflow-y: auto;
-  //  padding: 10px 0;
-  //  position: relative;
-  //
-  //  .result_auto{
-  //    display: flex;
-  //    flex-direction: column;
-  //    width: 30%;
-  //    height: 250px;
-  //    box-shadow: 0px 0px 3px ;
-  //    border-radius: 5px;
-  //    padding: 30px 10px 0px 10px;
-  //    margin:  1%;
-  //    transition: .3s;
-  //    position: relative;
-  //    .favorite_block{
-  //      width: 20px;
-  //      height: 20px;
-  //      top: 5px;
-  //      right: 10px;
-  //
-  //      font-size: 20px;
-  //      color:#f91340c2;
-  //      cursor: pointer;
-  //      z-index: 1000;
-  //      >span{
-  //        z-index: 900;
-  //      }
-  //    }
-  //
-  //    &:hover {
-  //      box-shadow: 0px 0px 8px;
-  //      //transform: scale(1.05);
-  //    }
-  //
-  //    .img{
-  //      width: 100%;
-  //      height: 150px;
-  //      background-size: contain;
-  //      background-position: center;
-  //      background-repeat: no-repeat;
-  //    }
-  //    >div{
-  //      display: flex;
-  //      justify-content: space-between;
-  //      margin-bottom: 10px;
-  //      >h2{
-  //        font-size: 18px;
-  //      }
-  //    }
-  //  }
-  //
-  //}
-
   .result{
     width: 100%;
     height: 100%;
@@ -76,6 +16,15 @@
     justify-content: flex-start;
     overflow-y: auto;
     position: relative;
+    @media (max-width: $mobilee) {
+      &{
+
+        justify-content: center;
+        padding: 20px 0;
+
+
+      }
+    }
     &::-webkit-scrollbar {
       width: 10px;
     }
@@ -98,6 +47,13 @@
       position: relative;
       background: white;
       margin: 1%;
+      @media (max-width: $mobilee) {
+        &{
+          margin: 10px 0;
+          width: 80%;
+
+        }
+      }
 
       .favorite_block{
         width: 20px;

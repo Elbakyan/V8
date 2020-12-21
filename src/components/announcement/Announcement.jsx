@@ -3,7 +3,7 @@ import './Announcement.scss';
 import Header from "../Home/Header";
 import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDollarSign} from '@fortawesome/free-solid-svg-icons'
+import {faDollarSign, faSlidersH, faTimes} from '@fortawesome/free-solid-svg-icons'
 import DefaultInput from "../forms/inputs/DefaultInput";
 import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
@@ -22,7 +22,8 @@ class Announcement extends Component {
         super(props);
         this.state = {
             id: 1,
-            activePage: 15
+            activePage: 15,
+            show: false
         }
     }
 
@@ -64,6 +65,9 @@ class Announcement extends Component {
         this.props.sell.OneAuto = [];
         e.preventDefault();
         this.props.dispatch(GetSell(this.state.id,e.target))
+        this.setState({
+            show:false
+        })
     }
     handlePageChange(pageNumber) {
         this.setState({activePage: pageNumber});
@@ -76,6 +80,23 @@ class Announcement extends Component {
     render() {
         return (
             <section className="Announcement">
+                <div className="burger" onClick={() => {
+                    if (this.state.show){
+                        this.setState({
+                            show:false
+                        })
+                    }else {
+                        this.setState({
+                            show:true
+                        })
+                    }
+                }}>
+                    {
+                        this.state.show?
+                            <FontAwesomeIcon icon={faTimes}/>:
+                            <FontAwesomeIcon icon={faSlidersH}/>
+                    }
+                </div>
                 <Header />
                 <Menu />
                 <div className="content">
@@ -83,7 +104,10 @@ class Announcement extends Component {
 
                     </div>
                     <div className="container row justify-between">
-                        <form className="Announcement__search" onSubmit={this.Search}>
+
+                        <form className="Announcement__search" onSubmit={this.Search} style={
+                            this.state.show?{left: '0px'}: {left: '-100%'}
+                        }>
                             <div>
                                 <label >
                                     <DefaultSelect

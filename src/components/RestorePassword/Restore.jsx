@@ -4,6 +4,7 @@ import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import Art from "../Alert";
 import {Redirect} from "react-router-dom";
+import Header from "../User/Authentication/Header";
 
 
 
@@ -64,6 +65,7 @@ class Restore extends React.Component {
     render() {
         return (
             <div className='restore'>
+                <Header/>
                 {
                     this.state.redirect?
                         <Redirect to={this.props.type === 'user'? '/user/login': '/score/login'} />:''
@@ -89,7 +91,7 @@ class Restore extends React.Component {
                         :
                         <form className='send_code' onSubmit={this.SendMail}>
                             <input type="hidden" name='type' value={this.props.type}/>
-                            <input type="email" placeholder='E-mail' name='email'/>
+                            <input type="email" placeholder='E-mail' name='email' required/>
                             <button>Ուղարկել</button>
                         </form>
                 }

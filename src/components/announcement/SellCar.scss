@@ -10,6 +10,7 @@
   justify-content: flex-start;
   overflow-y: auto;
   position: relative;
+
   &::-webkit-scrollbar {
     width: 10px;
   }
@@ -32,6 +33,7 @@
     position: relative;
     background: white;
     margin: 1%;
+
 
     .favorite_block{
       width: 20px;
@@ -69,6 +71,7 @@
       }
     }
   }
+
 
 }
 

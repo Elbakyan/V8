@@ -103,7 +103,7 @@ select{
   }
 }
 .link{
-  color: lighten($main-color,30);
+  color: $main-color;
   font-size: 16px;
   padding: 5px 15px;
   transition: .3s;
