@@ -17,7 +17,9 @@ class Login extends React.Component{
                 {
                     this.props.status? <Redirect to={'/user/account'} /> : <Redirect to={'/user/login'} />
                 }
+
                 <Header/>
+
                 <div className="container row align-center justify-center">
                     <div className="Login__content col align-center justify-center">
                         <p className='message' style={this.props.status ?
@@ -28,6 +30,7 @@ class Login extends React.Component{
                             margin: '5px 0px',
                             color: '#565656'
                         }}>{this.props.message}</p>
+
                         <form className="col align-center justify-center" action={Url.login} method="POST">
                             <label className='phone_style'>
                                 <DefaultInput
@@ -46,6 +49,7 @@ class Login extends React.Component{
                                     }
                                 />
                             </label>
+
                             <DefaultInput
                                 type="password"
                                 placeholder='Գաղտնաբառ․․․'
@@ -66,6 +70,7 @@ class Login extends React.Component{
                                     className='Login__btn'
                                 />
                             </div>
+
                         </form>
 
                     </div>
