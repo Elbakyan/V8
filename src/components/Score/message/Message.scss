@@ -18,7 +18,11 @@
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
-
+    @media (max-width: $mobilee) {
+      &{
+        height: 5%;
+      }
+    }
     >span{
       padding: 10px;
       background: #0e6a99;
@@ -94,18 +98,7 @@
     overflow: auto;
     box-shadow: 0px 0px 0px 1px #acabab;
     position: relative;
-    //@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-    //  width: 0;
-    //  position: absolute;
-    //  z-index: 5;
-    //  //align-items: flex-end;
-    //  transition: 1s;
-    //  &:before{
-    //    content: '';
-    //    position: absolute;
-    //    right: 0;
-    //  }
-    //}
+
 
     &::-webkit-scrollbar {
       width: 2px;
@@ -123,8 +116,7 @@
       border: 3px solid #0e6a99;
     }
     .respondent_user{
-      width: 95%;
-      height: 70px;
+      width: 100%;
       background: $main-color;
       display: flex;
       align-items: center;
@@ -134,10 +126,7 @@
       position: relative;
       overflow: hidden;
       position: relative;
-      //@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-      //  display: none;
-      //  width: 70%;
-      //}
+
       &:first-child{
         margin-top: 5px;
       }
@@ -164,9 +153,6 @@
       .respondent_user_name{
         width: 70%;
         height:70px;
-        display: flex;
-        //justify-content: space-around;
-        //align-items: self-end;
         >div{
           &:nth-child(1){
             width: 80%;
