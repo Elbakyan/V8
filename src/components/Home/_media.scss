@@ -84,9 +84,25 @@
 @media (max-width: $ipade){
   header{
     height: 120px;
+
     .header__desktop{
       .Search{
         display: none;
+      }
+
+      .header__link{
+        //margin-left: 15px;
+        //letter-spacing: 2px;
+        font-size: 12px;
+        padding: 5px 7px;
+        &-message{
+          font-size: 15px;
+          padding: 5px 7px;
+          border-radius: 6px;
+          display: none;
+
+        }
+
       }
     }
     .header__phone{
