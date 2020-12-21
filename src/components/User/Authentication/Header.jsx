@@ -14,7 +14,7 @@ class Header extends React.Component{
     render() {
 
         return (
-            <header style={{position:"fixed"}}>
+            <header className="header__login" style={{position:"fixed"}}>
                 <div className="container ">
                     <div className="header__logo">
                         <Link to="/">
