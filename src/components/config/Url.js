@@ -79,6 +79,11 @@ export const Url = {
     getSliderImgAdmin: SITE_NAME + '/Server/get-slider-img-admin',
     delSliderImgAdmin: SITE_NAME + '/Server/del-slider-img-admin',
 
+    // Restore password
+
+    restore: SITE_NAME + '/Server/password-res',
+    changePassword: SITE_NAME + '/Server/change-password',
+
 }
 export default SITE_NAME;
 

@@ -134,6 +134,7 @@ class ProfilSetings extends Component {
                                                 placeholder="Հեռախոսահամար"
                                                 name='phone'
                                                 requred
+                                                defaultValue={this.props.user.data.phone}
                                                 onChange={
                                                     (e)=>{
                                                         let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);

@@ -57,6 +57,7 @@ class Login extends React.Component{
 
                             <div className="Login__links row align-end justify-between">
                                 <Link className='link' to='/user/sign-in'>Գրանցվել</Link>
+                                <Link className='link' to='/user/restore'>Վերականգնել</Link>
                                 <DefaultBtn
                                     name='Մուտք'
                                     type='submit'

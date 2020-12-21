@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import Loading from "../Loading";
 import Signin from "./Authentication/Signin";
 import {GetRequst} from "../../redux/GetRequest/action";
+import Restore from "../RestorePassword/Restore";
 
 
 
@@ -28,6 +29,9 @@ class User extends React.Component{
                    </Route>
                    <Route exact path='/user/sign-in'>
                        <Signin/>
+                   </Route>
+                   <Route exact path='/user/restore'>
+                       <Restore type='user'/>
                    </Route>
                    <Route path='/user/account'>
                        {

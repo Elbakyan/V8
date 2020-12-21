@@ -7,6 +7,7 @@ import Loading from "../Loading";
 import Signin from "./Authentication/Signin";
 import './Score.scss'
 import {GetRequst} from "../../redux/GetRequest/action";
+import Restore from "../RestorePassword/Restore";
 
 
 
@@ -24,6 +25,9 @@ class Score extends Component {
                     <Route exact path='/score/sign-in'>
                         <Signin/>
                     </Route>
+                        <Route exact path='/score/restore'>
+                            <Restore type='score'/>
+                        </Route>
                     <Route path='/score/account'>
                         {
                             this.props.score.score.status?
