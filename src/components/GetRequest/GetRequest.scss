@@ -11,15 +11,15 @@
       padding-top: 10px;
       width: 29.9%;
       //max-height: 80%;
-      //@media all and  (orientation: portrait){
-      //  width: 100%;
-      //  max-height: 100%;
-      //  background: #cfbbbb;
-      //  position: absolute;
-      //  z-index: 5;
-      //
-      //}
-      @media screen  and (orientation: landscape){
+      @media all and  (orientation: portrait){
+        width: 100%;
+        max-height: 100%;
+        background: #cfbbbb;
+        position: absolute;
+        z-index: 5;
+
+      }
+      @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
         width: 100%;
         max-height: 100%;
         background: #cfbbbb;
@@ -132,7 +132,7 @@
       @media all and  (orientation: portrait){
        display: none;
       }
-      @media screen  and (orientation: landscape){
+      @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
         display: none;
       }
     }
@@ -141,12 +141,10 @@
       @media all and  (orientation: portrait){
         width: 100%;
         height: 100%;
-        background: red;
       }
-      @media screen  and (orientation: landscape){
+      @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
         width: 100%;
         height: 100%;
-        background: red;
       }
       .message{
         width: 100%;
@@ -154,7 +152,7 @@
         @media all and  (orientation: portrait){
           width: 100%;
         }
-        @media screen  and (orientation: landscape){
+        @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
           width: 100%;
         }
         & > ul{
@@ -279,7 +277,7 @@
           @media all and  (orientation: portrait){
             height: 200px;
           }
-          @media screen  and (orientation: landscape){
+          @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
             height: 200px;
           }
 
@@ -291,20 +289,32 @@
             align-items: center;
             padding: 15px;
             .message_text{
+              padding:10px;
               resize: none;
               border: none;
               border-radius: 5px;
               width: 90%;
               height:70%;
-              //@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-              //  height: 100%;
-              //}
+              @media all and  (orientation: portrait){
+                width: 100%;
+                height:100%
+              }
+              @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+                width: 100%;
+                height:100%
+              }
             }
             .message_send_button{
               margin-top: 5px;
               width: 90%;
               display: flex;
               justify-content: flex-end;
+              @media all and  (orientation: portrait){
+                display: none;
+              }
+              @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+                display: none;
+              }
               //height:70%;
             }
           }
@@ -313,10 +323,12 @@
     }
   }
 }
+
 .message_request-text{
   background: #727eb3;
   padding: 10px 20px;
   border-radius: 10px;
+
 }
 //.R__link{
 //  position: relative;

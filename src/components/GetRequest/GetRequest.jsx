@@ -62,7 +62,7 @@ class GetRequest extends Component{
     }
 
     Send = (e) => {
-        console.log(e.target.dataset.id)
+
         this.setState({
             id: e.target.dataset.id,
             dialog: e.target.dataset.dialog,
@@ -92,12 +92,12 @@ class GetRequest extends Component{
         })
         let status = new FormData()
         status.append('get', this.state.id)
-        data.append('get', status);
         POST(Url.statusrequest,data).then(res=>{
             if(res){
                 this.props.dispatch(GetRequst())
             }
         })
+        console.log(Array.from(data))
         this.scroll();
     }
 
@@ -125,6 +125,7 @@ class GetRequest extends Component{
         if(e.keyCode == 13 && e.shiftKey == false) {
             e.preventDefault();
             let data = new FormData(this.formRef.current);
+            console.log(Array.from(data))
             if (this.textareaRef.current.value.trim().length > 0){
                 POST(Url.sendrequest,data).then(res => {
                     this.props.dispatch(GetRequst())
@@ -144,6 +145,7 @@ class GetRequest extends Component{
         }
     }
     render() {
+
         if(this.props.request.request){
             if (this.props.request.request[0] !== false){
                 return(
@@ -166,17 +168,18 @@ class GetRequest extends Component{
                                             }
                                             if(+el.message[0].delite[0] !== +id){
                                                 return(
-                                                    <NavLink className='default_user' data-id={el.user.id} activeClassName='active_user' key={i} onClick={this.Send}
+                                                    <NavLink className='default_user' data-id={el.user.id} data-dialog={el.message[0].dialog} activeClassName='active_user' key={i} onClick={this.Send}
                                                              to={this.props.score.score.status? '/score/account/request/'+el.message[0].dialog + '/' + el.user.id
                                                                  :'/user/account/request/'+el.message[0].dialog + '/' + el.user.id}
 
                                                     >
                                                         <ul className={'R__link' } data-scroll={1} data-id={el.user.id} data-dialog={el.message[0].dialog}>
-                                                            <li className='R__link-img' data-id={el.user.id}><img data-id={el.user.id} src={el.user.img} alt=""/></li>
-                                                            <li className='R__link-name' data-id={el.user.id}>{el.user.name} {el.user.surname}</li>
+                                                            <li className='R__link-img' data-id={el.user.id}><img data-id={el.user.id} src={el.user.img} alt="" data-dialog={el.message[0].dialog}/></li>
+                                                            <li className='R__link-name' data-id={el.user.id} data-dialog={el.message[0].dialog}>{el.user.name} {el.user.surname}</li>
 
-                                                            <li className='R__link-del' data-id={el.user.id}
-                                                                el.message[0].dialog} onClick={(e)=>{
+
+                                                            <li className='R__link-del' data-dialog={el.message[0].dialog} data-id={el.user.id} data-dialog={el.message[0].dialog} onClick={(e)=>{
+
                                                                 let id = e.target.dataset.id
                                                                 // console.log(id)
                                                                 let data = new FormData()
@@ -223,7 +226,7 @@ class GetRequest extends Component{
                                     }}>
                                         <FontAwesomeIcon icon={faRedoAlt} />
                                     </span>
-                                    <span onClick={()=>{
+                                    <span className="users_show" onClick={()=>{
                                         this.setState({
                                             usersShow:!this.state.usersShow
                                         })
@@ -371,7 +374,7 @@ class GetRequest extends Component{
                                                             </div>
                                                         </form>
                                                         {
-                                                            this.state.reloadPos?<div className='message_reload message_reload__bottom'>
+                                                            this.state.reloadPos?<div className={!this.state.usersShow?'message_reload message_reload__bottom message_reload__none':'message_reload message_reload__bottom'}>
                                                                 <span onClick={(e)=>{
                                                                     let aa = e.target
                                                                     e.target.classList.toggle('message_reload_button')
