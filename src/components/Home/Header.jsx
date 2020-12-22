@@ -108,7 +108,6 @@ class Header extends React.Component{
 
                                         <li className="header__links-li row align-center">
                                             <Link className='link__btn header__link-message' to={this.props.user.status?'/user/account/persional':'/score/account/message/'}>
-
                                                 <FontAwesomeIcon icon={faBell} style={this.props.message.notifications?{color:'red'}:''}/>
                                             </Link>
                                         </li>
@@ -121,7 +120,6 @@ class Header extends React.Component{
                                 </nav>:
                                 <nav className="header_links-nav">
                                     <ul className="header__links-ul row align-center">
-
                                         <li className="header__links-li row align-center" >
                                             <Link className='link__btn header__link-message' to='/score/account/message'>
                                                 <FontAwesomeIcon icon={faBell} style={this.props.message.notifications?{color:'red'}:''}/>
