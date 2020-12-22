@@ -52,5 +52,76 @@
     width: 100%;
   }
 }
+@media (max-width: $mobilee) {
+  .service__result{
+    .service__container{
+      &-header{
+        width: 100%;
+        li:nth-child(1),
+        li:nth-child(2),
+        li:nth-child(3){
+          width: 33%;
+        }
 
+        li:nth-child(4),
+        li:nth-child(5){
+          display: none;
+        }
+      }
+      &-body{
+        .service_items{
+          .service__logo,
+          .service__phone,
+          .service__desc{
+            width: 33%;
+          }
+
+          .working__days,
+          .service__address{
+            display: none;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+@media (max-width: $mobilee) {
+  .score_list_global{
+    .score_list_info{
+      &__header{
+        & > ul{
+          li:nth-child(4),
+          li:nth-child(5){
+            display: none;
+          }
+        }
+      }
+      &__body{
+        & > ul{
+          li:nth-child(1),
+          li:nth-child(2),
+          li:nth-child(3){
+            width: 33%;
+
+          }
+
+          li:nth-child(4),
+          li:nth-child(5){
+            display: none;
+          }
+        }
+        .store_info{
+          ul{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+          }
+        }
+      }
+    }
+  }
+}
 
