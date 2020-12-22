@@ -62,6 +62,7 @@ class GetRequest extends Component{
     }
 
     Send = (e) => {
+        console.log(e.target.dataset.id)
         this.setState({
             id: e.target.dataset.id,
             dialog: e.target.dataset.dialog,
@@ -171,8 +172,8 @@ class GetRequest extends Component{
 
                                                     >
                                                         <ul className={'R__link' } data-scroll={1} data-id={el.user.id} data-dialog={el.message[0].dialog}>
-                                                            <li className='R__link-img'><img src={el.user.img} alt=""/></li>
-                                                            <li className='R__link-name'>{el.user.name} {el.user.surname}</li>
+                                                            <li className='R__link-img' data-id={el.user.id}><img data-id={el.user.id} src={el.user.img} alt=""/></li>
+                                                            <li className='R__link-name' data-id={el.user.id}>{el.user.name} {el.user.surname}</li>
 
                                                             <li className='R__link-del' data-id={el.user.id} data-dialog={el.message[0].dialog} onClick={(e)=>{
                                                                 let id = e.target.dataset.id
