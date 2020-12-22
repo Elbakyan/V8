@@ -1,4 +1,4 @@
-
+@import "../../style/var";
 .message_users_component{
   width: 100%;
   background: #c5c5c5;
@@ -47,6 +47,7 @@
           color: white;
           padding: 0 10px;
           & > li{
+
             &:nth-child(2){
               width: 70%;
               font-size: 14px;
@@ -105,6 +106,7 @@
               }
 
             }
+
           }
         }
 
@@ -283,4 +285,33 @@
     z-index: 5;
   }
 }
+@media (max-width: $mobilee) {
+  .no__massage{
+    font-size: 12px;
+  }
+  .R__link{
 
+  }
+  .R__link-img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+
+  }
+  .R__link-name{
+    display: none;
+  }
+  .R__link-del{
+    display: flex;
+    position: absolute;
+    top: -30px;
+    right: -40px;
+    z-index: 15;
+  }
+  .R__link-name .R__link-del{
+    display: block;
+  }
+}

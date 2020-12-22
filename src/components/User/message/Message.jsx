@@ -197,8 +197,8 @@ class Message extends Component {
                                     return (
                                         data.delite[0] === this.props.id ?'':
                                             <Switch key={i}>
-                                                <Route exact path={'/user/account/persional/'+data.dialog_id}>
-                                                    <GetMessageClass one_message={data.message} getId={this.props.message.id}/>
+                                                <Route exact path={'/user/account/persional/'+data.dialog_id} >
+                                                    <GetMessageClass one_message={data.message} getId={this.props.message.id} data={this.props.message.data.user[i]}/>
                                                 </Route>
                                             </Switch>
                                     )
@@ -214,7 +214,7 @@ class Message extends Component {
                                         data.delite[0] === this.props.id ?'':
                                             <Switch key={i}>
                                                 <Route exact path={'/user/account/persional/'+data.dialog_id}>
-                                                    <GetMessageClass dialog={data['dialog_id']} one_message={data.message} getId={this.props.message.id}/>
+                                                    <GetMessageClass dialog={data['dialog_id']} one_message={data.message} getId={this.props.message.id} data={this.props.message.data.score[i]}/>
                                                 </Route>
                                             </Switch>
                                     )
