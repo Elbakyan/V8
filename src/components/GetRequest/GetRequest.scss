@@ -11,14 +11,14 @@
       padding-top: 10px;
       width: 29.9%;
       //max-height: 80%;
-      @media all and  (orientation: portrait){
-        width: 100%;
-        max-height: 100%;
-        background: #cfbbbb;
-        position: absolute;
-        z-index: 5;
-
-      }
+      //@media all and  (orientation: portrait){
+      //  width: 100%;
+      //  max-height: 100%;
+      //  background: #cfbbbb;
+      //  position: absolute;
+      //  z-index: 5;
+      //
+      //}
       @media screen  and (orientation: landscape){
         width: 100%;
         max-height: 100%;

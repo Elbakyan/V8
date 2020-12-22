@@ -175,7 +175,8 @@ class GetRequest extends Component{
                                                             <li className='R__link-img' data-id={el.user.id}><img data-id={el.user.id} src={el.user.img} alt=""/></li>
                                                             <li className='R__link-name' data-id={el.user.id}>{el.user.name} {el.user.surname}</li>
 
-                                                            <li className='R__link-del' data-id={el.user.id} data-dialog={el.message[0].dialog} onClick={(e)=>{
+                                                            <li className='R__link-del' data-id={el.user.id}
+                                                                el.message[0].dialog} onClick={(e)=>{
                                                                 let id = e.target.dataset.id
                                                                 // console.log(id)
                                                                 let data = new FormData()
