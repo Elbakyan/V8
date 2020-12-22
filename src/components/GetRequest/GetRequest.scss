@@ -11,7 +11,7 @@
       padding-top: 10px;
       width: 29.9%;
       //max-height: 80%;
-      @media all and  (orientation: portrait){
+      @media screen and (max-device-width: 440px) and (orientation: portrait){
         width: 100%;
         max-height: 100%;
         background: #cfbbbb;
@@ -19,7 +19,7 @@
         z-index: 5;
 
       }
-      @media screen and (min-aspect-ratio:13/9){
+      @media screen and (max-device-width: 440px) and (orientation: portrait){
         width: 100%;
         max-height: 100%;
         background: #cfbbbb;
@@ -128,13 +128,13 @@
       }
     }
     .showUser{
-      @media all and  (orientation: portrait){
+      @media screen and (max-device-width: 440px) and (orientation: portrait){
        display: none;
       }
     }
     .get_message{
       width: 69.9%;
-      @media all and  (orientation: portrait){
+      @media screen and (max-device-width: 440px) and (orientation: portrait){
         width: 100%;
         height: 100%;
         background: red;
@@ -142,7 +142,7 @@
       .message{
         width: 100%;
         height: 90%;
-        @media all and  (orientation: portrait){
+        @media screen and (max-device-width: 440px) and (orientation: portrait){
           width: 100%;
         }
         & > ul{
@@ -264,7 +264,7 @@
         .send_message{
           width: 100%;
           height: 25%;
-          @media all and  (orientation: portrait){
+          @media screen and (max-device-width: 440px) and (orientation: portrait){
             height: 200px;
           }
           >form{
@@ -280,9 +280,9 @@
               border-radius: 5px;
               width: 90%;
               height:70%;
-              @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-                height: 100%;
-              }
+              //@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+              //  height: 100%;
+              //}
             }
             .message_send_button{
               margin-top: 5px;
