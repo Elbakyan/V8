@@ -24,6 +24,10 @@
     top: 120px;
     padding: 0 10px;
   }
+  @media (max-width: $mobilee){
+    top: 80px;
+    padding: 0 5px;
+  }
   .open{
     display: none;
   }
@@ -55,13 +59,16 @@
         @media (max-width: $ipade) {
           font-size: 12px;
         }
+        @media (max-width: $mobilee) {
+          font-size: 2.5vw;
+        }
         &:hover{
           background: #d2e3f4;
         }
       }
 
       width: 100%;
-      display: flex;
+
       .auto_parts,{
         position: relative;
         .auto_parts_block,{
@@ -107,7 +114,7 @@
 
           @media (max-width:$mobilee) {
             flex-direction: column;
-            width: 350px;
+            width: 300px;
             height: 500px;
             overflow: auto;
             left:-50px;
@@ -124,10 +131,10 @@
           .parts,.cars,.truck,.service{
             color: #101423;
             font-size: 16px;
-            width: 350px;
+            width: 300px;
             @media (max-width:$mobilee) {
-              width: 350px;
-              font-size: 18px;
+              //width: 320px;
+              font-size: 14px;
             }
 
             >li{
@@ -228,10 +235,11 @@
           }
           @media (max-width:$mobilee) {
             top: 12px;
-            left: -180px;
+            left: -155px;
             height: 450px;
+            width: 320px;
             &>li{
-              font-size: 18px;
+              font-size: 14px;
             }
             @keyframes service {
               from{
