@@ -169,10 +169,10 @@ class GetRequest extends Component{
 
                                                     >
                                                         <ul className={'R__link' } data-scroll={1} data-id={el.user.id} data-dialog={el.message[0].dialog}>
-                                                            <li><img src={el.user.img} alt=""/></li>
-                                                            <li>{el.user.name} {el.user.surname}</li>
+                                                            <li className='R__link-img'><img src={el.user.img} alt=""/></li>
+                                                            <li className='R__link-name'>{el.user.name} {el.user.surname}</li>
 
-                                                            <li data-id={el.user.id} data-dialog={el.message[0].dialog} onClick={(e)=>{
+                                                            <li className='R__link-del' data-id={el.user.id} data-dialog={el.message[0].dialog} onClick={(e)=>{
                                                                 let id = e.target.dataset.id
                                                                 // console.log(id)
                                                                 let data = new FormData()
@@ -387,7 +387,7 @@ class GetRequest extends Component{
             }else{
                return (
                    <div className='message_users_component'>
-                       <h2 className="message_request">
+                       <h2 className="message_request no__massage">
                            Դուք դեռ չեք կատարել հարցում․․․
                        </h2>
                    </div>

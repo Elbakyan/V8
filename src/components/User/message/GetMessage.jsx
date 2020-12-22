@@ -95,10 +95,11 @@ class GetMessageClass extends Component{
     }
 
     render() {
-
+        console.log(this.props)
         return (
             <div className="getMessage__user">
                 <div className="getMessage_users" ref={el => this.scrollRef = el} >
+
                     {
                         this.props.one_message.map((elem,i)=>{
 
@@ -145,6 +146,7 @@ class GetMessageClass extends Component{
                     </form>
                     {
                         this.state.reloadPos?<div className='message_reload message_reload__bottom' >
+
                             <span onClick={(e)=>{
                                 let aa = e.target
                                 e.target.classList.toggle('message_reload_button')

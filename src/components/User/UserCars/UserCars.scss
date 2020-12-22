@@ -245,6 +245,7 @@
         }
         .sell_user_car_open{
           display: none;
+
         }
         .sell_user_car{
           width: 80%;
@@ -270,17 +271,26 @@
                 justify-content: space-between;
                 .left_block_inp_measurements{
                   display: flex;
-                  //justify-content: space-between;
                   margin-right: 30px;
                   width: 60%;
                   //border: 1px solid $main-color;
                   >input{
                     margin-right: 10px;
                   }
+
+                }
+                @media (max-width: $mobilee) {
+                  &{
+                    flex-direction: column;
+                    .left_block_inp_measurements{
+                      flex-direction: column;
+                      width: 100%;
+
+                    }
+                  }
                 }
               }
               .left_block_check{
-                //border: 1px solid red;
                 color: #7e7e7e;
                 height: 50px;
                 display: flex;
@@ -288,12 +298,50 @@
                 background: #e1e1e1;
                 border-radius: 5px;
                 width: 100%;
-                //padding: 10px 15px;
-                //margin: 10px 5px;
                 justify-content: space-around;
+                label{
+                  display: flex;
+                  align-items: center;
+                }
                 input{
                   margin-left: 10px;
                   border: none;
+                  width: 33px;
+                  &:focus,&:active{
+                    box-shadow: none;
+                  }
+                }
+                @media (max-width: $ipade) {
+                  &{
+                    flex-direction: column;
+                    height: 100px;
+                    align-items: flex-start;
+                    position: relative;
+
+
+                    label{
+                      position: relative;
+                      width: 50%;
+                      height: 33%;
+                      display: flex;
+                      align-items: center;
+                      padding: 0px 10px;
+
+                      input[type=checkbox]{
+                        position: absolute;
+                        right: 0;
+
+
+                      }
+                    }
+                  }
+                }
+                @media (max-width: $mobilee) {
+                  &{
+                    label{
+                      width: 100%;
+                    }
+                  }
                 }
               }
               >label{
@@ -302,6 +350,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
               }
             }
             input,textarea,select{
@@ -320,6 +369,13 @@
                 font-size: 1.5rem;
                 text-transform: uppercase;
               }
+              @media (max-width: $mobilee) {
+                &::placeholder{
+                  font-size: 1rem;
+
+                }
+              }
+
             }
             .description_text{
               resize: none;
@@ -344,10 +400,7 @@
           border-radius: 6px;
           font-size: 24px;
           padding: 10px;
-          @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-            width: 200px;
-            font-size: 1em;
-          }
+
           >span{
             width: 90%;
             display: flex;
@@ -365,6 +418,17 @@
             background-image: url($number-auto-icon);
             background-size: contain;
             background-repeat: no-repeat;
+          }
+          @media  (max-width: $mobilee) {
+            &{
+              width: 120px;
+              font-size: 14px;
+              padding: 5px;
+            }
+            &:before{
+              width: 15px;
+              height: 15px;
+            }
           }
         }
       }

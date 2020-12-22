@@ -537,7 +537,7 @@ class UserCars extends Component {
                                                     <div className="left_block_inp">
                                                         <div className="left_block_inp_measurements">
                                                             <DefaultInput
-                                                                width="55%"
+                                                                width="100%"
                                                                 height='50px'
                                                                 type='number'
                                                                 name='mileage'
@@ -545,7 +545,7 @@ class UserCars extends Component {
                                                             />
 
                                                             <DefaultSelect
-                                                                width="35%"
+                                                                width="100%"
                                                                 height='50px'
                                                                 name='measurements'
                                                                 data={[
@@ -563,7 +563,7 @@ class UserCars extends Component {
                                                             type='number'
                                                             name='price'
                                                             placeholder='Արժեքը'
-                                                            width="40%"
+                                                            width="100%"
                                                             height='50px'
                                                         />
                                                     </div>
