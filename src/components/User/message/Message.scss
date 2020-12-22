@@ -42,12 +42,12 @@
         justify-content: center;
         transition: .3s;
 
-        @media (max-width: $mobilee) {
-          &{
-            font-size: 12px;
-            padding: 5px 10px;
-          }
-        }
+        //@media (max-width: $mobilee) {
+        //  &{
+        //    font-size: 12px;
+        //    padding: 5px 10px;
+        //  }
+        //}
       }
       .active{
         margin-bottom: 20px;
@@ -81,12 +81,12 @@
         width: 80%;
         justify-content: center;
         transition: .3s;
-        @media (max-width: $mobilee) {
-          &{
-            font-size: 12px;
-            padding: 5px 10px;
-          }
-        }
+        //@media (max-width: $mobilee) {
+        //  &{
+        //    font-size: 12px;
+        //    padding: 5px 10px;
+        //  }
+        //}
 
       }
       .active{
@@ -132,11 +132,11 @@
       position: relative;
       overflow: hidden;
       position: relative;
-      @media (max-width: $mobilee) {
-        &{
-          height: 50px;
-        }
-      }
+      //@media (max-width: $mobilee) {
+      //  &{
+      //    height: 50px;
+      //  }
+      //}
 
 
       &:first-child{
