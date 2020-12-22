@@ -15,8 +15,8 @@
       .burger{
         display: block;
         position: absolute;
-        top: 20px;
-        left: 5px;
+        top: -20px;
+        left: 10px;
         z-index: 16;
         color: #009683;
         cursor: pointer;
@@ -55,7 +55,7 @@
         padding: 50px 20px;
         z-index: 15;
         background: #989898;
-        top: 0;
+        top: -30px;
         transition: .5s;
 
       }
