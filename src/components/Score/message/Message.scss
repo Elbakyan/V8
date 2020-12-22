@@ -16,11 +16,11 @@
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
-    @media (max-width: $mobilee) {
-      &{
-        height: 5%;
-      }
-    }
+    //@media (max-width: $mobilee) {
+    //  &{
+    //    height: 5%;
+    //  }
+    //}
     >span{
       padding: 10px;
       background: #0e6a99;

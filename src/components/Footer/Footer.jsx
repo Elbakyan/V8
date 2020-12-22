@@ -1,12 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt,faMobileAlt ,faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons'
-import './Footer.scss'
+
 import {Link} from "react-router-dom";
 import {faFacebook, faFacebookF, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
 import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import Art from "../Alert";
+import './Footer.scss'
 export default class Footer extends  React.Component {
     constructor(props) {
         super(props);

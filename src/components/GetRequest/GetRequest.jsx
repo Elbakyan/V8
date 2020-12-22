@@ -10,7 +10,7 @@ import {Url} from "../config/Url";
 import {GetRequst} from "../../redux/GetRequest/action";
 import {GetMessage, GetStatus, SendMessage} from "../../redux/message/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faMapMarkerAlt, faRedoAlt} from "@fortawesome/free-solid-svg-icons";
+import {faMapMarkerAlt, faRedoAlt, faUsers} from "@fortawesome/free-solid-svg-icons";
 import {faTrashAlt} from "@fortawesome/free-regular-svg-icons";
 import ReqMessage from "./myScroll";
 
@@ -27,7 +27,8 @@ class GetRequest extends Component{
             redirect:false,
             interval:false,
             reloadPos:false,
-            count:0
+            count:0,
+            usersShow:false
         }
         this.textareaRef = React.createRef()
         this.formRef = React.createRef()
@@ -63,7 +64,8 @@ class GetRequest extends Component{
     Send = (e) => {
         this.setState({
             id: e.target.dataset.id,
-            dialog: e.target.dataset.dialog
+            dialog: e.target.dataset.dialog,
+            usersShow:!this.state.usersShow
         })
         let id = e.target.dataset.id
         let data = new FormData()
@@ -150,7 +152,7 @@ class GetRequest extends Component{
                             this.state.redirect ? <Redirect to={this.props.user.status?'/user/account/request':'/score/account/request'} />: ''
                         }
                         <div className="message_users">
-                            <div className="respondent">
+                            <div className={this.state.usersShow?"respondent showUser":"respondent"} >
                                 <ul className='users' >
                                     {
                                         this.props.request.request.map((el,i)=>{
@@ -218,6 +220,13 @@ class GetRequest extends Component{
                                         },1000)
                                     }}>
                                         <FontAwesomeIcon icon={faRedoAlt} />
+                                    </span>
+                                    <span onClick={()=>{
+                                        this.setState({
+                                            usersShow:!this.state.usersShow
+                                        })
+                                    }}>
+                                        <FontAwesomeIcon icon={faUsers} />
                                     </span>
                                 </div>
                                 {
