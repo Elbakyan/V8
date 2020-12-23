@@ -22,6 +22,16 @@
         cursor: pointer;
       }
     }
+    .header__desktop {
+
+      .header__link{
+
+        padding: 5px;
+        font-size: 10px;
+
+
+      }
+    }
   }
   .persional__info{
     //width: auto;
@@ -44,6 +54,7 @@
 
         }
       }
+
 
       .persional__body{
         width: 220px;
@@ -79,6 +90,7 @@
       }
     }
   }
+
 }
 
 @media (max-width: $ipade){
@@ -161,29 +173,24 @@
       .Search{
         display: none;
       }
-      &>div{
-        margin: 0 ;
+      .header__links-ul{
+        flex-direction: column;
+        .header__link{
+          font-size: 8px;
+          margin-right: 10px;
+          background: none;
+          border: none;
+          box-shadow: none;
+        }
       }
 
-      .header__link{
-        //margin-left: 15px;
-        //letter-spacing: 2px;
-        margin: 0 10px;
-        font-size: 2.5vw;
-        padding: 3px 4px;
-
-      }
     }
     .header__phone{
       display: block;
 
     }
     .header__log{
-      width: 10%;
-      min-width: 190px;
-      margin: 0;
       img{
-        max-width: 100%;
         cursor: pointer;
       }
     }
