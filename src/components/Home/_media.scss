@@ -55,6 +55,7 @@
         }
       }
 
+
       .persional__body{
         width: 220px;
         >nav{
@@ -104,7 +105,6 @@
       .Search{
         display: none;
       }
-
       .header__link{
         //margin-left: 15px;
         //letter-spacing: 2px;
@@ -132,52 +132,17 @@
     }
   }
   .persional__info{
-    //width: auto;
-    //min-width:100px;
     .persional__data{
-      //width: 30px;
-      //height:auto;
       .persional__header{
-        //width: 100px;
-        .fullname{
-          //display: none;
-        }
-        .img{
-          //display: none;
-        }
-
-
-        .img{
-
-        }
         .fullname{
           >span{
             margin: 0 2px;
           }
-
         }
       }
 
       .persional__body{
         width: 220px;
-        //display: none;
-        >nav{
-
-          li{
-
-            >div:nth-child(1){
-
-            }
-            >div:nth-child(2){
-
-            }
-
-            >span{
-            }
-          }
-        }
-
-
         .persional__setings{
           margin: 20px 0;
           width: 100%;
@@ -204,6 +169,7 @@
     height: 80px;
     padding: 0px 5px;
     .header__desktop{
+      justify-content: space-between;
       .Search{
         display: none;
       }
@@ -224,7 +190,6 @@
 
     }
     .header__log{
-
       img{
         cursor: pointer;
       }

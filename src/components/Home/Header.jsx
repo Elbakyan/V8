@@ -93,7 +93,7 @@ class Header extends React.Component{
                                     <ul className="header__links-ul row align-center">
                                         <li className="header__links-li row align-center">
                                             <Link className='link__btn header__link' to='/user/login'>
-                                                իմ էջը
+                                                Իմ էջը
                                             </Link>
                                         </li>
                                         <li className="header__links-li row align-center">

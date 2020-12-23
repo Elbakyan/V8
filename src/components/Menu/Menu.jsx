@@ -129,7 +129,7 @@ class Menu extends Component {
                             <li>
                                 <Link to='/'>
                                     <span className='home_button menu_button'>
-                                        գլխավոր
+                                        Գլխավոր
                                     </span>
                                 </Link>
 
