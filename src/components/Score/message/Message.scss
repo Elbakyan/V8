@@ -41,7 +41,12 @@
     }
     .users_show{
       display: none;
-
+      @media all and  (orientation: portrait){
+        display: block;
+      }
+      @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+        display: block;
+      }
     }
     .message_reload_button{
       svg{

@@ -206,7 +206,6 @@
 
             .open_models {
               position: relative;
-
               &:after {
                 content: '';
                 width: 100%;
@@ -219,7 +218,6 @@
             }
 
             > ul {
-
               &:nth-child(1) {
                 display: flex;
                 align-items: center;
@@ -269,16 +267,13 @@
               &:nth-child(2) {
                 width: 100%;
                 padding: 10px 0;
-
                 ul {
                   padding: 0 5px;
                   display: flex;
                   position: relative;
-
                   li {
                     display: flex;
                     align-items: center;
-
                     &:nth-child(1) {
                       width: 180px;
                       background: rgb(0, 117, 255);
@@ -309,11 +304,17 @@
                       font-size: 14px;
                       color: #646464;
                     }
+
+
                   }
                 }
 
                 margin-left: 25px;
                 display: none;
+
+                @media (max-width: $mobilee) {
+                  margin-left: 0px;
+                }
               }
 
               //position: absolute;
