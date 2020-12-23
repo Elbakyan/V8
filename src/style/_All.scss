@@ -1,11 +1,15 @@
-@import "var";
+@import "./var";
 
 .container{
- width: 98%;
+  width: 98%;
+  max-width: 1200px;
   height: 100%;
   margin: 0 auto;
-  @media(min-width:1200px){
-    width: 1200px;
+  @media(max-width:$desktop){
+    max-width: 98%;
+  }
+  @media(max-width:$ipadePro){
+    width: 99%;
   }
 
 }
