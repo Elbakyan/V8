@@ -242,6 +242,12 @@
   }
 
 }
+
 .slider_auto:hover .edit_icon{
   opacity: 1;
+}
+@media (max-width: $mobilee) {
+  .edit_icon{
+    opacity: 1;
+  }
 }
