@@ -103,6 +103,7 @@ class ListGlobalAutoParts extends  Component{
                             <li>Նոր</li>
                             <li>Օգտագործ.</li>
                             <li></li>
+                            <li></li>
                         </ul>
                     </div>
                     <div className="list_body">

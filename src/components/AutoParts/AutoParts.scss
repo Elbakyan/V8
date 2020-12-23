@@ -1,3 +1,5 @@
+@import "src/style/var";
+
 .Auto_parts {
   .message {
     color: red;
@@ -14,8 +16,6 @@
   }
 
   .parts_form {
-
-
     .get_parts_category {
       .add_auto_parts {
         background: silver;
@@ -89,12 +89,17 @@
           height: auto;
           display: flex;
           flex-wrap: wrap;
-
+          @media (max-width: $mobilee) {
+            overflow-x: scroll;
+            min-width: 100%;
+            flex-wrap: nowrap;
+          }
           label {
             border: 1px solid black;
             border-radius: 5px;
             padding: 10px;
             width: 20%;
+            min-width: 120px;
             margin-right: 5px;
             background: #7c7c7c;
             color: white;
@@ -116,6 +121,12 @@
           > input {
             margin-right: 15px;
             border: 1px solid black;
+          }
+          @media (max-width: $mobilee) {
+            &>input {
+              min-width: 150px;
+              font-size: 10px;
+            }
           }
         }
 
@@ -141,6 +152,9 @@
               box-shadow: none;
             }
           }
+          @media (max-width: $mobilee) {
+
+          }
         }
       }
 
@@ -149,6 +163,9 @@
         margin-bottom: 15px;
         width: 70%;
         border: 1px solid #949494;
+        @media(max-width:$mobilee){
+          width: 100%;
+        }
 
         input[type=checkbox] {
           width: 15px;
@@ -203,7 +220,6 @@
                 > li {
                   padding: 5px 5px;
                   display: flex;
-
                   &:nth-child(1) {
                     width: 150px;
                     background: rgb(0, 117, 255);
@@ -212,12 +228,9 @@
                     font-size: 14px;
                     color: white;
                   }
-
                   &:nth-child(2) {
                     margin-left: -30px;
-
                   }
-
                   &:nth-child(3) {
                     margin: 2px 30px;
                     padding: 5px 5px;
@@ -226,7 +239,6 @@
                     font-size: 14px;
                     color: #646464;
                   }
-
                   &:nth-child(4) {
                     margin: 2px 0px;
                     padding: 5px 5px;
@@ -235,7 +247,15 @@
                     font-size: 14px;
                     color: #646464;
                   }
-
+                  @media (max-width: $mobilee) {
+                    &:nth-child(1) {
+                      width: 200px;
+                      padding: 5px 5px;
+                      margin: 2px 0;
+                      font-size: 12px;
+                      color: white;
+                    }
+                  }
                 }
               }
 
@@ -351,7 +371,9 @@
       .get_list_auto_parts {
         margin-top: 15px;
         width: 100%;
-
+        @media (max-width: $mobilee) {
+          overflow-x: scroll;
+        }
         .open_list {
           position: relative;
           //background: red;
@@ -375,11 +397,10 @@
             background: #5e859d;
             color: white;
             padding: 5px 0;
-
             li {
               padding: 5px;
               //border: 1px solid black;
-              width: 100%;
+              width: 20%;
               font-size: 0.7em;
               display: flex;
               align-items: center;
@@ -389,11 +410,15 @@
               &:last-child{
                 border: none;
               }
-
+              @media (max-width: $mobilee) {
+                font-size: 0.5em;
+              }
             }
 
           }
-
+          @media (max-width: $mobilee) {
+            min-width: 1000px;
+          }
 
         }
 
@@ -499,7 +524,7 @@
             li {
               //padding: 5px;
               //height: 50px;
-              width: 100%;
+              width: 20%;
               font-size: 0.8em;
               display: flex;
               align-items: center;
@@ -524,6 +549,9 @@
               > img {
                 width: 30px;
                 height: 30px;
+              }
+              @media (max-width: $mobilee) {
+                font-size: 0.7em;
               }
             }
 
@@ -581,6 +609,9 @@
               position: absolute;
 
             }
+          }
+          @media (max-width: $mobilee) {
+            min-width: 1000px;
           }
         }
       }
