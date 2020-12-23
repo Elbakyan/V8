@@ -42,7 +42,6 @@
       &:active{
         transform: translateY(2px);
         box-shadow: 1px 1px 1px black;
-
       }
 
 
@@ -245,21 +244,6 @@
     @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
       width: 100%;
     }
-    //@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-    //  width: 100%;
-    //  button{
-    //    display: none;
-    //  }
-    //}
-    //.open_respondent{
-    //  position: absolute;
-    //  right: 9px;
-    //  top: -30px;
-    //  font-size: 2em;
-    //  //background: silver;
-    //  display: flex;
-    //  z-index: 5;
-    //}
     .getMessage{
       width: 100%;
       height: 90%;
