@@ -8,6 +8,14 @@ header{
   padding: 0px 25px;
   z-index: 101;
   top: 0px;
+  .header__log{
+    display: flex;
+    align-items: center;
+    padding-top: 1px;
+    img{
+      height: 53px;
+    }
+  }
   .header__desktop {
     display: flex;
     align-items: center;
@@ -15,11 +23,14 @@ header{
     .header__link{
       margin-left: 15px;
       letter-spacing: 2px;
+      padding: 10px;
+      font-size: 14px;
 
       &-message{
-        font-size: 25px;
+        font-size: 22px;
         padding: 5px 10px;
         border-radius: 6px;
+
 
       }
 

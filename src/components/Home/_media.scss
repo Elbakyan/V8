@@ -22,6 +22,16 @@
         cursor: pointer;
       }
     }
+    .header__desktop {
+
+      .header__link{
+
+        padding: 5px;
+        font-size: 10px;
+
+
+      }
+    }
   }
   .persional__info{
     //width: auto;
@@ -79,6 +89,7 @@
       }
     }
   }
+
 }
 
 @media (max-width: $ipade){
@@ -196,30 +207,25 @@
       .Search{
         display: none;
       }
-
-      .header__link{
-        //margin-left: 15px;
-        //letter-spacing: 2px;
-        font-size: 12px;
-        padding: 5px 7px;
-        &-message{
-          font-size: 15px;
-          padding: 5px 7px;
-          border-radius: 6px;
-          display: none;
+      .header__links-ul{
+        flex-direction: column;
+        .header__link{
+          font-size: 8px;
+          margin-right: 10px;
+          background: none;
+          border: none;
+          box-shadow: none;
         }
-
       }
+
     }
     .header__phone{
       display: block;
 
     }
     .header__log{
-      width: 10%;
-      min-width: 200px;
+
       img{
-        max-width: 100%;
         cursor: pointer;
       }
     }

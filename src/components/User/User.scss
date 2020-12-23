@@ -3,22 +3,44 @@
 .Login,.Signin{
   width: 100%;
   height: calc(100vh - 210px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .Login__content{
+    height: 200px;
 
+    @media (max-width: $mobilee) {
+      &{
+        width: 90%;
+        box-shadow: none;
+      }
+    }
+  }
   &__content{
-    width: 40%;
-    height: 80%;
+    width: 50%;
+    height: 80px;
     box-shadow: 0px 0px 3px;
     border-radius: 5px;
     position: relative;
+    @media (max-width: $mobilee) {
+      &{
+        width: 90%;
+      }
+    }
+
 
     form{
       width: 80%;
       height: 80%;
+      position: absolute;
+      top: 0;
+
 
     }
   }
   &__links{
     width: 80%;
+
   }
   &__btn{
     margin-top: 10px;
@@ -50,6 +72,7 @@
       border: none;
       box-shadow: 0 0;
     }
+
   }
   &:before{
     content: '+374';
@@ -69,3 +92,24 @@
 }
 
 
+.Login__links {
+  @media (max-width: $mobilee) {
+    & {
+      position: absolute;
+      bottom: -20px;
+      left: 0px;
+
+      a {
+        font-size: 12px;
+      }
+
+    }
+  }
+  }
+  @media (max-width: $mobilee) {
+    .Signin__content {
+      min-height: 100vh;
+      min-width: 100%;
+      box-shadow: none;
+    }
+  }
