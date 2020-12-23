@@ -15,7 +15,7 @@ import {
 import {POST, TEST_GET} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faRedoAlt} from "@fortawesome/free-solid-svg-icons";
+import {faRedoAlt, faUsers} from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -28,7 +28,8 @@ class Message extends Component {
             dialog: '',
             redirect:false,
             RedirectLink: '',
-            reloadPos:false
+            reloadPos:false,
+            usersShow:false
         }
 
     }
@@ -41,7 +42,8 @@ class Message extends Component {
     Message = (e) => {
         this.setState({
             link:e.target.dataset.id,
-            redirect: true
+            redirect: true,
+            usersShow:!this.state.usersShow
         })
 
         this.props.dispatch(GetId(e.target.dataset.id))
@@ -130,7 +132,7 @@ class Message extends Component {
                         {
                             this.state.redirect?<Redirect to={this.state.link?this.state.link:''} />:''
                         }
-                        <div className="respondent">
+                        <div className={this.state.usersShow?"respondent showUser":"respondent"}>
                             {
                                 this.props.message.data.score?
                                     this.props.message.data.score.map((res,i) => {
@@ -173,6 +175,13 @@ class Message extends Component {
                                     },1000)
                                 }}>
                                     <FontAwesomeIcon icon={faRedoAlt} />
+                                </span>
+                                <span className="users_show" onClick={()=>{
+                                    this.setState({
+                                        usersShow:!this.state.usersShow
+                                    })
+                                }}>
+                                    <FontAwesomeIcon icon={faUsers} />
                                 </span>
                             </div>
                             {

@@ -239,6 +239,12 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    @media all and  (orientation: portrait){
+      width: 100%;
+    }
+    @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+      width: 100%;
+    }
     //@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
     //  width: 100%;
     //  button{
@@ -368,6 +374,12 @@
         width: 100%;
         height: 30%;
         box-shadow: 0px 0px 0px 1px #acabab;
+        @media all and  (orientation: portrait){
+          height: 250px;
+        }
+        @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+          height: 200px;
+        }
         >form{
           width: 100%;
           height: 100%;
@@ -381,8 +393,11 @@
             border-radius: 5px;
             width: 90%;
             height:70%;
-            @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-              height: 100%;
+            @media all and  (orientation: portrait){
+              padding: 10px;
+            }
+            @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+              padding: 10px;
             }
           }
           .message_send_button{
@@ -390,7 +405,12 @@
             width: 90%;
             display: flex;
             justify-content: flex-end;
-            //height:70%;
+            @media all and  (orientation: portrait){
+              display: none;
+            }
+            @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+              display: none;
+            }
           }
 
         }

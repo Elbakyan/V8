@@ -7,7 +7,7 @@ import GetMessageClass from "./GetMessage";
 import {Redirect, Route, Switch} from "react-router-dom";
 import {GetDialogId, GetId, GetMessage, GetStatus} from "../../../redux/message/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faRedoAlt} from "@fortawesome/free-solid-svg-icons";
+import {faRedoAlt, faUsers} from "@fortawesome/free-solid-svg-icons";
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 
@@ -21,7 +21,8 @@ class Message extends Component {
             RedirectLink: '',
             RespondentUser:true,
             RespondentStore:true,
-            reloadPos:false
+            reloadPos:false,
+            usersShow:false
         }
     }
 
@@ -48,6 +49,7 @@ class Message extends Component {
         this.setState({
             link:e.target.id,
             redirect: true,
+            usersShow:!this.state.usersShow
         })
         this.props.dispatch(GetId(e.target.dataset.id))
         this.props.dispatch(GetDialogId(e.target.dataset.dialog))
@@ -112,7 +114,7 @@ class Message extends Component {
                     {
                         this.state.redirect?<Redirect to={this.state.link?this.state.link:'/user/account/persional/'} />:''
                     }
-                    <div className="respondent">
+                    <div className={this.state.usersShow?"respondent showUser":"respondent"}>
                         <div className='respondent__users' data-user={1} onClick={this.openRespondents}>
                             <span data-user={1} className={this.state.RespondentUser? 'active user_span' : 'user_span'}>Օգտատեր</span>
                             {
@@ -187,6 +189,13 @@ class Message extends Component {
                             }}>
                                 <FontAwesomeIcon icon={faRedoAlt} />
                             </span>
+                                <span className="users_show" onClick={()=>{
+                                    this.setState({
+                                        usersShow:!this.state.usersShow
+                                    })
+                                }}>
+                                    <FontAwesomeIcon icon={faUsers} />
+                                </span>
                             </div>
                         }
 

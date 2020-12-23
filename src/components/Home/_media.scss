@@ -93,7 +93,6 @@
       .Search{
         display: none;
       }
-
       .header__link{
         //margin-left: 15px;
         //letter-spacing: 2px;
@@ -121,52 +120,17 @@
     }
   }
   .persional__info{
-    //width: auto;
-    //min-width:100px;
     .persional__data{
-      //width: 30px;
-      //height:auto;
       .persional__header{
-        //width: 100px;
-        .fullname{
-          //display: none;
-        }
-        .img{
-          //display: none;
-        }
-
-
-        .img{
-
-        }
         .fullname{
           >span{
             margin: 0 2px;
           }
-
         }
       }
 
       .persional__body{
         width: 220px;
-        //display: none;
-        >nav{
-
-          li{
-
-            >div:nth-child(1){
-
-            }
-            >div:nth-child(2){
-
-            }
-
-            >span{
-            }
-          }
-        }
-
-
         .persional__setings{
           margin: 20px 0;
           width: 100%;
@@ -193,21 +157,20 @@
     height: 80px;
     padding: 0px 5px;
     .header__desktop{
+      justify-content: space-between;
       .Search{
         display: none;
+      }
+      &>div{
+        margin: 0 ;
       }
 
       .header__link{
         //margin-left: 15px;
         //letter-spacing: 2px;
-        font-size: 12px;
-        padding: 5px 7px;
-        &-message{
-          font-size: 15px;
-          padding: 5px 7px;
-          border-radius: 6px;
-          display: none;
-        }
+        margin: 0 10px;
+        font-size: 2.5vw;
+        padding: 3px 4px;
 
       }
     }
@@ -217,7 +180,8 @@
     }
     .header__log{
       width: 10%;
-      min-width: 200px;
+      min-width: 190px;
+      margin: 0;
       img{
         max-width: 100%;
         cursor: pointer;
