@@ -86,7 +86,12 @@ class ModalRequest extends React.Component{
                     </div>
                     <div className="modal__block">
                         <div className='modal__items'>
-                            <DefaultSelect name='' data={parts} />
+                            <select disabled>
+                                <option value="">
+                                    Պահեստամասեր
+                                </option>
+                            </select>
+                            {/*<DefaultSelect name='' data={parts} />*/}
                         </div>
                         <SpeareParts
                             sircle={this.props.location.sircle}

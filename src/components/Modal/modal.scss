@@ -81,11 +81,18 @@
       grid-template-columns: 1fr 1fr 1.5fr;
       grid-auto-rows: 43px;
       padding: 10px 58px;
+
+
       .modal__items{
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
         border: 2px solid $border-color;
         border-radius: 4px;
-
+        @media (max-width: $mobilee) {
+          &{
+            grid-column-start: 1;
+            grid-column-end: 6;
+          }
+        }
         &:nth-child(2){
           grid-column-start: 3;
           grid-column-end: 6;
@@ -94,14 +101,19 @@
           box-shadow: none;
           border: none;
           border-radius: 0px;
+
         }
+
         &:nth-child(14){
           grid-column-start: 3;
           grid-column-end: 6;
+
+
           .modal__button{
             font-size: 12px;
 
           }
+
         }
 
 
@@ -112,6 +124,7 @@
           border: none;
           padding: 10px;
           background: #C4C4C4;
+
         }
         select,input{
           width: 100%;
@@ -121,6 +134,40 @@
 
           &:focus,&:hover{
             box-shadow: none;
+          }
+        }
+        @media (max-width: $mobilee) {
+          &:nth-child(1){
+            grid-column-start: 1;
+            grid-column-end: 3;
+          }
+          &:nth-child(3){
+            grid-column-start: 3;
+            grid-column-end: 6;
+          }
+          &:nth-child(2){
+            grid-column-start: 1;
+            grid-column-end: 6;
+            grid-row-start: 11;
+            grid-row-end: 13;
+          }
+          &:nth-child(12){
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 9;
+            grid-row-end: 10;
+          }
+          &:nth-child(13){
+            grid-column-start: 3;
+            grid-column-end: 6;
+            grid-row-start: 9;
+            grid-row-end: 10;
+          }
+          &:nth-child(14){
+            grid-column-start: 3;
+            grid-column-end: 6;
+            grid-row-start: 12;
+            grid-row-end: 13;
           }
         }
       }
@@ -167,7 +214,18 @@
   border: 2px dashed $border-color;
   width: 148px;
   display: flex;
+  @media (max-width: $mobilee) {
+    &{
+      width: auto;
+      grid-column-start: 1;
+      grid-column-end: 6;
+      grid-row-start: 10;
+      grid-row-end: 11;
+
+    }
+  }
   &-label {
+
     letter-spacing: 1px;
     input{
       display: none;
