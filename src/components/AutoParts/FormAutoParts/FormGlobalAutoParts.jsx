@@ -85,7 +85,6 @@ class FormGlobalAutoParts extends Component {
             if(lists[0].childNodes[5]){
                 lists[0].childNodes[5].children[0].checked = true
             }
-
         } else {
             lists[0].childNodes[2].children[0].disabled = true
             lists[0].childNodes[2].children[0].checked = false
@@ -94,7 +93,6 @@ class FormGlobalAutoParts extends Component {
             if(lists[0].childNodes[5]){
                 lists[0].childNodes[5].children[0].checked = false
             }
-
         }
     }
 
@@ -138,7 +136,7 @@ class FormGlobalAutoParts extends Component {
                                 <ul className='all_check'>
                                     {
                                         this.props.auto.mark.map((el, i) => {
-                                            // if (i !== 0) {
+                                            if (i !== 0) {
                                                 return (
 
                                                     <li key={i} className='all_check'>
@@ -207,7 +205,7 @@ class FormGlobalAutoParts extends Component {
                                                         </ul>
                                                     </li>
                                                 )
-                                            // } else return false;
+                                            } else return false;
                                         })
                                     }
                                 </ul>
