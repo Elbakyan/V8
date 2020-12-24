@@ -57,7 +57,7 @@ class GetRequest extends Component{
     }
     componentWillUnmount() {
         window.removeEventListener('scroll',this.scrl)
-
+        console.log(this.state.id)
         // console.log(window.onscroll)
     }
 
@@ -68,6 +68,7 @@ class GetRequest extends Component{
             dialog: e.target.dataset.dialog,
             usersShow:!this.state.usersShow
         })
+
         let id = e.target.dataset.id
         let data = new FormData()
         data.append('get', id);
@@ -219,7 +220,9 @@ class GetRequest extends Component{
                                         e.target.classList.toggle('message_reload_button')
 
                                         this.props.dispatch(GetRequst())
-                                        this.scroll()
+                                        if(window.location.pathname !== '/score/account/request'){
+                                            this.scroll()
+                                        }
                                         setTimeout(()=>{
                                             aa.classList.toggle('message_reload_button')
                                         },1000)
