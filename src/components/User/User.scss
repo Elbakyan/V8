@@ -1,30 +1,35 @@
 @import "../../style/All.scss";
 @import "../../style/var.scss";
+
 .Login,.Signin{
   width: 100%;
-  height: calc(100vh - 210px);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+
   .Login__content{
-    height: 200px;
+
+    height: calc(100vh - 260px);
+    box-shadow: none;
 
     @media (max-width: $mobilee) {
       &{
         width: 90%;
-        box-shadow: none;
+        height: 200px;
       }
     }
   }
   &__content{
     width: 50%;
     height: 80px;
-    box-shadow: 0px 0px 3px;
     border-radius: 5px;
     position: relative;
     @media (max-width: $mobilee) {
       &{
         width: 90%;
+
       }
     }
 
@@ -83,11 +88,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    //position: absolute;
     border-radius:5px 0 0 5px ;
     color: white;
     font-size: 14px;
-    //border: solid green;
   }
 }
 
@@ -105,11 +108,10 @@
 
     }
   }
-  }
+}
   @media (max-width: $mobilee) {
     .Signin__content {
       min-height: 100vh;
       min-width: 100%;
-      box-shadow: none;
     }
   }

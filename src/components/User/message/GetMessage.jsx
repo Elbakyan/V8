@@ -95,7 +95,6 @@ class GetMessageClass extends Component{
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="getMessage__user">
                 <div className="getMessage_users" ref={el => this.scrollRef = el} >

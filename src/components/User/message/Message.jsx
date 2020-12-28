@@ -55,6 +55,8 @@ class Message extends Component {
         this.props.dispatch(GetDialogId(e.target.dataset.dialog))
         this.props.dispatch(GetStatus(e.target.dataset.dialog))
         this.props.dispatch(GetMessage(this.props.id))
+        console.log(e.target.dataset.dialog)
+
 
     }
 
@@ -157,6 +159,7 @@ class Message extends Component {
                                                     Clear={this.Clear}
                                                     key={i}
                                                     id={'/user/account/persional/'+this.props.message.data.message.score[i].dialog_id}
+                                                    dialogId={this.props.message.data.message.score[i].dialog_id}
                                                     active={active}
                                                     data={data}
                                                     onClick={this.Message}

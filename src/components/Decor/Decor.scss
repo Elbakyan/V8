@@ -1,6 +1,6 @@
 .decor__title{
   width: 100%;
-  height: 100px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,14 +12,14 @@
     content: '';
     display: block;
     width: 35%;
-    height: 10px;
+    height: 5px;
     background: #4f4f4f;
   }
   &::after{
     content: '';
     display: block;
     width: 35%;
-    height: 10px;
+    height: 5px;
     background: #4f4f4f;
   }
 }

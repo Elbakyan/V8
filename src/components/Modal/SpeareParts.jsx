@@ -12,6 +12,7 @@ class SpeareParts extends Component{
             vin:false,
             year: false,
             engine: false,
+            valid: true
         }
     }
 
@@ -141,12 +142,22 @@ class SpeareParts extends Component{
                         name='vin'
                         defaultValue={this.state.vin?this.state.vin:''}
                         placeholder='VIN'
-                        required
+                        required={this.state.valid?'required':''}
                     />
                 </div>
 
                 <div className="modal__items">
-                    <input name='code' type="text" placeholder='Դետալի կոդը'/>
+                    <input name='code' type="text" required={!this.state.valid?'required':''} placeholder='Դետալի կոդը' onChange={(e) => {
+                        if(e.target.value.length >= 3){
+                            this.setState({
+                                valid: false
+                            })
+                        }else{
+                            this.setState({
+                                valid: true
+                            })
+                        }
+                    }}/>
                 </div>
 
                 <div className='modal__file'>

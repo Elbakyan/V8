@@ -103,7 +103,7 @@ class Profile extends React.Component{
                                         <div className="icon">
                                             <FontAwesomeIcon icon={faWrench}/>
                                         </div>
-                                        Ծառայություներ
+                                        Ծառայություններ
                                     </Link>
                                 </li>
                                 <li>
