@@ -10,6 +10,7 @@ import {
 } from "../../redux/search/action";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
+import {Redirect} from "react-router-dom";
 let data = [
     'http://web.nirax.ru/cross/image/55/00215160503.jpg',
     'http://web.nirax.ru/cross/image/29/00215160603.jpg',
@@ -25,26 +26,47 @@ class DetaleLists extends Component{
             product: '',
             img: [],
             fullImg: '',
-            openFullImg: false
+            openFullImg: false,
         }
     }
 
     componentDidMount() {
         let id = window.location.pathname.split('/')[window.location.pathname.split('/').length -1];
         Api.get("analCount",{id: id}).then( res => {
-            this.setState({
-                analCount: res.count
-            })
+            if(res.result){
+                this.setState({
+                    analCount: res.count
+                })
+            }else{
+                this.setState({
+                    analCount: 0
+                })
+            }
+
         })
         Api.get("anal",{id: id}).then( res => {
-            this.setState({
-                anal: res.data
-            })
+            if(res.result){
+                this.setState({
+                    anal: res.data
+                })
+            }else{
+                this.setState({
+                    anal: []
+                })
+            }
+
         })
         Api.get("auto",{id: id}).then( res => {
-            this.setState({
-                auto: res.data
-            })
+            if(res.result){
+                this.setState({
+                    auto: res.data
+                })
+            }else{
+                this.setState({
+                   auto: []
+                })
+            }
+
         })
         Api.get("article",{id: id}).then( res => {
 
@@ -53,15 +75,22 @@ class DetaleLists extends Component{
             })
         })
         Api.get("image",{id: id}).then( res => {
-            res.data.map(img => {
-                this.state.img.push(img.FileImage)
-            })
+
+            if(res.result){
+                res.data.map(img => {
+                    this.state.img.push(img.FileImage)
+                })
+            }else{
+                    this.setState({
+                        img: []
+                    })
+            }
+
 
         })
 
 
     }
-
     render() {
 
         let article = this.state.product;

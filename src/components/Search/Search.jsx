@@ -33,7 +33,6 @@ class Search extends Component {
         }
         Api.get("num",par).then( res => {
             if (res.data) {
-
                 this.props.dispatch(SearchResult(res.data))
             }
             this.setState({
@@ -43,6 +42,12 @@ class Search extends Component {
         POST(Url.searchscore,data).then(res => {
             if (res.status){
                 this.props.dispatch(SearchScoreLists(res))
+                setTimeout(() => {
+                    this.setState({
+                        redirect: false
+                    })
+                },3000)
+
             }
         })
 

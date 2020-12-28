@@ -122,11 +122,6 @@ class Auto extends Component {
                                         <td><a href={'tel:'+phone} style={{color: '#404040'}}>{`(+374) ${phone.splice(0,2).join('')}  ${phone.splice(0,2).join('')} ${phone.splice(0,2).join('')} ${phone.splice(0,2).join('')}`}</a></td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <FontAwesomeIcon icon={faCaretSquareDown}/>
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <td>Շարժիչը</td>
                                         <td>{auto.engine} Լ</td>
                                     </tr>

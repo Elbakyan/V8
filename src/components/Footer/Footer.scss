@@ -8,13 +8,14 @@ footer{
   .Footer{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: relative;
     .Footer_nav{
-      padding: 25px 0 0 0;
+
       &__about{
         & > li {
           //border: solid red;
-          padding: 10px 0;
+          padding: 3px 0;
           font-size: 20px;
           @media (max-width: $ipade){
             font-size: 16px;
@@ -33,8 +34,8 @@ footer{
         display: flex;
         flex-direction: column;
         color: white;
-        font-size: 20px;
-        margin-top: 30px;
+        font-size: 16px;
+
         @media (max-width: $ipade){
           font-size: 16px;
         }
@@ -55,15 +56,20 @@ footer{
   }
   .social_network{
     display: flex;
-    padding: 25px 0 0 0;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+
     margin-right: 10px;
     li{
       background: $color-btn;
       border: 4px solid $border-color;
-      //border-radius: 4px;
-      margin-left: 10px;
-      font-size: 30px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 5px 0;
+      font-size: 20px;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 2px 0px 4px rgba(0, 0, 0, 0.25), -2px -2px 4px rgba(0, 0, 0, 0.25), 2px 2px 4px rgba(35, 30, 30, 0.34);
       border-radius: 8px;
       @media (max-width: $ipade){
@@ -77,34 +83,31 @@ footer{
       }
 
     }
-    .facebook{
-      display: flex;
-      align-items: center;
-      padding: 4px 16px 0 16px;
-    }
-    .instagram{
-      display: flex;
-      align-items: center;
-      //padding: 9px 13px;
-      padding: 9px 13px 8px 13px;
-    }
-
   }
 }
-
+.our__phone{
+  position: absolute;
+  right: 60px;
+  top: 0px;
+}
 .back__conection{
   display: flex;
-  position: absolute;
-  width: 600px;
-  height: 200px;
-  background: darken($main-color, 10);
+  position: fixed;
+  width: 100%;
+  height: 100%;
   justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,.3);
   top: 25px;
   left: 50%;
   z-index: 1;
   transform: translateX(-50%);
   animation: back 1s linear ;
-
+  @media (max-width: $mobilee) {
+   &{
+     padding: 0px 10px;
+   }
+  }
   .inputs{
     width: 100%;
     height: 50px;
@@ -134,11 +137,19 @@ footer{
      display: flex;
      justify-content: space-between;
      align-items: center;
+
     button{
       margin: 0;
-      width: 30%;
+      width: 25%;
       font-weight: bold;
       transition: .3s;
+      @media (max-width: $mobilee) {
+        &{
+
+          padding: 7px;
+        }
+      }
+
     }
     .close{
       border: 2px solid #be1717;
@@ -156,6 +167,9 @@ footer{
         color: $white;
       }
     }
+    input{
+      width: 40%;
+    }
 
   }
 }
@@ -168,6 +182,16 @@ footer{
     padding: 5px 0;
     color: white;
     margin-right: 10px;
+    position: relative;
+    .vw{
+      display: flex;
+      position: absolute;
+      left: -60px;
+      font-size: 20px;
+      svg{
+        margin: 0px 4px;
+      }
+    }
     @media (max-width: $mobilee) {
       font-size: 10px;
     }

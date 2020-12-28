@@ -78,13 +78,13 @@ class Result extends Component {
                         <table className='result_code'>
                             <thead>
                             <tr>
-                                <th>Производитель</th>
-                                <th>Артикул</th>
-                                <th>Наименование детали</th>
-                                <th>Фото</th>
-                                <th>Ориг</th>
-                                <th>Место установки</th>
-                                <th>Назначение</th>
+                                <th>Արտադրող</th>
+                                <th>Դետալի կոդ</th>
+                                <th>Անվանում</th>
+                                <th>Նկար</th>
+                                <th>Օրիգ</th>
+                                <th>Տեղադրման վայր</th>
+                                <th>Նշանակություն</th>
                             </tr>
 
                             </thead>

@@ -165,6 +165,7 @@
 
 
 @media (max-width: $mobilee){
+
   header{
     height: 80px;
     padding: 0px 5px;
@@ -173,14 +174,22 @@
       .Search{
         display: none;
       }
+      .header__links{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
       .header__links-ul{
-        flex-direction: column;
+        width: 100%;
         .header__link{
           font-size: 8px;
-          margin-right: 10px;
-          background: none;
-          border: none;
-          box-shadow: none;
+          margin: 5px 3px;
+          width: auto;
+          //background: none;
+          //border: none;
+          width: auto;
+
+
         }
       }
 
@@ -190,10 +199,15 @@
 
     }
     .header__log{
+      position: absolute;
 
+      left: -200px;
+      z-index: 15000;
       img{
-        height: 35px;
+        width: 130px;
+        height: 22px;
         cursor: pointer;
+        margin-left: 205px;
       }
     }
   }
@@ -214,7 +228,6 @@
         .img{
           display: none;
         }
-
 
         .img{
 
@@ -262,5 +275,15 @@
       }
     }
   }
+  .content__list{
+    display: flex;
+    justify-content: center;
 
+    .result_auto{
+      width: 90%;
+      padding: 10px;
+
+
+    }
+  }
 }
