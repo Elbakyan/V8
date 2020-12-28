@@ -548,14 +548,24 @@
       max-height: 450px;
       overflow: auto;
       scroll-behavior: smooth;
+      //position: relative;
       .arrow_top{
         position: absolute;
-        right: 20px;
-        bottom: 15px;
+        right: 10px;
+        bottom: 0;
         background: rgba(0,0,0,0.5);
         padding: 10px;
         cursor: pointer;
         z-index: 5;
+        @media (max-width: $mobilee) {
+          @media (max-height:830px) {
+            bottom: 15%;
+          }
+          @media (max-height:732px) {
+            bottom: 5%;
+          }
+        }
+
       }
       &::-webkit-scrollbar {
         width: 8px;
@@ -764,6 +774,7 @@
       max-height: 500px;
       overflow: auto;
       scroll-behavior: smooth;
+      position: relative;
       .arrow_top{
         position: absolute;
         right: 20px;
@@ -772,6 +783,14 @@
         padding: 10px;
         cursor: pointer;
         z-index: 5;
+        @media (max-width: $mobilee) {
+          @media (max-height:830px) {
+            bottom: 15%;
+          }
+          @media (max-height:732px) {
+            bottom: 5%;
+          }
+        }
       }
       &::-webkit-scrollbar {
         width: 8px;
