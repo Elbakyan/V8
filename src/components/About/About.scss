@@ -1,0 +1,49 @@
+@import "../../style/var.scss";
+
+.about{
+  margin-top: 20px;
+ //border: 1px solid red;
+  min-height: 70vh;
+  display: flex;
+  justify-content: space-between;
+  &__phone{
+    width: 40%;
+    //border: 1px solid black;
+    & > ul > li{
+      font-size: 24px;
+      color: #0aa2a2;
+      width: 300px;
+    }
+    & > ul > li > ul{
+      display: flex;
+      //background: #0aa5a5;
+      //padding: 5px;
+      font-size: 24px;
+      color: black;
+      & > li{
+        padding: 10px;
+        cursor: pointer;
+        //border: 1px solid black;
+      }
+    }
+  }
+  &__address{
+    & > ul > li {
+      padding: 10px;
+      font-size: 18px;
+      &:first-child{
+        font-size: 24px;
+      }
+      &:last-child{
+        cursor: pointer;
+      }
+    }
+  }
+  &__map{
+    width: 70%;
+    background: red;
+    .yandex_map{
+      width: 100%;
+    }
+  }
+}

@@ -24,6 +24,7 @@ import {
     GetService
 } from "./redux/Service/action";
 import Admin from "./components/admin/Admin";
+import About from "./components/About/About";
 
 
 class App extends Component {
@@ -83,6 +84,10 @@ class App extends Component {
                   <Route path='/search/result'>
                       <div className="margin-top"></div>
                       <Result/>
+                  </Route>
+                  <Route path='/about'>
+                      <div className="margin-top"></div>
+                      <About/>
                   </Route>
                   <Route path='/soon'>
                       <Soon/>
