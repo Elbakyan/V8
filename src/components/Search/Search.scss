@@ -728,7 +728,7 @@
 }
 .service__result{
   width: 100%;
-
+  min-height: calc(100vh - 220px);
   .service__container{
 
     &-header{
