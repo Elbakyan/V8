@@ -33,7 +33,6 @@ class Search extends Component {
         }
         Api.get("num",par).then( res => {
             if (res.data) {
-
                 this.props.dispatch(SearchResult(res.data))
             }
             this.setState({

@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheckCircle, faTimesCircle} from "@fortawesome/free-regular-svg-icons";
 import DecorTitle from "../Decor/DecorTitle";
 import {faFacebookF} from "@fortawesome/free-brands-svg-icons";
-import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {faArrowUp, faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
 import {MenuActive} from "../../redux/Menu/action";
 
 class ScoreListGlobal extends Component {
@@ -39,6 +39,10 @@ class ScoreListGlobal extends Component {
             }
     }
 
+    positionTop = ()=>{
+        this.listRef.scrollTop = 0
+    }
+
 
     componentWillUnmount() {
         window.removeEventListener('scroll',this.scrollActive)
@@ -60,7 +64,15 @@ class ScoreListGlobal extends Component {
                                 <li>Հասցե</li>
                             </ul>
                         </div>
-                        <div className='score_list_info__body'>
+                        <div className='score_list_info__body' ref={el=>this.listRef=el}>
+                            {
+                                this.props.MarkModelResult.status ?this.props.MarkModelResult.score.length > 4?
+                                    <span className="arrow_top" onClick={this.positionTop}>
+                                        <FontAwesomeIcon icon={faArrowUp} />
+                                    </span>:''
+                                    :''
+                            }
+
                             {
                                 this.props.MarkModelResult.status ? '' :
                                     <div className="message">
@@ -225,13 +237,10 @@ class ScoreListGlobal extends Component {
                                                         </div>
                                                         <li >{score.work_to}:{score.work_from}</li>
                                                     </ul>
-
                                                 </li>
-
                                             </ul>
                                         )
                                     }
-
                                 }) : ''
 
                             }

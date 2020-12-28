@@ -17,8 +17,8 @@ class GetMessageClass extends Component{
             count:this.props.one_message.length - 1
         }
     }
-    componentDidMount() {
 
+    componentDidMount() {
         window.addEventListener('scroll',(e)=>{
             let scrollTop = document.body.scrollHeight
             if(window.scrollY >= 200){

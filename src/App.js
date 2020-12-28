@@ -85,10 +85,6 @@ class App extends Component {
                       <div className="margin-top"></div>
                       <Result/>
                   </Route>
-                  <Route path='/about'>
-                      <div className="margin-top"></div>
-                      <About/>
-                  </Route>
                   <Route path='/soon'>
                       <Soon/>
                   </Route>

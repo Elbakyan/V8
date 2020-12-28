@@ -5,6 +5,8 @@ import DecorTitle from "../Decor/DecorTitle";
 import {Link} from "react-router-dom";
 import {GetStoreID} from "../../redux/search/action";
 import {MenuActive} from "../../redux/Menu/action";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 
 class ServiceResult extends Component {
     constructor(props) {
@@ -19,7 +21,9 @@ class ServiceResult extends Component {
     componentWillUnmount() {
         this.props.dispatch(MenuActive(window.location.pathname.split('/').pop(),''))
     }
-
+    positionTop = ()=>{
+        this.listRef.scrollTop = 0
+    }
     render(){
             return (
                 <div className='service__result'>
@@ -35,7 +39,14 @@ class ServiceResult extends Component {
                                             <li>Աշխատանքին օր․ և ժ․</li>
                                             <li>Հասցե</li>
                                         </ul>
-                                    <div className={'service__container-body'}>
+                                    <div className={'service__container-body'} ref={el=>this.listRef=el}>
+                                        {
+                                           this.props.service.search.data.score.length > 4?
+                                                <span className="arrow_top" onClick={this.positionTop}>
+                                                    <FontAwesomeIcon icon={faArrowUp} />
+                                                </span>:''
+
+                                        }
                                         {
                                             this.props.service.search.data.score.map((res, i) => {
                                                 let hour = new Date().getHours()

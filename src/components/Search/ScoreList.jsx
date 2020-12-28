@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {GetStoreID} from "../../redux/search/action";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
+import {faArrowUp, faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 
 class ScoreList extends Component{
     constructor(props) {
@@ -13,6 +13,9 @@ class ScoreList extends Component{
             fullImg: '',
             openFullImg: false
         }
+    }
+    positionTop = ()=>{
+        this.listRef.scrollTop = 0
     }
     render() {
         return(
@@ -34,6 +37,9 @@ class ScoreList extends Component{
                             </ul>
                         </div>
                         <div className='score_list_info__body table_style_body'>
+                              <span className="arrow_top" onClick={this.positionTop}>
+                                <FontAwesomeIcon icon={faArrowUp} />
+                              </span>
                             {
                                 this.props.scoreList.store !== false? this.props.scoreList.detal.map((detal,i) => {
                                     let store = this.props.scoreList.store[i];

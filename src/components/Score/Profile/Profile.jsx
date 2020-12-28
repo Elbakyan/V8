@@ -31,12 +31,14 @@ import Accessories from "../../Accessories/Accessories";
 
 
 class Profile extends React.Component{
+
     constructor(props) {
         super(props);
         this.state = {
             id: 0
         }
     }
+
     componentDidMount() {
         this.props.dispatch(GetScoreList())
         let data= new FormData();
@@ -148,7 +150,6 @@ class Profile extends React.Component{
                         </div>
                     </div>
                 </div>
-
             </section>
         );
     }

@@ -36,7 +36,6 @@ export default class Footer extends  React.Component {
     render() {
         return (
             <footer >
-
                 {
                     this.state.backConection?<div className="back__conection">
                         {
@@ -45,7 +44,6 @@ export default class Footer extends  React.Component {
                         }
 
                         <form onSubmit={this.Send}>
-
                             <div className="inputs">
                                 <input type="text" name='name' placeholder='Անուն' required/>
                                 <input type="text" name='surname' placeholder='Ազգանուն' required/>
@@ -106,6 +104,7 @@ export default class Footer extends  React.Component {
                                 </a>
                             </li>
                         </ul>
+
                         <ul className='our__phone'>
                             <li>
                                 <FontAwesomeIcon icon={faPhoneAlt} />

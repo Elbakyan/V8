@@ -5,6 +5,8 @@ import {Link} from "react-router-dom";
 import {GetStoreID} from "../../redux/search/action";
 import {SearchAccessories, SearchAccessoriesLink} from "../../redux/Service/action";
 import {MenuActive} from "../../redux/Menu/action";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 
 class AccesoriesResult extends Component {
     constructor(props) {
@@ -18,6 +20,9 @@ class AccesoriesResult extends Component {
 
     componentWillUnmount() {
         this.props.dispatch(MenuActive(window.location.pathname.split('/').pop(),''))
+    }
+    positionTop = ()=>{
+        this.listRef.scrollTop = 0
     }
 
     render(){
@@ -38,7 +43,14 @@ class AccesoriesResult extends Component {
                                     </ul>
                                 </div>
 
-                                <div className={'service__container-body'}>
+                                <div className={'service__container-body'} ref={el=>this.listRef=el}>
+                                    {
+                                       this.props.service.searchPartAccessories.data.score.length > 4?
+                                            <span className="arrow_top" onClick={this.positionTop}>
+                                                <FontAwesomeIcon icon={faArrowUp} />
+                                            </span>:''
+
+                                    }
                                     {
                                         this.props.service.searchPartAccessories.data.score.map((res, i) => {
                                             let hour = new Date().getHours()

@@ -58,7 +58,6 @@ class UserCars extends Component {
     }
 
     SellAuto = (e) =>{
-
         e.preventDefault();
         let data = new FormData(e.target);
         POST(Url.sell,data).then(res => {
@@ -75,19 +74,16 @@ class UserCars extends Component {
         })
     }
     RefuseSell = (e) => {
-
         let data = new FormData();
         data.append('id', e.target.id)
         POST(Url.refuse,data).then(res => {
             if (res) {
                 this.props.dispatch(GetAuto(this.props.user.id))
             }
-
         })
     }
 
     Delite = (e) => {
-
         let data = new FormData();
         data.append('id', e.target.dataset.id)
 
@@ -259,8 +255,8 @@ class UserCars extends Component {
                                     </div>
                                     <div className="car_info">
                                         <form onSubmit={this.Update}>
+                                            <input type="hidden" name='id' value={id}/>
                                             <table className="auto_parapters">
-                                                <input type="hidden" name='id' value={id}/>
                                                 <tbody>
                                                 <tr>
                                                     <td>Շարժիչը</td>
