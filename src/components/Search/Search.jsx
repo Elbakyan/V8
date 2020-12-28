@@ -42,6 +42,12 @@ class Search extends Component {
         POST(Url.searchscore,data).then(res => {
             if (res.status){
                 this.props.dispatch(SearchScoreLists(res))
+                setTimeout(() => {
+                    this.setState({
+                        redirect: false
+                    })
+                },3000)
+
             }
         })
 

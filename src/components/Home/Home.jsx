@@ -90,7 +90,7 @@ class Home extends React.Component {
             <div className="Home">
                 <Header/>
                 <Menu/>
-                <Slider img={this.state.img}/>
+                {/*<Slider img={this.state.img}/>*/}
 
                 {
                     this.state.auto != false?

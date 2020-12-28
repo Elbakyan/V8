@@ -2,7 +2,7 @@
 @import "./src/style/All";
 .Login,.Signin{
   width: 100%;
-  height: calc(100vh - 210px);
+  min-height: calc(100vh - 120px);
 
 
   &__content{

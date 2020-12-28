@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faMapMarkerAlt, faMobileAlt, faEnvelopeOpenText, faPhoneAlt} from '@fortawesome/free-solid-svg-icons'
 
 import {Link} from "react-router-dom";
-import {faFacebook, faFacebookF, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
+import {faFacebook, faFacebookF, faInstagramSquare, faViber, faWhatsapp} from "@fortawesome/free-brands-svg-icons";
 import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 import Art from "../Alert";
@@ -91,6 +91,24 @@ export default class Footer extends  React.Component {
                             </span>
                         </div>
                     </nav>
+                    <ul className='our__phone'>
+                        <li>
+                            <FontAwesomeIcon icon={faPhoneAlt} />
+                            <a href="tel:+37443888844">+374 41 88 88 44</a>
+                        </li>
+                        <li>
+                            <div className="vw">
+                                <FontAwesomeIcon icon={faViber} />
+                                <FontAwesomeIcon icon={faWhatsapp} />
+                            </div>
+                            <FontAwesomeIcon icon={faPhoneAlt} />
+                            <a href="tel:+37443888844">+374 43 88 88 44</a>
+                        </li>
+                        <li>
+                            <FontAwesomeIcon icon={faPhoneAlt} />
+                            <a href="tel:+37443888844">+374 93 88 80 44</a>
+                        </li>
+                    </ul>
                     <nav>
                         <ul className='social_network'>
                             <li className='facebook'>
@@ -102,21 +120,6 @@ export default class Footer extends  React.Component {
                                 <a href='https://www.instagram.com/avtoteghekatu' target="_blank">
                                     <FontAwesomeIcon icon={faInstagramSquare} />
                                 </a>
-                            </li>
-                        </ul>
-
-                        <ul className='our__phone'>
-                            <li>
-                                <FontAwesomeIcon icon={faPhoneAlt} />
-                                <a href="tel:+37443888844">+374 41 88 88 44</a>
-                            </li>
-                            <li>
-                                <FontAwesomeIcon icon={faPhoneAlt} />
-                                <a href="tel:+37443888844">+374 43 88 88 44</a>
-                            </li>
-                            <li>
-                                <FontAwesomeIcon icon={faPhoneAlt} />
-                                <a href="tel:+37443888844">+374 93 88 80 44</a>
                             </li>
                         </ul>
                     </nav>
