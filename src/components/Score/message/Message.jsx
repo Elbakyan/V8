@@ -83,6 +83,7 @@ class Message extends Component {
     GetIdScoreList = (e) => {
         this.props.dispatch(GetMessageId(e.target.id))
         this.props.dispatch(GetMessage(e.target.id))
+
         let li = document.querySelectorAll(".dialog_list > li");
 
         li.forEach(l => {

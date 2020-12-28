@@ -1,12 +1,12 @@
 @import "./src/style/var";
 
 .slide-container{
-  width: 100%;
+  width: 90%;
   height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin: 10px auto;
   .container{
     position: relative;
   }

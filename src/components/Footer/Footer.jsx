@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt,faMobileAlt ,faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons'
+import {faMapMarkerAlt, faMobileAlt, faEnvelopeOpenText, faPhoneAlt} from '@fortawesome/free-solid-svg-icons'
 
 import {Link} from "react-router-dom";
 import {faFacebook, faFacebookF, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
@@ -83,11 +83,6 @@ export default class Footer extends  React.Component {
                             </li>
                             <li>
                                 <Link to={''}>
-                                    Դառնալ գործընկեր
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={''}>
                                     Գնացուցակ
                                 </Link>
                             </li>
@@ -111,7 +106,22 @@ export default class Footer extends  React.Component {
                                 </a>
                             </li>
                         </ul>
+                        <ul className='our__phone'>
+                            <li>
+                                <FontAwesomeIcon icon={faPhoneAlt} />
+                                <a href="tel:+37443888844">+374 41 88 88 44</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faPhoneAlt} />
+                                <a href="tel:+37443888844">+374 43 88 88 44</a>
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon={faPhoneAlt} />
+                                <a href="tel:+37443888844">+374 93 88 80 44</a>
+                            </li>
+                        </ul>
                     </nav>
+
                 </div>
             </footer>
         )

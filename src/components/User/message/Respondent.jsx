@@ -14,6 +14,7 @@ class Respondent extends Component {
         }
     }
     render() {
+
         return (
             <div
                 className={this.props.active?"respondent_user respondent_user_active":"respondent_user"}

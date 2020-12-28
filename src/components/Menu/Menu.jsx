@@ -86,7 +86,6 @@ class Menu extends Component {
     }
 
     SearchService = (e) => {
-        console.log(e.target.dataset.id)
         this.props.dispatch(SearchService(e.target.dataset.id))
         this.props.dispatch(SearchServiceLink('/search/result/service/' + e.target.dataset.id))
         this.props.dispatch(MenuActive(e.target.dataset.id,e.target.dataset.type))

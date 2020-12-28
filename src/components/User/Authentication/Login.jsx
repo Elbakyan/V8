@@ -6,6 +6,7 @@ import DefaultBtn from "../../forms/buttons/DefaultBtn";
 import {Link} from "react-router-dom";
 import {Url} from "../../config/Url";
 import {Redirect} from "react-router";
+import Art from "../../Alert";
 
 class Login extends React.Component{
 
@@ -22,14 +23,14 @@ class Login extends React.Component{
 
                 <div className="container row align-center justify-center">
                     <div className="Login__content col align-center justify-center">
-                        <p className='message' style={this.props.status ?
+
                         {
-                            margin: '5px 0px',
-                            color: '#ff0000'
-                        }:{
-                            margin: '5px 0px',
-                            color: '#565656'
-                        }}>{this.props.message}</p>
+                            this.props.status ?
+                                <div className="message">
+                                    <Art type='warning' content={this.props.message} />
+                                </div>:''
+
+                        }
 
                         <form className="col align-center justify-center" action={Url.login} method="POST">
                             <label className='phone_style'>

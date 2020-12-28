@@ -57,8 +57,6 @@ class GetRequest extends Component{
     }
     componentWillUnmount() {
         window.removeEventListener('scroll',this.scrl)
-        console.log(this.state.id)
-        // console.log(window.onscroll)
     }
 
     Send = (e) => {
@@ -106,7 +104,6 @@ class GetRequest extends Component{
         setTimeout(()=>{
             let bar = document.querySelector('.scroll_bar'+this.state.id)
             bar.scrollTop = bar.scrollHeight
-            console.log(bar)
             if(this.state.count != 1){
                 setTimeout(()=>{
                     this.setState({

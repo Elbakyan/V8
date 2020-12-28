@@ -1,4 +1,4 @@
-const SITE_NAME = 'https://brutal.am';
+const SITE_NAME = 'https://v8.am';
 
 export const Url = {
     login: SITE_NAME + '/Server/login',

@@ -119,7 +119,7 @@ class Auto extends Component {
                                     </tr>
                                     <tr>
                                         <td>Հեռախոսահամար</td>
-                                        <td>{`(+374) ${phone.splice(0,2).join('')}  ${phone.splice(0,3).join('')}-${phone.splice(0,3).join('')}`}</td>
+                                        <td><a href={'tel:'+phone} style={{color: '#404040'}}>{`(+374) ${phone.splice(0,2).join('')}  ${phone.splice(0,2).join('')} ${phone.splice(0,2).join('')} ${phone.splice(0,2).join('')}`}</a></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -130,10 +130,14 @@ class Auto extends Component {
                                         <td>Շարժիչը</td>
                                         <td>{auto.engine} Լ</td>
                                     </tr>
-                                    <tr>
-                                        <td>Ձիաուժը</td>
-                                        <td>{auto.power}</td>
-                                    </tr>
+                                    {
+                                        +auto.power?
+                                            <tr>
+                                                <td>Ձիաուժը</td>
+                                                <td>{auto.power}</td>
+                                            </tr>:''
+                                    }
+
                                     <tr>
                                         <td>Տարեթիվ</td>
                                         <td>{auto.year}</td>
