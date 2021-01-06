@@ -21,6 +21,31 @@
 
 
 @media (max-width: $ipadePro) {
+
+  .score_list_info{
+    height: calc(100vh - 280px);
+    m
+    .score_list_info__header{
+      li:nth-child(5){
+        display: none;
+      }
+    }
+    .score_list_info__body{
+      max-height: 100%;
+      .store_addres{
+        display: none;
+      }
+      ul{
+        .store_info, .new_model,.old_model,.store_phones{
+          width: 25%;
+
+
+        }
+      }
+    }
+
+
+  }
   .Search{
     min-width: 100px;
     > form {
@@ -65,7 +90,7 @@
     }
   }
   .score_list_info{
-
+    height: calc(100vh - 320px);
     &__header{
       ul{
         li{
@@ -75,7 +100,9 @@
       }
     }
     &__body{
+
       ul {
+
         li{
           font-size: 10px;
           padding: 5px;
@@ -121,7 +148,9 @@
   }
 
   .score_list_global{
+
     .score_list_info{
+
       &__header{
         & > ul{
           li:nth-child(4),

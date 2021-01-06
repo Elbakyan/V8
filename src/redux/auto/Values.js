@@ -5,7 +5,7 @@ export const royle = [
     },
     {
         id:1,
-        name:'ձախ'
+        name:'Ձախ'
     },
     {
         id:2,
@@ -167,6 +167,10 @@ export const type = [
         name:'ՈՒնիվերսալ'
     },
     {
+        id:9,
+        name:'Մինիվեն'
+    },
+    {
         id:6,
         name:'Կաբրիոլետ'
     },
@@ -175,7 +179,7 @@ export const type = [
         name:'Պիկապ'
     },
     {
-        id:7,
+        id:8,
         name:'Լիմոզին'
     },
 ];

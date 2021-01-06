@@ -500,6 +500,7 @@
 
   .score_list_info{
     width: 100%;
+
     &__header{
       margin-top: 10px;
       & > ul{
@@ -551,12 +552,13 @@
       //position: relative;
       .arrow_top{
         position: absolute;
-        right: 10px;
+        right: 25px;
         bottom: 0;
         background: rgba(0,0,0,0.5);
         padding: 10px;
         cursor: pointer;
         z-index: 5;
+        height: 35px;
         @media (max-width: $mobilee) {
           @media (max-height:830px) {
             bottom: 15%;
@@ -774,23 +776,15 @@
       max-height: 500px;
       overflow: auto;
       scroll-behavior: smooth;
-      position: relative;
+
       .arrow_top{
-        position: absolute;
-        right: 20px;
-        bottom: 15px;
+        position: fixed;
+        right: 25px;
         background: rgba(0,0,0,0.5);
         padding: 10px;
+        height: 35px;
         cursor: pointer;
         z-index: 5;
-        @media (max-width: $mobilee) {
-          @media (max-height:830px) {
-            bottom: 15%;
-          }
-          @media (max-height:732px) {
-            bottom: 5%;
-          }
-        }
       }
       &::-webkit-scrollbar {
         width: 8px;

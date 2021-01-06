@@ -26,8 +26,7 @@ class ScoreListGlobal extends Component {
         this.props.dispatch(SearchMarkModel(data))
 
         this.props.dispatch(MenuActive(window.location.pathname.split('/').pop(),window.location.pathname.split('/')[window.location.pathname.split('/').length - 2]))
-        // console.log(window.location.pathname.split('/').pop())
-        // console.log(window.location.pathname.split('/')[window.location.pathname.split('/').length - 2])
+
     }
 
     scrollActive = (e)=>{
@@ -67,7 +66,7 @@ class ScoreListGlobal extends Component {
                         <div className='score_list_info__body' ref={el=>this.listRef=el}>
                             {
                                 this.props.MarkModelResult.status ?this.props.MarkModelResult.score.length > 4?
-                                    <span className="arrow_top" onClick={this.positionTop}>
+                                    <span className="arrow_top" onClick={this.positionTop} style={{top:(window.innerHeight - 70) + 'px'}}>
                                         <FontAwesomeIcon icon={faArrowUp} />
                                     </span>:''
                                     :''

@@ -138,7 +138,7 @@ class Header extends React.Component{
                                                 <FontAwesomeIcon icon={faBell} style={status > 0?{color:'red'}:''}/>
                                             </Link>
                                         </li>
-                                        <li className="header__links-li row align-center">
+                                        <li className="header__links-li row align-center exit">
                                             <a className='link__btn header__link' href={Url.logout}>
                                                 Ելք
                                             </a>
@@ -152,7 +152,7 @@ class Header extends React.Component{
                                                 <FontAwesomeIcon icon={faBell} style={status > 0?{color:'red'}:''}/>
                                             </Link>
                                         </li>
-                                        <li className="header__links-li row align-center">
+                                        <li className="header__links-li row align-center exit">
                                             <a className='link__btn header__link' href={Url.logoutscore}>
                                                 Ելք
                                             </a>

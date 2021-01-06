@@ -46,7 +46,7 @@ class AccesoriesResult extends Component {
                                 <div className={'service__container-body'} ref={el=>this.listRef=el}>
                                     {
                                        this.props.service.searchPartAccessories.data.score.length > 4?
-                                            <span className="arrow_top" onClick={this.positionTop}>
+                                            <span className="arrow_top" onClick={this.positionTop} style={{top:(window.innerHeight - 70) + 'px'}}>
                                                 <FontAwesomeIcon icon={faArrowUp} />
                                             </span>:''
 
