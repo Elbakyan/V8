@@ -29,7 +29,7 @@ class Auto extends Component {
                 this.props.dispatch(GetSell())
             }
         })
-        console.log()
+        console.log('true')
     }
 
     SendMessage = (e) => {
@@ -69,6 +69,7 @@ class Auto extends Component {
     }
 
     render() {
+
         let img;
 
         if (this.props.sell.OneAuto.img != undefined){

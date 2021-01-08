@@ -46,7 +46,7 @@ export function GetModel(e = 1) {
             e.target.childNodes.forEach(el =>{
                 if(e.target.value === el.innerText){
                     id = el.dataset.id
-                    console.log(id)
+                    // console.log(id)
                 }
             })
         }

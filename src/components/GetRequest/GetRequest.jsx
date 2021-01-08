@@ -196,7 +196,6 @@ class GetRequest extends Component{
                                                                                 redirect:false
                                                                             })
                                                                         },500)
-
                                                                     }
                                                                                                                   })
                                                             }}><FontAwesomeIcon icon={faTrashAlt} /></li>

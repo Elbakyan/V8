@@ -9,7 +9,7 @@ import DefaultBtn from "../forms/buttons/DefaultBtn";
 import DefaultSelect from "../forms/select/DefaultSelect";
 import {connect} from "react-redux";
 import {GetModel} from "../../redux/auto/action";
-import { Route} from "react-router-dom";
+import {Redirect, Route} from "react-router-dom";
 import Result from "./Result";
 import Auto from "./Auto";
 import {GetSell, GetSellByID} from "../../redux/sellauto/action";
@@ -23,7 +23,8 @@ class Announcement extends Component {
         this.state = {
             id: 1,
             activePage: 15,
-            show: false
+            show: false,
+            redirect:false
         }
     }
 
@@ -39,12 +40,13 @@ class Announcement extends Component {
 
     }
     componentWillUnmount() {
-
+        this.setState({
+            redirect:false
+        })
     }
 
     Count = () =>{
         let arr = [];
-
         if(this.props.sell.data.count !== undefined){
             if (this.props.sell.data.count % 15 === 0){
                 for (let i = 1; i <= (this.props.sell.data.count / 15); i++){
@@ -66,8 +68,14 @@ class Announcement extends Component {
         e.preventDefault();
         this.props.dispatch(GetSell(this.state.id,e.target))
         this.setState({
-            show:false
+            show:false,
+            redirect:true
         })
+        setTimeout(()=>{
+            this.setState({
+                redirect:false
+            })
+        },500)
     }
     handlePageChange(pageNumber) {
         this.setState({activePage: pageNumber});
@@ -78,6 +86,7 @@ class Announcement extends Component {
 
 
     render() {
+        console.log(this.state.redirect)
         return (
             <section className="Announcement">
                 <div className="burger" onClick={() => {
@@ -104,7 +113,9 @@ class Announcement extends Component {
 
                     </div>
                     <div className="container row justify-between">
-
+                        {
+                            this.state.redirect ? <Redirect to={'/announcement'} />: ''
+                        }
                         <form className="Announcement__search" onSubmit={this.Search} style={
                             this.state.show?{left: '0px'}: {left: '-100%'}
                         }>
