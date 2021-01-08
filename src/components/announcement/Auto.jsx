@@ -29,7 +29,7 @@ class Auto extends Component {
                 this.props.dispatch(GetSell())
             }
         })
-        console.log()
+
     }
 
     SendMessage = (e) => {

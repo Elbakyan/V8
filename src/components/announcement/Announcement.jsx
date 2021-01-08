@@ -16,6 +16,9 @@ import {GetSell, GetSellByID} from "../../redux/sellauto/action";
 import {GetFavorite} from "../../redux/favorite/action";
 import Pagination from "react-js-pagination";
 import Menu from '../Menu/Menu'
+import {POST} from "../config/Requsest";
+import {Url} from "../config/Url";
+import {GetId} from "../../redux/message/action";
 
 class Announcement extends Component {
     constructor(props) {
@@ -112,8 +115,11 @@ class Announcement extends Component {
                                 <label >
                                     <DefaultSelect
                                         onChange={(e)=>{
+                                            let id = +window.location.pathname.split('/').pop();
                                             this.props.sell.OneAuto = [];
                                             this.props.dispatch(GetModel(e))
+                                            this.props.dispatch(GetSellByID(id))
+                                            this.props.dispatch(GetId(id))
                                         }}
                                         name='mark'
                                         data={this.props.auto.mark}

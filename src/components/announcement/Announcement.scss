@@ -212,12 +212,7 @@
             width: 80%;
             tbody {
               tr {
-                //margin-bottom: 12px;
-                &:nth-child(3){
-                  >td{
-                    border-bottom: 1px solid #b5a7a7;
-                  }
-                }
+
                 td {
                   &:first-child {
                     font-weight: bold;
