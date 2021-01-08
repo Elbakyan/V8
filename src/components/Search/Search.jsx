@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 import {SearchResult, SearchScoreLists} from "../../redux/search/action";
 import {Redirect} from "react-router";
 import DefaultSelect from "../forms/select/DefaultSelect";
-import {POST} from "../config/Requsest";
+import {POST, TEST_POST} from "../config/Requsest";
 import {Url} from "../config/Url";
 
 class Search extends Component {
@@ -57,7 +57,15 @@ class Search extends Component {
             redirect: false
         })
     }
+    Sort  = (e) => {
+        let data = new FormData();
 
+        data.append('type', window.location.pathname.match(/\/\w+\/\d/)?window.location.pathname.match(/\/\w+\/\d/)[0].split('/')[1]:'')
+        data.append('sircle', e.target.value)
+        POST(Url.sortService,data).then(res => {
+            // console.log(res)
+        })
+    }
     render(){
 
         return (
@@ -81,7 +89,7 @@ class Search extends Component {
                         <input type="submit"/>
                     </label>
                     <div className="select">
-                        <DefaultSelect data={this.props.location.sircle} name='sircle'/>
+                        <DefaultSelect data={this.props.location.sircle} name='sircle' onChange={this.Sort}/>
                         <span><FontAwesomeIcon icon={faCheck} /></span>
                     </div>
                 </form>
