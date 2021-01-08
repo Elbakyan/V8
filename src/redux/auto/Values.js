@@ -275,18 +275,22 @@ export const  traction =[
 export const  sort =[
     {
         id: 0,
+        name: 'Դասավորել․․․'
+    },
+    {
+        id: 1,
         name: 'Թարմերը․․․'
     },
     {
-        id: 1,
+        id: 2,
         name: 'Էժաները․․․'
     },
     {
-        id: 1,
+        id: 3,
         name: 'Թանկերը․․․'
     },
     {
-        id: 2,
+        id: 4,
         name: 'Շատ դիտվածները․․․'
     },
 
