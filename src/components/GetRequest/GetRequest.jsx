@@ -10,7 +10,7 @@ import {Url} from "../config/Url";
 import {GetRequst} from "../../redux/GetRequest/action";
 import {GetMessage, GetStatus, SendMessage} from "../../redux/message/action";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faMapMarkerAlt, faRedoAlt, faUsers} from "@fortawesome/free-solid-svg-icons";
+import {faChevronCircleRight, faMapMarkerAlt, faRedoAlt, faUsers} from "@fortawesome/free-solid-svg-icons";
 import {faTrashAlt} from "@fortawesome/free-regular-svg-icons";
 import ReqMessage from "./myScroll";
 
@@ -360,7 +360,13 @@ class GetRequest extends Component{
                                                     </ul>
                                                     <div className='send_message'>
                                                         <form onSubmit={this.Message} ref={this.formRef}>
-                                                            <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={this.textareaRef}></textarea>
+                                                            <label>
+                                                                <textarea className="message_text" onKeyDown={this.onEnterPress} name="message" ref={this.textareaRef}></textarea>
+                                                                <div className="message_send_buttonMobile">
+                                                                    <button type='submit'><FontAwesomeIcon icon={faChevronCircleRight} /></button>
+                                                                </div>
+                                                            </label>
+
                                                             <input type="hidden" name='get' value={this.state.id?this.state.id: ''}/>
                                                             <input type="hidden" name='dialog' value={this.state.dialog?this.state.dialog:''}/>
                                                             <div className="message_send_button">

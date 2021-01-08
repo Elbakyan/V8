@@ -5,7 +5,7 @@ import {SendMessage, GetMessage, GetId, GetStatus} from "../../../redux/message/
 import {POST} from "../../config/Requsest";
 import {Url} from "../../config/Url";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faRedoAlt, faSync} from "@fortawesome/free-solid-svg-icons";
+import {faChevronCircleRight, faRedoAlt, faSync} from "@fortawesome/free-solid-svg-icons";
 
 class GetMessageClass extends Component{
     constructor(props) {
@@ -130,7 +130,12 @@ class GetMessageClass extends Component{
                 </div>
                 <div className="send_message">
                     <form onSubmit={this.Message} ref={el => this.formRef = el}>
-                        <textarea className="message_text" data-dialog={this.props.dialog} onKeyDown={this.onEnterPress} name="message" ref={el => this.textareaRef = el}></textarea>
+                        <label>
+                            <textarea className="message_text" data-dialog={this.props.dialog} onKeyDown={this.onEnterPress} name="message" ref={el => this.textareaRef = el}></textarea>
+                            <div className="message_send_buttonMobile">
+                                <button type='submit'><FontAwesomeIcon icon={faChevronCircleRight} /></button>
+                            </div>
+                        </label>
                         <input type="hidden" name='send_id' value={this.props.user.id }/>
                         <input type="hidden" name='get_id' value={this.props.getId}/>
                         <div className="message_send_button">
@@ -142,6 +147,7 @@ class GetMessageClass extends Component{
                                 light={30}
                             />
                         </div>
+
                     </form>
                     {
                         this.state.reloadPos?<div className='message_reload message_reload__bottom' >
