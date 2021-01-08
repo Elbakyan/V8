@@ -169,6 +169,12 @@
             background-color: #737373;
             outline: 1px solid silver;
           }
+          @media all and  (orientation: portrait){
+            height: 90%;
+          }
+          @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+            height: 90%;
+          }
           .send{
             justify-content: flex-end;
             .message_request_style{
@@ -275,10 +281,11 @@
           width: 100%;
           height: 25%;
           @media all and  (orientation: portrait){
-            height: 200px;
+            height: 75px;
+
           }
           @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
-            height: 200px;
+            height: 75px;
           }
 
           >form{
@@ -288,20 +295,53 @@
             flex-direction: column;
             align-items: center;
             padding: 15px;
-            .message_text{
-              padding:10px;
-              resize: none;
-              border: none;
-              border-radius: 5px;
-              width: 90%;
-              height:70%;
+            @media all and  (orientation: portrait){
+              padding: 5px;
+
+            }
+            @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+              padding: 5px;
+            }
+            label{
+              width: 100%;
+              height: 70%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              position: relative;
+              justify-content: center;
+              //border: 1px solid red;
               @media all and  (orientation: portrait){
-                width: 100%;
-                height:100%
+                background: white;
+                border-radius: 5px;
+                height: 90%;
+                align-items: flex-start;
               }
               @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
-                width: 100%;
-                height:100%
+                background: white;
+                border-radius: 5px;
+                height: 90%;
+                align-items: flex-start;
+              }
+              .message_text{
+                resize: none;
+                border: none;
+                border-radius: 5px;
+                width: 90%;
+                height:100%;
+
+                @media all and  (orientation: portrait){
+                  padding: 10px;
+                  width: 88%;
+                  //height: 100%;
+                  resize: unset;
+                  height:auto;
+                }
+                @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+                  padding: 10px;
+                  width: 88%;
+                  height: 100%;
+                }
               }
             }
             .message_send_button{
@@ -316,6 +356,28 @@
                 display: none;
               }
               //height:70%;
+            }
+            .message_send_buttonMobile{
+              display: none;
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              margin: 0;
+              button{
+                background: none;
+                color:  #0aa5a5;
+                font-size: 24px;
+                width: auto;
+                height: auto;
+                padding: 5px;
+                margin: 0;
+              }
+              @media all and  (orientation: portrait){
+                display: block;
+              }
+              @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+                display: block;
+              }
             }
           }
         }

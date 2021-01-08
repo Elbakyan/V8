@@ -39,7 +39,9 @@ body{
   @media (max-width: $ipade) {
     height: 150px;
   }
-
+  @media (max-width: $mobilee) {
+    height: 110px;
+  }
 }
 .Loading{
   width: 100%;

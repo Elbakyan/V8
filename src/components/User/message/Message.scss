@@ -13,6 +13,7 @@
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
+
     //@media (max-width: $mobilee) {
     //  &{
     //    height: 5%;
@@ -67,6 +68,12 @@
       align-items: center;
       cursor: pointer;
       z-index: 10;
+      @media all and  (orientation: portrait){
+        bottom: 20px;
+      }
+      @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+        bottom: 20px;
+      }
       >span{
         margin: 0;
         //border: solid red;
@@ -360,7 +367,14 @@
           padding-bottom: 20px;
           box-shadow: 0px 0px 0px 1px #acabab;
           overflow: auto;
-
+          @media all and  (orientation: portrait){
+            height: 90%;
+            padding-bottom: 5px;
+          }
+          @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+            height: 90%;
+            padding-bottom: 5px;
+          }
           .name{
 
             position: absolute;
@@ -476,36 +490,75 @@
           height: 30%;
           box-shadow: 0px 0px 0px 1px #acabab;
           @media all and  (orientation: portrait){
-            height: 250px;
+            height: 64px;
+            //height: auto;
           }
           @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
-            height: 200px;
+            height: 64px;
+            //height: auto;
           }
           >form{
             width: 100%;
             height: 100%;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 15px;
-            .message_text{
-              resize: none;
-              border: none;
-              border-radius: 5px;
-              width: 90%;
-              height:70%;
+            //border: 1px solid red;
+            @media all and  (orientation: portrait){
+              padding: 5px;
+            }
+            @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+              padding: 5px;
+            }
+            label{
+              width: 100%;
+              height: 70%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              position: relative;
+              //border: 1px solid red;
               @media all and  (orientation: portrait){
-                padding: 10px;
+                background: white;
+                border-radius: 5px;
+                height: 90%;
+                align-items: flex-start;
               }
               @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
-                padding: 10px;
+                background: white;
+                border-radius: 5px;
+                height: 90%;
+                align-items: flex-start;
+              }
+              .message_text{
+                resize: none;
+                border: none;
+                border-radius: 5px;
+                width: 90%;
+                height:100%;
+
+                @media all and  (orientation: portrait){
+                  padding: 10px;
+                  width: 88%;
+                  //height: 100%;
+                  resize: unset;
+                  height:auto;
+                }
+                @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+                  padding: 10px;
+                  width: 88%;
+                  height: 100%;
+                }
               }
             }
+
             .message_send_button{
               margin-top: 5px;
               width: 90%;
               display: flex;
               justify-content: flex-end;
+
               @media all and  (orientation: portrait){
                 display: none;
               }
@@ -514,7 +567,28 @@
               }
               //height:70%;
             }
-
+            .message_send_buttonMobile{
+              display: none;
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              margin: 0;
+              button{
+                background: none;
+                color:  #0aa5a5;
+                font-size: 24px;
+                width: auto;
+                height: auto;
+                padding: 5px;
+                margin: 0;
+              }
+              @media all and  (orientation: portrait){
+                display: block;
+              }
+              @media screen and (min-device-width: 330px) and (max-device-width: 767px)  and (orientation: landscape){
+                display: block;
+              }
+            }
           }
 
         }
