@@ -188,11 +188,15 @@ class GetRequest extends Component{
                                                                         this.setState({
                                                                             redirect:true
                                                                         })
+                                                                        this.setState({
+                                                                            usersShow:!this.state.usersShow
+                                                                        })
                                                                         setTimeout(()=>{
                                                                             this.setState({
                                                                                 redirect:false
                                                                             })
                                                                         },500)
+
                                                                     }
                                                                                                                   })
                                                             }}><FontAwesomeIcon icon={faTrashAlt} /></li>

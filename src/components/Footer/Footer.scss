@@ -6,12 +6,7 @@ footer{
   position: relative;
   background: $main-color;
 
-  @media screen  and (max-device-height: 480px)  and (orientation: landscape){
-   display: none;
-  }
-  @media screen  and (max-device-height: 480px)  and (orientation: portrait){
-    display: none;
-  }
+
 
 
   //@media   (max-height: 480px)  and (orientation: landscape){
