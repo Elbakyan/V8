@@ -256,7 +256,7 @@ export const engine = (() => {
 export const  traction =[
     {
         id: 0,
-        name: 'Քարշակ'
+        name: 'Քարշակ...'
     },
     {
         id: 1,
