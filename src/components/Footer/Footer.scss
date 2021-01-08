@@ -5,9 +5,12 @@ footer{
   width: 100%;
   position: relative;
   background: $main-color;
-  @media screen and (min-device-height: 330px) and (max-device-height: 480px)  and (orientation: landscape){
+  @media screen  and (max-device-height: 480px)  and (orientation: landscape){
    display: none;
   }
+  //@media   (max-height: 480px)  and (orientation: landscape){
+  //  display: none;
+  //}
   .Footer{
     display: flex;
     justify-content: space-between;
