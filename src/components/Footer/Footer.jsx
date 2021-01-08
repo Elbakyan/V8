@@ -112,7 +112,7 @@ export default class Footer extends  React.Component {
                     <nav>
                         <ul className='social_network'>
                             <li className='facebook'>
-                                <a href='https://www.facebook.com/groups/V8Armenia' target="_blank">
+                                <a href='https://www.facebook.com/www.V8.am' target="_blank">
                                     <FontAwesomeIcon icon={faFacebookF} />
                                 </a>
                             </li>

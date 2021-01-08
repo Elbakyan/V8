@@ -13,14 +13,18 @@ footer{
     .Footer_nav{
 
       &__about{
+        margin-top: 20px;
         & > li {
 
           //border: solid red;
           padding: 3px 0;
 
-          font-size: 20px;
+          font-size: 16px;
           @media (max-width: $ipade){
             font-size: 16px;
+          }
+          @media (max-width: $mobilee){
+            font-size: 12px;
           }
           a{
             color: white;
@@ -60,7 +64,6 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin-right: 10px;
     li{
       background: $color-btn;
@@ -190,6 +193,15 @@ footer{
       font-size: 20px;
       svg{
         margin: 0px 4px;
+      }
+      @media (max-width: $mobilee) {
+        &{
+          font-size: 12px;
+          left: -40px;
+          svg{
+            margin: 0px 4px;
+          }
+        }
       }
     }
     @media (max-width: $mobilee) {
