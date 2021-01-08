@@ -198,10 +198,16 @@ class Announcement extends Component {
                                 </label>
                             </div>
                             <div >
-                                <label style={{width: '100%'}}>
+                                <label>
                                     <DefaultSelect
                                         name='sort'
                                         data={this.props.auto.sort}
+                                    />
+                                </label>
+                                <label>
+                                    <DefaultSelect
+                                        name='sircle'
+                                        data={this.props.location.sircle}
                                     />
                                 </label>
                             </div>
