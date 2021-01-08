@@ -8,6 +8,13 @@ footer{
   @media screen  and (max-device-height: 480px)  and (orientation: landscape){
    display: none;
   }
+  @media screen  and (max-device-height: 480px)  and (orientation: portrait){
+    display: none;
+  }
+  @media screen and (max-device-aspect-ratio: 1/1) and (orientation: portrait){
+    display: block;
+  }
+
   //@media   (max-height: 480px)  and (orientation: landscape){
   //  display: none;
   //}
