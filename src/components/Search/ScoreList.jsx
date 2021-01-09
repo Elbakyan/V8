@@ -56,7 +56,7 @@ class ScoreList extends Component{
                                                         })
                                                     }}/>
                                                 </li>
-                                                <li>{detal.price + 'Դր․'}</li>
+                                                <li>{detal.price + ' դր․'}</li>
                                                 <li ><Link to={'/search/result/store/' + store.id}
                                                            onClick={() => {
                                                                this.setState({
