@@ -234,7 +234,7 @@ class StoreInfo extends Component{
                                         +this.state.data.delivery === 1?
                                             <ul className='store_phone'>
                                                 <li><FontAwesomeIcon icon={faTruck} /></li>
-                                                <li style={{fontWeight:'bold'}}>Առաքում․․․</li>
+                                                <li style={{fontWeight:'bold'}}>Առաքում</li>
 
                                             </ul>:''
                                     }
