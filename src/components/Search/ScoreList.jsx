@@ -27,12 +27,12 @@ class ScoreList extends Component{
                     <nav className='score_list_info'>
                         <div className='score_list_info__header table_style_header'>
                             <ul>
-                                <li>Պահեստամասի համարը</li>
-                                <li>Պահեստամասի անվանումը</li>
+                                <li>Պահեստամասի համար</li>
+                                <li>Պահեստամասի անվանում</li>
                                 <li>Նկար</li>
-                                <li>Արժեքը</li>
-                                <li>Ընկերությունը</li>
-                                <li>Հեռախոսահամրը</li>
+                                <li>Արժեք</li>
+                                <li>Ընկերություն</li>
+                                <li>Հեռախոսահամր</li>
                                 <li>Տարածաշրջան</li>
                             </ul>
                         </div>
