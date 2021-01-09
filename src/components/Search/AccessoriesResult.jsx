@@ -67,7 +67,7 @@ class AccesoriesResult extends Component {
                                                 <ul key={i} className='service_items' style={OpenClose ? {border: '2px solid #00FF57'} : {border: '2px solid red'}}>
                                                     <Link to={'/search/result/store/'+ res.id} className='service__logo' onClick={() => {
                                                         this.props.dispatch(GetStoreID(res.id))
-                                                        this.props.dispatch(SearchAccessoriesLink('/search/result/store/'+ res.id))
+                                                        // this.props.dispatch(SearchAccessoriesLink('/search/result/store/'+ res.id))
                                                     }}>
                                                         <li>
                                                             <img src={res.img[0]} alt=""/>
