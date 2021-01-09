@@ -6,12 +6,6 @@ footer{
   position: relative;
   background: $main-color;
 
-
-
-
-  //@media   (max-height: 480px)  and (orientation: landscape){
-  //  display: none;
-  //}
   .Footer{
     display: flex;
     justify-content: space-between;
@@ -108,10 +102,10 @@ footer{
   height: 100%;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,.3);
-  top: 25px;
+  background: rgba(0,0,0,.8);
+  top: 0px;
   left: 50%;
-  z-index: 1;
+  z-index: 10000;
   transform: translateX(-50%);
   animation: back 1s linear ;
   @media (max-width: $mobilee) {

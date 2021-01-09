@@ -33,10 +33,10 @@ class ServiceResult extends Component {
                                 <DecorTitle title={this.props.service.search.data.service[0].name} fontSize='18px'/>
                                 <div className="container">
                                         <ul className='service__container-header'>
-                                            <li>Անվանումը</li>
-                                            <li>Հեռախոսահամրը</li>
+                                            <li>Անվանում</li>
+                                            <li>Հեռախոսահամր</li>
                                             <li>Նկարագրություն</li>
-                                            <li>Աշխատանքին օր․ և ժ․</li>
+                                            <li>Աշխատանքին օրեր</li>
                                             <li>Հասցե</li>
                                         </ul>
                                     <div className={'service__container-body'} ref={el=>this.listRef=el}>

@@ -89,7 +89,6 @@ class Announcement extends Component {
 
 
     render() {
-        console.log(this.state.redirect)
         return (
             <section className="Announcement">
                 <div className="burger" onClick={() => {

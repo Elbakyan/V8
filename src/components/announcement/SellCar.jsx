@@ -5,6 +5,7 @@ import './SellCar.scss'
 import {connect} from "react-redux";
 import {faDollarSign, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
+import formatData from "../config/formatData";
 
 
 class SellCar extends  Component {
@@ -36,6 +37,7 @@ class SellCar extends  Component {
 
         let img = this.props.dataImg?JSON.parse(this.props.dataImg):[];
         let navWidth = (100 / img.length) + '%' ;
+
         return (
                 <div
                     className="getSellCar"
@@ -76,7 +78,10 @@ class SellCar extends  Component {
                         <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.name}</span>
                     </div>
                     <div className='getSellCar_body_block2' data-id={this.props.dataId} data-user={this.props.dataUser}>
-                        <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.price} <FontAwesomeIcon icon={faDollarSign} /></span>
+                        <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.price} <span style={{
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}> {this.props.mony}</span></span>
                         <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.year}</span>
                     </div>
                     <div className='getSellCar_body_block2' data-id={this.props.dataId} data-user={this.props.dataUser}>
@@ -85,7 +90,7 @@ class SellCar extends  Component {
                     </div>
                     <div className='getSellCar_body_block3' data-id={this.props.dataId} data-user={this.props.dataUser}>
                         {
-                            this.props.data? <span data-id={this.props.dataId} data-user={this.props.dataUser}>{this.props.data.split(' ')[0]}</span>:''
+                            this.props.data? <span data-id={this.props.dataId} data-user={this.props.dataUser}>{formatData(this.props.data)}</span>:''
                         }
 
                     </div>

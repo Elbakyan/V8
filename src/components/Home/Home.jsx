@@ -113,6 +113,7 @@ class Home extends React.Component {
                                                             sircle={res.sircle}
                                                             city={res.city}
                                                             dataImg={res.img}
+                                                            mony={'$'}
                                                         />
                                                     </Link>
                                                 </div>
@@ -146,6 +147,7 @@ class Home extends React.Component {
                                                             city={score.city}
                                                             data={res.data}
                                                             dataImg={img}
+                                                            mony={'դր'}
                                                         />
                                                     </Link>
                                                 </div>
