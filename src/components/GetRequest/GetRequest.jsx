@@ -336,6 +336,11 @@ class GetRequest extends Component{
                                                                                                 mess.img? <li><img src={mess.img} alt={mess.img} /></li> :''
                                                                                             }
                                                                                         </div>
+                                                                                        <div className='message_info__phone'>
+                                                                                            {
+                                                                                                mess.message.phone? <li>Հեռ {mess.message.phone} </li> :''
+                                                                                            }
+                                                                                        </div>
                                                                                     </div>:''
                                                                             }
                                                                             {

@@ -392,6 +392,13 @@
   border-radius: 10px;
 
 }
+.message_info__phone{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  color: #000000;
+  padding-left: 5px;
+}
 
 @media (max-width: $mobilee) {
   .no__massage {

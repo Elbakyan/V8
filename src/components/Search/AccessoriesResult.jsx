@@ -35,10 +35,10 @@ class AccesoriesResult extends Component {
                             <div className="container">
                                 <div className={'score_list_global__header'}>
                                     <ul className='service__container-header'>
-                                        <li>Անվանումը</li>
-                                        <li>Հեռախոսահամրը</li>
+                                        <li>Անվանում</li>
+                                        <li>Հեռախոսահամար</li>
                                         <li>Նկարագրություն</li>
-                                        <li>Աշխատանքին օր․ և ժ․</li>
+                                        <li>Աշխատանքին օրեր</li>
                                         <li>Հասցե</li>
                                     </ul>
                                 </div>

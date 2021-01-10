@@ -25,18 +25,26 @@ class Header extends React.Component{
             modal: false,
             message: false,
             user: false,
+            phone: ''
         }
     }
     componentDidMount() {
+
         let id;
         if (this.props.user.status){
             id = this.props.user.id
             this.props.dispatch(GetMessage(id))
+            this.setState({
+                phone: '0' + this.props.user.data.phone
+            })
 
         }
         if (this.props.score.score.status){
             id = this.props.score.score.id
             this.props.dispatch(GetRequst())
+            this.setState({
+                phone: '0' + this.props.score.score.data.phone
+            })
         }
         this.props.dispatch(GetRequst())
 
@@ -89,7 +97,7 @@ class Header extends React.Component{
                     {
                         // this.props.user.status || this.props.score.score.status ?
                             this.state.modal?
-                                <ModalRequest close={this.Close}/>//:''
+                                <ModalRequest close={this.Close} phone={this.state.phone}/>//:''
                             :
                             this.state.message?
                                 <div className='user_warning'>
