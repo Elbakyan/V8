@@ -42,7 +42,11 @@ class ServiceProduct extends  Component {
                     data-user={this.props.dataUser}
                     style={{marginTop:this.props.top}}
                 >
-
+                    {
+                        this.props.description?<div className="getService__description" ref={el=>this.activeDescription=el} >
+                            <span>{this.props.description}</span>
+                        </div>:''
+                    }
 
                     <div className="getService_header" data-id={this.props.dataId} data-user={this.props.dataUser}>
 
@@ -99,11 +103,25 @@ class ServiceProduct extends  Component {
                                 <br/>
                                 {this.props.city.split(' ')[1]}
                             </span>
-                        </div>
-                    </div>
-                    <div className="getService_description">
 
+                        </div>
+                        {
+                            this.props.description?<span
+                                data-id={this.props.dataId}
+                                data-user={this.props.dataUser}
+                                style={{color:'blue',fontSize:'10px'}}
+                                onMouseOver={e=>{
+                                    this.activeDescription.classList.toggle('getService__description_active')
+                                }}
+                                onMouseOut={e=>{
+                                    this.activeDescription.classList.toggle('getService__description_active')
+                                }}
+                            >
+                                Նկարագրություն
+                            </span>:''
+                        }
                     </div>
+
 
                 </div>
             // </Link>
