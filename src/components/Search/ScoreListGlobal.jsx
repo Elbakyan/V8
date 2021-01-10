@@ -56,10 +56,10 @@ class ScoreListGlobal extends Component {
                     <nav className='score_list_info'>
                         <div className='score_list_info__header' ref={el=>this.scrollBar=el}>
                             <ul>
-                                <li>Անվանումը</li>
+                                <li>Անվանում</li>
                                 <li>Նոր</li>
-                                <li>Օգտ․</li>
-                                <li>Հեռախոսահամրը</li>
+                                <li>Օգտ</li>
+                                <li>Հեռախոսահամր</li>
                                 <li>Հասցե</li>
                             </ul>
                         </div>
