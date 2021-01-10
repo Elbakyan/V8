@@ -59,7 +59,7 @@ class ScoreListGlobal extends Component {
                                 <li>Անվանում</li>
                                 <li>Նոր</li>
                                 <li>Օգտ</li>
-                                <li>Հեռախոսահամր</li>
+                                <li>Հեռախոսահամար</li>
                                 <li>Հասցե</li>
                             </ul>
                         </div>

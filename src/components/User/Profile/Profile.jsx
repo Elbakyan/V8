@@ -86,7 +86,7 @@ class Profile extends React.Component{
                                             <div className="icon">
                                                 <FontAwesomeIcon icon={faPlusCircle}/>
                                             </div>
-                                            <span>Ավելացնել</span>
+                                            <span>Ավելացնել մեքենա</span>
 
                                         </Link>
                                     </li>
