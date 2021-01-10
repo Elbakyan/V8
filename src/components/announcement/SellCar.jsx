@@ -45,7 +45,11 @@ class SellCar extends  Component {
                     data-user={this.props.dataUser}
                     style={{marginTop:this.props.top}}
                 >
-
+                    {
+                        this.props.description?<div className="getSellCar__description" ref={el=>this.activeDescription=el} >
+                            <span>{this.props.description}</span>
+                        </div>:''
+                    }
 
                 <div className="getSellCar_header" data-id={this.props.dataId} data-user={this.props.dataUser}>
 
@@ -91,6 +95,22 @@ class SellCar extends  Component {
                     <div className='getSellCar_body_block3' data-id={this.props.dataId} data-user={this.props.dataUser}>
                         {
                             this.props.data? <span data-id={this.props.dataId} data-user={this.props.dataUser}>{formatData(this.props.data)}</span>:''
+                        }
+                        {
+                            this.props.description?<span
+                                data-id={this.props.dataId}
+                                data-user={this.props.dataUser}
+                                style={{color:'blue',fontSize:'10px'}}
+                                onMouseOver={e=>{
+                                    console.log(e.target)
+                                    this.activeDescription.classList.toggle('getSellCar__description_active')
+                                }}
+                                onMouseOut={e=>{
+                                    this.activeDescription.classList.toggle('getSellCar__description_active')
+                                }}
+                            >
+                                Նկարագրություն
+                            </span>:''
                         }
 
                     </div>
