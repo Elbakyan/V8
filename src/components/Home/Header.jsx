@@ -87,9 +87,9 @@ class Header extends React.Component{
             <header style={{position: 'fixed'}}>
                 <div className='header__desktop'>
                     {
-                        this.props.user.status || this.props.score.score.status ?
+                        // this.props.user.status || this.props.score.score.status ?
                             this.state.modal?
-                                <ModalRequest close={this.Close}/>:''
+                                <ModalRequest close={this.Close}/>//:''
                             :
                             this.state.message?
                                 <div className='user_warning'>
