@@ -42,7 +42,20 @@ class SpeareParts extends Component{
         return(
             <Fragment>
                 <div className='modal__items'>
-                    <textarea name="message" placeholder='Նկարագրությունը․․․'></textarea>
+                    {/*<textarea*/}
+                    {/*    name="message"*/}
+                    {/*    placeholder='Նկարագրությունը․․․'*/}
+                    {/*    focus={(e)=>{*/}
+                    {/*        console.log(e)*/}
+                    {/*    }}*/}
+                    {/*></textarea>*/}
+                    <textarea value={this.state.value}
+                              onFocus={e=>{
+                                  e.target.classList.toggle('modalTextarea')
+                                  document.bgColor='red'
+                              }}
+                              ref={el=>this.textarea=el}
+                    />
                 </div>
 
                 <div className='modal__items'>
