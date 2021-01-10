@@ -37,9 +37,6 @@ class ScoreList extends Component{
                             </ul>
                         </div>
                         <div className='score_list_info__body table_style_body'>
-                              <span className="arrow_top" onClick={this.positionTop}>
-                                <FontAwesomeIcon icon={faArrowUp} />
-                              </span>
                             {
                                 this.props.scoreList.store !== false? this.props.scoreList.detal.map((detal,i) => {
                                     let store = this.props.scoreList.store[i];
