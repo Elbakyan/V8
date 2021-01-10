@@ -226,7 +226,7 @@ class StoreInfo extends Component{
                                         +this.state.data.credit === 1?
                                             <ul className='store_phone'>
                                                 <li><FontAwesomeIcon icon={faCreditCard} /></li>
-                                                <li style={{fontWeight:'bold'}}>Ապառիկ վաճառք․․․</li>
+                                                <li style={{fontWeight:'bold'}}>Ապառիկ վաճառք</li>
 
                                             </ul>:''
                                     }
