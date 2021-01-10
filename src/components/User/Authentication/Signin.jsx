@@ -92,31 +92,33 @@ class Signin extends React.Component{
 
                                 />
                             </div>
-                            <DefaultInput
-                                type="text"
-                                placeholder='E-mail․․․'
-                                name='email'
-                                width='100%'
-
-                            />
-                            <label className='phone_style'>
+                            <div className="row justify-between">
                                 <DefaultInput
-                                    type='number'
-                                    placeholder="Հեռախոսահամար"
-                                    name='phone'
-                                    requred
-                                    onChange={
-                                        (e)=>{
-                                            let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);
-                                            if (str){
-                                                let num = str[0].match(/\d{8}$/)[0];
-                                                e.target.value = num
+                                    type="text"
+                                    placeholder='E-mail․․․'
+                                    name='email'
+                                    width='48%'
+
+                                />
+
+                                    <DefaultInput
+                                        type='number'
+                                        placeholder="Հեռախոսահամար"
+                                        name='phone'
+                                        requred
+                                        width='48%'
+                                        onChange={
+                                            (e)=>{
+                                                let str = e.target.value.match(/(^\+374\d{8})|(^374)\d{8}|(^0\d{8})/y);
+                                                if (str){
+                                                    let num = str[0].match(/\d{8}$/)[0];
+                                                    e.target.value = num
+                                                }
                                             }
                                         }
-                                    }
-                                />
-                            </label>
+                                    />
 
+                            </div>
                             <div className="row justify-between">
                                 <DefaultInput
                                     type="password"
@@ -146,35 +148,45 @@ class Signin extends React.Component{
                                     name={'city'}
                                 />
                             </div>
-                            <label className='file row align-center'>
-                                <span className='file__name'>{this.state.img === ""?'Ներբեռնել լուսանկար․․․':this.state.img}</span>
-                                <DefaultInput
-                                    onChange={(e) => {
-                                        this.setState({
-                                            img: e.target.value
-                                        })
-                                    }}
-                                    className="file_input"
-                                    type="file"
-                                    placeholder='Լուսանկար․․․'
-                                    width='100%'
-                                    name='image'
+                            <div className="row justify-between" style={{
+                                width: '100%'
+                            }}>
+                                <label className='file row align-center' style={{
+                                    width: '48%'
+                                }}>
+                                    <span className='file__name'>{this.state.img === ""?'Ներբեռնել':this.state.img}</span>
+                                    <DefaultInput
+                                        onChange={(e) => {
+                                            this.setState({
+                                                img: e.target.value
+                                            })
+                                        }}
+                                        className="file_input"
+                                        type="file"
+                                        placeholder='Լուսանկար․․․'
+                                        name='image'
+                                        width='100%'
 
-                                />
-                            </label>
+                                    />
+                                </label>
 
-                            <div className="Signin__links row align-end justify-between">
-                                <Link className='link' to='/user/login'>Մուտք</Link>
+                                <div className="Signin__links row align-end justify-between" style={{
+                                    width: '48%'
+                                }}>
+                                    <Link className='link' to='/user/login'>Մուտք</Link>
 
-                                <DefaultBtn
-                                    type='submit'
-                                    name='Գրանցվել'
-                                    background='#143645'
-                                    color='#ffffff'
-                                    light={30}
-                                    className='Signin__btn'
-                                />
+                                    <DefaultBtn
+                                        type='submit'
+                                        name='Գրանցվել'
+                                        background='#143645'
+                                        color='#ffffff'
+                                        light={30}
+
+                                        className='Signin__btn'
+                                    />
+                                </div>
                             </div>
+
                         </form>
 
 
