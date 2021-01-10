@@ -174,7 +174,7 @@ class Home extends React.Component {
                             service.score?
                                 service.score.map((res,i) => {
                                 return (
-                                    <div className='result_auto' key={i}>
+                                    <div className='result_auto result_service' key={i}>
                                         <Link to={'/search/result/store/' + res.id}>
                                             <ServiceProduct
                                                 name={service.service[i].name}
@@ -182,6 +182,7 @@ class Home extends React.Component {
                                                 sircle={res.sircle}
                                                 city={res.city}
                                                 dataImg={res.img}
+                                                description={service.service[i].desc}
                                             />
                                         </Link>
                                     </div>
