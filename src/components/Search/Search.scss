@@ -202,8 +202,7 @@
   }
   ul{
     display: flex;
-    //border: 1px solid red;
-    //background: #fce8e8;
+
     &:nth-child(odd){
       background: #c3c1c1;
     }
@@ -581,9 +580,10 @@
         outline: 1px solid silver;
       }
       & > ul{
+        height: 100%;
         display: flex;
         height: auto;
-        max-height: 160px;
+        height: auto;
         background: white;
         margin-bottom: 10px;
 
@@ -592,12 +592,12 @@
           width: 20%;
           height: 100%;
           font-size: 14px;
-          line-height: 20px;
           border-right: 1px solid silver;
           padding: 5px 10px;
           display: flex;
           flex-direction: column;
           position: relative;
+
           &>ul{
             max-height: 160px;
             .style_plus_minus{
@@ -606,13 +606,11 @@
               border-radius: 50%;
               font-size: 24px;
               color: white;
-              //position: absolute;
               display: flex;
               justify-content: center;
               align-items: center;
             }
             .style_plus {
-              background: rebeccapurple;
               width: 100%;
               height: 80px;
               display: flex;
@@ -623,12 +621,12 @@
               }
             }
             .style_minus{
-              background: rebeccapurple;
               width: 100%;
               height: 80px;
               display: flex;
               justify-content: center;
               align-items: center;
+
               .style_plus_minus{
                 background: red;
               }
@@ -690,7 +688,7 @@
             display: flex;
             justify-content: center;
             &:nth-child(odd){
-              background-color: #e3e3e3;
+              //background-color: #e3e3e3;
             }
             &:nth-child(even){
               background-color: #a2a1a1;
