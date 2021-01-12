@@ -120,12 +120,12 @@
         width: 100%;
         li:nth-child(1),
         li:nth-child(2),
-        li:nth-child(3){
+        li:nth-child(5){
           width: 33%;
         }
 
         li:nth-child(4),
-        li:nth-child(5){
+        li:nth-child(3){
           display: none;
         }
       }
@@ -133,12 +133,14 @@
         .service_items{
           .service__logo,
           .service__phone,
-          .service__desc{
+          .service__address{
             width: 33%;
           }
-
-          .working__days,
           .service__address{
+            align-items: flex-start;
+          }
+          .working__days,
+          .service__desc{
             display: none;
           }
         }
