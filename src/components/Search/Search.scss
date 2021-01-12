@@ -81,7 +81,7 @@
          height: 100%;
          display: flex;
          align-items: center;
-        cursor: pointer;
+         cursor: pointer;
          padding-right: 10px;
          color: $placeholder;
          z-index: 1;
@@ -549,9 +549,9 @@
       max-height: 450px;
       overflow: auto;
       scroll-behavior: smooth;
-      //position: relative;
+
       .arrow_top{
-        position: absolute;
+        position: fixed;
         right: 25px;
         bottom: 0;
         background: rgba(0,0,0,0.5);
@@ -559,12 +559,11 @@
         cursor: pointer;
         z-index: 5;
         height: 35px;
+
         @media (max-width: $mobilee) {
-          @media (max-height:830px) {
-            bottom: 15%;
-          }
-          @media (max-height:732px) {
-            bottom: 5%;
+          &{
+            bottom: 0px;
+
           }
         }
 
@@ -779,6 +778,7 @@
         height: 35px;
         cursor: pointer;
         z-index: 5;
+        bottom: 130px;
       }
       &::-webkit-scrollbar {
         width: 8px;
