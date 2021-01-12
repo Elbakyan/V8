@@ -71,7 +71,7 @@ class AccesoriesResult extends Component {
                                                     }}>
                                                         <li>
                                                             <img src={res.img[0]} alt=""/>
-                                                            <h2 style={res.name.length < 12?{fontSize:'14px'}:{fontSize:'12px'}}>{res.name}</h2>
+                                                            <h2 style={res.name.length < 16?{fontSize:'14px'}:res.name.length > 22?{fontSize:'8px'}:{fontSize:'10px'}}>{res.name}</h2>
                                                         </li>
                                                     </Link>
                                                     <div className="service__phone">
