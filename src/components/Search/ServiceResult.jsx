@@ -67,7 +67,7 @@ class ServiceResult extends Component {
                                                             <li>
                                                                 <img src={res.img[0]} alt=""/>
                                                                 {/*<h2 >{res.name}</h2>*/}
-                                                                <h2 style={res.name.length < 12?{fontSize:'14px'}:{fontSize:'12px'}}>{res.name}</h2>
+                                                                <h2 style={res.name.length < 12 ?{fontSize:'14px'}:{fontSize:'12px'}}>{res.name}</h2>
                                                             </li>
                                                         </Link>
                                                         <div className="service__phone">

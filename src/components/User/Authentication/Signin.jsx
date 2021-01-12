@@ -76,23 +76,25 @@ class Signin extends React.Component{
                     <div className="Signin__content col align-center justify-center">
 
                         <form className="col align-center justify-center" onSubmit={this.Signin.bind(this)}>
-                            <div className="row justify-between">
+                            <div className="row justify-between" style={{
+                                width: '100%'
+                            }}>
                                 <DefaultInput
                                     type="text"
                                     placeholder='Անուն․․․'
                                     name='name'
                                     width='48%'
-
                                 />
                                 <DefaultInput
                                     type="text"
                                     placeholder='Ազգանուն․․․'
                                     name='surname'
                                     width='48%'
-
                                 />
                             </div>
-                            <div className="row justify-between">
+                            <div className="row justify-between" style={{
+                                width: '100%'
+                            }}>
                                 <DefaultInput
                                     type="text"
                                     placeholder='E-mail․․․'
@@ -119,7 +121,9 @@ class Signin extends React.Component{
                                     />
 
                             </div>
-                            <div className="row justify-between">
+                            <div className="row justify-between" style={{
+                                width: '100%'
+                            }}>
                                 <DefaultInput
                                     type="password"
                                     placeholder='Գաղտնաբառ․․․'

@@ -121,7 +121,7 @@ class ScoreListGlobal extends Component {
                                                                       this.props.dispatch(GetStoreID(score.id))
                                                                   }}>
                                                                 <img src={img[0]} alt=""/>
-                                                                <h3 style={score.name.length < 12?{fontSize:'18px'}:{fontSize:'12px'}}>{score.name}</h3>
+                                                                <h3 style={score.name.length < 16?{fontSize:'14px'}:{fontSize:'12px'}}>{score.name}</h3>
                                                             </Link>
                                                         </li>
                                                     </ul>
