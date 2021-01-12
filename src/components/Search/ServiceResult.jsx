@@ -25,7 +25,9 @@ class ServiceResult extends Component {
         this.listRef.scrollTop = 0
     }
     render(){
+
             return (
+
                 <div className='service__result'>
                     {
                         this.props.service.search.status?
@@ -42,7 +44,7 @@ class ServiceResult extends Component {
                                     <div className={'service__container-body'} ref={el=>this.listRef=el}>
                                         {
                                            this.props.service.search.data.score.length > 4?
-                                                <span className="arrow_top" onClick={this.positionTop} style={{top:(window.innerHeight - 70) + 'px'}}>
+                                                <span className="arrow_top" onClick={this.positionTop}>
                                                     <FontAwesomeIcon icon={faArrowUp} />
                                                 </span>:''
 

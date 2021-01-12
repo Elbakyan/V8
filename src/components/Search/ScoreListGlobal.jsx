@@ -66,7 +66,7 @@ class ScoreListGlobal extends Component {
                         <div className='score_list_info__body' ref={el=>this.listRef=el}>
                             {
                                 this.props.MarkModelResult.status ?this.props.MarkModelResult.score.length > 4?
-                                    <span className="arrow_top" onClick={this.positionTop} style={{top:(window.innerHeight - 70) + 'px'}}>
+                                    <span className="arrow_top" onClick={this.positionTop}>
                                         <FontAwesomeIcon icon={faArrowUp} />
                                     </span>:''
                                     :''
