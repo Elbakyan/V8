@@ -81,7 +81,6 @@ class Home extends React.Component {
     GetAuto = (e) => {
         this.props.dispatch(GetSellByID(e.target.dataset.id))
         this.props.dispatch(GetId(e.target.dataset.id))
-
     }
 
     render() {
@@ -102,7 +101,7 @@ class Home extends React.Component {
                                         this.state.auto.map((res,i) => {
                                             return (
                                                 <div key={i} className='result_auto'>
-                                                    <Link to={'/announcement/' + res.id} data-id={res.id} onClick={this.GetAuto}>
+                                                    <Link to={'/announcement/' + res.id} data-id={res.id} >
                                                         <SellCar
                                                             dataId={res.id}
                                                             dataUser={res.user_id}
