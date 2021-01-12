@@ -157,7 +157,7 @@
         & > ul{
           li:nth-child(4),
           li:nth-child(5){
-            display: none;
+            display: flex;
           }
         }
       }
@@ -172,7 +172,8 @@
 
           li:nth-child(4),
           li:nth-child(5){
-            display: none;
+            width: 33%;
+            display: block;
           }
         }
         .store_info{
@@ -182,6 +183,24 @@
             justify-content: center;
 
           }
+        }
+        .store_phones{
+          padding: 0;
+          margin: 0;
+          ul{
+            width: 100%;
+            height: 100%;
+
+            li{
+              width: 100%;
+              display: flex;
+              justify-content: center;
+            }
+
+          }
+        }
+        .store_addres{
+          font-size: 10px;
         }
       }
     }
@@ -260,6 +279,13 @@
   .select span{
     opacity: 0;
   }
+  .store_addres{
+    ul{
+      display: none;
+    }
+
+  }
+
 }
 
 
