@@ -135,6 +135,9 @@
           .service__phone,
           .service__address{
             width: 33%;
+            li{
+              font-size: 12px;
+            }
           }
           .service__address{
             align-items: flex-start;
