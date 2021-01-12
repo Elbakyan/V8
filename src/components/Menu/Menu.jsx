@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import './Menu.scss'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {GetSearchMarkModelLink, SearchMarkModel} from "../../redux/search/action";
@@ -13,6 +13,7 @@ import {
     SearchServiceLink
 } from "../../redux/Service/action";
 import {MenuActive} from "../../redux/Menu/action";
+import {faArrowAltCircleLeft} from "@fortawesome/free-regular-svg-icons";
 
 class Menu extends Component {
 
@@ -247,8 +248,12 @@ class Menu extends Component {
                                 </Link>
                             </li>
                         </ul>
+                        <div className='back' onClick={() => {
+                            window.history.back()
+                        }}><span><FontAwesomeIcon icon={faArrowAltCircleLeft} /></span></div>
                     </nav>
                 {/*</div>*/}
+
             </div>
         )
     }

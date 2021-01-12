@@ -102,7 +102,6 @@ class SellCar extends  Component {
                                 data-user={this.props.dataUser}
                                 style={{color:'blue',fontSize:'10px'}}
                                 onMouseOver={e=>{
-                                    console.log(e.target)
                                     this.activeDescription.classList.toggle('getSellCar__description_active')
                                 }}
                                 onMouseOut={e=>{

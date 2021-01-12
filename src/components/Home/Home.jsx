@@ -133,7 +133,6 @@ class Home extends React.Component {
                                 <div className="content__list">
                                     {
                                         this.state.product.map((res, i) => {
-                                            console.log(res)
                                             let score = this.state.score[i];
                                             let img = JSON.stringify([res.img])
                                             return (

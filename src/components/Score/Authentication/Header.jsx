@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import SITE_NAME from "../../config/Url";
 
 
 class Header extends React.Component{
@@ -11,8 +12,7 @@ class Header extends React.Component{
                 <div className="container ">
                     <div className="header__logo">
                         <Link to="/">
-                            <img src="https://brutal.am/Server/img/logo_1.svg" alt=""/>
-                        </Link>
+                            <img src={SITE_NAME + "/Server/img/logo_1.png"} alt=""/>                        </Link>
                     </div>
 
                 </div>
